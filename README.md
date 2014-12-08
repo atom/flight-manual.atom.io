@@ -16,7 +16,7 @@ This document will serve as an outline and table of contents to organize our doc
   * find and replace
   * projects (tree view)
   * key bindings
-  * working with git
+  * working with git (http://blog.atom.io/2014/03/13/git-integration.html)
   * editing markdown
   * split panes
   * editing text efficiently (snippets, autocomplete, multi-cursors)
@@ -48,10 +48,12 @@ This document will serve as an outline and table of contents to organize our doc
       * dialogs
       * serialization
       * converting textmate bundles
+      * decoration (http://blog.atom.io/2014/07/24/decorations.html)
     * Best practices (patterns and anti-patterns)
       * aggregating subscriptions
       * view best practices
       * don't make a slow package
+      * CI for packages (http://blog.atom.io/2014/04/25/ci-for-your-packages.html)
 * Creating themes
 * Contributing
   * To packages
@@ -75,6 +77,11 @@ This document will serve as an outline and table of contents to organize our doc
     * [x] Commit conventions
 * Reference Manual
 
+
+## Stuff
+
+* Atom.io package system (adding, searching, stars)
+
 ## Persona-Based Topic Lists (Bottom-Up)
 
 ### New User
@@ -89,7 +96,7 @@ What are the most important things for a new user to know?
 * find and replace
 * projects (tree view)
 * key bindings
-* working with git
+* working with git (http://blog.atom.io/2014/03/13/git-integration.html)
 * editing markdown
 * split panes
 * editing text efficiently (snippets, autocomplete, multi-cursors)
