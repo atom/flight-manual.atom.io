@@ -25,4 +25,14 @@ namespace :book do
     `bundle exec asciidoctor-pdf atom.asc 2>/dev/null`
     puts " -- PDF  output at atom.pdf"
   end
+
+  desc 'clean out generated formats'
+  task :clean do
+    `rm atom.html`
+    `rm atom.epub`
+    `rm atom-kf8.epub`
+    `rm atom.mobi`
+    `rm atom.pdf`
+    `rm atom.pdfmarks`
+  end
 end
