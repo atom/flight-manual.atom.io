@@ -7,6 +7,7 @@
     "book/introduction.asc",
     "book/toc.asc",
     "book/01-introduction/1-introduction.asc",
+    "book/02-basics/1-basics.asc",
     "book/index.asc"
   ],
   "formats": {
