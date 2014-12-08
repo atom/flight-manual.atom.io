@@ -1,159 +1,34 @@
-# Atom Long-Form Documentation
+# Atom Flight Manual
 
-This document will serve as an outline and table of contents to organize our documentation effort. The first section is a top-down outline that attempts to capture the structure we want our docs to take. The second section is a flatter, less organized list of task-focused topics bucketed by persona. Feel free to send us pull requests with ideas. Note that pull requests editing the more loosely organized bottom-up section will be easier to merge.
+This is the Atom book. Everything you need to know in order to use and hack Atom is in this Flight Manual.
 
-## Table Of Contents (Top-Down)
+You can find this book online (soon) at: http://atom.io/docs
 
-> `-` bullets indicate headings
-> `*` bullets indicate links
+This book is open source under a Creative Commons license.
 
-- Atom usage
-  * command palette
-  * settings view
-  * packages (languages)
-  * themes
-  * running atom from the command line
-  * find and replace
-  * projects (tree view)
-  * key bindings
-  * working with git (http://blog.atom.io/2014/03/13/git-integration.html)
-  * editing markdown
-  * split panes
-  * editing text efficiently (snippets, autocomplete, multi-cursors)
-* Writing packages
-  * Creating theme
-  * Creating a package
-    * Getting started
-      * package generator - wizards for kinds
-      * structure
-      * lifecycle
-      * how to publish
-    * Kinds of packages
-      * add something to status bar
-      * add a panel
-      * pane item
-      * modal panel
-      * basic editor command
-      * decorate editor/gutter
-      * modal decorations
-    * Common tasks
-      * configure my package
-      * add application menu/context menu
-      * get all the editors
-      * understand when the active editor changes
-      * background tasks
-      * subscribing to events
-      * subscribing to commands
-      * messages to the user
-      * dialogs
-      * serialization
-      * converting textmate bundles
-      * decoration (http://blog.atom.io/2014/07/24/decorations.html)
-    * Best practices (patterns and anti-patterns)
-      * aggregating subscriptions
-      * view best practices
-      * don't make a slow package
-      * CI for packages (http://blog.atom.io/2014/04/25/ci-for-your-packages.html)
-* Creating themes
-* Contributing
-  * To packages
-    * Cloning and apm linking
-    * apm install/update
-    * Native modules
-    * Running specs
-    * Link to sending a pull request
-  * To core
-    * Opening issues
-    * Roadmaps
-    * Where is the code?
-    * Forum
-    * Building Atom
-    * Technologies it uses
-      * Node
-      * Atom-shell
-      * apm
-      * npm
-    * Coding conventions
-    * [x] Commit conventions
-* Reference Manual
+## How To Generate the Book
 
+There are two ways to generate e-book content from this source code.
 
-## Stuff
+The easiest way is simply to let us do it. A robot is standing by to look for new work on the main branch and automatically build it for everyone. Automatic builds will be linked on atom.io as soon as they are built.
 
-* Atom.io package system (adding, searching, stars)
+The other way to generate e-book files is to do so manually with Asciidoctor. If you run the following you _may_ actually get HTML, Epub, Mobi and PDF output files:
 
-## Persona-Based Topic Lists (Bottom-Up)
+----
+$ bundle install
+$ bundle exec rake book:build
+Converting to HTML...
+-- HTML output at atom.html
+Converting to EPub...
+-- Epub output at atom.epub
+Converting to Mobi (kf8)...
+-- Mobi output at atom.mobi
+Converting to PDF...
+-- PDF  output at atom.pdf
+----
 
-### New User
+This uses the `asciidoctor`, `asciidoctor-pdf` and `asciidoctor-epub` projects.
 
-What are the most important things for a new user to know?
+== Contributing
 
-* command palette
-* settings view
-* packages (languages)
-* themes
-* running atom from the command line
-* find and replace
-* projects (tree view)
-* key bindings
-* working with git (http://blog.atom.io/2014/03/13/git-integration.html)
-* editing markdown
-* split panes
-* editing text efficiently (snippets, autocomplete, multi-cursors)
-* best practices
-  * don't add duplicate keys to your cson/json files
-
-#### Coming From TextMate?
-#### Coming From Sublime?
-#### Coming From Emacs?
-#### Coming From Vim?
-
-## New Theme Author
-
-## First-Time Package Author
-
-* package generator - wizards for kinds
-* structure
-  * code organization (where do i put shit?)
-  * keymaps
-  * commands
-  * menus
-  * stylesheets
-* lifecycle
-  * activation/deactivation
-  * serialization
-* how to publish
-
-## Package Author
-
-* kinds of packages
-  * add something to status bar
-  * add a panel
-  * pane item
-  * modal panel
-  * basic editor command
-  * decorate editor/gutter
-  * modal decorations
-
-* configure my package
-* add application menu/context menu
-* get all the editors
-* understand when the active editor changes
-* background tasks
-* subscribing to events
-* subscribing to commands
-* messages to the user
-* dialogs
-* serialization
-* converting textmate bundles
-
-* best practices (patterns/anti-patterns)
-* aggregating subscriptions
-* view best practices
-* don't make a slow package
-
-## Contributor to Existing Package
-
-## Contributing to Core
-
-## New Grammar Author
+If you'd like to help out by making a change or contributing a translation, take a look at the link:CONTRIBUTING.md[contributor's guide].
