@@ -16,6 +16,7 @@
   * [ ] packages
     * finding and installing
     * settings, enabling
+    * upgrading
   * [ ] themes
     * finding and installing
     * switching
@@ -25,6 +26,8 @@
     * tags/symbols
   * [ ] working with text
     * multiple cursors
+      - cmd-shift-L (selection to cursors)
+      - cntl-shift-up (add cursor up/down)
     * line manipulation (move, indent, goto)
     * case, delete, transpose
     * recording and replaying
@@ -38,6 +41,7 @@
   * [ ] key bindings
   * [ ] folding
   * [ ] panes - splitting, loading, resizing, focusing
+    * pain split package
   * [ ] special modes
     * editing markdown
     * working with git
@@ -48,8 +52,11 @@
       * look/feel - css, styleguide
       * keybindings
       * default file grammar
-      * language specific settings
+      * config settings
+        * language specific settings
+    * autocomplete
     * snippets
+      * emmet, autocomplete+
   * [ ] common packages to use
     * gist?
     * autocomplete
@@ -57,7 +64,10 @@
     * stack trace
     * live archive
   * [ ] atom from the command line
-* Writing packages
+
+# Possible Other
+
+* Hacking Atom
   * Developer tools
     - reload, live reload
     - keybinding resolver
@@ -75,6 +85,16 @@
       * lifecycle
         * activation/deactivation
         * serialization
+      * views / models
+      * TODO - organize
+        * config api
+          - http://blog.atom.io/2014/10/02/config-api-has-schema.html
+          - http://blog.atom.io/2014/10/31/language-scoped-config.html
+          - https://atom.io/docs/latest/advanced/scopes-and-scope-descriptors
+        * subscriptions
+          - http://blog.atom.io/2014/09/16/new-event-subscription-api.html
+        * creating dom elements
+          - no longer spacepen
       * how to publish
         * Atom.io package system (adding, searching, stars)
     * Kinds of packages
@@ -104,8 +124,10 @@
       * don't make a slow package
       * CI for packages (http://blog.atom.io/2014/04/25/ci-for-your-packages.html)
   * Creating themes
+    * Shadow DOM
+      - https://atom.io/docs/latest/upgrading/upgrading-your-ui-theme
   * Creating grammars
-* Contributing
+* Contributing to Atom
   * To packages
     * Cloning and apm linking
     * apm install/update
@@ -115,6 +137,7 @@
   * To core
     * Opening issues
     * Roadmaps
+      - http://blog.atom.io/2014/10/23/public-roadmap.html
     * Where is the code?
     * Forum
     * Building Atom
@@ -126,10 +149,15 @@
     * Coding conventions
     * Commit conventions
 * Atom Shell
+  * developing a new project in atom shell
 * Reference Manual
 
 
 ## Other Stuff - Notes - Todo?
+
+* node / coffeescript crash course?
+  - at least where to look?
+  - http://coffeescript.org/
 
 * best practices
   * don't add duplicate keys to your cson/json files
