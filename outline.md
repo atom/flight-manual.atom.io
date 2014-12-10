@@ -5,13 +5,13 @@
   * [x] Installing
   * [ ] Atom Basics
     * [x] Command Palette
-    * [ ] Settings and preferences
+    * [x] Settings and preferences
       * Changing the default color scheme
       * Toggle soft wrap by default
-    * [ ] Opening, modifying and saving files
+    * [x] Opening, modifying and saving files
       * Fuzzy-finder, modified file
       * buffers
-    * [ ] Opening a project
+    * [x] Opening a project
 * Using Atom
   * [ ] packages
     * finding and installing
