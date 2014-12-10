@@ -87,6 +87,7 @@
         * serialization
       * views / models
       * TODO - organize
+        * notifications package
         * config api
           - http://blog.atom.io/2014/10/02/config-api-has-schema.html
           - http://blog.atom.io/2014/10/31/language-scoped-config.html
@@ -95,6 +96,7 @@
           - http://blog.atom.io/2014/09/16/new-event-subscription-api.html
         * creating dom elements
           - no longer spacepen
+        * runners
       * how to publish
         * Atom.io package system (adding, searching, stars)
     * Kinds of packages
@@ -154,6 +156,10 @@
 
 
 ## Other Stuff - Notes - Todo?
+
+* learning package
+  - test on knowledge
+  - "how do you X?"
 
 * node / coffeescript crash course?
   - at least where to look?
