@@ -3,7 +3,7 @@
 * Introduction
   * [x] Why Atom
   * [x] Installing
-  * [ ] Atom Basics
+  * [x] Atom Basics
     * [x] Command Palette
     * [x] Settings and preferences
       * Changing the default color scheme
@@ -13,11 +13,11 @@
       * buffers
     * [x] Opening a project
 * Using Atom
-  * [ ] packages
+  * [x] packages
     * finding and installing
     * settings, enabling
     * upgrading
-  * [ ] themes
+  * [x] themes
     * finding and installing
     * switching
   * [ ] find and replace
@@ -87,6 +87,7 @@
         * serialization
       * views / models
       * TODO - organize
+        * settings (how to enable the settings button on the package installer)
         * notifications package
         * config api
           - http://blog.atom.io/2014/10/02/config-api-has-schema.html
@@ -120,6 +121,9 @@
       * serialization
       * converting textmate bundles
       * decoration (http://blog.atom.io/2014/07/24/decorations.html)
+    * Maintaining Packages
+      * changelog
+      * issue tracker
     * Best practices (patterns and anti-patterns)
       * aggregating subscriptions
       * view best practices
@@ -153,23 +157,3 @@
 * Atom Shell
   * developing a new project in atom shell
 * Reference Manual
-
-
-## Other Stuff - Notes - Todo?
-
-* learning package
-  - test on knowledge
-  - "how do you X?"
-
-* node / coffeescript crash course?
-  - at least where to look?
-  - http://coffeescript.org/
-
-* best practices
-  * don't add duplicate keys to your cson/json files
-
-* Coming from
-  * TextMate
-  * Sublime
-  * Emacs
-  * Vim
