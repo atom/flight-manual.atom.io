@@ -19,7 +19,7 @@ The easiest way is simply to let us do it. A robot is standing by to look for ne
 
 The other way to generate e-book files is to do so manually with Asciidoctor. If you run the following you _may_ actually get HTML, Epub, Mobi and PDF output files:
 
-----
+````
 $ bundle install
 $ bundle exec rake book:build
 Converting to HTML...
@@ -30,7 +30,7 @@ Converting to Mobi (kf8)...
 -- Mobi output at atom.mobi
 Converting to PDF...
 -- PDF  output at atom.pdf
-----
+````
 
 This uses the `asciidoctor`, `asciidoctor-pdf` and `asciidoctor-epub` projects.
 
