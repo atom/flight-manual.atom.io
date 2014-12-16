@@ -6,6 +6,11 @@ You can find this book online (soon) at: http://atom.io/docs
 
 This book is open source under a Creative Commons license.
 
+## Current Progress
+
+To check the current progress and planned content of the book, check out the [outline](outline.md).
+
+
 ## How To Generate the Book
 
 There are two ways to generate e-book content from this source code.
@@ -31,4 +36,4 @@ This uses the `asciidoctor`, `asciidoctor-pdf` and `asciidoctor-epub` projects.
 
 ## Contributing
 
-If you'd like to help out by making a change or contributing a translation, take a look at the link:CONTRIBUTING.md[contributor's guide].
+If you'd like to help out by making a change or contributing a translation, take a look at the [contributor's guide](CONTRIBUTING.md).

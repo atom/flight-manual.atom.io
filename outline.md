@@ -20,10 +20,6 @@
   * [x] themes
     * finding and installing
     * switching
-  * [ ] find and replace
-  * [ ] selections
-  * [ ] movement
-    * tags/symbols
   * [ ] working with text
     * multiple cursors
       - cmd-shift-L (selection to cursors)
@@ -34,8 +30,12 @@
     * change encoding, grammar
     * bracket matching
     * whitespace
-  * [ ] spell checking
+  * [ ] selections
+  * [ ] find and replace
+  * [ ] movement
+    * tags/symbols
   * [ ] bookmarks
+  * [ ] spell checking
   * [ ] projects (tree view)
     * toggle, rename, copy path, open
   * [ ] key bindings
