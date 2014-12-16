@@ -1,0 +1,11 @@
+output
+.DS_Store
+
+# build artifacts
+atom.html
+atom.pdf
+atom.pdfmarks
+atom.epub
+atom-kf8.epub
+atom.mobi
+/images/
