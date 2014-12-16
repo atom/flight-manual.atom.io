@@ -29,6 +29,6 @@ Converting to PDF...
 
 This uses the `asciidoctor`, `asciidoctor-pdf` and `asciidoctor-epub` projects.
 
-== Contributing
+## Contributing
 
 If you'd like to help out by making a change or contributing a translation, take a look at the link:CONTRIBUTING.md[contributor's guide].
