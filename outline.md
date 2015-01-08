@@ -23,7 +23,7 @@
   * [ ] working with text
     * multiple cursors
       - cmd-shift-L (selection to cursors)
-      - cntl-shift-up (add cursor up/down)
+      - ctrl-shift-up (add cursor up/down)
     * line manipulation (move, indent, goto)
     * case, delete, transpose
     * recording and replaying

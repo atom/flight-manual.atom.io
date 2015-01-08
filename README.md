@@ -12,7 +12,6 @@ This book is open source under a Creative Commons license.
 
 To check the current progress and planned content of the book, check out the [outline](outline.md).
 
-
 ## How To Generate the Book
 
 There are two ways to generate e-book content from this source code.
