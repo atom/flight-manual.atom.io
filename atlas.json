@@ -8,6 +8,7 @@
     "book/toc.asc",
     "book/01-introduction/1-introduction.asc",
     "book/02-using-atom/1-using-atom.asc",
+    "book/03-hacking-atom/1-hacking-atom.asc",
     "book/index.asc"
   ],
   "formats": {

@@ -1,71 +1,4 @@
-# Book Outline
-
-* Introduction
-  * [x] Why Atom
-  * [x] Installing
-  * [x] Atom Basics
-    * [x] Command Palette
-    * [x] Settings and preferences
-      * Changing the default color scheme
-      * Toggle soft wrap by default
-    * [x] Opening, modifying and saving files
-      * Fuzzy-finder, modified file
-      * buffers
-    * [x] Opening a project
-* Using Atom
-  * [x] packages
-    * finding and installing
-    * settings, enabling
-    * upgrading
-  * [x] themes
-    * finding and installing
-    * switching
-  * [ ] working with text
-    * multiple cursors
-      - cmd-shift-L (selection to cursors)
-      - ctrl-shift-up (add cursor up/down)
-    * line manipulation (move, indent, goto)
-    * case, delete, transpose
-    * recording and replaying
-    * change encoding, grammar
-    * bracket matching
-    * whitespace
-  * [ ] selections
-  * [ ] find and replace
-  * [ ] movement
-    * tags/symbols
-  * [ ] bookmarks
-  * [ ] spell checking
-  * [ ] projects (tree view)
-    * toggle, rename, copy path, open
-  * [ ] key bindings
-  * [ ] folding
-  * [ ] panes - splitting, loading, resizing, focusing
-    * pain split package
-  * [ ] special modes
-    * editing markdown
-    * working with git
-      * http://blog.atom.io/2014/03/13/git-integration.html
-  * [ ] basic customization
-    * on load script
-    * customizing
-      * look/feel - css, styleguide
-      * keybindings
-      * default file grammar
-      * config settings
-        * language specific settings
-    * autocomplete
-    * snippets
-      * emmet, autocomplete+
-  * [ ] common packages to use
-    * gist?
-    * autocomplete
-    * github
-    * stack trace
-    * live archive
-  * [ ] atom from the command line
-
-# Possible Other
+# Chapter 3
 
 * Hacking Atom
   * Developer tools
@@ -130,9 +63,15 @@
       * don't make a slow package
       * CI for packages (http://blog.atom.io/2014/04/25/ci-for-your-packages.html)
   * Creating themes
+    * converting-a-text-mate-theme.md
+    * theme-variables.md
     * Shadow DOM
       - https://atom.io/docs/latest/upgrading/upgrading-your-ui-theme
   * Creating grammars
+    * converting-a-text-mate-bundle.md
+
+# Chapter 4
+
 * Contributing to Atom
   * To packages
     * Cloning and apm linking
