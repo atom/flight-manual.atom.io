@@ -15,20 +15,6 @@ converting-a-text-mate-theme.md
 * Hacking Atom
   * Cookbook
     * Word Count Package (Basic)
-      * package generator - wizards for kinds
-      * structure
-        * code organization (where do i put shit?)
-        * keymaps
-        * commands
-        * menus
-        * stylesheets
-      * lifecycle
-        * activation/deactivation
-        * serialization
-      * developer tools
-        - reload, live reload
-        - devmode
-        - https://atom.io/docs/v0.174.0/debugging
     * Word Count Status Bar (status bar manipulation)
     * Go To Line Package (simple with feedback and cursor movement)
     * Open On GitHub - (no UI, just run command)
