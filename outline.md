@@ -1,9 +1,6 @@
 # Chapter 3
 
 your-first-package.md
-creating-a-package.md
-debugging.md
-publishing-a-package.md
 
 writing-specs.md
 
