@@ -1,9 +1,11 @@
 # Chapter 3
 
+## Packages
+
 your-first-package.md
 writing-specs.md
 
-contributing-to-packages.md
+## Themes
 
 creating-a-theme.md
 theme-variables.md
