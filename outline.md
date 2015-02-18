@@ -1,7 +1,6 @@
 # Chapter 3
 
 your-first-package.md
-
 writing-specs.md
 
 contributing-to-packages.md
