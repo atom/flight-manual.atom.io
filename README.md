@@ -8,9 +8,13 @@ This book is open source under a Creative Commons license.
 
 [![atom cover](https://cloud.githubusercontent.com/assets/70/5341501/de057c62-7ef6-11e4-8926-42b6802d6d38.png)](https://github.com/atom/docs/releases/latest)
 
+## License
+
+This book will be published under the Creative Commons license. If you contribute to the work, you will have to agree to allow your content to be published under the self same license. Check out [the license file](LICENSE.asc) for more details.
+
 ## Current Progress
 
-To check the current progress and planned content of the book, check out the [outline](outline.md).
+To check the current progress and planned content of the book, check out the [outline](outline.md). This is a good place to start if you're looking for something to add.
 
 ## How To Generate the Book
 
@@ -38,3 +42,9 @@ This uses the `asciidoctor`, `asciidoctor-pdf` and `asciidoctor-epub` projects.
 ## Contributing
 
 If you'd like to help out by making a change or contributing a translation, take a look at the [contributor's guide](CONTRIBUTING.md).
+
+## Maintainers
+
+These people are currently maintaining the book and will be responsible for content direction and PR merging.
+
+- @schacon
