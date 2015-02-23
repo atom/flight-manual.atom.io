@@ -1,20 +1,14 @@
+This is the sort of planning document and outline for the Atom book. This largely outlines how we're composing the book and what is still to be done.  We'll remove lines from this when each section is completed so we only have what it left to do here.
+
+You'll notice in some of the active `book/[section]/sections/` folders there are some 'xx-name.asc' files. These are sections of content that should probably be folded in at some point but we're not sure exactly where to put them. They aren't included in any of the main files, so they aren't currently rendered. If you want to write something and aren't sure where it goes, you can name the file in this manner until we figure out how to fold it into the narrative structure.
+
+Here is the remaining outline:
+
 # Chapter 3
-
-## Packages
-
-your-first-package.md
-writing-specs.md
-
-## Themes
-
-creating-a-theme.md
-theme-variables.md
-converting-a-text-mate-bundle.md
-converting-a-text-mate-theme.md
 
 * Hacking Atom
   * Cookbook
-    * Word Count Package (Basic)
+    X Word Count Package (Basic)
     * Word Count Status Bar (status bar manipulation)
     * Go To Line Package (simple with feedback and cursor movement)
     * Open On GitHub - (no UI, just run command)
@@ -52,6 +46,13 @@ converting-a-text-mate-theme.md
     * CI for packages (http://blog.atom.io/2014/04/25/ci-for-your-packages.html)
 
 * Make sure we include
+  * previous guide content
+    - writing-specs.md
+    - themes
+      - creating-a-theme.md
+      - theme-variables.md
+      - converting-a-text-mate-bundle.md
+      - converting-a-text-mate-theme.md
   * scopes (https://atom.io/docs/v0.174.0/advanced/scopes-and-scope-descriptors)
   * views / models
   * settings (how to enable the settings button on the package installer)
