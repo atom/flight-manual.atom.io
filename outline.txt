@@ -31,6 +31,10 @@ Here is the remaining outline:
       * theme-variables.md
       * Shadow DOM
       - https://atom.io/docs/latest/upgrading/upgrading-your-ui-theme
+
+# Chapter 4
+
+* Behind Atom
   * advanced dev tools
     - keybinding resolver
     - timecop
@@ -45,7 +49,7 @@ Here is the remaining outline:
     * don't make a slow package
     * CI for packages (http://blog.atom.io/2014/04/25/ci-for-your-packages.html)
 
-* Make sure we include
+* Make sure we include (in Ch 3 or Ch4 or both)
   * scopes (https://atom.io/docs/v0.174.0/advanced/scopes-and-scope-descriptors)
   * views / models
   * settings (how to enable the settings button on the package installer)
@@ -76,7 +80,7 @@ Here is the remaining outline:
   * modal decorations
   * notifications
 
-# Chapter 4
+# Chapter 5
 
 * Contributing to Atom
   * To packages
@@ -100,12 +104,12 @@ Here is the remaining outline:
     * Coding conventions
     * Commit conventions
 
-# Chapter 5
+# Chapter 6
 
 * Atom Shell
   * developing a new project in atom shell
   * https://github.com/atom/husk
 
-# Chapter 6 / Appendix
+# Chapter 7 / Appendix
 
 * Reference Manual
