@@ -4,7 +4,6 @@
     "book/cover.html",
     "LICENSE.asc",
     "book/preface.asc",
-    "book/introduction.asc",
     "book/toc.asc",
     "book/01-introduction/1-introduction.asc",
     "book/02-using-atom/1-using-atom.asc",
