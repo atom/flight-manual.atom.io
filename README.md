@@ -15,7 +15,7 @@ This book will be published under the Creative Commons license. If you contribut
 
 ## Current Progress
 
-To check the current progress and planned content of the book, check out the [outline](outline.md). This is a good place to start if you're looking for something to add.
+To check the current progress and planned content of the book, check out the [outline](outline.txt). This is a good place to start if you're looking for something to add.
 
 ## How To Generate the Book
 
@@ -42,7 +42,7 @@ This uses the `asciidoctor`, `asciidoctor-pdf` and `asciidoctor-epub` projects.
 
 ## Contributing
 
-If you'd like to help out by making a change or contributing a translation, take a look at the [contributor's guide](CONTRIBUTING.md).
+If you'd like to help out by making a change, adding content or improving something, take a look at the [contributor's guide](CONTRIBUTING.md).
 
 ## Maintainers
 
