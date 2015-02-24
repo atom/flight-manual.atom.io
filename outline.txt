@@ -46,13 +46,6 @@ Here is the remaining outline:
     * CI for packages (http://blog.atom.io/2014/04/25/ci-for-your-packages.html)
 
 * Make sure we include
-  * previous guide content
-    - writing-specs.md
-    - themes
-      - creating-a-theme.md
-      - theme-variables.md
-      - converting-a-text-mate-bundle.md
-      - converting-a-text-mate-theme.md
   * scopes (https://atom.io/docs/v0.174.0/advanced/scopes-and-scope-descriptors)
   * views / models
   * settings (how to enable the settings button on the package installer)
