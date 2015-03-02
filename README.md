@@ -6,7 +6,7 @@ You can find this book online at: http://atom.io/docs/latest/
 
 This book is open source under a Creative Commons license.
 
-[![atom-cover](https://cloud.githubusercontent.com/assets/70/6442023/e5a0e4e2-c0ec-11e4-8c70-b65209b6cdf6.png)](https://github.com/atom/docs/releases/latest)
+[![atom-cover](https://cloud.githubusercontent.com/assets/70/6442143/e84ba6b8-c0ed-11e4-994f-4aceb66a773c.png)](https://github.com/atom/docs/releases/latest)
 
 
 ## License
