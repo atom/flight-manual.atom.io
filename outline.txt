@@ -1,6 +1,15 @@
-This is the sort of planning document and outline for the Atom book. This largely outlines how we're composing the book and what is still to be done.  We'll remove lines from this when each section is completed so we only have what it left to do here.
+This is the sort of planning document and outline for the Atom book. This
+largely outlines how we're composing the book and what is still to be
+done.  We'll remove lines from this when each section is completed so we
+only have what it left to do here.
 
-You'll notice in some of the active `book/[section]/sections/` folders there are some 'xx-name.asc' files. These are sections of content that should probably be folded in at some point but we're not sure exactly where to put them. They aren't included in any of the main files, so they aren't currently rendered. If you want to write something and aren't sure where it goes, you can name the file in this manner until we figure out how to fold it into the narrative structure.
+You'll notice in some of the active `book/[section]/sections/` folders
+there are some 'xx-name.asc' files. These are sections of content that
+should probably be folded in at some point but we're not sure exactly where
+to put them. They aren't included in any of the main files, so they aren't
+currently rendered. If you want to write something and aren't sure where it
+goes, you can name the file in this manner until we figure out how to fold
+it into the narrative structure.
 
 Here is the remaining outline:
 
