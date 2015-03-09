@@ -16,7 +16,7 @@ Here is the remaining outline:
 # Chapter 3
 
 * Hacking Atom
-  * Cookbook
+  * Tutorials
     X Word Count Package (Basic)
     * Word Count Status Bar (status bar manipulation)
     * Go To Line Package (simple with feedback and cursor movement)
@@ -122,3 +122,4 @@ Here is the remaining outline:
 # Chapter 7 / Appendix
 
 * Reference Manual
+* Cookbook snippets
