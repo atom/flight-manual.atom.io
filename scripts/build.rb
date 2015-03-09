@@ -28,6 +28,8 @@ end
 
 if !ENV["ATLAS_TOKEN"]
   puts "You need to export ATLAS_TOKEN".colorize(:red)
+  puts "This script is a helper script for the Atom Docs core team to trigger an Atlas build.".colorize(:light_blue)
+  puts "If you don't have access to Atlas or don't know what that is, this script is not for you".colorize(:light_blue)
   exit
 end
 
