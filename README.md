@@ -48,4 +48,4 @@ If you'd like to help out by making a change, adding content or improving someth
 
 These people are currently maintaining the book and will be responsible for content direction and PR merging.
 
-- @schacon
+- [@schacon](https://github.com/schacon)
