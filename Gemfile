@@ -17,3 +17,5 @@ gem 'kindlegen'
 
 gem 'colorize'
 gem 'atlas-api'
+
+gem 'oily_png'
