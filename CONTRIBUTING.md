@@ -12,4 +12,6 @@ Right now one of the best things you could do is to add a cookbook style tutoria
 
 ## Images
 
-If you add images, please run `./scripts/crush.rb` before committing images to the repository, and try to make them PNG files. This looks through all the files and resizes and crushes them to a book-appropriate resolution so the ebook downloads aren't stupid big.
+If you add images, please run `./scripts/crush.rb` (you'll also need to have the [pngcrush utility][pngcrush] installed) before committing images to the repository, and try to make them PNG files. This looks through all the files and resizes and crushes them to a book-appropriate resolution so the ebook downloads aren't stupid big.
+
+[pngcrush]: http://pmt.sourceforge.net/pngcrush/
