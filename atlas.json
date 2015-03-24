@@ -1,5 +1,5 @@
 {
-  "name": "atom",
+  "name": "schacon/atom",
   "branch": "master",
   "files": [
     "book/cover.html",
