@@ -1,4 +1,5 @@
 {
+  "name": "Atom Flight Manual",
   "branch": "master",
   "files": [
     "book/cover.html",
