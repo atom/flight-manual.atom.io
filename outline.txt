@@ -115,9 +115,9 @@ Here is the remaining outline:
 
 # Chapter 6
 
-* Atom Shell
-  * developing a new project in atom shell
-  * https://github.com/atom/husk
+* Electron
+  * developing a new project in electron
+  * https://github.com/atom/electron
 
 # Chapter 7 / Appendix
 
