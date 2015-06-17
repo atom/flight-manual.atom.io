@@ -15,7 +15,7 @@ This book is published under the Creative Commons BY-NC-SA license. If you contr
 
 ## Current Progress
 
-To check the current progress and planned content of the book, check out the [outline](outline.txt). This is a good place to start if you're looking for something to add.
+To check the current progress and planned content of the book, check out the [outline](outline.md). This is a good place to start if you're looking for something to add.
 
 ## How To Generate the Book
 
