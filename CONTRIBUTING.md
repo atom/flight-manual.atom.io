@@ -6,7 +6,7 @@ If you're not sure about the change or the idea for the change, open an issue fi
 
 ## What to help with
 
-You'll probably want to check the `outline.txt` file to get an idea of what we're looking for, but any help is appreciated.
+You'll probably want to check the `outline.md` file to get an idea of what we're looking for, but any help is appreciated.
 
 Right now one of the best things you could do is to add a cookbook style tutorial into Chapter 3, showing how to create a specific type of plugin or documenting a valid use case for an otherwise uncovered Atom API.
 
