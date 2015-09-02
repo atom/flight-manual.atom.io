@@ -11,7 +11,7 @@ This book is open source under a Creative Commons license.
 
 ## License
 
-This book is published under the Creative Commons BY-NC-SA license. If you contribute to the work, you will have to agree to allow your content to be published under the self same license. Check out [the license file](LICENSE.asc) for more details.
+This book is published under the Creative Commons BY-SA license. If you contribute to the work, you will have to agree to allow your content to be published under the self same license. Check out [the license file](LICENSE.asc) for more details.
 
 ## Current Progress
 
@@ -35,7 +35,7 @@ Converting to EPub...
 Converting to Mobi (kf8)...
 -- Mobi output at atom.mobi
 Converting to PDF...
--- PDF  output at atom.pdf
+-- PDF output at atom.pdf
 ````
 
 This uses the `asciidoctor`, `asciidoctor-pdf` and `asciidoctor-epub` projects.
