@@ -44,6 +44,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  activesupport (~> 4.2)
   nanoc (~> 4.0.0rc3)
   nanoc-asciidoctor (~> 1.0)
   nanoc-conref-fs (~> 0.3)

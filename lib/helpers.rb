@@ -8,3 +8,5 @@ Nanoc::Helpers::Rendering.module_eval do
     remove_method :render
   end
 end
+
+require 'active_support/core_ext/string'

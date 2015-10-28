@@ -1,7 +1,7 @@
 Getting Started:
-  - Upgrading Your Package
-  - Upgrading Your UI Theme Or Package Selectors
-  - Upgrading Your Syntax Theme
+  - Why Atom?
+  - Installing Atom
+  - Atom Basics
   - Summary
 
 Using Atom:
@@ -40,4 +40,10 @@ Behind Atom:
   - Developing Node Modules
   - Interacting With Other Packages Via Services
   - Maintaining Your Packages
+  - Summary
+
+Upgrading to 1.0 APIs:
+  - Upgrading Your Package
+  - Upgrading Your UI Theme Or Package Selectors
+  - Upgrading Your Syntax Theme
   - Summary

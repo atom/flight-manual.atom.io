@@ -87,6 +87,7 @@ gulp.task("watch:nanoc", function() {
   gulp.watch([
     "nanoc.yaml",
     "Rules",
+    "data/**/*",
     "content/**/*",
     "layouts/**/*",
     "lib/**/*"
