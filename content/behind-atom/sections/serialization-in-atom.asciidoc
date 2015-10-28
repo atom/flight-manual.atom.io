@@ -1,3 +1,6 @@
+---
+title: Serialization in Atom
+---
 === Serialization in Atom
 
 When a window is refreshed or restored from a previous session, the view and its associated objects are *deserialized* from a JSON representation that was stored

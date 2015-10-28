@@ -1,5 +1,5 @@
 ---
-title: Package: Modifying Text
+title: "Package: Modifying Text"
 ---
 [[_package_modifying_text]]
 === Package: Modifying Text

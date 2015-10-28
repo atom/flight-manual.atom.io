@@ -1,5 +1,5 @@
 ---
-title: Package: Word Count
+title: "Package: Word Count"
 ---
 [[_package_word_count]]
 === Package: Word Count

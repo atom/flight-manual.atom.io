@@ -1,3 +1,6 @@
+---
+title: Maintaining Your Packages
+---
 === Maintaining Your Packages
 
 While publishing is, by far, the most common action you will perform when working with the packages you provide, there are other things you may need to do.

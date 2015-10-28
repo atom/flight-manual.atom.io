@@ -1,3 +1,6 @@
+---
+title: Keymaps In-Depth
+---
 [[_keymaps_in_depth]]
 === Keymaps In-Depth
 

@@ -1,3 +1,6 @@
+---
+title: Developing Node Modules
+---
 === Developing Node Modules
 
 Atom contains a number of packages that are Node modules instead of Atom packages. If you want to make changes to the Node modules, for instance `atom-keymap`, you have to link them into the development environment differently than you would a normal Atom package.

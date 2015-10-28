@@ -1,3 +1,6 @@
+---
+title: Scoped Settings, Scopes and Scope Descriptors
+---
 === Scoped Settings, Scopes and Scope Descriptors
 
 Atom supports language-specific settings. You can soft wrap only Markdown files, or set the tab length to 4 in Python files.
