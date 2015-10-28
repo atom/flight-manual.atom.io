@@ -40,7 +40,7 @@ image::../../images/themes.png[Theme search screen]
 
 Clicking on the theme title will take you to a profile page for the theme on atom.io, which usually has a screenshot of the theme. This way you can see what it looks like before installing it.
 
-Clicking on ``Install'' will install the theme and make it available in the Theme dropdowns as we saw in  <<_color_themes>>.
+Clicking on ``Install'' will install the theme and make it available in the Theme dropdowns as we saw in link:/getting-started/sections/atom-basics/#_color_themes[Color Themes].
 
 .Example of the Unity UI theme with Monokai syntax theme
 image::../../images/unity-theme.png[Theme search screen]
