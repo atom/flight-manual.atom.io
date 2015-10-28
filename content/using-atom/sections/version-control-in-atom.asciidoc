@@ -1,4 +1,6 @@
-[[_atom_git]]
+---
+title: Version Control in Atom
+---
 === Version Control in Atom
 
 Version control is an important aspect of any project and Atom comes with basic http://git-scm.com[Git] and https://github.com[GitHub] integration baked in.

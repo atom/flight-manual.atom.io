@@ -1,3 +1,6 @@
+---
+title: Basic Customization
+---
 [[_basic_customization]]
 === Basic Customization
 
