@@ -1,0 +1,17 @@
+---
+title: Atom
+---
+<h1>Atom Flight Manual</h1>
+<div class="manual-ebooks"><img src="/assets/images/book/cover.png"></div>
+
+{% for article in site.data.toc %}
+<ol>
+  <li>{{ article[0] }}</li>
+  <ol>
+
+  {% for child in article[1] %}
+    <li>{{ child }}</li>
+  {% endfor %}
+  </ol>
+</ol>
+{% endfor %}

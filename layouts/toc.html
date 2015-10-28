@@ -8,8 +8,12 @@
   </head>
   <body>
     <%= renderp '/includes/banner.html' %>
-    <div id="main">
-      <%= yield %>
+    <div class="wrapper documents content-push">
+      <div class="markdown-body">
+        <div class="manual-docs">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

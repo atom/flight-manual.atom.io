@@ -21,6 +21,11 @@ var transformCS = function (file) {
   return path.extname(file.path) == ".coffee";
 };
 
+gulp.task("css", function() {
+  return gulp.src("assets/stylesheets/*.css")
+    .pipe(gulp.dest("output/assets/stylesheets/"));
+});
+
 gulp.task("sass", function() {
   return gulp.src("assets/stylesheets/*.scss")
     .pipe(sass())
@@ -95,5 +100,5 @@ gulp.task("watch:assets", function() {
 });
 
 gulp.task("serve", [ "server", "watch:nanoc", "watch:assets" ]);
-gulp.task("assets", [ "sass", "javascript", "javascript_workers", "octicons", "images" ]);
+gulp.task("assets", [ "css", "sass", "javascript", "javascript_workers", "octicons", "images" ]);
 gulp.task("default", [ "nanoc:compile", "assets", "serve" ]);

@@ -4,6 +4,7 @@ node_modules/
 npm-debug.log
 crash.log
 tmp/
+vendor/
 
 # build artifacts
 atom.html

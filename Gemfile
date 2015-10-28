@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'nanoc', '~> 4.0.0rc3'
 gem 'nanoc-html-pipeline', '~> 0.3.2'
 gem 'nanoc-asciidoctor', '~> 1.0'
+gem 'nanoc-conref-fs', '~> 0.3'
 
 # gem 'html-pipeline-asciidoc_filter', '~> '
 
