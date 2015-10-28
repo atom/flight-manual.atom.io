@@ -1,5 +1,9 @@
 output
 .DS_Store
+node_modules/
+npm-debug.log
+crash.log
+tmp/
 
 # build artifacts
 atom.html
