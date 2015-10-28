@@ -3,19 +3,19 @@
 
 Now that we've written a number of packages and themes, let's take minute to take a closer look at some of the ways that Atom works in greater depth. Here we'll go into more of a deep dive on individual internal APIs and systems of Atom, even looking at some Atom source to see how things are really getting done.
 
-include::sections/01-config-api.asc[]
+include::sections/01-config-api.asciidoc[]
 
-include::sections/02-keymaps.asc[]
+include::sections/02-keymaps.asciidoc[]
 
-include::sections/03-scopes.asc[]
+include::sections/03-scopes.asciidoc[]
 
-include::sections/04-serialization.asc[]
+include::sections/04-serialization.asciidoc[]
 
-include::sections/05-node-modules.asc[]
+include::sections/05-node-modules.asciidoc[]
 
-include::sections/06-services-api.asc[]
+include::sections/06-services-api.asciidoc[]
 
-include::sections/07-maintaining-your-packages.asc[]
+include::sections/07-maintaining-your-packages.asciidoc[]
 
 === Summary
 

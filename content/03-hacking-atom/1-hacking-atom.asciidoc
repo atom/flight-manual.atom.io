@@ -7,23 +7,23 @@ In this chapter, we're going to learn how to extend the functionality of Atom th
 
 If you're looking for an example using a specific API or feature, you can skip to the end of the chapter where we've indexed all the examples that way.
 
-include::sections/01-tools.asc[]
+include::sections/01-tools.asciidoc[]
 
-include::sections/02-init-file.asc[]
+include::sections/02-init-file.asciidoc[]
 
-include::sections/03-a-basic-package.asc[]
+include::sections/03-a-basic-package.asciidoc[]
 
-include::sections/04-modify-buffer.asc[]
+include::sections/04-modify-buffer.asciidoc[]
 
-include::sections/05-themes.asc[]
+include::sections/05-themes.asciidoc[]
 
-include::sections/06-iconography.asc[]
+include::sections/06-iconography.asciidoc[]
 
-include::sections/A01-debugging.asc[]
+include::sections/A01-debugging.asciidoc[]
 
-include::sections/A02-writing-specs.asc[]
+include::sections/A02-writing-specs.asciidoc[]
 
-include::sections/A03-textmate.asc[]
+include::sections/A03-textmate.asciidoc[]
 
 === Summary
 

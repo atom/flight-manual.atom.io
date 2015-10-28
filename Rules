@@ -2,7 +2,7 @@
 
 require 'nanoc-asciidoctor'
 
-compile '**/*.asc' do
+compile '**/*.asciidoc' do
   filter :asciidoctor, :safe => :safe, :base_dir => 'content'
   filter :erb
   layout '/default.html'
@@ -18,7 +18,7 @@ route '**/*' do
     item.identifier.chop + (item[:extension] ? '.' + item[:extension] : '')
   elsif item.identifier =~ /\/index.asc/
     '/index.html'
-  elsif item.identifier =~ /\/404.asc/
+  elsif item.identifier =~ /\/404.asciidoc/
     '/404.html'
   else
     item.identifier.without_ext + '.index.html'

@@ -5,17 +5,17 @@ Now that we've covered the very basics of Atom, we are ready to see how to reall
 
 At the end of this chapter, you should have a customized environment that you're comfortable in and you should be able to change, create and move through your text like a master.
 
-include::sections/01-packages-themes.asc[]
+include::sections/01-packages-themes.asciidoc[]
 
-include::sections/02-text.asc[]
+include::sections/02-text.asciidoc[]
 
-include::sections/03-interface.asc[]
+include::sections/03-interface.asciidoc[]
 
-include::sections/04-git-markdown.asc[]
+include::sections/04-git-markdown.asciidoc[]
 
-include::sections/05-writing.asc[]
+include::sections/05-writing.asciidoc[]
 
-include::sections/06-customizing.asc[]
+include::sections/06-customizing.asciidoc[]
 
 === Summary
 

@@ -3,11 +3,11 @@
 
 This chapter will be about getting started with Atom.
 
-include::sections/01-why-atom.asc[]
+include::sections/01-why-atom.asciidoc[]
 
-include::sections/02-installing.asc[]
+include::sections/02-installing.asciidoc[]
 
-include::sections/03-basics.asc[]
+include::sections/03-basics.asciidoc[]
 
 === Summary
 
