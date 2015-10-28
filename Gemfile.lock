@@ -38,7 +38,7 @@ GEM
     nanoc-asciidoctor (1.0.1)
       asciidoctor (> 0.1, < 2.0)
       nanoc (>= 3.6.7, < 4.0.0)
-    nanoc-conref-fs (0.3.1)
+    nanoc-conref-fs (0.4.0)
       activesupport (~> 4.2)
       liquid (~> 3.0)
       nanoc (>= 3.1.6)
