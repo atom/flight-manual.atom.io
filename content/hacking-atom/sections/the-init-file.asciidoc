@@ -1,3 +1,6 @@
+---
+title: The Init File
+---
 [[_the_init_file]]
 === The Init File
 

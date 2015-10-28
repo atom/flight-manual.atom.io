@@ -1,3 +1,6 @@
+---
+title: Iconography
+---
 === Iconography
 
 Atom comes bundled with the https://octicons.github.com/[Octicons] icon set. Use them to add icons to your packages.

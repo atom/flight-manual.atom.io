@@ -1,3 +1,6 @@
+---
+title: Creating a Theme
+---
 [[_creating_a_theme]]
 === Creating a Theme
 
