@@ -21,7 +21,7 @@ function functionName() {
 In the dev tools, the first line's markup looks like this.
 
 .Markup
-image::images/markup.png[markup]
+image::../../images/markup.png[markup]
 
 All the class names on the spans are scope names. Any scope name can be used to target a setting's value.
 

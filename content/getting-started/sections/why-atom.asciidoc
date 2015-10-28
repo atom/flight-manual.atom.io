@@ -1,4 +1,7 @@
-=== Why Atom
+---
+title: Why Atom?
+---
+=== Why Atom?
 
 There are a lot of text editors out there, why should you spend your time learning about and using Atom?
 

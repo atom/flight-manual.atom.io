@@ -11,7 +11,7 @@ The simplest way to start a package is to use the built-in package generator tha
 You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Atom will then create that directory and fill it out with a skeleton project and link it into your `.atom` directory so it's loaded when you launch your editor next time.
 
 .Basic generated Atom package
-image::images/package.png[package]
+image::../../images/package.png[package]
 
 You can see that Atom has created about a dozen files that make up the package. Let's take a look at each of them to get an idea of how a package is structured, then we can modify them to get our word count functionality.
 
@@ -174,7 +174,7 @@ It's recommended that you create an application menu item for common actions wit
 This section puts a ``Toggle'' menu item under a menu group named ``Word Count'' in the ``Packages'' menu.
 
 .Application menu item
-image::images/menu.png[application menu]
+image::../../images/menu.png[application menu]
 
 When you select that menu item, it will run the `wordcount:toggle` command, which we'll look at in a bit.
 
@@ -197,7 +197,7 @@ It's recommended to specify a context menu item for commands that are linked to 
 This adds a ``Toggle Word Count'' menu option to the menu that pops up when you right-click in an Atom text editor pane.
 
 .Context menu entry
-image::images/context-menu.png[context menu]
+image::../../images/context-menu.png[context menu]
 
 When you click that it will again run the `wordcount:toggle` method in your code.
 
@@ -226,7 +226,7 @@ You can also add separators and submenus to your context menus. To add a submenu
 Currently with the generated package we have, if we run that `toggle` command through the menu or the command palette, we'll get a little pop up that says ``The Wordcount package is Alive! It's ALIVE!''.
 
 .Wordcount Package is Alive dialog
-image::images/toggle.png[word count is alive]
+image::../../images/toggle.png[word count is alive]
 
 ===== Understanding the Generated Code
 
@@ -403,7 +403,7 @@ setCount: (count) ->
 Pretty simple - we take the count number that was passed in and place it into a string that we then stick into the element that our view is controlling.
 
 .Word Count Working
-image::images/wordcount.png[word count working]
+image::../../images/wordcount.png[word count working]
 
 ==== Basic Debugging
 
@@ -412,7 +412,7 @@ You'll notice a few `console.log` statements in the code. One of the cool things
 To open up the Developer Console, hit `alt-cmd-I`, or choose the menu option `View > Developer > Toggle Developer Tools`.
 
 .Developer Tools Debugging
-image::images/dev-tools.png[dev tools debugging]
+image::../../images/dev-tools.png[dev tools debugging]
 
 From here you can inspect objects, run code and view console output just as though you were debugging a web site.
 
@@ -427,7 +427,7 @@ Under the hood, http://jasmine.github.io[Jasmine] executes your tests, so you ca
 Once you've got your test suite written, you can run it by pressing `cmd-alt-ctrl-p` or via the _Developer > Run Package Specs_ menu. Our generated package comes with an example test suite, so you can run this right now to see what happens.
 
 .Spec Suite Results
-image::images/spec-suite.png[spec suite results]
+image::../../images/spec-suite.png[spec suite results]
 
 You can also use the `apm test` command to run them from the command line. It prints the test output and results to the console and returns the proper status code depending on whether the tests passed or failed.
 

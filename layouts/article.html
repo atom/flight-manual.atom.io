@@ -7,7 +7,10 @@
     <div class="footer-push">
       <%= renderp '/includes/top_bar.html' %>
       <%= renderp '/includes/banner.html' %>
-      <div class="wrapper documents content-push">
+      <div class="wrapper documents content-push wide">
+        <div class="toc">
+          <%= renderp '/includes/toc.html', :heading => 'h4' %>
+        </div>
         <div class="markdown-body">
           <div class="manual-docs">
             <%= yield %>

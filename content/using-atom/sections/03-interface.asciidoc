@@ -6,7 +6,7 @@ If you want to see an overview of the structure of the code file you're working 
 You can fold blocks of code by clicking the arrows that appear when you hover your mouse cursor over the gutter. You can also fold and unfold from the keyboard with the `alt-cmd-[` and `alt-cmd-]` keybindings.
 
 .Code folding example
-image::images/folding.png[code folding]
+image::../../images/folding.png[code folding]
 
 To fold everything, use `alt-cmd-shift-{` and to unfold everything use `alt-cmd-shift-}`. You can also fold at a specific indentation level with `cmd-k cmd-N` where N is the indentation depth.
 
@@ -18,7 +18,7 @@ Finally, you can fold arbitrary sections of your code or text by making a select
 You can split any editor pane horizontally or vertically by using `cmd-k arrow` where the arrow is the direction to split the pane. Once you have a split pane, you can move focus between them with `cmd-k cmd-arrow` where the arrow is the direction the focus should move to.
 
 .Multiple panes
-image::images/panes.png[panes]
+image::../../images/panes.png[panes]
 
 Each pane has its own ``items'' or files, which are represented by tabs. You can move the files from pane to pane by dragging them with the mouse and dropping them in the pane you want that file to be in.
 
@@ -34,7 +34,7 @@ If you load up a file, Atom does a little work to try to figure out what type of
 If you load up a file and Atom can't determine a grammar for the file, it will default to 'Plain Text', which is the simplest one. If it does default to 'Plain Text' or miscategorize a file, or if for any reason you wish to change the active grammar of a file, you can pull up the Grammar selector with `ctrl-shift-L`.
 
 .Grammar selector
-image::images/grammar.png[grammar selector]
+image::../../images/grammar.png[grammar selector]
 
 Once the grammar of a file is changed manually, Atom will remember that until you set it back to auto-detect or choose a different grammar manually.
 

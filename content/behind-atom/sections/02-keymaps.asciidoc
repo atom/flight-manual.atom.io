@@ -86,7 +86,7 @@ For example, the following code removes the keybinding for `a` in the Tree View,
 ```
 
 .Keybinding resolver
-image::images/keybinding.png[keybinding resolver]
+image::../../images/keybinding.png[keybinding resolver]
 
 ==== Forcing Chromium's Native Keystroke Handling
 

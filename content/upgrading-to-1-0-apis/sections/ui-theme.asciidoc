@@ -7,7 +7,7 @@ In addition to changes in Atom's scripting API, we'll also be making some breaki
 Deprecation cop will list usages of deprecated selector patterns to guide you. You can access it via the command palette (`cmd-shift-p`, then search for `Deprecation`). It breaks the deprecations down by package:
 
 .Deprecation Cop
-image::images/dep-cop.png[dep cop]
+image::../../images/dep-cop.png[dep cop]
 
 ==== Custom Tags
 

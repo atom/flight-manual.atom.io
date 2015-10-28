@@ -81,7 +81,7 @@ Atom is based on the Chrome browser, and supports Chrome's Developer Tools. You 
 The dev tools allow you to inspect elements and take a look at their CSS properties.
 
 .Dev Tools
-image::images/dev-tools.png[dev-tools]
+image::../../images/dev-tools.png[dev-tools]
 
 Check out Google's https://developer.chrome.com/devtools/docs/dom-and-styles[extensive tutorial] for a short introduction.
 
@@ -92,7 +92,7 @@ If you are creating an interface theme, you'll want a way to see how your theme 
 To open the styleguide, open the command palette (`cmd-shift-P`) and search for _styleguide_, or use the shortcut `cmd-ctrl-shift-g`.
 
 .Style Guide
-image::images/styleguide.png[style guide]
+image::../../images/styleguide.png[style guide]
 
 [[_atom_theme_vars]]
 ==== Theme Variables

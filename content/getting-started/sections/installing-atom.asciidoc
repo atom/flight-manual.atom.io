@@ -1,4 +1,6 @@
-[[_installing_atom]]
+---
+title: Installing Atom
+---
 === Installing Atom
 
 To get started with Atom, we'll need to get it on our system. This section will go over installing Atom on Mac, Windows and Linux, as well as the basics of how to build it from source.
@@ -7,7 +9,7 @@ Installing Atom should be fairly simple on any of these systems. Generally you c
 
 [[_download_button]]
 .Download buttons on atom.io
-image::images/linux-downloads.png[Download button]
+image::../../images/linux-downloads.png[Download button]
 
 The buttons should be specific to your platform and easily installable. However, let's go over them here in a bit of detail.
 
@@ -44,7 +46,7 @@ https://github.com/atom/atom/releases/latest
 This will install Atom, add the `atom` and `apm` commands to your `PATH`, create shortcuts on the desktop and in the start menu, and also add an Open with Atom context menu in the Explorer.
 
 .Atom on Windows
-image::images/windows.gif[Atom on Windows]
+image::../../images/windows.gif[Atom on Windows]
 
 If you just want to download a `.zip` of the latest Atom release for Windows, you can also get it from the https://github.com/atom/atom/releases[Atom releases page] at https://github.com/atom/atom/releases.
 

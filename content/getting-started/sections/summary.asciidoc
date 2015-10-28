@@ -1,14 +1,6 @@
-[[_getting_started]]
-== Getting Started
-
-This chapter will be about getting started with Atom.
-
-include::sections/01-why-atom.asciidoc[]
-
-include::sections/02-installing.asciidoc[]
-
-include::sections/03-basics.asciidoc[]
-
+---
+title: Summary
+---
 === Summary
 
 You should now have a basic understanding of what Atom is and what you want to do with it. You should also have it installed on your system and be able to use it for the most basic text editing operations.

@@ -4,18 +4,4 @@ title: Atom
 <h1>Atom Flight Manual</h1>
 <div class="manual-ebooks"><img src="/assets/images/book/cover.png"></div>
 
-{% assign chapter_itr = 1 %}
-{% for article in site.data.toc %}
-<h3>Chapter {{ chapter_itr}}: {{ article[0] }}</h3>
-<ul>
-  {% assign section_itr = 1 %}
-  {% for child in article[1] %}
-    <li>
-      <small>{{ chapter_itr }}.{{ section_itr }}</small>
-      <a href=<%= "{{ article[0] }}".parameterize + "-" + "{{ child }}".parameterize %>>{{ child }}</a>
-    </li>
-    {% capture section_itr %}{{ section_itr | plus:1 }}{% endcapture %}
-  {% endfor %}
-  {% capture chapter_itr %}{{ chapter_itr | plus:1 }}{% endcapture %}
-</ul>
-{% endfor %}
+<%= renderp '/includes/toc.html', :heading => 'h3' %>

@@ -1,0 +1,16 @@
+{% assign chapter_itr = 1 %}
+{% for article in site.data.toc %}
+
+<<%= @heading %>><a href="/<%= '{{ article[0] }}'.parameterize %>">{{ child }}Chapter {{ chapter_itr}}: {{ article[0] }}</a></h<%= @heading %>>
+<ul>
+  {% assign section_itr = 1 %}
+  {% for child in article[1] %}
+    <li class="unselected">
+      <small>{{ chapter_itr }}.{{ section_itr }}</small>
+      <a href="/<%= '{{ article[0] }}'.parameterize + '/sections/' + '{{ child }}'.parameterize %>">{{ child }}</a>
+    </li>
+    {% capture section_itr %}{{ section_itr | plus:1 }}{% endcapture %}
+  {% endfor %}
+  {% capture chapter_itr %}{{ chapter_itr | plus:1 }}{% endcapture %}
+</ul>
+{% endfor %}

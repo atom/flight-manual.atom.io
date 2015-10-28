@@ -79,14 +79,14 @@ All of the methods in Atom core that have changes will emit deprecation messages
 Just run your specs, and all the deprecations will be displayed in yellow.
 
 .Deprecations in specs
-image::images/spec-deps.png[spec-deps]
+image::../../images/spec-deps.png[spec-deps]
 
 ===== Deprecation Cop
 
 Run an atom window in dev mode (`atom -d`) with your package loaded, and open Deprecation Cop (search for `deprecation` in the command palette). Deprecated methods will be appear in Deprecation Cop only after they have been called.
 
 .Deprecation Cop
-image::images/dep-cop.png[dep-cop]
+image::../../images/dep-cop.png[dep-cop]
 
 When deprecation cop is open, and deprecated methods are called, a `Refresh` button will appear in the top right of the Deprecation Cop interface. So exercise your package, then come back to Deprecation Cop and click the `Refresh` button.
 
