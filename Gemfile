@@ -5,10 +5,15 @@ gem 'nanoc-html-pipeline', '~> 0.3.2'
 gem 'nanoc-asciidoctor', '~> 1.0'
 gem 'nanoc-conref-fs', '~> 0.3'
 gem 'activesupport', '~> 4.2'
+gem 'rake'
+
+group :test do
+  gem 'html-proofer', '~> 2.0'
+end
 
 # gem 'html-pipeline-asciidoc_filter', '~> '
 
-# gem 'rake'
+
 #
 # gem 'asciidoctor', '1.5.0'
 #
