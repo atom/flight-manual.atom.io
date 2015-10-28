@@ -1,3 +1,6 @@
+---
+title: Upgrading Your Syntax Theme
+---
 === Upgrading Your Syntax Theme
 
 Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom[Shadow DOM 101] on HTML 5 Rocks.
