@@ -2,11 +2,6 @@ require 'html/proofer'
 
 task :default => [:test]
 
-desc "Compile the site"
-task :compile do
-  `npm run gulp`
-end
-
 desc "Test the output"
 task :test => [:remove_tmp_dir, :remove_output_dir, :compile, :run_proofer]
 
@@ -18,6 +13,11 @@ end
 desc "Remove the output dir"
 task :remove_output_dir do
   FileUtils.rm_r('output') if File.exist?('output')
+end
+
+desc "Compile the site"
+task :compile do
+  puts `npm run gulp nanoc:compile assets`
 end
 
 desc "Run the HTML-Proofer"

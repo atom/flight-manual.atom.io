@@ -14,7 +14,8 @@
     "js-yaml": "^3.4.3"
   },
   "scripts": {
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "compile": "gulp nanoc:compile assets"
   },
   "license": "MIT",
   "repository": {
