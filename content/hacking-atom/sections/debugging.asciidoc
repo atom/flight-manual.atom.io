@@ -22,7 +22,7 @@ Head on over to the https://github.com/atom/atom/releases[list of releases] and 
 
 ==== Check if the problem shows up in safe mode
 
-A large part of Atom's functionality comes from packages you can install. Atom will also execute the code in your <<_the_init_file, Init script>> on startup. In some cases, these packages and the code in the Init script might be causing unexpected behavior, problems, or performance issues.
+A large part of Atom's functionality comes from packages you can install. Atom will also execute the code in your link:/hacking-atom/sections/the-init-file[Init script] on startup. In some cases, these packages and the code in the Init script might be causing unexpected behavior, problems, or performance issues.
 
 To determine if that is happening, start Atom from the terminal in safe mode:
 
@@ -77,7 +77,7 @@ image::../../images/package-settings.png[package settings]
 
 ==== Check your config files
 
-You might have defined some custom styles, keymaps or snippets in <<_basic_customization, your config files>>. In some situations, these personal hacks might be causing the unexpected behavior you're observing so try clearing those files and restarting Atom.
+You might have defined some custom styles, keymaps or snippets in link:/using-atom/sections/basic-customization[your config files]. In some situations, these personal hacks might be causing the unexpected behavior you're observing so try clearing those files and restarting Atom.
 
 ==== Check the keybindings
 
@@ -94,7 +94,7 @@ The keybinding resolver shows you a list of keybindings that exist for the keyst
 * the CSS selector used to define the context in which the keybinding is valid, and
 * the file in which the keybinding is defined.
 
-Of all the keybindings that are listed (grey color), at most one keybinding is matched and executed (green color). If the command you wanted to trigger isn't listed, then a keybinding for that command hasn't been defined. More keybindings are provided by https://atom.io/packages[packages] and you can define your own keybindings as we saw in <<_customizing_keybindings>>.
+Of all the keybindings that are listed (grey color), at most one keybinding is matched and executed (green color). If the command you wanted to trigger isn't listed, then a keybinding for that command hasn't been defined. More keybindings are provided by https://atom.io/packages[packages] and you can define your own keybindings as we saw in link:/using-atom/sections/basic-customization#_customizing_keybindings[Customizing_keybindings].
 
 If multiple keybindings are matched, Atom determines which keybinding will be executed based on the https://atom.io/docs/latest/advanced/keymaps#specificity-and-cascade-order[specificity of the selectors and the order in which they were loaded]. If the command you wanted to trigger is listed in the Keybinding resolver, but wasn't the one that was executed, this is normally explained by one of two causes:
 

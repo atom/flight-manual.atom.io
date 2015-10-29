@@ -51,9 +51,9 @@ Atom has a number of settings and preferences you can modify on its Settings scr
 .Atom's settings screen
 image::../../images/settings.png[Atom's settings screen]
 
-This includes things like changing the color scheme or theme, specifying how to handle wrapping, font settings, tab size, scroll speed and much more. You can also use this screen to install new packages and themes, which we'll cover in <<_atom_packages>>.
+This includes things like changing the color scheme or theme, specifying how to handle wrapping, font settings, tab size, scroll speed and much more. You can also use this screen to install new packages and themes, which we'll cover in link:/using-atom/sections/atom-packages[Atom Packages].
 
-To open the Settings screen, you can go to the 'Preferences' menu item under the main ``Atom'' menu in the menu bar. You can also search for `settings-view:open` in the command palette or use the `cmd-,` keybinding.
+To open the Settings screen, you can go to the 'Preferences' menu item under the main `Atom` menu in the menu bar. You can also search for `settings-view:open` in the command palette or use the `cmd-,` keybinding.
 
 [[_color_themes]]
 ===== Changing the Color Theme
@@ -65,7 +65,7 @@ image::../../images/theme.png[Theme settings]
 
 The UI themes modify the color of UI elements like the tabs and the tree view, while the syntax themes modify the syntax highlighting of text you load into the editor. To change the theme, simply pick something different in the dropdowns.
 
-There are also dozens of themes on Atom.io that you can choose from if you want something different. We will also cover customizing a theme in <<_style_tweaks>> and creating your own theme in <<_creating_a_theme>>.
+There are also dozens of themes on Atom.io that you can choose from if you want something different. We will also cover customizing a theme in link:/using-atom/sections/basic-customization[Style tweaks] and creating your own theme in link:/hacking-atom/sections/creating-a-theme[Creating a theme].
 
 ===== Soft Wrap
 
@@ -78,7 +78,7 @@ Enabling ``Soft Tabs'' will insert spaces instead of actual tab characters when 
 
 The ``Soft Wrap'' option will wrap lines that are too long to fit in your current window. If soft wrapping is disabled, the lines will simply run off the side of the screen and you will have to scroll the window to see the rest of the content. If ``Soft Wrap At Preferred Line Length'' is toggled, the lines will wrap at 80 characters instead of the end of the screen. You can also change the default line length to a value other than 80 on this screen.
 
-In <<_basic_customization>> we will see how to set different wrap preferences for different types of files (for example, if you want to wrap Markdown files but not code files).
+In link:/using-atom/sections/basic-customization[Basic Customization] we will see how to set different wrap preferences for different types of files (for example, if you want to wrap Markdown files but not code files).
 
 ===== Beta Features
 
@@ -102,7 +102,7 @@ image::../../images/open-file.png[open file]
 
 This is useful for opening a file that is not contained in the project you're currently in (more on that next), or if you're starting from a new window for some reason.
 
-Another way to open a file in Atom is from the command line using the `atom` command. If you're on a Mac, the Atom menu bar has a command named ``Install Shell Commands'' which installs the `atom` and `apm` commands <<_installing_atom_on_mac,if Atom wasn't able to install them itself>>. On Windows and Linux, the `atom` and `apm` commands are installed automatically as a part of Atom's <<_installing_atom,installation process>>.
+Another way to open a file in Atom is from the command line using the `atom` command. If you're on a Mac, the Atom menu bar has a command named ``Install Shell Commands'' which installs the `atom` and `apm` commands link:/getting-started/sections/installing-atom/#_installing_atom_on_mac[if Atom wasn't able to install them itself]. On Windows and Linux, the `atom` and `apm` commands are installed automatically as a part of Atom's link:/getting-started/sections/installing-atom/[installation process].
 
 You can run the `atom` command with one or more file paths to open up those files in Atom.
 
@@ -165,7 +165,7 @@ image::../../images/finder.png[Open a project]
 
 You can also search through only the files currently opened (rather than every file in your project) with `cmd-B`. This searches through your ``buffers'' or open files. You can also limit this fuzzy search with `cmd-shift-B`, which searches only through the files which are new or have been modified since your last Git commit.
 
-The fuzzy finder uses both the `core.ignoredNames` and `fuzzy-finder.ignoredNames` config settings to filter out files and folders that will not be shown. If you have a project with tons of files you don't want it to search through, you can add patterns or paths to either of these config settings. We'll learn more about config settings in <<_global_configuration_settings>>, but for now you can easily set these in the Settings view under Core Settings.
+The fuzzy finder uses both the `core.ignoredNames` and `fuzzy-finder.ignoredNames` config settings to filter out files and folders that will not be shown. If you have a project with tons of files you don't want it to search through, you can add patterns or paths to either of these config settings. We'll learn more about config settings in link:/using-atom/sections/basic-customization/#_global_configuration_settings[Global Configuration Settings], but for now you can easily set these in the Settings view under Core Settings.
 
 Both of those config settings are interpreted as glob patterns as implemented by the minimatch Node.js library.
 

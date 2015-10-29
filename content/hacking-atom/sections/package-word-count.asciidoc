@@ -145,7 +145,7 @@ Keymaps are placed in the _keymaps_ subdirectory. By default, all keymaps are lo
 
 Keybindings are executed by determining which element the keypress occurred on. In the example above, the `wordcount:toggle` command is executed when pressing `ctrl-alt-o` only on the `atom-workspace` element. This means that if you're focused on something else like the Tree View or Settings pane for example, this key mapping won't work.
 
-We'll cover more advanced keymapping stuff a bit later in <<_keymaps_in_depth>>.
+We'll cover more advanced keymapping stuff a bit later in link:/behind-atom/sections/keymaps-in-depth#_keymaps_in_depth[Keyamps in depth].
 
 ===== Menus
 
@@ -445,7 +445,7 @@ TODO: Fix the tests
 
 Now that our simple plugin is working and tested, let's go ahead and publish it so it's available to the world.
 
-Atom bundles a command line utility called `apm` which we first used back in <<_atom_command_line>> to search for and install packages via the command line. The `apm` command can also be used to publish Atom packages to the public registry and update them.
+Atom bundles a command line utility called `apm` which we first used back in link:/using-atom/sections/atom-packages#_atom_command_line[Atom command line] to search for and install packages via the command line. The `apm` command can also be used to publish Atom packages to the public registry and update them.
 
 ===== Prepare Your Package
 
@@ -502,4 +502,4 @@ You can also run `apm help publish` to see all the available options and `apm he
 
 ==== Summary
 
-We've now generated, customized and published our first plugin for Atom. Congratulations! Now anyone can install our masterpiece from directly within Atom as we did in <<_atom_packages>>.
+We've now generated, customized and published our first plugin for Atom. Congratulations! Now anyone can install our masterpiece from directly within Atom as we did in link:/using-atom/sections/atom-packages#_atom_packages[Atom packages].

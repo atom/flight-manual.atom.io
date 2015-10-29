@@ -8,7 +8,7 @@ Now that we are feeling comfortable with just about everything built into Atom, 
 
 [[_cson]]
 ==== Configuring with CSON
-All of Atom's config files (with the exception of your <<_style_tweaks, style sheet>> and your <<_the_init_file, Init Script>>) are written in CSON, short for CoffeeScript Object Notation.footnoteref:[cson, https://github.com/bevry/cson#what-is-cson] Just like its namesake JSON (JavaScript Object Notation)footnoteref:[json, http://json.org/], CSON is a text format for storing structured data in the form of simple objects made up of key-value pairs.
+All of Atom's config files (with the exception of your <<_style_tweaks, style sheet>> and your link:/hacking-atom/sections/the-init-file[Init Script]) are written in CSON, short for CoffeeScript Object Notation.footnoteref:[cson, https://github.com/bevry/cson#what-is-cson] Just like its namesake JSON (JavaScript Object Notation)footnoteref:[json, http://json.org/], CSON is a text format for storing structured data in the form of simple objects made up of key-value pairs.
 
 ----
 key:
@@ -216,7 +216,7 @@ Global settings are under a global key, and each language can have its own top-l
 [[_finding_the_language_scope_name]]
 ===== Finding a language's scope name
 
-In order to write these overrides effectively, you'll need to know the scope name for the language. We've already done this for finding a scope for writing a snippet in <<_snippet_format>>, but we can quickly cover it again.
+In order to write these overrides effectively, you'll need to know the scope name for the language. We've already done this for finding a scope for writing a snippet in link:/using-atom/sections/snippets#_snippet_format[Snippet format], but we can quickly cover it again.
 
 The scope name is shown in the settings view for each language. Search for the language of your choice in the left panel, select it, and you should see the scope name under the language name heading:
 

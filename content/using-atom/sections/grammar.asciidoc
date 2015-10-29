@@ -3,7 +3,7 @@ title: Grammar
 ---
 === Grammar
 
-The ``grammar'' of a buffer is what language Atom thinks that file content is. Types of grammars would be Java or Markdown. We looked at this a bit when we created some snippets in <<_snippets>>.
+The ``grammar'' of a buffer is what language Atom thinks that file content is. Types of grammars would be Java or Markdown. We looked at this a bit when we created some snippets in link:/using-atom/sections/snippets[Snippets].
 
 If you load up a file, Atom does a little work to try to figure out what type of file it is. Largely this is accomplished by looking at its file extension (`.md` is generally a Markdown file, etc), though sometimes it has to inspect the content a bit to figure it out if it's ambiguous.
 
