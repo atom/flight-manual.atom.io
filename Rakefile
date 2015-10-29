@@ -17,7 +17,7 @@ end
 
 desc "Compile the site"
 task :compile do
-  puts `npm run gulp nanoc:compile assets`
+  puts `npm run compile`
 end
 
 desc "Run the HTML-Proofer"
