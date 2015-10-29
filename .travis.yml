@@ -2,7 +2,11 @@ language: ruby
 rvm:
   - 2.2.0
 sudo: false
+before_install:
+  - script/bootstrap
 cache:
   bundler: true
+  directories:
+    - node_modules
 git:
   depth: 10
