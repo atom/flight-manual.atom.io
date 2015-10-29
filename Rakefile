@@ -4,7 +4,7 @@ task :default => [:test]
 
 desc "Compile the site"
 task :compile do
-  `nanoc compile`
+  `npm run gulp`
 end
 
 desc "Test the output"
