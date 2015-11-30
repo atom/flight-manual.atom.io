@@ -1,0 +1,2 @@
+install: bundle install
+script: bundle exec rake book:build
