@@ -2,5 +2,6 @@
 <title><%= @item[:title] %></title>
 
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
-
-<meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
+<% unless ENV['RACK_ENV'] == 'production' %>
+<link rel="stylesheet" media="all" href="/assets/stylesheets/development.css" data-proofer-ignore>
+<% end %>
