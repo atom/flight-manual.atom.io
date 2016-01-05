@@ -1,16 +1,16 @@
-{% assign chapter_itr = 1 %}
-{% for article in site.data.toc %}
+<% @chapter_itr = 1 %>
+<% NanocConrefFS::Variables.fetch_data_file('toc', :default).each_pair do |article, children|  %>
 
-<<%= @heading %>><a href="/<%= '{{ article[0] }}'.parameterize %>">{{ child }}Chapter {{ chapter_itr}}: {{ article[0] }}</a></h<%= @heading %>>
+<<%= @heading %>><a href="/<%= article.parameterize %>">Chapter <%= @chapter_itr %>: <%= article %></a></<%= @heading %>>
 <ul>
-  {% assign section_itr = 1 %}
-  {% for child in article[1] %}
+  <% @section_itr = 1 %>
+  <% children.each do |child| %>
     <li class="unselected">
-      <small>{{ chapter_itr }}.{{ section_itr }}</small>
-      <a href="/<%= '{{ article[0] }}'.parameterize + '/sections/' + '{{ child }}'.parameterize %>">{{ child }}</a>
+      <small><%= @chapter_itr %>.<%= @section_itr %></small>
+      <a href="/<%= article.parameterize + '/sections/' + child.parameterize %>"><%= child %></a>
     </li>
-    {% capture section_itr %}{{ section_itr | plus:1 }}{% endcapture %}
-  {% endfor %}
-  {% capture chapter_itr %}{{ chapter_itr | plus:1 }}{% endcapture %}
+    <% @section_itr += 1 %>
+  <% end %>
+  <% @chapter_itr += 1 %>
 </ul>
-{% endfor %}
+<% end %>
