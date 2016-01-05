@@ -15,7 +15,7 @@ As an example, to add a https://octicons.github.com/icon/device-desktop/[monitor
   <span class="icon icon-device-desktop"></span>
 ```
 
-Or in case you're using http://atom.github.io/space-pen/[SpacePen] it would be:
+Or in case you're using http://atom-archive.github.io/space-pen/[SpacePen] it would be:
 
 ```coffeescript
   @span class: 'icon icon-device-desktop'
