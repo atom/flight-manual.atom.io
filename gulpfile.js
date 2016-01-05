@@ -102,4 +102,5 @@ gulp.task("watch:assets", function() {
 
 gulp.task("serve", [ "server", "watch:nanoc", "watch:assets" ]);
 gulp.task("assets", [ "css", "sass", "javascript", "javascript_workers", "octicons", "images" ]);
+gulp.task("build", [ "nanoc:compile", "assets" ]);
 gulp.task("default", [ "nanoc:compile", "assets", "serve" ]);
