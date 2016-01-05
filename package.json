@@ -20,5 +20,8 @@
   "repository": {
     "type" : "git",
     "url" : "https://github.com/atom/docs.git"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
   }
 }

@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.3'
 
 gem 'nanoc', '~> 4.0.0rc3'
 gem 'nanoc-html-pipeline', '~> 0.3.2'
