@@ -1,5 +1,8 @@
 require 'nanoc-asciidoctor'
 require 'nanoc-conref-fs'
+require 'active_support/core_ext/string'
+
+require_relative 'sections'
 
 include Nanoc::Helpers::Rendering
 Nanoc::Helpers::Rendering.module_eval do
@@ -8,5 +11,3 @@ Nanoc::Helpers::Rendering.module_eval do
     remove_method :render
   end
 end
-
-require 'active_support/core_ext/string'
