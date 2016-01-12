@@ -11,7 +11,7 @@ Let's get started by writing a very simple package and looking at some of the to
 
 The simplest way to start a package is to use the built-in package generator that ships with Atom. As you might expect by now, this generator is itself a separate package implemented in https://github.com/atom/package-generator[atom/package-generator].
 
-You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Atom will then create that directory and fill it out with a skeleton project and link it into your `.atom` directory so it's loaded when you launch your editor next time.
+You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Atom will then create that directory and fill it out with a skeleton project and link it into your `.atom` directory so it's loaded when you launch your editor next time. *Note:* You may encounter a situation where your package is not loaded. That is because a new package using the same name as an actual package hosted on https://atom.io/packages[atom.io] (e.g. "wordcount" and "word-count") is not being loaded as you expected. Try another name in that case.
 
 .Basic generated Atom package
 image::../../images/package.png[package]

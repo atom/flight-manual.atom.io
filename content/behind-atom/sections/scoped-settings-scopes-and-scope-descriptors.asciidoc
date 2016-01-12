@@ -41,7 +41,7 @@ Scope selectors allow you to target specific tokens just like a CSS selector tar
 https://atom.io/docs/api/latest/Config#instance-set[`Config::set`] accepts a `scopeSelector`. If you'd like to set a setting for JavaScript function names, you can give it the js function name `scopeSelector`:
 
 ```coffee
-atom.config.set('.source.js .function.name', 'my-package.my-setting', 'special value')
+atom.config.set('my-package.my-setting', 'special value', scopeSelector: '.source.js .function.name')
 ```
 
 ==== Scope Descriptors
@@ -58,7 +58,7 @@ https://atom.io/docs/api/latest/Config#instance-get[`Config::get`] accepts a `sc
 
 ```coffee
 scopeDescriptor = ['source.js', 'meta.function.js', 'entity.name.function.js']
-value = atom.config.get(scopeDescriptor, 'my-package.my-setting')
+value = atom.config.get('my-package.my-setting', scope: scopeDescriptor)
 ```
 
 But, you do not need to generate scope descriptors by hand. There are a couple methods available to get the scope descriptor from the editor:
@@ -72,6 +72,6 @@ Let's revisit our example using these methods:
 ```coffee
 editor = atom.workspace.getActiveTextEditor()
 cursor = editor.getLastCursor()
-valueAtCursor = atom.config.get(cursor.getScopeDescriptor(), 'my-package.my-setting')
-valueForLanguage = atom.config.get(editor.getRootScopeDescriptor(), 'my-package.my-setting')
+valueAtCursor = atom.config.get('my-package.my-setting', scope: cursor.getScopeDescriptor())
+valueForLanguage = atom.config.get('my-package.my-setting', scope: editor.getRootScopeDescriptor())
 ```
