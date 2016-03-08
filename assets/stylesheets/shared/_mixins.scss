@@ -1,0 +1,70 @@
+// Mixins
+@mixin translate($x, $y) {
+  transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+}
+
+@mixin transition($transition) {
+  transition: $transition;
+  -o-transform: $transition;
+  -moz-transform: $transition;
+  -webkit-transition: $transition;
+}
+
+// Creates a linear gradient background, from top to bottom.
+//
+// $start - The color hex at the top.
+// $end   - The color hex at the bottom.
+//
+// Compatibility untested.
+@mixin gradient($start: #fafafa, $end: #eaeaea){
+  background-color: $end;
+  // FF 3.6+
+  background-image: -moz-linear-gradient($start, $end);
+  // Safari 5.1+, Chrome 10+
+  background-image: -webkit-linear-gradient($start, $end);
+  background-image: linear-gradient($start, $end);
+  background-repeat: repeat-x;
+}
+
+// Browser compatibility for user-select.
+//
+// Compatibility untested.
+@mixin user-select($select: none) {
+  -webkit-touch-callout: $select;
+  -webkit-user-select: $select;
+  -khtml-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select;
+  user-select: $select;
+}
+
+@mixin background-image-retina($file, $type, $width, $height) {
+  background-image: asset-url($file + '.' + $type);
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    background-image: asset-url($file + '@2x.' + $type);
+    -webkit-background-size: $width $height;
+    -moz-background-size: $width $height;
+    -o-background-size: $width $height;
+    background-size: $width $height;
+  }
+}
+
+// Variables
+$beigeMedium: #efeae1;
+$beigeDark: #a29f99;
+$greenLight: #81c08b;
+$greenDark: #40a977;
+$brownDark: #66595c;
+$brownMedium: #8e6965;
+$brownLight: #bf8f80;
+$lightText: #9e9b95;
+
+$warningColor: #faaf4f;
+$successColor: $greenLight;
+
+$mobileMargin: 15px;
+
+$codeFont: Consolas, "Liberation Mono", Menlo, Courier, monospace;

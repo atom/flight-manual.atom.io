@@ -1,0 +1,21 @@
+$image-dir: '/assets/images';
+$octicons-dir: '/assets/vendor/octicons/octicons';
+@import '../vendor/octicons/octicons/sprockets-octicons.scss';
+
+@font-face {
+  font-family: 'octicons';
+  src: url("#{$octicons-dir}/octicons.eot");
+  src: url("#{$octicons-dir}/octicons.eot?#iefix") format('embedded-opentype'),
+       url("#{$octicons-dir}/octicons.woff") format('woff'),
+       url("#{$octicons-dir}/octicons.ttf")  format('truetype'),
+       url("#{$octicons-dir}/octicons.svg#svgFontName") format('svg');
+}
+
+@import '../vendor/primer/variables';
+@import '../vendor/primer/mixins';
+@import '../vendor/primer/forms';
+@import '../vendor/primer/buttons';
+@import '../vendor/primer/tooltips';
+@import '../vendor/primer/markdown';
+@import 'shared';
+@import 'app';
