@@ -4,7 +4,7 @@ node_modules/
 npm-debug.log
 crash.log
 tmp/
-vendor/
+/vendor/
 .bundle
 build.txt
 
