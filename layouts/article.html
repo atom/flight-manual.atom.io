@@ -6,9 +6,7 @@
   <body>
     <div class="footer-push">
       <%= renderp '/includes/top_bar.html' %>
-      <% unless ENV['RACK_ENV'] == 'production' %>
-      <%= renderp '/includes/banner.html' %>
-      <% end %>
+      <%= renderp '/includes/search.html' %>      
       <div class="wrapper documents content-push wide">
         <div class="toc">
           <%= renderp '/includes/toc.html', :heading => 'h4', :title => @item[:title] %>
