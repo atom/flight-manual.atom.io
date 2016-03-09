@@ -34,6 +34,7 @@ gulp.task("javascript_vendor", function () {
   return gulp.src([
     "assets/vendor/jquery/dist/jquery.js",
     "assets/vendor/mustache/mustache.js",
+    "assets/vendor/lunr.js/lunr.js"
     ])
     .pipe(concat("vendor.js"))
     .pipe(gulp.dest("tmp/"));
@@ -53,7 +54,7 @@ gulp.task("javascript_babel", function () {
 
 gulp.task("javascript_workers", function () {
   return gulp.src([
-    "assets/javascripts/search_worker.js",
+    "assets/javascripts/workers/*.js",
     "assets/vendor/lunr.js/lunr.min.js"
     ])
     .pipe(gulp.dest("output/assets/javascripts/"));
