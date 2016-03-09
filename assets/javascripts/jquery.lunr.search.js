@@ -103,7 +103,7 @@ const searchPlugin = function () {
     search (query, quickSearch) {
       this.searchWorker.postMessage({
         query: query,
-        quicksearch: quicksearch,
+        quicksearch: quickSearch,
         isSearchPage: this.isSearchPage(),
         type: {
           search: true
