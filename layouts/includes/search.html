@@ -1,3 +1,19 @@
+<script id="quicksearch-results-template" type="text/mustache">
+  <div class="header">
+    <a class="initial quicksearch-seemore" href="<%= @searchURL %>?q=">See more results</a>
+  </div>
+  [[#entries]]
+    <tr class="article">
+      <td class="info">
+        <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+      </td>
+    </tr>
+  [[/entries]]
+</script>
+
+
 <div class="documents-search">
-  <input type="text" name="q" id="q" value="" placeholder="Search docs">
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="text" name="q" id="quicksearch-query" class="js-articles-quicksearch" placeholder="Search the Flight Manual">
+  </form>
 </div>

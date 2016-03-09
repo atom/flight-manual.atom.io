@@ -7,3 +7,20 @@
 <% end %>
 
 <script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+
+      indexUrl: '/search/search.json',
+
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    })
+  })
+</script>
