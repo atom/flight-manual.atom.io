@@ -3,7 +3,7 @@ var gulp   = require("gulp"),
     sass   = require("gulp-sass"),
     minifyCss = require("gulp-minify-css"),
     replace = require("gulp-replace"),
-    coffee = require("gulp-coffee"),
+    babel = require('gulp-babel'),
     concat = require("gulp-concat"),
     uglify = require("gulp-uglify"),
     yaml   = require("js-yaml"),
@@ -17,9 +17,6 @@ var gulp   = require("gulp"),
 CONFIG = yaml.safeLoad(fs.readFileSync("nanoc.yaml", "utf8"));
 IS_PRODUCTION = process.env.NODE_ENV == "production";
 
-var transformCS = function (file) {
-  return path.extname(file.path) == ".coffee";
-};
 
 gulp.task("css", function() {
   return gulp.src("assets/stylesheets/*.css")
@@ -33,20 +30,25 @@ gulp.task("sass", function() {
     .pipe(gulp.dest("output/assets/stylesheets/"));
 });
 
-gulp.task("javascript", function () {
+gulp.task("javascript_vendor", function () {
   return gulp.src([
-    "assets/javascripts/initial.js",
     "assets/vendor/jquery/dist/jquery.js",
-    "assets/vendor/jquery-ui/jquery-ui.js",
     "assets/vendor/mustache/mustache.js",
-    "assets/coffeescripts/**/*.coffee"
     ])
-    .pipe(gulpif(transformCS, coffee()))
-    .pipe(concat("application.js"))
-    .pipe(replace(/\{\{ site\.version \}\}/g, CONFIG.latest_enterprise_version_float))
-    .pipe(replace(/\{\{ site\.versions \}\}/g, CONFIG.versions))
-    .pipe(gulpif(IS_PRODUCTION, uglify()))
-    .pipe(gulp.dest("output/assets/javascript"));
+    .pipe(concat("vendor.js"))
+    .pipe(gulp.dest("tmp/"));
+
+})
+
+gulp.task("javascript_babel", function () {
+  return gulp.src([
+    "assets/javascripts/*.js",
+    ])
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(concat("babel.js"))
+    .pipe(gulp.dest("tmp/"));
 });
 
 gulp.task("javascript_workers", function () {
@@ -54,8 +56,16 @@ gulp.task("javascript_workers", function () {
     "assets/javascripts/search_worker.js",
     "assets/vendor/lunr.js/lunr.min.js"
     ])
-    .pipe(gulp.dest("output/assets/javascript"));
+    .pipe(gulp.dest("output/assets/javascripts/"));
 });
+
+gulp.task('javascript', ['javascript_vendor', 'javascript_babel', 'javascript_workers'], function () {
+  return gulp.src(['./tmp/vendor.js', './tmp/babel.js'])
+    .pipe(concat('application.js'))
+    .pipe(gulpif(IS_PRODUCTION, uglify()))
+    .pipe(gulp.dest('output/assets/javascripts/'))
+})
+
 
 gulp.task("octicons", function() {
   return gulp.src("assets/vendor/octicons/octicons/**/*")
@@ -101,6 +111,6 @@ gulp.task("watch:assets", function() {
 });
 
 gulp.task("serve", [ "server", "watch:nanoc", "watch:assets" ]);
-gulp.task("assets", [ "css", "sass", "javascript", "javascript_workers", "octicons", "images" ]);
+gulp.task("assets", [ "css", "sass", 'javascript', "octicons", "images" ]);
 gulp.task("build", [ "nanoc:compile", "assets" ]);
 gulp.task("default", [ "nanoc:compile", "assets", "serve" ]);
