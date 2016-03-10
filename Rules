@@ -17,6 +17,11 @@ compile '**/*.asciidoc' do
   layout '/article.html'
 end
 
+compile '/search.html' do
+  filter :erb
+  layout '/toc.html'
+end
+
 passthrough '/**/*.png'
 passthrough '/**/*.gif'
 
