@@ -3,6 +3,11 @@ require 'nanoc-conref-fs'
 require 'active_support/core_ext/string'
 
 require_relative 'sections'
+require_relative 'strings'
+
+begin
+  require 'awesome_print'
+rescue LoadError; end
 
 include Nanoc::Helpers::Rendering
 Nanoc::Helpers::Rendering.module_eval do
