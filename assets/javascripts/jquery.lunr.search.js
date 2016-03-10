@@ -60,7 +60,7 @@ const searchPlugin = function () {
       const template = $template.text()
       Mustache.parse(template, "[[ ]]")
       return function (view, partials) {
-        Mustache.render(template, view, partials)
+        return Mustache.render(template, view, partials)
       }
     }
 
