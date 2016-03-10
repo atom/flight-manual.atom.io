@@ -7,7 +7,7 @@
           "title": "<%= safe_embed(item[:title]) %>",
           "category": "",
           "category_url": "",
-          "url": "/articles/<%= item[:title].parameterize %>",
+          "url": "<%= item[:filename].sub(/^content/, '').sub(/.asciidoc$/, '/') %>",
           "body": "<%= @clean_body %>",
           "excerpt": "<%= @clean_body[0..140] %>…"
         },
