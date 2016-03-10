@@ -1,0 +1,69 @@
+@import 'shared/mixins';
+//@import 'globals/variables';
+
+.hidden {
+  display: none;
+}
+
+.search-spinner {
+  line-height: 200px; /* or whatever you want, should match height */
+  text-align: center;
+
+  & img {
+    vertical-align: middle;
+  }
+}
+
+// A top and bottom outlined list item style for a list of search results.
+// This includes a <h3> header, a <p> text sample, and a <p.category> breadcrumb.
+// Instances of the search term are highlighted with a <span>.
+//
+// No styleguide reference
+ul.search-results{
+  margin-top: 20px;
+  border-top: 1px solid $border-color;
+
+  li {
+    border-bottom: 1px solid $border-color;
+    padding: 10px 0;
+    color: $brownMedium;
+
+    span.search-term {
+      font-weight: bold;
+      color: $brownDark;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: bold;
+
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .label{
+      text-transform: uppercase;
+      @include rounded-corners;
+      @include gradient;
+      @include span-label;
+      font-size: 9px;
+      padding: 1px 2px;
+
+      a{
+        color: $lightText;
+      }
+    }
+
+    p {
+      margin: .5em 0;
+    }
+
+    p.category {
+      font-weight: bold;
+      font-size: 13px;
+    }
+  }
+}
