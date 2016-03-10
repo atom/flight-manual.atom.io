@@ -28,6 +28,7 @@ end
 
 passthrough '/**/*.png'
 passthrough '/**/*.gif'
+passthrough '/CNAME'
 
 route '/search.json' do
   '/search.json'
