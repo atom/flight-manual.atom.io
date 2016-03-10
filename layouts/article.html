@@ -13,7 +13,8 @@
           <%= renderp '/includes/toc.html', :heading => 'h4', :title => @item[:title] %>
         </div>
         <div class="markdown-body document-content">
-          <h1><%= lookup_section('toc', @item[:title]) << ' ' << @item[:title] %></h1>
+          <% section = lookup_section('toc', @item[:title]) %>
+          <h1><%= section << ' ' << @item[:title] if section %></h1>
           <div class="manual-docs">
             <%= yield %>
           </div>

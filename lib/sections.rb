@@ -10,4 +10,5 @@ def lookup_section(datafile, title)
     end
     chapter_itr += 1
   end
+  return nil
 end
