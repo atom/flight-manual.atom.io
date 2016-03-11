@@ -1,3 +1,6 @@
+---
+title: Summary
+---
 === Summary
 
 ( List of topics we covered / appendix? )
