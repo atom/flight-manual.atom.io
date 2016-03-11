@@ -514,7 +514,7 @@ input.documents-search-input {
     li {
       padding: 1px;
       padding-left: 15px;
-      .selected {
+      &.selected {
         background: #eee;
       }
     }
