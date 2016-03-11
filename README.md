@@ -8,7 +8,6 @@ This book is open source under a Creative Commons license.
 
 [![atom-cover](https://cloud.githubusercontent.com/assets/378023/8718108/54c10686-2bdc-11e5-8d26-f7f807d63171.png)](https://github.com/atom/docs/releases/latest)
 
-
 ## License
 
 This book is published under the Creative Commons BY-SA license. If you contribute to the work, you will have to agree to allow your content to be published under the self same license. Check out [the license file](LICENSE.asc) for more details.
@@ -19,13 +18,21 @@ To check the current progress and planned content of the book, check out the [ou
 
 ## Generating the book
 
-You'll need Ruby and Node installed on your system. The required versions for each of these languages can be found in the *.ruby-version* and *package.json* files, respectively. You'll also need to have the `bundle` command installed. You can do this with `gem install bundler`.
+### Prerequisites
 
-You can fetch the latest dependencies by opening the command line and running `script/bootstrap`:
+* You'll need Ruby installed on your system. The required version can be found in *.ruby-version*.
+* You'll need the `bundle` command installed. You can do this with `gem install bundler`.
+* You'll need Node and NPM installed, too. The required version can be found in *package.json*.
+
+### Fetching dependencies
+
+You can always fetch the latest dependencies by opening the command line and running `script/bootstrap`:
 
 ``` sh
 $ script/bootstrap
 ```
+
+### Starting the site
 
 You can start the site with `script/server`:
 
