@@ -11843,7 +11843,7 @@ var searchPlugin = function searchPlugin() {
         if (this.entries.length < max) {
           this.searchMoreButton.addClass('hidden');
         }
-        this.searchEntries.append(this.searchTemplate({ entrires: entriesToShow }));
+        this.searchEntries.append(this.searchTemplate({ entries: entriesToShow }));
       }
     }, {
       key: 'populateSearchFromQuery',

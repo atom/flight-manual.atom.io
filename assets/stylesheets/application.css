@@ -714,6 +714,7 @@ input[type="email"],
 input[type="number"],
 input[type="tel"],
 input[type="url"],
+input[type="search"],
 select,
 textarea {
   min-height: 34px;
@@ -741,6 +742,8 @@ textarea {
   input[type="tel"]:focus,
   input[type="url"].focus,
   input[type="url"]:focus,
+  input[type="search"].focus,
+  input[type="search"]:focus,
   select.focus,
   select:focus,
   textarea.focus,
@@ -1793,13 +1796,13 @@ input::-webkit-inner-spin-button {
   display: inline-block;
   height: 32px;
   width: 32px;
-  background-image: asset-url("button-sprites.png");
+  background-image: url("button-sprites.png");
   position: absolute;
   top: 4px;
   left: 4px; }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
     .button-image-down {
-      background-image: asset-url("button-sprites@2x.png");
+      background-image: url("button-sprites@2x.png");
       -webkit-background-size: 64px 32px;
       -moz-background-size: 64px 32px;
       -o-background-size: 64px 32px;
@@ -1809,14 +1812,14 @@ input::-webkit-inner-spin-button {
   display: inline-block;
   height: 32px;
   width: 32px;
-  background-image: asset-url("button-sprites.png");
+  background-image: url("button-sprites.png");
   position: absolute;
   background-position: -32px 0;
   top: 4px;
   left: 4px; }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
     .button-image-github {
-      background-image: asset-url("button-sprites@2x.png");
+      background-image: url("button-sprites@2x.png");
       -webkit-background-size: 64px 32px;
       -moz-background-size: 64px 32px;
       -o-background-size: 64px 32px;
@@ -2319,7 +2322,9 @@ div.search-form button {
 
 .autocomplete-results {
   position: absolute;
-  margin-top: 5px;
+  top: 40px;
+  left: 40px;
+  right: 40px;
   -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -2330,8 +2335,7 @@ div.search-form button {
   border-radius: 3px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  width: 650px; }
+  background-clip: padding-box; }
   .autocomplete-results .header a {
     -webkit-border-radius: 3px 3px 0 0;
     -moz-border-radius: 3px 3px 0 0;
@@ -2365,13 +2369,13 @@ div.search-form button {
     color: #66595c;
     font-weight: bold;
     cursor: pointer;
-    text-decoration: none;
     border: solid #ddd;
     border-width: 0 1px 1px 1px;
     background-color: #fff; }
     .autocomplete-results a:hover {
       background-color: #3586c3;
-      color: #fff; }
+      color: #fff;
+      text-decoration: none; }
     .autocomplete-results a.selected {
       background-color: #3586c3;
       color: #fff; }
@@ -2398,6 +2402,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, arial, freesans, clean, sans-serif; }
 
 .wrapper {
+  position: relative;
   width: 860px;
   margin: 0 auto;
   padding-left: 40px;
@@ -2484,10 +2489,10 @@ hr {
   width: 114px;
   height: 24px;
   margin: 4px 8px 4px 0;
-  background-image: asset-url("logo-small.png"); }
+  background-image: url("../images/logo-small.png"); }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
     .logo-small {
-      background-image: asset-url("logo-small@2x.png");
+      background-image: url("../images/logo-small@2x.png");
       -webkit-background-size: 114px 24px;
       -moz-background-size: 114px 24px;
       -o-background-size: 114px 24px;
@@ -2513,10 +2518,10 @@ hr {
     text-indent: 230px;
     white-space: nowrap;
     overflow: hidden;
-    background-image: asset-url("logo.png"); }
+    background-image: url("logo.png"); }
     @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
       .header .logo {
-        background-image: asset-url("logo@2x.png");
+        background-image: url("logo@2x.png");
         -webkit-background-size: 290px 60px;
         -moz-background-size: 290px 60px;
         -o-background-size: 290px 60px;
@@ -2992,12 +2997,12 @@ hr {
     display: table-cell;
     width: 1%;
     padding-right: 20px; }
-  .documents-search input[type="text"] {
-    font-size: 16px;
-    width: 700px;
-    margin: 0;
-    margin-left: 120px;
-    display: table-cell; }
+
+input.documents-search-input {
+  font-size: 16px;
+  width: 100%;
+  margin: 0;
+  display: table-cell; }
 
 .documents-toc .anchor {
   display: none; }
@@ -3015,10 +3020,10 @@ hr {
   display: block;
   width: 470px;
   height: 448px;
-  background-image: asset-url("inspectocat.png"); }
+  background-image: url("inspectocat.png"); }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
     .inspectocat {
-      background-image: asset-url("inspectocat@2x.png");
+      background-image: url("inspectocat@2x.png");
       -webkit-background-size: 470px 448px;
       -moz-background-size: 470px 448px;
       -o-background-size: 470px 448px;
@@ -3054,6 +3059,9 @@ hr {
 
 .manual-docs h1 {
   margin-top: 0px; }
+
+.manual-docs h3 a {
+  color: inherit; }
 
 .manual-docs ul {
   list-style-type: none;
@@ -3096,15 +3104,18 @@ hr {
   .toc h4 {
     margin: 0;
     padding: 0; }
+    .toc h4 a {
+      color: inherit; }
   .toc ul {
     list-style-type: none;
     margin: 0;
+    margin-bottom: 1em;
     padding: 0;
     font-size: 0.95em; }
     .toc ul li {
       padding: 1px;
       padding-left: 15px; }
-      .toc ul li .selected {
+      .toc ul li.selected {
         background: #eee; }
 
 /* syntax highlighting and coloring text in general */
