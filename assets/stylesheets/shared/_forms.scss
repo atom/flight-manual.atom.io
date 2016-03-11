@@ -437,13 +437,14 @@ div.search-form {
 
 .autocomplete-results {
   position: absolute;
-  margin-top: 5px;
+  top: 40px;
+  left: 40px;
+  right: 40px;
   @include drop-shadow();
   clear: both;
   z-index: 2;
   @include rounded-corners(3px);
-  width: 650px;
-  
+
   .header {
     a {
       @include rounded-corners(3px 3px 0 0);
