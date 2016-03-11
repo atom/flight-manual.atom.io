@@ -19,7 +19,7 @@ To check the current progress and planned content of the book, check out the [ou
 
 ## Generating the book
 
-You'll need Ruby and Node installed on your system. The required versions for each of these languages can be found in the *.ruby-version* and *package.json* files, respectively.
+You'll need Ruby and Node installed on your system. The required versions for each of these languages can be found in the *.ruby-version* and *package.json* files, respectively. You'll also need to have the `bundle` command installed. You can do this with `gem install bundler`.
 
 You can fetch the latest dependencies by opening the command line and running `script/bootstrap`:
 
@@ -37,6 +37,8 @@ Compiling site...
 
 Site compiled in 5.81s.
 ```
+
+While the server is running, you can see the site in your browser at http://localhost:4000.
 
 ## Contributing
 
