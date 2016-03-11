@@ -1,5 +1,3 @@
-require 'html/proofer'
-
 task :default => [:test]
 
 desc "Remove the tmp dir"
@@ -34,8 +32,8 @@ end
 
 desc "Run the HTML-Proofer"
 task :run_proofer do
-  require 'html/proofer'
-  HTML::Proofer.new("./output").run
+  require 'html-proofer'
+  HTMLProofer.check_directory("./output").run
 end
 
 # Prompt user for a commit message; default: P U B L I S H :emoji:

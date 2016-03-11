@@ -10,5 +10,5 @@ gem 'rouge', '~> 1.10'
 gem 'rake'
 
 group :test do
-  gem 'html-proofer', '~> 2.0'
+  gem 'html-proofer', '~> 3.0'
 end
