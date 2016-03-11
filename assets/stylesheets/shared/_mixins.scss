@@ -41,10 +41,10 @@
 }
 
 @mixin background-image-retina($file, $type, $width, $height) {
-  background-image: asset-url($file + '.' + $type);
+  background-image: url($file + '.' + $type);
 
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-    background-image: asset-url($file + '@2x.' + $type);
+    background-image: url($file + '@2x.' + $type);
     -webkit-background-size: $width $height;
     -moz-background-size: $width $height;
     -o-background-size: $width $height;
