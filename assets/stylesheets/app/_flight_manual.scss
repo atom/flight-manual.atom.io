@@ -378,14 +378,13 @@ $subtleGreen: lighten($greenLight, 15);
     width: 1%;
     padding-right: 20px;
   }
+}
 
-  input[type="text"] {
-    font-size: 16px;
-    width: 700px;
-    margin: 0;
-    margin-left: 120px;
-    display: table-cell;
-  }
+input.documents-search-input {
+  font-size: 16px;
+  width: 100%;
+  margin: 0;
+  display: table-cell;
 }
 
 .documents-toc {
@@ -447,6 +446,9 @@ $subtleGreen: lighten($greenLight, 15);
 
 .manual-docs {
   h1 { margin-top: 0px; }
+  h3 a {
+    color: inherit;
+  }
   ul {
     list-style-type: none;
     margin: 0;
@@ -499,16 +501,20 @@ $subtleGreen: lighten($greenLight, 15);
   h4 {
     margin: 0;
     padding: 0;
+    a {
+      color: inherit;
+    }
   }
   ul {
     list-style-type: none;
     margin: 0;
+    margin-bottom: 1em;
     padding: 0;
     font-size: 0.95em;
     li {
       padding: 1px;
       padding-left: 15px;
-      .selected {
+      &.selected {
         background: #eee;
       }
     }

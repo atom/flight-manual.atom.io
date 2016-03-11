@@ -437,13 +437,14 @@ div.search-form {
 
 .autocomplete-results {
   position: absolute;
-  margin-top: 5px;
+  top: 40px;
+  left: 40px;
+  right: 40px;
   @include drop-shadow();
   clear: both;
   z-index: 2;
   @include rounded-corners(3px);
-  width: 650px;
-  
+
   .header {
     a {
       @include rounded-corners(3px 3px 0 0);
@@ -474,7 +475,6 @@ div.search-form {
     color: $brownDark;
     font-weight: bold;
     cursor: pointer;
-    text-decoration: none;
     border: solid $border-color;
     border-width: 0 1px 1px 1px;
     background-color: #fff;
@@ -482,6 +482,7 @@ div.search-form {
     &:hover {
       background-color: #3586c3;
       color: #fff;
+      text-decoration: none;
     }
 
     &.selected {
