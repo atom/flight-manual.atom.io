@@ -115,7 +115,7 @@ const searchPlugin = function () {
       this.quickSearchEntries.empty()
       if (entries.length > 0) {
         entries = entries.slice(0,10)
-        this.quickSearchResults.append(this.quickSearchTemplate({entries: entries}))
+        this.quickSearchEntries.append(this.quickSearchTemplate({entries: entries}))
         this.quickSearchResults.show()
         const _href = $('.quicksearch-seemore').attr('href')
         $('.quicksearch-seemore').attr('href', `${_href}${query}`)
