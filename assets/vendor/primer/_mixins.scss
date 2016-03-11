@@ -35,13 +35,3 @@
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
 }
-
-// shortcut to the gradient map
-//
-// $y     - y value of the desired gradient
-// $color - the optional background color
-//
-// Compatable everywhere
-@mixin horz-gradient-map($y:0px, $color:transparent) {
-  background: $color url($gradient-sprite) 0 $y repeat-x;
-}
