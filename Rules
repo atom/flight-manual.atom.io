@@ -8,12 +8,7 @@ end
 compile '**/*.asciidoc' do
   filter :asciidoctor, :safe => :safe, :base_dir => 'content'
   filter :erb
-  layout '/article.html'
-end
-
-compile '**/*.asciidoc' do
-  filter :asciidoctor, :safe => :safe, :base_dir => 'content'
-  filter :erb
+  filter :colorize_syntax, :default_colorizer => :rouge
   layout '/article.html'
 end
 
