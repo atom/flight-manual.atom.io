@@ -373,6 +373,10 @@ $subtleGreen: lighten($greenLight, 15);
   display: table;
   width: 100%;
 
+  .wide & {
+    padding-left: 15px;
+  }
+
   .select-menu {
     display: table-cell;
     width: 1%;
@@ -381,9 +385,8 @@ $subtleGreen: lighten($greenLight, 15);
 
   input[type="text"] {
     font-size: 16px;
-    width: 700px;
+    width: 100%;
     margin: 0;
-    margin-left: 120px;
     display: table-cell;
   }
 }
