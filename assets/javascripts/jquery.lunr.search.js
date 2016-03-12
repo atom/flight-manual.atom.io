@@ -128,12 +128,12 @@ const searchPlugin = function () {
       $('.search-query').text(query)
       if (entries.length === 0) {
         this.searchSpinner.addClass('hidden')
-        this.searchHeader.text(`No results for ${query}`)
+        this.searchHeader.html(`No results for <em>${query}</em>`)
       } else {
         this.entries = entries
         this.searchSpinner.addClass('hidden')
         this.searchMoreButton.removeClass('hidden')
-        this.searchHeader.text(`Search results for ${query}`)
+        this.searchHeader.html(`Search results for <em>${query}</em>`)
         this.populateEntries()
       }
     }

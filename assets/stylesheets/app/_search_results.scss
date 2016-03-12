@@ -1,17 +1,52 @@
 @import 'shared/mixins';
 //@import 'globals/variables';
 
-.hidden {
-  display: none;
-}
+.search-container {
 
-.search-spinner {
-  line-height: 200px; /* or whatever you want, should match height */
-  text-align: center;
-
-  & img {
-    vertical-align: middle;
+  .hidden {
+    display: none;
   }
+
+  .search-spinner {
+    line-height: 200px; /* or whatever you want, should match height */
+    text-align: center;
+
+    & img {
+      vertical-align: middle;
+    }
+  }
+
+  .search-header {
+    margin-top: 3px;
+    margin-bottom: 2px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #999;
+    display: inline-block;
+    border: none;
+
+    em {
+      color: #66595c;
+      font-weight: bold;
+    }
+  }
+
+  .try-other-search-message {
+    color: #999;
+  }
+
+  .markdown {
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom: 0;
+    }
+
+    .anchor { display: none; }
+
+    a { color: $brownDark; }
+  }
+
 }
 
 // A top and bottom outlined list item style for a list of search results.
@@ -20,13 +55,13 @@
 //
 // No styleguide reference
 ul.search-results{
-  margin-top: 20px;
+  margin: 0;
   border-top: 1px solid $border-color;
 
   li {
     border-bottom: 1px solid $border-color;
-    padding: 10px 0;
-    color: $brownMedium;
+    padding: 1em 0;
+    font-size: 1em;
 
     span.search-term {
       font-weight: bold;
@@ -34,8 +69,10 @@ ul.search-results{
     }
 
     h3 {
-      font-size: 15px;
+      font-size: 18px;
       font-weight: bold;
+      margin: 0;
+      color: $greenDark;
 
       a {
         &:hover {

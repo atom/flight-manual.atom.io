@@ -301,43 +301,6 @@ hr {
   }
 }
 
-.search-page {
-
-  .search-results {
-    padding-left: 0;
-  }
-
-  .search-results-header {
-    margin-top: 3px;
-    margin-bottom: 2px;
-    font-size: 18px;
-    font-weight: normal;
-    color: #999;
-    display: inline-block;
-
-    em {
-      color: #66595c;
-      font-weight: bold;
-    }
-  }
-
-  .try-other-search-message {
-    color: #999;
-  }
-
-  .markdown {
-    h1, h2, h3, h4, h5, h6 {
-      font-size: 16px;
-      font-weight: bold;
-      border-bottom: 0;
-    }
-
-    .anchor { display: none; }
-
-    a { color: $brownDark; }
-  }
-}
-
 .docs-search-results {
   h3 {
     margin: 0;
