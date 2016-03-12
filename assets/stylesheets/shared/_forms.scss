@@ -435,64 +435,6 @@ div.search-form {
   }
 }
 
-.autocomplete-results {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  @include drop-shadow();
-  clear: both;
-  z-index: 2;
-  @include rounded-corners(3px);
-
-  .header {
-    a {
-      @include rounded-corners(3px 3px 0 0);
-      border-width: 1px;
-      font-size: 12px;
-      color: $brownMedium;
-    }
-
-    &:last-child a {
-      @include rounded-corners(3px);
-    }
-  }
-
-  table {
-    width: 100%;
-
-    tr:last-child{
-      a {
-        @include rounded-corners(0 0 3px 3px);
-      }
-    }
-  }
-
-  a {
-    outline: none;
-    padding: 5px 10px;
-    display: block;
-    color: $brownDark;
-    font-weight: bold;
-    cursor: pointer;
-    border: solid $border-color;
-    border-width: 0 1px 1px 1px;
-    background-color: #fff;
-
-    &:hover {
-      background-color: #3586c3;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    &.selected {
-      background-color: #3586c3;
-      color: #fff;
-    }
-  }
-}
-
-
 .search-form-btn {
   display: table-cell;
   width: 1%;
