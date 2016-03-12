@@ -37,9 +37,10 @@ $subtleGreen: lighten($greenLight, 15);
   code {
     @include code-font;
     padding: 0.3em 0;
-    background-color: lighten($beigeMedium, 5);
     border-radius: 3px;
     border: none;
+    color: $codeTextColor;
+    background: $codeBgColor;
   }
 
   .extended-methods-container {
@@ -533,8 +534,8 @@ input.documents-search-input {
   }
 
   pre {
-    background: #eee;
-    color: #333333;
+    color: $codeTextColor;
+    background: $codeBgColor;
   }
   /* Pygments with manni theme */
   pre code.hll { background-color: #ffffcc }
