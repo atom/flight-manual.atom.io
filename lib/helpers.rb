@@ -1,5 +1,7 @@
-require 'nanoc-asciidoctor'
 require 'nanoc-conref-fs'
+require 'nanoc-html-pipeline'
+require 'html/pipeline/asciidoc_filter'
+require 'html/pipeline/rouge_filter'
 require 'active_support/core_ext/string'
 
 require_relative 'sections'

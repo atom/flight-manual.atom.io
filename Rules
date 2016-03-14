@@ -6,7 +6,7 @@ compile '/index.html' do
 end
 
 compile '**/*.asciidoc' do
-  filter :asciidoctor, :safe => :safe, :base_dir => 'content'
+  filter :html_pipeline, @config[:pipeline_config]
   filter :erb
   filter :colorize_syntax, :default_colorizer => :rouge
   layout '/article.html'
