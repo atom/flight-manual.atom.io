@@ -41,24 +41,17 @@
       <li><a class="is-selected" href="/">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
-      <li><a href="httpp://test.com">test</a></li>
     </ul>
 
   </div>
 </div>
 
-      <div class="wrapper documents content-push">
+      <div class="wrapper wrapper--overflow documents content-push">
         <script id="quicksearch-results-template" type="text/mustache">
-  <div class="header">
-    <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
-  </div>
   [[#entries]]
-    <tr class="article">
-      <td class="info">
-        <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
-      </td>
-    </tr>
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
   [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
 </script>
 
 <script id="search-results-template" type="text/mustache">
@@ -82,10 +75,9 @@
 </div>
 
 <div class="autocomplete-results" style="display: none;">
-  <table class="result-group" border="0" cellpadding="0" cellspacing="0">
-  </table>
+  <div class="result-group"></div>
 </div>
-        
+
         <div class="markdown-body">
           <div class="manual-docs">
             <h1>Atom Flight Manual</h1>
@@ -94,7 +86,7 @@
 
 
 
-<h3><a href="/getting-started">Chapter 1: Getting Started</a></h3>
+<h3>Chapter 1: Getting Started</h3>
 <ul>
   
   
@@ -122,7 +114,7 @@
 </ul>
 
 
-<h3><a href="/using-atom">Chapter 2: Using Atom</a></h3>
+<h3>Chapter 2: Using Atom</h3>
 <ul>
   
   
@@ -200,7 +192,7 @@
 </ul>
 
 
-<h3><a href="/hacking-atom">Chapter 3: Hacking Atom</a></h3>
+<h3>Chapter 3: Hacking Atom</h3>
 <ul>
   
   
@@ -258,7 +250,7 @@
 </ul>
 
 
-<h3><a href="/behind-atom">Chapter 4: Behind Atom</a></h3>
+<h3>Chapter 4: Behind Atom</h3>
 <ul>
   
   
@@ -306,7 +298,7 @@
 </ul>
 
 
-<h3><a href="/upgrading-to-1-0-apis">Chapter 5: Upgrading to 1.0 APIs</a></h3>
+<h3>Chapter 5: Upgrading to 1.0 APIs</h3>
 <ul>
   
   

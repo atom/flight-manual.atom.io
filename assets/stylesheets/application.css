@@ -1042,7 +1042,7 @@ input::-webkit-inner-spin-button {
     font-weight: bold; }
 
 .status-indicator {
-  font: normal normal 16px/1 "octicons";
+  font: normal normal 16px / 1 "octicons";
   display: inline-block;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
@@ -1777,11 +1777,11 @@ input::-webkit-inner-spin-button {
   .button.button-outline.selected {
     color: white;
     background: #81c08b;
-    border-color: #70b77b;
+    border-color: #70b87b;
     box-shadow: none; }
     .button.button-outline.selected:hover {
       z-index: 2;
-      background: #70b77b; }
+      background: #70b87b; }
   .button.button-outline:active {
     box-shadow: none; }
 
@@ -2320,66 +2320,6 @@ div.search-form button {
     height: 16px;
     color: #333; }
 
-.autocomplete-results {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  clear: both;
-  z-index: 2;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box; }
-  .autocomplete-results .header a {
-    -webkit-border-radius: 3px 3px 0 0;
-    -moz-border-radius: 3px 3px 0 0;
-    border-radius: 3px 3px 0 0;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border-width: 1px;
-    font-size: 12px;
-    color: #8e6965; }
-  .autocomplete-results .header:last-child a {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box; }
-  .autocomplete-results table {
-    width: 100%; }
-    .autocomplete-results table tr:last-child a {
-      -webkit-border-radius: 0 0 3px 3px;
-      -moz-border-radius: 0 0 3px 3px;
-      border-radius: 0 0 3px 3px;
-      -moz-background-clip: padding;
-      -webkit-background-clip: padding-box;
-      background-clip: padding-box; }
-  .autocomplete-results a {
-    outline: none;
-    padding: 5px 10px;
-    display: block;
-    color: #66595c;
-    font-weight: bold;
-    cursor: pointer;
-    border: solid #ddd;
-    border-width: 0 1px 1px 1px;
-    background-color: #fff; }
-    .autocomplete-results a:hover {
-      background-color: #3586c3;
-      color: #fff;
-      text-decoration: none; }
-    .autocomplete-results a.selected {
-      background-color: #3586c3;
-      color: #fff; }
-
 .search-form-btn {
   display: table-cell;
   width: 1%;
@@ -2413,6 +2353,9 @@ body {
   .wrapper.no-pad {
     padding-left: 0;
     padding-right: 0; }
+
+.wrapper--overflow {
+  overflow: initial; }
 
 .content-push {
   margin-top: 40px;
@@ -2621,34 +2564,6 @@ hr {
       font-weight: 300;
       font-size: 36px; }
 
-.search-page .search-results {
-  padding-left: 0; }
-
-.search-page .search-results-header {
-  margin-top: 3px;
-  margin-bottom: 2px;
-  font-size: 18px;
-  font-weight: normal;
-  color: #999;
-  display: inline-block; }
-  .search-page .search-results-header em {
-    color: #66595c;
-    font-weight: bold; }
-
-.search-page .try-other-search-message {
-  color: #999; }
-
-.search-page .markdown h1, .search-page .markdown h2, .search-page .markdown h3, .search-page .markdown h4, .search-page .markdown h5, .search-page .markdown h6 {
-  font-size: 16px;
-  font-weight: bold;
-  border-bottom: 0; }
-
-.search-page .markdown .anchor {
-  display: none; }
-
-.search-page .markdown a {
-  color: #66595c; }
-
 .docs-search-results h3 {
   margin: 0;
   font-size: 18px; }
@@ -2741,9 +2656,10 @@ hr {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: 14px;
     padding: 0.3em 0;
-    background-color: #f8f6f2;
     border-radius: 3px;
-    border: none; }
+    border: none;
+    color: #66595c;
+    background: #f6f3ee; }
   .documents .extended-methods-container .extended-methods {
     display: none; }
   .documents .extended-methods-container.show .extended-methods {
@@ -3200,8 +3116,8 @@ input.documents-search-input {
     text-align: right;
     font-weight: 200; }
   .document-content pre {
-    background: #eee;
-    color: #333333; }
+    color: #66595c;
+    background: #f6f3ee; }
   .document-content pre code.hll {
     background-color: #ffffcc; }
   .document-content pre code.c {
@@ -3402,29 +3318,92 @@ input.documents-search-input {
   background: #6bc79b;
   border-color: #6bc79b; }
 
-.hidden {
+.autocomplete-results {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  clear: both;
+  z-index: 2; }
+  .autocomplete-results .quicksearch-seemore {
+    font-size: 12px;
+    color: #8e6965;
+    text-align: center;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box; }
+  .autocomplete-results a {
+    outline: none;
+    padding: 5px 10px;
+    display: block;
+    color: #66595c;
+    font-weight: bold;
+    cursor: pointer;
+    border: solid #ddd;
+    border-width: 0 1px 1px 1px;
+    background-color: #fff; }
+    .autocomplete-results a:hover, .autocomplete-results a:focus, .autocomplete-results a.selected {
+      background-color: #66595c;
+      color: #fff;
+      text-decoration: none; }
+
+.search-container .hidden {
   display: none; }
 
-.search-spinner {
+.search-container .search-spinner {
   line-height: 200px;
   /* or whatever you want, should match height */
   text-align: center; }
-  .search-spinner img {
+  .search-container .search-spinner img {
     vertical-align: middle; }
 
+.search-container .search-header {
+  margin-top: 3px;
+  margin-bottom: 2px;
+  font-size: 18px;
+  font-weight: normal;
+  color: #999;
+  display: inline-block;
+  border: none; }
+  .search-container .search-header em {
+    color: #66595c;
+    font-weight: bold; }
+
+.search-container .try-other-search-message {
+  color: #999; }
+
+.search-container .markdown h1, .search-container .markdown h2, .search-container .markdown h3, .search-container .markdown h4, .search-container .markdown h5, .search-container .markdown h6 {
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 0; }
+
+.search-container .markdown .anchor {
+  display: none; }
+
+.search-container .markdown a {
+  color: #66595c; }
+
 ul.search-results {
-  margin-top: 20px;
+  margin: 0;
   border-top: 1px solid #ddd; }
   ul.search-results li {
     border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    color: #8e6965; }
+    padding: 1em 0;
+    font-size: 1em; }
     ul.search-results li span.search-term {
       font-weight: bold;
       color: #66595c; }
     ul.search-results li h3 {
-      font-size: 15px;
-      font-weight: bold; }
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+      color: #40a977; }
       ul.search-results li h3 a:hover {
         text-decoration: underline; }
     ul.search-results li .label {

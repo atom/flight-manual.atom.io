@@ -41,7 +41,6 @@
       <li><a class="is-selected" href="/">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
-      <li><a href="httpp://test.com">test</a></li>
     </ul>
 
   </div>
@@ -49,16 +48,10 @@
 
       <div class="wrapper documents content-push wide">
         <script id="quicksearch-results-template" type="text/mustache">
-  <div class="header">
-    <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
-  </div>
   [[#entries]]
-    <tr class="article">
-      <td class="info">
-        <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
-      </td>
-    </tr>
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
   [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
 </script>
 
 <script id="search-results-template" type="text/mustache">
@@ -82,8 +75,7 @@
 </div>
 
 <div class="autocomplete-results" style="display: none;">
-  <table class="result-group" border="0" cellpadding="0" cellspacing="0">
-  </table>
+  <div class="result-group"></div>
 </div>
 
 
@@ -91,7 +83,7 @@
           
 
 
-<h4><a href="/getting-started">Chapter 1: Getting Started</a></h4>
+<h4>Chapter 1: Getting Started</h4>
 <ul>
   
   
@@ -119,7 +111,7 @@
 </ul>
 
 
-<h4><a href="/using-atom">Chapter 2: Using Atom</a></h4>
+<h4>Chapter 2: Using Atom</h4>
 <ul>
   
   
@@ -197,7 +189,7 @@
 </ul>
 
 
-<h4><a href="/hacking-atom">Chapter 3: Hacking Atom</a></h4>
+<h4>Chapter 3: Hacking Atom</h4>
 <ul>
   
   
@@ -255,7 +247,7 @@
 </ul>
 
 
-<h4><a href="/behind-atom">Chapter 4: Behind Atom</a></h4>
+<h4>Chapter 4: Behind Atom</h4>
 <ul>
   
   
@@ -303,7 +295,7 @@
 </ul>
 
 
-<h4><a href="/upgrading-to-1-0-apis">Chapter 5: Upgrading to 1.0 APIs</a></h4>
+<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
 <ul>
   
   
