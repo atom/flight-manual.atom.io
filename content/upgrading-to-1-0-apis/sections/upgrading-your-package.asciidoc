@@ -13,7 +13,7 @@ We've set deprecation messages and errors in strategic places to help make sure 
 
 If you use any class from `require 'atom'` with a `$` or `View` in the name, add the `atom-space-pen-views` module to your package's `package.json` file's dependencies:
 
-```js
+```json
 {
   "dependencies": {
     "atom-space-pen-views": "^2.0.3"
@@ -132,7 +132,7 @@ SelectListView
 
 To use the new views, you need to specify the `atom-space-pen-views` module in your package's `package.json` file's dependencies:
 
-```js
+```json
 {
   "dependencies": {
     "atom-space-pen-views": "^2.0.3"
@@ -142,7 +142,7 @@ To use the new views, you need to specify the `atom-space-pen-views` module in y
 
 `space-pen` bundles jQuery. If you do not need `space-pen` or any of the views, you can require jQuery directly.
 
-```js
+```json
 {
   "dependencies": {
     "jquery": "^2"

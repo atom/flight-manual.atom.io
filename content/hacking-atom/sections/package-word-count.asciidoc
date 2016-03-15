@@ -64,7 +64,7 @@ Known hooks are:
 
 The `package.json` in the package we've just generated looks like this currently:
 
-```js
+```json
 {
   "name": "wordcount",
   "main": "./lib/wordcount",
@@ -85,7 +85,7 @@ The `package.json` in the package we've just generated looks like this currently
 
 If you wanted to use activationHooks, you might have:
 
-```js
+```json
 {
   "name": "wordcount",
   "main": "./lib/wordcount",
