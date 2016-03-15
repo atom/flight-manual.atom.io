@@ -3,7 +3,7 @@
   <head>
     <%= renderp '/includes/meta.html' %>
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <%= renderp '/includes/top_bar.html' %>
       <div class="wrapper documents content-push wide">
@@ -15,9 +15,7 @@
         <div class="markdown-body document-content">
           <% section = lookup_section('toc', @item[:title]) %>
           <h1><%= section << ' ' << @item[:title] if section %></h1>
-          <div class="manual-docs">
-            <%= yield %>
-          </div>
+          <%= yield %>
         </div>
       </div>
       <div class="footer-pad"></div>
