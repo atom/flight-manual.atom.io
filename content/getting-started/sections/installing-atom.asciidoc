@@ -22,7 +22,7 @@ https://github.com/atom/atom/releases/latest
 
 Here you can download the `atom-mac.zip` file explicitly.
 
-Once you have that file, you can click on it to extract the binary and then drag the new `Atom` application into your ``Applications'' folder.
+Once you have that file, you can click on it to extract the binary and then drag the new `Atom` application into your "Applications" folder.
 
 When you first open Atom, it will try to install the `atom` and `apm` commands for use in the terminal. In some cases, Atom might not be able to install these commands because it needs an administrator password. To check if Atom was able to install the `atom` command, for example, open a terminal window and type `which atom`. If the `atom` command has been installed, you'll see something like this:
 

@@ -83,7 +83,7 @@ You might have defined some custom styles, keymaps or snippets in link:/using-at
 
 If a command is not executing when you hit a keystroke or the wrong command is executing, there might be an issue with the keybindings for that keystroke. Atom ships with the https://atom.io/packages/keybinding-resolver[Keybinding resolver], a neat package which helps you understand which keybindings are executed.
 
-Show the keybinding resolver with `cmd-.` or with ``Key Binding Resolver: Show'' from the Command palette. With the keybinding resolver shown, hit a keystroke:
+Show the keybinding resolver with `cmd-.` or with "Key Binding Resolver: Show" from the Command palette. With the keybinding resolver shown, hit a keystroke:
 
 .Keybinding Resolver
 image::../../images/keybinding-resolver.png[keybinding resolver]
@@ -98,7 +98,7 @@ Of all the keybindings that are listed (grey color), at most one keybinding is m
 
 If multiple keybindings are matched, Atom determines which keybinding will be executed based on the https://atom.io/docs/latest/advanced/keymaps#specificity-and-cascade-order[specificity of the selectors and the order in which they were loaded]. If the command you wanted to trigger is listed in the Keybinding resolver, but wasn't the one that was executed, this is normally explained by one of two causes:
 
-* the keystroke was not used in the context defined by the keybinding's selector. For example, you can't trigger the ``Tree View: Add File'' command if the Tree View is not focused, or
+* the keystroke was not used in the context defined by the keybinding's selector. For example, you can't trigger the "Tree View: Add File" command if the Tree View is not focused, or
 * there is another keybinding that took precedence. This often happens when you install a package which defines keybindings that conflict with existing keybindings. If the package's keybindings have selectors with higher specificity or were loaded later, they'll have priority over existing ones.
 
 Atom loads core Atom keybindings and package keybindings first, and user-defined keybindings last. Since user-defined keybindings are loaded last, you can use your `keymap.cson` file to tweak the keybindings and sort out problems like these. For example, you can remove keybindings with https://atom.io/docs/latest/behind-atom-keymaps-in-depth#removing-bindings[the `unset!` directive].

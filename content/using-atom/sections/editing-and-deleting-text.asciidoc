@@ -71,7 +71,7 @@ The whitespace commands are implemented in the https://github.com/atom/whitespac
 .Managing your whitespace settings
 image::../../images/whitespace.png[whitespace settings]
 
-Note that the ``Remove Trailing Whitespace'' option is on by default. This means that every time you save any file opened in Atom, it will strip all trailing whitespace from the file. If you want to disable this, go to the `whitespace` package in your settings panel and uncheck that option.
+Note that the "Remove Trailing Whitespace" option is on by default. This means that every time you save any file opened in Atom, it will strip all trailing whitespace from the file. If you want to disable this, go to the `whitespace` package in your settings panel and uncheck that option.
 
 Atom will also by default ensure that your file has a trailing newline. You can also disable this option on that screen.
 

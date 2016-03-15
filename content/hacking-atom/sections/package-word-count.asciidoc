@@ -174,7 +174,7 @@ It's recommended that you create an application menu item for common actions wit
 ]
 ```
 
-This section puts a ``Toggle'' menu item under a menu group named ``Word Count'' in the ``Packages'' menu.
+This section puts a "Toggle" menu item under a menu group named "Word Count" in the "Packages" menu.
 
 .Application menu item
 image::../../images/menu.png[application menu]
@@ -197,7 +197,7 @@ It's recommended to specify a context menu item for commands that are linked to 
   ]
 ```
 
-This adds a ``Toggle Word Count'' menu option to the menu that pops up when you right-click in an Atom text editor pane.
+This adds a "Toggle Word Count" menu option to the menu that pops up when you right-click in an Atom text editor pane.
 
 .Context menu entry
 image::../../images/context-menu.png[context menu]
@@ -226,7 +226,7 @@ You can also add separators and submenus to your context menus. To add a submenu
 
 ==== Developing our Package
 
-Currently with the generated package we have, if we run that `toggle` command through the menu or the command palette, we'll get a little pop up that says ``The Wordcount package is Alive! It's ALIVE!''.
+Currently with the generated package we have, if we run that `toggle` command through the menu or the command palette, we'll get a little pop up that says "The Wordcount package is Alive! It's ALIVE!".
 
 .Wordcount Package is Alive dialog
 image::../../images/toggle.png[word count is alive]

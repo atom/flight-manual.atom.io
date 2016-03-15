@@ -5,7 +5,7 @@ title: Scoped Settings, Scopes and Scope Descriptors
 
 Atom supports language-specific settings. You can soft wrap only Markdown files, or set the tab length to 4 in Python files.
 
-Language-specific settings are a subset of something more general we call ``scoped settings''. Scoped settings allow targeting down to a specific syntax token type. For example, you could conceivably set a setting to target only Ruby comments, only code inside Markdown files, or even only JavaScript function names.
+Language-specific settings are a subset of something more general we call "scoped settings". Scoped settings allow targeting down to a specific syntax token type. For example, you could conceivably set a setting to target only Ruby comments, only code inside Markdown files, or even only JavaScript function names.
 
 ==== Scope names in syntax tokens
 

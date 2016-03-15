@@ -61,7 +61,7 @@ convert: ->
 
 As in link:/hacking-atom/sections/package-word-count#_counting_words[Counting_words], we're using `atom.workspace.getActiveTextEditor()` to get the object that represents the active text editor. If this `convert()` method is called when not focused on a text editor, this will simply return a blank string, so we can skip the next line.
 
-Next we insert a string into the current text editor with the https://atom.io/docs/api/latest/TextEditor#instance-insertText[`insertText()`] method. This will insert the text wherever the cursor currently is in the current editor. If there is a selection, it will replace all selections with the ``Hello, World!'' text.
+Next we insert a string into the current text editor with the https://atom.io/docs/api/latest/TextEditor#instance-insertText[`insertText()`] method. This will insert the text wherever the cursor currently is in the current editor. If there is a selection, it will replace all selections with the "Hello, World!" text.
 
 ===== Reload the Package
 
@@ -104,7 +104,7 @@ Now we need to convert the selected text to ASCII art. To do this we will use th
 
 After saving the file, run the command "Update Package Dependencies: Update" from the Command Palette. This will install the package's node module dependencies, only figlet in this case. You will need to run "Update Package Dependencies: Update" whenever you update the dependencies field in your _package.json_ file.
 
-If for some reason this doesn't work, you'll see a message saying ``Failed to update package dependencies'' and you will find a new `npm-debug.log` file in your directory. That file should give you some idea as to what went wrong.
+If for some reason this doesn't work, you'll see a message saying "Failed to update package dependencies" and you will find a new `npm-debug.log` file in your directory. That file should give you some idea as to what went wrong.
 
 Now require the figlet node module in _lib/ascii-art.coffee_ and instead of inserting 'Hello, World!', convert the selected text to ASCII art.
 

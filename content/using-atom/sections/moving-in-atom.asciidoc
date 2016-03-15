@@ -43,7 +43,7 @@ The symbols navigation functionality is implemented in the https://github.com/at
 
 Atom also has a great way to bookmark specific lines in your project so you can jump back to them quickly.
 
-If you press `cmd-F2`, Atom will toggle a ``bookmark'' on the current line. You can set these throughout your project and use them to quickly find and jump to important lines of your project. A small bookmark symbol is added to the line gutter, like on line 22 of <<_bookmarks_image>>.
+If you press `cmd-F2`, Atom will toggle a "bookmark" on the current line. You can set these throughout your project and use them to quickly find and jump to important lines of your project. A small bookmark symbol is added to the line gutter, like on line 22 of <<_bookmarks_image>>.
 
 If you hit `F2`, Atom will jump to the next bookmark in the file you currently have focused. If you use `shift-F2` it will cycle backwards through them instead.
 

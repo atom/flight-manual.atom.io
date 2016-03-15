@@ -12,4 +12,4 @@ image::../../images/folding.png[code folding]
 
 To fold everything, use `alt-cmd-shift-{` and to unfold everything use `alt-cmd-shift-}`. You can also fold at a specific indentation level with `cmd-k cmd-N` where N is the indentation depth.
 
-Finally, you can fold arbitrary sections of your code or text by making a selection and then hitting `ctrl-alt-cmd-F` or choosing ``Fold Selection'' in the Command Palette.
+Finally, you can fold arbitrary sections of your code or text by making a selection and then hitting `ctrl-alt-cmd-F` or choosing "Fold Selection" in the Command Palette.

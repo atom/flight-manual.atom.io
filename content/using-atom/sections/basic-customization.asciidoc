@@ -189,7 +189,7 @@ image::../../images/python-settings.png[python settings]
 
 ===== Language-specific Settings in your Config File
 
-You can also edit the actual configuration file directly. Open your config file via the Command Palette, type ``open config'', and hit enter.
+You can also edit the actual configuration file directly. Open your config file via the Command Palette, type "open config", and hit enter.
 
 Global settings are under a global key, and each language can have its own top-level key. This key is the language's scope. Language-specific settings override anything set in the global section.
 

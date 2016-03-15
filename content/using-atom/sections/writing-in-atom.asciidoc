@@ -11,14 +11,14 @@ In these docs, we'll concentrate on writing in Markdown; however, other prose ma
 
 If you're working in text (which includes plain text files, GitHub markdown and Git commit messages by default), Atom will automatically try to check your spelling.
 
-Any misspelled words will be highlighted (by default with a dashed red line beneath the word) and you can pull up a menu of possible corrections by hitting `cmd-:` (or by choosing ``Correct Spelling'' from the right-click context menu or from the Command Palette).
+Any misspelled words will be highlighted (by default with a dashed red line beneath the word) and you can pull up a menu of possible corrections by hitting `cmd-:` (or by choosing "Correct Spelling" from the right-click context menu or from the Command Palette).
 
 .Checking your spelling
 image::../../images/spellcheck.png[spell checking]
 
 To add more types of files to the list of what Atom will try to spell check, go to the Spell Check package settings in your Settings view and add any grammars you want to spell check.
 
-The default grammars to spell check are ``text.plain, source.gfm, text.git-commit'' but you can add something like ``source.asciidoc'' if you wish to check those types of files too.
+The default grammars to spell check are `text.plain, source.gfm, text.git-commit` but you can add something like `source.asciidoc` if you wish to check those types of files too.
 
 The Atom spell checker uses the system dictionary, so if you want it to check your spelling in another language or locale, you can change it easily.
 
@@ -38,7 +38,7 @@ image::../../images/preview.png[preview prose]
 
 As you edit the text, the preview will also update by default. This makes it fairly easy to check your syntax as you type.
 
-You can also copy the rendered HTML from the preview pane into your system clipboard. There is no keybinding for it, but you can find it in the Command Palette by searching for ``Markdown Preview Copy HTML''.
+You can also copy the rendered HTML from the preview pane into your system clipboard. There is no keybinding for it, but you can find it in the Command Palette by searching for "Markdown Preview Copy HTML".
 
 Markdown preview is implemented in the https://github.com/atom/markdown-preview[atom/markdown-preview] package.
 
