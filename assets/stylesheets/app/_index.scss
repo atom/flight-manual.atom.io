@@ -2,6 +2,12 @@
 // Currently the index and search-results page
 
 .layout-toc {
+
+  .wrapper {
+    // this makses sure the overflowing autocomplete-results doesn't get cut off when there is no content
+    overflow: initial;
+  }
+
   h1 { margin-top: 0px; }
   h3 a {
     color: inherit;
