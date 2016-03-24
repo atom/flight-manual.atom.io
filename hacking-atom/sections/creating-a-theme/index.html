@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,8 +322,7 @@
         <div class="markdown-body document-content">
           
           <h1>3.5 Creating a Theme</h1>
-          <div class="manual-docs">
-            <div class="sect2">
+          <div class="sect2">
 <h3 id="_creating_a_theme">Creating a Theme</h3>
 <div class="paragraph">
 <p>Atom’s interface is rendered using HTML, and it’s styled via <a href="http://lesscss.org/">Less</a> which is a superset of CSS. Don’t worry if you haven’t heard of Less before; it’s just like CSS, but with a few handy extensions.</p>
@@ -335,7 +334,7 @@
 <p>Themes can be installed and changed from the settings view which you can open by selecting the <em>Atom &gt; Preferences…​</em> menu and navigating to the <em>Install</em> section and the <em>Themes</em> section on the left hand side.</p>
 </div>
 <div class="sect3">
-<h4 id="_getting_started">Getting Started</h4>
+<h4 id="getting-started">Getting Started</h4>
 <div class="paragraph">
 <p>Themes are pretty straightforward but it’s still helpful to be familiar with a few things before starting:</p>
 </div>
@@ -358,7 +357,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_creating_a_syntax_theme">Creating a Syntax Theme</h4>
+<h4 id="creating-a-syntax-theme">Creating a Syntax Theme</h4>
 <div class="paragraph">
 <p>Let’s create your first theme.</p>
 </div>
@@ -399,7 +398,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_creating_an_interface_theme">Creating an Interface Theme</h4>
+<h4 id="creating-an-interface-theme">Creating an Interface Theme</h4>
 <div class="paragraph">
 <p>Interface themes <strong>must</strong> provide a <code>ui-variables.less</code> file which contains all of the variables provided by the core themes, which we’ll cover in <a href="#_atom_theme_vars">Theme Variables</a>.</p>
 </div>
@@ -452,12 +451,12 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_development_workflow">Development workflow</h4>
+<h4 id="development-workflow">Development workflow</h4>
 <div class="paragraph">
 <p>There are a few of tools to help make theme development faster and easier.</p>
 </div>
 <div class="sect4">
-<h5 id="_live_reload">Live Reload</h5>
+<h5 id="live-reload">Live Reload</h5>
 <div class="paragraph">
 <p>Reloading by hitting <code>cmd-alt-ctrl-L</code> after you make changes to your theme is less than ideal. Atom supports <a href="https://github.com/atom/dev-live-reload">live updating</a> of styles on Dev Mode Atom windows.</p>
 </div>
@@ -479,7 +478,7 @@
 </div>
 </div>
 <div class="sect4">
-<h5 id="_developer_tools">Developer Tools</h5>
+<h5 id="developer-tools">Developer Tools</h5>
 <div class="paragraph">
 <p>Atom is based on the Chrome browser, and supports Chrome’s Developer Tools. You can open them by selecting the <em>View &gt; Toggle Developer Tools</em> menu, or by using the <code>cmd-alt-i</code> shortcut.</p>
 </div>
@@ -497,7 +496,7 @@
 </div>
 </div>
 <div class="sect4">
-<h5 id="_atom_styleguide">Atom Styleguide</h5>
+<h5 id="atom-styleguide">Atom Styleguide</h5>
 <div class="paragraph">
 <p>If you are creating an interface theme, you’ll want a way to see how your theme changes affect all the components in the system. The <a href="https://github.com/atom/styleguide">styleguide</a> is a page that renders every component Atom supports.</p>
 </div>
@@ -518,13 +517,13 @@
 <p>Atom’s UI provides a set of variables you can use in your own themes and packages.</p>
 </div>
 <div class="sect4">
-<h5 id="_use_in_themes">Use in Themes</h5>
+<h5 id="use-in-themes">Use in Themes</h5>
 <div class="paragraph">
 <p>Each custom theme must specify a <code>ui-variables.less</code> file with all of the following variables defined. The top-most theme specified in the theme settings will be loaded and available for import.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_in_packages">Use in Packages</h5>
+<h5 id="use-in-packages">Use in Packages</h5>
 <div class="paragraph">
 <p>In any of your package’s <code>.less</code> files, you can access the theme variables by importing the <code>ui-variables</code> file from Atom.</p>
 </div>
@@ -536,19 +535,20 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-css highlight" data-lang="css"><span class="k">@import</span> <span class="s1">"ui-variables"</span><span class="p">;</span>
+<pre class="highlight highlight-css"><code><span class="k">@import</span> <span class="s1">"ui-variables"</span><span class="p">;</span>
 
 <span class="nc">.my-selector</span> <span class="p">{</span>
   <span class="nl">background-color</span><span class="p">:</span> <span class="err">@</span><span class="n">base-background-color</span><span class="p">;</span>
   <span class="nl">padding</span><span class="p">:</span> <span class="err">@</span><span class="n">component-padding</span><span class="p">;</span>
 <span class="p">}</span></code></pre>
+
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_variables">Variables</h5>
+<h5 id="variables">Variables</h5>
 <div class="sect5">
-<h6 id="_text_colors">Text colors</h6>
+<h6 id="text-colors">Text colors</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -579,7 +579,7 @@
 </div>
 </div>
 <div class="sect5">
-<h6 id="_background_colors">Background colors</h6>
+<h6 id="background-colors">Background colors</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -607,7 +607,7 @@
 </div>
 </div>
 <div class="sect5">
-<h6 id="_component_colors">Component colors</h6>
+<h6 id="component-colors">Component colors</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -704,7 +704,7 @@
 </div>
 </div>
 <div class="sect5">
-<h6 id="_component_sizes">Component sizes</h6>
+<h6 id="component-sizes">Component sizes</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -732,7 +732,7 @@
 </div>
 </div>
 <div class="sect5">
-<h6 id="_fonts">Fonts</h6>
+<h6 id="fonts">Fonts</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -747,7 +747,6 @@
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

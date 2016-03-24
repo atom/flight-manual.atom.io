@@ -2354,9 +2354,6 @@ body {
     padding-left: 0;
     padding-right: 0; }
 
-.wrapper--overflow {
-  overflow: initial; }
-
 .content-push {
   margin-top: 40px;
   height: 100%; }
@@ -2638,6 +2635,41 @@ hr {
 
 .thirds .grid-cell {
   width: 33.3%; }
+
+.layout-toc .wrapper {
+  overflow: initial; }
+
+.layout-toc h1 {
+  margin-top: 0px; }
+
+.layout-toc h3 a {
+  color: inherit; }
+
+.layout-toc ul {
+  list-style-type: none;
+  margin: 0;
+  margin-left: 15px;
+  padding: 0; }
+  .layout-toc ul li {
+    margin-top: 4px;
+    font-size: 1.2em; }
+    .layout-toc ul li small {
+      font-size: 0.9em;
+      color: #666;
+      margin-right: 10px; }
+
+.layout-toc .manual-ebooks {
+  width: 200px;
+  float: right;
+  margin-top: 10px;
+  text-align: center; }
+  .layout-toc .manual-ebooks h3 {
+    margin: 1em 0 0 0; }
+  .layout-toc .manual-ebooks img {
+    width: 200px; }
+  .layout-toc .manual-ebooks .ebooks img {
+    padding: 10px 10px 0 10px;
+    width: 100px; }
 
 .api-search-result {
   width: 780px; }
@@ -2972,38 +3004,6 @@ input.documents-search-input {
       content: '>'; }
     .breadcrumbs li:last-child:after {
       content: ''; }
-
-.manual-docs h1 {
-  margin-top: 0px; }
-
-.manual-docs h3 a {
-  color: inherit; }
-
-.manual-docs ul {
-  list-style-type: none;
-  margin: 0;
-  margin-left: 15px;
-  padding: 0; }
-  .manual-docs ul li {
-    margin-top: 4px;
-    font-size: 1.2em; }
-    .manual-docs ul li small {
-      font-size: 0.9em;
-      color: #666;
-      margin-right: 10px; }
-
-.manual-docs .manual-ebooks {
-  width: 200px;
-  float: right;
-  margin-top: 10px;
-  text-align: center; }
-  .manual-docs .manual-ebooks h3 {
-    margin: 1em 0 0 0; }
-  .manual-docs .manual-ebooks img {
-    width: 200px; }
-  .manual-docs .manual-ebooks .ebooks img {
-    padding: 10px 10px 0 10px;
-    width: 100px; }
 
 .toc {
   float: left;

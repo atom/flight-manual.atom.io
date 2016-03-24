@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,14 +322,13 @@
         <div class="markdown-body document-content">
           
           <h1>3.7 Debugging</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_debugging">Debugging</h3>
+          <div class="sect2">
+<h3 id="debugging">Debugging</h3>
 <div class="paragraph">
 <p>Atom provides several tools to help you understand unexpected behavior and debug problems. This guide describes some of those tools and a few approaches to help you debug and provide more helpful information when <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues">submitting issues</a>:</p>
 </div>
 <div class="sect3">
-<h4 id="_update_to_the_latest_version">Update to the latest version</h4>
+<h4 id="update-to-the-latest-version">Update to the latest version</h4>
 <div class="paragraph">
 <p>You might be running into an issue which was already fixed in a more recent version of Atom than the one you’re using.</p>
 </div>
@@ -341,8 +340,9 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell highlight" data-lang="shell"><span class="gp">$ </span>atom --version
+<pre class="highlight highlight-shell"><code><span class="gp">$ </span>atom --version
 0.178.0</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -350,7 +350,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_check_if_the_problem_shows_up_in_safe_mode">Check if the problem shows up in safe mode</h4>
+<h4 id="check-if-the-problem-shows-up-in-safe-mode">Check if the problem shows up in safe mode</h4>
 <div class="paragraph">
 <p>A large part of Atom’s functionality comes from packages you can install. Atom will also execute the code in your <a href="/hacking-atom/sections/the-init-file">Init script</a> on startup. In some cases, these packages and the code in the Init script might be causing unexpected behavior, problems, or performance issues.</p>
 </div>
@@ -359,7 +359,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ atom --safe .</code></pre>
+<pre><code>$ atom --safe .</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -373,17 +373,18 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_check_for_linked_packages">Check for linked packages</h4>
+<h4 id="check-for-linked-packages">Check for linked packages</h4>
 <div class="paragraph">
 <p>If you develop or contribute to Atom packages, there may be left-over packages linked to your <code>~/.atom/packages</code> or <code>~/.atom/dev/packages</code> directories. You can use the <code>apm links</code> command to list all linked packages:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell highlight" data-lang="shell"><span class="gp">$ </span>apm links
+<pre class="highlight highlight-shell"><code><span class="gp">$ </span>apm links
 /Users/octocat/.atom/dev/packages <span class="o">(</span>0<span class="o">)</span>
 └── <span class="o">(</span>no links<span class="o">)</span>
 /Users/octocat/.atom/packages <span class="o">(</span>1<span class="o">)</span>
 └── color-picker -&gt; /Users/octocat/github/color-picker</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -391,8 +392,9 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell highlight" data-lang="shell"><span class="gp">$ </span>apm unlink color-picker
+<pre class="highlight highlight-shell"><code><span class="gp">$ </span>apm unlink color-picker
 Unlinking /Users/octocat/.atom/packages/color-picker ✓</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -400,7 +402,7 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_check_atom_and_package_settings">Check Atom and package settings</h4>
+<h4 id="check-atom-and-package-settings">Check Atom and package settings</h4>
 <div class="paragraph">
 <p>In some cases, unexpected behavior might be caused by misconfigured or unconfigured settings in Atom or in one of the packages.</p>
 </div>
@@ -430,18 +432,18 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_check_your_config_files">Check your config files</h4>
+<h4 id="check-your-config-files">Check your config files</h4>
 <div class="paragraph">
 <p>You might have defined some custom styles, keymaps or snippets in <a href="/using-atom/sections/basic-customization">your config files</a>. In some situations, these personal hacks might be causing the unexpected behavior you’re observing so try clearing those files and restarting Atom.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_check_the_keybindings">Check the keybindings</h4>
+<h4 id="check-the-keybindings">Check the keybindings</h4>
 <div class="paragraph">
 <p>If a command is not executing when you hit a keystroke or the wrong command is executing, there might be an issue with the keybindings for that keystroke. Atom ships with the <a href="https://atom.io/packages/keybinding-resolver">Keybinding resolver</a>, a neat package which helps you understand which keybindings are executed.</p>
 </div>
 <div class="paragraph">
-<p>Show the keybinding resolver with <code>cmd-.</code> or with ``Key Binding Resolver: Show'' from the Command palette. With the keybinding resolver shown, hit a keystroke:</p>
+<p>Show the keybinding resolver with <code>cmd-.</code> or with "Key Binding Resolver: Show" from the Command palette. With the keybinding resolver shown, hit a keystroke:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -474,7 +476,7 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>the keystroke was not used in the context defined by the keybinding’s selector. For example, you can’t trigger the ``Tree View: Add File'' command if the Tree View is not focused, or</p>
+<p>the keystroke was not used in the context defined by the keybinding’s selector. For example, you can’t trigger the "Tree View: Add File" command if the Tree View is not focused, or</p>
 </li>
 <li>
 <p>there is another keybinding that took precedence. This often happens when you install a package which defines keybindings that conflict with existing keybindings. If the package’s keybindings have selectors with higher specificity or were loaded later, they’ll have priority over existing ones.</p>
@@ -489,7 +491,7 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_check_for_errors_in_the_developer_tools">Check for errors in the developer tools</h4>
+<h4 id="check-for-errors-in-the-developer-tools">Check for errors in the developer tools</h4>
 <div class="paragraph">
 <p>When an error is thrown in Atom, you will normally see a red notification which provides details about the error and allows you to create an issue on the right repository.</p>
 </div>
@@ -513,7 +515,7 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_diagnose_startup_performance_problems_with_the_timecop_package_and_the_code_profile_startup_code_command_line_flag">Diagnose startup performance problems with the Timecop package and the <code>--profile-startup</code> command line flag</h4>
+<h4 id="diagnose-startup-performance-problems-with-the-timecop-package-and-the-code-profile-startup-code-command-line-flag">Diagnose startup performance problems with the Timecop package and the <code>--profile-startup</code> command line flag</h4>
 <div class="paragraph">
 <p>If Atom is taking a long time to start, you can use the <a href="https://github.com/atom/timecop">Timecop package</a> to get insight into where Atom spends time while loading.</p>
 </div>
@@ -550,7 +552,8 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell highlight" data-lang="shell">atom --profile-startup .</code></pre>
+<pre class="highlight highlight-shell"><code>atom --profile-startup .</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -558,7 +561,7 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_diagnose_runtime_performance_problems_with_the_dev_tools_cpu_profiler">Diagnose runtime performance problems with the dev tools CPU profiler</h4>
+<h4 id="diagnose-runtime-performance-problems-with-the-dev-tools-cpu-profiler">Diagnose runtime performance problems with the dev tools CPU profiler</h4>
 <div class="paragraph">
 <p>If you’re experiencing performance problems in a particular situation, your <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues">reports</a> will be more valuable if you include a screenshot from Chrome’s CPU profiler that gives some insight into what is slow.</p>
 </div>
@@ -583,7 +586,7 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_check_that_you_have_a_build_toolchain_installed">Check that you have a build toolchain installed</h4>
+<h4 id="check-that-you-have-a-build-toolchain-installed">Check that you have a build toolchain installed</h4>
 <div class="paragraph">
 <p>If you are having issues installing a package using <code>apm install</code>, this could be because the package has dependencies on libraries that contain native code and so you will need to have a C++ compiler and Python installed to be able to install it.</p>
 </div>
@@ -595,7 +598,6 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓</code></pre>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

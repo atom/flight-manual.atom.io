@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,14 +322,13 @@
         <div class="markdown-body document-content">
           
           <h1>5.2 Upgrading Your UI Theme Or Package Selectors</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_upgrading_your_ui_theme_or_package_selectors">Upgrading Your UI Theme Or Package Selectors</h3>
+          <div class="sect2">
+<h3 id="upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</h3>
 <div class="paragraph">
 <p>In addition to changes in Atom’s scripting API, we’ll also be making some breaking changes to Atom’s DOM structure, requiring style sheets and keymaps in both packages and themes to be updated.</p>
 </div>
 <div class="sect3">
-<h4 id="_deprecation_cop">Deprecation Cop</h4>
+<h4 id="deprecation-cop">Deprecation Cop</h4>
 <div class="paragraph">
 <p>Deprecation cop will list usages of deprecated selector patterns to guide you. You can access it via the command palette (<code>cmd-shift-p</code>, then search for <code>Deprecation</code>). It breaks the deprecations down by package:</p>
 </div>
@@ -341,7 +340,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_custom_tags">Custom Tags</h4>
+<h4 id="custom-tags">Custom Tags</h4>
 <div class="paragraph">
 <p>Rather than adding classes to standard HTML elements to indicate their role, Atom now uses custom element names. For example, <code>&lt;div class="workspace"&gt;</code> has now been replaced with <code>&lt;atom-workspace&gt;</code>. Selectors should be updated accordingly. Note that tag names have lower specificity than classes in CSS, so you’ll need to take care in converting things.</p>
 </div>
@@ -413,7 +412,7 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="_supporting_the_shadow_dom">Supporting the Shadow DOM</h4>
+<h4 id="supporting-the-shadow-dom">Supporting the Shadow DOM</h4>
 <div class="paragraph">
 <p>Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom">Shadow DOM 101</a> on HTML 5 Rocks. If you need to style text editor content in a UI theme, you’ll need to circumvent this protection for any rules that target the text editor’s content. Some examples of the kinds of UI theme styles needing to be updated:</p>
 </div>
@@ -440,21 +439,22 @@
 <p>During a transition phase, it will be possible to enable or disable the text editor’s shadow DOM in the settings, so themes will need to be compatible with both approaches.</p>
 </div>
 <div class="sect4">
-<h5 id="_shadow_dom_selectors">Shadow DOM Selectors</h5>
+<h5 id="shadow-dom-selectors">Shadow DOM Selectors</h5>
 <div class="paragraph">
 <p>Chromium provides two tools for bypassing shadow boundaries, the <code>::shadow</code> pseudo-element and the <code>/deep/</code> combinator. For an in-depth explanation of styling the shadow DOM, see the <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201#toc-style-cat-hat">Shadow DOM 201</a> article on HTML 5 Rocks.</p>
 </div>
 <div class="sect5">
-<h6 id="__shadow">::shadow</h6>
+<h6 id="shadow">::shadow</h6>
 <div class="paragraph">
 <p>The <code>::shadow</code> pseudo-element allows you to bypass a single shadow root. For example, say you want to update a highlight decoration for a linter package. Initially, the style looks as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-css highlight" data-lang="css"><span class="o">//</span> <span class="nt">Without</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
+<pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">Without</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
 <span class="nt">atom-text-editor</span> <span class="nc">.highlight.my-linter</span> <span class="p">{</span>
   <span class="nl">background</span><span class="p">:</span> <span class="no">hotpink</span><span class="p">;</span>
 <span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -462,11 +462,12 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-css highlight" data-lang="css"><span class="o">//</span> <span class="nt">With</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
+<pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">With</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
 <span class="nt">atom-text-editor</span> <span class="nc">.highlight.my-linter</span><span class="o">,</span>
 <span class="nt">atom-text-editor</span><span class="nd">::shadow</span> <span class="nc">.highlight.my-linter</span> <span class="p">{</span>
   <span class="nl">background</span><span class="p">:</span> <span class="no">hotpink</span><span class="p">;</span>
 <span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -474,13 +475,13 @@
 </div>
 </div>
 <div class="sect5">
-<h6 id="__deep">/deep/</h6>
+<h6 id="deep">/deep/</h6>
 <div class="paragraph">
 <p>The <code>/deep/</code> combinator overrides <strong>all</strong> shadow boundaries, making it useful for rules you want to apply globally such as scrollbar styling. Here’s a snippet containing scrollbar styling for the Atom Dark UI theme before shadow DOM support:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-css highlight" data-lang="css"><span class="o">//</span> <span class="nt">Without</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
+<pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">Without</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
 <span class="nc">.scrollbars-visible-always</span> <span class="p">{</span>
   <span class="err">::-webkit-scrollbar</span> <span class="err">{</span>
     <span class="nl">width</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
@@ -498,6 +499,7 @@
     <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1px</span> <span class="no">black</span> <span class="nb">inset</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="err">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -505,7 +507,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-css highlight" data-lang="css"><span class="o">//</span> <span class="nt">With</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span> <span class="nt">using</span> <span class="o">/</span><span class="nt">deep</span><span class="o">/</span>
+<pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">With</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span> <span class="nt">using</span> <span class="o">/</span><span class="nt">deep</span><span class="o">/</span>
 <span class="nc">.scrollbars-visible-always</span> <span class="p">{</span>
   <span class="err">/deep/</span> <span class="err">::-webkit-scrollbar</span> <span class="err">{</span>
     <span class="nl">width</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
@@ -523,18 +525,19 @@
     <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1px</span> <span class="no">black</span> <span class="nb">inset</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="err">}</span></code></pre>
+
 </div>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_context_targeted_style_sheets">Context-Targeted Style Sheets</h5>
+<h5 id="context-targeted-style-sheets">Context-Targeted Style Sheets</h5>
 <div class="paragraph">
 <p>The selector features discussed above allow you to target shadow DOM content with specific selectors, but Atom also allows you to target a specific shadow DOM context with an entire style sheet. The context into which a style sheet is loaded is based on the file name. If you want to load a style sheet into the editor, name it with the <code>.atom-text-editor.less</code> or <code>.atom-text-editor.css</code> extensions.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>my-ui-theme/
+<pre><code>my-ui-theme/
   styles/
     index.less                   # loaded globally
     index.atom-text-editor.less  # loaded in the text editor shadow DOM</code></pre>
@@ -552,7 +555,6 @@
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

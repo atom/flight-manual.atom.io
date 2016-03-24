@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,16 +322,15 @@
         <div class="markdown-body document-content">
           
           <h1></h1>
-          <div class="manual-docs">
-            <div class="sect1">
-<h2 id="_snippets">Snippets</h2>
+          <div class="sect1">
+<h2 id="snippets">Snippets</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>An extension can supply language snippets in the <em>snippets</em> directory which allows the user to enter repetitive text quickly:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="s">".source.coffee .specs"</span><span class="o">:</span>
+<pre class="highlight highlight-coffeescript"><code><span class="s">".source.coffee .specs"</span><span class="o">:</span>
 <span class="s">"Expect"</span><span class="o">:</span>
 <span class="na">prefix</span><span class="o">:</span> <span class="s">"ex"</span>
 <span class="na">body</span><span class="o">:</span> <span class="s">"expect($1).to$2"</span>
@@ -341,6 +340,7 @@
 describe "${1:description}", -&gt;
 ${2:body}
 """</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -352,7 +352,7 @@ ${2:body}
 </div>
 </div>
 <div class="sect1">
-<h2 id="_language_grammars">Language Grammars</h2>
+<h2 id="language-grammars">Language Grammars</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you’re developing a new language grammar, you’ll want to place your file in
@@ -366,11 +366,12 @@ matching group.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="p">{</span>
+<pre class="highlight highlight-coffeescript"><code><span class="p">{</span>
   <span class="s">'match'</span><span class="o">:</span> <span class="s">'(?:^|</span><span class="se">\\</span><span class="s">s)(__[^_]+__)'</span>
   <span class="s">'captures'</span><span class="o">:</span>
   <span class="s">'1'</span><span class="o">:</span> <span class="s">'name'</span><span class="o">:</span> <span class="s">'markup.bold.gfm'</span>
 <span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -382,10 +383,11 @@ matching group.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="p">{</span>
+<pre class="highlight highlight-coffeescript"><code><span class="p">{</span>
   <span class="s">'match'</span><span class="o">:</span> <span class="s">'^#{1,6}</span><span class="se">\\</span><span class="s">s+.+$'</span>
   <span class="s">'name'</span><span class="o">:</span> <span class="s">'markup.heading.gfm'</span>
 <span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -402,18 +404,18 @@ extensions your grammar supports:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="s">'fileTypes'</span><span class="o">:</span> <span class="p">[</span>
+<pre class="highlight highlight-coffeescript"><code><span class="s">'fileTypes'</span><span class="o">:</span> <span class="p">[</span>
 <span class="s">'markdown'</span>
 <span class="s">'md'</span>
 <span class="s">'mkd'</span>
 <span class="s">'mkdown'</span>
 <span class="s">'ron'</span>
 <span class="p">]</span></code></pre>
+
 </div>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,8 +322,7 @@
         <div class="markdown-body document-content">
           
           <h1>2.1 Atom Packages</h1>
-          <div class="manual-docs">
-            <div class="sect2">
+          <div class="sect2">
 <h3 id="_atom_packages">Atom Packages</h3>
 <div class="paragraph">
 <p>First we’ll start with the Atom package system. As we mentioned previously, Atom itself is a very basic core of functionality that ships with a number of useful packages that add new features like the <a href="https://github.com/atom/tree-view">Tree View</a> and the <a href="https://github.com/atom/settings-view">Settings View</a>.</p>
@@ -335,7 +334,7 @@
 <p>This means that packages can be incredibly powerful and can change everything from the very look and feel of the entire interface to the basic operation of even core functionality.</p>
 </div>
 <div class="paragraph">
-<p>In order to install a new package, you can use the Install tab in the now familiar Settings view. Simply open up the Settings view (<code>cmd-,</code>), click on the <code>Install'' tab and type your search query into the box under Install Packages that hints </code>Search Packages''.</p>
+<p>In order to install a new package, you can use the Install tab in the now familiar Settings view. Simply open up the Settings view (<code>cmd-,</code>), click on the "Install" tab and type your search query into the box under Install Packages that hints "Search Packages".</p>
 </div>
 <div class="paragraph">
 <p>The packages listed here have been published to <a href="https://atom.io/packages">atom.io</a> which is the official registry for Atom packages. Searching on the settings pane will go to the atom.io package registry and pull in anything that matches your search terms.</p>
@@ -347,12 +346,12 @@
 <div class="title">Figure 1. Package install screen</div>
 </div>
 <div class="paragraph">
-<p>All of the packages will come up with an ``Install'' button. Clicking that will download the package and install it. Your editor will now have the functionality that the package provides.</p>
+<p>All of the packages will come up with an "Install" button. Clicking that will download the package and install it. Your editor will now have the functionality that the package provides.</p>
 </div>
 <div class="sect3">
 <h4 id="_package_settings">Package Settings</h4>
 <div class="paragraph">
-<p>Once a package is installed in Atom, it will show up in the side pane under the <code>Packages'' tab, along with all the preinstalled packages that come with Atom. To filter the list in order to find one, you can type into the </code>Filter packages by name'' textbox.</p>
+<p>Once a package is installed in Atom, it will show up in the side pane under the "Packages" tab, along with all the preinstalled packages that come with Atom. To filter the list in order to find one, you can type into the "Filter packages by name" textbox.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -361,16 +360,16 @@
 <div class="title">Figure 2. Package settings screen</div>
 </div>
 <div class="paragraph">
-<p>Clicking on the ``Settings'' button for a package will give you the settings screen for that package specifically. Here you have the option of changing some of the default variables for the package, seeing what all the command keybindings are, disabling the package temporarily, looking at the source code, seeing the current version of the package, reporting issues and uninstalling the package.</p>
+<p>Clicking on the "Settings" button for a package will give you the settings screen for that package specifically. Here you have the option of changing some of the default variables for the package, seeing what all the command keybindings are, disabling the package temporarily, looking at the source code, seeing the current version of the package, reporting issues and uninstalling the package.</p>
 </div>
 <div class="paragraph">
-<p>If a new version of any of your packages is released, Atom will automatically detect it and you can upgrade the package from either this screen or from the ``Updates'' tab. This helps you easily keep all your installed packages up to date.</p>
+<p>If a new version of any of your packages is released, Atom will automatically detect it and you can upgrade the package from either this screen or from the "Updates" tab. This helps you easily keep all your installed packages up to date.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_atom_themes">Atom Themes</h4>
 <div class="paragraph">
-<p>You can also find and install new themes for Atom from the Settings view. These can be either UI themes or syntax highlighting themes and you can search for them from the <code>Install'' tab, just like searching for new packages. Make sure to press the </code>Themes'' toggle next to the search box.</p>
+<p>You can also find and install new themes for Atom from the Settings view. These can be either UI themes or syntax highlighting themes and you can search for them from the "Install" tab, just like searching for new packages. Make sure to press the "Themes" toggle next to the search box.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -382,7 +381,7 @@
 <p>Clicking on the theme title will take you to a profile page for the theme on atom.io, which usually has a screenshot of the theme. This way you can see what it looks like before installing it.</p>
 </div>
 <div class="paragraph">
-<p>Clicking on ``Install'' will install the theme and make it available in the Theme dropdowns as we saw in <a href="/getting-started/sections/atom-basics/#_color_themes">Color Themes</a>.</p>
+<p>Clicking on "Install" will install the theme and make it available in the Theme dropdowns as we saw in <a href="/getting-started/sections/atom-basics/#_color_themes">Color Themes</a>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -401,7 +400,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell highlight" data-lang="shell"><span class="gp">$ </span>apm <span class="nb">help </span>install</code></pre>
+<pre class="highlight highlight-shell"><code><span class="gp">$ </span>apm <span class="nb">help </span>install</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -431,7 +431,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ apm search coffee
+<pre><code>$ apm search coffee
 Search Results For 'coffee' (5)
 ├── coffee-trace Add smart trace statements to coffee files with one keypress each. (77 downloads, 3 stars)
 ├── coffee-navigator Code navigation panel for Coffee Script (557 downloads, 8 stars)
@@ -445,7 +445,7 @@ Search Results For 'coffee' (5)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ apm view git-grep
+<pre><code>$ apm view git-grep
 git-grep
 ├── 0.7.0
 ├── git://github.com/mizchi/atom-git-grep
@@ -458,7 +458,6 @@ Run `apm install git-grep` to install this package.</code></pre>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

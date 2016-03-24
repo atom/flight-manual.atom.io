@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,9 +322,8 @@
         <div class="markdown-body document-content">
           
           <h1>5.3 Upgrading Your Syntax Theme</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_upgrading_your_syntax_theme">Upgrading Your Syntax Theme</h3>
+          <div class="sect2">
+<h3 id="upgrading-your-syntax-theme">Upgrading Your Syntax Theme</h3>
 <div class="paragraph">
 <p>Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom">Shadow DOM 101</a> on HTML 5 Rocks.</p>
 </div>
@@ -339,7 +338,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-css highlight" data-lang="css"><span class="nt">atom-text-editor</span><span class="o">,</span> <span class="nd">:host</span> <span class="p">{</span> <span class="c">/* :host added */</span>
+<pre class="highlight highlight-css"><code><span class="nt">atom-text-editor</span><span class="o">,</span> <span class="nd">:host</span> <span class="p">{</span> <span class="c">/* :host added */</span>
   <span class="nl">background-color</span><span class="p">:</span> <span class="err">@</span><span class="n">syntax-background-color</span><span class="p">;</span>
   <span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">syntax-text-color</span><span class="p">;</span>
 
@@ -348,10 +347,10 @@
   <span class="p">}</span>
   <span class="c">/* more nested selectors... */</span>
 <span class="err">}</span></code></pre>
+
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

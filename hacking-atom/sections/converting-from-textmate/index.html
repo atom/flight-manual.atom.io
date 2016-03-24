@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,14 +322,13 @@
         <div class="markdown-body document-content">
           
           <h1>3.9 Converting from TextMate</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_converting_from_textmate">Converting from TextMate</h3>
+          <div class="sect2">
+<h3 id="converting-from-textmate">Converting from TextMate</h3>
 <div class="paragraph">
 <p>It’s possible that you have themes or grammars from <a href="http://macromates.com">TextMate</a> that you like and use and would like to convert to Atom. If so, you’re in luck because there are tools to help with the conversion.</p>
 </div>
 <div class="sect3">
-<h4 id="_converting_a_textmate_bundle">Converting a TextMate Bundle</h4>
+<h4 id="converting-a-textmate-bundle">Converting a TextMate Bundle</h4>
 <div class="paragraph">
 <p>Converting a TextMate bundle will allow you to use its editor preferences, snippets, and colorization inside Atom.</p>
 </div>
@@ -341,8 +340,9 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console highlight" data-lang="console">$ apm init --package ~/.atom/packages/language-r \
+<pre class="highlight highlight-console"><code>$ apm init --package ~/.atom/packages/language-r \
   --convert https://github.com/textmate/r.tmbundle</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -353,13 +353,13 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_converting_a_textmate_theme">Converting a TextMate Theme</h4>
+<h4 id="converting-a-textmate-theme">Converting a TextMate Theme</h4>
 <div class="paragraph">
 <p>This section will go over how to convert a <a href="http://macromates.com">TextMate</a> theme to an Atom
 theme.</p>
 </div>
 <div class="sect4">
-<h5 id="_differences">Differences</h5>
+<h5 id="differences">Differences</h5>
 <div class="paragraph">
 <p>TextMate themes use <a href="https://en.wikipedia.org/wiki/Property_list">plist</a> files while Atom themes use <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a> or
 <a href="http://lesscss.org">Less</a> to style the UI and syntax in the editor.</p>
@@ -369,7 +369,7 @@ theme.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_convert_the_theme">Convert the Theme</h5>
+<h5 id="convert-the-theme">Convert the Theme</h5>
 <div class="paragraph">
 <p>Download the theme you wish to convert, you can browse existing TextMate themes on the <a href="http://wiki.macromates.com/Themes/UserSubmittedThemes">TextMate website</a>.</p>
 </div>
@@ -378,8 +378,9 @@ theme.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console highlight" data-lang="console">$ apm init --theme ~/.atom/packages/my-theme \
+<pre class="highlight highlight-console"><code>$ apm init --theme ~/.atom/packages/my-theme \
   --convert ~/Downloads/MyTheme.tmTheme</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -387,7 +388,7 @@ theme.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_activate_the_theme">Activate the Theme</h5>
+<h5 id="activate-the-theme">Activate the Theme</h5>
 <div class="paragraph">
 <p>Now that your theme is installed to <code>~/.atom/packages</code> you can enable it by launching Atom and selecting the <em>Atom &gt; Preferences…​</em> menu.</p>
 </div>
@@ -400,7 +401,6 @@ theme.</p>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

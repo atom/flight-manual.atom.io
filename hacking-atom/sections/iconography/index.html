@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,14 +322,13 @@
         <div class="markdown-body document-content">
           
           <h1>3.6 Iconography</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_iconography">Iconography</h3>
+          <div class="sect2">
+<h3 id="iconography">Iconography</h3>
 <div class="paragraph">
 <p>Atom comes bundled with the <a href="https://octicons.github.com/">Octicons</a> icon set. Use them to add icons to your packages.</p>
 </div>
 <div class="sect3">
-<h4 id="_usage">Usage</h4>
+<h4 id="usage">Usage</h4>
 <div class="paragraph">
 <p>Atom’s usage of the Octicons differs just a bit from the <a href="https://octicons.github.com/usage/">standard way</a>. The biggest difference is in the naming of the icon classes. Instead of the <code>octicon octicon-</code> prefix, you would use a more generic <code>icon icon-</code> prefix.</p>
 </div>
@@ -338,7 +337,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-html highlight" data-lang="html">  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon-device-desktop"</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre>
+<pre class="highlight highlight-html"><code>  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon-device-desktop"</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -346,24 +346,24 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript">  <span class="vi">@</span><span class="na">span</span> <span class="na">class</span><span class="o">:</span> <span class="s">'icon icon-device-desktop'</span></code></pre>
+<pre class="highlight highlight-coffeescript"><code>  <span class="vi">@</span><span class="na">span</span> <span class="na">class</span><span class="o">:</span> <span class="s">'icon icon-device-desktop'</span></code></pre>
+
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_size">Size</h4>
+<h4 id="size">Size</h4>
 <div class="paragraph">
 <p>Octicons look best with a <code>font-size</code> of <code>16px</code>. It’s already used as the default, so you don’t need to worry about it. In case you prefer a different icon size, try to use multiples of 16 (<code>32px</code>, <code>48px</code> etc.) for the sharpest result. Sizes in between are ok too, but might look a bit blurry for icons with straight lines.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_usability">Usability</h4>
+<h4 id="usability">Usability</h4>
 <div class="paragraph">
 <p>Although icons can make your UI visually applealing, when used without a text label, it can be hard to guess its meaning. In cases where space for a text label is insufficient, consider adding a <a href="https://atom.io/docs/api/latest/TooltipManager">tooltip</a> that appears on hover. Or a more subtle <code>title="label"</code> attribute would already help as well.</p>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

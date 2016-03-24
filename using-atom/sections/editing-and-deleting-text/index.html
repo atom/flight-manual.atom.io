@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,14 +322,13 @@
         <div class="markdown-body document-content">
           
           <h1>2.4 Editing and Deleting Text</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_editing_and_deleting_text">Editing and Deleting Text</h3>
+          <div class="sect2">
+<h3 id="editing-and-deleting-text">Editing and Deleting Text</h3>
 <div class="paragraph">
 <p>So far we’ve looked at a number of ways to move around and select regions of a file, so now let’s actually change some of that text. Obviously you can type in order to insert characters, but there are also a number of ways to delete and manipulate text that could come in handy.</p>
 </div>
 <div class="sect3">
-<h4 id="_basic_manipulation">Basic Manipulation</h4>
+<h4 id="basic-manipulation">Basic Manipulation</h4>
 <div class="paragraph">
 <p>There are a handful of cool keybindings for basic text manipulation that might come in handy. These range from moving around lines of text and duplicating lines to changing the case.</p>
 </div>
@@ -368,7 +367,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_deleting_and_cutting">Deleting and Cutting</h4>
+<h4 id="deleting-and-cutting">Deleting and Cutting</h4>
 <div class="paragraph">
 <p>You can also delete or cut text out of your buffer with some shortcuts. Be ruthless.</p>
 </div>
@@ -406,7 +405,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_multiple_cursors_and_selections">Multiple Cursors and Selections</h4>
+<h4 id="multiple-cursors-and-selections">Multiple Cursors and Selections</h4>
 <div class="paragraph">
 <p>One of the cool things that Atom can do out of the box is support multiple cursors. This can be incredibly helpful in manipulating long lists of text.</p>
 </div>
@@ -453,7 +452,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_whitespace">Whitespace</h4>
+<h4 id="whitespace">Whitespace</h4>
 <div class="paragraph">
 <p>Atom comes with several commands to help you manage the whitespace in your document. One very useful pair of commands converts leading spaces into tabs and converts leading tabs into spaces. If you’re working with a document that has mixed whitespace, these commands are great for helping to normalize the file. There are no keybindings for the whitespace commands, so you will have to search your command palette for "Convert Spaces to Tabs" (or vice versa) to run one of these commands.</p>
 </div>
@@ -467,14 +466,14 @@
 <div class="title">Figure 2. Managing your whitespace settings</div>
 </div>
 <div class="paragraph">
-<p>Note that the <code>`Remove Trailing Whitespace'' option is on by default. This means that every time you save any file opened in Atom, it will strip all trailing whitespace from the file. If you want to disable this, go to the `whitespace</code> package in your settings panel and uncheck that option.</p>
+<p>Note that the "Remove Trailing Whitespace" option is on by default. This means that every time you save any file opened in Atom, it will strip all trailing whitespace from the file. If you want to disable this, go to the <code>whitespace</code> package in your settings panel and uncheck that option.</p>
 </div>
 <div class="paragraph">
 <p>Atom will also by default ensure that your file has a trailing newline. You can also disable this option on that screen.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_brackets">Brackets</h4>
+<h4 id="brackets">Brackets</h4>
 <div class="paragraph">
 <p>Atom ships with intelligent and easy to use bracket handling.</p>
 </div>
@@ -508,7 +507,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_encoding">Encoding</h4>
+<h4 id="encoding">Encoding</h4>
 <div class="paragraph">
 <p>Atom also ships with some basic file encoding support should you find yourself working with non-UTF-8 encoded files, or should you wish to create one.</p>
 </div>
@@ -540,7 +539,6 @@
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

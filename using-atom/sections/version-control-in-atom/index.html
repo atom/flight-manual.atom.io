@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,14 +322,13 @@
         <div class="markdown-body document-content">
           
           <h1>2.11 Version Control in Atom</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_version_control_in_atom">Version Control in Atom</h3>
+          <div class="sect2">
+<h3 id="version-control-in-atom">Version Control in Atom</h3>
 <div class="paragraph">
 <p>Version control is an important aspect of any project and Atom comes with basic <a href="http://git-scm.com">Git</a> and <a href="https://github.com">GitHub</a> integration baked in.</p>
 </div>
 <div class="sect3">
-<h4 id="_checkout_head_revision">Checkout HEAD revision</h4>
+<h4 id="checkout-head-revision">Checkout HEAD revision</h4>
 <div class="paragraph">
 <p>The <code>cmd-alt-Z</code> keybinding checks out the HEAD revision of the file in the editor.</p>
 </div>
@@ -347,7 +346,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_git_status_list">Git status list</h4>
+<h4 id="git-status-list">Git status list</h4>
 <div class="paragraph">
 <p>Atom ships with the fuzzy-finder package which provides <code>cmd-T</code> to quickly open files in the project and <code>cmd-B</code> to jump to any open editor.</p>
 </div>
@@ -365,7 +364,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_commit_editor">Commit editor</h4>
+<h4 id="commit-editor">Commit editor</h4>
 <div class="paragraph">
 <p>Atom can be used as your Git commit editor and ships with the language-git package which adds syntax highlighting to edited commit, merge, and rebase messages.</p>
 </div>
@@ -380,7 +379,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell highlight" data-lang="shell"><span class="gp">$ </span>git config --global core.editor <span class="s2">"atom --wait"</span></code></pre>
+<pre class="highlight highlight-shell"><code><span class="gp">$ </span>git config --global core.editor <span class="s2">"atom --wait"</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -388,7 +388,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_status_bar_icons">Status bar icons</h4>
+<h4 id="status-bar-icons">Status bar icons</h4>
 <div class="paragraph">
 <p>The <a href="https://github.com/atom/language-git">status-bar</a> package that ships with Atom includes several Git decorations that display on the right side of the status bar.</p>
 </div>
@@ -406,7 +406,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_line_diffs">Line diffs</h4>
+<h4 id="line-diffs">Line diffs</h4>
 <div class="paragraph">
 <p>The included <a href="https://github.com/atom/git-diff">git-diff</a> package colorizes the gutter next to lines that have been added, edited, or removed.</p>
 </div>
@@ -421,7 +421,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_open_on_github">Open on GitHub</h4>
+<h4 id="open-on-github">Open on GitHub</h4>
 <div class="paragraph">
 <p>If the project you’re working on is on GitHub, there are also some very useful integrations you can use.  Most of the commands will take the current file you’re viewing and open a view of that file on GitHub - for instance, the blame or commit history of that file.</p>
 </div>
@@ -460,7 +460,6 @@
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

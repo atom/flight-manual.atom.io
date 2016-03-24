@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,9 +322,8 @@
         <div class="markdown-body document-content">
           
           <h1>1.1 Why Atom?</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_why_atom">Why Atom?</h3>
+          <div class="sect2">
+<h3 id="why-atom">Why Atom?</h3>
 <div class="paragraph">
 <p>There are a lot of text editors out there, why should you spend your time learning about and using Atom?</p>
 </div>
@@ -338,12 +337,12 @@
 <p>As we’ve used Atom to build Atom, what began as an experiment has gradually matured into a tool we can’t live without. On the surface, Atom is the modern desktop text editor you’ve come to expect. Pop the hood, however, and you’ll discover a system begging to be hacked on.</p>
 </div>
 <div class="sect3">
-<h4 id="_the_nucleus_of_atom">The Nucleus of Atom</h4>
+<h4 id="the-nucleus-of-atom">The Nucleus of Atom</h4>
 <div class="paragraph">
 <p>The web is not without its faults, but two decades of development has forged it into an incredibly malleable and powerful platform. So when we set out to write a text editor that we ourselves would want to extend, web technology was the obvious choice. But first, we had to free it from its chains.</p>
 </div>
 <div class="sect4">
-<h5 id="_the_native_web">The Native Web</h5>
+<h5 id="the-native-web">The Native Web</h5>
 <div class="paragraph">
 <p>Web browsers are great for browsing web pages, but writing code is a specialized activity that warrants dedicated tools. More importantly, the browser severely restricts access to the local system for security reasons, and for us, a text editor that couldn’t write files or run local subprocesses was a non-starter.</p>
 </div>
@@ -358,7 +357,7 @@
 </div>
 </div>
 <div class="sect4">
-<h5 id="_javascript_meet_c">JavaScript, Meet C++</h5>
+<h5 id="javascript-meet-c">JavaScript, Meet C++</h5>
 <div class="paragraph">
 <p>Interacting with native code is also really simple. For example, we wrote a wrapper around the Oniguruma regular expression engine for our TextMate grammar support. In a browser, that would have required adventures with NaCl or Esprima. Node integration made it easy.</p>
 </div>
@@ -367,7 +366,7 @@
 </div>
 </div>
 <div class="sect4">
-<h5 id="_web_tech_the_fun_parts">Web Tech: The Fun Parts</h5>
+<h5 id="web-tech-the-fun-parts">Web Tech: The Fun Parts</h5>
 <div class="paragraph">
 <p>Another great thing about writing code for Atom is the guarantee that it’s running on the newest version of Chromium. That means we can ignore issues like browser compatibility and polyfills. We can use all the web’s shiny features of tomorrow, today.</p>
 </div>
@@ -380,7 +379,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_an_open_source_text_editor">An Open Source Text Editor</h4>
+<h4 id="an-open-source-text-editor">An Open Source Text Editor</h4>
 <div class="paragraph">
 <p>We see Atom as a perfect complement to GitHub’s primary mission of building better software by working together. Atom is a long-term investment, and GitHub will continue to support its development with a dedicated team going forward. But we also know that we can’t achieve our vision for Atom alone. As Emacs and Vim have demonstrated over the past three decades, if you want to build a thriving, long-lasting community around a text editor, it has to be open source.</p>
 </div>
@@ -389,7 +388,6 @@
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

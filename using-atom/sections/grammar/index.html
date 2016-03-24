@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,11 +322,10 @@
         <div class="markdown-body document-content">
           
           <h1>2.10 Grammar</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_grammar">Grammar</h3>
+          <div class="sect2">
+<h3 id="grammar">Grammar</h3>
 <div class="paragraph">
-<p>The ``grammar'' of a buffer is what language Atom thinks that file content is. Types of grammars would be Java or Markdown. We looked at this a bit when we created some snippets in <a href="/using-atom/sections/snippets">Snippets</a>.</p>
+<p>The "grammar" of a buffer is what language Atom thinks that file content is. Types of grammars would be Java or Markdown. We looked at this a bit when we created some snippets in <a href="/using-atom/sections/snippets">Snippets</a>.</p>
 </div>
 <div class="paragraph">
 <p>If you load up a file, Atom does a little work to try to figure out what type of file it is. Largely this is accomplished by looking at its file extension (<code>.md</code> is generally a Markdown file, etc), though sometimes it has to inspect the content a bit to figure it out if it’s ambiguous.</p>
@@ -348,7 +347,6 @@
 <a href="https://github.com/atom/grammar-selector">atom/grammar-selector</a> package.</p>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,9 +322,8 @@
         <div class="markdown-body document-content">
           
           <h1>1.2 Installing Atom</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_installing_atom">Installing Atom</h3>
+          <div class="sect2">
+<h3 id="installing-atom">Installing Atom</h3>
 <div class="paragraph">
 <p>To get started with Atom, we’ll need to get it on our system. This section will go over installing Atom on Mac, Windows and Linux, as well as the basics of how to build it from source.</p>
 </div>
@@ -352,7 +351,7 @@
 <p>Here you can download the <code>atom-mac.zip</code> file explicitly.</p>
 </div>
 <div class="paragraph">
-<p>Once you have that file, you can click on it to extract the binary and then drag the new <code>Atom</code> application into your ``Applications'' folder.</p>
+<p>Once you have that file, you can click on it to extract the binary and then drag the new <code>Atom</code> application into your "Applications" folder.</p>
 </div>
 <div class="paragraph">
 <p>When you first open Atom, it will try to install the <code>atom</code> and <code>apm</code> commands for use in the terminal. In some cases, Atom might not be able to install these commands because it needs an administrator password. To check if Atom was able to install the <code>atom</code> command, for example, open a terminal window and type <code>which atom</code>. If the <code>atom</code> command has been installed, you’ll see something like this:</p>
@@ -378,7 +377,7 @@ $</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_atom_on_windows">Atom on Windows</h4>
+<h4 id="atom-on-windows">Atom on Windows</h4>
 <div class="paragraph">
 <p>Atom comes with a windows installer. You can download the installer from <a href="https://atom.io" class="bare">https://atom.io</a> or from:</p>
 </div>
@@ -399,7 +398,7 @@ $</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_atom_on_linux">Atom on Linux</h4>
+<h4 id="atom-on-linux">Atom on Linux</h4>
 <div class="paragraph">
 <p>To install Atom on Linux, you can download a <a href="https://atom.io/download/deb">Debian package</a> or <a href="https://atom.io/download/rpm">RPM package</a> either from the <a href="https://atom.io">main Atom website</a> at atom.io or from the Atom project releases page at <a href="https://github.com/atom/atom/releases" class="bare">https://github.com/atom/atom/releases</a>.</p>
 </div>
@@ -421,7 +420,7 @@ $</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_atom_from_source">Atom from Source</h4>
+<h4 id="atom-from-source">Atom from Source</h4>
 <div class="paragraph">
 <p>If none of those options works for you or you just want to build Atom from source, you can also do that.</p>
 </div>
@@ -433,13 +432,13 @@ $</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_setting_up_a_proxy">Setting up a Proxy</h4>
+<h4 id="setting-up-a-proxy">Setting up a Proxy</h4>
 <div class="paragraph">
 <p>If you’re using a proxy, you can configure <a href="https://github.com/atom/apm">apm</a> (Atom Package Manager) to use it by setting the <code>https-proxy</code> config in your <code>~/.atom/.apmrc</code> file:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>https-proxy = https://9.0.2.1:0</code></pre>
+<pre><code>https-proxy = https://9.0.2.1:0</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -447,7 +446,7 @@ $</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>strict-ssl = false</code></pre>
+<pre><code>strict-ssl = false</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -455,7 +454,6 @@ $</pre>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

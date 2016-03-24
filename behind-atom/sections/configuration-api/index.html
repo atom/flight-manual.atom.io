@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,18 +322,18 @@
         <div class="markdown-body document-content">
           
           <h1>4.1 Configuration API</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_configuration_api">Configuration API</h3>
+          <div class="sect2">
+<h3 id="configuration-api">Configuration API</h3>
 <div class="sect3">
-<h4 id="_reading_config_settings">Reading Config Settings</h4>
+<h4 id="reading-config-settings">Reading Config Settings</h4>
 <div class="paragraph">
 <p>If you are writing a package that you want to make configurable, you’ll need to read config settings via the <code>atom.config</code> global. You can read the current value of a namespaced config key with <code>atom.config.get</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="c1"># read a value with `config.get`
+<pre class="highlight highlight-coffeescript"><code><span class="c1"># read a value with `config.get`
 </span><span class="vi">@</span><span class="na">showInvisibles</span><span class="p">()</span> <span class="k">if</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span> <span class="s">"editor.showInvisibles"</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -341,7 +341,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="p">{</span><span class="nx">View</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'space-pen'</span>
+<pre class="highlight highlight-coffeescript"><code><span class="p">{</span><span class="nx">View</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'space-pen'</span>
 
 <span class="k">class</span> <span class="nx">MyView</span> <span class="k">extends</span> <span class="nx">View</span>
   <span class="na">attached</span><span class="o">:</span> <span class="o">-&gt;</span>
@@ -351,6 +351,7 @@
 
   <span class="na">detached</span><span class="o">:</span> <span class="o">-&gt;</span>
     <span class="vi">@</span><span class="na">fontSizeObserveSubscription</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -362,14 +363,15 @@ instead.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_writing_config_settings">Writing Config Settings</h4>
+<h4 id="writing-config-settings">Writing Config Settings</h4>
 <div class="paragraph">
 <p>The <code>atom.config</code> database is populated on startup from <code>~/.atom/config.cson</code>, but you can programmatically write to it with <code>atom.config.set</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="c1"># basic key update
+<pre class="highlight highlight-coffeescript"><code><span class="c1"># basic key update
 </span><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">"core.showInvisibles"</span><span class="p">,</span> <span class="no">true</span><span class="p">)</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -377,7 +379,6 @@ instead.</p>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

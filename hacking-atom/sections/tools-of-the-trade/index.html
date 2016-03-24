@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,9 +322,8 @@
         <div class="markdown-body document-content">
           
           <h1>3.1 Tools of the Trade</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_tools_of_the_trade">Tools of the Trade</h3>
+          <div class="sect2">
+<h3 id="tools-of-the-trade">Tools of the Trade</h3>
 <div class="paragraph">
 <p>To begin, there are a few things we’ll assume you know, at least to some degree. Since all of Atom is implemented using web technologies, we have to assume you know web technologies such as JavaScript and CSS. Specifically, we’ll be implementing everything in CoffeeScript and Less, which are preprocessors for Javascript and CSS respectively.</p>
 </div>
@@ -333,7 +332,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="nx">MyPackageView</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'./my-package-view'</span>
+<pre class="highlight highlight-coffeescript"><code><span class="nx">MyPackageView</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'./my-package-view'</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
   <span class="na">myPackageView</span><span class="o">:</span> <span class="no">null</span>
@@ -346,6 +345,7 @@
 
   <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span>
     <span class="na">myPackageViewState</span><span class="o">:</span> <span class="vi">@</span><span class="na">myPackageView</span><span class="p">.</span><span class="na">serialize</span><span class="p">()</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -361,7 +361,6 @@
 <p>Less is an even simpler transition from CSS. It adds a number of useful things like variables and functions to CSS. You can brush up on your Less skills at <a href="http://lesscss.org/">lesscss.org</a>. Our usage of Less won’t get too complex in this book however, so as long as you know basic CSS you should be fine.</p>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

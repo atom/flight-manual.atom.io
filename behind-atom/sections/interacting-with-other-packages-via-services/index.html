@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,15 +322,14 @@
         <div class="markdown-body document-content">
           
           <h1></h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_interacting_with_other_packages_via_services">Interacting With Other Packages Via Services</h3>
+          <div class="sect2">
+<h3 id="interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</h3>
 <div class="paragraph">
 <p>Atom packages can interact with each other through versioned APIs called <em>services</em>. To provide a service, in your <code>package.json</code>, specify one or more version numbers, each paired with the name of a method on your package’s main module:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-json highlight" data-lang="json"><span class="p">{</span><span class="w">
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"providedServices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"my-service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Does a useful thing"</span><span class="p">,</span><span class="w">
@@ -341,6 +340,7 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -348,7 +348,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
+<pre class="highlight highlight-coffee"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
   <span class="na">activate</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="c1"># ...
 </span>
   <span class="na">provideMyServiceV1</span><span class="o">:</span> <span class="o">-&gt;</span>
@@ -356,6 +356,7 @@
 
   <span class="na">provideMyServiceV2</span><span class="o">:</span> <span class="o">-&gt;</span>
     <span class="nx">myService</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -363,7 +364,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-json highlight" data-lang="json"><span class="p">{</span><span class="w">
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"consumedServices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"another-service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -373,6 +374,7 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -380,7 +382,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="p">{</span><span class="nx">Disposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
+<pre class="highlight highlight-coffee"><code><span class="p">{</span><span class="nx">Disposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
   <span class="na">activate</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="c1"># ...
@@ -392,10 +394,10 @@
   <span class="na">consumeAnotherServiceV2</span><span class="o">:</span> <span class="p">(</span><span class="nx">service</span><span class="p">)</span> <span class="o">-&gt;</span>
     <span class="nx">useService</span><span class="p">(</span><span class="nx">service</span><span class="p">)</span>
     <span class="k">new</span> <span class="nx">Disposable</span> <span class="o">-&gt;</span> <span class="nx">stopUsingService</span><span class="p">(</span><span class="nx">service</span><span class="p">)</span></code></pre>
+
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

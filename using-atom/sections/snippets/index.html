@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,9 +322,8 @@
         <div class="markdown-body document-content">
           
           <h1>2.6 Snippets</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_snippets">Snippets</h3>
+          <div class="sect2">
+<h3 id="snippets">Snippets</h3>
 <div class="paragraph">
 <p>Snippets are an incredibly powerful way to quickly generate commonly needed code syntax from a shortcut.</p>
 </div>
@@ -336,7 +335,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-html highlight" data-lang="html"><span class="nt">&lt;html&gt;</span>
+<pre class="highlight highlight-html"><code><span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
   <span class="nt">&lt;/head&gt;</span>
@@ -344,6 +343,7 @@
 
   <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -362,7 +362,7 @@
 <p>You can also use fuzzy search to filter this list down by typing in the selection box. Selecting one of them will execute the snippet where your cursor is (or multiple cursors are).</p>
 </div>
 <div class="sect3">
-<h4 id="_creating_your_own_snippets">Creating Your Own Snippets</h4>
+<h4 id="creating-your-own-snippets">Creating Your Own Snippets</h4>
 <div class="paragraph">
 <p>So that’s pretty cool, but what if there is something the language package didn’t include or something that is custom to the code you write? Luckily it’s incredibly easy to add your own snippets.</p>
 </div>
@@ -376,14 +376,15 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="s">'.source.js'</span><span class="o">:</span>
+<pre class="highlight highlight-coffee"><code><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'console.log'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'log'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.log(${1:"crash"});$2'</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
-<p>The outermost keys are the selectors where these snippets should be active. The easiest way to determine what this should be is to go to the language package of the language you want to add a snippet for and look for the ``Scope'' string.</p>
+<p>The outermost keys are the selectors where these snippets should be active. The easiest way to determine what this should be is to go to the language package of the language you want to add a snippet for and look for the "Scope" string.</p>
 </div>
 <div class="paragraph">
 <p>For example, if we wanted to add a snippet that would work for Java files, we would look up the <code>language-java</code> package in our Settings view and we can see the Scope is <code>source.java</code>. Then the top level snippet key would be that prepended by a period (like a CSS class selector would do).</p>
@@ -408,7 +409,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-js highlight" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"crash"</span><span class="p">);</span></code></pre>
+<pre class="highlight highlight-js"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"crash"</span><span class="p">);</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -428,13 +430,13 @@ Snippet keys, unlike CSS selectors, can only be repeated once per level. If ther
 </div>
 </div>
 <div class="sect4">
-<h5 id="_multi_line_snippet_body">Multi-line Snippet Body</h5>
+<h5 id="multi-line-snippet-body">Multi-line Snippet Body</h5>
 <div class="paragraph">
 <p>You can also use multi-line syntax using <code>"""</code> for larger templates:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="s">'.source.js'</span><span class="o">:</span>
+<pre class="highlight highlight-coffee"><code><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'if, else if, else'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'ieie'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">"""
@@ -446,6 +448,7 @@ Snippet keys, unlike CSS selectors, can only be repeated once per level. If ther
         $5
       }
     """</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -453,10 +456,11 @@ Snippet keys, unlike CSS selectors, can only be repeated once per level. If ther
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="s">'.source.js'</span><span class="o">:</span>
+<pre class="highlight highlight-coffee"><code><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'Snippet Name'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'hello'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">'Hello World!'</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -471,7 +475,6 @@ Snippet keys, unlike CSS selectors, can only be repeated once per level. If ther
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

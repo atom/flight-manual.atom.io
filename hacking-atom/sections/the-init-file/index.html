@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,8 +322,7 @@
         <div class="markdown-body document-content">
           
           <h1>3.2 The Init File</h1>
-          <div class="manual-docs">
-            <div class="sect2">
+          <div class="sect2">
 <h3 id="_the_init_file">The Init File</h3>
 <div class="paragraph">
 <p>When Atom finishes loading, it will evaluate <code>init.coffee</code> in your <code>~/.atom</code> directory, giving you a chance to run CoffeeScript code to make customizations. Code in this file has full access to <a href="https://atom.io/docs/api/latest">Atom’s API</a>. If customizations become extensive, consider creating a package, which we will cover in <a href="../package-word-count">package-word-count</a>.</p>
@@ -336,7 +335,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="nx">atom</span><span class="p">.</span><span class="na">beep</span><span class="p">()</span></code></pre>
+<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">beep</span><span class="p">()</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -344,20 +344,20 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-text-editor'</span><span class="p">,</span> <span class="s">'markdown:paste-as-link'</span><span class="p">,</span> <span class="o">-&gt;</span>
+<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-text-editor'</span><span class="p">,</span> <span class="s">'markdown:paste-as-link'</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="k">return</span> <span class="nx">unless</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
 
   <span class="nx">selection</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getLastSelection</span><span class="p">()</span>
   <span class="nx">clipboardText</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">clipboard</span><span class="p">.</span><span class="na">read</span><span class="p">()</span>
 
   <span class="nx">selection</span><span class="p">.</span><span class="na">insertText</span><span class="p">(</span><span class="s">"[</span><span class="si">#{</span><span class="nx">selection</span><span class="p">.</span><span class="na">getText</span><span class="p">()</span><span class="si">}</span><span class="s">](</span><span class="si">#{</span><span class="nx">clipboardText</span><span class="si">}</span><span class="s">)"</span><span class="p">)</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
 <p>Now, reload Atom and use the <a href="/getting-started/sections/atom-basics#_command_palette">Command Palette</a> to execute the new command by name (i.e., "Markdown: Paste As Link"). And if you’d like to trigger the command via a keyboard shortcut, you can define a <a href="/using-atom/sections/basic-customization#_customizing_keybindings">keymap for the command</a>.</p>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

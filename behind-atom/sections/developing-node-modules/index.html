@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,20 +322,19 @@
         <div class="markdown-body document-content">
           
           <h1>4.5 Developing Node Modules</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_developing_node_modules">Developing Node Modules</h3>
+          <div class="sect2">
+<h3 id="developing-node-modules">Developing Node Modules</h3>
 <div class="paragraph">
 <p>Atom contains a number of packages that are Node modules instead of Atom packages. If you want to make changes to the Node modules, for instance <code>atom-keymap</code>, you have to link them into the development environment differently than you would a normal Atom package.</p>
 </div>
 <div class="sect3">
-<h4 id="_linking_a_node_module_into_your_atom_dev_environment">Linking a Node Module Into Your Atom Dev Environment</h4>
+<h4 id="linking-a-node-module-into-your-atom-dev-environment">Linking a Node Module Into Your Atom Dev Environment</h4>
 <div class="paragraph">
 <p>Here are the steps to run a local version of a node module <strong>not an apm</strong> within Atom. We’re using <code>atom-keymap</code> as an example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash highlight" data-lang="bash"><span class="gp">$ </span>git clone https://github.com/atom/atom-keymap.git
+<pre class="highlight highlight-bash"><code><span class="gp">$ </span>git clone https://github.com/atom/atom-keymap.git
 <span class="gp">$ </span><span class="nb">cd </span>atom-keymap
 <span class="gp">$ </span>npm install
 <span class="gp">$ </span>npm link
@@ -343,6 +342,7 @@
 <span class="gp">$ </span><span class="nb">cd </span>WHERE-YOU-CLONED-ATOM
 <span class="gp">$ </span>npm link atom-keymap
 <span class="gp">$ </span>atom <span class="c"># Should work!</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -350,7 +350,6 @@
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

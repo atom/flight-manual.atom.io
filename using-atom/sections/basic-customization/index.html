@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,8 +322,7 @@
         <div class="markdown-body document-content">
           
           <h1>2.13 Basic Customization</h1>
-          <div class="manual-docs">
-            <div class="sect2">
+          <div class="sect2">
 <h3 id="_basic_customization">Basic Customization</h3>
 <div class="paragraph">
 <p>Now that we are feeling comfortable with just about everything built into Atom, let’s look at how to tweak it. Perhaps there is a keybinding that you use a lot but feels wrong or a color that isn’t quite right for you. Atom is amazingly flexible, so let’s go over some of the simpler flexes it can do.</p>
@@ -368,7 +367,7 @@ Unlike CSS’s selectors, CSON’s keys can only be repeated once per object. If
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="c1"># DON'T DO THIS
+<pre class="highlight highlight-coffee"><code><span class="c1"># DON'T DO THIS
 </span><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'console.log'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'log'</span>
@@ -379,6 +378,7 @@ Unlike CSS’s selectors, CSON’s keys can only be repeated once per object. If
   <span class="s">'console.error'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'error'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.error(${1:"crash"});$2'</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -386,7 +386,7 @@ Unlike CSS’s selectors, CSON’s keys can only be repeated once per object. If
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="c1"># DO THIS: Both of these will be loaded
+<pre class="highlight highlight-coffee"><code><span class="c1"># DO THIS: Both of these will be loaded
 </span><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'console.log'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'log'</span>
@@ -394,6 +394,7 @@ Unlike CSS’s selectors, CSON’s keys can only be repeated once per object. If
   <span class="s">'console.error'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'error'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.error(${1:"crash"});$2'</span></code></pre>
+
 </div>
 </div>
 </td>
@@ -420,9 +421,10 @@ Unlike CSS’s selectors, CSON’s keys can only be repeated once per object. If
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-css highlight" data-lang="css"><span class="nt">atom-text-editor</span><span class="nd">::shadow</span> <span class="nc">.cursor</span> <span class="p">{</span>
+<pre class="highlight highlight-css"><code><span class="nt">atom-text-editor</span><span class="nd">::shadow</span> <span class="nc">.cursor</span> <span class="p">{</span>
   <span class="nl">border-color</span><span class="p">:</span> <span class="no">pink</span><span class="p">;</span>
 <span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -451,11 +453,12 @@ Unlike CSS’s selectors, CSON’s keys can only be repeated once per object. If
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="s">'atom-text-editor'</span><span class="o">:</span>
+<pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
   <span class="s">'enter'</span><span class="o">:</span> <span class="s">'editor:newline'</span>
 
 <span class="s">'atom-text-editor[mini] input'</span><span class="o">:</span>
   <span class="s">'enter'</span><span class="o">:</span> <span class="s">'core:confirm'</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -478,10 +481,11 @@ Unlike CSS’s selectors, CSON’s keys can only be repeated once per object. If
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="s">'core'</span><span class="o">:</span>
+<pre class="highlight highlight-coffee"><code><span class="s">'core'</span><span class="o">:</span>
   <span class="s">'excludeVcsIgnoredPaths'</span><span class="o">:</span> <span class="no">true</span>
 <span class="s">'editor'</span><span class="o">:</span>
   <span class="s">'fontSize'</span><span class="o">:</span> <span class="mi">18</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -491,7 +495,7 @@ Unlike CSS’s selectors, CSON’s keys can only be repeated once per object. If
 <p>You can open this file in an editor from the <em>Atom &gt; Open Your Config</em> menu.</p>
 </div>
 <div class="sect4">
-<h5 id="_configuration_key_reference">Configuration Key Reference</h5>
+<h5 id="configuration-key-reference">Configuration Key Reference</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -617,7 +621,7 @@ path of the current editor to a column position.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_language_specific_configuration_settings">Language Specific Configuration Settings</h4>
+<h4 id="language-specific-configuration-settings">Language Specific Configuration Settings</h4>
 <div class="paragraph">
 <p>You can also set several configuration settings differently for different file types. For example, you may want Atom to soft wrap markdown files, have two-space tabs for ruby files, and four-space tabs for python files.</p>
 </div>
@@ -626,7 +630,7 @@ path of the current editor to a column position.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>editor.tabLength
+<pre><code>editor.tabLength
 editor.softWrap
 editor.softWrapAtPreferredLineLength
 editor.preferredLineLength
@@ -640,7 +644,7 @@ editor.normalizeIndentOnPaste</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_language_specific_settings_in_the_settings_view">Language-specific Settings in the Settings View</h5>
+<h5 id="language-specific-settings-in-the-settings-view">Language-specific Settings in the Settings View</h5>
 <div class="paragraph">
 <p>You can edit these config settings in the settings view on a per-language basis. Just search for the language of your choice in the left panel, select it, and edit away!</p>
 </div>
@@ -652,16 +656,16 @@ editor.normalizeIndentOnPaste</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_language_specific_settings_in_your_config_file">Language-specific Settings in your Config File</h5>
+<h5 id="language-specific-settings-in-your-config-file">Language-specific Settings in your Config File</h5>
 <div class="paragraph">
-<p>You can also edit the actual configuration file directly. Open your config file via the Command Palette, type ``open config'', and hit enter.</p>
+<p>You can also edit the actual configuration file directly. Open your config file via the Command Palette, type "open config", and hit enter.</p>
 </div>
 <div class="paragraph">
 <p>Global settings are under a global key, and each language can have its own top-level key. This key is the language’s scope. Language-specific settings override anything set in the global section.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-javascript highlight" data-lang="javascript"><span class="s1">'global'</span><span class="err">:</span> <span class="err">#</span> <span class="nx">all</span> <span class="nx">languages</span> <span class="nx">unless</span> <span class="nx">overridden</span>
+<pre class="highlight highlight-javascript"><code><span class="s1">'global'</span><span class="err">:</span> <span class="err">#</span> <span class="nx">all</span> <span class="nx">languages</span> <span class="nx">unless</span> <span class="nx">overridden</span>
   <span class="s1">'editor'</span><span class="err">:</span>
     <span class="s1">'softWrap'</span><span class="err">:</span> <span class="kc">false</span>
     <span class="s1">'tabLength'</span><span class="err">:</span> <span class="mi">8</span>
@@ -677,6 +681,7 @@ editor.normalizeIndentOnPaste</code></pre>
 <span class="s1">'.source.python'</span><span class="err">:</span> <span class="err">#</span> <span class="nx">python</span> <span class="nx">overrides</span>
   <span class="s1">'editor'</span><span class="err">:</span>
     <span class="s1">'tabLength'</span><span class="err">:</span> <span class="mi">4</span></code></pre>
+
 </div>
 </div>
 </div>
@@ -703,12 +708,13 @@ editor.normalizeIndentOnPaste</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-javascript highlight" data-lang="javascript"><span class="s1">'*'</span>
+<pre class="highlight highlight-javascript"><code><span class="s1">'*'</span>
   <span class="nl">core</span><span class="p">:</span>
     <span class="nl">customFileTypes</span><span class="p">:</span>
       <span class="s1">'source.coffee'</span><span class="err">:</span> <span class="p">[</span>
         <span class="s1">'foo'</span>
       <span class="p">]</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -721,13 +727,13 @@ editor.normalizeIndentOnPaste</code></pre>
 <p>The CSON configuration files for Atom are stored on disk on your machine. The location for this storage is customizable. The default is to use the home directory of the user executing the application. The Atom Home directory will, by default, be called .atom and will be located in the root of the home directory of the user.</p>
 </div>
 <div class="sect4">
-<h5 id="_custom_home_location_with_an_environment_variable">Custom home location with an environment variable</h5>
+<h5 id="custom-home-location-with-an-environment-variable">Custom home location with an environment variable</h5>
 <div class="paragraph">
 <p>An environment variable can be used, though to make Atom use a different location. This can be useful for several reasons. One of these may be that multiple user accounts on a machine want to use the same Atom Home. The environment variable used to specify and alternate location is called ATOM_HOME. If this environment variable exists, the location specified will be used to load and store Atom settings.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_taking_your_customization_with_you_with_portable_mode">Taking your customization with you with Portable Mode</h5>
+<h5 id="taking-your-customization-with-you-with-portable-mode">Taking your customization with you with Portable Mode</h5>
 <div class="paragraph">
 <p>In addition to using the ATOM_HOME environment variable, Atom can also be set to use "Portable Mode".
 Portable Mode is most useful for taking Atom with you, with all your custom setting and packages, from machine to machine. This may take the form of keeping Atom on a USB drive or a cloud storage platform that syncs folders to different machines, like Dropbox. Atom is in Portable Mode when there is a directory named .atom sibling to the directory in which the atom executable file lives. For example, the installed Atom directory can be placed into a Dropbox folder next to a .atom folder.</p>
@@ -743,13 +749,14 @@ Portable Mode is most useful for taking Atom with you, with all your custom sett
 </div>
 </div>
 <div class="sect4">
-<h5 id="_moving_to_portable_mode">Moving to Portable Mode</h5>
+<h5 id="moving-to-portable-mode">Moving to Portable Mode</h5>
 <div class="paragraph">
 <p>Atom provides a command-line parameter option for setting Portable Mode.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell highlight" data-lang="shell"><span class="gp">$ </span>atom --portable</code></pre>
+<pre class="highlight highlight-shell"><code><span class="gp">$ </span>atom --portable</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -767,7 +774,6 @@ Portable Mode is most useful for taking Atom with you, with all your custom sett
 <a href="#_footnoteref_2">2</a>. <a href="http://json.org/" class="bare">http://json.org/</a>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

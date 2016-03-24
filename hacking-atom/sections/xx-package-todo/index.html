@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,15 +322,14 @@
         <div class="markdown-body document-content">
           
           <h1></h1>
-          <div class="manual-docs">
-            <div class="sect4">
-<h5 id="_adding_configuration_settings">Adding Configuration Settings</h5>
+          <div class="sect4">
+<h5 id="adding-configuration-settings">Adding Configuration Settings</h5>
 <div class="paragraph">
 <p>You can also easily support config settings in your package that are editable in the settings view. Specify a <code>config</code> key in your package main:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
+<pre class="highlight highlight-coffeescript"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
 <span class="c1"># Your config schema!
 </span><span class="na">config</span><span class="o">:</span>
 <span class="na">someInt</span><span class="o">:</span>
@@ -339,6 +338,7 @@
 <span class="na">minimum</span><span class="o">:</span> <span class="mi">1</span>
 <span class="na">activate</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="c1"># ...
 </span><span class="err">#</span> <span class="p">...</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -351,7 +351,7 @@ details specifying your configuration.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_bundle_external_resources">Bundle External Resources</h2>
+<h2 id="bundle-external-resources">Bundle External Resources</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>It’s common to ship external resources like images and fonts in the package, to
@@ -383,7 +383,6 @@ protocol URLs to load resources in the package.</p>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

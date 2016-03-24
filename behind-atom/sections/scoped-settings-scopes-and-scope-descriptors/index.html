@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,17 +322,16 @@
         <div class="markdown-body document-content">
           
           <h1>4.3 Scoped Settings, Scopes and Scope Descriptors</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_scoped_settings_scopes_and_scope_descriptors">Scoped Settings, Scopes and Scope Descriptors</h3>
+          <div class="sect2">
+<h3 id="scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</h3>
 <div class="paragraph">
 <p>Atom supports language-specific settings. You can soft wrap only Markdown files, or set the tab length to 4 in Python files.</p>
 </div>
 <div class="paragraph">
-<p>Language-specific settings are a subset of something more general we call ``scoped settings''. Scoped settings allow targeting down to a specific syntax token type. For example, you could conceivably set a setting to target only Ruby comments, only code inside Markdown files, or even only JavaScript function names.</p>
+<p>Language-specific settings are a subset of something more general we call "scoped settings". Scoped settings allow targeting down to a specific syntax token type. For example, you could conceivably set a setting to target only Ruby comments, only code inside Markdown files, or even only JavaScript function names.</p>
 </div>
 <div class="sect3">
-<h4 id="_scope_names_in_syntax_tokens">Scope names in syntax tokens</h4>
+<h4 id="scope-names-in-syntax-tokens">Scope names in syntax tokens</h4>
 <div class="paragraph">
 <p>Each token in the editor has a collection of scope names. For example, the aforementioned JavaScript function name might have the scope names <code>function</code> and <code>name</code>. An open paren might have the scope names <code>punctuation</code>, <code>parameters</code>, <code>begin</code>.</p>
 </div>
@@ -344,9 +343,10 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-js highlight" data-lang="js"><span class="kd">function</span> <span class="nx">functionName</span><span class="p">()</span> <span class="p">{</span>
+<pre class="highlight highlight-js"><code><span class="kd">function</span> <span class="nx">functionName</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Log it out'</span><span class="p">);</span>
 <span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -363,15 +363,16 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_scope_selectors">Scope Selectors</h4>
+<h4 id="scope-selectors">Scope Selectors</h4>
 <div class="paragraph">
 <p>Scope selectors allow you to target specific tokens just like a CSS selector targets specific nodes in the DOM. Some examples:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="s">'.source.js'</span> <span class="c1"># selects all javascript tokens
+<pre class="highlight highlight-coffee"><code><span class="s">'.source.js'</span> <span class="c1"># selects all javascript tokens
 </span><span class="s">'.source.js .function.name'</span> <span class="c1"># selects all javascript function names
 </span><span class="s">'.function.name'</span> <span class="err">#</span> <span class="nx">selects</span> <span class="nx">all</span> <span class="nx">function</span> <span class="nx">names</span> <span class="k">in</span> <span class="nx">any</span> <span class="nx">language</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -379,12 +380,13 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="s">'special value'</span><span class="p">,</span> <span class="na">scopeSelector</span><span class="o">:</span> <span class="s">'.source.js .function.name'</span><span class="p">)</span></code></pre>
+<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="s">'special value'</span><span class="p">,</span> <span class="na">scopeSelector</span><span class="o">:</span> <span class="s">'.source.js .function.name'</span><span class="p">)</span></code></pre>
+
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_scope_descriptors">Scope Descriptors</h4>
+<h4 id="scope-descriptors">Scope Descriptors</h4>
 <div class="paragraph">
 <p>A scope descriptor is an <a href="https://atom.io/docs/api/latest/ScopeDescriptor">Object</a> that wraps an <code>Array</code> of `String`s. The Array describes a path from the root of the syntax tree to a token including <em>all</em> scope names for the entire path.</p>
 </div>
@@ -393,7 +395,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="p">[</span><span class="s">'source.js'</span><span class="p">,</span> <span class="s">'meta.function.js'</span><span class="p">,</span> <span class="s">'entity.name.function.js'</span><span class="p">]</span></code></pre>
+<pre class="highlight highlight-coffee"><code><span class="p">[</span><span class="s">'source.js'</span><span class="p">,</span> <span class="s">'meta.function.js'</span><span class="p">,</span> <span class="s">'entity.name.function.js'</span><span class="p">]</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -401,8 +404,9 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="nx">scopeDescriptor</span> <span class="o">=</span> <span class="p">[</span><span class="s">'source.js'</span><span class="p">,</span> <span class="s">'meta.function.js'</span><span class="p">,</span> <span class="s">'entity.name.function.js'</span><span class="p">]</span>
+<pre class="highlight highlight-coffee"><code><span class="nx">scopeDescriptor</span> <span class="o">=</span> <span class="p">[</span><span class="s">'source.js'</span><span class="p">,</span> <span class="s">'meta.function.js'</span><span class="p">,</span> <span class="s">'entity.name.function.js'</span><span class="p">]</span>
 <span class="nx">value</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">scopeDescriptor</span><span class="p">)</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -426,15 +430,15 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffee highlight" data-lang="coffee"><span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
+<pre class="highlight highlight-coffee"><code><span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
 <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getLastCursor</span><span class="p">()</span>
 <span class="nx">valueAtCursor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">cursor</span><span class="p">.</span><span class="na">getScopeDescriptor</span><span class="p">())</span>
 <span class="nx">valueForLanguage</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getRootScopeDescriptor</span><span class="p">())</span></code></pre>
+
 </div>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

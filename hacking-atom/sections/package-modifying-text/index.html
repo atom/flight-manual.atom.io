@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,15 +322,14 @@
         <div class="markdown-body document-content">
           
           <h1>3.4 Package: Modifying Text</h1>
-          <div class="manual-docs">
-            <div class="sect2">
+          <div class="sect2">
 <h3 id="_package_modifying_text">Package: Modifying Text</h3>
 <div class="paragraph">
 <p>Now that we have our first package written, let’s go through examples of other types of packages we can make. This section will guide you though creating a simple command that replaces the selected text with <a href="https://en.wikipedia.org/wiki/ASCII_art">ascii art</a>. When you run our new command with the word "cool" selected, it will be replaced with:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>                                     o888
+<pre><code>                                     o888
     ooooooo     ooooooo     ooooooo   888
   888     888 888     888 888     888 888
   888         888     888 888     888 888
@@ -344,7 +343,7 @@
 <p>The final package can be viewed at <a href="https://github.com/atom/ascii-art" class="bare">https://github.com/atom/ascii-art</a>.</p>
 </div>
 <div class="sect3">
-<h4 id="_basic_text_insertion">Basic Text Insertion</h4>
+<h4 id="basic-text-insertion">Basic Text Insertion</h4>
 <div class="paragraph">
 <p>To begin, press <code>cmd-shift-P</code> to bring up the <a href="https://github.com/atom/command-palette">Command
 Palette</a>. Type "generate package" and
@@ -358,7 +357,7 @@ select the "Package Generator: Generate Package" command, just as we did in <a h
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
+<pre class="highlight highlight-coffeescript"><code><span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
   <span class="na">subscriptions</span><span class="o">:</span> <span class="no">null</span>
@@ -373,10 +372,11 @@ select the "Package Generator: Generate Package" command, just as we did in <a h
 
   <span class="na">convert</span><span class="o">:</span> <span class="o">-&gt;</span>
     <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">'Convert text!'</span></code></pre>
+
 </div>
 </div>
 <div class="sect4">
-<h5 id="_create_a_command">Create a Command</h5>
+<h5 id="create-a-command">Create a Command</h5>
 <div class="paragraph">
 <p>Now let’s add a command. It is recommended that you namespace your commands with the package name followed by a <code>:</code>, so as you can see in the code, we called our command <code>ascii-art:convert</code> and it will call the <code>convert()</code> method when it’s called.</p>
 </div>
@@ -385,34 +385,36 @@ select the "Package Generator: Generate Package" command, just as we did in <a h
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="na">convert</span><span class="o">:</span> <span class="o">-&gt;</span>
+<pre class="highlight highlight-coffeescript"><code><span class="na">convert</span><span class="o">:</span> <span class="o">-&gt;</span>
   <span class="k">if</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
     <span class="nx">editor</span><span class="p">.</span><span class="na">insertText</span><span class="p">(</span><span class="s">'Hello, World!'</span><span class="p">)</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
 <p>As in <a href="/hacking-atom/sections/package-word-count#_counting_words">Counting_words</a>, we’re using <code>atom.workspace.getActiveTextEditor()</code> to get the object that represents the active text editor. If this <code>convert()</code> method is called when not focused on a text editor, this will simply return a blank string, so we can skip the next line.</p>
 </div>
 <div class="paragraph">
-<p>Next we insert a string into the current text editor with the <a href="https://atom.io/docs/api/latest/TextEditor#instance-insertText"><code>insertText()</code></a> method. This will insert the text wherever the cursor currently is in the current editor. If there is a selection, it will replace all selections with the ``Hello, World!'' text.</p>
+<p>Next we insert a string into the current text editor with the <a href="https://atom.io/docs/api/latest/TextEditor#instance-insertText"><code>insertText()</code></a> method. This will insert the text wherever the cursor currently is in the current editor. If there is a selection, it will replace all selections with the "Hello, World!" text.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_reload_the_package">Reload the Package</h5>
+<h5 id="reload-the-package">Reload the Package</h5>
 <div class="paragraph">
 <p>Before we can trigger <code>ascii-art:convert</code>, we need to load the latest code for our package by reloading the window. Run the command "Window: Reload" from the command palette or by pressing <code>ctrl-alt-cmd-l</code>.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_trigger_the_command">Trigger the Command</h5>
+<h5 id="trigger-the-command">Trigger the Command</h5>
 <div class="paragraph">
 <p>Now open the command panel and search for the "Ascii Art: Convert" command. But it’s not there! To fix this, open <em>package.json</em> and find the property called <code>activationCommands</code>. Activation commands speed up load time by allowing Atom to delay a package’s activation until it’s needed. So remove the existing command and use <code>ascii-art:convert</code> in <code>activationCommands</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-json highlight" data-lang="json"><span class="s2">"activationCommands"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+<pre class="highlight highlight-json"><code><span class="s2">"activationCommands"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="nt">"atom-workspace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ascii-art:convert"</span><span class="w">
 </span><span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -420,7 +422,7 @@ select the "Package Generator: Generate Package" command, just as we did in <a h
 </div>
 </div>
 <div class="sect4">
-<h5 id="_add_a_key_binding">Add a Key Binding</h5>
+<h5 id="add-a-key-binding">Add a Key Binding</h5>
 <div class="paragraph">
 <p>Now let’s add a key binding to trigger the <code>ascii-art:convert</code> command. Open <em>keymaps/ascii-art.cson</em> and add a key binding linking <code>ctrl-alt-a</code> to the <code>ascii-art:convert</code> command. You can delete the pre-existing key binding since you don’t need it anymore.</p>
 </div>
@@ -429,8 +431,9 @@ select the "Package Generator: Generate Package" command, just as we did in <a h
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="s">'atom-text-editor'</span><span class="o">:</span>
+<pre class="highlight highlight-coffeescript"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
   <span class="s">'ctrl-alt-a'</span><span class="o">:</span> <span class="s">'ascii-art:convert'</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -439,29 +442,30 @@ select the "Package Generator: Generate Package" command, just as we did in <a h
 </div>
 </div>
 <div class="sect3">
-<h4 id="_add_the_ascii_art">Add the ASCII Art</h4>
+<h4 id="add-the-ascii-art">Add the ASCII Art</h4>
 <div class="paragraph">
 <p>Now we need to convert the selected text to ASCII art. To do this we will use the <a href="https://npmjs.org/package/figlet">figlet</a> <a href="http://nodejs.org/">node</a> module from <a href="https://npmjs.org/">npm</a>. Open <em>package.json</em> and add the latest version of figlet to the dependencies:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-json highlight" data-lang="json"><span class="s2">"dependencies"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+<pre class="highlight highlight-json"><code><span class="s2">"dependencies"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="nt">"figlet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.8"</span><span class="w">
 </span><span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
 <p>After saving the file, run the command "Update Package Dependencies: Update" from the Command Palette. This will install the package’s node module dependencies, only figlet in this case. You will need to run "Update Package Dependencies: Update" whenever you update the dependencies field in your <em>package.json</em> file.</p>
 </div>
 <div class="paragraph">
-<p>If for some reason this doesn’t work, you’ll see a message saying <code>`Failed to update package dependencies'' and you will find a new `npm-debug.log</code> file in your directory. That file should give you some idea as to what went wrong.</p>
+<p>If for some reason this doesn’t work, you’ll see a message saying "Failed to update package dependencies" and you will find a new <code>npm-debug.log</code> file in your directory. That file should give you some idea as to what went wrong.</p>
 </div>
 <div class="paragraph">
 <p>Now require the figlet node module in <em>lib/ascii-art.coffee</em> and instead of inserting 'Hello, World!', convert the selected text to ASCII art.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="na">convert</span><span class="o">:</span> <span class="o">-&gt;</span>
+<pre class="highlight highlight-coffeescript"><code><span class="na">convert</span><span class="o">:</span> <span class="o">-&gt;</span>
   <span class="k">if</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
     <span class="nx">selection</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getSelectedText</span><span class="p">()</span>
 
@@ -472,6 +476,7 @@ select the "Package Generator: Generate Package" command, just as we did in <a h
         <span class="nx">console</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
       <span class="k">else</span>
         <span class="nx">editor</span><span class="p">.</span><span class="na">insertText</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="si">#{</span><span class="nx">art</span><span class="si">}</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -485,13 +490,12 @@ select the "Package Generator: Generate Package" command, just as we did in <a h
 </div>
 </div>
 <div class="sect3">
-<h4 id="_summary">Summary</h4>
+<h4 id="summary">Summary</h4>
 <div class="paragraph">
 <p>In this section, we’ve made a UI-less package that takes selected text and replaces it with a processed version. This could be helpful in creating linters or checkers for your code.</p>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,9 +322,8 @@
         <div class="markdown-body document-content">
           
           <h1>1.3 Atom Basics</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_atom_basics">Atom Basics</h3>
+          <div class="sect2">
+<h3 id="atom-basics">Atom Basics</h3>
 <div class="paragraph">
 <p>Now that Atom is installed on your system, let’s fire it up, configure it and get acquainted with the editor.</p>
 </div>
@@ -341,7 +340,7 @@
 <p>This is the Atom welcome screen and gives you a pretty good starting point for how to get started with the editor.</p>
 </div>
 <div class="sect3">
-<h4 id="_basic_terminology">Basic Terminology</h4>
+<h4 id="basic-terminology">Basic Terminology</h4>
 <div class="paragraph">
 <p>First of all, let’s get acquainted with some of the terminology we’ll be using in this manual.</p>
 </div>
@@ -361,7 +360,7 @@
 <div class="sect3">
 <h4 id="_command_palette">Command Palette</h4>
 <div class="paragraph">
-<p>In that welcome screen, we are introduced to probably the most important command in Atom, the <code>`Command Palette''. If you hit `cmd-shift-P</code> while focused in an editor pane, the command palette will pop up.</p>
+<p>In that welcome screen, we are introduced to probably the most important command in Atom, the "Command Palette". If you hit <code>cmd-shift-P</code> while focused in an editor pane, the command palette will pop up.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -398,7 +397,7 @@ These are the default keybindings for Atom on Mac. They may occasionally be slig
 </div>
 </div>
 <div class="sect3">
-<h4 id="_settings_and_preferences">Settings and Preferences</h4>
+<h4 id="settings-and-preferences">Settings and Preferences</h4>
 <div class="paragraph">
 <p>Atom has a number of settings and preferences you can modify on its Settings screen.</p>
 </div>
@@ -417,7 +416,7 @@ These are the default keybindings for Atom on Mac. They may occasionally be slig
 <div class="sect4">
 <h5 id="_color_themes">Changing the Color Theme</h5>
 <div class="paragraph">
-<p>The Settings view also lets you change the color themes for Atom. Atom ships with 4 different UI color themes, dark and light variants of the Atom and One theme, as well as 8 different syntax color themes. You can modify the active theme or install new themes by clicking on the ``Themes'' menu item in the sidebar of the Settings view.</p>
+<p>The Settings view also lets you change the color themes for Atom. Atom ships with 4 different UI color themes, dark and light variants of the Atom and One theme, as well as 8 different syntax color themes. You can modify the active theme or install new themes by clicking on the "Themes" menu item in the sidebar of the Settings view.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -433,7 +432,7 @@ These are the default keybindings for Atom on Mac. They may occasionally be slig
 </div>
 </div>
 <div class="sect4">
-<h5 id="_soft_wrap">Soft Wrap</h5>
+<h5 id="soft-wrap">Soft Wrap</h5>
 <div class="paragraph">
 <p>You can also use the Settings view to specify your whitespace and wrapping preferences.</p>
 </div>
@@ -444,17 +443,17 @@ These are the default keybindings for Atom on Mac. They may occasionally be slig
 <div class="title">Figure 5. Changing the theme from Settings</div>
 </div>
 <div class="paragraph">
-<p>Enabling <code>Soft Tabs'' will insert spaces instead of actual tab characters when you hit the <code>tab</code> key and the </code>Tab Length'' specifies how many spaces to insert when you do so, or how many spaces to represent a tab as if ``Soft Tabs'' is disabled.</p>
+<p>Enabling "Soft Tabs" will insert spaces instead of actual tab characters when you hit the <code>tab</code> key and the "Tab Length" specifies how many spaces to insert when you do so, or how many spaces to represent a tab as if "Soft Tabs" is disabled.</p>
 </div>
 <div class="paragraph">
-<p>The <code>Soft Wrap'' option will wrap lines that are too long to fit in your current window. If soft wrapping is disabled, the lines will simply run off the side of the screen and you will have to scroll the window to see the rest of the content. If </code>Soft Wrap At Preferred Line Length'' is toggled, the lines will wrap at 80 characters instead of the end of the screen. You can also change the default line length to a value other than 80 on this screen.</p>
+<p>The "Soft Wrap" option will wrap lines that are too long to fit in your current window. If soft wrapping is disabled, the lines will simply run off the side of the screen and you will have to scroll the window to see the rest of the content. If "Soft Wrap At Preferred Line Length" is toggled, the lines will wrap at 80 characters instead of the end of the screen. You can also change the default line length to a value other than 80 on this screen.</p>
 </div>
 <div class="paragraph">
 <p>In <a href="/using-atom/sections/basic-customization">Basic Customization</a> we will see how to set different wrap preferences for different types of files (for example, if you want to wrap Markdown files but not code files).</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_beta_features">Beta Features</h5>
+<h5 id="beta-features">Beta Features</h5>
 <div class="paragraph">
 <p>As Atom is developed, there are occasionally new features that are tested before they are mainlined for everyone. In some cases, those changes are shipped turned off by default but can be enabled in the Settings view should you wish to try them out.</p>
 </div>
@@ -470,14 +469,14 @@ These are the default keybindings for Atom on Mac. They may occasionally be slig
 </div>
 </div>
 <div class="sect3">
-<h4 id="_opening_modifying_and_saving_files">Opening, Modifying and Saving Files</h4>
+<h4 id="opening-modifying-and-saving-files">Opening, Modifying and Saving Files</h4>
 <div class="paragraph">
 <p>Now that your editor is looking and acting how you want, let’s start opening up and editing files. This is a text editor after all, right?</p>
 </div>
 <div class="sect4">
-<h5 id="_opening_a_file">Opening a File</h5>
+<h5 id="opening-a-file">Opening a File</h5>
 <div class="paragraph">
-<p>There are several ways to open a file in Atom. You can do it by choosing <code>`File &gt;&gt; Open'' from the menu bar or by hitting `cmd-O</code> to choose a file from the system dialog.</p>
+<p>There are several ways to open a file in Atom. You can do it by choosing "File &gt;&gt; Open" from the menu bar or by hitting <code>cmd-O</code> to choose a file from the system dialog.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -489,14 +488,14 @@ These are the default keybindings for Atom on Mac. They may occasionally be slig
 <p>This is useful for opening a file that is not contained in the project you’re currently in (more on that next), or if you’re starting from a new window for some reason.</p>
 </div>
 <div class="paragraph">
-<p>Another way to open a file in Atom is from the command line using the <code>atom</code> command. If you’re on a Mac, the Atom menu bar has a command named <code>`Install Shell Commands'' which installs the `atom</code> and <code>apm</code> commands <a href="/getting-started/sections/installing-atom/#_installing_atom_on_mac">if Atom wasn’t able to install them itself</a>. On Windows and Linux, the <code>atom</code> and <code>apm</code> commands are installed automatically as a part of Atom’s <a href="/getting-started/sections/installing-atom/">installation process</a>.</p>
+<p>Another way to open a file in Atom is from the command line using the <code>atom</code> command. If you’re on a Mac, the Atom menu bar has a command named "Install Shell Commands" which installs the <code>atom</code> and <code>apm</code> commands <a href="/getting-started/sections/installing-atom/#_installing_atom_on_mac">if Atom wasn’t able to install them itself</a>. On Windows and Linux, the <code>atom</code> and <code>apm</code> commands are installed automatically as a part of Atom’s <a href="/getting-started/sections/installing-atom/">installation process</a>.</p>
 </div>
 <div class="paragraph">
 <p>You can run the <code>atom</code> command with one or more file paths to open up those files in Atom.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell highlight" data-lang="shell"><span class="gp">$ </span>atom -h
+<pre class="highlight highlight-shell"><code><span class="gp">$ </span>atom -h
 Atom Editor v0.152.0
 
 Usage: atom <span class="o">[</span>options] <span class="o">[</span>path ...]
@@ -507,6 +506,7 @@ will be opened <span class="k">in </span>that window. Otherwise, they will be op
 window.
 
 ...</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -514,19 +514,19 @@ window.
 </div>
 </div>
 <div class="sect4">
-<h5 id="_editing_and_saving_a_file">Editing and Saving a File</h5>
+<h5 id="editing-and-saving-a-file">Editing and Saving a File</h5>
 <div class="paragraph">
 <p>Editing a file is pretty straightforward. You can click around and scroll with your mouse and type to change the content. There is no special editing mode or key commands.</p>
 </div>
 <div class="paragraph">
-<p>To save a file you can choose <code>File &gt;&gt; Save'' from the menu bar or <code>cmd-s</code> to save the file. If you choose </code>Save As'' or hit <code>cmd-shift-s</code> then you can save the current content in your editor under a different file name. Finally, you can choose <code>cmd-alt-s</code> to save all the open files in Atom.</p>
+<p>To save a file you can choose "File &gt;&gt; Save" from the menu bar or <code>cmd-s</code> to save the file. If you choose "Save As" or hit <code>cmd-shift-s</code> then you can save the current content in your editor under a different file name. Finally, you can choose <code>cmd-alt-s</code> to save all the open files in Atom.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_opening_directories">Opening Directories</h4>
+<h4 id="opening-directories">Opening Directories</h4>
 <div class="paragraph">
-<p>Atom doesn’t just work with single files though; you will most likely spend most of your time working on projects with multiple files. To open a directory, choose the menu item <code>File &gt;&gt; Open'' on OS X or </code>File &gt;&gt; Open Folder'' on other platforms and select a directory from the dialog. You can also add more than one directory to your current Atom window, by choosing <code>`File &gt;&gt; Add Project Folder…​'' from the menu bar or hitting `cmd-shift-O</code>.</p>
+<p>Atom doesn’t just work with single files though; you will most likely spend most of your time working on projects with multiple files. To open a directory, choose the menu item "File &gt;&gt; Open" on OS X or "File &gt;&gt; Open Folder" on other platforms and select a directory from the dialog. You can also add more than one directory to your current Atom window, by choosing "File &gt;&gt; Add Project Folder…​" from the menu bar or hitting <code>cmd-shift-O</code>.</p>
 </div>
 <div class="paragraph">
 <p>You can open any number of directories from the command line by passing their paths to the <code>atom</code> command line tool. For example, you could run the command <code>atom ./hopes ./dreams</code> to open both the <code>hopes</code> and the <code>dreams</code> directories at the same time.</p>
@@ -568,7 +568,7 @@ window.
 </table>
 </div>
 <div class="sect4">
-<h5 id="_opening_a_file_in_a_project">Opening a File in a Project</h5>
+<h5 id="opening-a-file-in-a-project">Opening a File in a Project</h5>
 <div class="paragraph">
 <p>Once you have a project open in Atom, you can easily find and open any file within that project.</p>
 </div>
@@ -582,7 +582,7 @@ window.
 <div class="title">Figure 9. Opening files with the Fuzzy Finder</div>
 </div>
 <div class="paragraph">
-<p>You can also search through only the files currently opened (rather than every file in your project) with <code>cmd-B</code>. This searches through your <code>`buffers'' or open files. You can also limit this fuzzy search with `cmd-shift-B</code>, which searches only through the files which are new or have been modified since your last Git commit.</p>
+<p>You can also search through only the files currently opened (rather than every file in your project) with <code>cmd-B</code>. This searches through your "buffers" or open files. You can also limit this fuzzy search with <code>cmd-shift-B</code>, which searches only through the files which are new or have been modified since your last Git commit.</p>
 </div>
 <div class="paragraph">
 <p>The fuzzy finder uses both the <code>core.ignoredNames</code> and <code>fuzzy-finder.ignoredNames</code> config settings to filter out files and folders that will not be shown. If you have a project with tons of files you don’t want it to search through, you can add patterns or paths to either of these config settings. We’ll learn more about config settings in <a href="/using-atom/sections/basic-customization/#_global_configuration_settings">Global Configuration Settings</a>, but for now you can easily set these in the Settings view under Core Settings.</p>
@@ -599,7 +599,6 @@ window.
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

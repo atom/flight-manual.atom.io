@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,20 +322,20 @@
         <div class="markdown-body document-content">
           
           <h1>4.7 Maintaining Your Packages</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_maintaining_your_packages">Maintaining Your Packages</h3>
+          <div class="sect2">
+<h3 id="maintaining-your-packages">Maintaining Your Packages</h3>
 <div class="paragraph">
 <p>While publishing is, by far, the most common action you will perform when working with the packages you provide, there are other things you may need to do.</p>
 </div>
 <div class="sect3">
-<h4 id="_unpublish_a_version">Unpublish a Version</h4>
+<h4 id="unpublish-a-version">Unpublish a Version</h4>
 <div class="paragraph">
 <p>If you mistakenly published a version of your package or perhaps you find a glaring bug or security hole, you may want to unpublish just that version of your package. For example, if your package is named <code>package-name</code> and the bad version of your package is v1.2.3 then the command you would execute is:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash highlight" data-lang="bash">apm unpublish package-name@1.2.3</code></pre>
+<pre class="highlight highlight-bash"><code>apm unpublish package-name@1.2.3</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -343,7 +343,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_adding_a_collaborator">Adding a Collaborator</h4>
+<h4 id="adding-a-collaborator">Adding a Collaborator</h4>
 <div class="paragraph">
 <p>Some packages get too big for one person. Sometimes priorities change and someone else wants to help out. You can let others help or create co-owners by <a href="https://help.github.com/articles/adding-collaborators-to-a-personal-repository/">adding them as a collaborator</a> on the GitHub repository for your package. <strong>Note:</strong> Anyone that has push access to your repository will have the ability to publish new versions of the package that belongs to that repository.</p>
 </div>
@@ -352,7 +352,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_transferring_ownership">Transferring Ownership</h4>
+<h4 id="transferring-ownership">Transferring Ownership</h4>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -370,7 +370,7 @@ This is a permanent change. There is no going back!
 </div>
 </div>
 <div class="sect3">
-<h4 id="_unpublish_your_package">Unpublish Your Package</h4>
+<h4 id="unpublish-your-package">Unpublish Your Package</h4>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -388,7 +388,8 @@ It is important that you unpublish your package <em>before</em> deleting your re
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash highlight" data-lang="bash">apm unpublish package-name</code></pre>
+<pre class="highlight highlight-bash"><code>apm unpublish package-name</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -396,7 +397,7 @@ It is important that you unpublish your package <em>before</em> deleting your re
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rename_your_package">Rename Your Package</h4>
+<h4 id="rename-your-package">Rename Your Package</h4>
 <div class="paragraph">
 <p>If you need to rename your package for any reason, you can do so with one simple command – <code>apm publish --rename</code> changes the <code>name</code> field in your package’s <code>package.json</code>, pushes a new commit and tag, and publishes your renamed package. Requests made to the previous name will be forwarded to the new name.</p>
 </div>
@@ -414,12 +415,12 @@ Once a package name has been used, it cannot be re-used by another package even 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash highlight" data-lang="bash">apm publish --rename new-package-name</code></pre>
+<pre class="highlight highlight-bash"><code>apm publish --rename new-package-name</code></pre>
+
 </div>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

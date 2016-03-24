@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,8 +322,7 @@
         <div class="markdown-body document-content">
           
           <h1>3.3 Package: Word Count</h1>
-          <div class="manual-docs">
-            <div class="sect2">
+          <div class="sect2">
 <h3 id="_package_word_count">Package: Word Count</h3>
 <div class="paragraph">
 <p>Let’s get started by writing a very simple package and looking at some of the tools needed to develop one effectively. We’ll start by writing a package that tells you how many words are in the current buffer and display it in a small modal window.</p>
@@ -350,7 +349,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-text highlight" data-lang="text">my-package/
+<pre class="highlight highlight-text"><code>my-package/
   grammars/
   keymaps/
   lib/
@@ -360,6 +359,7 @@
   styles/
   index.coffee
   package.json</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -411,22 +411,23 @@ Known hooks are:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-js highlight" data-lang="js"><span class="p">{</span>
-  <span class="s2">"name"</span><span class="err">:</span> <span class="s2">"wordcount"</span><span class="p">,</span>
-  <span class="s2">"main"</span><span class="err">:</span> <span class="s2">"./lib/wordcount"</span><span class="p">,</span>
-  <span class="s2">"version"</span><span class="err">:</span> <span class="s2">"0.0.0"</span><span class="p">,</span>
-  <span class="s2">"description"</span><span class="err">:</span> <span class="s2">"A short description of your package"</span><span class="p">,</span>
-  <span class="s2">"activationCommands"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"atom-workspace"</span><span class="err">:</span> <span class="s2">"wordcount:toggle"</span>
-  <span class="p">},</span>
-  <span class="s2">"repository"</span><span class="err">:</span> <span class="s2">"https://github.com/atom/wordcount"</span><span class="p">,</span>
-  <span class="s2">"license"</span><span class="err">:</span> <span class="s2">"MIT"</span><span class="p">,</span>
-  <span class="s2">"engines"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"atom"</span><span class="err">:</span> <span class="s2">"&gt;=1.0.0 &lt;2.0.0"</span>
-  <span class="p">},</span>
-  <span class="s2">"dependencies"</span><span class="err">:</span> <span class="p">{</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre>
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A short description of your package"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"activationCommands"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"atom-workspace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordcount:toggle"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/atom/wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIT"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"engines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"atom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&gt;=1.0.0 &lt;2.0.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -434,20 +435,21 @@ Known hooks are:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-js highlight" data-lang="js"><span class="p">{</span>
-  <span class="s2">"name"</span><span class="err">:</span> <span class="s2">"wordcount"</span><span class="p">,</span>
-  <span class="s2">"main"</span><span class="err">:</span> <span class="s2">"./lib/wordcount"</span><span class="p">,</span>
-  <span class="s2">"version"</span><span class="err">:</span> <span class="s2">"0.0.0"</span><span class="p">,</span>
-  <span class="s2">"description"</span><span class="err">:</span> <span class="s2">"A short description of your package"</span><span class="p">,</span>
-  <span class="s2">"activationHooks"</span><span class="err">:</span> <span class="p">[</span><span class="s2">"language-javascript:grammar-used"</span><span class="p">,</span> <span class="s2">"language-coffee-script:grammar-used"</span><span class="p">],</span>
-  <span class="s2">"repository"</span><span class="err">:</span> <span class="s2">"https://github.com/atom/wordcount"</span><span class="p">,</span>
-  <span class="s2">"license"</span><span class="err">:</span> <span class="s2">"MIT"</span><span class="p">,</span>
-  <span class="s2">"engines"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"atom"</span><span class="err">:</span> <span class="s2">"&gt;0.50.0"</span>
-  <span class="p">},</span>
-  <span class="s2">"dependencies"</span><span class="err">:</span> <span class="p">{</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre>
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A short description of your package"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"activationHooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"language-javascript:grammar-used"</span><span class="p">,</span><span class="w"> </span><span class="s2">"language-coffee-script:grammar-used"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/atom/wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIT"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"engines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"atom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&gt;0.50.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -455,7 +457,7 @@ Known hooks are:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_source_code">Source Code</h5>
+<h5 id="source-code">Source Code</h5>
 <div class="paragraph">
 <p>If you want to extend Atom’s behavior, your package should contain a single top-level module, which you export from whichever file is indicated by the <code>main</code> key in your <em>package.json</em> file. In the package we just generated, the main package file is <code>lib/wordcount.coffee</code>. The remainder of your code should be placed in the <code>lib</code> directory, and required from your top-level file. If the <code>main</code> key is not in your package.json file, it will look for <code>index.coffee</code> or <code>index.js</code> as the main entry point.</p>
 </div>
@@ -481,7 +483,7 @@ off.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_style_sheets">Style Sheets</h5>
+<h5 id="style-sheets">Style Sheets</h5>
 <div class="paragraph">
 <p>Style sheets for your package should be placed in the <em>styles</em> directory. Any style sheets in this directory will be loaded and attached to the DOM when your package is activated. Style sheets can be written as CSS or <a href="http://lesscss.org">Less</a>, but Less is recommended.</p>
 </div>
@@ -502,8 +504,9 @@ off.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="s">'atom-workspace'</span><span class="o">:</span>
+<pre class="highlight highlight-coffeescript"><code><span class="s">'atom-workspace'</span><span class="o">:</span>
   <span class="s">'ctrl-alt-o'</span><span class="o">:</span> <span class="s">'wordcount:toggle'</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -520,7 +523,7 @@ off.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_menus">Menus</h5>
+<h5 id="menus">Menus</h5>
 <div class="paragraph">
 <p>Menus are placed in the <em>menus</em> subdirectory. This defines menu elements like what pops up when you right click (a context-menu) or would go in the menu bar (application menu) to trigger functionality in your plugin.</p>
 </div>
@@ -528,13 +531,13 @@ off.</p>
 <p>By default, all menus are loaded in alphabetical order. An optional <code>menus</code> array in your <em>package.json</em> can specify which menus to load and in what order.</p>
 </div>
 <div class="sect5">
-<h6 id="_application_menu">Application Menu</h6>
+<h6 id="application-menu">Application Menu</h6>
 <div class="paragraph">
 <p>It’s recommended that you create an application menu item for common actions with your package that aren’t tied to a specific element. If we look in the <code>menus/wordcount.cson</code> file that was generated for us, we’ll see a section that looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="s">'menu'</span><span class="o">:</span> <span class="p">[</span>
+<pre class="highlight highlight-coffeescript"><code><span class="s">'menu'</span><span class="o">:</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="s">'label'</span><span class="o">:</span> <span class="s">'Packages'</span>
     <span class="s">'submenu'</span><span class="o">:</span> <span class="p">[</span>
@@ -548,10 +551,11 @@ off.</p>
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
-<p>This section puts a <code>Toggle'' menu item under a menu group named </code>Word Count'' in the ``Packages'' menu.</p>
+<p>This section puts a "Toggle" menu item under a menu group named "Word Count" in the "Packages" menu.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -567,23 +571,24 @@ off.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_context_menu">Context Menu</h6>
+<h6 id="context-menu">Context Menu</h6>
 <div class="paragraph">
 <p>It’s recommended to specify a context menu item for commands that are linked to specific parts of the interface. In our <code>menus/wordcount.cson</code> file, we can see an auto-generated section that looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="s">'context-menu'</span><span class="o">:</span>
+<pre class="highlight highlight-coffeescript"><code><span class="s">'context-menu'</span><span class="o">:</span>
   <span class="s">'atom-text-editor'</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s">'label'</span><span class="o">:</span> <span class="s">'Toggle Word Count'</span>
       <span class="s">'command'</span><span class="o">:</span> <span class="s">'wordcount:toggle'</span>
     <span class="p">}</span>
   <span class="p">]</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
-<p>This adds a ``Toggle Word Count'' menu option to the menu that pops up when you right-click in an Atom text editor pane.</p>
+<p>This adds a "Toggle Word Count" menu option to the menu that pops up when you right-click in an Atom text editor pane.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -602,7 +607,7 @@ off.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="s">'context-menu'</span><span class="o">:</span>
+<pre class="highlight highlight-coffeescript"><code><span class="s">'context-menu'</span><span class="o">:</span>
   <span class="s">'atom-workspace'</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="na">label</span><span class="o">:</span> <span class="s">'Text'</span>
@@ -615,15 +620,16 @@ off.</p>
       <span class="p">]</span>
     <span class="p">}</span>
   <span class="p">]</span></code></pre>
+
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_developing_our_package">Developing our Package</h4>
+<h4 id="developing-our-package">Developing our Package</h4>
 <div class="paragraph">
-<p>Currently with the generated package we have, if we run that <code>toggle</code> command through the menu or the command palette, we’ll get a little pop up that says ``The Wordcount package is Alive! It’s ALIVE!''.</p>
+<p>Currently with the generated package we have, if we run that <code>toggle</code> command through the menu or the command palette, we’ll get a little pop up that says "The Wordcount package is Alive! It’s ALIVE!".</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -632,7 +638,7 @@ off.</p>
 <div class="title">Figure 4. Wordcount Package is Alive dialog</div>
 </div>
 <div class="sect4">
-<h5 id="_understanding_the_generated_code">Understanding the Generated Code</h5>
+<h5 id="understanding-the-generated-code">Understanding the Generated Code</h5>
 <div class="paragraph">
 <p>Let’s take a look at the code in our <code>lib</code> directory and see what is happening.</p>
 </div>
@@ -644,7 +650,7 @@ off.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
+<pre class="highlight highlight-coffeescript"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
 <span class="k">class</span> <span class="nx">WordcountView</span>
   <span class="na">constructor</span><span class="o">:</span> <span class="p">(</span><span class="nx">serializedState</span><span class="p">)</span> <span class="o">-&gt;</span>
     <span class="c1"># Create root element
@@ -666,6 +672,7 @@ off.</p>
 
   <span class="na">getElement</span><span class="o">:</span> <span class="o">-&gt;</span>
     <span class="vi">@</span><span class="na">element</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -679,7 +686,7 @@ off.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="nx">WordcountView</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'./wordcount-view'</span>
+<pre class="highlight highlight-coffeescript"><code><span class="nx">WordcountView</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'./wordcount-view'</span>
 <span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span> <span class="nx">Wordcount</span> <span class="o">=</span>
@@ -713,6 +720,7 @@ off.</p>
       <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span>
     <span class="k">else</span>
       <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">show</span><span class="p">()</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -729,11 +737,12 @@ off.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="vi">@</span><span class="na">wordcountView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WordcountView</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="na">wordcountViewState</span><span class="p">)</span>
+<pre class="highlight highlight-coffeescript"><code><span class="vi">@</span><span class="na">wordcountView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WordcountView</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="na">wordcountViewState</span><span class="p">)</span>
 <span class="vi">@</span><span class="na">modalPanel</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">addModalPanel</span><span class="p">(</span>
                   <span class="na">item</span><span class="o">:</span> <span class="vi">@</span><span class="na">wordcountView</span><span class="p">.</span><span class="na">getElement</span><span class="p">(),</span>
                   <span class="na">visible</span><span class="o">:</span> <span class="no">false</span>
               <span class="p">)</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -744,11 +753,12 @@ off.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="c1"># Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
+<pre class="highlight highlight-coffeescript"><code><span class="c1"># Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
 </span><span class="vi">@</span><span class="na">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span>
 
 <span class="c1"># Register command that toggles this view
 </span><span class="vi">@</span><span class="na">subscriptions</span><span class="p">.</span><span class="na">add</span> <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-workspace'</span><span class="p">,</span> <span class="s">'wordcount:toggle'</span><span class="o">:</span> <span class="o">=&gt;</span> <span class="vi">@</span><span class="na">toggle</span><span class="p">()</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -756,13 +766,14 @@ off.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="na">toggle</span><span class="o">:</span> <span class="o">-&gt;</span>
+<pre class="highlight highlight-coffeescript"><code><span class="na">toggle</span><span class="o">:</span> <span class="o">-&gt;</span>
   <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">'Wordcount was toggled!'</span>
 
   <span class="k">if</span> <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">isVisible</span><span class="p">()</span>
     <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span>
   <span class="k">else</span>
     <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">show</span><span class="p">()</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -770,7 +781,7 @@ off.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_the_flow">The Flow</h5>
+<h5 id="the-flow">The Flow</h5>
 <div class="paragraph">
 <p>So, let’s review the actual flow in this package.</p>
 </div>
@@ -850,7 +861,7 @@ off.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="na">toggle</span><span class="o">:</span> <span class="o">-&gt;</span>
+<pre class="highlight highlight-coffeescript"><code><span class="na">toggle</span><span class="o">:</span> <span class="o">-&gt;</span>
   <span class="k">if</span> <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">isVisible</span><span class="p">()</span>
     <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span>
   <span class="k">else</span>
@@ -858,6 +869,7 @@ off.</p>
     <span class="nx">words</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getText</span><span class="p">().</span><span class="na">split</span><span class="p">(</span><span class="sr">/\s+/</span><span class="p">).</span><span class="na">length</span>
     <span class="vi">@</span><span class="na">wordcountView</span><span class="p">.</span><span class="na">setCount</span><span class="p">(</span><span class="nx">words</span><span class="p">)</span>
     <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">show</span><span class="p">()</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -874,9 +886,10 @@ off.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-coffeescript highlight" data-lang="coffeescript"><span class="na">setCount</span><span class="o">:</span> <span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="o">-&gt;</span>
+<pre class="highlight highlight-coffeescript"><code><span class="na">setCount</span><span class="o">:</span> <span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="o">-&gt;</span>
   <span class="nx">displayText</span> <span class="o">=</span> <span class="s">"There are </span><span class="si">#{</span><span class="nx">count</span><span class="si">}</span><span class="s"> words."</span>
   <span class="vi">@</span><span class="na">element</span><span class="p">.</span><span class="na">children</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="na">textContent</span> <span class="o">=</span> <span class="nx">displayText</span></code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -891,7 +904,7 @@ off.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_basic_debugging">Basic Debugging</h4>
+<h4 id="basic-debugging">Basic Debugging</h4>
 <div class="paragraph">
 <p>You’ll notice a few <code>console.log</code> statements in the code. One of the cool things about Atom being built on Chromium is that you can use some of the same debugging tools available to you that you have when doing web development.</p>
 </div>
@@ -909,7 +922,7 @@ off.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_testing">Testing</h4>
+<h4 id="testing">Testing</h4>
 <div class="paragraph">
 <p>Your package should have tests, and if they’re placed in the <em>spec</em> directory, they can be run by Atom.</p>
 </div>
@@ -917,7 +930,7 @@ off.</p>
 <p>Under the hood, <a href="http://jasmine.github.io">Jasmine</a> executes your tests, so you can assume that any DSL available there is also available to your package.</p>
 </div>
 <div class="sect4">
-<h5 id="_running_tests">Running Tests</h5>
+<h5 id="running-tests">Running Tests</h5>
 <div class="paragraph">
 <p>Once you’ve got your test suite written, you can run it by pressing <code>cmd-alt-ctrl-p</code> or via the <em>Developer &gt; Run Package Specs</em> menu. Our generated package comes with an example test suite, so you can run this right now to see what happens.</p>
 </div>
@@ -932,7 +945,7 @@ off.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_making_our_tests_work">Making our Tests Work</h5>
+<h5 id="making-our-tests-work">Making our Tests Work</h5>
 <div class="paragraph">
 <p>As you can see, our generated tests are all failing because of the changes we’ve made.</p>
 </div>
@@ -950,7 +963,7 @@ off.</p>
 <p>Atom bundles a command line utility called <code>apm</code> which we first used back in <a href="/using-atom/sections/atom-packages#_atom_command_line">Atom command line</a> to search for and install packages via the command line. The <code>apm</code> command can also be used to publish Atom packages to the public registry and update them.</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_your_package">Prepare Your Package</h5>
+<h5 id="prepare-your-package">Prepare Your Package</h5>
 <div class="paragraph">
 <p>There are a few things you should double check before publishing:</p>
 </div>
@@ -979,7 +992,7 @@ for Atom such as: <code>"engines": {"atom": "&gt;=1.0.0 &lt;2.0.0"}</code>.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_publish_your_package">Publish Your Package</h5>
+<h5 id="publish-your-package">Publish Your Package</h5>
 <div class="paragraph">
 <p>Before you publish a package it is a good idea to check ahead of time if a package with the same name has already been published to <a href="https://atom.io">atom.io</a>. You can do that by visiting <code><a href="https://atom.io/packages/my-package" class="bare">https://atom.io/packages/my-package</a></code> to see if the package already exists. If it does, update your package’s name to something that is available before proceeding.</p>
 </div>
@@ -1010,8 +1023,9 @@ for Atom such as: <code>"engines": {"atom": "&gt;=1.0.0 &lt;2.0.0"}</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-sh highlight" data-lang="sh"><span class="nb">cd</span> ~/github/my-package
+<pre class="highlight highlight-sh"><code><span class="nb">cd</span> ~/github/my-package
 apm publish minor</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -1025,7 +1039,8 @@ apm publish minor</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-sh highlight" data-lang="sh">apm publish &lt;version-type&gt;</code></pre>
+<pre class="highlight highlight-sh"><code>apm publish &lt;version-type&gt;</code></pre>
+
 </div>
 </div>
 <div class="paragraph">
@@ -1052,13 +1067,12 @@ apm publish minor</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_summary">Summary</h4>
+<h4 id="summary">Summary</h4>
 <div class="paragraph">
 <p>We’ve now generated, customized and published our first plugin for Atom. Congratulations! Now anyone can install our masterpiece from directly within Atom as we did in <a href="/using-atom/sections/atom-packages#_atom_packages">Atom packages</a>.</p>
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>

@@ -29,7 +29,7 @@
 </script>
 
   </head>
-  <body>
+  <body class="layout-article">
     <div class="footer-push">
       <div class="top-bar">
   <div class="wrapper no-pad">
@@ -38,7 +38,7 @@
       <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
-      <li><a class="is-selected" href="/">Documentation</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
       <li><a href="http://blog.atom.io">Blog</a></li>
       <li><a href="http://discuss.atom.io">Discuss</a></li>
     </ul>
@@ -322,9 +322,8 @@
         <div class="markdown-body document-content">
           
           <h1>2.12 Writing in Atom</h1>
-          <div class="manual-docs">
-            <div class="sect2">
-<h3 id="_writing_in_atom">Writing in Atom</h3>
+          <div class="sect2">
+<h3 id="writing-in-atom">Writing in Atom</h3>
 <div class="paragraph">
 <p>Though it is probably most common to use Atom to write software code, Atom can also be used to write prose quite effectively. Most often this is done in some sort of markup language such as Markdown or Asciidoc (which this manual is written in). Here we’ll quickly cover a few of the tools Atom provides for helping you write prose.</p>
 </div>
@@ -332,12 +331,12 @@
 <p>In these docs, we’ll concentrate on writing in Markdown; however, other prose markup languages like Asciidoc have packages that provide similar functionality.</p>
 </div>
 <div class="sect3">
-<h4 id="_spell_checking">Spell Checking</h4>
+<h4 id="spell-checking">Spell Checking</h4>
 <div class="paragraph">
 <p>If you’re working in text (which includes plain text files, GitHub markdown and Git commit messages by default), Atom will automatically try to check your spelling.</p>
 </div>
 <div class="paragraph">
-<p>Any misspelled words will be highlighted (by default with a dashed red line beneath the word) and you can pull up a menu of possible corrections by hitting <code>cmd-:</code> (or by choosing ``Correct Spelling'' from the right-click context menu or from the Command Palette).</p>
+<p>Any misspelled words will be highlighted (by default with a dashed red line beneath the word) and you can pull up a menu of possible corrections by hitting <code>cmd-:</code> (or by choosing "Correct Spelling" from the right-click context menu or from the Command Palette).</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -349,7 +348,7 @@
 <p>To add more types of files to the list of what Atom will try to spell check, go to the Spell Check package settings in your Settings view and add any grammars you want to spell check.</p>
 </div>
 <div class="paragraph">
-<p>The default grammars to spell check are <code>text.plain, source.gfm, text.git-commit'' but you can add something like </code>source.asciidoc'' if you wish to check those types of files too.</p>
+<p>The default grammars to spell check are <code>text.plain, source.gfm, text.git-commit</code> but you can add something like <code>source.asciidoc</code> if you wish to check those types of files too.</p>
 </div>
 <div class="paragraph">
 <p>The Atom spell checker uses the system dictionary, so if you want it to check your spelling in another language or locale, you can change it easily.</p>
@@ -365,7 +364,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_previews">Previews</h4>
+<h4 id="previews">Previews</h4>
 <div class="paragraph">
 <p>When writing prose in a markup language, it’s often very useful to get an idea of what the content will look like when it’s rendered. Atom ships with a markdown preview plugin by default.</p>
 </div>
@@ -387,14 +386,14 @@
 <p>As you edit the text, the preview will also update by default. This makes it fairly easy to check your syntax as you type.</p>
 </div>
 <div class="paragraph">
-<p>You can also copy the rendered HTML from the preview pane into your system clipboard. There is no keybinding for it, but you can find it in the Command Palette by searching for ``Markdown Preview Copy HTML''.</p>
+<p>You can also copy the rendered HTML from the preview pane into your system clipboard. There is no keybinding for it, but you can find it in the Command Palette by searching for "Markdown Preview Copy HTML".</p>
 </div>
 <div class="paragraph">
 <p>Markdown preview is implemented in the <a href="https://github.com/atom/markdown-preview">atom/markdown-preview</a> package.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_snippets">Snippets</h4>
+<h4 id="snippets">Snippets</h4>
 <div class="paragraph">
 <p>There are also a number of great snippets available for writing Markdown quickly.</p>
 </div>
@@ -403,7 +402,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>| Header One     | Header Two     |
+<pre><code>| Header One     | Header Two     |
 | :------------- | :------------- |
 | Item One       | Item Two       |</code></pre>
 </div>
@@ -413,7 +412,6 @@
 </div>
 </div>
 </div>
-          </div>
         </div>
       </div>
       <div class="footer-pad"></div>
