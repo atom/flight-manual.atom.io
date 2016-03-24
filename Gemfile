@@ -11,7 +11,6 @@ gem 'gemoji', '2.1.0'
 gem 'html-pipeline-rouge_filter', '~> 1.0'
 gem 'extended-markdown-filter', '~> 0.4'
 gem 'html-pipeline-asciidoc_filter', '~> 1.5'
-gem 'github-linguist', '~> 2.10'
 
 gem 'activesupport', '~> 4.2'
 gem 'rake'
