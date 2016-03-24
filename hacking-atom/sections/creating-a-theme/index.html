@@ -1,0 +1,774 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Creating a Theme</title>
+
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+<link rel="stylesheet" media="all" href="/assets/stylesheets/development.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+
+      indexUrl: '/search.json',
+
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    })
+  })
+</script>
+
+  </head>
+  <body class="layout-article">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="http://blog.atom.io">Blog</a></li>
+      <li><a href="http://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search">
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="search" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+<h4>Chapter 1: Getting Started</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/why-atom">Why Atom?</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 2: Using Atom</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/snippets">Snippets</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/folding">Folding</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/panes">Panes</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/grammar">Grammar</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 3: Hacking Atom</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+    </li>
+    
+  
+    <li class="selected">
+      <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/iconography">Iconography</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/debugging">Debugging</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 4: Behind Atom</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+        </div>
+        <div class="markdown-body document-content">
+          
+          <h1>3.5 Creating a Theme</h1>
+          <div class="sect2">
+<h3 id="_creating_a_theme">Creating a Theme</h3>
+<div class="paragraph">
+<p>Atom’s interface is rendered using HTML, and it’s styled via <a href="http://lesscss.org/">Less</a> which is a superset of CSS. Don’t worry if you haven’t heard of Less before; it’s just like CSS, but with a few handy extensions.</p>
+</div>
+<div class="paragraph">
+<p>Atom supports two types of themes: <em>UI</em> and <em>syntax</em>.  UI themes style elements such as the tree view, the tabs, drop-down lists, and the status bar. Syntax themes style the code inside the editor.</p>
+</div>
+<div class="paragraph">
+<p>Themes can be installed and changed from the settings view which you can open by selecting the <em>Atom &gt; Preferences…​</em> menu and navigating to the <em>Install</em> section and the <em>Themes</em> section on the left hand side.</p>
+</div>
+<div class="sect3">
+<h4 id="getting-started">Getting Started</h4>
+<div class="paragraph">
+<p>Themes are pretty straightforward but it’s still helpful to be familiar with a few things before starting:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Less is a superset of CSS, but it has some really handy features like variables. If you aren’t familiar with its syntax, take a few minutes to <a href="https://speakerdeck.com/danmatthews/less-css">familiarize yourself</a>.</p>
+</li>
+<li>
+<p>You may also want to review the concept of a <em>package.json</em> (as covered in <a href="/hacking-atom/sections/package-word-count#_atom_package_json">Atom package json</a>). This file is used to help distribute your theme to Atom users.</p>
+</li>
+<li>
+<p>Your theme’s <em>package.json</em> must contain a <code>"theme"</code> key with a value of <code>"ui"</code> or <code>"syntax"</code> for Atom to recognize and load it as a theme.</p>
+</li>
+<li>
+<p>You can find existing themes to install or fork on
+<a href="https://atom.io/themes">atom.io</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="creating-a-syntax-theme">Creating a Syntax Theme</h4>
+<div class="paragraph">
+<p>Let’s create your first theme.</p>
+</div>
+<div class="paragraph">
+<p>To get started, hit <code>cmd-shift-P</code>, and start typing "Generate Syntax Theme" to generate a new theme package. Select "Generate Syntax Theme," and you’ll be asked for the path where your theme will be created. Let’s call ours <em>motif-syntax</em>. <em>Tip:</em> syntax themes should end with <em>-syntax</em>.</p>
+</div>
+<div class="paragraph">
+<p>Atom will pop open a new window, showing the <em>motif-syntax</em> theme, with a default set of folders and files created for us. If you open the settings view (<code>cmd-,</code>) and navigate to the <em>Themes</em> section on the left, you’ll see the <em>Motif</em> theme listed in the <em>Syntax Theme</em> drop-down. Select it from the menu to activate it, now when you open an editor you should see that your new <em>motif-syntax</em> theme in action.</p>
+</div>
+<div class="paragraph">
+<p>Open up <em>styles/colors.less</em> to change the various colors variables which have been already been defined. For example, turn <code>@red</code> into <code>#f4c2c1</code>.</p>
+</div>
+<div class="paragraph">
+<p>Then open <em>styles/base.less</em> and modify the various selectors that have been already been defined. These selectors style different parts of code in the editor such as comments, strings and the line numbers in the gutter.</p>
+</div>
+<div class="paragraph">
+<p>As an example, let’s make the <code>.gutter</code> <code>background-color</code> into <code>@red</code>.</p>
+</div>
+<div class="paragraph">
+<p>Reload Atom by pressing <code>cmd-alt-ctrl-l</code> to see the changes you made reflected in your Atom window. Pretty neat!</p>
+</div>
+<div class="paragraph">
+<p><em>Tip:</em> You can avoid reloading to see changes you make by opening an atom window in dev mode. To open a Dev Mode Atom window run <code>atom --dev .</code> in the terminal, use <code>cmd-shift-o</code> or use the <em>View &gt; Developer &gt; Open in Dev Mode</em> menu. When you edit your theme, changes will instantly be reflected!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It’s advised to <em>not</em> specify a <code>font-family</code> in your syntax theme because it will override the Font Family field in Atom’s settings. If you still like to recommend a font that goes well with your theme, we recommend you do so in your README.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="creating-an-interface-theme">Creating an Interface Theme</h4>
+<div class="paragraph">
+<p>Interface themes <strong>must</strong> provide a <code>ui-variables.less</code> file which contains all of the variables provided by the core themes, which we’ll cover in <a href="#_atom_theme_vars">Theme Variables</a>.</p>
+</div>
+<div class="paragraph">
+<p>To create an interface UI theme, do the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fork one of the following repositories:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/atom/atom-dark-ui">atom-dark-ui</a></p>
+</li>
+<li>
+<p><a href="https://github.com/atom/atom-light-ui">atom-light-ui</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Clone the forked repository to the local filesystem</p>
+</li>
+<li>
+<p>Open a terminal in the forked theme’s directory</p>
+</li>
+<li>
+<p>Open your new theme in a Dev Mode Atom window run <code>atom --dev .</code> in the terminal or use the <em>View &gt; Developer &gt; Open in Dev Mode</em> menu</p>
+</li>
+<li>
+<p>Change the name of the theme in the theme’s <code>package.json</code> file</p>
+</li>
+<li>
+<p>Name your theme end with a <code>-ui</code>. i.e. <code>super-white-ui</code></p>
+</li>
+<li>
+<p>Run <code>apm link</code> to symlink your repository to <code>~/.atom/packages</code></p>
+</li>
+<li>
+<p>Reload Atom using <code>cmd-alt-ctrl-L</code></p>
+</li>
+<li>
+<p>Enable the theme via <em>UI Theme</em> drop-down in the <em>Themes</em> section of the settings view</p>
+</li>
+<li>
+<p>Make changes! Since you opened the theme in a Dev Mode window, changes will be instantly reflected in the editor without having to reload.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="development-workflow">Development workflow</h4>
+<div class="paragraph">
+<p>There are a few of tools to help make theme development faster and easier.</p>
+</div>
+<div class="sect4">
+<h5 id="live-reload">Live Reload</h5>
+<div class="paragraph">
+<p>Reloading by hitting <code>cmd-alt-ctrl-L</code> after you make changes to your theme is less than ideal. Atom supports <a href="https://github.com/atom/dev-live-reload">live updating</a> of styles on Dev Mode Atom windows.</p>
+</div>
+<div class="paragraph">
+<p>To enable a Dev Mode window:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open your theme directory in a dev window by either going to the <em>View &gt; Developer &gt; Open in Dev Mode</em> menu or by hitting the <code>cmd-shift-o</code> shortcut</p>
+</li>
+<li>
+<p>Make a change to your theme file and save it. Your change should be immediately applied!</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If you’d like to reload all the styles at any time, you can use the shortcut <code>cmd-ctrl-shift-r</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="developer-tools">Developer Tools</h5>
+<div class="paragraph">
+<p>Atom is based on the Chrome browser, and supports Chrome’s Developer Tools. You can open them by selecting the <em>View &gt; Toggle Developer Tools</em> menu, or by using the <code>cmd-alt-i</code> shortcut.</p>
+</div>
+<div class="paragraph">
+<p>The dev tools allow you to inspect elements and take a look at their CSS properties.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/dev-tools.png" alt="dev-tools">
+</div>
+<div class="title">Figure 1. Dev Tools</div>
+</div>
+<div class="paragraph">
+<p>Check out Google’s <a href="https://developer.chrome.com/devtools/docs/dom-and-styles">extensive tutorial</a> for a short introduction.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="atom-styleguide">Atom Styleguide</h5>
+<div class="paragraph">
+<p>If you are creating an interface theme, you’ll want a way to see how your theme changes affect all the components in the system. The <a href="https://github.com/atom/styleguide">styleguide</a> is a page that renders every component Atom supports.</p>
+</div>
+<div class="paragraph">
+<p>To open the styleguide, open the command palette (<code>cmd-shift-P</code>) and search for <em>styleguide</em>, or use the shortcut <code>cmd-ctrl-shift-g</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/styleguide.png" alt="style guide">
+</div>
+<div class="title">Figure 2. Style Guide</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_atom_theme_vars">Theme Variables</h4>
+<div class="paragraph">
+<p>Atom’s UI provides a set of variables you can use in your own themes and packages.</p>
+</div>
+<div class="sect4">
+<h5 id="use-in-themes">Use in Themes</h5>
+<div class="paragraph">
+<p>Each custom theme must specify a <code>ui-variables.less</code> file with all of the following variables defined. The top-most theme specified in the theme settings will be loaded and available for import.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="use-in-packages">Use in Packages</h5>
+<div class="paragraph">
+<p>In any of your package’s <code>.less</code> files, you can access the theme variables by importing the <code>ui-variables</code> file from Atom.</p>
+</div>
+<div class="paragraph">
+<p>Your package should generally only specify structural styling, and these should come from <a href="https://github.com/atom/styleguide">the style guide</a>. Your package shouldn’t specify colors, padding sizes, or anything in absolute pixels. You should instead use the theme variables. If you follow this guideline, your package will look good out of the box with any theme!</p>
+</div>
+<div class="paragraph">
+<p>Here’s an example <code>.less</code> file that a package can define using theme variables:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-css"><code><span class="k">@import</span> <span class="s1">"ui-variables"</span><span class="p">;</span>
+
+<span class="nc">.my-selector</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="err">@</span><span class="n">base-background-color</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="err">@</span><span class="n">component-padding</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="variables">Variables</h5>
+<div class="sect5">
+<h6 id="text-colors">Text colors</h6>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@text-color</code></p>
+</li>
+<li>
+<p><code>@text-color-subtle</code></p>
+</li>
+<li>
+<p><code>@text-color-highlight</code></p>
+</li>
+<li>
+<p><code>@text-color-selected</code></p>
+</li>
+<li>
+<p><code>@text-color-info</code> - A blue</p>
+</li>
+<li>
+<p><code>@text-color-success</code>- A green</p>
+</li>
+<li>
+<p><code>@text-color-warning</code>- An orange or yellow</p>
+</li>
+<li>
+<p><code>@text-color-error</code> - A red</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="background-colors">Background colors</h6>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@background-color-info</code> - A blue</p>
+</li>
+<li>
+<p><code>@background-color-success</code> - A green</p>
+</li>
+<li>
+<p><code>@background-color-warning</code> - An orange or yellow</p>
+</li>
+<li>
+<p><code>@background-color-error</code> - A red</p>
+</li>
+<li>
+<p><code>@background-color-highlight</code></p>
+</li>
+<li>
+<p><code>@background-color-selected</code></p>
+</li>
+<li>
+<p><code>@app-background-color</code> - The app’s background under all the editor components</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="component-colors">Component colors</h6>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@base-background-color</code> -</p>
+</li>
+<li>
+<p><code>@base-border-color</code> -</p>
+</li>
+<li>
+<p><code>@pane-item-background-color</code> -</p>
+</li>
+<li>
+<p><code>@pane-item-border-color</code> -</p>
+</li>
+<li>
+<p><code>@input-background-color</code> -</p>
+</li>
+<li>
+<p><code>@input-border-color</code> -</p>
+</li>
+<li>
+<p><code>@tool-panel-background-color</code> -</p>
+</li>
+<li>
+<p><code>@tool-panel-border-color</code> -</p>
+</li>
+<li>
+<p><code>@inset-panel-background-color</code> -</p>
+</li>
+<li>
+<p><code>@inset-panel-border-color</code> -</p>
+</li>
+<li>
+<p><code>@panel-heading-background-color</code> -</p>
+</li>
+<li>
+<p><code>@panel-heading-border-color</code> -</p>
+</li>
+<li>
+<p><code>@overlay-background-color</code> -</p>
+</li>
+<li>
+<p><code>@overlay-border-color</code> -</p>
+</li>
+<li>
+<p><code>@button-background-color</code> -</p>
+</li>
+<li>
+<p><code>@button-background-color-hover</code> -</p>
+</li>
+<li>
+<p><code>@button-background-color-selected</code> -</p>
+</li>
+<li>
+<p><code>@button-border-color</code> -</p>
+</li>
+<li>
+<p><code>@tab-bar-background-color</code> -</p>
+</li>
+<li>
+<p><code>@tab-bar-border-color</code> -</p>
+</li>
+<li>
+<p><code>@tab-background-color</code> -</p>
+</li>
+<li>
+<p><code>@tab-background-color-active</code> -</p>
+</li>
+<li>
+<p><code>@tab-border-color</code> -</p>
+</li>
+<li>
+<p><code>@tree-view-background-color</code> -</p>
+</li>
+<li>
+<p><code>@tree-view-border-color</code> -</p>
+</li>
+<li>
+<p><code>@ui-site-color-1</code> -</p>
+</li>
+<li>
+<p><code>@ui-site-color-2</code> -</p>
+</li>
+<li>
+<p><code>@ui-site-color-3</code> -</p>
+</li>
+<li>
+<p><code>@ui-site-color-4</code> -</p>
+</li>
+<li>
+<p><code>@ui-site-color-5</code> -</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="component-sizes">Component sizes</h6>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@disclosure-arrow-size</code> -</p>
+</li>
+<li>
+<p><code>@component-padding</code> -</p>
+</li>
+<li>
+<p><code>@component-icon-padding</code> -</p>
+</li>
+<li>
+<p><code>@component-icon-size</code> -</p>
+</li>
+<li>
+<p><code>@component-line-height</code> -</p>
+</li>
+<li>
+<p><code>@component-border-radius</code> -</p>
+</li>
+<li>
+<p><code>@tab-height</code> -</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="fonts">Fonts</h6>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@font-size</code> -</p>
+</li>
+<li>
+<p><code>@font-family</code> -</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+        </div>
+      </div>
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
