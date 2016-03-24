@@ -1,2 +1,13 @@
-install: bundle install
-script: bundle exec rake book:build
+language: ruby
+rvm:
+  - 2.2.3
+cache:
+  directories:
+    - vendor/bundle
+    - node_modules
+sudo: false
+git:
+  depth: 10
+script:
+  - npm install
+  - script/cibuild

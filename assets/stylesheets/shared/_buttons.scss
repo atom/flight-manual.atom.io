@@ -1,0 +1,115 @@
+//= depend_on_asset "button-sprites.png"
+//= depend_on_asset "button-sprites@2x.png"
+
+@import "mixins";
+
+.button {
+  &.primary {
+    @include gradient(#75bb80, #68a672);
+    border-color: darken(#68a672, 2%);
+
+    &:hover {
+      @include gradient(darken(#75bb80, 5%), darken(#68a672, 5%));
+      border-color: darken(#68a672, 5%);
+    }
+  }
+}
+
+.minibutton {
+  &.flash-warn {
+    color: #fff;
+    @include gradient(#e75e5b, #b34947);
+    border-color: #b74a48;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+
+    &:hover {
+      color: #fff;
+      @include gradient(darken(#e75e5b, 5%), darken(#b34947, 5%));
+      border-color: darken(#b74a48, 5%);
+    }
+  }
+
+  &.primary {
+    @include gradient(#75bb80, #68a672);
+    border-color: darken(#68a672, 2%);
+
+    &:hover {
+      @include gradient(darken(#75bb80, 5%), darken(#68a672, 5%));
+      border-color: darken(#68a672, 5%);
+    }
+  }
+
+  .octicon {
+    vertical-align: baseline;
+  }
+}
+
+.button-group {
+  .button.button-outline.selected {
+    box-shadow: none;
+  }
+  .button.button-outline:active {
+    box-shadow: none;
+  }
+}
+
+.button.button-outline {
+  color: $brownMedium;
+  border-color: $beigeMedium;
+  text-shadow: none;
+
+  &:hover {
+    background: lighten($beigeMedium, 5%);
+    box-shadow: none;
+    z-index: auto;
+  }
+
+  &.selected {
+    color: white;
+    background: $greenLight;
+    border-color: darken($greenLight, 5%);
+    box-shadow: none;
+
+    &:hover {
+      z-index: 2;
+      background: darken($greenLight, 5%);
+    }
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.button .mega-octicon {
+  color: rgba(0,0,0,.05);
+  line-height: 0;
+  vertical-align: middle;
+  margin-top: -3px;
+  margin-right: 10px;
+}
+
+.button-image-down {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  @include background-image-retina('button-sprites', 'png', 64px, 32px);
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+.button-image-github {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  @include background-image-retina('button-sprites', 'png', 64px, 32px);
+  position: absolute;
+  background-position: -32px 0;
+  top: 4px;
+  left: 4px;
+}
+
+.hidden {
+  display: none;
+}

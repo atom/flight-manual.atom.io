@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <%= renderp '/includes/meta.html' %>
+  </head>
+  <body class="layout-article">
+    <div class="footer-push">
+      <%= renderp '/includes/top_bar.html' %>
+      <div class="wrapper documents content-push wide">
+        <%= renderp '/includes/search.html' %>
+
+        <div class="toc">
+          <%= renderp '/includes/toc.html', :heading => 'h4', :title => @item[:title] %>
+        </div>
+        <div class="markdown-body document-content">
+          <% section = lookup_section('toc', @item[:title]) %>
+          <h1><%= section << ' ' << @item[:title] if section %></h1>
+          <%= yield %>
+        </div>
+      </div>
+      <div class="footer-pad"></div>
+    </div>
+    <%= renderp '/includes/bottom_bar.html' %>
+  </body>
+</html>

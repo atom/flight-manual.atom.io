@@ -1,0 +1,15 @@
+<% @chapter_itr = 1 %>
+<% NanocConrefFS::Variables.fetch_data_file('toc', :default).each_pair do |section, children|  %>
+
+<<%= @heading %>>Chapter <%= @chapter_itr %>: <%= section %></<%= @heading %>>
+<ul>
+  <% @section_itr = 1 %>
+  <% children.each do |child| %>
+    <li class="<%= child == @title && @item[:filename].include?(section.parameterize) ? 'selected' : 'unselected'%>">
+      <a href="/<%= section.parameterize + '/sections/' + child.parameterize %>"><%= child %></a>
+    </li>
+    <% @section_itr += 1 %>
+  <% end %>
+  <% @chapter_itr += 1 %>
+</ul>
+<% end %>

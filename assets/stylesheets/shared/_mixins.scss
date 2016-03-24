@@ -1,0 +1,121 @@
+// Mixins
+@mixin translate($x, $y) {
+  transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+}
+
+@mixin transition($transition) {
+  transition: $transition;
+  -o-transform: $transition;
+  -moz-transform: $transition;
+  -webkit-transition: $transition;
+}
+
+// Creates a linear gradient background, from top to bottom.
+//
+// $start - The color hex at the top.
+// $end   - The color hex at the bottom.
+//
+// Compatibility untested.
+@mixin gradient($start: #fafafa, $end: #eaeaea){
+  background-color: $end;
+  // FF 3.6+
+  background-image: -moz-linear-gradient($start, $end);
+  // Safari 5.1+, Chrome 10+
+  background-image: -webkit-linear-gradient($start, $end);
+  background-image: linear-gradient($start, $end);
+  background-repeat: repeat-x;
+}
+
+// Browser compatibility for user-select.
+//
+// Compatibility untested.
+@mixin user-select($select: none) {
+  -webkit-touch-callout: $select;
+  -webkit-user-select: $select;
+  -khtml-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select;
+  user-select: $select;
+}
+
+@mixin background-image-retina($file, $type, $width, $height) {
+  background-image: url($file + '.' + $type);
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    background-image: url($file + '@2x.' + $type);
+    -webkit-background-size: $width $height;
+    -moz-background-size: $width $height;
+    -o-background-size: $width $height;
+    background-size: $width $height;
+  }
+}
+
+// rounded corners for elements
+//
+// $val - string for radius values
+//
+// Compatable in Safari 3+, IE9+, Firefox 1+, Chrome
+@mixin rounded-corners($val: 3px) {
+  -webkit-border-radius: $val;
+  -moz-border-radius: $val;
+  border-radius: $val;
+  -moz-background-clip: padding;
+  -webkit-background-clip:
+  padding-box; background-clip: padding-box;
+}
+
+@mixin span-label() {
+  position: relative;
+  display: inline-block;
+  top: -1px;
+  color: #aa0000;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+
+// shortcut to the gradient map
+//
+// $y     - y value of the desired gradient
+// $color - the optional background color
+//
+// Compatable everywhere
+@mixin horz-gradient-map($y:0px, $color:transparent) {
+  background: $color url($gradient-sprite) 0 $y repeat-x;
+}
+
+// drop shadow
+//
+// $val - string for shadow values
+//
+// Compatable in Safari 3+, IE9+, Firefox 3.5+, Chrome 6+
+@mixin drop-shadow($val: 0px 0px 5px rgba(#000, .2)) {
+  -webkit-box-shadow: $val;
+  -moz-box-shadow: $val;
+  box-shadow: $val;
+}
+
+// Variables
+$beigeMedium: #efeae1;
+$beigeDark: #a29f99;
+$greenLight: #81c08b;
+$greenDark: #40a977;
+$brownDark: #66595c;
+$brownMedium: #8e6965;
+$brownLight: #bf8f80;
+$lightText: #9e9b95;
+
+$warningColor: #faaf4f;
+$successColor: $greenLight;
+$border-color: #ddd;
+
+$codeTextColor: $brownDark;
+$codeBgColor: lighten($beigeMedium, 4%);
+
+$mobileMargin: 15px;
+
+$codeFont: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+$gradient-sprite   : "#{$image-dir}/gradient-sprite.png";

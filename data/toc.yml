@@ -1,0 +1,48 @@
+Getting Started:
+  - Why Atom?
+  - Installing Atom
+  - Atom Basics
+  - Summary
+
+Using Atom:
+  - Atom Packages
+  - Moving in Atom
+  - Atom Selections
+  - Editing and Deleting Text
+  - Find and Replace
+  - Snippets
+  - Autocomplete
+  - Folding
+  - Panes
+  - Grammar
+  - Version Control in Atom
+  - Writing in Atom
+  - Basic Customization
+  - Summary
+
+Hacking Atom:
+  - Tools of the Trade
+  - The Init File
+  - "Package: Word Count"
+  - "Package: Modifying Text"
+  - Creating a Theme
+  - Iconography
+  - Debugging
+  - Writing specs
+  - Converting from TextMate
+  - Summary
+
+Behind Atom:
+  - Configuration API
+  - Keymaps In-Depth
+  - Scoped Settings, Scopes and Scope Descriptors
+  - Serialization in Atom
+  - Developing Node Modules
+  - Interacting With Other Packages Via Services
+  - Maintaining Your Packages
+  - Summary
+
+Upgrading to 1.0 APIs:
+  - Upgrading Your Package
+  - Upgrading Your UI Theme Or Package Selectors
+  - Upgrading Your Syntax Theme

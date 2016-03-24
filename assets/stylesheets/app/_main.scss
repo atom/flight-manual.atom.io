@@ -1,0 +1,408 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  min-width: 1060px;
+  margin: 0;
+  color: $brownDark;
+  font: 16px/1.7 normal normal;
+  font-family: "Helvetica Neue", Helvetica, arial, freesans, clean, sans-serif;
+}
+
+.wrapper {
+  position: relative;
+  width: 860px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  overflow:hidden;
+
+  &.wide {
+    width: 1060px;
+  }
+
+  &.no-pad {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+$footerHeight: 55px;
+
+.content-push {
+  margin-top: 40px;
+  height: 100%;
+}
+
+.footer-push {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -$footerHeight;
+}
+
+.footer-pad {
+  height: $footerHeight+40;
+}
+
+a {
+  color: $greenDark;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  &.center { text-align: center; }
+  color: #66595c;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: $beigeMedium;
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+.top-bar {
+  text-align: left;
+  padding: 5px 0;
+  background-color: #584b4f;
+  color: $beigeMedium;
+  font-size: 14px;
+  height: 43px;
+
+  h1 {
+    font-size: inherit;
+    display: inline-block;
+    line-height: 0;
+    margin: 0;
+  }
+
+  a {
+    color: $beigeMedium;
+
+    &:hover {
+      color: $greenLight;
+      text-decoration: none;
+    }
+
+    &.is-selected {
+      color: $beigeDark;
+    }
+  }
+
+  .navigation {
+    display: inline-block;
+    li {
+      font-size: 14px;
+      margin: 0px;
+    }
+  }
+
+  .top-bar-right {
+    float: right;
+    line-height: 33px;
+
+    .octicon {
+      position: relative;
+      top: 1px;
+      padding: 5px;
+    }
+
+    .tooltipped {
+      padding-bottom: 2px;
+      margin-left: 10px;
+    }
+
+    .gravatar {
+      height: 22px;
+      width: 22px;
+      vertical-align: -7px;
+      margin-right: 5px;
+    }
+  }
+
+  .minibutton {
+    margin: 4px 0;
+  }
+}
+
+.logo-small {
+  width: 114px;
+  height: 24px;
+  margin: 4px 8px 4px 0;
+
+  @include background-image-retina('../images/logo-small', 'png', 114px, 24px);
+}
+
+.header {
+  // background-color: $beigeMedium;
+  width: 100%;
+  text-align: center;
+
+  .wrapper {
+    overflow: hidden;
+    padding: 50px 0 40px;
+    line-height: 0;
+  }
+
+  h1 {
+    margin: 0;
+    display: inline-block;
+  }
+
+  .logo {
+    display: block;
+    width: 290px;
+    height: 60px;
+    line-height: 0;
+    color: $brownDark;
+    text-decoration: none;
+    text-indent: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    @include background-image-retina('logo', 'png', 290px, 60px);
+  }
+
+  .github-log-in-button{
+    float: right;
+    margin-top: 18px;
+    margin-left: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+.navigation {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    padding-right: 5px;
+    height: 33px;
+    vertical-align: top;
+
+    &:last-child { padding-right: 0; }
+  }
+
+  a {
+    padding: 5px;
+    display: inline-block;
+    @include transition(color .2s);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.footer {
+  background-color: $beigeMedium;
+  height: $footerHeight;
+  padding: 15px;
+
+  a {
+    color: $brownDark;
+
+    &:hover { text-decoration: none; }
+  }
+
+  span { color: $brownDark; }
+
+  .footer-right { float: right; }
+
+  .footer-left {
+    float: left;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      list-style-type: none;
+      margin-right: 15px;
+    }
+  }
+
+  .octicon {
+    position: relative;
+    font-size: 20px;
+    top: 1px;
+  }
+
+  .octicon-logo-github {
+    top: 2px;
+  }
+}
+
+.tabs {
+  display: inline-block;
+
+  ul {
+    display: table;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: table-cell;
+    list-style-type: none;
+  }
+
+  .button {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 18px;
+  }
+}
+
+.columns {
+  overflow: hidden;
+  width: 100%;
+
+  .column {
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    vertical-align: top;
+
+    &:first-child {
+      padding-left: 0;
+      padding-right: 20px;
+    }
+
+    &:last-child {
+      padding-left: 20px;
+      padding-right: 0;
+    }
+  }
+
+  .left, .right { width: 50%; }
+
+  .sidebar { width: 33.3%; }
+  .main-column { width: 66.6%; }
+
+  &.middle-align .column {
+    vertical-align: middle;
+
+    h2 {
+      font-weight: 300;
+      font-size: 36px;
+    }
+  }
+}
+
+.docs-search-results {
+  h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  li {
+    list-style-type: none;
+    border-top: 1px solid #eee;
+    padding: 20px 0;
+
+    &:first-child {
+      border-top-color: #ddd;
+    }
+  }
+}
+
+.docs-search-results-header {
+  margin: 0;
+  line-height: 18px;
+}
+
+.sidebar-search-field {
+  width: 100%;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.octicon:hover {
+  text-decoration: none;
+}
+
+.flash {
+  text-align: left;
+  padding: 5px;
+
+  .flash-inner {
+    width: 1060px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  &.notice {
+    color: $greenDark;
+    border-top: 1px solid #c8e3cc;
+    background-color: #d8f5dd;
+  }
+  &.alert {
+    color: $brownLight;
+    border-top: 1px solid #edddd8;
+    background-color: #ffede7;
+  }
+}
+
+.gravatar {
+  border-radius: 3px;
+  border: 0;
+}
+
+.card {
+  list-style-type: none;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin: 0 20px 20px 0;
+  width: 480px;
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .meta {
+    padding: 13px;
+    background-color: #fafafa;
+    line-height: 1;
+  }
+}
+
+.index-title {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.thirds, .halves {
+  overflow: hidden;
+  margin-right: -20px;
+
+  .grid-cell {
+    float: left;
+    padding-right: 20px;
+  }
+}
+
+.halves .grid-cell {
+  width: 50%;
+}
+
+.thirds .grid-cell {
+  width: 33.3%;
+}

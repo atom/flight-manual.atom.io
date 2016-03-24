@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <%= renderp '/includes/meta.html' %>
+  </head>
+  <body class="layout-toc">
+    <div class="footer-push">
+      <%= renderp '/includes/top_bar.html' %>
+      <div class="wrapper documents content-push">
+        <%= renderp '/includes/search.html' %>
+        <div class="markdown-body">
+          <%= yield %>
+        </div>
+      </div>
+      <div class="footer-pad"></div>
+    </div>
+    <%= renderp '/includes/bottom_bar.html' %>
+  </body>
+</html>
