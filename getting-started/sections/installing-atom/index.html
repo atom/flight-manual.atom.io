@@ -379,13 +379,10 @@ $</pre>
 <div class="sect3">
 <h4 id="atom-on-windows">Atom on Windows</h4>
 <div class="paragraph">
-<p>Atom comes with a windows installer. You can download the installer from <a href="https://atom.io" class="bare">https://atom.io</a> or from:</p>
+<p>Atom is available with a Windows installer that can be downloaded from <a href="https://atom.io" class="bare">https://atom.io</a> or from <a href="https://github.com/atom/atom/releases/latest">Atom Releases</a> named AtomSetup.exe</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/atom/atom/releases/latest" class="bare">https://github.com/atom/atom/releases/latest</a></p>
-</div>
-<div class="paragraph">
-<p>This will install Atom, add the <code>atom</code> and <code>apm</code> commands to your <code>PATH</code>, create shortcuts on the desktop and in the start menu, and also add an Open with Atom context menu in the Explorer.</p>
+<p>This will install Atom, add the <code>atom</code> and <code>apm</code> commands to your <code>PATH</code>, create shortcuts on the desktop and in the start menu, add an "Open with Atom" context menu in the Explorer and make Atom available for association with files using "Open with…​"</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -393,8 +390,55 @@ $</pre>
 </div>
 <div class="title">Figure 2. Atom on Windows</div>
 </div>
+<div class="sect4">
+<h5 id="portable-mode-for-windows">Portable mode for Windows</h5>
 <div class="paragraph">
-<p>If you just want to download a <code>.zip</code> of the latest Atom release for Windows, you can also get it from the <a href="https://github.com/atom/atom/releases">Atom releases page</a> at <a href="https://github.com/atom/atom/releases" class="bare">https://github.com/atom/atom/releases</a>.</p>
+<p>Atom can also be run in portable mode on Windows allowing it to be placed on a removable storage device where it will also store its settings, packages, cache, etc. so you can easily take it from machine to machine without needing to install anything.</p>
+</div>
+<div class="paragraph">
+<p>To get started with Atom in portable mode:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download atom-windows.zip from <a href="https://github.com/atom/atom/releases/latest">Atom Releases</a></p>
+</li>
+<li>
+<p>Extract atom-windows.zip to your removable storage device</p>
+</li>
+<li>
+<p>Launch atom.exe from the extracted Atom folder</p>
+</li>
+<li>
+<p>Once Atom has launched it will create a .atom folder in %USERPROFILE%</p>
+</li>
+<li>
+<p>Move that .atom folder to be alongside your Atom folder on your removable storage device</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now whenever you launch atom.exe from your removable storage device it will operate in portable mode and store all its settings and packages in the .atom folder on the device.</p>
+</div>
+<div class="paragraph">
+<p>Note that there are some limitations to portable mode:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>No Explorer integration or command-line PATH setup</p>
+</li>
+<li>
+<p>The .atom folder must be alongside the folder containing atom.exe (not inside it)</p>
+</li>
+<li>
+<p>The .atom folder must be writeable</p>
+</li>
+<li>
+<p>The ATOM_HOME environment variable must not be set (this overrides portable behavior)</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect3">
