@@ -2407,6 +2407,9 @@ hr {
       color: #a29f99; }
   .top-bar .navigation {
     display: inline-block; }
+    .top-bar .navigation li {
+      font-size: 14px;
+      margin: 0px; }
   .top-bar .top-bar-right {
     float: right;
     line-height: 33px; }
