@@ -39,16 +39,32 @@ To install the `atom` and `apm` commands, run "Window: Install Shell Commands" f
 
 ==== Atom on Windows
 
-Atom comes with a windows installer. You can download the installer from https://atom.io or from:
+Atom is available with a Windows installer that can be downloaded from https://atom.io or from https://github.com/atom/atom/releases/latest[Atom Releases] named AtomSetup.exe
 
-https://github.com/atom/atom/releases/latest
-
-This will install Atom, add the `atom` and `apm` commands to your `PATH`, create shortcuts on the desktop and in the start menu, and also add an Open with Atom context menu in the Explorer.
+This will install Atom, add the `atom` and `apm` commands to your `PATH`, create shortcuts on the desktop and in the start menu, add an "Open with Atom" context menu in the Explorer and make Atom available for association with files using "Open with..."
 
 .Atom on Windows
 image::../../images/windows.gif[Atom on Windows]
 
-If you just want to download a `.zip` of the latest Atom release for Windows, you can also get it from the https://github.com/atom/atom/releases[Atom releases page] at https://github.com/atom/atom/releases.
+===== Portable mode for Windows
+Atom can also be run in portable mode on Windows allowing it to be placed on a removable storage device where it will also store its settings, packages, cache, etc. so you can easily take it from machine to machine without needing to install anything.
+
+To get started with Atom in portable mode:
+
+. Download atom-windows.zip from https://github.com/atom/atom/releases/latest[Atom Releases]
+. Extract atom-windows.zip to your removable storage device
+. Launch atom.exe from the extracted Atom folder
+. Once Atom has launched it will create a .atom folder in %USERPROFILE%
+. Move that .atom folder to be alongside your Atom folder on your removable storage device
+
+Now whenever you launch atom.exe from your removable storage device it will operate in portable mode and store all its settings and packages in the .atom folder on the device.
+
+Note that there are some limitations to portable mode:
+
+* No Explorer integration or command-line PATH setup
+* The .atom folder must be alongside the folder containing atom.exe (not inside it)
+* The .atom folder must be writeable
+* The ATOM_HOME environment variable must not be set (this overrides portable behavior)
 
 ==== Atom on Linux
 

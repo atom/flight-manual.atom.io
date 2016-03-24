@@ -3,23 +3,24 @@ title: Iconography
 ---
 === Iconography
 
-Atom comes bundled with the https://octicons.github.com/[Octicons] icon set. Use them to add icons to your packages.
+Atom comes bundled with the https://github.com/github/octicons/tree/v2.1.2[Octicons 2.1.2] icon set. Use them to add icons to your packages.
 
 ==== Usage
 
 Atom's usage of the Octicons differs just a bit from the https://octicons.github.com/usage/[standard way]. The biggest difference is in the naming of the icon classes. Instead of the `octicon octicon-` prefix, you would use a more generic `icon icon-` prefix.
 
-As an example, to add a https://octicons.github.com/icon/device-desktop/[monitor icon], use the `icon icon-device-desktop` classes in your markup:
+As an example, to add a monitor icon, use the `icon icon-device-desktop` classes in your markup:
 
 ```html
   <span class="icon icon-device-desktop"></span>
 ```
 
-Or in case you're using http://atom-archive.github.io/space-pen/[SpacePen] it would be:
+==== Overview
 
-```coffeescript
-  @span class: 'icon icon-device-desktop'
-```
+To see an overview of all icons open the https://atom.io/docs/latest/hacking-atom-creating-a-theme#atom-styleguide[Styleguide]. Under the "Icons" section you'll find all the Octicons that are available.
+
+.Octicons in the Styleguide
+image::images/iconography.png[Octicons]
 
 ==== Size
 
@@ -27,4 +28,4 @@ Octicons look best with a `font-size` of `16px`. It's already used as the defaul
 
 ==== Usability
 
-Although icons can make your UI visually applealing, when used without a text label, it can be hard to guess its meaning. In cases where space for a text label is insufficient, consider adding a https://atom.io/docs/api/latest/TooltipManager[tooltip] that appears on hover. Or a more subtle `title="label"` attribute would already help as well.
+Although icons can make your UI visually appealing, when used without a text label, it can be hard to guess its meaning. In cases where space for a text label is insufficient, consider adding a https://atom.io/docs/api/latest/TooltipManager[tooltip] that appears on hover. Or a more subtle `title="label"` attribute would already help as well.
