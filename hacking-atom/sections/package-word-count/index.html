@@ -1,0 +1,1100 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Package: Word Count</title>
+
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+<link rel="stylesheet" media="all" href="/assets/stylesheets/development.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+
+      indexUrl: '/search.json',
+
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    })
+  })
+</script>
+
+  </head>
+  <body class="layout-article">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="http://blog.atom.io">Blog</a></li>
+      <li><a href="http://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search">
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="search" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+<h4>Chapter 1: Getting Started</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/why-atom">Why Atom?</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 2: Using Atom</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/snippets">Snippets</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/folding">Folding</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/panes">Panes</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/grammar">Grammar</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 3: Hacking Atom</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+    </li>
+    
+  
+    <li class="selected">
+      <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/iconography">Iconography</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/debugging">Debugging</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 4: Behind Atom</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+        </div>
+        <div class="markdown-body document-content">
+          
+          <h1>3.3 Package: Word Count</h1>
+          <div class="sect2">
+<h3 id="_package_word_count">Package: Word Count</h3>
+<div class="paragraph">
+<p>Let’s get started by writing a very simple package and looking at some of the tools needed to develop one effectively. We’ll start by writing a package that tells you how many words are in the current buffer and display it in a small modal window.</p>
+</div>
+<div class="sect3">
+<h4 id="_generate_package">Package Generator</h4>
+<div class="paragraph">
+<p>The simplest way to start a package is to use the built-in package generator that ships with Atom. As you might expect by now, this generator is itself a separate package implemented in <a href="https://github.com/atom/package-generator">atom/package-generator</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Atom will then create that directory and fill it out with a skeleton project and link it into your <code>.atom</code> directory so it’s loaded when you launch your editor next time. <strong>Note:</strong> You may encounter a situation where your package is not loaded. That is because a new package using the same name as an actual package hosted on <a href="https://atom.io/packages">atom.io</a> (e.g. "wordcount" and "word-count") is not being loaded as you expected. Try another name in that case.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/package.png" alt="package">
+</div>
+<div class="title">Figure 1. Basic generated Atom package</div>
+</div>
+<div class="paragraph">
+<p>You can see that Atom has created about a dozen files that make up the package. Let’s take a look at each of them to get an idea of how a package is structured, then we can modify them to get our word count functionality.</p>
+</div>
+<div class="paragraph">
+<p>The basic package layout is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-text"><code>my-package/
+  grammars/
+  keymaps/
+  lib/
+  menus/
+  spec/
+  snippets/
+  styles/
+  index.coffee
+  package.json</code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>Not every package will have (or need) all of these directories and the package generator doesn’t create <code>snippets</code> or <code>grammars</code>. Let’s see what some of these are so we can start messing with them.</p>
+</div>
+<div class="sect4">
+<h5 id="_atom_package_json">package.json</h5>
+<div class="paragraph">
+<p>Similar to <a href="http://en.wikipedia.org/wiki/Npm_(software)">npm packages</a>, Atom packages contain a <em>package.json</em> file in their top-level directory. This file contains metadata about the package, such as the path to its "main" module, library dependencies, and manifests specifying the order in which its resources should be loaded.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the regular <a href="https://docs.npmjs.com/files/package.json">npm package.json keys</a> available, Atom package.json files have their own additions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>main</code>: the path to the CoffeeScript file that’s the entry point to your package. If this is missing, Atom will default to looking for an <code>index.coffee</code> or <code>index.js</code>.</p>
+</li>
+<li>
+<p><code>styles</code>: an Array of Strings identifying the order of the
+style sheets your package needs to load. If not specified, style sheets in the <em>styles</em> directory are added alphabetically.</p>
+</li>
+<li>
+<p><code>keymaps</code>: an Array of Strings identifying the order of the
+key mappings your package needs to load. If not specified, mappings in the <em>keymaps</em> directory are added alphabetically.</p>
+</li>
+<li>
+<p><code>menus</code>: an Array of Strings identifying the order of the menu mappings your package needs to load. If not specified, mappings in the <em>menus</em> directory are added alphabetically.</p>
+</li>
+<li>
+<p><code>snippets</code>: an Array of Strings identifying the order of the
+snippets your package needs to load. If not specified, snippets in the <em>snippets</em> directory are added alphabetically.</p>
+</li>
+<li>
+<p><code>activationCommands</code>: an Object identifying commands that trigger your package’s activation. The keys are CSS selectors, the values are Arrays of Strings identifying the command.
+The loading of your package is delayed until one of these events is triggered within the associated scope defined by the CSS selector.</p>
+</li>
+<li>
+<p><code>activationHooks</code>: an Array of Strings identifying hooks that trigger your package’s activation. The loading of your package is delayed until one of these hooks are triggered.
+Known hooks are:</p>
+</li>
+<li>
+<p><code>language-package-name:grammar-used</code> (e.g) <code>language-javascript:grammar-used</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>package.json</code> in the package we’ve just generated looks like this currently:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A short description of your package"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"activationCommands"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"atom-workspace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordcount:toggle"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/atom/wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIT"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"engines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"atom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&gt;=1.0.0 &lt;2.0.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>If you wanted to use activationHooks, you might have:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A short description of your package"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"activationHooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"language-javascript:grammar-used"</span><span class="p">,</span><span class="w"> </span><span class="s2">"language-coffee-script:grammar-used"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/atom/wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIT"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"engines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"atom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&gt;0.50.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>One of the first things you should do is ensure that this information is filled out. The name, description, repository URL the project will be at, and the license can all be filled out immediately. The other information we’ll get into more detail on as we go.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="source-code">Source Code</h5>
+<div class="paragraph">
+<p>If you want to extend Atom’s behavior, your package should contain a single top-level module, which you export from whichever file is indicated by the <code>main</code> key in your <em>package.json</em> file. In the package we just generated, the main package file is <code>lib/wordcount.coffee</code>. The remainder of your code should be placed in the <code>lib</code> directory, and required from your top-level file. If the <code>main</code> key is not in your package.json file, it will look for <code>index.coffee</code> or <code>index.js</code> as the main entry point.</p>
+</div>
+<div class="paragraph">
+<p>Your package’s top-level module is a singleton object that manages the lifecycle of your extensions to Atom. Even if your package creates ten different views and appends them to different parts of the DOM, it’s all managed from your top-level object.</p>
+</div>
+<div class="paragraph">
+<p>Your package’s top-level module should implement the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>activate(state)</code>: This <strong>required</strong> method is called when your package is activated. It is passed the state data from the last time the window was serialized if your module implements the <code>serialize()</code> method. Use this to do initialization work when your package is started (like setting up DOM elements or binding events).</p>
+</li>
+<li>
+<p><code>serialize()</code>: This <strong>optional</strong> method is called when the window is shutting down, allowing you to return JSON to represent the state of your component. When the window is later restored, the data you returned is passed to your module’s <code>activate</code> method so you can restore your view to where the user left
+off.</p>
+</li>
+<li>
+<p><code>deactivate()</code>: This <strong>optional</strong> method is called when the window is shutting down. If your package is watching any files or holding external resources in any other way, release them here. If you’re just subscribing to things on window, you don’t need to worry because that’s getting torn down anyway.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="style-sheets">Style Sheets</h5>
+<div class="paragraph">
+<p>Style sheets for your package should be placed in the <em>styles</em> directory. Any style sheets in this directory will be loaded and attached to the DOM when your package is activated. Style sheets can be written as CSS or <a href="http://lesscss.org">Less</a>, but Less is recommended.</p>
+</div>
+<div class="paragraph">
+<p>Ideally, you won’t need much in the way of styling. Atom provides a standard set of components which define both the colors and UI elements for any package that fits into Atom seamlessly. You can view all of Atom’s UI components by opening the styleguide: open the command palette (<code>cmd-shift-P</code>) and search for <em>styleguide</em>, or just type <code>cmd-ctrl-shift-G</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you <em>do</em> need special styling, try to keep only structural styles in the package style sheets. If you <em>must</em> specify colors and sizing, these should be taken from the active theme’s <a href="https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less">ui-variables.less</a>.</p>
+</div>
+<div class="paragraph">
+<p>An optional <code>styleSheets</code> array in your <em>package.json</em> can list the style sheets by name to specify a loading order; otherwise, style sheets are loaded alphabetically.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_keybindings">Keymaps</h5>
+<div class="paragraph">
+<p>It’s recommended that you provide key bindings for commonly used actions for your extension, especially if you’re also adding a new command. In our new package, we have a keymap filled in for us already in the <code>keymaps/wordcount.cson</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="s">'atom-workspace'</span><span class="o">:</span>
+  <span class="s">'ctrl-alt-o'</span><span class="o">:</span> <span class="s">'wordcount:toggle'</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>This means that if you hit <code>ctrl-alt-o</code>, our package will run the <code>toggle</code> command. We’ll look at that code next, but if you want to change the default key mapping, you can do that in this file.</p>
+</div>
+<div class="paragraph">
+<p>Keymaps are placed in the <em>keymaps</em> subdirectory. By default, all keymaps are loaded in alphabetical order. An optional <code>keymaps</code> array in your <em>package.json</em> can specify which keymaps to load and in what order.</p>
+</div>
+<div class="paragraph">
+<p>Keybindings are executed by determining which element the keypress occurred on. In the example above, the <code>wordcount:toggle</code> command is executed when pressing <code>ctrl-alt-o</code> only on the <code>atom-workspace</code> element. This means that if you’re focused on something else like the Tree View or Settings pane for example, this key mapping won’t work.</p>
+</div>
+<div class="paragraph">
+<p>We’ll cover more advanced keymapping stuff a bit later in <a href="/behind-atom/sections/keymaps-in-depth#_keymaps_in_depth">Keyamps in depth</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="menus">Menus</h5>
+<div class="paragraph">
+<p>Menus are placed in the <em>menus</em> subdirectory. This defines menu elements like what pops up when you right click (a context-menu) or would go in the menu bar (application menu) to trigger functionality in your plugin.</p>
+</div>
+<div class="paragraph">
+<p>By default, all menus are loaded in alphabetical order. An optional <code>menus</code> array in your <em>package.json</em> can specify which menus to load and in what order.</p>
+</div>
+<div class="sect5">
+<h6 id="application-menu">Application Menu</h6>
+<div class="paragraph">
+<p>It’s recommended that you create an application menu item for common actions with your package that aren’t tied to a specific element. If we look in the <code>menus/wordcount.cson</code> file that was generated for us, we’ll see a section that looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="s">'menu'</span><span class="o">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s">'label'</span><span class="o">:</span> <span class="s">'Packages'</span>
+    <span class="s">'submenu'</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s">'label'</span><span class="o">:</span> <span class="s">'Word Count'</span>
+      <span class="s">'submenu'</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s">'label'</span><span class="o">:</span> <span class="s">'Toggle'</span>
+          <span class="s">'command'</span><span class="o">:</span> <span class="s">'wordcount:toggle'</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>This section puts a "Toggle" menu item under a menu group named "Word Count" in the "Packages" menu.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/menu.png" alt="application menu">
+</div>
+<div class="title">Figure 2. Application menu item</div>
+</div>
+<div class="paragraph">
+<p>When you select that menu item, it will run the <code>wordcount:toggle</code> command, which we’ll look at in a bit.</p>
+</div>
+<div class="paragraph">
+<p>The menu templates you specify are merged with all other templates provided by other packages in the order which they were loaded.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="context-menu">Context Menu</h6>
+<div class="paragraph">
+<p>It’s recommended to specify a context menu item for commands that are linked to specific parts of the interface. In our <code>menus/wordcount.cson</code> file, we can see an auto-generated section that looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="s">'context-menu'</span><span class="o">:</span>
+  <span class="s">'atom-text-editor'</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">'label'</span><span class="o">:</span> <span class="s">'Toggle Word Count'</span>
+      <span class="s">'command'</span><span class="o">:</span> <span class="s">'wordcount:toggle'</span>
+    <span class="p">}</span>
+  <span class="p">]</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>This adds a "Toggle Word Count" menu option to the menu that pops up when you right-click in an Atom text editor pane.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/context-menu.png" alt="context menu">
+</div>
+<div class="title">Figure 3. Context menu entry</div>
+</div>
+<div class="paragraph">
+<p>When you click that it will again run the <code>wordcount:toggle</code> method in your code.</p>
+</div>
+<div class="paragraph">
+<p>Context menus are created by determining which element was selected and then adding all of the menu items whose selectors match that element (in the order which they were loaded). The process is then repeated for the elements until reaching the top of the DOM tree.</p>
+</div>
+<div class="paragraph">
+<p>You can also add separators and submenus to your context menus. To add a submenu, provide a <code>submenu</code> key instead of a command. To add a separator, add an item with a single <code>type: 'separator'</code> key/value pair. For instance, you could do something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="s">'context-menu'</span><span class="o">:</span>
+  <span class="s">'atom-workspace'</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">label</span><span class="o">:</span> <span class="s">'Text'</span>
+      <span class="na">submenu</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="na">label</span><span class="o">:</span> <span class="s">'Inspect Element'</span><span class="p">,</span> <span class="na">command</span><span class="o">:</span> <span class="s">'core:inspect'</span><span class="p">}</span>
+        <span class="p">{</span><span class="na">type</span><span class="o">:</span> <span class="s">'separator'</span><span class="p">}</span>
+        <span class="p">{</span><span class="na">label</span><span class="o">:</span> <span class="s">'Selector All'</span><span class="p">,</span> <span class="na">command</span><span class="o">:</span> <span class="s">'core:select-all'</span><span class="p">}</span>
+        <span class="p">{</span><span class="na">type</span><span class="o">:</span> <span class="s">'separator'</span><span class="p">}</span>
+        <span class="p">{</span><span class="na">label</span><span class="o">:</span> <span class="s">'Deleted Selected Text'</span><span class="p">,</span> <span class="na">command</span><span class="o">:</span> <span class="s">'core:delete'</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span></code></pre>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="developing-our-package">Developing our Package</h4>
+<div class="paragraph">
+<p>Currently with the generated package we have, if we run that <code>toggle</code> command through the menu or the command palette, we’ll get a little pop up that says "The Wordcount package is Alive! It’s ALIVE!".</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/toggle.png" alt="word count is alive">
+</div>
+<div class="title">Figure 4. Wordcount Package is Alive dialog</div>
+</div>
+<div class="sect4">
+<h5 id="understanding-the-generated-code">Understanding the Generated Code</h5>
+<div class="paragraph">
+<p>Let’s take a look at the code in our <code>lib</code> directory and see what is happening.</p>
+</div>
+<div class="paragraph">
+<p>There are two files in our <code>lib</code> directory. One is the main file (<code>lib/wordcount.coffee</code>), which is pointed to in the <code>package.json</code> file as the main file to execute for this package. This file handles the logic of the whole plugin.</p>
+</div>
+<div class="paragraph">
+<p>The second file is a View class (<code>lib/wordcount-view.coffee</code>), which handles the UI elements of the package. Let’s look at this file first, since it’s pretty simple.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
+<span class="k">class</span> <span class="nx">WordcountView</span>
+  <span class="na">constructor</span><span class="o">:</span> <span class="p">(</span><span class="nx">serializedState</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="c1"># Create root element
+</span>    <span class="vi">@</span><span class="na">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">'div'</span><span class="p">)</span>
+    <span class="vi">@</span><span class="na">element</span><span class="p">.</span><span class="na">classList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">'wordcount'</span><span class="p">)</span>
+
+    <span class="c1"># Create message element
+</span>    <span class="nx">message</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">'div'</span><span class="p">)</span>
+    <span class="nx">message</span><span class="p">.</span><span class="na">textContent</span> <span class="o">=</span> <span class="s">"The Wordcount package is Alive! It's ALIVE!"</span>
+    <span class="nx">message</span><span class="p">.</span><span class="na">classList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">'message'</span><span class="p">)</span>
+    <span class="vi">@</span><span class="na">element</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+
+  <span class="c1"># Returns an object that can be retrieved when package is activated
+</span>  <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span>
+
+  <span class="c1"># Tear down any state and detach
+</span>  <span class="na">destroy</span><span class="o">:</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">element</span><span class="p">.</span><span class="na">remove</span><span class="p">()</span>
+
+  <span class="na">getElement</span><span class="o">:</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">element</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>Basically the only thing happening here is that when the View class is created, it creates a simple <code>div</code> element and adds the <code>wordcount</code> class to it (so we can find or style it later) and then adds the <code>Wordcount package is Alive!</code> text to it. There is also a <code>getElement</code> method which returns that <code>div</code>. The <code>serialize</code> and <code>destroy</code> methods don’t do anything and we won’t have to worry about that until another example.</p>
+</div>
+<div class="paragraph">
+<p>Notice that we’re simply using the basic browser DOM methods (ie, <code>createElement()</code>, <code>appendChild()</code>).</p>
+</div>
+<div class="paragraph">
+<p>The second file we have is the main entry point to the package (again, because it’s referenced in the <code>package.json</code> file). Let’s take a look at that file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="nx">WordcountView</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'./wordcount-view'</span>
+<span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span> <span class="nx">Wordcount</span> <span class="o">=</span>
+  <span class="na">wordcountView</span><span class="o">:</span> <span class="no">null</span>
+  <span class="na">modalPanel</span><span class="o">:</span> <span class="no">null</span>
+  <span class="na">subscriptions</span><span class="o">:</span> <span class="no">null</span>
+
+  <span class="na">activate</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">wordcountView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WordcountView</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="na">wordcountViewState</span><span class="p">)</span>
+    <span class="vi">@</span><span class="na">modalPanel</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">addModalPanel</span><span class="p">(</span><span class="na">item</span><span class="o">:</span> <span class="vi">@</span><span class="na">wordcountView</span><span class="p">.</span><span class="na">getElement</span><span class="p">(),</span> <span class="na">visible</span><span class="o">:</span> <span class="no">false</span><span class="p">)</span>
+
+    <span class="c1"># Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
+</span>    <span class="vi">@</span><span class="na">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span>
+
+    <span class="c1"># Register command that toggles this view
+</span>    <span class="vi">@</span><span class="na">subscriptions</span><span class="p">.</span><span class="na">add</span> <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-workspace'</span><span class="p">,</span>
+      <span class="s">'wordcount:toggle'</span><span class="o">:</span> <span class="o">=&gt;</span> <span class="vi">@</span><span class="na">toggle</span><span class="p">()</span>
+
+  <span class="na">deactivate</span><span class="o">:</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">destroy</span><span class="p">()</span>
+    <span class="vi">@</span><span class="na">subscriptions</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span>
+    <span class="vi">@</span><span class="na">wordcountView</span><span class="p">.</span><span class="na">destroy</span><span class="p">()</span>
+
+  <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span>
+    <span class="na">wordcountViewState</span><span class="o">:</span> <span class="vi">@</span><span class="na">wordcountView</span><span class="p">.</span><span class="na">serialize</span><span class="p">()</span>
+
+  <span class="na">toggle</span><span class="o">:</span> <span class="o">-&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">'Wordcount was toggled!'</span>
+
+    <span class="k">if</span> <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">isVisible</span><span class="p">()</span>
+      <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span>
+    <span class="k">else</span>
+      <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">show</span><span class="p">()</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>There is a bit more going on here.  First of all we can see that we are defining four methods. The only required one is <code>activate</code>. The <code>deactivate</code> and <code>serialize</code> methods are expected by Atom but optional. The <code>toggle</code> method is one Atom is not looking for, so we’ll have to invoke it somewhere for it to be called, which you may recall we do both in the <code>activationCommands</code> section of the <code>package.json</code> file and in the action we have in the menu file.</p>
+</div>
+<div class="paragraph">
+<p>The <code>deactivate</code> method simply destroys the various class instances we’ve created and the <code>serialize</code> method simply passes on the serialization to the View class. Nothing too exciting here.</p>
+</div>
+<div class="paragraph">
+<p>The <code>activate</code> command does a number of things. For one, it is not called automatically when Atom starts up, it is first called when one of the <code>activationCommands</code> as defined in the <code>package.json</code> file are called. In this case, <code>activate</code> is only called the first time the <code>toggle</code> command is called. If nobody ever invokes the menu item or hotkey, this code is never called.</p>
+</div>
+<div class="paragraph">
+<p>This method does two things. The first is that it creates an instance of the View class we have and adds the element that it creates to a hidden modal panel in the Atom workspace.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="vi">@</span><span class="na">wordcountView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WordcountView</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="na">wordcountViewState</span><span class="p">)</span>
+<span class="vi">@</span><span class="na">modalPanel</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">addModalPanel</span><span class="p">(</span>
+                  <span class="na">item</span><span class="o">:</span> <span class="vi">@</span><span class="na">wordcountView</span><span class="p">.</span><span class="na">getElement</span><span class="p">(),</span>
+                  <span class="na">visible</span><span class="o">:</span> <span class="no">false</span>
+              <span class="p">)</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>We’ll ignore the state stuff for now, since it’s not important for this simple plugin. The rest should be fairly straightforward.</p>
+</div>
+<div class="paragraph">
+<p>The next thing this method does is create an instance of the CompositeDisposable class so it can register all the commands that can be called from the plugin so other plugins could subscribe to these events.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="c1"># Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
+</span><span class="vi">@</span><span class="na">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span>
+
+<span class="c1"># Register command that toggles this view
+</span><span class="vi">@</span><span class="na">subscriptions</span><span class="p">.</span><span class="na">add</span> <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-workspace'</span><span class="p">,</span> <span class="s">'wordcount:toggle'</span><span class="o">:</span> <span class="o">=&gt;</span> <span class="vi">@</span><span class="na">toggle</span><span class="p">()</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>Next we have the <code>toggle</code> method. This method simply toggles the visibility of the modal panel that we created in the <code>activate</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="na">toggle</span><span class="o">:</span> <span class="o">-&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">'Wordcount was toggled!'</span>
+
+  <span class="k">if</span> <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">isVisible</span><span class="p">()</span>
+    <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span>
+  <span class="k">else</span>
+    <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">show</span><span class="p">()</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>This should be fairly simple to understand. We’re looking to see if the modal element is visible and hiding or showing it depending on it’s current state.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="the-flow">The Flow</h5>
+<div class="paragraph">
+<p>So, let’s review the actual flow in this package.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Atom starts up</p>
+</li>
+<li>
+<p>Atom reads the package.json</p>
+</li>
+<li>
+<p>Atom reads keymaps, menus, main file</p>
+</li>
+<li>
+<p>User runs a package command</p>
+</li>
+<li>
+<p>Atom executes the <code>activate</code> method</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Creates a WordCount view, which creates a div</p>
+</li>
+<li>
+<p>Grabs that div and sticks it in a hidden modal</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Atom executes the package command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sees that the modal is hidden, makes it visible</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>User runs a package command again</p>
+</li>
+<li>
+<p>Atom executes the package command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sees that the modal is visible, makes it hidden</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You shut down Atom</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Serializations?</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>TODO: Verify this and perhaps make it a graphic?</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_counting_words">Counting the Words</h5>
+<div class="paragraph">
+<p>So now that we understand what is happening, let’s modify the code so that our little modal box shows us the current word count instead of static text.</p>
+</div>
+<div class="paragraph">
+<p>We’ll do this in a very simple way. When the dialog is toggled, we’ll count the words right before displaying the modal. So let’s do this in the <code>toggle</code> command.  If we add some code to count the words and ask the view to update itself, we’ll have something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="na">toggle</span><span class="o">:</span> <span class="o">-&gt;</span>
+  <span class="k">if</span> <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">isVisible</span><span class="p">()</span>
+    <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span>
+  <span class="k">else</span>
+    <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
+    <span class="nx">words</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getText</span><span class="p">().</span><span class="na">split</span><span class="p">(</span><span class="sr">/\s+/</span><span class="p">).</span><span class="na">length</span>
+    <span class="vi">@</span><span class="na">wordcountView</span><span class="p">.</span><span class="na">setCount</span><span class="p">(</span><span class="nx">words</span><span class="p">)</span>
+    <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">show</span><span class="p">()</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>Let’s look at the 3 lines we’ve added. First we get an instance of the current editor object (where our text to count is) by calling <a href="https://atom.io/docs/api/latest/Workspace#instance-getActiveTextEditor"><code>atom.workspace.getActiveTextEditor()</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>Next we get the number of words by calling <a href="https://atom.io/docs/api/v0.179.0/TextEditor#instance-getText"><code>getText()</code></a> on our new editor object, then splitting that text on whitespace with a regular expression and then getting the length of that array.</p>
+</div>
+<div class="paragraph">
+<p>Finally, we tell our view to update the word count it displays by calling the <code>setCount()</code> method on our view and then showing the modal again. Since that method doesn’t yet exist, let’s create it now.</p>
+</div>
+<div class="paragraph">
+<p>We can add this code to the end of our <code>wordcount-view.coffee</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffeescript"><code><span class="na">setCount</span><span class="o">:</span> <span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="nx">displayText</span> <span class="o">=</span> <span class="s">"There are </span><span class="si">#{</span><span class="nx">count</span><span class="si">}</span><span class="s"> words."</span>
+  <span class="vi">@</span><span class="na">element</span><span class="p">.</span><span class="na">children</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="na">textContent</span> <span class="o">=</span> <span class="nx">displayText</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>Pretty simple - we take the count number that was passed in and place it into a string that we then stick into the element that our view is controlling.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/wordcount.png" alt="word count working">
+</div>
+<div class="title">Figure 5. Word Count Working</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="basic-debugging">Basic Debugging</h4>
+<div class="paragraph">
+<p>You’ll notice a few <code>console.log</code> statements in the code. One of the cool things about Atom being built on Chromium is that you can use some of the same debugging tools available to you that you have when doing web development.</p>
+</div>
+<div class="paragraph">
+<p>To open up the Developer Console, hit <code>alt-cmd-I</code>, or choose the menu option <code>View &gt; Developer &gt; Toggle Developer Tools</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/dev-tools.png" alt="dev tools debugging">
+</div>
+<div class="title">Figure 6. Developer Tools Debugging</div>
+</div>
+<div class="paragraph">
+<p>From here you can inspect objects, run code and view console output just as though you were debugging a web site.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="testing">Testing</h4>
+<div class="paragraph">
+<p>Your package should have tests, and if they’re placed in the <em>spec</em> directory, they can be run by Atom.</p>
+</div>
+<div class="paragraph">
+<p>Under the hood, <a href="http://jasmine.github.io">Jasmine</a> executes your tests, so you can assume that any DSL available there is also available to your package.</p>
+</div>
+<div class="sect4">
+<h5 id="running-tests">Running Tests</h5>
+<div class="paragraph">
+<p>Once you’ve got your test suite written, you can run it by pressing <code>cmd-alt-ctrl-p</code> or via the <em>Developer &gt; Run Package Specs</em> menu. Our generated package comes with an example test suite, so you can run this right now to see what happens.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/spec-suite.png" alt="spec suite results">
+</div>
+<div class="title">Figure 7. Spec Suite Results</div>
+</div>
+<div class="paragraph">
+<p>You can also use the <code>apm test</code> command to run them from the command line. It prints the test output and results to the console and returns the proper status code depending on whether the tests passed or failed.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="making-our-tests-work">Making our Tests Work</h5>
+<div class="paragraph">
+<p>As you can see, our generated tests are all failing because of the changes we’ve made.</p>
+</div>
+<div class="paragraph">
+<p>TODO: Fix the tests</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_atom_publishing">Publishing</h4>
+<div class="paragraph">
+<p>Now that our simple plugin is working and tested, let’s go ahead and publish it so it’s available to the world.</p>
+</div>
+<div class="paragraph">
+<p>Atom bundles a command line utility called <code>apm</code> which we first used back in <a href="/using-atom/sections/atom-packages#_atom_command_line">Atom command line</a> to search for and install packages via the command line. The <code>apm</code> command can also be used to publish Atom packages to the public registry and update them.</p>
+</div>
+<div class="sect4">
+<h5 id="prepare-your-package">Prepare Your Package</h5>
+<div class="paragraph">
+<p>There are a few things you should double check before publishing:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Your <strong>package.json</strong> file has <code>name</code>, <code>description</code>, and <code>repository</code> fields.</p>
+</li>
+<li>
+<p>Your <strong>package.json</strong> file has a <code>version</code> field with a value of  <code>"0.0.0"</code>.</p>
+</li>
+<li>
+<p>Your <strong>package.json</strong> file has an <code>engines</code> field that contains an entry
+for Atom such as: <code>"engines": {"atom": "&gt;=1.0.0 &lt;2.0.0"}</code>.</p>
+</li>
+<li>
+<p>Your package has a <code>README.md</code> file at the root.</p>
+</li>
+<li>
+<p>Your package is in a Git repository that has been pushed to <a href="https://github.com">GitHub</a>. Follow <a href="http://guides.github.com/overviews/desktop">this guide</a> if your package isn’t already on GitHub.</p>
+</li>
+<li>
+<p>Change the <code>repository</code> url in the <strong>package.json</strong> file to match the URL of your repository.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="publish-your-package">Publish Your Package</h5>
+<div class="paragraph">
+<p>Before you publish a package it is a good idea to check ahead of time if a package with the same name has already been published to <a href="https://atom.io">atom.io</a>. You can do that by visiting <code><a href="https://atom.io/packages/my-package" class="bare">https://atom.io/packages/my-package</a></code> to see if the package already exists. If it does, update your package’s name to something that is available before proceeding.</p>
+</div>
+<div class="paragraph">
+<p>Now let’s review what the <code>apm publish</code> command does:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Registers the package name on atom.io if it is being published for the first time.</p>
+</li>
+<li>
+<p>Updates the <code>version</code> field in the <strong>package.json</strong> file and commits it.</p>
+</li>
+<li>
+<p>Creates a new <a href="http://git-scm.com/book/en/Git-Basics-Tagging">Git tag</a> for the version being published.</p>
+</li>
+<li>
+<p>Pushes the tag and current branch up to GitHub.</p>
+</li>
+<li>
+<p>Updates atom.io with the new version being published.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now run the following commands to publish your package:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-sh"><code><span class="nb">cd</span> ~/github/my-package
+apm publish minor</code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>If this is the first package you are publishing, the <code>apm publish</code> command may prompt you for your GitHub username and password. This is required to publish and you only need to enter this information the first time you publish. The credentials are stored securely in your <a href="https://en.wikipedia.org/wiki/Keychain_(Apple)">keychain</a> once you login.</p>
+</div>
+<div class="paragraph">
+<p>Your package is now published and available on atom.io. Head on over to <code><a href="https://atom.io/packages/my-package" class="bare">https://atom.io/packages/my-package</a></code> to see your package’s page.</p>
+</div>
+<div class="paragraph">
+<p>With <code>apm publish</code>, you can bump the version and publish by using</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-sh"><code>apm publish &lt;version-type&gt;</code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>&lt;version-type&gt;</code> can be <code>major</code>, <code>minor</code> and <code>patch</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>major</code> option to the publish command tells apm to increment the first digit of the version before publishing so the published version will be <code>1.0.0</code> and the Git tag created will be <code>v1.0.0</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>minor</code> option to the publish command tells apm to increment the second digit of the version before publishing so the published version will be <code>0.1.0</code> and the Git tag created will be <code>v0.1.0</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>patch</code> option to the publish command tells apm to increment the third digit of the version before publishing so the published version will be <code>0.0.1</code> and the Git tag created will be <code>v0.0.1</code>.</p>
+</div>
+<div class="paragraph">
+<p>Use <code>major</code> when you make a change that breaks backwards compatibility, like changing defaults or removing features. Use <code>minor</code> when adding new functionality or making improvements on existing code. Use <code>patch</code> when you fix a bug that was causing incorrect behaviour.</p>
+</div>
+<div class="paragraph">
+<p>Check out <a href="http://semver.org">semantic versioning</a> to learn more about versioning your package releases.</p>
+</div>
+<div class="paragraph">
+<p>You can also run <code>apm help publish</code> to see all the available options and <code>apm help</code> to see all the other available commands.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="summary">Summary</h4>
+<div class="paragraph">
+<p>We’ve now generated, customized and published our first plugin for Atom. Congratulations! Now anyone can install our masterpiece from directly within Atom as we did in <a href="/using-atom/sections/atom-packages#_atom_packages">Atom packages</a>.</p>
+</div>
+</div>
+</div>
+        </div>
+      </div>
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Keymaps In-Depth</title>
+
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+<link rel="stylesheet" media="all" href="/assets/stylesheets/development.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+
+      indexUrl: '/search.json',
+
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    })
+  })
+</script>
+
+  </head>
+  <body class="layout-article">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="http://blog.atom.io">Blog</a></li>
+      <li><a href="http://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search">
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="search" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+<h4>Chapter 1: Getting Started</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/why-atom">Why Atom?</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/getting-started/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 2: Using Atom</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/snippets">Snippets</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/folding">Folding</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/panes">Panes</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/grammar">Grammar</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/using-atom/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 3: Hacking Atom</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/iconography">Iconography</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/debugging">Debugging</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/hacking-atom/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 4: Behind Atom</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+    </li>
+    
+  
+    <li class="selected">
+      <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/behind-atom/sections/summary">Summary</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<ul>
+  
+  
+    <li class="unselected">
+      <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+    </li>
+    
+  
+    <li class="unselected">
+      <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+    </li>
+    
+  
+  
+</ul>
+
+
+        </div>
+        <div class="markdown-body document-content">
+          
+          <h1>4.2 Keymaps In-Depth</h1>
+          <div class="sect2">
+<h3 id="_keymaps_in_depth">Keymaps In-Depth</h3>
+<div class="sect3">
+<h4 id="structure-of-a-keymap-file">Structure of a Keymap File</h4>
+<div class="paragraph">
+<p>Keymap files are encoded as JSON or CSON files containing nested hashes. They work much like style sheets, but instead of applying style properties to elements matching the selector, they specify the meaning of keystrokes on elements matching the selector. Here is an example of some bindings that apply when keystrokes pass through <code>atom-text-editor</code> elements:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+  <span class="s">'cmd-delete'</span><span class="o">:</span> <span class="s">'editor:delete-to-beginning-of-line'</span>
+  <span class="s">'alt-backspace'</span><span class="o">:</span> <span class="s">'editor:delete-to-beginning-of-word'</span>
+  <span class="s">'ctrl-A'</span><span class="o">:</span> <span class="s">'editor:select-to-first-character-of-line'</span>
+  <span class="s">'ctrl-shift-e'</span><span class="o">:</span> <span class="s">'editor:select-to-end-of-line'</span>
+  <span class="s">'cmd-left'</span><span class="o">:</span> <span class="s">'editor:move-to-first-character-of-line'</span>
+
+<span class="s">'atom-text-editor:not([mini])'</span><span class="o">:</span>
+  <span class="s">'cmd-alt-['</span><span class="o">:</span> <span class="s">'editor:fold-current-row'</span>
+  <span class="s">'cmd-alt-]'</span><span class="o">:</span> <span class="s">'editor:unfold-current-row'</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>Beneath the first selector are several bindings, mapping specific <strong>keystroke patterns</strong> to <strong>commands</strong>. When an element with the <code>atom-text-editor</code> class is focused and <code>cmd-delete</code> is pressed, a custom DOM event called <code>editor:delete-to-beginning-of-line</code> is emitted on the <code>atom-text-editor</code> element.</p>
+</div>
+<div class="paragraph">
+<p>The second selector group also targets editors, but only if they don’t have the <code>mini</code> attribute. In this example, the commands for code folding don’t really make sense on mini-editors, so the selector restricts them to regular editors.</p>
+</div>
+<div class="sect4">
+<h5 id="keystroke-patterns">Keystroke Patterns</h5>
+<div class="paragraph">
+<p>Keystroke patterns express one or more keystrokes combined with optional modifier keys. For example: <code>ctrl-w v</code>, or <code>cmd-shift-up</code>. A keystroke is composed of the following symbols, separated by a <code>-</code>. A multi-keystroke pattern can be expressed as keystroke patterns separated by spaces.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character literals</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code> <code>4</code> <code>$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modifier keys</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cmd</code> <code>ctrl</code> <code>alt</code> <code>shift</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Special keys</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enter</code> <code>escape</code> <code>backspace</code> <code>delete</code> <code>tab</code> <code>home</code> <code>end</code> <code>pageup</code> <code>pagedown</code> <code>left</code> <code>right</code> <code>up</code> <code>down</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="commands">Commands</h5>
+<div class="paragraph">
+<p>Commands are custom DOM events that are triggered when a keystroke matches a binding. This allows user interface code to listen for named commands without specifying the specific keybinding that triggers it. For example, the following code creates a command to insert the current date in an editor:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-text-editor'</span><span class="p">,</span>
+  <span class="s">'user:insert-date'</span><span class="o">:</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="nx">editor</span> <span class="o">=</span> <span class="vi">@</span><span class="na">getModel</span><span class="p">()</span>
+    <span class="nx">editor</span><span class="p">.</span><span class="na">insertText</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="na">toLocaleString</span><span class="p">())</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p><code>atom.commands</code> refers to the global {CommandRegistry} instance where all commands are set and consequently picked up by the command palette.</p>
+</div>
+<div class="paragraph">
+<p>When you are looking to bind new keys, it is often useful to use the command palette (<code>ctrl-shift-p</code>) to discover what commands are being listened for in a given focus context. Commands are "humanized" following a simple algorithm, so a command like <code>editor:fold-current-row</code> would appear as "Editor: Fold Current
+Row".</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="composed-commands">"Composed" Commands</h5>
+<div class="paragraph">
+<p>A common question is, "How do I make a single keybinding execute two or more commands?" There isn’t any direct support for this in Atom, but it can be achieved by creating a custom command that performs the multiple actions you desire and then creating a keybinding for that command. For example, let’s say I want to create a "composed" command that performs a Select Line followed by Cut. You could add the following to your <code>init.coffee</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-text-editor'</span><span class="p">,</span> <span class="s">'custom:cut-line'</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
+  <span class="nx">editor</span><span class="p">.</span><span class="na">selectLinesContainingCursors</span><span class="p">()</span>
+  <span class="nx">editor</span><span class="p">.</span><span class="na">cutSelectedText</span><span class="p">()</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>Then let’s say we want to map this custom command to <code>alt-ctrl-z</code>, you could add the following to your keymap:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+  <span class="s">'alt-ctrl-z'</span><span class="o">:</span> <span class="s">'custom:cut-line'</span></code></pre>
+
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="specificity-and-cascade-order">Specificity and Cascade Order</h5>
+<div class="paragraph">
+<p>As is the case with CSS applying styles, when multiple bindings match for a single element, the conflict is resolved by choosing the most <strong>specific</strong> selector. If two matching selectors have the same specificity, the binding for the selector appearing later in the cascade takes precedence.</p>
+</div>
+<div class="paragraph">
+<p>Currently, there’s no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We eventually plan to introduce a custom CSS-like file format for keymaps that allows for ordering within a single file. For now, we’ve opted to handle cases where selector ordering is critical by breaking the keymap into two separate files, such as <code>snippets-1.cson</code> and <code>snippets-2.cson</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-bindings">Removing Bindings</h4>
+<div class="paragraph">
+<p>When the keymap system encounters a binding with the <code>unset!</code> directive as its command, it will treat the current element as if it had no key bindings matching the current keystroke sequence and continue searching from its parent. If you want to remove a binding from a keymap you don’t control, such as keymaps in Atom core or in packages, use the <code>unset!</code> directive.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following code removes the keybinding for <code>a</code> in the Tree View, which is normally used to trigger the <code>tree-view:add-file</code> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffee"><code><span class="s">'.tree-view'</span><span class="o">:</span>
+  <span class="s">'a'</span><span class="o">:</span> <span class="s">'unset!'</span></code></pre>
+
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/keybinding.png" alt="keybinding resolver">
+</div>
+<div class="title">Figure 1. Keybinding resolver</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="forcing-chromium-s-native-keystroke-handling">Forcing Chromium’s Native Keystroke Handling</h4>
+<div class="paragraph">
+<p>If you want to force the native browser behavior for a given keystroke, use the <code>native!</code> directive as the command of a binding. This can be useful to enable the correct behavior in native input elements, for example. If you apply the <code>.native-key-bindings</code> class to an element, all the keystrokes typically handled by the browser will be assigned the <code>native!</code> directive.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="overloading-key-bindings">Overloading Key Bindings</h4>
+<div class="paragraph">
+<p>Occasionally, it makes sense to layer multiple actions on top of the same key binding. An example of this is the snippets package. Snippets are inserted by typing a snippet prefix such as <code>for</code> and then pressing <code>tab</code>. Every time <code>tab</code> is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. If a snippet <strong>doesn’t</strong> exist, we want <code>tab</code> to actually insert whitespace.</p>
+</div>
+<div class="paragraph">
+<p>To achieve this, the snippets package makes use of the <code>.abortKeyBinding()</code> method on the event object representing the <code>snippets:expand</code> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-coffee-script"><code><span class="c1"># pseudo-code
+</span><span class="nx">editor</span><span class="p">.</span><span class="na">command</span> <span class="s">'snippets:expand'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span>
+  <span class="k">if</span> <span class="vi">@</span><span class="na">cursorFollowsValidPrefix</span><span class="p">()</span>
+    <span class="vi">@</span><span class="na">expandSnippet</span><span class="p">()</span>
+  <span class="k">else</span>
+    <span class="nx">e</span><span class="p">.</span><span class="na">abortKeyBinding</span><span class="p">()</span></code></pre>
+
+</div>
+</div>
+<div class="paragraph">
+<p>When the event handler observes that the cursor does not follow a valid prefix, it calls <code>e.abortKeyBinding()</code>, telling the keymap system to continue searching for another matching binding.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="step-by-step-how-keydown-events-are-mapped-to-commands">Step-by-Step: How Keydown Events are Mapped to Commands</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>A keydown event occurs on a <strong>focused</strong> element.</p>
+</li>
+<li>
+<p>Starting at the focused element, the keymap walks upward towards the root of
+the document, searching for the most specific CSS selector that matches the
+current DOM element and also contains a keystroke pattern matching the keydown
+event.</p>
+</li>
+<li>
+<p>When a matching keystroke pattern is found, the search is terminated and the
+pattern’s corresponding command is triggered on the current element.</p>
+</li>
+<li>
+<p>If <code>.abortKeyBinding()</code> is called on the triggered event object, the search
+is resumed, triggering a binding on the next-most-specific CSS selector for
+the same element or continuing upward to parent elements.</p>
+</li>
+<li>
+<p>If no bindings are found, the event is handled by Chromium normally.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+        </div>
+      </div>
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
