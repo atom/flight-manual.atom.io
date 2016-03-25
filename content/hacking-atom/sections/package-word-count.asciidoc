@@ -58,9 +58,7 @@ snippets your package needs to load. If not specified, snippets in the _snippets
 - `activationCommands`: an Object identifying commands that trigger your package's activation. The keys are CSS selectors, the values are Arrays of Strings identifying the command.
 The loading of your package is delayed until one of these events is triggered within the associated scope defined by the CSS selector.
 
-- `activationHooks`: an Array of Strings identifying hooks that trigger your package's activation. The loading of your package is delayed until one of these hooks are triggered.
-Known hooks are:
-  - `language-package-name:grammar-used` (e.g) `language-javascript:grammar-used`
+- `activationHooks`: an Array of Strings identifying hooks that trigger your package's activation. The loading of your package is delayed until one of these hooks are triggered. Currently, the only activation hook is `language-package-name:grammar-used` (e.g., `language-javascript:grammar-used`)
 
 The `package.json` in the package we've just generated looks like this currently:
 
