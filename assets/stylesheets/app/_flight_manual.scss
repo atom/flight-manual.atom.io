@@ -481,6 +481,17 @@ input.documents-search-input {
   }
 }
 
+// Adjustments for page-specific links to improve the docs
+$improve-link-separator-spacing: 1em;
+
+.article-title {
+  margin-right: $improve-link-separator-spacing / 2;
+}
+
+.improve-link {
+  margin-left: $improve-link-separator-spacing / 2;
+}
+
 /* syntax highlighting and coloring text in general */
 .document-content {
   padding-left:15px;

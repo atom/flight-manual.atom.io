@@ -14,10 +14,10 @@
         </div>
         <div class="markdown-body document-content">
           <% section = lookup_section('toc', @item[:title]) %>
-          <h1><%= section << ' ' << @item[:title] if section %></h1>
-          <h1 class="improve">
-            <a href="<%= "https://github.com/atom/flight-manual.atom.io/edit/master/content#{@item.identifier}" %>">
-              <span class="octicon octicon-pencil"></span>  Improve this page
+          <h1>
+            <span class="article-title"><%= section << ' ' << @item[:title] if section %></span>
+            <a class="improve-link" href="<%= "https://github.com/atom/flight-manual.atom.io/edit/master/content#{@item.identifier}" %>">
+              <span class="octicon octicon-pencil"></span> Improve this page
             </a>
           </h1>
           <%= yield %>
