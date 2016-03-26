@@ -65,7 +65,7 @@ You can open this file in an editor from the _Atom > Open Your Stylesheet_ menu.
 .Open your stylesheet
 image::../../images/menubar.png[open stylesheet]
 
-For example, to change the colors of the status-bar, you could add the following rule to your _~/.atom/styles.less_ file:
+For example, to change the colors of the status-bar, you could add the following rule to your _styles.less_ file:
 
 [source,css]
 ----
