@@ -45,7 +45,11 @@ route '**/*' do
     '/index.html'
   elsif item.identifier =~ /\/404.asciidoc/
     '/404.html'
+  elsif item.identifier =~ /\/404.md/
+    '/404.html'
   elsif item.identifier =~ /index.asciidoc/
+    File.dirname(item.identifier) + '/index.html'
+  elsif item.identifier =~ /index.md/
     File.dirname(item.identifier) + '/index.html'
   else
     item.identifier.without_ext + '/index.html'
