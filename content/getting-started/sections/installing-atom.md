@@ -91,11 +91,7 @@ $ rpm -i atom.x86_64.rpm
 
 #### Atom from Source
 
-If none of those options works for you or you just want to build Atom from source, you can also do that.
-
-There are detailed and up to date build instructions for Mac, Windows, Linux and FreeBSD at: https://github.com/atom/atom/tree/master/docs/build-instructions
-
-In general, you need Git, a C++ toolchain, and Node to build it. See the repository documentation for detailed instructions.
+If none of those options works for you or you just want to build Atom from source, you can also do that. The Atom GitHub repository has detailed [build instructions for Mac, Windows, Linux and FreeBSD](https://github.com/atom/atom/tree/master/docs/build-instructions).
 
 #### Setting up a Proxy
 
