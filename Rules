@@ -1,12 +1,21 @@
 #!/usr/bin/env ruby
 
+require 'extended-markdown-filter'
+
 compile '/index.html' do
   filter :erb
   layout '/toc.html'
 end
 
 compile '**/*.asciidoc' do
-  filter :html_pipeline, @config[:pipeline_config]
+  filter :html_pipeline, @config[:asciidoc_pipeline_config]
+  filter :erb
+  filter :colorize_syntax, :default_colorizer => :rouge
+  layout '/article.html'
+end
+
+compile '**/*.md' do
+  filter :html_pipeline, @config[:markdown_pipeline_config]
   filter :erb
   filter :colorize_syntax, :default_colorizer => :rouge
   layout '/article.html'
