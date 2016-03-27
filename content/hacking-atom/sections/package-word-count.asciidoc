@@ -262,7 +262,7 @@ class WordcountView
     @element
 ```
 
-Basically the only thing happening here is that when the View class is created, it creates a simple `div` element and adds the `wordcount` class to it (so we can find or style it later) and then adds the ``Wordcount package is Alive!`` text to it. There is also a `getElement` method which returns that `div`. The `serialize` and `destroy` methods don't do anything and we won't have to worry about that until another example.
+Basically the only thing happening here is that when the View class is created, it creates a simple `div` element and adds the `wordcount` class to it (so we can find or style it later) and then adds the "`Wordcount package is Alive!"` text to it. There is also a `getElement` method which returns that `div`. The `serialize` and `destroy` methods don't do anything and we won't have to worry about that until another example.
 
 Notice that we're simply using the basic browser DOM methods (ie, `createElement()`, `appendChild()`).
 
