@@ -93,18 +93,23 @@ $ rpm -i atom.x86_64.rpm
 
 If none of those options works for you or you just want to build Atom from source, you can also do that. The Atom GitHub repository has detailed [build instructions for Mac, Windows, Linux and FreeBSD](https://github.com/atom/atom/tree/master/docs/build-instructions).
 
-#### Setting up a Proxy
+#### Proxy and Firewall Settings
 
-If you're using a proxy, you can configure [apm](https://github.com/atom/apm), the Atom Package Manager, to use it by setting the `https-proxy` config in your `~/.atom/.apmrc` file:
+##### Behind a firewall?
 
-```
-https-proxy = https://9.0.2.1:0
-```
+If you are behind a firewall and seeing SSL errors when installing packages
+you can disable strict SSL by running:
 
-If you are behind a firewall and seeing SSL errors when installing packages, you can disable strict SSL by putting the following in your `~/.atom/.apmrc` file:
-
-```
-strict-ssl = false
+``` command-line
+$ apm config set strict-ssl false
 ```
 
-You can run `apm config get https-proxy` to verify it has been set correctly, and running `apm config list` lists all custom config settings.
+##### Using a proxy?
+
+If you are using a HTTP(S) proxy you can configure `apm` to use it by running:
+
+``` command-line
+$ apm config set https-proxy https://9.0.2.1:0
+```
+
+You can run `apm config get https-proxy` to verify it has been set correctly.
