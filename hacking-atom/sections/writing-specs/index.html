@@ -396,6 +396,37 @@
 
 </div>
 </div>
+<div class="sect5">
+<h6 id="custom-matchers">Custom matchers</h6>
+<div class="paragraph">
+<p>In addition to the Jasmine’s built-in matchers, Atom includes the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/velesin/jasmine-jquery">jasmine-jquery</a></p>
+</li>
+<li>
+<p>The <code>toBeInstanceOf</code> matcher is for the <code>instanceof</code> operator</p>
+</li>
+<li>
+<p>The <code>toHaveLength</code> matcher compares against the <code>.length</code> property</p>
+</li>
+<li>
+<p>The <code>toExistOnDisk</code> matcher checks if the file exists in the filesystem</p>
+</li>
+<li>
+<p>The <code>toHaveFocus</code> matcher checks if the element currently has focus</p>
+</li>
+<li>
+<p>The <code>toShow</code> matcher tests if the element is visible in the dom</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These are defined in <a href="https://github.com/atom/atom/blob/master/spec/spec-helper.coffee">atom/spec/spec-helper.coffee</a>.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
