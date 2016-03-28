@@ -52,6 +52,19 @@ describe "when a test is written", ->
     expect("oranges").not.toEqual("apples")
 ```
 
+====== Custom matchers
+
+In addition to the Jasmine's built-in matchers, Atom includes the following:
+
+* https://github.com/velesin/jasmine-jquery[jasmine-jquery]
+* The `toBeInstanceOf` matcher is for the `instanceof` operator
+* The `toHaveLength` matcher compares against the `.length` property
+* The `toExistOnDisk` matcher checks if the file exists in the filesystem
+* The `toHaveFocus` matcher checks if the element currently has focus
+* The `toShow` matcher tests if the element is visible in the dom
+
+These are defined in https://github.com/atom/atom/blob/master/spec/spec-helper.coffee[atom/spec/spec-helper.coffee].
+
 ==== Asynchronous specs
 
 Writing Asynchronous specs can be tricky at first. Some examples.
