@@ -3,7 +3,7 @@ title: Installing Atom
 ---
 === Installing Atom
 
-To get started with Atom, we'll need to get it on our system. This section will go over installing Atom on Mac, Windows and Linux, as well as the basics of how to build it from source.
+To get started with Atom, we'll need to get it on your system. This section will go over installing Atom on Mac, Windows and Linux, as well as the basics of how to build it from source.
 
 Installing Atom should be fairly simple on any of these systems. Generally you can simply go to https://atom.io and at the top of the page you should see a download button as in <<_download_button>>.
 
