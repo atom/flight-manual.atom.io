@@ -9,7 +9,7 @@ Atom packages can interact with each other through versioned APIs called _servic
       "description": "Does a useful thing",
       "versions": {
         "1.2.3": "provideMyServiceV1",
-        "2.3.4": "provideMyServiceV2",
+        "2.3.4": "provideMyServiceV2"
       }
     }
   }
@@ -37,7 +37,7 @@ Similarly, to consume a service, specify one or more https://docs.npmjs.com/misc
     "another-service": {
       "versions": {
         "^1.2.3": "consumeAnotherServiceV1",
-        ">=2.3.4 <2.5": "consumeAnotherServiceV2",
+        ">=2.3.4 <2.5": "consumeAnotherServiceV2"
       }
     }
   }
