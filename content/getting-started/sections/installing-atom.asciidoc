@@ -43,6 +43,46 @@ Atom is available with a Windows installer that can be downloaded from https://a
 
 This will install Atom, add the `atom` and `apm` commands to your `PATH`, create shortcuts on the desktop and in the start menu, add an "Open with Atom" context menu in the Explorer and make Atom available for association with files using "Open with..."
 
+P.S. In order to check whether the installation sets `atom` and `apm` commands to your `PATH` properly, you should run the following commands in Command Prompt and expect the corresponding results:
+```
+$ atom --version
+1.6.2
+
+$ atom.cmd --version
+1.6.2
+
+$ which atom.exe
+/c/Users/<username>/AppData/Local/atom/app-1.6.2/atom.exe
+
+$ apm version
+apm  1.6.0
+npm  2.13.3
+node 0.10.40
+python 2.7.8
+git 2.7.4.windows.1 (varies)
+visual studio 2013 (varies)
+```
+But if you get something like the following:
+```
+$ atom --version
+bash: atom: command not found
+
+$ atom.cmd --version
+bash: atom.cmd: command not found
+
+$ which atom.exe
+which: no atom.exe in etc...etc...
+
+$ apm --version
+bash: apm: command not found
+```
+then you need to add the following two paths in your `PATH` variable:
+
+ - `C:\Users\<username>\AppData\Local\atom\app-1.6.2`
+ - `C:\Users\<username>\AppData\Local\atom\app-1.6.2\resources\cli`
+
+After this point, you should be able to run the above commands successfully as well as run atom from command prompt. 
+ 
 .Atom on Windows
 image::../../images/windows.gif[Atom on Windows]
 
