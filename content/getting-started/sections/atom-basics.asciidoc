@@ -71,8 +71,8 @@ There are also dozens of themes on Atom.io that you can choose from if you want 
 
 You can also use the Settings view to specify your whitespace and wrapping preferences.
 
-.Changing the theme from Settings
-image::../../images/settings-wrap.png[Theme settings]
+.Changing whitespace and wrapping preferences from Settings
+image::../../images/settings-wrap.png[Whitespace and wrapping preferences settings]
 
 Enabling "Soft Tabs" will insert spaces instead of actual tab characters when you hit the `tab` key and the "Tab Length" specifies how many spaces to insert when you do so, or how many spaces to represent a tab as if "Soft Tabs" is disabled.
 
