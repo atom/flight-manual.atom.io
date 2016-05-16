@@ -66,6 +66,11 @@ Note that there are some limitations to portable mode:
 * The .atom folder must be writeable
 * The ATOM_HOME environment variable must not be set (this overrides portable behavior)
 
+===== MSI installer for Windows
+Atom is also available in an .MSI package from https://github.com/atom/atom/releases/latest[Atom Releases] which can be deployed or installed on a machine. Any user signing in to that machine will find Atom installed for them automatically (it may take a few seconds the first time they sign in for the icon to appear on the desktop).
+
+Should the user uninstall Atom it will only affect themselves and it will not automatically reinstall when they next sign in unless the %LOCALAPPDATA%\Atom folder is deleted.
+
 ==== Atom on Linux
 
 To install Atom on Linux, you can download a https://atom.io/download/deb[Debian package] or https://atom.io/download/rpm[RPM package] either from the https://atom.io[main Atom website] at atom.io or from the Atom project releases page at https://github.com/atom/atom/releases.
