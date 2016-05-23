@@ -102,14 +102,12 @@ If you want to force the native browser behavior for a given keystroke, use the 
 </form>
 ```
 
-```javascript
-  "atom-workspace": {
+```coffeescript
+  "atom-workspace":
     "ctrl-alt-o": "your-package's-name:toggle"
-  },
-  ".your-package's-root-element-class": {
-    "enter": "native!",
+  ".your-package's-root-element-class":
+    "enter": "native!"
     "backspace": "native!"
-  }
 ```
 
 ==== Overloading Key Bindings
