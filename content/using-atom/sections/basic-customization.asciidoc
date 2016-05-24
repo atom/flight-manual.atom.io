@@ -182,7 +182,7 @@ editor.normalizeIndentOnPaste
 
 ===== Language-specific Settings in the Settings View
 
-You can edit these config settings in the settings view on a per-language basis. Just search for the language of your choice in the left panel, select it, and edit away!
+You can edit these config settings in the settings view on a per-language basis. Click on "Packages" in the navigation on the left, search for the language of your choice, select it, and edit away!
 
 .Python specific settings
 image::../../images/python-settings.png[python settings]
@@ -218,7 +218,7 @@ Global settings are under a global key, and each language can have its own top-l
 
 In order to write these overrides effectively, you'll need to know the scope name for the language. We've already done this for finding a scope for writing a snippet in link:/using-atom/sections/snippets#_snippet_format[Snippet format], but we can quickly cover it again.
 
-The scope name is shown in the settings view for each language. Search for the language of your choice in the left panel, select it, and you should see the scope name under the language name heading:
+The scope name is shown in the settings view for each language. Click on "Packages" in the navigation on the left, search for the language of your choice, select it, and you should see the scope name under the language name heading:
 
 .Finding a language grammar
 image::../../images/python-grammar.png[python grammar]
