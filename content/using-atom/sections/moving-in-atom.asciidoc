@@ -9,8 +9,8 @@ First of all, Atom ships with many of the basic Emacs keybindings for navigating
 
 In addition to single character movement, there are a number of other movement keybindings.
 
-`alt-B`, `alt-left`:: Move to beginning of word
-`alt-F`, `alt-right`:: Move to end of word
+`alt-left`, `alt-B`:: Move to beginning of word
+`alt-right`, `alt-F`:: Move to end of word
 `cmd-right`, `ctrl-E`:: Move to end of line
 `cmd-left`, `ctrl-A`:: Move to first character of line
 `cmd-up`:: Move to top of file
