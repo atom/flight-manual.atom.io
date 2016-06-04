@@ -11,8 +11,8 @@ In addition to single character movement, there are a number of other movement k
 
 `alt-left`, `alt-B`:: Move to beginning of word
 `alt-right`, `alt-F`:: Move to end of word
-`cmd-right`, `ctrl-E`:: Move to end of line
 `cmd-left`, `ctrl-A`:: Move to first character of line
+`cmd-right`, `ctrl-E`:: Move to end of line
 `cmd-up`:: Move to top of file
 `cmd-down`:: Move to bottom of file
 
