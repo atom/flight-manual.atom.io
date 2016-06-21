@@ -4,7 +4,7 @@ done.  We'll remove lines from this when each section is completed so we
 only have what it left to do here.
 
 You'll notice in some of the active `book/[section]/sections/` folders
-there are some `xx-name.asc` files. These are sections of content that
+there are some `xx-name.asciidoc` files. These are sections of content that
 should probably be folded in at some point but we're not sure exactly where
 to put them. They aren't included in any of the main files, so they aren't
 currently rendered. If you want to write something and aren't sure where it
