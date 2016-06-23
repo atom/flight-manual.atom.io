@@ -421,12 +421,13 @@ Unlike CSS’s selectors, CSON’s keys can only be repeated once per object. If
 <div class="title">Figure 1. Open your stylesheet</div>
 </div>
 <div class="paragraph">
-<p>For example, to change the color of the cursor, you could add the following rule to your <em>~/.atom/styles.less</em> file:</p>
+<p>For example, to change the colors of the status-bar, you could add the following rule to your <em>styles.less</em> file:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight highlight-css"><code><span class="nt">atom-text-editor</span><span class="nd">::shadow</span> <span class="nc">.cursor</span> <span class="p">{</span>
-  <span class="nl">border-color</span><span class="p">:</span> <span class="no">pink</span><span class="p">;</span>
+<pre class="highlight highlight-css"><code><span class="nc">.status-bar</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>
 <span class="p">}</span></code></pre>
 
 </div>
@@ -447,7 +448,27 @@ Unlike CSS’s selectors, CSON’s keys can only be repeated once per object. If
 <p>You can now easily inspect all the elements in your current editor. If you want to update the style of something, you simply need to figure out what classes it has and add a Less rule to your styles file to modify it.</p>
 </div>
 <div class="paragraph">
-<p>If you are unfamiliar with Less, it is a basic CSS preprocessor that makes some things in CSS a bit easier. You can learn more about it at <a href="http://www.lesscss.org">lesscss.org</a>. If you prefer to use CSS instead, this file can also be named <em>styles.css</em> and contain CSS.</p>
+<p>If you are unfamiliar with Less, it is a basic CSS preprocessor that makes some things in CSS a bit easier. You can learn more about it at <a href="http://www.lesscss.org">lesscss.org</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you prefer to use CSS instead, you can do that in the same <code>styles.less</code> file, since CSS is also valid in Less. Or this file can be renamed to <em>styles.css</em> and contain CSS only.</p>
+</div>
+<div class="sect4">
+<h5 id="styling-the-editor">Styling the editor</h5>
+<div class="paragraph">
+<p>Atom’s text editor content uses a Shadow DOM to protect it against accidental style overriding from the rest of the Atom UI. For that reason, any tweaking of the syntax highlighting, selection or gutter styles need a special <code>atom-text-editor::shadow</code> selector prepended.</p>
+</div>
+<div class="paragraph">
+<p>As an example, if you would like to change the color of the cursor, the <code>.cursor</code> selector isn’t enough and instead you’d have to add <code>atom-text-editor::shadow</code> in front:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight highlight-css"><code><span class="nt">atom-text-editor</span><span class="nd">::shadow</span> <span class="nc">.cursor</span> <span class="p">{</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="no">pink</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
