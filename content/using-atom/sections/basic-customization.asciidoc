@@ -65,12 +65,13 @@ You can open this file in an editor from the _Atom > Open Your Stylesheet_ menu.
 .Open your stylesheet
 image::../../images/menubar.png[open stylesheet]
 
-For example, to change the color of the cursor, you could add the following rule to your _~/.atom/styles.less_ file:
+For example, to change the colors of the status-bar, you could add the following rule to your _styles.less_ file:
 
 [source,css]
 ----
-atom-text-editor::shadow .cursor {
-  border-color: pink;
+.status-bar {
+  color: white;
+  background-color: black;
 }
 ----
 
@@ -83,7 +84,22 @@ image::../../images/devtools.png[developer tools]
 
 You can now easily inspect all the elements in your current editor. If you want to update the style of something, you simply need to figure out what classes it has and add a Less rule to your styles file to modify it.
 
-If you are unfamiliar with Less, it is a basic CSS preprocessor that makes some things in CSS a bit easier. You can learn more about it at http://www.lesscss.org[lesscss.org]. If you prefer to use CSS instead, this file can also be named _styles.css_ and contain CSS.
+If you are unfamiliar with Less, it is a basic CSS preprocessor that makes some things in CSS a bit easier. You can learn more about it at http://www.lesscss.org[lesscss.org].
+
+If you prefer to use CSS instead, you can do that in the same `styles.less` file, since CSS is also valid in Less. Or this file can be renamed to _styles.css_ and contain CSS only.
+
+===== Styling the editor
+
+Atom's text editor content uses a Shadow DOM to protect it against accidental style overriding from the rest of the Atom UI. For that reason, any tweaking of the syntax highlighting, selection or gutter styles need a special `atom-text-editor::shadow` selector prepended.
+
+As an example, if you would like to change the color of the cursor, the `.cursor` selector isn't enough and instead you'd have to add `atom-text-editor::shadow` in front:
+
+[source,css]
+----
+atom-text-editor::shadow .cursor {
+  border-color: pink;
+}
+----
 
 [[_customizing_keybindings]]
 ==== Customizing Key Bindings
