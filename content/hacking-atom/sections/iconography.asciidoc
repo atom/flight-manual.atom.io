@@ -7,7 +7,7 @@ Atom comes bundled with the https://github.com/github/octicons/tree/v2.1.2[Octic
 
 ==== Usage
 
-Atom's usage of the Octicons differs just a bit from the https://octicons.github.com/usage/[standard way]. The biggest difference is in the naming of the icon classes. Instead of the `octicon octicon-` prefix, you would use a more generic `icon icon-` prefix.
+Atom's usage of the Octicons differs just a bit from the https://octicons.github.com/icon/mark-github/[standard way]. The biggest difference is in the naming of the icon classes. Instead of the `octicon octicon-` prefix, you would use a more generic `icon icon-` prefix.
 
 As an example, to add a monitor icon, use the `icon icon-device-desktop` classes in your markup:
 
