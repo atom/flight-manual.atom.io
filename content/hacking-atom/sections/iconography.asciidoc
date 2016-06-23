@@ -17,7 +17,7 @@ As an example, to add a monitor icon, use the `icon icon-device-desktop` classes
 
 ==== Overview
 
-To see an overview of all icons open the https://atom.io/docs/latest/hacking-atom-creating-a-theme#atom-styleguide[Styleguide]. Under the "Icons" section you'll find all the Octicons that are available.
+To see an overview of all icons open the http://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/#atom-styleguide[Styleguide]. Under the "Icons" section you'll find all the Octicons that are available.
 
 .Octicons in the Styleguide
 image::../../images/iconography.png[Octicons]
