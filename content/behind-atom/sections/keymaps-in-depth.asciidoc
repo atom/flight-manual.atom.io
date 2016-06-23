@@ -95,6 +95,21 @@ image::../../images/keybinding.png[keybinding resolver]
 
 If you want to force the native browser behavior for a given keystroke, use the `native!` directive as the command of a binding. This can be useful to enable the correct behavior in native input elements, for example. If you apply the `.native-key-bindings` class to an element, all the keystrokes typically handled by the browser will be assigned the `native!` directive.
 
+```html
+<form>
+  <input type="text" />
+  <input type="text" />
+</form>
+```
+
+```coffeescript
+  "atom-workspace":
+    "ctrl-alt-o": "your-package's-name:toggle"
+  ".your-package's-root-element-class":
+    "enter": "native!"
+    "backspace": "native!"
+```
+
 ==== Overloading Key Bindings
 
 Occasionally, it makes sense to layer multiple actions on top of the same key binding. An example of this is the snippets package. Snippets are inserted by typing a snippet prefix such as `for` and then pressing `tab`. Every time `tab` is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. If a snippet *doesn't* exist, we want `tab` to actually insert whitespace.
