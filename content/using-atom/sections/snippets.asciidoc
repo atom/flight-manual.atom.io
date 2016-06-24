@@ -61,6 +61,8 @@ Under each snippet name is a `prefix` that should trigger the snippet and a `bod
 
 Each `$` followed by a number is a tab stop. Tab stops are cycled through by pressing `tab` once a snippet has been triggered.
 
+Tab stops with the same number will create multiple cursors.
+
 The above example adds a `log` snippet to JavaScript files that would expand to:
 
 [source,js]
