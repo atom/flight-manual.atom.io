@@ -33,7 +33,7 @@ You can also use fuzzy search to filter this list down by typing in the selectio
 
 So that's pretty cool, but what if there is something the language package didn't include or something that is custom to the code you write? Luckily it's incredibly easy to add your own snippets.
 
-There is a text file in your `~/.atom` directory called `snippets.cson` that contains all your custom snippets that are loaded when you launch Atom. However, you can also easily open up that file by selecting the _Atom > Open Your Snippets_ menu.
+There is a text file in your `~/.atom` directory called `snippets.cson` that contains all your custom snippets that are loaded when you launch Atom. However, you can also easily open up that file by selecting the _Edit > Snippets..._ menu.
 
 [[_snippet_format]]
 ===== Snippet Format
