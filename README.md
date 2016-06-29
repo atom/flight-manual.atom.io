@@ -10,7 +10,7 @@ This book is open source under a Creative Commons license.
 
 ## License
 
-This book is published under the Creative Commons BY-SA license. If you contribute to the work, you will have to agree to allow your content to be published under the self same license. Check out [the license file](LICENSE.asc) for more details.
+This book is published under the Creative Commons BY-SA license. If you contribute to the work, you will have to agree to allow your content to be published under the self same license. Check out [the license file](LICENSE.asciidoc) for more details.
 
 ## Current Progress
 
