@@ -3,7 +3,7 @@ title: Why Atom?
 ---
 === Why Atom?
 
-There are a lot of text editors out there, why should you spend your time learning about and using Atom?
+There are a lot of text editors out there; why should you spend your time learning about and using Atom?
 
 Editors like Sublime and TextMate offer convenience but only limited extensibility. On the other end of the spectrum, Emacs and Vim offer extreme flexibility, but they aren't very approachable and can only be customized with special-purpose scripting languages.
 
