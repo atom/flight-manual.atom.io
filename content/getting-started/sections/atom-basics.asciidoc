@@ -53,7 +53,7 @@ image::../../images/settings.png[Atom's settings screen]
 
 This includes things like changing the color scheme or theme, specifying how to handle wrapping, font settings, tab size, scroll speed and much more. You can also use this screen to install new packages and themes, which we'll cover in link:/using-atom/sections/atom-packages[Atom Packages].
 
-To open the Settings screen, you can go to the 'Preferences' menu item under the main `Atom` menu in the menu bar. You can also search for `settings-view:open` in the command palette or use the `cmd-,` keybinding.
+To open the Settings screen, you can go to the 'Settings View' menu item under the main `Packages` menu in the menu bar and click 'Open'. You can also search for `settings-view:open` in the command palette or use the `cmd-,` keybinding.
 
 [[_color_themes]]
 ===== Changing the Color Theme
