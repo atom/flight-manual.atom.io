@@ -1,7 +1,7 @@
 ---
 title: Interacting With Other Packages Via Services
 ---
-=== Interacting With Other Packages Via Services
+### Interacting With Other Packages Via Services
 
 Atom packages can interact with each other through versioned APIs called _services_. To provide a service, in your `package.json`, specify one or more version numbers, each paired with the name of a method on your package's main module:
 
@@ -32,7 +32,7 @@ module.exports =
     myService
 ```
 
-Similarly, to consume a service, specify one or more https://docs.npmjs.com/misc/semver#ranges[version _ranges_], each paired with the name of a method on the package's main module:
+Similarly, to consume a service, specify one or more [version _ranges_](https://docs.npmjs.com/misc/semver#ranges), each paired with the name of a method on the package's main module:
 
 ```json
 {
