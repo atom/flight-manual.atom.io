@@ -1,15 +1,14 @@
 ---
 title: Snippets
 ---
-=== Snippets
+### Snippets
 Snippets are an incredibly powerful way to quickly generate commonly needed code syntax from a shortcut.
 
 The idea is that you can type something like `habtm` and then hit the `tab` key and that will expand into `has_and_belongs_to_many`.
 
 Many of the packages come bundled with their own snippets that are specific to that mode. For example, the `language-html` package that provides support for HTML syntax highlighting and grammar comes with dozens of snippets to create many of the various HTML tags you might want to use. If you create a new HTML file in Atom, you can type `html` and then hit `tab` and it will expand to:
 
-[source,html]
-----
+```html
 <html>
   <head>
     <title></title>
@@ -18,42 +17,38 @@ Many of the packages come bundled with their own snippets that are specific to t
 
   </body>
 </html>
-----
+```
 
 It will also position the cursor in the middle of the `title` tag so you can immediately start filling out the tag. Many snippets have multiple focus points that you can move through with the `tab` key as well - for instance, in the case of this HTML snippet, once you've filled out the title tag you can hit `tab` and the cursor will move to the middle of the body tag.
 
 To see all the available snippets for the file type that you currently have open, you can type `alt-shift-S`.
 
-.View all available snippets
-image::../../images/snippets.png[view snippets]
+![View all available snippets](../../images/snippets.png)
 
 You can also use fuzzy search to filter this list down by typing in the selection box. Selecting one of them will execute the snippet where your cursor is (or multiple cursors are).
 
-==== Creating Your Own Snippets
+#### Creating Your Own Snippets
 
 So that's pretty cool, but what if there is something the language package didn't include or something that is custom to the code you write? Luckily it's incredibly easy to add your own snippets.
 
 There is a text file in your `~/.atom` directory called `snippets.cson` that contains all your custom snippets that are loaded when you launch Atom. However, you can also easily open up that file by selecting the _Atom > Snippets..._ menu.
 
-[[_snippet_format]]
-===== Snippet Format
+##### Snippet Format
 
 So let's look at how to write a snippet. The basic snippet format looks like this:
 
-[source,coffee]
-----
+```coffee
 '.source.js':
   'console.log':
     'prefix': 'log'
     'body': 'console.log(${1:"crash"});$2'
-----
+```
 
 The outermost keys are the selectors where these snippets should be active. The easiest way to determine what this should be is to go to the language package of the language you want to add a snippet for and look for the "Scope" string.
 
 For example, if we wanted to add a snippet that would work for Java files, we would look up the `language-java` package in our Settings view and we can see the Scope is `source.java`. Then the top level snippet key would be that prepended by a period (like a CSS class selector would do).
 
-.Finding the selector scope for a snippet
-image::../../images/snippet-scope.png[snippet scope]
+![Finding the selector scope for a snippet](../../images/snippet-scope.png)
 
 The next level of keys are the snippet names. These are used for describing the snippet in a more readable way in the snippet menu. It's generally best to use some sort of short human readable string here.
 
@@ -65,21 +60,19 @@ Tab stops with the same number will create multiple cursors.
 
 The above example adds a `log` snippet to JavaScript files that would expand to:
 
-[source,js]
-----
+```javascript
 console.log("crash");
-----
+```
 
 The string `"crash"` would be initially selected and pressing tab again would place the cursor after the `;`
 
-WARNING: Snippet keys, unlike CSS selectors, can only be repeated once per level. If there are duplicate keys at the same level, then only the last one will be read. See link:/using-atom/sections/basic-customization#_cson[Configuring with CSON] for more information.
+WARNING: Snippet keys, unlike CSS selectors, can only be repeated once per level. If there are duplicate keys at the same level, then only the last one will be read. See [Configuring with CSON](/using-atom/sections/basic-customization/#cson) for more information.
 
-===== Multi-line Snippet Body
+##### Multi-line Snippet Body
 
 You can also use multi-line syntax using `"""` for larger templates:
 
-[source,coffee]
-----
+```coffee
 '.source.js':
   'if, else if, else':
     'prefix': 'ieie'
@@ -92,20 +85,19 @@ You can also use multi-line syntax using `"""` for larger templates:
         $5
       }
     """
-----
+```
 
 As you might expect, there is a snippet to create snippets. If you open up a snippets file and type `snip` and then hit `tab`, you will get the following text inserted:
 
-[source,coffee]
-----
+```coffee
 '.source.js':
   'Snippet Name':
     'prefix': 'hello'
     'body': 'Hello World!'
-----
+```
 
-Bam, just fill that bad boy out and you have yourself a snippet. As soon as you save the file, Atom should reload the snippets and you will immediately be able to try it out.
+:boom: just fill that bad boy out and you have yourself a snippet. As soon as you save the file, Atom should reload the snippets and you will immediately be able to try it out.
 
-The snippets functionality is implemented in the https://github.com/atom/snippets[atom/snippets] package.
+The snippets functionality is implemented in the [atom/snippets](https://github.com/atom/snippets) package.
 
-For more examples, see the snippets in the https://github.com/atom/language-html/blob/master/snippets/language-html.cson[language-html] and https://github.com/atom/language-javascript/blob/master/snippets/language-javascript.cson[language-javascript] packages.
+For more examples, see the snippets in the [language-html](https://github.com/atom/language-html/blob/master/snippets/language-html.cson) and [language-javascript](https://github.com/atom/language-javascript/blob/master/snippets/language-javascript.cson) packages.
