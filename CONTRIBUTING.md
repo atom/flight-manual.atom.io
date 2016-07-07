@@ -60,12 +60,16 @@ Menu names should always be presented in italics and separated by the greater-th
 
 ### Package and Theme Names
 
-Package and theme names, both core and community, should be presented all lowercase and hyphen-separated. When they are linked:
+Package and theme names, both core and community, should be presented all lowercase and hyphen-separated.
+
+When they are linked:
 
 * Community packages and themes should be linked to their https://atom.io page: [minimap](https://atom.io/packages/minimap), [monokai](https://atom.io/themes/monokai)
 * Core packages and themes should be linked to their GitHub repository: [settings-view](https://github.com/atom/settings-view)
 
 Note: Do not add `atom/` to the beginning of the names of Core packages. We don't want to differentiate between Core and Community packages like that.
+
+When they are not linked, do not italicize, bold or monospace the package or theme name.
 
 ### Code
 
