@@ -1,9 +1,9 @@
 ---
 title: Configuration API
 ---
-=== Configuration API
+### Configuration API
 
-==== Reading Config Settings
+#### Reading Config Settings
 
 If you are writing a package that you want to make configurable, you'll need to read config settings via the `atom.config` global. You can read the current value of a namespaced config key with `atom.config.get`:
 
@@ -30,9 +30,9 @@ class MyView extends View
 The `atom.config.observe` method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use `atom.config.onDidChange`
 instead.
 
-Subscription methods return *disposable* subscription objects. Note in the example above how we save the subscription to the `@fontSizeObserveSubscription` instance variable and dispose of it when the view is detached. To group multiple subscriptions together, you can add them all to a https://atom.io/docs/api/latest/CompositeDisposable[`CompositeDisposable`] that you dispose when the view is detached.
+Subscription methods return *disposable* subscription objects. Note in the example above how we save the subscription to the `@fontSizeObserveSubscription` instance variable and dispose of it when the view is detached. To group multiple subscriptions together, you can add them all to a [`CompositeDisposable`](https://atom.io/docs/api/latest/CompositeDisposable) that you dispose when the view is detached.
 
-==== Writing Config Settings
+#### Writing Config Settings
 
 The `atom.config` database is populated on startup from `~/.atom/config.cson`, but you can programmatically write to it with `atom.config.set`:
 
@@ -41,4 +41,4 @@ The `atom.config` database is populated on startup from `~/.atom/config.cson`, b
 atom.config.set("core.showInvisibles", true)
 ```
 
-If you're exposing package configuration via specific key paths, you'll want to associate them with a schema in your package's main module. Read more about schemas in the https://atom.io/docs/api/latest/Config[config API docs].
+If you're exposing package configuration via specific key paths, you'll want to associate them with a schema in your package's main module. Read more about schemas in the [config API docs](https://atom.io/docs/api/latest/Config).
