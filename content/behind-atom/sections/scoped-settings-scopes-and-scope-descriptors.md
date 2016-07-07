@@ -1,13 +1,13 @@
 ---
 title: Scoped Settings, Scopes and Scope Descriptors
 ---
-=== Scoped Settings, Scopes and Scope Descriptors
+### Scoped Settings, Scopes and Scope Descriptors
 
 Atom supports language-specific settings. You can soft wrap only Markdown files, or set the tab length to 4 in Python files.
 
 Language-specific settings are a subset of something more general we call "scoped settings". Scoped settings allow targeting down to a specific syntax token type. For example, you could conceivably set a setting to target only Ruby comments, only code inside Markdown files, or even only JavaScript function names.
 
-==== Scope names in syntax tokens
+#### Scope names in syntax tokens
 
 Each token in the editor has a collection of scope names. For example, the aforementioned JavaScript function name might have the scope names `function` and `name`. An open paren might have the scope names `punctuation`, `parameters`, `begin`.
 
@@ -23,12 +23,11 @@ function functionName() {
 
 In the dev tools, the first line's markup looks like this.
 
-.Markup
-image::../../images/markup.png[markup]
+![Markup](../../images/markup.png)
 
 All the class names on the spans are scope names. Any scope name can be used to target a setting's value.
 
-==== Scope Selectors
+#### Scope Selectors
 
 Scope selectors allow you to target specific tokens just like a CSS selector targets specific nodes in the DOM. Some examples:
 
@@ -38,7 +37,7 @@ Scope selectors allow you to target specific tokens just like a CSS selector tar
 '.function.name' # selects all function names in any language
 ```
 
-https://atom.io/docs/api/latest/Config#instance-set[`Config::set`] accepts a `scopeSelector`. If you'd like to set a setting for JavaScript function names, you can give it the js function name `scopeSelector`:
+[`Config::set`](https://atom.io/docs/api/latest/Config#instance-set) accepts a `scopeSelector`. If you'd like to set a setting for JavaScript function names, you can give it the JavaScript function name `scopeSelector`:
 
 ```coffee
 atom.config.set('my-package.my-setting', 'special value', scopeSelector: '.source.js .function.name')
@@ -46,7 +45,7 @@ atom.config.set('my-package.my-setting', 'special value', scopeSelector: '.sourc
 
 ==== Scope Descriptors
 
-A scope descriptor is an https://atom.io/docs/api/latest/ScopeDescriptor[Object] that wraps an `Array` of `String`s. The Array describes a path from the root of the syntax tree to a token including _all_ scope names for the entire path.
+A scope descriptor is an [Object](https://atom.io/docs/api/latest/ScopeDescriptor) that wraps an `Array` of `String`s. The Array describes a path from the root of the syntax tree to a token including _all_ scope names for the entire path.
 
 In our JavaScript example above, a scope descriptor for the function name token would be:
 
@@ -54,7 +53,7 @@ In our JavaScript example above, a scope descriptor for the function name token 
 ['source.js', 'meta.function.js', 'entity.name.function.js']
 ```
 
-https://atom.io/docs/api/latest/Config#instance-get[`Config::get`] accepts a `scopeDescriptor`. You can get the value for your setting scoped to JavaScript function names via:
+[`Config::get`](https://atom.io/docs/api/latest/Config#instance-get) accepts a `scopeDescriptor`. You can get the value for your setting scoped to JavaScript function names via:
 
 ```coffee
 scopeDescriptor = ['source.js', 'meta.function.js', 'entity.name.function.js']
@@ -63,9 +62,9 @@ value = atom.config.get('my-package.my-setting', scope: scopeDescriptor)
 
 But, you do not need to generate scope descriptors by hand. There are a couple methods available to get the scope descriptor from the editor:
 
-* https://atom.io/docs/api/latest/TextEditor#instance-getRootScopeDescriptor[`Editor::getRootScopeDescriptor`] to get the language's descriptor. eg. `[".source.js"]`
-* https://atom.io/docs/api/latest/TextEditor#instance-scopeDescriptorForBufferPosition[`Editor::scopeDescriptorForBufferPosition`] to get the descriptor at a specific position in the buffer.
-* https://atom.io/docs/api/latest/Cursor#instance-getScopeDescriptor[`Cursor::getScopeDescriptor`] to get a cursor's descriptor based on position. eg. if the cursor were in the name of the method in our example it would return `["source.js", "meta.function.js", "entity.name.function.js"]`
+* [`Editor::getRootScopeDescriptor`](https://atom.io/docs/api/latest/TextEditor#instance-getRootScopeDescriptor) to get the language's descriptor. For example: `[".source.js"]`
+* [`Editor::scopeDescriptorForBufferPosition`](https://atom.io/docs/api/latest/TextEditor#instance-scopeDescriptorForBufferPosition) to get the descriptor at a specific position in the buffer.
+* [`Cursor::getScopeDescriptor`](https://atom.io/docs/api/latest/Cursor#instance-getScopeDescriptor) to get a cursor's descriptor based on position. eg. if the cursor were in the name of the method in our example it would return `["source.js", "meta.function.js", "entity.name.function.js"]`
 
 Let's revisit our example using these methods:
 
