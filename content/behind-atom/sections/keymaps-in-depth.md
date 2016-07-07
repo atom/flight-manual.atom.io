@@ -1,10 +1,9 @@
 ---
 title: Keymaps In-Depth
 ---
-[[_keymaps_in_depth]]
-=== Keymaps In-Depth
+### Keymaps In-Depth
 
-==== Structure of a Keymap File
+#### Structure of a Keymap File
 
 Keymap files are encoded as JSON or CSON files containing nested hashes. They work much like style sheets, but instead of applying style properties to elements matching the selector, they specify the meaning of keystrokes on elements matching the selector. Here is an example of some bindings that apply when keystrokes pass through `atom-text-editor` elements:
 
@@ -25,19 +24,17 @@ Beneath the first selector are several bindings, mapping specific *keystroke pat
 
 The second selector group also targets editors, but only if they don't have the `mini` attribute. In this example, the commands for code folding don't really make sense on mini-editors, so the selector restricts them to regular editors.
 
-===== Keystroke Patterns
+##### Keystroke Patterns
 
 Keystroke patterns express one or more keystrokes combined with optional modifier keys. For example: `ctrl-w v`, or `cmd-shift-up`. A keystroke is composed of the following symbols, separated by a `-`. A multi-keystroke pattern can be expressed as keystroke patterns separated by spaces.
 
-[cols="2*", options="header"]
-|===
-| Type                | Examples
-| Character literals  | `a` `4` `$`
-| Modifier keys       | `cmd` `ctrl` `alt` `shift`
-| Special keys        | `enter` `escape` `backspace` `delete` `tab` `home` `end` `pageup` `pagedown` `left` `right` `up` `down`
-|===
+| Type           | Examples     |
+| :------------- | :------------- |
+| Character literals | `a` `4` `$` |
+| Modifier keys | `cmd` `ctrl` `alt` `shift` |
+| Special keys | `enter` `escape` `backspace` `delete` `tab` `home` `end` `pageup` `pagedown` `left` `right` `up` `down` |
 
-===== Commands
+##### Commands
 
 Commands are custom DOM events that are triggered when a keystroke matches a binding. This allows user interface code to listen for named commands without specifying the specific keybinding that triggers it. For example, the following code creates a command to insert the current date in an editor:
 
@@ -53,7 +50,7 @@ atom.commands.add 'atom-text-editor',
 When you are looking to bind new keys, it is often useful to use the command palette (`ctrl-shift-p`) to discover what commands are being listened for in a given focus context. Commands are "humanized" following a simple algorithm, so a command like `editor:fold-current-row` would appear as "Editor: Fold Current
 Row".
 
-===== "Composed" Commands
+##### "Composed" Commands
 
 A common question is, "How do I make a single keybinding execute two or more commands?" There isn't any direct support for this in Atom, but it can be achieved by creating a custom command that performs the multiple actions you desire and then creating a keybinding for that command. For example, let's say I want to create a "composed" command that performs a Select Line followed by Cut. You could add the following to your `init.coffee`:
 
@@ -71,13 +68,13 @@ Then let's say we want to map this custom command to `alt-ctrl-z`, you could add
   'alt-ctrl-z': 'custom:cut-line'
 ```
 
-===== Specificity and Cascade Order
+##### Specificity and Cascade Order
 
 As is the case with CSS applying styles, when multiple bindings match for a single element, the conflict is resolved by choosing the most *specific* selector. If two matching selectors have the same specificity, the binding for the selector appearing later in the cascade takes precedence.
 
 Currently, there's no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We eventually plan to introduce a custom CSS-like file format for keymaps that allows for ordering within a single file. For now, we've opted to handle cases where selector ordering is critical by breaking the keymap into two separate files, such as `snippets-1.cson` and `snippets-2.cson`.
 
-==== Removing Bindings
+#### Removing Bindings
 
 When the keymap system encounters a binding with the `unset!` directive as its command, it will treat the current element as if it had no key bindings matching the current keystroke sequence and continue searching from its parent. If you want to remove a binding from a keymap you don't control, such as keymaps in Atom core or in packages, use the `unset!` directive.
 
@@ -91,11 +88,11 @@ For example, the following code removes the keybinding for `a` in the Tree View,
 .Keybinding resolver
 image::../../images/keybinding.png[keybinding resolver]
 
-==== Forcing Chromium's Native Keystroke Handling
+#### Forcing Chromium's Native Keystroke Handling
 
 If you want to force the native browser behavior for a given keystroke, use the `native!` directive as the command of a binding. This can be useful to enable the correct behavior in native input elements, for example. If you apply the `.native-key-bindings` class to an element, all the keystrokes typically handled by the browser will be assigned the `native!` directive.
 
-==== Overloading Key Bindings
+#### Overloading Key Bindings
 
 Occasionally, it makes sense to layer multiple actions on top of the same key binding. An example of this is the snippets package. Snippets are inserted by typing a snippet prefix such as `for` and then pressing `tab`. Every time `tab` is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. If a snippet *doesn't* exist, we want `tab` to actually insert whitespace.
 
