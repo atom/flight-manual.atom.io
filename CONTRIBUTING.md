@@ -58,6 +58,10 @@ File names and paths should always be wrapped in backticks: `foo/bar/baz.txt`
 
 Menu names should always be presented in italics and separated by the greater-than sign, `>`: *File > New*
 
+### Names of UI Elements
+
+When referring to a part of the Atom UI, [title case](http://titlecase.com/) and don't hyphenate it, even if the name of the part of the UI is also its package name. For example: Tree View, Settings View, Status Bar, Find and Replace.
+
 ### Package and Theme Names
 
 Package and theme names, both core and community, should be presented all lowercase and hyphen-separated.
