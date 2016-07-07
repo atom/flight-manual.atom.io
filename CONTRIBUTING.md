@@ -21,6 +21,11 @@ Right now one of the best things you could do is to add a cookbook style tutoria
 
 In order to make the Flight Manual consistent, these conventions must be followed when adding or updating content.
 
+### Language
+
+* **DO NOT** use Latin contractions such as "i.e.", "e.g.", "c.f.", among others
+* **DO** use the English equivalent: "i.e." &rarr; "in other words", "e.g." &rarr; "for example", "c.f." &rarr; hyperlink to the thing you're referring to
+
 ### Images
 
 If you add images, run `./scripts/crush.rb` (you'll also need to have the [pngcrush utility][pngcrush] installed) before committing images to the repository, and try to make them PNG files. This looks through all the files and resizes and crushes them to an appropriate resolution.
