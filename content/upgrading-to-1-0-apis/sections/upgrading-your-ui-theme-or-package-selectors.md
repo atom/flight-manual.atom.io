@@ -1,42 +1,39 @@
 ---
 title: Upgrading Your UI Theme Or Package Selectors
 ---
-=== Upgrading Your UI Theme Or Package Selectors
+### Upgrading Your UI Theme Or Package Selectors
 
 In addition to changes in Atom's scripting API, we'll also be making some breaking changes to Atom's DOM structure, requiring style sheets and keymaps in both packages and themes to be updated.
 
-==== Deprecation Cop
+#### Deprecation Cop
 
-Deprecation cop will list usages of deprecated selector patterns to guide you. You can access it via the command palette (`cmd-shift-p`, then search for `Deprecation`). It breaks the deprecations down by package:
+Deprecation Cop will list usages of deprecated selector patterns to guide you. You can access it via the Command Palette (`cmd-shift-p`, then search for `Deprecation`). It breaks the deprecations down by package:
 
-.Deprecation Cop
-image::../../images/dep-cop.png[dep cop]
+![Deprecation Cop](../../images/dep-cop.png)
 
-==== Custom Tags
+#### Custom Tags
 
 Rather than adding classes to standard HTML elements to indicate their role, Atom now uses custom element names. For example, `<div class="workspace">` has now been replaced with `<atom-workspace>`. Selectors should be updated accordingly. Note that tag names have lower specificity than classes in CSS, so you'll need to take care in converting things.
 
-[cols="2*", options="header"]
-|===
-| Old Selector        | New Selector
-| `.editor`           | `atom-text-editor`
-| `.editor.mini`      | `atom-text-editor[mini]`
-| `.workspace`        | `atom-workspace`
-| `.horizontal`       | `atom-workspace-axis.horizontal`
-| `.vertical`         | `atom-workspace-axis.vertical`
-| `.pane-container`   | `atom-pane-container`
-| `.pane`             | `atom-pane`
-| `.tool-panel`       | `atom-panel`
-| `.panel-top`        | `atom-panel.top`
-| `.panel-bottom`     | `atom-panel.bottom`
-| `.panel-left`       | `atom-panel.left`
-| `.panel-right`      | `atom-panel.right`
-| `.overlay`          | `atom-panel.modal`
-|===
+| Old Selector | New Selector |
+| :------------- | :------------- |
+| `.editor`           | `atom-text-editor` |
+| `.editor.mini`      | `atom-text-editor[mini]` |
+| `.workspace`        | `atom-workspace` |
+| `.horizontal`       | `atom-workspace-axis.horizontal` |
+| `.vertical`         | `atom-workspace-axis.vertical` |
+| `.pane-container`   | `atom-pane-container` |
+| `.pane`             | `atom-pane` |
+| `.tool-panel`       | `atom-panel` |
+| `.panel-top`        | `atom-panel.top` |
+| `.panel-bottom`     | `atom-panel.bottom` |
+| `.panel-left`       | `atom-panel.left` |
+| `.panel-right`      | `atom-panel.right` |
+| `.overlay`          | `atom-panel.modal` |
 
-==== Supporting the Shadow DOM
+#### Supporting the Shadow DOM
 
-Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom[Shadow DOM 101] on HTML 5 Rocks. If you need to style text editor content in a UI theme, you'll need to circumvent this protection for any rules that target the text editor's content. Some examples of the kinds of UI theme styles needing to be updated:
+Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the [Shadow DOM 101](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom) on HTML 5 Rocks. If you need to style text editor content in a UI theme, you'll need to circumvent this protection for any rules that target the text editor's content. Some examples of the kinds of UI theme styles needing to be updated:
 
 * Highlight decorations
 * Gutter decorations
@@ -46,11 +43,11 @@ Text editor content is now rendered in the shadow DOM, which shields it from bei
 
 During a transition phase, it will be possible to enable or disable the text editor's shadow DOM in the settings, so themes will need to be compatible with both approaches.
 
-===== Shadow DOM Selectors
+##### Shadow DOM Selectors
 
-Chromium provides two tools for bypassing shadow boundaries, the `::shadow` pseudo-element and the `/deep/` combinator. For an in-depth explanation of styling the shadow DOM, see the http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201#toc-style-cat-hat[Shadow DOM 201] article on HTML 5 Rocks.
+Chromium provides two tools for bypassing shadow boundaries, the `::shadow` pseudo-element and the `/deep/` combinator. For an in-depth explanation of styling the shadow DOM, see the [Shadow DOM 201](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201#toc-style-cat-hat) article on HTML 5 Rocks.
 
-====== ::shadow
+###### `::shadow`
 
 The `::shadow` pseudo-element allows you to bypass a single shadow root. For example, say you want to update a highlight decoration for a linter package. Initially, the style looks as follows:
 
@@ -71,9 +68,9 @@ atom-text-editor::shadow .highlight.my-linter {
 }
 ```
 
-Check out the https://github.com/atom/find-and-replace/blob/95351f261bc384960a69b66bf12eae8002da63f9/stylesheets/find-and-replace.less#L9-L29[find-and-replace] package for another example of using `::shadow` to pierce the shadow DOM.
+Check out the [find-and-replace](https://github.com/atom/find-and-replace/blob/95351f261bc384960a69b66bf12eae8002da63f9/stylesheets/find-and-replace.less#L9-L29) package for another example of using `::shadow` to pierce the shadow DOM.
 
-====== /deep/
+###### `/deep/`
 
 The `/deep/` combinator overrides *all* shadow boundaries, making it useful for rules you want to apply globally such as scrollbar styling. Here's a snippet containing scrollbar styling for the Atom Dark UI theme before shadow DOM support:
 
@@ -121,7 +118,7 @@ To style scrollbars even inside of the shadow DOM, each rule needs to be prefixe
 }
 ```
 
-===== Context-Targeted Style Sheets
+##### Context-Targeted Style Sheets
 
 The selector features discussed above allow you to target shadow DOM content with specific selectors, but Atom also allows you to target a specific shadow DOM context with an entire style sheet. The context into which a style sheet is loaded is based on the file name. If you want to load a style sheet into the editor, name it with the `.atom-text-editor.less` or `.atom-text-editor.css` extensions.
 
@@ -132,7 +129,7 @@ my-ui-theme/
     index.atom-text-editor.less  # loaded in the text editor shadow DOM
 ```
 
-Check out this https://github.com/atom/decoration-example/blob/master/styles/decoration-example.atom-text-editor.less[style sheet] from the decoration-example package for an example of context-targeting.
+Check out this [style sheet](https://github.com/atom/decoration-example/blob/master/styles/decoration-example.atom-text-editor.less) from the decoration-example package for an example of context-targeting.
 
 Inside a context-targeted style sheet, there's no need to use the `::shadow` or `/deep/` expressions. If you want to refer to the element containing the shadow root, you can use the `::host` pseudo-element.
 
