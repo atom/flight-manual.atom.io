@@ -45,10 +45,9 @@ atom.commands.add 'atom-text-editor',
     editor.insertText(new Date().toLocaleString())
 ```
 
-`atom.commands` refers to the global {CommandRegistry} instance where all commands are set and consequently picked up by the command palette.
+`atom.commands` refers to the global `CommandRegistry` instance where all commands are set and consequently picked up by the command palette.
 
-When you are looking to bind new keys, it is often useful to use the command palette (`ctrl-shift-p`) to discover what commands are being listened for in a given focus context. Commands are "humanized" following a simple algorithm, so a command like `editor:fold-current-row` would appear as "Editor: Fold Current
-Row".
+When you are looking to bind new keys, it is often useful to use the command palette (`ctrl-shift-p`) to discover what commands are being listened for in a given focus context. Commands are "humanized" following a simple algorithm, so a command like `editor:fold-current-row` would appear as "Editor: Fold Current Row".
 
 ##### "Composed" Commands
 
@@ -85,8 +84,7 @@ For example, the following code removes the keybinding for `a` in the Tree View,
   'a': 'unset!'
 ```
 
-.Keybinding resolver
-image::../../images/keybinding.png[keybinding resolver]
+![Keybinding Resolver](../../images/keybinding.png)
 
 #### Forcing Chromium's Native Keystroke Handling
 
@@ -109,7 +107,7 @@ editor.command 'snippets:expand', (e) =>
 
 When the event handler observes that the cursor does not follow a valid prefix, it calls `e.abortKeyBinding()`, telling the keymap system to continue searching for another matching binding.
 
-==== Step-by-Step: How Keydown Events are Mapped to Commands
+#### Step-by-Step: How Keydown Events are Mapped to Commands
 
 * A keydown event occurs on a *focused* element.
 * Starting at the focused element, the keymap walks upward towards the root of
