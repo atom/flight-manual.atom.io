@@ -20,7 +20,7 @@ The final package can be viewed at https://github.com/atom/ascii-art.
 
 #### Basic Text Insertion
 
-To begin, press `cmd-shift-P` to bring up the [Command Palette](https://github.com/atom/command-palette). Type "generate package" and select the "Package Generator: Generate Package" command, just as we did in [Generate Package](/hacking-atom/sections/package-word-count/#generate-package). Enter `ascii-art` as the name of the package.
+To begin, press `cmd-shift-P` to bring up the [Command Palette](https://github.com/atom/command-palette). Type "generate package" and select the "Package Generator: Generate Package" command, just as we did in [the section on package generation](/hacking-atom/sections/package-word-count/#package-generator). Enter `ascii-art` as the name of the package.
 
 Now let's edit the package files to make our ASCII Art package do something interesting. Since this package doesn't need any UI, we can remove all view-related code so go ahead and delete `lib/ascii-art-view.coffee`, `spec/ascii-art-view-spec.coffee`, and `styles/`.
 
@@ -56,7 +56,7 @@ convert: ->
     editor.insertText('Hello, World!')
 ```
 
-As in [Counting Words](/hacking-atom/sections/package-word-count/counting-words), we're using `atom.workspace.getActiveTextEditor()` to get the object that represents the active text editor. If this `convert()` method is called when not focused on a text editor, this will simply return a blank string, so we can skip the next line.
+As in [Counting Words](/hacking-atom/sections/package-word-count/#counting-the-words), we're using `atom.workspace.getActiveTextEditor()` to get the object that represents the active text editor. If this `convert()` method is called when not focused on a text editor, this will simply return a blank string, so we can skip the next line.
 
 Next we insert a string into the current text editor with the [`insertText()`](https://atom.io/docs/api/latest/TextEditor#instance-insertText) method. This will insert the text wherever the cursor currently is in the current editor. If there is a selection, it will replace all selections with the "Hello, World!" text.
 

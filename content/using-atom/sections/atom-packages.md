@@ -35,7 +35,7 @@ You can also find and install new themes for Atom from the Settings view. These 
 
 Clicking on the theme title will take you to a profile page for the theme on atom.io, which usually has a screenshot of the theme. This way you can see what it looks like before installing it.
 
-Clicking on "Install" will install the theme and make it available in the Theme dropdowns as we saw in [Color Themes](/getting-started/sections/atom-basics/#color-themes).
+Clicking on "Install" will install the theme and make it available in the Theme dropdowns as we saw in [Color Themes](/getting-started/sections/atom-basics/#changing-the-theme).
 
 ![Example of the Unity UI theme with Monokai syntax theme](../../images/unity-theme.png)
 

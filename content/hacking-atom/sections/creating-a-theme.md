@@ -14,7 +14,7 @@ Themes can be installed and changed from the settings view which you can open by
 Themes are pretty straightforward but it's still helpful to be familiar with a few things before starting:
 
 * Less is a superset of CSS, but it has some really handy features like variables. If you aren't familiar with its syntax, take a few minutes to [familiarize yourself](https://speakerdeck.com/danmatthews/less-css).
-* You may also want to review the concept of a `package.json` (as covered in [Atom `package.json`](/hacking-atom/sections/package-word-count/#package-json)). This file is used to help distribute your theme to Atom users.
+* You may also want to review the concept of a `package.json` (as covered in [Atom `package.json`](/hacking-atom/sections/package-word-count/#packagejson)). This file is used to help distribute your theme to Atom users.
 * Your theme's `package.json` must contain a `theme` key with a value of `ui` or `syntax` for Atom to recognize and load it as a theme.
 * You can find existing themes to install or fork on [atom.io](https://atom.io/themes).
 

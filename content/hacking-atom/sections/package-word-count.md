@@ -416,7 +416,7 @@ You can also use the `apm test` command to run them from the command line. It pr
 
 Now that our simple plugin is working and tested, let's go ahead and publish it so it's available to the world.
 
-Atom bundles a command line utility called `apm` which we first used back in [Atom command line](/using-atom/sections/atom-packages/#atom-command-line) to search for and install packages via the command line. The `apm` command can also be used to publish Atom packages to the public registry and update them.
+Atom bundles a command line utility called `apm` which we first used back in [Atom command line](/using-atom/sections/atom-packages/#command-line) to search for and install packages via the command line. The `apm` command can also be used to publish Atom packages to the public registry and update them.
 
 ##### Prepare Your Package
 

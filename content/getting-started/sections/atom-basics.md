@@ -54,13 +54,13 @@ This includes things like changing the color scheme or theme, specifying how to 
 
 To open the Settings screen, you can go to the 'Preferences' menu item under the main `Atom` menu in the menu bar. You can also search for `settings-view:open` in the command palette or use the `cmd-,` keybinding.
 
-##### Changing the Color Theme
+##### Changing the Theme
 
-The Settings view also lets you change the color themes for Atom. Atom ships with 4 different UI color themes, dark and light variants of the Atom and One theme, as well as 8 different syntax color themes. You can modify the active theme or install new themes by clicking on the "Themes" menu item in the sidebar of the Settings view.
+The Settings view also lets you change the themes for Atom. Atom ships with 4 different UI themes, dark and light variants of the Atom and One theme, as well as 8 different syntax themes. You can modify the active theme or install new themes by clicking on the "Themes" menu item in the sidebar of the Settings view.
 
 ![Changing the theme from the Settings View](../../images/theme.png)
 
-The UI themes modify the color of UI elements like the tabs and the tree view, while the syntax themes modify the syntax highlighting of text you load into the editor. To change the theme, simply pick something different in the dropdowns.
+The UI themes modify the style of UI elements like the tabs and the tree view, while the syntax themes modify the syntax highlighting of text you load into the editor. To change the theme, simply pick something different in the dropdowns.
 
 There are also dozens of themes on Atom.io that you can choose from if you want something different. We will also cover customizing a theme in [Style Tweaks](/using-atom/sections/basic-customization) and creating your own theme in [Creating a Theme](/hacking-atom/sections/creating-a-theme).
 

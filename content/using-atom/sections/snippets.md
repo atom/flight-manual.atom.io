@@ -66,7 +66,7 @@ console.log("crash");
 
 The string `"crash"` would be initially selected and pressing tab again would place the cursor after the `;`
 
-WARNING: Snippet keys, unlike CSS selectors, can only be repeated once per level. If there are duplicate keys at the same level, then only the last one will be read. See [Configuring with CSON](/using-atom/sections/basic-customization/#cson) for more information.
+WARNING: Snippet keys, unlike CSS selectors, can only be repeated once per level. If there are duplicate keys at the same level, then only the last one will be read. See [Configuring with CSON](/using-atom/sections/basic-customization/#configuring-with-cson) for more information.
 
 ##### Multi-line Snippet Body
 

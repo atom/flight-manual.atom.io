@@ -25,4 +25,4 @@ atom.commands.add 'atom-text-editor', 'markdown:paste-as-link', ->
   selection.insertText("[#{selection.getText()}](#{clipboardText})")
 ```
 
-Now, reload Atom and use the [Command Palette](/getting-started/sections/atom-basics/#command-palette) to execute the new command, "Markdown: Paste As Link", by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a [keymap for the command](/using-atom/sections/basic-customization/#customizing-keybindings).
+Now, reload Atom and use the [Command Palette](/getting-started/sections/atom-basics/#command-palette) to execute the new command, "Markdown: Paste As Link", by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a [keymap for the command](/using-atom/sections/basic-customization/#customizing-key-bindings).
