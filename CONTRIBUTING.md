@@ -106,6 +106,8 @@ When they are not linked, do not italicize, bold or monospace the package or the
 
 ### Code
 
+Individual words or items that refer to bits of code, such as variable, API class or function names, should be surrounded by backticks. For example: `TextEditor`, `Config.set()`, `someText`
+
 Blocks of source code should always be wrapped in [code fences](https://help.github.com/articles/creating-and-highlighting-code-blocks/#fenced-code-blocks) and annotated with the correct language to display the code syntax-highlighted.
 
 For things that are intended to be step-by-step command-line instructions, use the [special `command-line` annotation](https://github.com/gjtorikian/extended-markdown-filter#command-line-highlighting). (Note: the space between the backticks and `command-line` is *required*.) Use this *instead* of using the `shell` annotation on a fenced-code block.
