@@ -1,6 +1,7 @@
 asciidoc_pipeline_config:
   pipeline:
     - :AsciiDocFilter
+    - :TableOfContentsFilter
     - :RougeFilter
     - :EmojiFilter
     - :HTTPSFilter
@@ -11,6 +12,7 @@ asciidoc_pipeline_config:
 markdown_pipeline_config:
   pipeline:
     - ExtendedMarkdownFilter
+    - :TableOfContentsFilter
     - :RougeFilter
     - :EmojiFilter
     - :HTTPSFilter

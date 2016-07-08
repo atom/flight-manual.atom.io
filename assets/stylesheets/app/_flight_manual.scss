@@ -76,11 +76,11 @@ $subtleGreen: lighten($greenLight, 15);
   .markdown-body {
     font-size: 16px;
 
-    .anchor {
-      .octicon {
-        color: $lightText;
-      }
-    }
+    // .anchor {
+    //   .octicon {
+    //     color: $lightText;
+    //   }
+    // }
 
     pre {
       margin: 0;
@@ -502,11 +502,11 @@ h1.document-title {
 
 /* syntax highlighting and coloring text in general */
 .document-content {
-  padding-left:15px;
+  padding-left:24px;
 
   h1, h2, h3, h4, h5, h6 {
     &:hover {
-      .octicon-link {
+      .anchor {
         display: inline;
         margin-left: 5px;
       }
