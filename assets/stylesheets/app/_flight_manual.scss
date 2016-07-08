@@ -492,15 +492,25 @@ $improve-link-separator-spacing: 1em;
   margin-left: $improve-link-separator-spacing / 2;
 }
 
+h1.document-title {
+  font-size: 1.0em;
+  border-bottom: 0;
+  text-align:right;
+  font-weight: 200;
+}
+
+
 /* syntax highlighting and coloring text in general */
 .document-content {
   padding-left:15px;
 
-  h1 {
-    font-size: 1.0em;
-    border-bottom: 0;
-    text-align:right;
-    font-weight: 200;
+  h1, h2, h3, h4, h5, h6 {
+    &:hover {
+      .octicon-link {
+        display: inline;
+        margin-left: 5px;
+      }
+    }
   }
 
   pre {
