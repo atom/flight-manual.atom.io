@@ -1,0 +1,8 @@
+// In case JavaScript is disabled, default to displaying only `.platform-all`
+.platform-all {
+  display: inline;
+}
+
+.platform-mac, .platform-windows, .platform-linux {
+  display: none;
+}
