@@ -37,7 +37,7 @@ If you add images, run `./scripts/crush.rb` (you'll also need to have the [pngcr
 Keybindings should be wrapped in `<kbd>` tags and presented in a common way:
 
 1. Key combinations should be wrapped in a single set of `<kbd>` tags: <kbd>Cmd+N</kbd>
-1. Each key combination of a key sequence should be wrapped in separate `<kbd>` tags: <kbd>Ctrl+K</kbd> <kbd>Right</kbd>
+1. Each key combination of a key sequence should be wrapped in separate `<kbd>` tags and separated by a space: <kbd>Ctrl+K</kbd> <kbd>Right</kbd>
 1. Modifier key names should be capitalized: <kbd>Shift</kbd>, <kbd>Ctrl</kbd>, <kbd>Alt</kbd>, <kbd>Cmd</kbd>
 1. Key combinations should be joined by `+`: <kbd>Ctrl+N</kbd>
 1. Letter keys should always be capitalized: <kbd>N</kbd>
@@ -46,9 +46,9 @@ Keybindings should be wrapped in `<kbd>` tags and presented in a common way:
 #### Terminology
 
 * **key combination** - A key or keys intended to be pressed simultaneously, ex: <kbd>Cmd+Shift+P</kbd>
-* **key sequence** - Multiple keys or key combinations that are intended to be pressed and released in sequence, ex: <kbd>Ctrl+K</kbd> <kbd>Right</kbd>
-* **keybinding** - refers to a mapping of a key or key combination to an Atom command
-* **keymap** - refers to a collection of *keybindings*
+* **key sequence** - Multiple key combinations that are intended to be pressed and released in sequence, ex: <kbd>Ctrl+K</kbd> <kbd>Right</kbd>
+* **keybinding** - refers to a mapping of a key combination or sequence to an Atom command
+* **keymap** - refers to a collection of keybindings
 
 ### File Names and Paths
 
