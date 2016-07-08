@@ -1,8 +1,9 @@
-// In case JavaScript is disabled, default to displaying only `.platform-all`
-.platform-all {
+// In case JavaScript is disabled, default to displaying only instructions for all platforms
+// and keybindings for non-Mac systems
+.platform-all, .key-other {
   display: inline;
 }
 
-.platform-mac, .platform-windows, .platform-linux {
+.platform-mac, .platform-windows, .platform-linux, .key-mac, .key-windows, .key-linux {
   display: none;
 }
