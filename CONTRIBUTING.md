@@ -49,6 +49,10 @@ This way when someone hovers over the image, the description of the image appear
 
 ![First Launch](/content/getting-started/images/first-launch.png "First Launch")
 
+#### Screenshots
+
+All screenshots should be taken using Atom's default themes and settings.
+
 [pngcrush]: http://pmt.sourceforge.net/pngcrush/
 
 ### Keybindings
