@@ -85,7 +85,7 @@ File names and paths should always be wrapped in backticks: `foo/bar/baz.txt`
 
 ### Menu Names
 
-Menu names should always be presented in italics and separated by the greater-than sign, `>`: *File > New*
+Menu names should always be presented in italics and each level should be separated by a single greater-than sign, `>`: *File > New*
 
 ### Names of UI Elements
 
