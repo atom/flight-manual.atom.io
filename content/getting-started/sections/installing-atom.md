@@ -34,7 +34,7 @@ $ which atom
 $
 ```
 
-To install the `atom` and `apm` commands, run "Window: Install Shell Commands" from the [Command Palette](/getting-started-atom-basics#command-palette), which will prompt you for an administrator password.
+To install the `atom` and `apm` commands, run "Window: Install Shell Commands" from the [Command Palette](/getting-started/sections/atom-basics#command-palette), which will prompt you for an administrator password.
 
 #### Atom on Windows
 

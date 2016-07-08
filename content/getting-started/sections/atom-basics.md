@@ -96,7 +96,7 @@ There are several ways to open a file in Atom. You can do it by choosing "File >
 
 This is useful for opening a file that is not contained in the project you're currently in (more on that next), or if you're starting from a new window for some reason.
 
-Another way to open a file in Atom is from the command line using the `atom` command. If you're on a Mac, the Atom menu bar has a command named "Install Shell Commands" which installs the `atom` and `apm` commands [if Atom wasn't able to install them itself](/getting-started/sections/installing-atom/#_installing_atom_on_mac). On Windows and Linux, the `atom` and `apm` commands are installed automatically as a part of Atom's [installation process](/getting-started/sections/installing-atom/).
+Another way to open a file in Atom is from the command line using the `atom` command. If you're on a Mac, the Atom menu bar has a command named "Install Shell Commands" which installs the `atom` and `apm` commands [if Atom wasn't able to install them itself](/getting-started/sections/installing-atom/#atom-on-mac). On Windows and Linux, the `atom` and `apm` commands are installed automatically as a part of Atom's [installation process](/getting-started/sections/installing-atom/).
 
 You can run the `atom` command with one or more file paths to open up those files in Atom.
 
@@ -158,7 +158,7 @@ If you hit either `cmd-T` or `cmd-P`, the Fuzzy Finder dialog will pop up. This 
 
 You can also search through only the files currently opened (rather than every file in your project) with `cmd-B`. This searches through your "buffers" or open files. You can also limit this fuzzy search with `cmd-shift-B`, which searches only through the files which are new or have been modified since your last Git commit.
 
-The fuzzy finder uses both the `core.ignoredNames` and `fuzzy-finder.ignoredNames` config settings to filter out files and folders that will not be shown. If you have a project with tons of files you don't want it to search through, you can add patterns or paths to either of these config settings. We'll learn more about config settings in [Global Configuration Settings](/using-atom/sections/basic-customization/#_global_configuration_settings), but for now you can easily set these in the Settings view under Core Settings.
+The fuzzy finder uses both the `core.ignoredNames` and `fuzzy-finder.ignoredNames` config settings to filter out files and folders that will not be shown. If you have a project with tons of files you don't want it to search through, you can add patterns or paths to either of these config settings. We'll learn more about config settings in [Global Configuration Settings](/using-atom/sections/basic-customization/#global-configuration-settings), but for now you can easily set these in the Settings view under Core Settings.
 
 Both of those config settings are interpreted as glob patterns as implemented by the [minimatch Node module](https://github.com/isaacs/minimatch).
 
