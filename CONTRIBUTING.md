@@ -21,6 +21,15 @@ Right now one of the best things you could do is to add a cookbook style tutoria
 
 In order to make the Flight Manual consistent, these conventions must be followed when adding or updating content.
 
+### Admonition Blocks
+
+[Admonition blocks](https://github.com/gjtorikian/extended-markdown-filter#admonition-blocks) are used to call out certain pieces of information. There are four levels of admonitions: tip, info, warning and danger.
+
+* `tip` should be used when there is a best practice or convention that should be noted
+* `info` should be used when there is some extra bit of information that is interesting, but not necessary
+* `warning` should be used when there is a risk to some activity so extra caution is advised
+* `danger` should be used when there is a risk of data loss or some irreversible action that needs to be taken
+
 ### Language
 
 * **DO NOT** use Latin contractions such as "i.e.", "e.g.", "c.f.", among others
