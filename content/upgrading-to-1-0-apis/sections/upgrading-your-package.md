@@ -1,15 +1,15 @@
 ---
 title: Upgrading Your Package
 ---
-=== Upgrading Your Package
+### Upgrading Your Package
 
 This document will guide you through the large bits of upgrading your package to work with 1.0 APIs.
 
-==== TL;DR
+#### TL;DR
 
 We've set deprecation messages and errors in strategic places to help make sure you don't miss anything. You should be able to get 95% of the way to an updated package just by fixing errors and deprecations. There are a couple of things you can do to get the full effect of all the errors and deprecations.
 
-===== Use atom-space-pen-views
+##### Use atom-space-pen-views
 
 If you use any class from `require 'atom'` with a `$` or `View` in the name, add the `atom-space-pen-views` module to your package's `package.json` file's dependencies:
 
@@ -23,7 +23,7 @@ If you use any class from `require 'atom'` with a `$` or `View` in the name, add
 
 Then run `apm install` in your package directory.
 
-===== Require views from atom-space-pen-views
+##### Require views from atom-space-pen-views
 
 Anywhere you are requiring one of the following from `atom` you need to require them from `atom-space-pen-views` instead.
 
@@ -53,11 +53,11 @@ Would be replaced by this:
 {$, TextEditorView, View} = require 'atom-space-pen-views'
 ```
 
-===== Run specs and test your package
+##### Run specs and test your package
 
 You wrote specs, right!? Here's where they shine. Run them with `cmd-shift-P`, and search for `run package specs`. It will show all the deprecation messages and errors.
 
-===== Update the engines field in package.json
+##### Update the engines field
 
 When you are deprecation free and all done converting, upgrade the `engines` field in your package.json:
 
@@ -69,31 +69,35 @@ When you are deprecation free and all done converting, upgrade the `engines` fie
 }
 ```
 
-===== Examples
+##### Examples
 
-We have upgraded all the core packages. Please see https://github.com/atom/atom/issues/4011[this issue] for a link to all the upgrade PRs.
+We have upgraded all the core packages. Please see [this issue](https://github.com/atom/atom/issues/4011) for a link to all the upgrade PRs.
 
-==== Deprecations
+#### Deprecations
 
-All of the methods in Atom core that have changes will emit deprecation messages when called. These messages are shown in two places: your **package specs**, and in **Deprecation Cop**.
+All of the methods in Atom core that have changes will emit deprecation messages when called. These messages are shown in two places: your **package specs**, and in Deprecation Cop.
 
-===== Specs
+##### Specs
 
 Just run your specs, and all the deprecations will be displayed in yellow.
 
-.Deprecations in specs
-image::../../images/spec-deps.png[spec-deps]
+![Deprecations in Specs](../../images/spec-deps.png)
 
-===== Deprecation Cop
+{{#info}}
 
-Run an atom window in dev mode (`atom -d`) with your package loaded, and open Deprecation Cop (search for `deprecation` in the command palette). Deprecated methods will be appear in Deprecation Cop only after they have been called.
+Deprecations are only displayed when executing specs through the "Window: Run Package Specs" command in the Atom UI. Deprecations are not displayed when running specs at the terminal.
 
-.Deprecation Cop
-image::../../images/dep-cop.png[dep-cop]
+{{/info}}
 
-When deprecation cop is open, and deprecated methods are called, a `Refresh` button will appear in the top right of the Deprecation Cop interface. So exercise your package, then come back to Deprecation Cop and click the `Refresh` button.
+##### Deprecation Cop
 
-==== Upgrading your Views
+Run Atom in Dev Mode, `atom --dev`, with your package loaded, and open Deprecation Cop (search for "deprecation" in the command palette). Deprecated methods will appear in Deprecation Cop only after they have been called.
+
+![Deprecation Cop](../../images/dep-cop.png)
+
+When Deprecation Cop is open, and deprecated methods are called, a `Refresh` button will appear in the top right of the Deprecation Cop interface. So exercise your package, then come back to Deprecation Cop and click the `Refresh` button.
+
+#### Upgrading your Views
 
 Previous to 1.0, views were baked into Atom core. These views were based on jQuery and `space-pen`. They looked something like this:
 
@@ -110,12 +114,11 @@ class SomeView extends View
   #...
 ```
 
-===== The New
+##### The New
 
-`require 'atom'` no longer provides view helpers or jQuery. Atom core is now 'view agnostic'. The preexisting view system is available from a new npm package: `atom-space-pen-views`.
+`require 'atom'` no longer provides view helpers or jQuery. Atom Core is now 'view agnostic'. The preexisting view system is available from a new Node module: atom-space-pen-views.
 
-`atom-space-pen-views` now provides jQuery, `space-pen` views, and Atom specific views:
-
+atom-space-pen-views now provides jQuery, space-pen views, and Atom specific views:
 
 ```coffee
 # These are now provided by atom-space-pen-views
@@ -128,9 +131,9 @@ ScrollView
 SelectListView
 ```
 
-===== Adding the module dependencies
+##### Adding the module dependencies
 
-To use the new views, you need to specify the `atom-space-pen-views` module in your package's `package.json` file's dependencies:
+To use the new views, you need to specify the atom-space-pen-views module in your package's `package.json` file's dependencies:
 
 ```json
 {
@@ -140,7 +143,7 @@ To use the new views, you need to specify the `atom-space-pen-views` module in y
 }
 ```
 
-`space-pen` bundles jQuery. If you do not need `space-pen` or any of the views, you can require jQuery directly.
+space-pen bundles jQuery. If you do not need space-pen or any of the views, you can require jQuery directly.
 
 ```json
 {
@@ -150,16 +153,15 @@ To use the new views, you need to specify the `atom-space-pen-views` module in y
 }
 ```
 
-===== Converting your views
+##### Converting your views
 
 Sometimes it is as simple as converting the requires at the top of each view page. I assume you read the 'TL;DR' section and have updated all of your requires.
 
-===== Upgrading classes extending any space-pen View
+##### Upgrading classes extending any space-pen View
 
-====== `afterAttach` and `beforeRemove` updated
+###### `afterAttach` and `beforeRemove` updated
 
-The `afterAttach` and `beforeRemove` hooks have been replaced with
-`attached` and `detached` and the semantics have changed.
+The `afterAttach` and `beforeRemove` hooks have been replaced with `attached` and `detached` and the semantics have changed.
 
 `afterAttach` was called whenever the node was attached to another DOM node, even if that parent node wasn't present in the DOM. `afterAttach` also was called with a boolean indicating whether or not the element and its parents were on the DOM. Now the `attached` hook is _only_ called when the node and all of its parents are actually on the DOM, and is not called with a boolean.
 
@@ -188,15 +190,15 @@ class MyView extends View
     #...
 ```
 
-====== `subscribe` and `subscribeToCommand` methods removed
+###### `subscribe` and `subscribeToCommand` methods removed
 
 The `subscribe` and `subscribeToCommand` methods have been removed. See the Eventing and Disposables section for more info.
 
-===== Upgrading to the new TextEditorView
+##### Upgrading to the new TextEditorView
 
-All of the atom-specific methods available on the `TextEditorView` have been moved to the `TextEditor`, available via `TextEditorView::getModel`. See the https://github.com/atom/atom-space-pen-views#texteditorview[`TextEditorView` docs] and https://atom.io/docs/api/latest/TextEditor[`TextEditor` docs] for more info.
+All of the atom-specific methods available on the `TextEditorView` have been moved to the `TextEditor`, available via `TextEditorView::getModel`. See the [`TextEditorView` docs](https://github.com/atom/atom-space-pen-views#texteditorview) and [`TextEditor` docs](https://atom.io/docs/api/latest/TextEditor) for more info.
 
-===== Upgrading classes extending ScrollView
+##### Upgrading classes extending ScrollView
 
 The `ScrollView` has very minor changes.
 
@@ -223,12 +225,12 @@ class ResultsView extends ScrollView
     disposable.dispose()
 ```
 
-* Check out https://github.com/atom/find-and-replace/pull/311/files#diff-9[an example] from find-and-replace.
-* See the https://github.com/atom/atom-space-pen-views#scrollview[docs] for all the options.
+* Check out [an example](https://github.com/atom/find-and-replace/pull/311/files#diff-9) from find-and-replace.
+* See the [docs](https://github.com/atom/atom-space-pen-views#scrollview) for all the options.
 
-===== Upgrading classes extending SelectListView
+##### Upgrading classes extending SelectListView
 
-Your SelectListView might look something like this:
+Your `SelectListView` might look something like this:
 
 ```coffee
 # Old!
@@ -261,7 +263,7 @@ class CommandPaletteView extends SelectListView
     @cancel()
 ```
 
-This attaches and detaches itself from the dom when toggled, canceling magically detaches it from the DOM, and it uses the classes `overlay` and `from-top`.
+This attaches and detaches itself from the DOM when toggled, canceling magically detaches it from the DOM, and it uses the classes `overlay` and `from-top`.
 
 The new SelectListView no longer automatically detaches itself from the DOM when cancelled. It's up to you to implement whatever cancel behavior you want. Using the new APIs to mimic the semantics of the old class, it should look like this:
 
@@ -306,10 +308,10 @@ class CommandPaletteView extends SelectListView
     @panel?.hide()
 ```
 
-* And check out the https://github.com/atom/command-palette/pull/19/files[conversion of CommandPaletteView] as a real-world example.
-* See the https://github.com/atom/atom-space-pen-views#selectlistview[SelectListView docs] for all options.
+* And check out the [conversion of `CommandPaletteView`](https://github.com/atom/command-palette/pull/19/files) as a real-world example.
+* See the [`SelectListView` docs](https://github.com/atom/atom-space-pen-views#selectlistview) for all options.
 
-==== Using the model layer rather than the view layer
+#### Using the model layer rather than the view layer
 
 The API no longer exposes any specialized view objects or view classes. `atom.workspaceView`, and all the view classes: `WorkspaceView`, `EditorView`, `PaneView`, etc. have been globally deprecated.
 
@@ -349,11 +351,11 @@ editorElement = atom.views.getView(editor)
 paneElement = atom.views.getView(pane)
 ```
 
-==== Updating Specs
+#### Updating Specs
 
 `atom.workspaceView`, the `WorkspaceView` class and the `EditorView` class have been deprecated. These two objects are used heavily throughout specs, mostly to dispatch events and commands. This section will explain how to remove them while still retaining the ability to dispatch events and commands.
 
-===== Removing WorkspaceView references
+##### Removing `WorkspaceView` references
 
 `WorkspaceView` has been deprecated. Everything you could do on the view, you can now do on the `Workspace` model.
 
@@ -379,7 +381,7 @@ describe 'FindView', ->
     workspaceElement = atom.views.getView(atom.workspace)
 ```
 
-===== Attaching the workspace to the DOM
+##### Attaching the workspace to the DOM
 
 The workspace needs to be attached to the DOM in some cases. For example, view hooks only work (`attached()` on `View`, `attachedCallback()` on custom elements) when there is a descendant attached to the DOM.
 
@@ -397,7 +399,7 @@ Change it to:
 jasmine.attachToDOM(workspaceElement)
 ```
 
-===== Removing EditorView references
+##### Removing EditorView references
 
 Like `WorkspaceView`, `EditorView` has been deprecated. Everything you needed to do on the view you are now able to do on the `TextEditor` model.
 
@@ -424,9 +426,9 @@ describe 'Something', ->
     editorElement = atom.views.getView(editor)
 ```
 
-===== Dispatching commands
+##### Dispatching commands
 
-Since the `editorElement` objects are no longer `jQuery` objects, they no longer support `trigger()`. Additionally, Atom has a new command dispatcher, `atom.commands`, that we use rather than commandeering jQuery's `trigger` method.
+Since the `editorElement` objects are no longer jQuery objects, they no longer support `trigger()`. Additionally, Atom has a new command dispatcher, `atom.commands`, that we use rather than commandeering jQuery's `trigger` method.
 
 From this:
 
@@ -444,17 +446,17 @@ atom.commands.dispatch workspaceElement, 'a-package:toggle'
 atom.commands.dispatch editorElement, 'find-and-replace:show'
 ```
 
-==== Eventing and Disposables
+#### Eventing and Disposables
 
 A couple large things changed with respect to events:
 
-1. All model events are now exposed as event subscription methods that return https://atom.io/docs/api/latest/Disposable[`Disposable`] objects
+1. All model events are now exposed as event subscription methods that return [`Disposable`](https://atom.io/docs/api/latest/Disposable) objects
 2. The `subscribe()` method is no longer available on `space-pen` `View` objects
 3. An Emitter is now provided from `require 'atom'`
 
-===== Consuming Events
+##### Consuming Events
 
-All events from the Atom API are now methods that return a https://atom.io/docs/api/latest/Disposable[`Disposable`] object, on which you can call `dispose()` to unsubscribe.
+All events from the Atom API are now methods that return a [`Disposable`](https://atom.io/docs/api/latest/Disposable) object, on which you can call `dispose()` to unsubscribe.
 
 ```coffee
 # Old!
@@ -471,7 +473,7 @@ disposable.dispose()
 
 Deprecation warnings will guide you toward the correct methods.
 
-====== Using a CompositeDisposable
+###### Using a `CompositeDisposable`
 
 You can group multiple disposables into a single disposable with a `CompositeDisposable`.
 
@@ -489,11 +491,11 @@ class Something
     @disposables.dispose()
 ```
 
-===== Removing View::subscribe and Subscriber::subscribe calls
+##### Removing `View::subscribe` and `Subscriber::subscribe` calls
 
 There were a couple permutations of `subscribe()`. In these examples, a `CompositeDisposable` is used as it will commonly be useful where conversion is necessary.
 
-====== subscribe(unsubscribable)
+###### `subscribe(unsubscribable)`
 
 This one is very straight forward.
 
@@ -508,7 +510,7 @@ disposables = new CompositeDisposable
 disposables.add editor.onDidChange ->
 ```
 
-====== subscribe(modelObject, event, method)
+###### `subscribe(modelObject, event, method)`
 
 When the modelObject is an Atom model object, the change is very simple. Just use the correct event method, and add it to your CompositeDisposable.
 
@@ -523,7 +525,7 @@ disposables = new CompositeDisposable
 disposables.add editor.onDidChange ->
 ```
 
-====== subscribe(jQueryObject, selector(optional), event, method)
+###### `subscribe(jQueryObject, selector(optional), event, method)`
 
 Things are a little more complicated when subscribing to a DOM or jQuery element. Atom no longer provides helpers for subscribing to elements. You can use jQuery or the native DOM APIs, whichever you prefer.
 
@@ -550,9 +552,9 @@ disposables.add new Disposable ->
   window.removeEventListener 'focus', focusCallback
 ```
 
-===== Providing Events: Using the Emitter
+##### Providing Events: Using the `Emitter`
 
-You no longer need to require `emissary` to get an emitter. We now provide an `Emitter` class from `require 'atom'`. We have a specific pattern for use of the `Emitter`. Rather than mixing it in, we instantiate a member variable, and create explicit subscription methods. For more information see the https://atom.io/docs/api/latest/Emitter[`Emitter` docs].
+You no longer need to require `emissary` to get an emitter. We now provide an `Emitter` class from `require 'atom'`. We have a specific pattern for use of the `Emitter`. Rather than mixing it in, we instantiate a member variable, and create explicit subscription methods. For more information see the [`Emitter` docs](https://atom.io/docs/api/latest/Emitter).
 
 ```coffee
 # New!
@@ -578,9 +580,9 @@ something.onDidChange (eventObject) ->
 something.methodThatFiresAChange()
 ```
 
-==== Subscribing To Commands
+#### Subscribing To Commands
 
-`$.fn.command` and `View::subscribeToCommand` are no longer available. Now we use `atom.commands.add`, and collect the results in a `CompositeDisposable`. See https://atom.io/docs/api/latest/CommandRegistry#instance-add[the docs] for more info.
+`$.fn.command` and `View::subscribeToCommand` are no longer available. Now we use `atom.commands.add`, and collect the results in a `CompositeDisposable`. See [the docs](https://atom.io/docs/api/latest/CommandRegistry#instance-add) for more info.
 
 ```coffee
 # Old!
@@ -604,6 +606,6 @@ atom.workspaceView.command 'core:close core:cancel', ->
   'core:cancel': ->
 ```
 
-==== Upgrading your stylesheet's selectors
+#### Upgrading your stylesheet's selectors
 
-Many selectors have changed, and we have introduced the http://blog.atom.io/2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html[Shadow DOM] to the editor. See the https://atom.io/docs/latest/upgrading/upgrading-your-ui-theme[Upgrading Your UI Theme And Package Selectors guide] for more information in upgrading your package stylesheets.
+Many selectors have changed, and we have introduced the [Shadow DOM](http://blog.atom.io/2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html) to the editor. See the [Upgrading Your UI Theme And Package Selectors guide](https://atom.io/docs/latest/upgrading/upgrading-your-ui-theme) for more information in upgrading your package stylesheets.
