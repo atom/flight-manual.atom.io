@@ -30,6 +30,16 @@ In order to make the Flight Manual consistent, these conventions must be followe
 
 If you add images, run `./scripts/crush.rb` (you'll also need to have the [pngcrush utility][pngcrush] installed) before committing images to the repository, and try to make them PNG files. This looks through all the files and resizes and crushes them to an appropriate resolution.
 
+Always add both a description and title text to image links:
+
+```markdown
+![First Launch](/content/getting-started/images/first-launch.png "First Launch")
+```
+
+This way when someone hovers over the image, the description of the image appears. It is also better for accessibility:
+
+![First Launch](/content/getting-started/images/first-launch.png "First Launch")
+
 [pngcrush]: http://pmt.sourceforge.net/pngcrush/
 
 ### Keybindings
