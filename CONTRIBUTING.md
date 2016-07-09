@@ -30,6 +30,8 @@ In order to make the Flight Manual consistent, these conventions must be followe
 
 ### Language
 
+* **DO NOT** use "hit" or "strike" when referring to activating a key combination
+* **DO** use "press" when referring to activating a key combination
 * **DO NOT** use Latin contractions such as "i.e.", "e.g.", "c.f.", among others
 * **DO** use the English equivalent: "i.e." &rarr; "in other words", "e.g." &rarr; "for example", "c.f." &rarr; hyperlink to the thing you're referring to
 
