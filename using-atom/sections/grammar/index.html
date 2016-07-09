@@ -317,40 +317,58 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">2.10 Grammar</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/grammar.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">2.10 Grammar</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/grammar.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="grammar">Grammar</h3>
-<div class="paragraph">
-<p>The "grammar" of a buffer is what language Atom thinks that file content is. Types of grammars would be Java or Markdown. We looked at this a bit when we created some snippets in <a href="/using-atom/sections/snippets">Snippets</a>.</p>
-</div>
-<div class="paragraph">
-<p>If you load up a file, Atom does a little work to try to figure out what type of file it is. Largely this is accomplished by looking at its file extension (<code>.md</code> is generally a Markdown file, etc), though sometimes it has to inspect the content a bit to figure it out if it’s ambiguous.</p>
-</div>
-<div class="paragraph">
-<p>If you load up a file and Atom can’t determine a grammar for the file, it will default to 'Plain Text', which is the simplest one. If it does default to 'Plain Text' or miscategorize a file, or if for any reason you wish to change the active grammar of a file, you can pull up the Grammar selector with <code>ctrl-shift-L</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/grammar.png" alt="grammar selector">
-</div>
-<div class="title">Figure 1. Grammar selector</div>
-</div>
-<div class="paragraph">
+          <h3>
+<a id="grammar" class="anchor" href="#grammar" aria-hidden="true"><span class="octicon octicon-link"></span></a>Grammar</h3>
+
+<p>The "grammar" of a buffer is what language Atom thinks that file content is. Types of grammars would be Java or Markdown. We looked at this a bit when we created some snippets in link:/using-atom/sections/snippets[Snippets].</p>
+
+<p>If you load up a file, Atom does a little work to try to figure out what type of file it is. Largely this is accomplished by looking at its file extension (<code>.md</code> is generally a Markdown file, etc), though sometimes it has to inspect the content a bit to figure it out if it's ambiguous.</p>
+
+<p>If you load up a file and Atom can't determine a grammar for the file, it will default to 'Plain Text', which is the simplest one. If it does default to 'Plain Text' or miscategorize a file, or if for any reason you wish to change the active grammar of a file, you can pull up the Grammar selector with <code>ctrl-shift-L</code>.</p>
+
+<p><img src="../../images/grammar.png" alt="Grammar selector"></p>
+
 <p>Once the grammar of a file is changed manually, Atom will remember that until you set it back to auto-detect or choose a different grammar manually.</p>
-</div>
-<div class="paragraph">
-<p>The Grammar selector functionality is implemented in the
-<a href="https://github.com/atom/grammar-selector">atom/grammar-selector</a> package.</p>
-</div>
-</div>
+
+<p>The Grammar selector functionality is implemented in the <a href="https://github.com/atom/grammar-selector">atom/grammar-selector</a> package.</p>
         </div>
       </div>
       <div class="footer-pad"></div>

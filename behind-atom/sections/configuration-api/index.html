@@ -317,34 +317,59 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">4.1 Configuration API</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/configuration-api.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">4.1 Configuration API</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/configuration-api.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="configuration-api">Configuration API</h3>
-<div class="sect3">
-<h4 id="reading-config-settings">Reading Config Settings</h4>
-<div class="paragraph">
-<p>If you are writing a package that you want to make configurable, you’ll need to read config settings via the <code>atom.config</code> global. You can read the current value of a namespaced config key with <code>atom.config.get</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffeescript"><code><span class="c1"># read a value with `config.get`
-</span><span class="vi">@</span><span class="na">showInvisibles</span><span class="p">()</span> <span class="k">if</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span> <span class="s">"editor.showInvisibles"</span></code></pre>
+          <h3>
+<a id="configuration-api" class="anchor" href="#configuration-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration API</h3>
 
-</div>
-</div>
-<div class="paragraph">
+<h4>
+<a id="reading-config-settings" class="anchor" href="#reading-config-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading Config Settings</h4>
+
+<p>If you are writing a package that you want to make configurable, you'll need to read config settings via the <code>atom.config</code> global. You can read the current value of a namespaced config key with <code>atom.config.get</code>:</p>
+
+<pre class="highlight highlight-coffeescript"><code><span class="c1"># read a value with `config.get`
+</span><span class="vi">@</span><span class="na">showInvisibles</span><span class="p">()</span> <span class="k">if</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span> <span class="s">"editor.showInvisibles"</span>
+</code></pre>
+
+
 <p>Or you can subscribe via <code>atom.config.observe</code> to track changes from any view object.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffeescript"><code><span class="p">{</span><span class="nx">View</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'space-pen'</span>
 
 <span class="k">class</span> <span class="nx">MyView</span> <span class="k">extends</span> <span class="nx">View</span>
@@ -354,35 +379,26 @@
         <span class="vi">@</span><span class="na">adjustFontSize</span><span class="p">()</span>
 
   <span class="na">detached</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">fontSizeObserveSubscription</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span></code></pre>
+    <span class="vi">@</span><span class="na">fontSizeObserveSubscription</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>atom.config.observe</code> method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use <code>atom.config.onDidChange</code>
+
+<p>The <code>atom.config.observe</code> method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use <code>atom.config.onDidChange</code><br>
 instead.</p>
-</div>
-<div class="paragraph">
-<p>Subscription methods return <strong>disposable</strong> subscription objects. Note in the example above how we save the subscription to the <code>@fontSizeObserveSubscription</code> instance variable and dispose of it when the view is detached. To group multiple subscriptions together, you can add them all to a <a href="https://atom.io/docs/api/latest/CompositeDisposable"><code>CompositeDisposable</code></a> that you dispose when the view is detached.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="writing-config-settings">Writing Config Settings</h4>
-<div class="paragraph">
-<p>The <code>atom.config</code> database is populated on startup from <code>~/.atom/config.cson</code>, but you can programmatically write to it with <code>atom.config.set</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffeescript"><code><span class="c1"># basic key update
-</span><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">"core.showInvisibles"</span><span class="p">,</span> <span class="no">true</span><span class="p">)</span></code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>If you’re exposing package configuration via specific key paths, you’ll want to associate them with a schema in your package’s main module. Read more about schemas in the <a href="https://atom.io/docs/api/latest/Config">config API docs</a>.</p>
-</div>
-</div>
-</div>
+<p>Subscription methods return <em>disposable</em> subscription objects. Note in the example above how we save the subscription to the <code>@fontSizeObserveSubscription</code> instance variable and dispose of it when the view is detached. To group multiple subscriptions together, you can add them all to a <a href="https://atom.io/docs/api/latest/CompositeDisposable"><code>CompositeDisposable</code></a> that you dispose when the view is detached.</p>
+
+<h4>
+<a id="writing-config-settings" class="anchor" href="#writing-config-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing Config Settings</h4>
+
+<p>The <code>atom.config</code> database is populated on startup from <code>~/.atom/config.cson</code>, but you can programmatically write to it with <code>atom.config.set</code>:</p>
+
+<pre class="highlight highlight-coffeescript"><code><span class="c1"># basic key update
+</span><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">"core.showInvisibles"</span><span class="p">,</span> <span class="no">true</span><span class="p">)</span>
+</code></pre>
+
+
+<p>If you're exposing package configuration via specific key paths, you'll want to associate them with a schema in your package's main module. Read more about schemas in the <a href="https://atom.io/docs/api/latest/Config">config API docs</a>.</p>
         </div>
       </div>
       <div class="footer-pad"></div>

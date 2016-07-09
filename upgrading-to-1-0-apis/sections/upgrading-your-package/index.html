@@ -317,51 +317,74 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">5.1 Upgrading Your Package</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/upgrading-to-1-0-apis/sections/upgrading-your-package.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">5.1 Upgrading Your Package</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/upgrading-to-1-0-apis/sections/upgrading-your-package.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="upgrading-your-package">Upgrading Your Package</h3>
-<div class="paragraph">
+          <h3>
+<a id="upgrading-your-package" class="anchor" href="#upgrading-your-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading Your Package</h3>
+
 <p>This document will guide you through the large bits of upgrading your package to work with 1.0 APIs.</p>
-</div>
-<div class="sect3">
-<h4 id="tl-dr">TL;DR</h4>
-<div class="paragraph">
-<p>We’ve set deprecation messages and errors in strategic places to help make sure you don’t miss anything. You should be able to get 95% of the way to an updated package just by fixing errors and deprecations. There are a couple of things you can do to get the full effect of all the errors and deprecations.</p>
-</div>
-<div class="sect4">
-<h5 id="use-atom-space-pen-views">Use atom-space-pen-views</h5>
-<div class="paragraph">
-<p>If you use any class from <code>require 'atom'</code> with a <code>$</code> or <code>View</code> in the name, add the <code>atom-space-pen-views</code> module to your package’s <code>package.json</code> file’s dependencies:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<h4>
+<a id="tldr" class="anchor" href="#tldr" aria-hidden="true"><span class="octicon octicon-link"></span></a>TL;DR</h4>
+
+<p>We've set deprecation messages and errors in strategic places to help make sure you don't miss anything. You should be able to get 95% of the way to an updated package just by fixing errors and deprecations. There are a couple of things you can do to get the full effect of all the errors and deprecations.</p>
+
+<h5>
+<a id="use-atom-space-pen-views" class="anchor" href="#use-atom-space-pen-views" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use atom-space-pen-views</h5>
+
+<p>If you use any class from <code>require 'atom'</code> with a <code>$</code> or <code>View</code> in the name, add the <code>atom-space-pen-views</code> module to your package's <code>package.json</code> file's dependencies:</p>
+
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"atom-space-pen-views"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^2.0.3"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre>
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>Then run <code>apm install</code> in your package directory.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="require-views-from-atom-space-pen-views">Require views from atom-space-pen-views</h5>
-<div class="paragraph">
+
+<h5>
+<a id="require-views-from-atom-space-pen-views" class="anchor" href="#require-views-from-atom-space-pen-views" aria-hidden="true"><span class="octicon octicon-link"></span></a>Require views from atom-space-pen-views</h5>
+
 <p>Anywhere you are requiring one of the following from <code>atom</code> you need to require them from <code>atom-space-pen-views</code> instead.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># require these from 'atom-space-pen-views' rather than 'atom'
 </span><span class="nx">$</span>
 <span class="nx">$$</span>
@@ -369,101 +392,80 @@
 <span class="nx">View</span>
 <span class="nx">TextEditorView</span>
 <span class="nx">ScrollView</span>
-<span class="nx">SelectListView</span></code></pre>
+<span class="nx">SelectListView</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>So this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffee"><code><span class="c1"># Old way
-</span><span class="p">{</span><span class="nx">$</span><span class="p">,</span> <span class="nx">TextEditorView</span><span class="p">,</span> <span class="nx">View</span><span class="p">,</span> <span class="nx">GitRepository</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span></code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+<pre class="highlight highlight-coffee"><code><span class="c1"># Old way
+</span><span class="p">{</span><span class="nx">$</span><span class="p">,</span> <span class="nx">TextEditorView</span><span class="p">,</span> <span class="nx">View</span><span class="p">,</span> <span class="nx">GitRepository</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
+</code></pre>
+
+
 <p>Would be replaced by this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New way
 </span><span class="p">{</span><span class="nx">GitRepository</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
-<span class="p">{</span><span class="nx">$</span><span class="p">,</span> <span class="nx">TextEditorView</span><span class="p">,</span> <span class="nx">View</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom-space-pen-views'</span></code></pre>
+<span class="p">{</span><span class="nx">$</span><span class="p">,</span> <span class="nx">TextEditorView</span><span class="p">,</span> <span class="nx">View</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom-space-pen-views'</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="run-specs-and-test-your-package">Run specs and test your package</h5>
-<div class="paragraph">
-<p>You wrote specs, right!? Here’s where they shine. Run them with <code>cmd-shift-P</code>, and search for <code>run package specs</code>. It will show all the deprecation messages and errors.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="update-the-engines-field-in-package-json">Update the engines field in package.json</h5>
-<div class="paragraph">
+
+<h5>
+<a id="run-specs-and-test-your-package" class="anchor" href="#run-specs-and-test-your-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run specs and test your package</h5>
+
+<p>You wrote specs, right!? Here's where they shine. Run them with <code>cmd-shift-P</code>, and search for <code>run package specs</code>. It will show all the deprecation messages and errors.</p>
+
+<h5>
+<a id="update-the-engines-field" class="anchor" href="#update-the-engines-field" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update the engines field</h5>
+
 <p>When you are deprecation free and all done converting, upgrade the <code>engines</code> field in your package.json:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"engines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"atom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&gt;=0.174.0 &lt;2.0.0"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre>
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="examples">Examples</h5>
-<div class="paragraph">
+
+<h5>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h5>
+
 <p>We have upgraded all the core packages. Please see <a href="https://github.com/atom/atom/issues/4011">this issue</a> for a link to all the upgrade PRs.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deprecations">Deprecations</h4>
-<div class="paragraph">
-<p>All of the methods in Atom core that have changes will emit deprecation messages when called. These messages are shown in two places: your <strong>package specs</strong>, and in <strong>Deprecation Cop</strong>.</p>
-</div>
-<div class="sect4">
-<h5 id="specs">Specs</h5>
-<div class="paragraph">
+
+<h4>
+<a id="deprecations" class="anchor" href="#deprecations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deprecations</h4>
+
+<p>All of the methods in Atom core that have changes will emit deprecation messages when called. These messages are shown in two places: your <strong>package specs</strong>, and in Deprecation Cop.</p>
+
+<h5>
+<a id="specs" class="anchor" href="#specs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Specs</h5>
+
 <p>Just run your specs, and all the deprecations will be displayed in yellow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/spec-deps.png" alt="spec-deps">
-</div>
-<div class="title">Figure 1. Deprecations in specs</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="deprecation-cop">Deprecation Cop</h5>
-<div class="paragraph">
-<p>Run an atom window in dev mode (<code>atom -d</code>) with your package loaded, and open Deprecation Cop (search for <code>deprecation</code> in the command palette). Deprecated methods will be appear in Deprecation Cop only after they have been called.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/dep-cop.png" alt="dep-cop">
-</div>
-<div class="title">Figure 2. Deprecation Cop</div>
-</div>
-<div class="paragraph">
-<p>When deprecation cop is open, and deprecated methods are called, a <code>Refresh</code> button will appear in the top right of the Deprecation Cop interface. So exercise your package, then come back to Deprecation Cop and click the <code>Refresh</code> button.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="upgrading-your-views">Upgrading your Views</h4>
-<div class="paragraph">
+
+<p><img src="../../images/spec-deps.png" alt="Deprecations in Specs"></p>
+
+<p>{{#info}}</p>
+
+<p>Deprecations are only displayed when executing specs through the "Window: Run Package Specs" command in the Atom UI. Deprecations are not displayed when running specs at the terminal.</p>
+
+<p>{{/info}}</p>
+
+<h5>
+<a id="deprecation-cop" class="anchor" href="#deprecation-cop" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deprecation Cop</h5>
+
+<p>Run Atom in Dev Mode, <code>atom --dev</code>, with your package loaded, and open Deprecation Cop (search for "deprecation" in the command palette). Deprecated methods will appear in Deprecation Cop only after they have been called.</p>
+
+<p><img src="../../images/dep-cop.png" alt="Deprecation Cop"></p>
+
+<p>When Deprecation Cop is open, and deprecated methods are called, a <code>Refresh</code> button will appear in the top right of the Deprecation Cop interface. So exercise your package, then come back to Deprecation Cop and click the <code>Refresh</code> button.</p>
+
+<h4>
+<a id="upgrading-your-views" class="anchor" href="#upgrading-your-views" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading your Views</h4>
+
 <p>Previous to 1.0, views were baked into Atom core. These views were based on jQuery and <code>space-pen</code>. They looked something like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># The old way: getting views from atom
 </span><span class="p">{</span><span class="nx">$</span><span class="p">,</span> <span class="nx">TextEditorView</span><span class="p">,</span> <span class="nx">View</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
 
@@ -473,20 +475,17 @@
     <span class="vi">@</span><span class="na">div</span> <span class="na">class</span><span class="o">:</span> <span class="s">'find-and-replace'</span><span class="p">,</span> <span class="o">=&gt;</span>
       <span class="vi">@</span><span class="na">div</span> <span class="na">class</span><span class="o">:</span> <span class="s">'block'</span><span class="p">,</span> <span class="o">=&gt;</span>
         <span class="vi">@</span><span class="na">subview</span> <span class="s">'myEditor'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">TextEditorView</span><span class="p">(</span><span class="na">mini</span><span class="o">:</span> <span class="no">true</span><span class="p">)</span>
-  <span class="err">#</span><span class="p">...</span></code></pre>
+  <span class="c1">#...
+</span></code></pre>
 
-</div>
-</div>
-<div class="sect4">
-<h5 id="the-new">The New</h5>
-<div class="paragraph">
-<p><code>require 'atom'</code> no longer provides view helpers or jQuery. Atom core is now 'view agnostic'. The preexisting view system is available from a new npm package: <code>atom-space-pen-views</code>.</p>
-</div>
-<div class="paragraph">
-<p><code>atom-space-pen-views</code> now provides jQuery, <code>space-pen</code> views, and Atom specific views:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<h5>
+<a id="the-new" class="anchor" href="#the-new" aria-hidden="true"><span class="octicon octicon-link"></span></a>The New</h5>
+
+<p><code>require 'atom'</code> no longer provides view helpers or jQuery. Atom Core is now 'view agnostic'. The preexisting view system is available from a new Node module: atom-space-pen-views.</p>
+
+<p>atom-space-pen-views now provides jQuery, space-pen views, and Atom specific views:</p>
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># These are now provided by atom-space-pen-views
 </span><span class="nx">$</span>
 <span class="nx">$$</span>
@@ -494,63 +493,50 @@
 <span class="nx">View</span>
 <span class="nx">TextEditorView</span>
 <span class="nx">ScrollView</span>
-<span class="nx">SelectListView</span></code></pre>
+<span class="nx">SelectListView</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="adding-the-module-dependencies">Adding the module dependencies</h5>
-<div class="paragraph">
-<p>To use the new views, you need to specify the <code>atom-space-pen-views</code> module in your package’s <code>package.json</code> file’s dependencies:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<h5>
+<a id="adding-the-module-dependencies" class="anchor" href="#adding-the-module-dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding the module dependencies</h5>
+
+<p>To use the new views, you need to specify the atom-space-pen-views module in your package's <code>package.json</code> file's dependencies:</p>
+
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"atom-space-pen-views"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^2.0.3"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre>
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p><code>space-pen</code> bundles jQuery. If you do not need <code>space-pen</code> or any of the views, you can require jQuery directly.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>space-pen bundles jQuery. If you do not need space-pen or any of the views, you can require jQuery directly.</p>
+
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"jquery"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^2"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre>
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="converting-your-views">Converting your views</h5>
-<div class="paragraph">
+
+<h5>
+<a id="converting-your-views" class="anchor" href="#converting-your-views" aria-hidden="true"><span class="octicon octicon-link"></span></a>Converting your views</h5>
+
 <p>Sometimes it is as simple as converting the requires at the top of each view page. I assume you read the 'TL;DR' section and have updated all of your requires.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="upgrading-classes-extending-any-space-pen-view">Upgrading classes extending any space-pen View</h5>
-<div class="sect5">
-<h6 id="code-afterattach-code-and-code-beforeremove-code-updated">
-<code>afterAttach</code> and <code>beforeRemove</code> updated</h6>
-<div class="paragraph">
-<p>The <code>afterAttach</code> and <code>beforeRemove</code> hooks have been replaced with
-<code>attached</code> and <code>detached</code> and the semantics have changed.</p>
-</div>
-<div class="paragraph">
-<p><code>afterAttach</code> was called whenever the node was attached to another DOM node, even if that parent node wasn’t present in the DOM. <code>afterAttach</code> also was called with a boolean indicating whether or not the element and its parents were on the DOM. Now the <code>attached</code> hook is <em>only</em> called when the node and all of its parents are actually on the DOM, and is not called with a boolean.</p>
-</div>
-<div class="paragraph">
+
+<h5>
+<a id="upgrading-classes-extending-any-space-pen-view" class="anchor" href="#upgrading-classes-extending-any-space-pen-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading classes extending any space-pen View</h5>
+
+<h6>
+<a id="afterattach-and-beforeremove-updated" class="anchor" href="#afterattach-and-beforeremove-updated" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>afterAttach</code> and <code>beforeRemove</code> updated</h6>
+
+<p>The <code>afterAttach</code> and <code>beforeRemove</code> hooks have been replaced with <code>attached</code> and <code>detached</code> and the semantics have changed.</p>
+
+<p><code>afterAttach</code> was called whenever the node was attached to another DOM node, even if that parent node wasn't present in the DOM. <code>afterAttach</code> also was called with a boolean indicating whether or not the element and its parents were on the DOM. Now the <code>attached</code> hook is <em>only</em> called when the node and all of its parents are actually on the DOM, and is not called with a boolean.</p>
+
 <p><code>beforeRemove</code> was only called when <code>$.fn.remove</code> was called, which was typically used when the node was completely removed from the DOM. The new <code>detached</code> hook is called whenever the DOM node is <em>detached</em>, which could happen if the node is being detached for reattachment later. In short, if <code>beforeRemove</code> is called the node is never coming back. With <code>detached</code> it might be attached again later.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># Old way
 </span><span class="p">{</span><span class="nx">View</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
 <span class="k">class</span> <span class="nx">MyView</span> <span class="k">extends</span> <span class="nx">View</span>
@@ -558,12 +544,10 @@
     <span class="c1">#...
 </span>
   <span class="na">beforeRemove</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="err">#</span><span class="p">...</span></code></pre>
+    <span class="c1">#...
+</span></code></pre>
 
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New way
 </span><span class="p">{</span><span class="nx">View</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom-space-pen-views'</span>
 <span class="k">class</span> <span class="nx">MyView</span> <span class="k">extends</span> <span class="nx">View</span>
@@ -572,35 +556,27 @@
 </span>    <span class="c1">#...
 </span>
   <span class="na">detached</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="err">#</span><span class="p">...</span></code></pre>
+    <span class="c1">#...
+</span></code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect5">
-<h6 id="code-subscribe-code-and-code-subscribetocommand-code-methods-removed">
-<code>subscribe</code> and <code>subscribeToCommand</code> methods removed</h6>
-<div class="paragraph">
+
+<h6>
+<a id="subscribe-and-subscribetocommand-methods-removed" class="anchor" href="#subscribe-and-subscribetocommand-methods-removed" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>subscribe</code> and <code>subscribeToCommand</code> methods removed</h6>
+
 <p>The <code>subscribe</code> and <code>subscribeToCommand</code> methods have been removed. See the Eventing and Disposables section for more info.</p>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="upgrading-to-the-new-texteditorview">Upgrading to the new TextEditorView</h5>
-<div class="paragraph">
+
+<h5>
+<a id="upgrading-to-the-new-texteditorview" class="anchor" href="#upgrading-to-the-new-texteditorview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading to the new TextEditorView</h5>
+
 <p>All of the atom-specific methods available on the <code>TextEditorView</code> have been moved to the <code>TextEditor</code>, available via <code>TextEditorView::getModel</code>. See the <a href="https://github.com/atom/atom-space-pen-views#texteditorview"><code>TextEditorView</code> docs</a> and <a href="https://atom.io/docs/api/latest/TextEditor"><code>TextEditor</code> docs</a> for more info.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="upgrading-classes-extending-scrollview">Upgrading classes extending ScrollView</h5>
-<div class="paragraph">
+
+<h5>
+<a id="upgrading-classes-extending-scrollview" class="anchor" href="#upgrading-classes-extending-scrollview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading classes extending ScrollView</h5>
+
 <p>The <code>ScrollView</code> has very minor changes.</p>
-</div>
-<div class="paragraph">
+
 <p>You can no longer use <code>@off</code> to remove default behavior for <code>core:move-up</code>, <code>core:move-down</code>, etc.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># Old way to turn off default behavior
 </span><span class="k">class</span> <span class="nx">ResultsView</span> <span class="k">extends</span> <span class="nx">ScrollView</span>
   <span class="na">initialize</span><span class="o">:</span> <span class="p">(</span><span class="vi">@</span><span class="na">model</span><span class="p">)</span> <span class="o">-&gt;</span>
@@ -609,39 +585,29 @@
 </span>    <span class="vi">@</span><span class="na">off</span> <span class="s">'core:move-up'</span>
     <span class="vi">@</span><span class="na">off</span> <span class="s">'core:move-down'</span>
     <span class="vi">@</span><span class="na">off</span> <span class="s">'core:move-left'</span>
-    <span class="vi">@</span><span class="na">off</span> <span class="s">'core:move-right'</span></code></pre>
+    <span class="vi">@</span><span class="na">off</span> <span class="s">'core:move-right'</span>
+</code></pre>
 
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New way to turn off default behavior
 </span><span class="k">class</span> <span class="nx">ResultsView</span> <span class="k">extends</span> <span class="nx">ScrollView</span>
   <span class="na">initialize</span><span class="o">:</span> <span class="p">(</span><span class="vi">@</span><span class="na">model</span><span class="p">)</span> <span class="o">-&gt;</span>
     <span class="nx">disposable</span> <span class="o">=</span> <span class="k">super</span><span class="p">()</span>
     <span class="c1"># turn off default scrolling behavior from ScrollView
-</span>    <span class="nx">disposable</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span></code></pre>
+</span>    <span class="nx">disposable</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-<div class="ulist">
+
 <ul>
-<li>
-<p>Check out <a href="https://github.com/atom/find-and-replace/pull/311/files#diff-9">an example</a> from find-and-replace.</p>
-</li>
-<li>
-<p>See the <a href="https://github.com/atom/atom-space-pen-views#scrollview">docs</a> for all the options.</p>
-</li>
+<li>Check out <a href="https://github.com/atom/find-and-replace/pull/311/files#diff-9">an example</a> from find-and-replace.</li>
+<li>See the <a href="https://github.com/atom/atom-space-pen-views#scrollview">docs</a> for all the options.</li>
 </ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="upgrading-classes-extending-selectlistview">Upgrading classes extending SelectListView</h5>
-<div class="paragraph">
-<p>Your SelectListView might look something like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<h5>
+<a id="upgrading-classes-extending-selectlistview" class="anchor" href="#upgrading-classes-extending-selectlistview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading classes extending SelectListView</h5>
+
+<p>Your <code>SelectListView</code> might look something like this:</p>
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># Old!
 </span><span class="k">class</span> <span class="nx">CommandPaletteView</span> <span class="k">extends</span> <span class="nx">SelectListView</span>
   <span class="na">initialize</span><span class="o">:</span> <span class="o">-&gt;</span>
@@ -669,18 +635,14 @@
     <span class="vi">@</span><span class="na">focusFilterEditor</span><span class="p">()</span>
 
   <span class="na">confirmed</span><span class="o">:</span> <span class="p">({</span><span class="nx">name</span><span class="p">,</span> <span class="nx">jQuery</span><span class="p">})</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">cancel</span><span class="p">()</span></code></pre>
+    <span class="vi">@</span><span class="na">cancel</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>This attaches and detaches itself from the dom when toggled, canceling magically detaches it from the DOM, and it uses the classes <code>overlay</code> and <code>from-top</code>.</p>
-</div>
-<div class="paragraph">
-<p>The new SelectListView no longer automatically detaches itself from the DOM when cancelled. It’s up to you to implement whatever cancel behavior you want. Using the new APIs to mimic the semantics of the old class, it should look like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>This attaches and detaches itself from the DOM when toggled, canceling magically detaches it from the DOM, and it uses the classes <code>overlay</code> and <code>from-top</code>.</p>
+
+<p>The new SelectListView no longer automatically detaches itself from the DOM when cancelled. It's up to you to implement whatever cancel behavior you want. Using the new APIs to mimic the semantics of the old class, it should look like this:</p>
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="k">class</span> <span class="nx">CommandPaletteView</span> <span class="k">extends</span> <span class="nx">SelectListView</span>
   <span class="na">initialize</span><span class="o">:</span> <span class="o">-&gt;</span>
@@ -718,60 +680,43 @@
     <span class="vi">@</span><span class="na">focusFilterEditor</span><span class="p">()</span>
 
   <span class="na">hide</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">panel</span><span class="o">?</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span></code></pre>
+    <span class="vi">@</span><span class="na">panel</span><span class="o">?</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-<div class="ulist">
+
 <ul>
-<li>
-<p>And check out the <a href="https://github.com/atom/command-palette/pull/19/files">conversion of CommandPaletteView</a> as a real-world example.</p>
-</li>
-<li>
-<p>See the <a href="https://github.com/atom/atom-space-pen-views#selectlistview">SelectListView docs</a> for all options.</p>
-</li>
+<li>And check out the <a href="https://github.com/atom/command-palette/pull/19/files">conversion of <code>CommandPaletteView</code></a> as a real-world example.</li>
+<li>See the <a href="https://github.com/atom/atom-space-pen-views#selectlistview"><code>SelectListView</code> docs</a> for all options.</li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="using-the-model-layer-rather-than-the-view-layer">Using the model layer rather than the view layer</h4>
-<div class="paragraph">
+
+<h4>
+<a id="using-the-model-layer-rather-than-the-view-layer" class="anchor" href="#using-the-model-layer-rather-than-the-view-layer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the model layer rather than the view layer</h4>
+
 <p>The API no longer exposes any specialized view objects or view classes. <code>atom.workspaceView</code>, and all the view classes: <code>WorkspaceView</code>, <code>EditorView</code>, <code>PaneView</code>, etc. have been globally deprecated.</p>
-</div>
-<div class="paragraph">
-<p>Nearly all of the atom-specific actions performed by the old view objects can now be managed via the model layer. For example, here’s adding a panel to the interface using the <code>atom.workspace</code> model instead of the <code>workspaceView</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>Nearly all of the atom-specific actions performed by the old view objects can now be managed via the model layer. For example, here's adding a panel to the interface using the <code>atom.workspace</code> model instead of the <code>workspaceView</code>:</p>
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># Old!
 </span><span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">'div'</span><span class="p">)</span>
-<span class="nx">atom</span><span class="p">.</span><span class="na">workspaceView</span><span class="p">.</span><span class="na">appendToTop</span><span class="p">(</span><span class="nx">div</span><span class="p">)</span></code></pre>
+<span class="nx">atom</span><span class="p">.</span><span class="na">workspaceView</span><span class="p">.</span><span class="na">appendToTop</span><span class="p">(</span><span class="nx">div</span><span class="p">)</span>
+</code></pre>
 
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">'div'</span><span class="p">)</span>
-<span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">addTopPanel</span><span class="p">(</span><span class="na">item</span><span class="o">:</span> <span class="nx">div</span><span class="p">)</span></code></pre>
+<span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">addTopPanel</span><span class="p">(</span><span class="na">item</span><span class="o">:</span> <span class="nx">div</span><span class="p">)</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>For actions that still require the view, such as dispatching commands or munging css classes, you’ll access the view via the <code>atom.views.getView()</code> method. This will return a subclass of <code>HTMLElement</code> rather than a jQuery object or an instance of a deprecated view class (e.g. <code>WorkspaceView</code>).</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>For actions that still require the view, such as dispatching commands or munging css classes, you'll access the view via the <code>atom.views.getView()</code> method. This will return a subclass of <code>HTMLElement</code> rather than a jQuery object or an instance of a deprecated view class (e.g. <code>WorkspaceView</code>).</p>
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># Old!
 </span><span class="nx">workspaceView</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspaceView</span>
 <span class="nx">editorView</span> <span class="o">=</span> <span class="nx">workspaceView</span><span class="p">.</span><span class="na">getActiveEditorView</span><span class="p">()</span>
-<span class="nx">paneView</span> <span class="o">=</span> <span class="nx">editorView</span><span class="p">.</span><span class="na">getPaneView</span><span class="p">()</span></code></pre>
+<span class="nx">paneView</span> <span class="o">=</span> <span class="nx">editorView</span><span class="p">.</span><span class="na">getPaneView</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 # Generally, just use the models
 </span><span class="nx">workspace</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span>
@@ -781,192 +726,148 @@
 <span class="c1"># If you need views, get them with `getView`
 </span><span class="nx">workspaceElement</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">views</span><span class="p">.</span><span class="na">getView</span><span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">)</span>
 <span class="nx">editorElement</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">views</span><span class="p">.</span><span class="na">getView</span><span class="p">(</span><span class="nx">editor</span><span class="p">)</span>
-<span class="nx">paneElement</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">views</span><span class="p">.</span><span class="na">getView</span><span class="p">(</span><span class="nx">pane</span><span class="p">)</span></code></pre>
+<span class="nx">paneElement</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">views</span><span class="p">.</span><span class="na">getView</span><span class="p">(</span><span class="nx">pane</span><span class="p">)</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="updating-specs">Updating Specs</h4>
-<div class="paragraph">
+
+<h4>
+<a id="updating-specs" class="anchor" href="#updating-specs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updating Specs</h4>
+
 <p><code>atom.workspaceView</code>, the <code>WorkspaceView</code> class and the <code>EditorView</code> class have been deprecated. These two objects are used heavily throughout specs, mostly to dispatch events and commands. This section will explain how to remove them while still retaining the ability to dispatch events and commands.</p>
-</div>
-<div class="sect4">
-<h5 id="removing-workspaceview-references">Removing WorkspaceView references</h5>
-<div class="paragraph">
+
+<h5>
+<a id="removing-workspaceview-references" class="anchor" href="#removing-workspaceview-references" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing <code>WorkspaceView</code> references</h5>
+
 <p><code>WorkspaceView</code> has been deprecated. Everything you could do on the view, you can now do on the <code>Workspace</code> model.</p>
-</div>
-<div class="paragraph">
+
 <p>Requiring <code>WorkspaceView</code> from <code>atom</code> and accessing any methods on it will throw a deprecation warning. Many specs lean heavily on <code>WorkspaceView</code> to trigger commands and fetch <code>EditorView</code> objects.</p>
-</div>
-<div class="paragraph">
+
 <p>Your specs might contain something like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># Old!
 </span><span class="p">{</span><span class="nx">WorkspaceView</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
 <span class="nx">describe</span> <span class="s">'FindView'</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">beforeEach</span> <span class="o">-&gt;</span>
-    <span class="nx">atom</span><span class="p">.</span><span class="na">workspaceView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WorkspaceView</span><span class="p">()</span></code></pre>
+    <span class="nx">atom</span><span class="p">.</span><span class="na">workspaceView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WorkspaceView</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>Instead, we will use the <code>atom.views.getView()</code> method. This will return a plain <code>HTMLElement</code>, not a <code>WorkspaceView</code> or jQuery object.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="nx">describe</span> <span class="s">'FindView'</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">workspaceElement</span> <span class="o">=</span> <span class="no">null</span>
   <span class="nx">beforeEach</span> <span class="o">-&gt;</span>
-    <span class="nx">workspaceElement</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">views</span><span class="p">.</span><span class="na">getView</span><span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">)</span></code></pre>
+    <span class="nx">workspaceElement</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">views</span><span class="p">.</span><span class="na">getView</span><span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">)</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="attaching-the-workspace-to-the-dom">Attaching the workspace to the DOM</h5>
-<div class="paragraph">
+
+<h5>
+<a id="attaching-the-workspace-to-the-dom" class="anchor" href="#attaching-the-workspace-to-the-dom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Attaching the workspace to the DOM</h5>
+
 <p>The workspace needs to be attached to the DOM in some cases. For example, view hooks only work (<code>attached()</code> on <code>View</code>, <code>attachedCallback()</code> on custom elements) when there is a descendant attached to the DOM.</p>
-</div>
-<div class="paragraph">
+
 <p>You might see this in your specs:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># Old!
-</span><span class="nx">atom</span><span class="p">.</span><span class="na">workspaceView</span><span class="p">.</span><span class="na">attachToDom</span><span class="p">()</span></code></pre>
+</span><span class="nx">atom</span><span class="p">.</span><span class="na">workspaceView</span><span class="p">.</span><span class="na">attachToDom</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>Change it to:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffee"><code><span class="c1"># New!
-</span><span class="nx">jasmine</span><span class="p">.</span><span class="na">attachToDOM</span><span class="p">(</span><span class="nx">workspaceElement</span><span class="p">)</span></code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="removing-editorview-references">Removing EditorView references</h5>
-<div class="paragraph">
+<pre class="highlight highlight-coffee"><code><span class="c1"># New!
+</span><span class="nx">jasmine</span><span class="p">.</span><span class="na">attachToDOM</span><span class="p">(</span><span class="nx">workspaceElement</span><span class="p">)</span>
+</code></pre>
+
+
+<h5>
+<a id="removing-editorview-references" class="anchor" href="#removing-editorview-references" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing EditorView references</h5>
+
 <p>Like <code>WorkspaceView</code>, <code>EditorView</code> has been deprecated. Everything you needed to do on the view you are now able to do on the <code>TextEditor</code> model.</p>
-</div>
-<div class="paragraph">
-<p>In many cases, you will not even need to get the editor’s view anymore. Any of those instances should be updated to use the <code>TextEditor</code> instance instead. You should really only need the editor’s view when you plan on triggering a command on the view in a spec.</p>
-</div>
-<div class="paragraph">
+
+<p>In many cases, you will not even need to get the editor's view anymore. Any of those instances should be updated to use the <code>TextEditor</code> instance instead. You should really only need the editor's view when you plan on triggering a command on the view in a spec.</p>
+
 <p>Your specs might contain something like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># Old!
 </span><span class="nx">describe</span> <span class="s">'Something'</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="p">[</span><span class="nx">editorView</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
   <span class="nx">beforeEach</span> <span class="o">-&gt;</span>
-    <span class="nx">editorView</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspaceView</span><span class="p">.</span><span class="na">getActiveView</span><span class="p">()</span></code></pre>
+    <span class="nx">editorView</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspaceView</span><span class="p">.</span><span class="na">getActiveView</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>We’re going to use <code>atom.views.getView()</code> again to get the editor element. As in the case of the <code>workspaceElement</code>, <code>getView</code> will return a subclass of <code>HTMLElement</code> rather than an <code>EditorView</code> or jQuery object.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>We're going to use <code>atom.views.getView()</code> again to get the editor element. As in the case of the <code>workspaceElement</code>, <code>getView</code> will return a subclass of <code>HTMLElement</code> rather than an <code>EditorView</code> or jQuery object.</p>
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="nx">describe</span> <span class="s">'Something'</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="p">[</span><span class="nx">editor</span><span class="p">,</span> <span class="nx">editorElement</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
   <span class="nx">beforeEach</span> <span class="o">-&gt;</span>
     <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
-    <span class="nx">editorElement</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">views</span><span class="p">.</span><span class="na">getView</span><span class="p">(</span><span class="nx">editor</span><span class="p">)</span></code></pre>
+    <span class="nx">editorElement</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">views</span><span class="p">.</span><span class="na">getView</span><span class="p">(</span><span class="nx">editor</span><span class="p">)</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="dispatching-commands">Dispatching commands</h5>
-<div class="paragraph">
-<p>Since the <code>editorElement</code> objects are no longer <code>jQuery</code> objects, they no longer support <code>trigger()</code>. Additionally, Atom has a new command dispatcher, <code>atom.commands</code>, that we use rather than commandeering jQuery’s <code>trigger</code> method.</p>
-</div>
-<div class="paragraph">
+
+<h5>
+<a id="dispatching-commands" class="anchor" href="#dispatching-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dispatching commands</h5>
+
+<p>Since the <code>editorElement</code> objects are no longer jQuery objects, they no longer support <code>trigger()</code>. Additionally, Atom has a new command dispatcher, <code>atom.commands</code>, that we use rather than commandeering jQuery's <code>trigger</code> method.</p>
+
 <p>From this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># Old!
 </span><span class="nx">workspaceView</span><span class="p">.</span><span class="na">trigger</span> <span class="s">'a-package:toggle'</span>
-<span class="nx">editorView</span><span class="p">.</span><span class="na">trigger</span> <span class="s">'find-and-replace:show'</span></code></pre>
+<span class="nx">editorView</span><span class="p">.</span><span class="na">trigger</span> <span class="s">'find-and-replace:show'</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>To this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">dispatch</span> <span class="nx">workspaceElement</span><span class="p">,</span> <span class="s">'a-package:toggle'</span>
-<span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">dispatch</span> <span class="nx">editorElement</span><span class="p">,</span> <span class="s">'find-and-replace:show'</span></code></pre>
+<span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">dispatch</span> <span class="nx">editorElement</span><span class="p">,</span> <span class="s">'find-and-replace:show'</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="eventing-and-disposables">Eventing and Disposables</h4>
-<div class="paragraph">
+
+<h4>
+<a id="eventing-and-disposables" class="anchor" href="#eventing-and-disposables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Eventing and Disposables</h4>
+
 <p>A couple large things changed with respect to events:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>All model events are now exposed as event subscription methods that return <a href="https://atom.io/docs/api/latest/Disposable"><code>Disposable</code></a> objects</p>
-</li>
-<li>
-<p>The <code>subscribe()</code> method is no longer available on <code>space-pen</code> <code>View</code> objects</p>
-</li>
-<li>
-<p>An Emitter is now provided from <code>require 'atom'</code></p>
+
+<ol>
+<li>All model events are now exposed as event subscription methods that return <a href="https://atom.io/docs/api/latest/Disposable"><code>Disposable</code></a> objects</li>
+<li>The <code>subscribe()</code> method is no longer available on <code>space-pen</code> <code>View</code> objects</li>
+<li>An Emitter is now provided from <code>require 'atom'</code>
 </li>
 </ol>
-</div>
-<div class="sect4">
-<h5 id="consuming-events">Consuming Events</h5>
-<div class="paragraph">
-<p>All events from the Atom API are now methods that return a <a href="https://atom.io/docs/api/latest/Disposable"><code>Disposable</code></a> object, on which you can call <code>dispose()</code> to unsubscribe.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffee"><code><span class="c1"># Old!
-</span><span class="nx">editor</span><span class="p">.</span><span class="na">on</span> <span class="s">'changed'</span><span class="p">,</span> <span class="o">-&gt;</span></code></pre>
 
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
+<h5>
+<a id="consuming-events" class="anchor" href="#consuming-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Consuming Events</h5>
+
+<p>All events from the Atom API are now methods that return a <a href="https://atom.io/docs/api/latest/Disposable"><code>Disposable</code></a> object, on which you can call <code>dispose()</code> to unsubscribe.</p>
+
+<pre class="highlight highlight-coffee"><code><span class="c1"># Old!
+</span><span class="nx">editor</span><span class="p">.</span><span class="na">on</span> <span class="s">'changed'</span><span class="p">,</span> <span class="o">-&gt;</span>
+</code></pre>
+
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="nx">disposable</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">onDidChange</span> <span class="o">-&gt;</span>
 
 <span class="c1"># You can unsubscribe at some point in the future via `dispose()`
-</span><span class="nx">disposable</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span></code></pre>
+</span><span class="nx">disposable</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>Deprecation warnings will guide you toward the correct methods.</p>
-</div>
-<div class="sect5">
-<h6 id="using-a-compositedisposable">Using a CompositeDisposable</h6>
-<div class="paragraph">
+
+<h6>
+<a id="using-a-compositedisposable" class="anchor" href="#using-a-compositedisposable" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using a <code>CompositeDisposable</code>
+</h6>
+
 <p>You can group multiple disposables into a single disposable with a <code>CompositeDisposable</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
 
 <span class="k">class</span> <span class="nx">Something</span>
@@ -977,73 +878,60 @@
     <span class="vi">@</span><span class="na">disposables</span><span class="p">.</span><span class="na">add</span> <span class="nx">editor</span><span class="p">.</span><span class="na">onDidChangePath</span> <span class="o">-&gt;</span>
 
   <span class="na">destroy</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">disposables</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span></code></pre>
+    <span class="vi">@</span><span class="na">disposables</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="removing-view-subscribe-and-subscriber-subscribe-calls">Removing View::subscribe and Subscriber::subscribe calls</h5>
-<div class="paragraph">
+
+<h5>
+<a id="removing-viewsubscribe-and-subscribersubscribe-calls" class="anchor" href="#removing-viewsubscribe-and-subscribersubscribe-calls" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing <code>View::subscribe</code> and <code>Subscriber::subscribe</code> calls</h5>
+
 <p>There were a couple permutations of <code>subscribe()</code>. In these examples, a <code>CompositeDisposable</code> is used as it will commonly be useful where conversion is necessary.</p>
-</div>
-<div class="sect5">
-<h6 id="subscribe-unsubscribable">subscribe(unsubscribable)</h6>
-<div class="paragraph">
+
+<h6>
+<a id="subscribeunsubscribable" class="anchor" href="#subscribeunsubscribable" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>subscribe(unsubscribable)</code>
+</h6>
+
 <p>This one is very straight forward.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffee"><code><span class="c1"># Old!
-</span><span class="vi">@</span><span class="na">subscribe</span> <span class="nx">editor</span><span class="p">.</span><span class="na">on</span> <span class="s">'changed'</span><span class="p">,</span> <span class="o">-&gt;</span></code></pre>
 
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
+<pre class="highlight highlight-coffee"><code><span class="c1"># Old!
+</span><span class="vi">@</span><span class="na">subscribe</span> <span class="nx">editor</span><span class="p">.</span><span class="na">on</span> <span class="s">'changed'</span><span class="p">,</span> <span class="o">-&gt;</span>
+</code></pre>
+
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="nx">disposables</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span>
-<span class="nx">disposables</span><span class="p">.</span><span class="na">add</span> <span class="nx">editor</span><span class="p">.</span><span class="na">onDidChange</span> <span class="o">-&gt;</span></code></pre>
+<span class="nx">disposables</span><span class="p">.</span><span class="na">add</span> <span class="nx">editor</span><span class="p">.</span><span class="na">onDidChange</span> <span class="o">-&gt;</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect5">
-<h6 id="subscribe-modelobject-event-method">subscribe(modelObject, event, method)</h6>
-<div class="paragraph">
+
+<h6>
+<a id="subscribemodelobject-event-method" class="anchor" href="#subscribemodelobject-event-method" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>subscribe(modelObject, event, method)</code>
+</h6>
+
 <p>When the modelObject is an Atom model object, the change is very simple. Just use the correct event method, and add it to your CompositeDisposable.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffee"><code><span class="c1"># Old!
-</span><span class="vi">@</span><span class="na">subscribe</span> <span class="nx">editor</span><span class="p">,</span> <span class="s">'changed'</span><span class="p">,</span> <span class="o">-&gt;</span></code></pre>
 
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
+<pre class="highlight highlight-coffee"><code><span class="c1"># Old!
+</span><span class="vi">@</span><span class="na">subscribe</span> <span class="nx">editor</span><span class="p">,</span> <span class="s">'changed'</span><span class="p">,</span> <span class="o">-&gt;</span>
+</code></pre>
+
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="nx">disposables</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span>
-<span class="nx">disposables</span><span class="p">.</span><span class="na">add</span> <span class="nx">editor</span><span class="p">.</span><span class="na">onDidChange</span> <span class="o">-&gt;</span></code></pre>
+<span class="nx">disposables</span><span class="p">.</span><span class="na">add</span> <span class="nx">editor</span><span class="p">.</span><span class="na">onDidChange</span> <span class="o">-&gt;</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect5">
-<h6 id="subscribe-jqueryobject-selector-optional-event-method">subscribe(jQueryObject, selector(optional), event, method)</h6>
-<div class="paragraph">
+
+<h6>
+<a id="subscribejqueryobject-selectoroptional-event-method" class="anchor" href="#subscribejqueryobject-selectoroptional-event-method" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>subscribe(jQueryObject, selector(optional), event, method)</code>
+</h6>
+
 <p>Things are a little more complicated when subscribing to a DOM or jQuery element. Atom no longer provides helpers for subscribing to elements. You can use jQuery or the native DOM APIs, whichever you prefer.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffee"><code><span class="c1"># Old!
-</span><span class="vi">@</span><span class="na">subscribe</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">),</span> <span class="s">'focus'</span><span class="p">,</span> <span class="o">-&gt;</span></code></pre>
 
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
+<pre class="highlight highlight-coffee"><code><span class="c1"># Old!
+</span><span class="vi">@</span><span class="na">subscribe</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">),</span> <span class="s">'focus'</span><span class="p">,</span> <span class="o">-&gt;</span>
+</code></pre>
+
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="p">{</span><span class="nx">Disposable</span><span class="p">,</span> <span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
 <span class="nx">disposables</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span>
@@ -1058,19 +946,16 @@
 </span><span class="nx">focusCallback</span> <span class="o">=</span> <span class="o">-&gt;</span>
 <span class="nb">window</span><span class="p">.</span><span class="na">addEventListener</span> <span class="s">'focus'</span><span class="p">,</span> <span class="nx">focusCallback</span>
 <span class="nx">disposables</span><span class="p">.</span><span class="na">add</span> <span class="k">new</span> <span class="nx">Disposable</span> <span class="o">-&gt;</span>
-  <span class="nb">window</span><span class="p">.</span><span class="na">removeEventListener</span> <span class="s">'focus'</span><span class="p">,</span> <span class="nx">focusCallback</span></code></pre>
+  <span class="nb">window</span><span class="p">.</span><span class="na">removeEventListener</span> <span class="s">'focus'</span><span class="p">,</span> <span class="nx">focusCallback</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="providing-events-using-the-emitter">Providing Events: Using the Emitter</h5>
-<div class="paragraph">
+
+<h5>
+<a id="providing-events-using-the-emitter" class="anchor" href="#providing-events-using-the-emitter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Providing Events: Using the <code>Emitter</code>
+</h5>
+
 <p>You no longer need to require <code>emissary</code> to get an emitter. We now provide an <code>Emitter</code> class from <code>require 'atom'</code>. We have a specific pattern for use of the <code>Emitter</code>. Rather than mixing it in, we instantiate a member variable, and create explicit subscription methods. For more information see the <a href="https://atom.io/docs/api/latest/Emitter"><code>Emitter</code> docs</a>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="p">{</span><span class="nx">Emitter</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
 
@@ -1091,29 +976,23 @@
 </span><span class="nx">something</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Something</span>
 <span class="nx">something</span><span class="p">.</span><span class="na">onDidChange</span> <span class="p">(</span><span class="nx">eventObject</span><span class="p">)</span> <span class="o">-&gt;</span>
   <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="nx">eventObject</span><span class="p">.</span><span class="na">data</span> <span class="c1"># =&gt; 2
-</span><span class="nx">something</span><span class="p">.</span><span class="na">methodThatFiresAChange</span><span class="p">()</span></code></pre>
+</span><span class="nx">something</span><span class="p">.</span><span class="na">methodThatFiresAChange</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="subscribing-to-commands">Subscribing To Commands</h4>
-<div class="paragraph">
+
+<h4>
+<a id="subscribing-to-commands" class="anchor" href="#subscribing-to-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Subscribing To Commands</h4>
+
 <p><code>$.fn.command</code> and <code>View::subscribeToCommand</code> are no longer available. Now we use <code>atom.commands.add</code>, and collect the results in a <code>CompositeDisposable</code>. See <a href="https://atom.io/docs/api/latest/CommandRegistry#instance-add">the docs</a> for more info.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># Old!
 </span><span class="nx">atom</span><span class="p">.</span><span class="na">workspaceView</span><span class="p">.</span><span class="na">command</span> <span class="s">'core:close core:cancel'</span><span class="p">,</span> <span class="o">-&gt;</span>
 
 <span class="c1"># When inside a View class, you might see this
-</span><span class="vi">@</span><span class="na">subscribeToCommand</span> <span class="s">'core:close core:cancel'</span><span class="p">,</span> <span class="o">-&gt;</span></code></pre>
+</span><span class="vi">@</span><span class="na">subscribeToCommand</span> <span class="s">'core:close core:cancel'</span><span class="p">,</span> <span class="o">-&gt;</span>
+</code></pre>
 
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="c1"># New!
 </span><span class="vi">@</span><span class="na">disposables</span><span class="p">.</span><span class="na">add</span> <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-workspace'</span><span class="p">,</span>
   <span class="s">'core:close'</span><span class="o">:</span> <span class="o">-&gt;</span>
@@ -1124,18 +1003,14 @@
 # available. `@element` is a plain HTMLElement object
 </span><span class="vi">@</span><span class="na">disposables</span><span class="p">.</span><span class="na">add</span> <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="vi">@</span><span class="na">element</span><span class="p">,</span>
   <span class="s">'core:close'</span><span class="o">:</span> <span class="o">-&gt;</span>
-  <span class="s">'core:cancel'</span><span class="o">:</span> <span class="o">-&gt;</span></code></pre>
+  <span class="s">'core:cancel'</span><span class="o">:</span> <span class="o">-&gt;</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="upgrading-your-stylesheet-s-selectors">Upgrading your stylesheet’s selectors</h4>
-<div class="paragraph">
+
+<h4>
+<a id="upgrading-your-stylesheets-selectors" class="anchor" href="#upgrading-your-stylesheets-selectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading your stylesheet's selectors</h4>
+
 <p>Many selectors have changed, and we have introduced the <a href="http://blog.atom.io/2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html">Shadow DOM</a> to the editor. See the <a href="https://atom.io/docs/latest/upgrading/upgrading-your-ui-theme">Upgrading Your UI Theme And Package Selectors guide</a> for more information in upgrading your package stylesheets.</p>
-</div>
-</div>
-</div>
         </div>
       </div>
       <div class="footer-pad"></div>

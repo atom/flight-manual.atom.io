@@ -317,132 +317,127 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">4.3 Scoped Settings, Scopes and Scope Descriptors</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">4.3 Scoped Settings, Scopes and Scope Descriptors</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</h3>
-<div class="paragraph">
+          <h3>
+<a id="scoped-settings-scopes-and-scope-descriptors" class="anchor" href="#scoped-settings-scopes-and-scope-descriptors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scoped Settings, Scopes and Scope Descriptors</h3>
+
 <p>Atom supports language-specific settings. You can soft wrap only Markdown files, or set the tab length to 4 in Python files.</p>
-</div>
-<div class="paragraph">
+
 <p>Language-specific settings are a subset of something more general we call "scoped settings". Scoped settings allow targeting down to a specific syntax token type. For example, you could conceivably set a setting to target only Ruby comments, only code inside Markdown files, or even only JavaScript function names.</p>
-</div>
-<div class="sect3">
-<h4 id="scope-names-in-syntax-tokens">Scope names in syntax tokens</h4>
-<div class="paragraph">
+
+<h4>
+<a id="scope-names-in-syntax-tokens" class="anchor" href="#scope-names-in-syntax-tokens" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scope names in syntax tokens</h4>
+
 <p>Each token in the editor has a collection of scope names. For example, the aforementioned JavaScript function name might have the scope names <code>function</code> and <code>name</code>. An open paren might have the scope names <code>punctuation</code>, <code>parameters</code>, <code>begin</code>.</p>
-</div>
-<div class="paragraph">
-<p>Scope names work just like CSS classes. In fact, in the editor, scope names are attached to a token’s DOM node as CSS classes.</p>
-</div>
-<div class="paragraph">
+
+<p>Scope names work just like CSS classes. In fact, in the editor, scope names are attached to a token's DOM node as CSS classes.</p>
+
 <p>Take this piece of JavaScript:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-js"><code><span class="kd">function</span> <span class="nx">functionName</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Log it out'</span><span class="p">);</span>
-<span class="p">}</span></code></pre>
+<span class="p">}</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>In the dev tools, the first line’s markup looks like this.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/markup.png" alt="markup">
-</div>
-<div class="title">Figure 1. Markup</div>
-</div>
-<div class="paragraph">
-<p>All the class names on the spans are scope names. Any scope name can be used to target a setting’s value.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="scope-selectors">Scope Selectors</h4>
-<div class="paragraph">
+
+<p>In the dev tools, the first line's markup looks like this.</p>
+
+<p><img src="../../images/markup.png" alt="Markup"></p>
+
+<p>All the class names on the spans are scope names. Any scope name can be used to target a setting's value.</p>
+
+<h4>
+<a id="scope-selectors" class="anchor" href="#scope-selectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scope Selectors</h4>
+
 <p>Scope selectors allow you to target specific tokens just like a CSS selector targets specific nodes in the DOM. Some examples:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="s">'.source.js'</span> <span class="c1"># selects all javascript tokens
 </span><span class="s">'.source.js .function.name'</span> <span class="c1"># selects all javascript function names
-</span><span class="s">'.function.name'</span> <span class="err">#</span> <span class="nx">selects</span> <span class="nx">all</span> <span class="nx">function</span> <span class="nx">names</span> <span class="k">in</span> <span class="nx">any</span> <span class="nx">language</span></code></pre>
+</span><span class="s">'.function.name'</span> <span class="c1"># selects all function names in any language
+</span></code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p><a href="https://atom.io/docs/api/latest/Config#instance-set"><code>Config::set</code></a> accepts a <code>scopeSelector</code>. If you’d like to set a setting for JavaScript function names, you can give it the js function name <code>scopeSelector</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="s">'special value'</span><span class="p">,</span> <span class="na">scopeSelector</span><span class="o">:</span> <span class="s">'.source.js .function.name'</span><span class="p">)</span></code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="scope-descriptors">Scope Descriptors</h4>
-<div class="paragraph">
-<p>A scope descriptor is an <a href="https://atom.io/docs/api/latest/ScopeDescriptor">Object</a> that wraps an <code>Array</code> of `String`s. The Array describes a path from the root of the syntax tree to a token including <em>all</em> scope names for the entire path.</p>
-</div>
-<div class="paragraph">
+<p><a href="https://atom.io/docs/api/latest/Config#instance-set"><code>Config::set</code></a> accepts a <code>scopeSelector</code>. If you'd like to set a setting for JavaScript function names, you can give it the JavaScript function name <code>scopeSelector</code>:</p>
+
+<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="s">'special value'</span><span class="p">,</span> <span class="na">scopeSelector</span><span class="o">:</span> <span class="s">'.source.js .function.name'</span><span class="p">)</span>
+</code></pre>
+
+
+<p>==== Scope Descriptors</p>
+
+<p>A scope descriptor is an <a href="https://atom.io/docs/api/latest/ScopeDescriptor">Object</a> that wraps an <code>Array</code> of <code>String</code>s. The Array describes a path from the root of the syntax tree to a token including <em>all</em> scope names for the entire path.</p>
+
 <p>In our JavaScript example above, a scope descriptor for the function name token would be:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffee"><code><span class="p">[</span><span class="s">'source.js'</span><span class="p">,</span> <span class="s">'meta.function.js'</span><span class="p">,</span> <span class="s">'entity.name.function.js'</span><span class="p">]</span></code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+<pre class="highlight highlight-coffee"><code><span class="p">[</span><span class="s">'source.js'</span><span class="p">,</span> <span class="s">'meta.function.js'</span><span class="p">,</span> <span class="s">'entity.name.function.js'</span><span class="p">]</span>
+</code></pre>
+
+
 <p><a href="https://atom.io/docs/api/latest/Config#instance-get"><code>Config::get</code></a> accepts a <code>scopeDescriptor</code>. You can get the value for your setting scoped to JavaScript function names via:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffee"><code><span class="nx">scopeDescriptor</span> <span class="o">=</span> <span class="p">[</span><span class="s">'source.js'</span><span class="p">,</span> <span class="s">'meta.function.js'</span><span class="p">,</span> <span class="s">'entity.name.function.js'</span><span class="p">]</span>
-<span class="nx">value</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">scopeDescriptor</span><span class="p">)</span></code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+<pre class="highlight highlight-coffee"><code><span class="nx">scopeDescriptor</span> <span class="o">=</span> <span class="p">[</span><span class="s">'source.js'</span><span class="p">,</span> <span class="s">'meta.function.js'</span><span class="p">,</span> <span class="s">'entity.name.function.js'</span><span class="p">]</span>
+<span class="nx">value</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">scopeDescriptor</span><span class="p">)</span>
+</code></pre>
+
+
 <p>But, you do not need to generate scope descriptors by hand. There are a couple methods available to get the scope descriptor from the editor:</p>
-</div>
-<div class="ulist">
+
 <ul>
 <li>
-<p><a href="https://atom.io/docs/api/latest/TextEditor#instance-getRootScopeDescriptor"><code>Editor::getRootScopeDescriptor</code></a> to get the language’s descriptor. eg. <code>[".source.js"]</code></p>
+<a href="https://atom.io/docs/api/latest/TextEditor#instance-getRootScopeDescriptor"><code>Editor::getRootScopeDescriptor</code></a> to get the language's descriptor. For example: <code>[".source.js"]</code>
 </li>
 <li>
-<p><a href="https://atom.io/docs/api/latest/TextEditor#instance-scopeDescriptorForBufferPosition"><code>Editor::scopeDescriptorForBufferPosition</code></a> to get the descriptor at a specific position in the buffer.</p>
-</li>
+<a href="https://atom.io/docs/api/latest/TextEditor#instance-scopeDescriptorForBufferPosition"><code>Editor::scopeDescriptorForBufferPosition</code></a> to get the descriptor at a specific position in the buffer.</li>
 <li>
-<p><a href="https://atom.io/docs/api/latest/Cursor#instance-getScopeDescriptor"><code>Cursor::getScopeDescriptor</code></a> to get a cursor’s descriptor based on position. eg. if the cursor were in the name of the method in our example it would return <code>["source.js", "meta.function.js", "entity.name.function.js"]</code></p>
+<a href="https://atom.io/docs/api/latest/Cursor#instance-getScopeDescriptor"><code>Cursor::getScopeDescriptor</code></a> to get a cursor's descriptor based on position. eg. if the cursor were in the name of the method in our example it would return <code>["source.js", "meta.function.js", "entity.name.function.js"]</code>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Let’s revisit our example using these methods:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>Let's revisit our example using these methods:</p>
+
 <pre class="highlight highlight-coffee"><code><span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
 <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getLastCursor</span><span class="p">()</span>
 <span class="nx">valueAtCursor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">cursor</span><span class="p">.</span><span class="na">getScopeDescriptor</span><span class="p">())</span>
-<span class="nx">valueForLanguage</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getRootScopeDescriptor</span><span class="p">())</span></code></pre>
+<span class="nx">valueForLanguage</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getRootScopeDescriptor</span><span class="p">())</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-</div>
         </div>
       </div>
       <div class="footer-pad"></div>

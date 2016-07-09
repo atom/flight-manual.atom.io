@@ -317,105 +317,97 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">2.12 Writing in Atom</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/writing-in-atom.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">2.12 Writing in Atom</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/writing-in-atom.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="writing-in-atom">Writing in Atom</h3>
-<div class="paragraph">
-<p>Though it is probably most common to use Atom to write software code, Atom can also be used to write prose quite effectively. Most often this is done in some sort of markup language such as Markdown or Asciidoc (which this manual is written in). Here we’ll quickly cover a few of the tools Atom provides for helping you write prose.</p>
-</div>
-<div class="paragraph">
-<p>In these docs, we’ll concentrate on writing in Markdown; however, other prose markup languages like Asciidoc have packages that provide similar functionality.</p>
-</div>
-<div class="sect3">
-<h4 id="spell-checking">Spell Checking</h4>
-<div class="paragraph">
-<p>If you’re working in text (which includes plain text files, GitHub markdown and Git commit messages by default), Atom will automatically try to check your spelling.</p>
-</div>
-<div class="paragraph">
+          <h3>
+<a id="writing-in-atom" class="anchor" href="#writing-in-atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing in Atom</h3>
+
+<p>Though it is probably most common to use Atom to write software code, Atom can also be used to write prose quite effectively. Most often this is done in some sort of markup language such as Asciidoc or Markdown (which this manual is written in). Here we'll quickly cover a few of the tools Atom provides for helping you write prose.</p>
+
+<p>In these docs, we'll concentrate on writing in Markdown; however, other prose markup languages like Asciidoc have packages that provide similar functionality.</p>
+
+<h4>
+<a id="spell-checking" class="anchor" href="#spell-checking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spell Checking</h4>
+
+<p>If you're working in text (which includes plain text files, GitHub markdown and Git commit messages by default), Atom will automatically try to check your spelling.</p>
+
 <p>Any misspelled words will be highlighted (by default with a dashed red line beneath the word) and you can pull up a menu of possible corrections by hitting <code>cmd-:</code> (or by choosing "Correct Spelling" from the right-click context menu or from the Command Palette).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/spellcheck.png" alt="spell checking">
-</div>
-<div class="title">Figure 1. Checking your spelling</div>
-</div>
-<div class="paragraph">
+
+<p><img src="../../images/spellcheck.png" alt="Checking your spelling"></p>
+
 <p>To add more types of files to the list of what Atom will try to spell check, go to the Spell Check package settings in your Settings view and add any grammars you want to spell check.</p>
-</div>
-<div class="paragraph">
+
 <p>The default grammars to spell check are <code>text.plain, source.gfm, text.git-commit</code> but you can add something like <code>source.asciidoc</code> if you wish to check those types of files too.</p>
-</div>
-<div class="paragraph">
+
 <p>The Atom spell checker uses the system dictionary, so if you want it to check your spelling in another language or locale, you can change it easily.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/dictionary.png" alt="spell check dictionary">
-</div>
-<div class="title">Figure 2. Changing your spell checking dictionary</div>
-</div>
-<div class="paragraph">
+
+<p><img src="../../images/dictionary.png" alt="Changing your spell checking dictionary"></p>
+
 <p>The spell checking is implemented in the <a href="https://github.com/atom/spell-check">atom/spell-check</a> package.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="previews">Previews</h4>
-<div class="paragraph">
-<p>When writing prose in a markup language, it’s often very useful to get an idea of what the content will look like when it’s rendered. Atom ships with a markdown preview plugin by default.</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>ctrl-shift-M</code></dt>
-<dd>
-<p>Will toggle Preview mode for Markdown.</p>
-</dd>
-</dl>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/preview.png" alt="preview prose">
-</div>
-<div class="title">Figure 3. Preview your prose</div>
-</div>
-<div class="paragraph">
+
+<p>==== Previews</p>
+
+<p>When writing prose in a markup language, it's often very useful to get an idea of what the content will look like when it's rendered. Atom ships with a markdown preview plugin by default.</p>
+
+<p><code>ctrl-shift-M</code>:: Will toggle Preview mode for Markdown.</p>
+
+<p><img src="../../images/preview.png" alt="Preview your prose"></p>
+
 <p>As you edit the text, the preview will also update by default. This makes it fairly easy to check your syntax as you type.</p>
-</div>
-<div class="paragraph">
+
 <p>You can also copy the rendered HTML from the preview pane into your system clipboard. There is no keybinding for it, but you can find it in the Command Palette by searching for "Markdown Preview Copy HTML".</p>
-</div>
-<div class="paragraph">
+
 <p>Markdown preview is implemented in the <a href="https://github.com/atom/markdown-preview">atom/markdown-preview</a> package.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="snippets">Snippets</h4>
-<div class="paragraph">
+
+<p>==== Snippets</p>
+
 <p>There are also a number of great snippets available for writing Markdown quickly.</p>
-</div>
-<div class="paragraph">
+
 <p>If you type <code>img</code> and hit <code>tab</code> you get a Markdown-formatted image embed code like <code>![]()</code>. If you type <code>table</code> and hit <code>tab</code> you get a nice example table to fill out.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre><code>| Header One     | Header Two     |
+
+<pre class="highlight highlight-markdown"><code>| Header One     | Header Two     |
 | :------------- | :------------- |
-| Item One       | Item Two       |</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Although there are only a handful of Markdown snippets (<code>b</code> for bold, <code>i</code> for italic, 'code' for a code block, etc), they save you from having to look up the more obscure syntaxes. Again, you can easily see a list of all available snippets for the type of file you’re currently in by hitting 'alt-shift-S'.</p>
-</div>
-</div>
-</div>
+| Item One       | Item Two       |
+</code></pre>
+
+
+<p>Although there are only a handful of Markdown snippets (<code>b</code> for bold, <code>i</code> for italic, <code>code</code> for a code block, etc), they save you from having to look up the more obscure syntaxes. Again, you can easily see a list of all available snippets for the type of file you're currently in by hitting 'alt-shift-S'.</p>
         </div>
       </div>
       <div class="footer-pad"></div>

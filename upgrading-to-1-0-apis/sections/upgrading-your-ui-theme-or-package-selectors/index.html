@@ -317,174 +317,176 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">5.2 Upgrading Your UI Theme Or Package Selectors</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">5.2 Upgrading Your UI Theme Or Package Selectors</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</h3>
-<div class="paragraph">
-<p>In addition to changes in Atom’s scripting API, we’ll also be making some breaking changes to Atom’s DOM structure, requiring style sheets and keymaps in both packages and themes to be updated.</p>
-</div>
-<div class="sect3">
-<h4 id="deprecation-cop">Deprecation Cop</h4>
-<div class="paragraph">
-<p>Deprecation cop will list usages of deprecated selector patterns to guide you. You can access it via the command palette (<code>cmd-shift-p</code>, then search for <code>Deprecation</code>). It breaks the deprecations down by package:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/dep-cop.png" alt="dep cop">
-</div>
-<div class="title">Figure 1. Deprecation Cop</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="custom-tags">Custom Tags</h4>
-<div class="paragraph">
-<p>Rather than adding classes to standard HTML elements to indicate their role, Atom now uses custom element names. For example, <code>&lt;div class="workspace"&gt;</code> has now been replaced with <code>&lt;atom-workspace&gt;</code>. Selectors should be updated accordingly. Note that tag names have lower specificity than classes in CSS, so you’ll need to take care in converting things.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
+          <h3>
+<a id="upgrading-your-ui-theme-or-package-selectors" class="anchor" href="#upgrading-your-ui-theme-or-package-selectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading Your UI Theme Or Package Selectors</h3>
+
+<p>In addition to changes in Atom's scripting API, we'll also be making some breaking changes to Atom's DOM structure, requiring style sheets and keymaps in both packages and themes to be updated.</p>
+
+<h4>
+<a id="deprecation-cop" class="anchor" href="#deprecation-cop" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deprecation Cop</h4>
+
+<p>Deprecation Cop will list usages of deprecated selector patterns to guide you. You can access it via the Command Palette (<code>cmd-shift-p</code>, then search for <code>Deprecation</code>). It breaks the deprecations down by package:</p>
+
+<p><img src="../../images/dep-cop.png" alt="Deprecation Cop"></p>
+
+<h4>
+<a id="custom-tags" class="anchor" href="#custom-tags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Tags</h4>
+
+<p>Rather than adding classes to standard HTML elements to indicate their role, Atom now uses custom element names. For example, <code>&lt;div class="workspace"&gt;</code> has now been replaced with <code>&lt;atom-workspace&gt;</code>. Selectors should be updated accordingly. Note that tag names have lower specificity than classes in CSS, so you'll need to take care in converting things.</p>
+
+<table>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Old Selector</th>
-<th class="tableblock halign-left valign-top">New Selector</th>
+<th align="left">Old Selector</th>
+<th align="left">New Selector</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.editor</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-text-editor</code></p></td>
+<td align="left"><code>.editor</code></td>
+<td align="left"><code>atom-text-editor</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.editor.mini</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-text-editor[mini]</code></p></td>
+<td align="left"><code>.editor.mini</code></td>
+<td align="left"><code>atom-text-editor[mini]</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.workspace</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-workspace</code></p></td>
+<td align="left"><code>.workspace</code></td>
+<td align="left"><code>atom-workspace</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.horizontal</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-workspace-axis.horizontal</code></p></td>
+<td align="left"><code>.horizontal</code></td>
+<td align="left"><code>atom-workspace-axis.horizontal</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.vertical</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-workspace-axis.vertical</code></p></td>
+<td align="left"><code>.vertical</code></td>
+<td align="left"><code>atom-workspace-axis.vertical</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.pane-container</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-pane-container</code></p></td>
+<td align="left"><code>.pane-container</code></td>
+<td align="left"><code>atom-pane-container</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.pane</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-pane</code></p></td>
+<td align="left"><code>.pane</code></td>
+<td align="left"><code>atom-pane</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.tool-panel</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-panel</code></p></td>
+<td align="left"><code>.tool-panel</code></td>
+<td align="left"><code>atom-panel</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.panel-top</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-panel.top</code></p></td>
+<td align="left"><code>.panel-top</code></td>
+<td align="left"><code>atom-panel.top</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.panel-bottom</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-panel.bottom</code></p></td>
+<td align="left"><code>.panel-bottom</code></td>
+<td align="left"><code>atom-panel.bottom</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.panel-left</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-panel.left</code></p></td>
+<td align="left"><code>.panel-left</code></td>
+<td align="left"><code>atom-panel.left</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.panel-right</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-panel.right</code></p></td>
+<td align="left"><code>.panel-right</code></td>
+<td align="left"><code>atom-panel.right</code></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.overlay</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>atom-panel.modal</code></p></td>
+<td align="left"><code>.overlay</code></td>
+<td align="left"><code>atom-panel.modal</code></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect3">
-<h4 id="supporting-the-shadow-dom">Supporting the Shadow DOM</h4>
-<div class="paragraph">
-<p>Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom">Shadow DOM 101</a> on HTML 5 Rocks. If you need to style text editor content in a UI theme, you’ll need to circumvent this protection for any rules that target the text editor’s content. Some examples of the kinds of UI theme styles needing to be updated:</p>
-</div>
-<div class="ulist">
+
+<h4>
+<a id="supporting-the-shadow-dom" class="anchor" href="#supporting-the-shadow-dom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supporting the Shadow DOM</h4>
+
+<p>Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom">Shadow DOM 101</a> on HTML 5 Rocks. If you need to style text editor content in a UI theme, you'll need to circumvent this protection for any rules that target the text editor's content. Some examples of the kinds of UI theme styles needing to be updated:</p>
+
 <ul>
-<li>
-<p>Highlight decorations</p>
-</li>
-<li>
-<p>Gutter decorations</p>
-</li>
-<li>
-<p>Line decorations</p>
-</li>
-<li>
-<p>Scrollbar styling</p>
-</li>
-<li>
-<p>Anything targeting a child selector of <code>.editor</code></p>
+<li>Highlight decorations</li>
+<li>Gutter decorations</li>
+<li>Line decorations</li>
+<li>Scrollbar styling</li>
+<li>Anything targeting a child selector of <code>.editor</code>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>During a transition phase, it will be possible to enable or disable the text editor’s shadow DOM in the settings, so themes will need to be compatible with both approaches.</p>
-</div>
-<div class="sect4">
-<h5 id="shadow-dom-selectors">Shadow DOM Selectors</h5>
-<div class="paragraph">
+
+<p>During a transition phase, it will be possible to enable or disable the text editor's shadow DOM in the settings, so themes will need to be compatible with both approaches.</p>
+
+<h5>
+<a id="shadow-dom-selectors" class="anchor" href="#shadow-dom-selectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shadow DOM Selectors</h5>
+
 <p>Chromium provides two tools for bypassing shadow boundaries, the <code>::shadow</code> pseudo-element and the <code>/deep/</code> combinator. For an in-depth explanation of styling the shadow DOM, see the <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201#toc-style-cat-hat">Shadow DOM 201</a> article on HTML 5 Rocks.</p>
-</div>
-<div class="sect5">
-<h6 id="shadow">::shadow</h6>
-<div class="paragraph">
+
+<h6>
+<a id="shadow" class="anchor" href="#shadow" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>::shadow</code>
+</h6>
+
 <p>The <code>::shadow</code> pseudo-element allows you to bypass a single shadow root. For example, say you want to update a highlight decoration for a linter package. Initially, the style looks as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">Without</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
 <span class="nt">atom-text-editor</span> <span class="nc">.highlight.my-linter</span> <span class="p">{</span>
   <span class="nl">background</span><span class="p">:</span> <span class="no">hotpink</span><span class="p">;</span>
-<span class="p">}</span></code></pre>
+<span class="p">}</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>In order for this style to apply with the shadow DOM enabled, you will need to add a second selector with the <code>::shadow</code> pseudo-element. You should leave the original selector in place so your theme continues to work with the shadow DOM disabled during the transition period.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">With</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
 <span class="nt">atom-text-editor</span> <span class="nc">.highlight.my-linter</span><span class="o">,</span>
 <span class="nt">atom-text-editor</span><span class="nd">::shadow</span> <span class="nc">.highlight.my-linter</span> <span class="p">{</span>
   <span class="nl">background</span><span class="p">:</span> <span class="no">hotpink</span><span class="p">;</span>
-<span class="p">}</span></code></pre>
+<span class="p">}</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>Check out the <a href="https://github.com/atom/find-and-replace/blob/95351f261bc384960a69b66bf12eae8002da63f9/stylesheets/find-and-replace.less#L9-L29">find-and-replace</a> package for another example of using <code>::shadow</code> to pierce the shadow DOM.</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="deep">/deep/</h6>
-<div class="paragraph">
-<p>The <code>/deep/</code> combinator overrides <strong>all</strong> shadow boundaries, making it useful for rules you want to apply globally such as scrollbar styling. Here’s a snippet containing scrollbar styling for the Atom Dark UI theme before shadow DOM support:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<h6>
+<a id="deep" class="anchor" href="#deep" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>/deep/</code>
+</h6>
+
+<p>The <code>/deep/</code> combinator overrides <em>all</em> shadow boundaries, making it useful for rules you want to apply globally such as scrollbar styling. Here's a snippet containing scrollbar styling for the Atom Dark UI theme before shadow DOM support:</p>
+
 <pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">Without</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
 <span class="nc">.scrollbars-visible-always</span> <span class="p">{</span>
   <span class="err">::-webkit-scrollbar</span> <span class="err">{</span>
@@ -502,15 +504,12 @@
     <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
     <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1px</span> <span class="no">black</span> <span class="nb">inset</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="err">}</span></code></pre>
+<span class="err">}</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>To style scrollbars even inside of the shadow DOM, each rule needs to be prefixed with <code>/deep/</code>. We use <code>/deep/</code> instead of <code>::shadow</code> because we don’t care about the selector of the host element in this case. We just want our styling to apply everywhere.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>To style scrollbars even inside of the shadow DOM, each rule needs to be prefixed with <code>/deep/</code>. We use <code>/deep/</code> instead of <code>::shadow</code> because we don't care about the selector of the host element in this case. We just want our styling to apply everywhere.</p>
+
 <pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">With</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span> <span class="nt">using</span> <span class="o">/</span><span class="nt">deep</span><span class="o">/</span>
 <span class="nc">.scrollbars-visible-always</span> <span class="p">{</span>
   <span class="err">/deep/</span> <span class="err">::-webkit-scrollbar</span> <span class="err">{</span>
@@ -528,37 +527,26 @@
     <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
     <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1px</span> <span class="no">black</span> <span class="nb">inset</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="err">}</span></code></pre>
+<span class="err">}</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="context-targeted-style-sheets">Context-Targeted Style Sheets</h5>
-<div class="paragraph">
+
+<h5>
+<a id="context-targeted-style-sheets" class="anchor" href="#context-targeted-style-sheets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context-Targeted Style Sheets</h5>
+
 <p>The selector features discussed above allow you to target shadow DOM content with specific selectors, but Atom also allows you to target a specific shadow DOM context with an entire style sheet. The context into which a style sheet is loaded is based on the file name. If you want to load a style sheet into the editor, name it with the <code>.atom-text-editor.less</code> or <code>.atom-text-editor.css</code> extensions.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre><code>my-ui-theme/
   styles/
     index.less                   # loaded globally
-    index.atom-text-editor.less  # loaded in the text editor shadow DOM</code></pre>
-</div>
-</div>
-<div class="paragraph">
+    index.atom-text-editor.less  # loaded in the text editor shadow DOM
+</code></pre>
+
 <p>Check out this <a href="https://github.com/atom/decoration-example/blob/master/styles/decoration-example.atom-text-editor.less">style sheet</a> from the decoration-example package for an example of context-targeting.</p>
-</div>
-<div class="paragraph">
-<p>Inside a context-targeted style sheet, there’s no need to use the <code>::shadow</code> or <code>/deep/</code> expressions. If you want to refer to the element containing the shadow root, you can use the <code>::host</code> pseudo-element.</p>
-</div>
-<div class="paragraph">
-<p>During the transition phase, style sheets targeting the <code>atom-text-editor</code> context will <strong>also</strong> be loaded globally. Make sure you update your selectors in a way that maintains compatibility with the shadow DOM being disabled. That means if you use a <code>::host</code> pseudo element, you should also include the same style rule matches against <code>atom-text-editor</code>.</p>
-</div>
-</div>
-</div>
-</div>
+
+<p>Inside a context-targeted style sheet, there's no need to use the <code>::shadow</code> or <code>/deep/</code> expressions. If you want to refer to the element containing the shadow root, you can use the <code>::host</code> pseudo-element.</p>
+
+<p>During the transition phase, style sheets targeting the <code>atom-text-editor</code> context will <em>also</em> be loaded globally. Make sure you update your selectors in a way that maintains compatibility with the shadow DOM being disabled. That means if you use a <code>::host</code> pseudo element, you should also include the same style rule matches against <code>atom-text-editor</code>.</p>
         </div>
       </div>
       <div class="footer-pad"></div>

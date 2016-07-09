@@ -317,22 +317,49 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">4.6 Interacting With Other Packages Via Services</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/interacting-with-other-packages-via-services.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">4.6 Interacting With Other Packages Via Services</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/interacting-with-other-packages-via-services.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</h3>
-<div class="paragraph">
-<p>Atom packages can interact with each other through versioned APIs called <em>services</em>. To provide a service, in your <code>package.json</code>, specify one or more version numbers, each paired with the name of a method on your package’s main module:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+          <h3>
+<a id="interacting-with-other-packages-via-services" class="anchor" href="#interacting-with-other-packages-via-services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interacting With Other Packages Via Services</h3>
+
+<p>Atom packages can interact with each other through versioned APIs called <em>services</em>. To provide a service, in your <code>package.json</code>, specify one or more version numbers, each paired with the name of a method on your package's main module:</p>
+
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"providedServices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"my-service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -343,15 +370,12 @@
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre>
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>In your package’s main module, implement the methods named above. These methods will be called any time a package is activated that consumes their corresponding service. They should return a value that implements the service’s API.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>In your package's main module, implement the methods named above. These methods will be called any time a package is activated that consumes their corresponding service. They should return a value that implements the service's API.</p>
+
 <pre class="highlight highlight-coffee"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
   <span class="na">activate</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="c1"># ...
 </span>
@@ -359,15 +383,12 @@
     <span class="nx">adaptToLegacyAPI</span><span class="p">(</span><span class="nx">myService</span><span class="p">)</span>
 
   <span class="na">provideMyServiceV2</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="nx">myService</span></code></pre>
+    <span class="nx">myService</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>Similarly, to consume a service, specify one or more <a href="https://docs.npmjs.com/misc/semver#ranges">version <em>ranges</em></a>, each paired with the name of a method on the package’s main module:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>Similarly, to consume a service, specify one or more <a href="https://docs.npmjs.com/misc/semver#ranges">version <em>ranges</em></a>, each paired with the name of a method on the package's main module:</p>
+
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"consumedServices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"another-service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -377,15 +398,12 @@
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre>
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>These methods will be called any time a package is activated that <strong>provides</strong> their corresponding service. They will receive the service object as an argument. You will usually need to perform some kind of cleanup in the event that the package providing the service is deactivated. To do this, return a <code>Disposable</code> from your service-consuming method:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>These methods will be called any time a package is activated that <em>provides</em> their corresponding service. They will receive the service object as an argument. You will usually need to perform some kind of cleanup in the event that the package providing the service is deactivated. To do this, return a <code>Disposable</code> from your service-consuming method:</p>
+
 <pre class="highlight highlight-coffee"><code><span class="p">{</span><span class="nx">Disposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
@@ -397,11 +415,9 @@
 
   <span class="na">consumeAnotherServiceV2</span><span class="o">:</span> <span class="p">(</span><span class="nx">service</span><span class="p">)</span> <span class="o">-&gt;</span>
     <span class="nx">useService</span><span class="p">(</span><span class="nx">service</span><span class="p">)</span>
-    <span class="k">new</span> <span class="nx">Disposable</span> <span class="o">-&gt;</span> <span class="nx">stopUsingService</span><span class="p">(</span><span class="nx">service</span><span class="p">)</span></code></pre>
+    <span class="k">new</span> <span class="nx">Disposable</span> <span class="o">-&gt;</span> <span class="nx">stopUsingService</span><span class="p">(</span><span class="nx">service</span><span class="p">)</span>
+</code></pre>
 
-</div>
-</div>
-</div>
         </div>
       </div>
       <div class="footer-pad"></div>

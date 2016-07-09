@@ -317,51 +317,70 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">3.2 The Init File</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/the-init-file.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">3.2 The Init File</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/the-init-file.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="_the_init_file">The Init File</h3>
-<div class="paragraph">
-<p>When Atom finishes loading, it will evaluate <code>init.coffee</code> in your <code>~/.atom</code> directory, giving you a chance to run CoffeeScript code to make customizations. Code in this file has full access to <a href="https://atom.io/docs/api/latest">Atom’s API</a>. If customizations become extensive, consider creating a package, which we will cover in <a href="../package-word-count">package-word-count</a>.</p>
-</div>
-<div class="paragraph">
-<p>You can open the <code>init.coffee</code> file in an editor from the <em>Atom &gt; Open Your Init Script</em> menu. This file can also be named <code>init.js</code> and contain JavaScript code.</p>
-</div>
-<div class="paragraph">
-<p>For example, if you have the Audio Beep configuration setting enabled, you could add the following code to your <code>init.coffee</code> file to have Atom greet you with an audio beep every time it loads:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">beep</span><span class="p">()</span></code></pre>
+          <h3>
+<a id="the-init-file" class="anchor" href="#the-init-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Init File</h3>
 
-</div>
-</div>
-<div class="paragraph">
-<p>Because <code>init.coffee</code> provides access to Atom’s API, you can use it to implement useful commands without creating a new package or extending an existing one. Here’s a command which uses the <a href="https://atom.io/docs/api/latest/Selection">Selection API</a> and <a href="https://atom.io/docs/api/latest/Clipboard">Clipboard API</a> to construct a Markdown link from the selected text and the clipboard contents as the URL:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+<p>When Atom finishes loading, it will evaluate <code>init.coffee</code> in your <code>~/.atom</code> directory, giving you a chance to run CoffeeScript code to make customizations. Code in this file has full access to <a href="https://atom.io/docs/api/latest">Atom's API</a>. If customizations become extensive, consider creating a package, which we will cover in link:../package-word-count[package-word-count].</p>
+
+<p>You can open the <code>init.coffee</code> file in an editor from the <em>Atom &gt; Init Script...</em> menu. This file can also be named <code>init.js</code> and contain JavaScript code.</p>
+
+<p>For example, if you have the Audio Beep configuration setting enabled, you could add the following code to your <code>init.coffee</code> file to have Atom greet you with an audio beep every time it loads:</p>
+
+<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">beep</span><span class="p">()</span>
+</code></pre>
+
+
+<p>Because <code>init.coffee</code> provides access to Atom's API, you can use it to implement useful commands without creating a new package or extending an existing one. Here's a command which uses the <a href="https://atom.io/docs/api/latest/Selection">Selection API</a> and <a href="https://atom.io/docs/api/latest/Clipboard">Clipboard API</a> to construct a Markdown link from the selected text and the clipboard contents as the URL:</p>
+
 <pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-text-editor'</span><span class="p">,</span> <span class="s">'markdown:paste-as-link'</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="k">return</span> <span class="nx">unless</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
 
   <span class="nx">selection</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getLastSelection</span><span class="p">()</span>
   <span class="nx">clipboardText</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">clipboard</span><span class="p">.</span><span class="na">read</span><span class="p">()</span>
 
-  <span class="nx">selection</span><span class="p">.</span><span class="na">insertText</span><span class="p">(</span><span class="s">"[</span><span class="si">#{</span><span class="nx">selection</span><span class="p">.</span><span class="na">getText</span><span class="p">()</span><span class="si">}</span><span class="s">](</span><span class="si">#{</span><span class="nx">clipboardText</span><span class="si">}</span><span class="s">)"</span><span class="p">)</span></code></pre>
+  <span class="nx">selection</span><span class="p">.</span><span class="na">insertText</span><span class="p">(</span><span class="s">"[</span><span class="si">#{</span><span class="nx">selection</span><span class="p">.</span><span class="na">getText</span><span class="p">()</span><span class="si">}</span><span class="s">](</span><span class="si">#{</span><span class="nx">clipboardText</span><span class="si">}</span><span class="s">)"</span><span class="p">)</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>Now, reload Atom and use the <a href="/getting-started/sections/atom-basics#_command_palette">Command Palette</a> to execute the new command by name (i.e., "Markdown: Paste As Link"). And if you’d like to trigger the command via a keyboard shortcut, you can define a <a href="/using-atom/sections/basic-customization#_customizing_keybindings">keymap for the command</a>.</p>
-</div>
-</div>
+
+<p>Now, reload Atom and use the <a href="/getting-started/sections/atom-basics/#command-palette">Command Palette</a> to execute the new command, "Markdown: Paste As Link", by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a <a href="/using-atom/sections/basic-customization/#customizing-key-bindings">keymap for the command</a>.</p>
         </div>
       </div>
       <div class="footer-pad"></div>

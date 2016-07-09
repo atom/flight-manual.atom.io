@@ -317,153 +317,124 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">2.11 Version Control in Atom</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/version-control-in-atom.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">2.11 Version Control in Atom</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/version-control-in-atom.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="version-control-in-atom">Version Control in Atom</h3>
-<div class="paragraph">
-<p>Version control is an important aspect of any project and Atom comes with basic <a href="http://git-scm.com">Git</a> and <a href="https://github.com">GitHub</a> integration baked in.</p>
-</div>
-<div class="sect3">
-<h4 id="checkout-head-revision">Checkout HEAD revision</h4>
-<div class="paragraph">
-<p>The <code>cmd-alt-Z</code> keybinding checks out the HEAD revision of the file in the editor.</p>
-</div>
-<div class="paragraph">
-<p>This is a quick way to discard any saved and staged changes you’ve made and restore the file to the version in the HEAD commit. This is essentially the same as running <code>git checkout HEAD — &lt;path&gt;</code> and <code>git reset HEAD — &lt;path&gt;</code> from the command line for that path.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/git-checkout-head.gif" alt="git checkout head">
-</div>
-<div class="title">Figure 1. Git checkout HEAD</div>
-</div>
-<div class="paragraph">
-<p>This command goes onto the undo stack so you can use <code>cmd-Z</code> afterwards to restore the previous contents.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="git-status-list">Git status list</h4>
-<div class="paragraph">
-<p>Atom ships with the fuzzy-finder package which provides <code>cmd-T</code> to quickly open files in the project and <code>cmd-B</code> to jump to any open editor.</p>
-</div>
-<div class="paragraph">
-<p>The package also comes with <code>cmd-shift-B</code> which pops up a list of all the untracked and modified files in the project. These will be the same files that you would see on the command line if you ran git status.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/git-status.gif" alt="git status">
-</div>
-<div class="title">Figure 2. Git status list</div>
-</div>
-<div class="paragraph">
-<p>An octicon will appear to the right of each file letting you know whether it is untracked or modified.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="commit-editor">Commit editor</h4>
-<div class="paragraph">
-<p>Atom can be used as your Git commit editor and ships with the language-git package which adds syntax highlighting to edited commit, merge, and rebase messages.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/git-message.gif" alt="git message">
-</div>
-<div class="title">Figure 3. Git commit message highlighting</div>
-</div>
-<div class="paragraph">
-<p>You can configure Atom to be your Git commit editor with the following command:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-shell"><code><span class="gp">$ </span>git config --global core.editor <span class="s2">"atom --wait"</span></code></pre>
+          <h3>
+<a id="version-control-in-atom" class="anchor" href="#version-control-in-atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version Control in Atom</h3>
 
-</div>
-</div>
-<div class="paragraph">
-<p>The <a href="https://github.com/atom/language-git">language-git</a> package will help you with your brevity by colorizing the first lines of commit messages when they’re longer than 50 and 65 characters.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="status-bar-icons">Status bar icons</h4>
-<div class="paragraph">
+<p>Version control is an important aspect of any project and Atom comes with basic <a href="http://git-scm.com">Git</a> and <a href="https://github.com">GitHub</a> integration baked in.</p>
+
+<h4>
+<a id="checkout-head-revision" class="anchor" href="#checkout-head-revision" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checkout HEAD revision</h4>
+
+<p>The <code>cmd-alt-Z</code> keybinding checks out the HEAD revision of the file in the editor.</p>
+
+<p>This is a quick way to discard any saved and staged changes you've made and restore the file to the version in the HEAD commit. This is essentially the same as running <code>git checkout HEAD -- &lt;path&gt;</code> and <code>git reset HEAD -- &lt;path&gt;</code> from the command line for that path.</p>
+
+<p><img src="../../images/git-checkout-head.gif" alt="Git checkout HEAD"></p>
+
+<p>This command goes onto the undo stack so you can use <code>cmd-Z</code> afterwards to restore the previous contents.</p>
+
+<h4>
+<a id="git-status-list" class="anchor" href="#git-status-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git status list</h4>
+
+<p>Atom ships with the fuzzy-finder package which provides <code>cmd-T</code> to quickly open files in the project and <code>cmd-B</code> to jump to any open editor.</p>
+
+<p>The package also comes with <code>cmd-shift-B</code> which pops up a list of all the untracked and modified files in the project. These will be the same files that you would see on the command line if you ran git status.</p>
+
+<p><img src="../../images/git-status.gif" alt="Git status list"></p>
+
+<p>An octicon will appear to the right of each file letting you know whether it is untracked or modified.</p>
+
+<h4>
+<a id="commit-editor" class="anchor" href="#commit-editor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commit editor</h4>
+
+<p>Atom can be used as your Git commit editor and ships with the language-git package which adds syntax highlighting to edited commit, merge, and rebase messages.</p>
+
+<p><img src="../../images/git-message.gif" alt="Git commit message highlighting"></p>
+
+<p>You can configure Atom to be your Git commit editor with the following command:</p>
+
+<pre class="command-line">
+<span class="command">git config --global core.editor "atom --wait"</span>
+</pre>
+
+<p>The <a href="https://github.com/atom/language-git">language-git</a> package will help you with your brevity by colorizing the first lines of commit messages when they're longer than 50 and 65 characters.</p>
+
+<h4>
+<a id="status-bar-icons" class="anchor" href="#status-bar-icons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status bar icons</h4>
+
 <p>The <a href="https://github.com/atom/language-git">status-bar</a> package that ships with Atom includes several Git decorations that display on the right side of the status bar.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/git-status-bar.png" alt="status bar">
-</div>
-<div class="title">Figure 4. Git Status Bar</div>
-</div>
-<div class="paragraph">
+
+<p><img src="../../images/git-status-bar.png" alt="Git Status Bar"></p>
+
 <p>The currently checked out branch name is shown with the number of commits the branch is ahead of or behind its upstream branch.</p>
-</div>
-<div class="paragraph">
+
 <p>An icon is added if the file is untracked, modified, or ignored. The number of lines added and removed since the file was last committed will be displayed as well.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="line-diffs">Line diffs</h4>
-<div class="paragraph">
+
+<h4>
+<a id="line-diffs" class="anchor" href="#line-diffs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Line diffs</h4>
+
 <p>The included <a href="https://github.com/atom/git-diff">git-diff</a> package colorizes the gutter next to lines that have been added, edited, or removed.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/git-lines.png" alt="git line diffs">
-</div>
-<div class="title">Figure 5. Git line diffs</div>
-</div>
-<div class="paragraph">
+
+<p><img src="../../images/git-lines.png" alt="Git line diffs"></p>
+
 <p>This package also adds <code>alt-g down</code> and <code>alt-g up</code> keybindings that allow you to move the cursor to the next/previous diff hunk in the current editor.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="open-on-github">Open on GitHub</h4>
-<div class="paragraph">
-<p>If the project you’re working on is on GitHub, there are also some very useful integrations you can use.  Most of the commands will take the current file you’re viewing and open a view of that file on GitHub - for instance, the blame or commit history of that file.</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>alt-G O</code></dt>
-<dd>
-<p>Open file on GitHub</p>
-</dd>
-<dt class="hdlist1"><code>alt-G B</code></dt>
-<dd>
-<p>Open blame of file on GitHub</p>
-</dd>
-<dt class="hdlist1"><code>alt-G H</code></dt>
-<dd>
-<p>Open history of file on GitHub</p>
-</dd>
-<dt class="hdlist1"><code>alt-G C</code></dt>
-<dd>
-<p>Copy the URL of the current file on GitHub</p>
-</dd>
-<dt class="hdlist1"><code>alt-G R</code></dt>
-<dd>
-<p>Branch compare on GitHub</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>The branch comparison simply shows you the commits that are on the branch you’re currently working on locally that are not on the mainline branch.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/open-on-github.png" alt="open on github">
-</div>
-<div class="title">Figure 6. Open Blame of file on GitHub</div>
-</div>
-</div>
-</div>
+
+<h4>
+<a id="open-on-github" class="anchor" href="#open-on-github" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open on GitHub</h4>
+
+<p>If the project you're working on is on GitHub, there are also some very useful integrations you can use.  Most of the commands will take the current file you're viewing and open a view of that file on GitHub - for instance, the blame or commit history of that file.</p>
+
+<p><code>alt-G O</code>:: Open file on GitHub</p>
+
+<p><code>alt-G B</code>:: Open blame of file on GitHub</p>
+
+<p><code>alt-G H</code>:: Open history of file on GitHub</p>
+
+<p><code>alt-G C</code>:: Copy the URL of the current file on GitHub</p>
+
+<p><code>alt-G R</code>:: Branch compare on GitHub</p>
+
+<p>The branch comparison simply shows you the commits that are on the branch you're currently working on locally that are not on the mainline branch.</p>
+
+<p><img src="../../images/open-on-github.png" alt="Open Blame of file on GitHub"></p>
         </div>
       </div>
       <div class="footer-pad"></div>

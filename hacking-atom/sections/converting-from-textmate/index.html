@@ -317,94 +317,102 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">3.9 Converting from TextMate</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/converting-from-textmate.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">3.9 Converting from TextMate</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/converting-from-textmate.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="converting-from-textmate">Converting from TextMate</h3>
-<div class="paragraph">
-<p>It’s possible that you have themes or grammars from <a href="http://macromates.com">TextMate</a> that you like and use and would like to convert to Atom. If so, you’re in luck because there are tools to help with the conversion.</p>
-</div>
-<div class="sect3">
-<h4 id="converting-a-textmate-bundle">Converting a TextMate Bundle</h4>
-<div class="paragraph">
+          <h3>
+<a id="converting-from-textmate" class="anchor" href="#converting-from-textmate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Converting from TextMate</h3>
+
+<p>It's possible that you have themes or grammars from <a href="http://macromates.com">TextMate</a> that you like and use and would like to convert to Atom. If so, you're in luck because there are tools to help with the conversion.</p>
+
+<h4>
+<a id="converting-a-textmate-bundle" class="anchor" href="#converting-a-textmate-bundle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Converting a TextMate Bundle</h4>
+
 <p>Converting a TextMate bundle will allow you to use its editor preferences, snippets, and colorization inside Atom.</p>
-</div>
-<div class="paragraph">
-<p>Let’s convert the TextMate bundle for the <a href="https://en.wikipedia.org/wiki/R_(programming_language)">R</a> programming language. You can find other existing TextMate bundles <a href="https://github.com/textmate">on GitHub</a>.</p>
-</div>
-<div class="paragraph">
+
+<p>Let's convert the TextMate bundle for the <a href="https://en.wikipedia.org/wiki/R_(programming_language)">R</a> programming language. You can find other existing TextMate bundles <a href="https://github.com/textmate">on GitHub</a>.</p>
+
 <p>You can convert the R bundle with the following command:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-console"><code>$ apm init --package ~/.atom/packages/language-r \
-  --convert https://github.com/textmate/r.tmbundle</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+<pre class="command-line">
+<span class="command">apm init --package ~/.atom/packages/language-r \</span>
+  --convert https://github.com/textmate/r.tmbundle
+</pre>
+
 <p>You can now browse to <code>~/.atom/packages/language-r</code> to see the converted bundle.</p>
-</div>
-<div class="paragraph">
-<p>Your new package is now ready to use, launch Atom and open a <code>.r</code> file in the editor to see it in action!</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="converting-a-textmate-theme">Converting a TextMate Theme</h4>
-<div class="paragraph">
-<p>This section will go over how to convert a <a href="http://macromates.com">TextMate</a> theme to an Atom
-theme.</p>
-</div>
-<div class="sect4">
-<h5 id="differences">Differences</h5>
-<div class="paragraph">
-<p>TextMate themes use <a href="https://en.wikipedia.org/wiki/Property_list">plist</a> files while Atom themes use <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a> or
-<a href="http://lesscss.org">Less</a> to style the UI and syntax in the editor.</p>
-</div>
-<div class="paragraph">
-<p>The utility that converts the theme first parses the theme’s plist file and then creates comparable CSS rules and properties that will style Atom similarly.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="convert-the-theme">Convert the Theme</h5>
-<div class="paragraph">
-<p>Download the theme you wish to convert, you can browse existing TextMate themes on the <a href="http://wiki.macromates.com/Themes/UserSubmittedThemes">TextMate website</a>.</p>
-</div>
-<div class="paragraph">
-<p>Now, let’s say you’ve downloaded the theme to <code>~/Downloads/MyTheme.tmTheme</code>, you can convert the theme with the following command:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-console"><code>$ apm init --theme ~/.atom/packages/my-theme \
-  --convert ~/Downloads/MyTheme.tmTheme</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+<p>Your new package is now ready to use, launch Atom and open a <code>.r</code> file in the editor to see it in action!</p>
+
+<h4>
+<a id="converting-a-textmate-theme" class="anchor" href="#converting-a-textmate-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Converting a TextMate Theme</h4>
+
+<p>This section will go over how to convert a <a href="http://macromates.com">TextMate</a> theme to an Atom<br>
+theme.</p>
+
+<h5>
+<a id="differences" class="anchor" href="#differences" aria-hidden="true"><span class="octicon octicon-link"></span></a>Differences</h5>
+
+<p>TextMate themes use <a href="https://en.wikipedia.org/wiki/Property_list">plist</a> files while Atom themes use <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a> or <a href="http://lesscss.org">Less</a> to style the UI and syntax in the editor.</p>
+
+<p>The utility that converts the theme first parses the theme's plist file and then creates comparable CSS rules and properties that will style Atom similarly.</p>
+
+<h5>
+<a id="convert-the-theme" class="anchor" href="#convert-the-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convert the Theme</h5>
+
+<p>Download the theme you wish to convert, you can browse existing TextMate themes on the <a href="http://wiki.macromates.com/Themes/UserSubmittedThemes">TextMate website</a>.</p>
+
+<p>Now, let's say you've downloaded the theme to <code>~/Downloads/MyTheme.tmTheme</code>, you can convert the theme with the following command:</p>
+
+<pre class="command-line">
+<span class="command">apm init --theme ~/.atom/packages/my-theme \</span>
+  --convert ~/Downloads/MyTheme.tmTheme
+</pre>
+
 <p>You can then browse to <code>~/.atom/packages/my-theme</code> to see the converted theme.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="activate-the-theme">Activate the Theme</h5>
-<div class="paragraph">
-<p>Now that your theme is installed to <code>~/.atom/packages</code> you can enable it by launching Atom and selecting the <em>Atom &gt; Preferences…​</em> menu.</p>
-</div>
-<div class="paragraph">
-<p>Select the <em>Themes</em> link on the left side and choose <em>My Theme</em> from the <em>Syntax Theme</em> dropdown menu to enable your new theme.</p>
-</div>
-<div class="paragraph">
+
+<h5>
+<a id="activate-the-theme" class="anchor" href="#activate-the-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activate the Theme</h5>
+
+<p>Now that your theme is installed to <code>~/.atom/packages</code> you can enable it by launching Atom and selecting the <em>Atom &gt; Preferences...</em> menu.</p>
+
+<p>Select the <em>Themes</em> link on the left side and choose <em>My Theme</em> from the <strong>Syntax Theme</strong> dropdown menu to enable your new theme.</p>
+
 <p>Your theme is now enabled, open an editor to see it in action!</p>
-</div>
-</div>
-</div>
-</div>
         </div>
       </div>
       <div class="footer-pad"></div>

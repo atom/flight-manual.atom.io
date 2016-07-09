@@ -317,28 +317,54 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">4.4 Serialization in Atom</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/serialization-in-atom.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">4.4 Serialization in Atom</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/serialization-in-atom.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="serialization-in-atom">Serialization in Atom</h3>
-<div class="paragraph">
-<p>When a window is refreshed or restored from a previous session, the view and its associated objects are <strong>deserialized</strong> from a JSON representation that was stored
-during the window’s previous shutdown. For your own views and objects to be compatible with refreshing, you’ll need to make them play nicely with the serializing and deserializing.</p>
-</div>
-<div class="sect3">
-<h4 id="package-serialization-hook">Package Serialization Hook</h4>
-<div class="paragraph">
-<p>Your package’s main module can optionally include a <code>serialize</code> method, which will be called before your package is deactivated. You should return JSON, which will be handed back to you as an argument to <code>activate</code> next time it is called. In the following example, the package keeps an instance of <code>MyObject</code> in the same state across refreshes.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+          <h3>
+<a id="serialization-in-atom" class="anchor" href="#serialization-in-atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization in Atom</h3>
+
+<p>When a window is refreshed or restored from a previous session, the view and its associated objects are <em>deserialized</em> from a JSON representation that was stored during the window's previous shutdown. For your own views and objects to be compatible with refreshing, you'll need to make them play nicely with the serializing and deserializing.</p>
+
+<h4>
+<a id="package-serialization-hook" class="anchor" href="#package-serialization-hook" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package Serialization Hook</h4>
+
+<p>Your package's main module can optionally include a <code>serialize</code> method, which will be called before your package is deactivated. You should return JSON, which will be handed back to you as an argument to <code>activate</code> next time it is called. In the following example, the package keeps an instance of <code>MyObject</code> in the same state across refreshes.</p>
+
 <pre class="highlight highlight-coffee-script"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
   <span class="na">activate</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">-&gt;</span>
     <span class="vi">@</span><span class="na">myObject</span> <span class="o">=</span>
@@ -348,61 +374,52 @@ during the window’s previous shutdown. For your own views and objects to be co
         <span class="k">new</span> <span class="nx">MyObject</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
 
   <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">myObject</span><span class="p">.</span><span class="na">serialize</span><span class="p">()</span></code></pre>
+    <span class="vi">@</span><span class="na">myObject</span><span class="p">.</span><span class="na">serialize</span><span class="p">()</span>
+</code></pre>
 
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="serialization-methods">Serialization Methods</h4>
-<div class="listingblock">
-<div class="content">
+
+<h4>
+<a id="serialization-methods" class="anchor" href="#serialization-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization Methods</h4>
+
 <pre class="highlight highlight-coffee-script"><code><span class="k">class</span> <span class="nx">MyObject</span>
   <span class="nx">atom</span><span class="p">.</span><span class="na">deserializers</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
 
   <span class="vi">@</span><span class="na">deserialize</span><span class="o">:</span> <span class="p">({</span><span class="nx">data</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nx">MyObject</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
   <span class="na">constructor</span><span class="o">:</span> <span class="p">(</span><span class="vi">@</span><span class="na">data</span><span class="p">)</span> <span class="o">-&gt;</span>
-  <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="na">deserializer</span><span class="o">:</span> <span class="s">'MyObject'</span><span class="p">,</span> <span class="na">data</span><span class="o">:</span> <span class="vi">@</span><span class="na">data</span> <span class="p">}</span></code></pre>
+  <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="na">deserializer</span><span class="o">:</span> <span class="s">'MyObject'</span><span class="p">,</span> <span class="na">data</span><span class="o">:</span> <span class="vi">@</span><span class="na">data</span> <span class="p">}</span>
+</code></pre>
 
-</div>
-</div>
-<div class="sect4">
-<h5 id="serialize">.serialize()</h5>
-<div class="paragraph">
-<p>Objects that you want to serialize should implement <code>.serialize()</code>. This method should return a serializable object, and it must contain a key named <code>deserializer</code> whose value is the name of a registered deserializer that can convert the rest of the data to an object. It’s usually just the name of the class itself.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="deserialize-data">@deserialize(data)</h5>
-<div class="paragraph">
-<p>The other side of the coin is the <code>deserialize</code> method, which is usually a class-level method on the same class that implements <code>serialize</code>. This method’s job is to convert a state object returned from a previous call <code>serialize</code> back into a genuine object.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="atom-deserializers-add-klass">atom.deserializers.add(klass)</h5>
-<div class="paragraph">
-<p>You need to call the <code>atom.deserializers.add</code> method with your class in order to make it available to the deserialization system. Now you can call the global <code>deserialize</code> method with state returned from <code>serialize</code>, and your class’s <code>deserialize</code> method will be selected automatically.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="versioning">Versioning</h4>
-<div class="listingblock">
-<div class="content">
+
+<h5>
+<a id="serialize" class="anchor" href="#serialize" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>serialize()</code>
+</h5>
+
+<p>Objects that you want to serialize should implement <code>.serialize()</code>. This method should return a serializable object, and it must contain a key named <code>deserializer</code> whose value is the name of a registered deserializer that can convert the rest of the data to an object. It's usually just the name of the class itself.</p>
+
+<h5>
+<a id="deserializedata" class="anchor" href="#deserializedata" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>deserialize(data)</code>
+</h5>
+
+<p>The other side of the coin is the <code>deserialize</code> method, which is usually a class-level method on the same class that implements <code>serialize</code>. This method's job is to convert a state object returned from a previous call <code>serialize</code> back into a genuine object.</p>
+
+<h5>
+<a id="atomdeserializersaddklass" class="anchor" href="#atomdeserializersaddklass" aria-hidden="true"><span class="octicon octicon-link"></span></a>atom.deserializers.add(klass)</h5>
+
+<p>You need to call the <code>atom.deserializers.add</code> method with your class in order to make it available to the deserialization system. Now you can call the global <code>deserialize</code> method with state returned from <code>serialize</code>, and your class's <code>deserialize</code> method will be selected automatically.</p>
+
+<h4>
+<a id="versioning" class="anchor" href="#versioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Versioning</h4>
+
 <pre class="highlight highlight-coffee-script"><code><span class="k">class</span> <span class="nx">MyObject</span>
   <span class="nx">atom</span><span class="p">.</span><span class="na">deserializers</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
 
   <span class="vi">@</span><span class="na">version</span><span class="o">:</span> <span class="mi">2</span>
   <span class="vi">@</span><span class="na">deserialize</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">...</span>
-  <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="na">version</span><span class="o">:</span> <span class="vi">@</span><span class="na">constructor</span><span class="p">.</span><span class="na">version</span><span class="p">,</span> <span class="p">...</span> <span class="p">}</span></code></pre>
+  <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="na">version</span><span class="o">:</span> <span class="vi">@</span><span class="na">constructor</span><span class="p">.</span><span class="na">version</span><span class="p">,</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>Your serializable class can optionally have a class-level <code>@version</code> property and include a <code>version</code> key in its serialized state. When deserializing, Atom will only attempt to call deserialize if the two versions match, and otherwise return undefined. We plan on implementing a migration system in the future, but this at least protects you from improperly deserializing old state.</p>
-</div>
-</div>
-</div>
         </div>
       </div>
       <div class="footer-pad"></div>

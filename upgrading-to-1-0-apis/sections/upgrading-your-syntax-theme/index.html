@@ -317,31 +317,55 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">5.3 Upgrading Your Syntax Theme</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">5.3 Upgrading Your Syntax Theme</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="upgrading-your-syntax-theme">Upgrading Your Syntax Theme</h3>
-<div class="paragraph">
+          <h3>
+<a id="upgrading-your-syntax-theme" class="anchor" href="#upgrading-your-syntax-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading Your Syntax Theme</h3>
+
 <p>Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom">Shadow DOM 101</a> on HTML 5 Rocks.</p>
-</div>
-<div class="paragraph">
-<p>Syntax themes are specifically intended to style only text editor content, so they are automatically loaded directly into the text editor’s shadow DOM when it is enabled. This happens automatically when the theme’s <code>package.json</code> contains a <code>theme: "syntax"</code> declaration, so you don’t need to change anything to target the appropriate context.</p>
-</div>
-<div class="paragraph">
-<p>When theme style sheets are loaded into the text editor’s shadow DOM, selectors intended to target the editor from the <strong>outside</strong> no longer make sense. Styles targeting the <code>.editor</code> and <code>.editor-colors</code> classes instead need to target the <code>:host</code> pseudo-element, which matches against the containing <code>atom-text-editor</code> node. Check out the <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201#toc-style-host">Shadow DOM 201</a> article for more information about the <code>:host</code> pseudo-element.</p>
-</div>
-<div class="paragraph">
-<p>Here’s an example from Atom’s light syntax theme. Note that the <code>atom-text-editor</code> selector intended to target the editor from the outside has been retained to allow the theme to keep working during the transition phase when it is possible to disable the shadow DOM.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<p>Syntax themes are specifically intended to style only text editor content, so they are automatically loaded directly into the text editor's shadow DOM when it is enabled. This happens automatically when the theme's <code>package.json</code> contains a <code>theme: "syntax"</code> declaration, so you don't need to change anything to target the appropriate context.</p>
+
+<p>When theme style sheets are loaded into the text editor's shadow DOM, selectors intended to target the editor from the <em>outside</em> no longer make sense. Styles targeting the <code>.editor</code> and <code>.editor-colors</code> classes instead need to target the <code>:host</code> pseudo-element, which matches against the containing <code>atom-text-editor</code> node. Check out the <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201#toc-style-host">Shadow DOM 201</a> article for more information about the <code>:host</code> pseudo-element.</p>
+
+<p>Here's an example from Atom's light syntax theme. Note that the <code>atom-text-editor</code> selector intended to target the editor from the outside has been retained to allow the theme to keep working during the transition phase when it is possible to disable the shadow DOM.</p>
+
 <pre class="highlight highlight-css"><code><span class="nt">atom-text-editor</span><span class="o">,</span> <span class="nd">:host</span> <span class="p">{</span> <span class="c">/* :host added */</span>
   <span class="nl">background-color</span><span class="p">:</span> <span class="err">@</span><span class="n">syntax-background-color</span><span class="p">;</span>
   <span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">syntax-text-color</span><span class="p">;</span>
@@ -350,11 +374,9 @@
     <span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">syntax-invisible-character-color</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="c">/* more nested selectors... */</span>
-<span class="err">}</span></code></pre>
+<span class="err">}</span>
+</code></pre>
 
-</div>
-</div>
-</div>
         </div>
       </div>
       <div class="footer-pad"></div>

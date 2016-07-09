@@ -317,28 +317,53 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">2.6 Snippets</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/snippets.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">2.6 Snippets</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/snippets.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="snippets">Snippets</h3>
-<div class="paragraph">
+          <h3>
+<a id="snippets" class="anchor" href="#snippets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snippets</h3>
+
 <p>Snippets are an incredibly powerful way to quickly generate commonly needed code syntax from a shortcut.</p>
-</div>
-<div class="paragraph">
+
 <p>The idea is that you can type something like <code>habtm</code> and then hit the <code>tab</code> key and that will expand into <code>has_and_belongs_to_many</code>.</p>
-</div>
-<div class="paragraph">
+
 <p>Many of the packages come bundled with their own snippets that are specific to that mode. For example, the <code>language-html</code> package that provides support for HTML syntax highlighting and grammar comes with dozens of snippets to create many of the various HTML tags you might want to use. If you create a new HTML file in Atom, you can type <code>html</code> and then hit <code>tab</code> and it will expand to:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-html"><code><span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
@@ -346,103 +371,66 @@
   <span class="nt">&lt;body&gt;</span>
 
   <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>It will also position the cursor in the middle of the <code>title</code> tag so you can immediately start filling out the tag. Many snippets have multiple focus points that you can move through with the <code>tab</code> key as well - for instance, in the case of this HTML snippet, once you’ve filled out the title tag you can hit <code>tab</code> and the cursor will move to the middle of the body tag.</p>
-</div>
-<div class="paragraph">
+
+<p>It will also position the cursor in the middle of the <code>title</code> tag so you can immediately start filling out the tag. Many snippets have multiple focus points that you can move through with the <code>tab</code> key as well - for instance, in the case of this HTML snippet, once you've filled out the title tag you can hit <code>tab</code> and the cursor will move to the middle of the body tag.</p>
+
 <p>To see all the available snippets for the file type that you currently have open, you can type <code>alt-shift-S</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/snippets.png" alt="view snippets">
-</div>
-<div class="title">Figure 1. View all available snippets</div>
-</div>
-<div class="paragraph">
+
+<p><img src="../../images/snippets.png" alt="View all available snippets"></p>
+
 <p>You can also use fuzzy search to filter this list down by typing in the selection box. Selecting one of them will execute the snippet where your cursor is (or multiple cursors are).</p>
-</div>
-<div class="sect3">
-<h4 id="creating-your-own-snippets">Creating Your Own Snippets</h4>
-<div class="paragraph">
-<p>So that’s pretty cool, but what if there is something the language package didn’t include or something that is custom to the code you write? Luckily it’s incredibly easy to add your own snippets.</p>
-</div>
-<div class="paragraph">
-<p>There is a text file in your <code>~/.atom</code> directory called <code>snippets.cson</code> that contains all your custom snippets that are loaded when you launch Atom. However, you can also easily open up that file by selecting the <em>Atom &gt; Snippets…​</em> menu.</p>
-</div>
-<div class="sect4">
-<h5 id="_snippet_format">Snippet Format</h5>
-<div class="paragraph">
-<p>So let’s look at how to write a snippet. The basic snippet format looks like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
+<h4>
+<a id="creating-your-own-snippets" class="anchor" href="#creating-your-own-snippets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating Your Own Snippets</h4>
+
+<p>So that's pretty cool, but what if there is something the language package didn't include or something that is custom to the code you write? Luckily it's incredibly easy to add your own snippets.</p>
+
+<p>There is a text file in your <code>~/.atom</code> directory called <code>snippets.cson</code> that contains all your custom snippets that are loaded when you launch Atom. However, you can also easily open up that file by selecting the <em>Atom &gt; Snippets...</em> menu.</p>
+
+<h5>
+<a id="snippet-format" class="anchor" href="#snippet-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snippet Format</h5>
+
+<p>So let's look at how to write a snippet. The basic snippet format looks like this:</p>
+
 <pre class="highlight highlight-coffee"><code><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'console.log'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'log'</span>
-    <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.log(${1:"crash"});$2'</span></code></pre>
+    <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.log(${1:"crash"});$2'</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>The outermost keys are the selectors where these snippets should be active. The easiest way to determine what this should be is to go to the language package of the language you want to add a snippet for and look for the "Scope" string.</p>
-</div>
-<div class="paragraph">
-<p>For example, if we wanted to add a snippet that would work for Java files, we would look up the <code>language-java</code> package in our Settings view and we can see the Scope is <code>source.java</code>. Then the top level snippet key would be that prepended by a period (like a CSS class selector would do).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/snippet-scope.png" alt="snippet scope">
-</div>
-<div class="title">Figure 2. Finding the selector scope for a snippet</div>
-</div>
-<div class="paragraph">
-<p>The next level of keys are the snippet names. These are used for describing the snippet in a more readable way in the snippet menu. It’s generally best to use some sort of short human readable string here.</p>
-</div>
-<div class="paragraph">
-<p>Under each snippet name is a <code>prefix</code> that should trigger the snippet and a <code>body</code> to insert when the snippet is triggered.</p>
-</div>
-<div class="paragraph">
-<p>Each <code>$</code> followed by a number is a tab stop. Tab stops are cycled through by pressing <code>tab</code> once a snippet has been triggered.</p>
-</div>
-<div class="paragraph">
-<p>Tab stops with the same number will create multiple cursors.</p>
-</div>
-<div class="paragraph">
-<p>The above example adds a <code>log</code> snippet to JavaScript files that would expand to:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-js"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"crash"</span><span class="p">);</span></code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+<p>For example, if we wanted to add a snippet that would work for Java files, we would look up the <code>language-java</code> package in our Settings view and we can see the Scope is <code>source.java</code>. Then the top level snippet key would be that prepended by a period (like a CSS class selector would do).</p>
+
+<p><img src="../../images/snippet-scope.png" alt="Finding the selector scope for a snippet"></p>
+
+<p>The next level of keys are the snippet names. These are used for describing the snippet in a more readable way in the snippet menu. It's generally best to use some sort of short human readable string here.</p>
+
+<p>Under each snippet name is a <code>prefix</code> that should trigger the snippet and a <code>body</code> to insert when the snippet is triggered.</p>
+
+<p>Each <code>$</code> followed by a number is a tab stop. Tab stops are cycled through by pressing <code>tab</code> once a snippet has been triggered.</p>
+
+<p>Tab stops with the same number will create multiple cursors.</p>
+
+<p>The above example adds a <code>log</code> snippet to JavaScript files that would expand to:</p>
+
+<pre class="highlight highlight-javascript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"crash"</span><span class="p">);</span>
+</code></pre>
+
+
 <p>The string <code>"crash"</code> would be initially selected and pressing tab again would place the cursor after the <code>;</code></p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-Snippet keys, unlike CSS selectors, can only be repeated once per level. If there are duplicate keys at the same level, then only the last one will be read. See <a href="/using-atom/sections/basic-customization#_cson">Configuring with CSON</a> for more information.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect4">
-<h5 id="multi-line-snippet-body">Multi-line Snippet Body</h5>
-<div class="paragraph">
+
+<p>WARNING: Snippet keys, unlike CSS selectors, can only be repeated once per level. If there are duplicate keys at the same level, then only the last one will be read. See <a href="/using-atom/sections/basic-customization/#configuring-with-cson">Configuring with CSON</a> for more information.</p>
+
+<h5>
+<a id="multi-line-snippet-body" class="anchor" href="#multi-line-snippet-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multi-line Snippet Body</h5>
+
 <p>You can also use multi-line syntax using <code>"""</code> for larger templates:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'if, else if, else'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'ieie'</span>
@@ -454,34 +442,24 @@ Snippet keys, unlike CSS selectors, can only be repeated once per level. If ther
       } else {
         $5
       }
-    """</span></code></pre>
+    """</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
+
 <p>As you might expect, there is a snippet to create snippets. If you open up a snippets file and type <code>snip</code> and then hit <code>tab</code>, you will get the following text inserted:</p>
-</div>
-<div class="listingblock">
-<div class="content">
+
 <pre class="highlight highlight-coffee"><code><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'Snippet Name'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'hello'</span>
-    <span class="s">'body'</span><span class="o">:</span> <span class="s">'Hello World!'</span></code></pre>
+    <span class="s">'body'</span><span class="o">:</span> <span class="s">'Hello World!'</span>
+</code></pre>
 
-</div>
-</div>
-<div class="paragraph">
-<p>Bam, just fill that bad boy out and you have yourself a snippet. As soon as you save the file, Atom should reload the snippets and you will immediately be able to try it out.</p>
-</div>
-<div class="paragraph">
+
+<p><img class="emoji" title=":boom:" alt=":boom:" src="https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f4a5.png" height="20" width="20" align="absmiddle"> just fill that bad boy out and you have yourself a snippet. As soon as you save the file, Atom should reload the snippets and you will immediately be able to try it out.</p>
+
 <p>The snippets functionality is implemented in the <a href="https://github.com/atom/snippets">atom/snippets</a> package.</p>
-</div>
-<div class="paragraph">
+
 <p>For more examples, see the snippets in the <a href="https://github.com/atom/language-html/blob/master/snippets/language-html.cson">language-html</a> and <a href="https://github.com/atom/language-javascript/blob/master/snippets/language-javascript.cson">language-javascript</a> packages.</p>
-</div>
-</div>
-</div>
-</div>
         </div>
       </div>
       <div class="footer-pad"></div>

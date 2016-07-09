@@ -317,60 +317,76 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">3.6 Iconography</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/iconography.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">3.6 Iconography</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/iconography.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="iconography">Iconography</h3>
-<div class="paragraph">
-<p>Atom comes bundled with the <a href="https://github.com/github/octicons/tree/v2.1.2">Octicons 2.1.2</a> icon set. Use them to add icons to your packages.</p>
-</div>
-<div class="sect3">
-<h4 id="usage">Usage</h4>
-<div class="paragraph">
-<p>Atom’s usage of the Octicons differs just a bit from the <a href="https://octicons.github.com/icon/mark-github/">standard way</a>. The biggest difference is in the naming of the icon classes. Instead of the <code>octicon octicon-</code> prefix, you would use a more generic <code>icon icon-</code> prefix.</p>
-</div>
-<div class="paragraph">
-<p>As an example, to add a monitor icon, use the <code>icon icon-device-desktop</code> classes in your markup:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-html"><code>  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon-device-desktop"</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre>
+          <h3>
+<a id="iconography" class="anchor" href="#iconography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iconography</h3>
 
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="overview">Overview</h4>
-<div class="paragraph">
-<p>To see an overview of all icons open the <a href="http://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/#atom-styleguide">Styleguide</a>. Under the "Icons" section you’ll find all the Octicons that are available.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/iconography.png" alt="Octicons">
-</div>
-<div class="title">Figure 1. Octicons in the Styleguide</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="size">Size</h4>
-<div class="paragraph">
-<p>Octicons look best with a <code>font-size</code> of <code>16px</code>. It’s already used as the default, so you don’t need to worry about it. In case you prefer a different icon size, try to use multiples of 16 (<code>32px</code>, <code>48px</code> etc.) for the sharpest result. Sizes in between are ok too, but might look a bit blurry for icons with straight lines.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="usability">Usability</h4>
-<div class="paragraph">
+<p>Atom comes bundled with the <a href="https://github.com/github/octicons/tree/v2.1.2">Octicons 2.1.2</a> icon set. Use them to add icons to your packages.</p>
+
+<h4>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h4>
+
+<p>Atom's usage of the Octicons differs just a bit from the <a href="https://octicons.github.com/icon/mark-github/">standard way</a>. The biggest difference is in the naming of the icon classes. Instead of the <code>octicon octicon-</code> prefix, you would use a more generic <code>icon icon-</code> prefix.</p>
+
+<p>As an example, to add a monitor icon, use the <code>icon icon-device-desktop</code> classes in your markup:</p>
+
+<pre class="highlight highlight-html"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon-device-desktop"</span><span class="nt">&gt;&lt;/span&gt;</span>
+</code></pre>
+
+
+<h4>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h4>
+
+<p>To see an overview of all icons open the <a href="http://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/#atom-styleguide">Styleguide</a>. Under the "Icons" section you'll find all the Octicons that are available.</p>
+
+<p><img src="../../images/iconography.png" alt="Octicons in the Styleguide"></p>
+
+<h4>
+<a id="size" class="anchor" href="#size" aria-hidden="true"><span class="octicon octicon-link"></span></a>Size</h4>
+
+<p>Octicons look best with a <code>font-size</code> of <code>16px</code>. It's already used as the default, so you don't need to worry about it. In case you prefer a different icon size, try to use multiples of 16 (<code>32px</code>, <code>48px</code> etc.) for the sharpest result. Sizes in between are ok too, but might look a bit blurry for icons with straight lines.</p>
+
+<h4>
+<a id="usability" class="anchor" href="#usability" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usability</h4>
+
 <p>Although icons can make your UI visually appealing, when used without a text label, it can be hard to guess its meaning. In cases where space for a text label is insufficient, consider adding a <a href="https://atom.io/docs/api/latest/TooltipManager">tooltip</a> that appears on hover. Or a more subtle <code>title="label"</code> attribute would already help as well.</p>
-</div>
-</div>
-</div>
         </div>
       </div>
       <div class="footer-pad"></div>

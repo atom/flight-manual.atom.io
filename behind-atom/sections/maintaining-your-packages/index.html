@@ -317,114 +317,109 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">4.7 Maintaining Your Packages</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/maintaining-your-packages.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">4.7 Maintaining Your Packages</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/maintaining-your-packages.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="maintaining-your-packages">Maintaining Your Packages</h3>
-<div class="paragraph">
+          <h3>
+<a id="maintaining-your-packages" class="anchor" href="#maintaining-your-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maintaining Your Packages</h3>
+
 <p>While publishing is, by far, the most common action you will perform when working with the packages you provide, there are other things you may need to do.</p>
-</div>
-<div class="sect3">
-<h4 id="unpublish-a-version">Unpublish a Version</h4>
-<div class="paragraph">
+
+<h4>
+<a id="unpublish-a-version" class="anchor" href="#unpublish-a-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unpublish a Version</h4>
+
 <p>If you mistakenly published a version of your package or perhaps you find a glaring bug or security hole, you may want to unpublish just that version of your package. For example, if your package is named <code>package-name</code> and the bad version of your package is v1.2.3 then the command you would execute is:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-bash"><code>apm unpublish package-name@1.2.3</code></pre>
+
+<pre class="command-line">
+<span class="command">apm unpublish package-name@1.2.3</span>
+</pre>
+
+<p>This will remove just this particular version from the <a href="https://atom.io">https://atom.io</a> package registry. Anyone who has already downloaded this version will still have it, but it will no longer be available for installation by others.</p>
+
+<h4>
+<a id="adding-a-collaborator" class="anchor" href="#adding-a-collaborator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding a Collaborator</h4>
+
+<p>Some packages get too big for one person. Sometimes priorities change and someone else wants to help out. You can let others help or create co-owners by <a href="https://help.github.com/articles/adding-collaborators-to-a-personal-repository/">adding them as a collaborator</a> on the GitHub repository for your package. <em>Note:</em> Anyone that has push access to your repository will have the ability to publish new versions of the package that belongs to that repository.</p>
+
+<p>You can also have packages that are owned by a <a href="https://help.github.com/articles/creating-a-new-organization-account/">GitHub organization</a>. Anyone who is a member of an organization's <a href="https://help.github.com/articles/permission-levels-for-an-organization/">team</a> which has push access to the package's repository will be able to publish new versions of the package.</p>
+
+<h4>
+<a id="transferring-ownership" class="anchor" href="#transferring-ownership" aria-hidden="true"><span class="octicon octicon-link"></span></a>Transferring Ownership</h4>
+
+<div class="alert danger">
+
+<p>This is a permanent change. There is no going back!</p>
 
 </div>
-</div>
-<div class="paragraph">
-<p>This will remove just this particular version from the <a href="https://atom.io" class="bare">https://atom.io</a> package registry. Anyone who has already downloaded this version will still have it, but it will no longer be available for installation by others.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="adding-a-collaborator">Adding a Collaborator</h4>
-<div class="paragraph">
-<p>Some packages get too big for one person. Sometimes priorities change and someone else wants to help out. You can let others help or create co-owners by <a href="https://help.github.com/articles/adding-collaborators-to-a-personal-repository/">adding them as a collaborator</a> on the GitHub repository for your package. <strong>Note:</strong> Anyone that has push access to your repository will have the ability to publish new versions of the package that belongs to that repository.</p>
-</div>
-<div class="paragraph">
-<p>You can also have packages that are owned by a <a href="https://help.github.com/articles/creating-a-new-organization-account/">GitHub organization</a>. Anyone who is a member of an organization’s <a href="https://help.github.com/articles/permission-levels-for-an-organization/">team</a> which has push access to the package’s repository will be able to publish new versions of the package.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="transferring-ownership">Transferring Ownership</h4>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Caution</div>
-</td>
-<td class="content">
-This is a permanent change. There is no going back!
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>If you want to hand off support of your package to someone else, you can do that by <a href="https://help.github.com/articles/transferring-a-repository/">transferring the package’s repository</a> to the new owner.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="unpublish-your-package">Unpublish Your Package</h4>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-It is important that you unpublish your package <em>before</em> deleting your repository. If you delete the repository first, you will lose access to the package and will not be able to recover it without assistance.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>If you no longer want to support your package and cannot find anyone to take it over, you can unpublish your package from <a href="https://atom.io" class="bare">https://atom.io</a>. For example, if your package is named <code>package-name</code> then the command you would execute is:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-bash"><code>apm unpublish package-name</code></pre>
+
+<p>If you want to hand off support of your package to someone else, you can do that by <a href="https://help.github.com/articles/transferring-a-repository/">transferring the package's repository</a> to the new owner.</p>
+
+<h4>
+<a id="unpublish-your-package" class="anchor" href="#unpublish-your-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unpublish Your Package</h4>
+
+<div class="alert warning">
+
+<p>It is important that you unpublish your package <em>before</em> deleting your repository. If you delete the repository first, you will lose access to the package and will not be able to recover it without assistance.</p>
 
 </div>
-</div>
-<div class="paragraph">
-<p>This will remove your package from the <a href="https://atom.io" class="bare">https://atom.io</a> package registry. Anyone who has already downloaded a copy of your package will still have it and be able to use it, but it will no longer be available for installation by others.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="rename-your-package">Rename Your Package</h4>
-<div class="paragraph">
-<p>If you need to rename your package for any reason, you can do so with one simple command – <code>apm publish --rename</code> changes the <code>name</code> field in your package’s <code>package.json</code>, pushes a new commit and tag, and publishes your renamed package. Requests made to the previous name will be forwarded to the new name.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-Once a package name has been used, it cannot be re-used by another package even if the original package is unpublished.
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight highlight-bash"><code>apm publish --rename new-package-name</code></pre>
+
+<p>If you no longer want to support your package and cannot find anyone to take it over, you can unpublish your package from <a href="https://atom.io">https://atom.io</a>. For example, if your package is named <code>package-name</code> then the command you would execute is:</p>
+
+<pre class="command-line">
+<span class="command">apm unpublish package-name</span>
+</pre>
+
+<p>This will remove your package from the <a href="https://atom.io">https://atom.io</a> package registry. Anyone who has already downloaded a copy of your package will still have it and be able to use it, but it will no longer be available for installation by others.</p>
+
+<h4>
+<a id="rename-your-package" class="anchor" href="#rename-your-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rename Your Package</h4>
+
+<p>If you need to rename your package for any reason, you can do so with one simple command – <code>apm publish --rename</code> changes the <code>name</code> field in your package's <code>package.json</code>, pushes a new commit and tag, and publishes your renamed package. Requests made to the previous name will be forwarded to the new name.</p>
+
+<div class="alert tip">
+
+<p>Once a package name has been used, it cannot be re-used by another package even if the original package is unpublished.</p>
 
 </div>
-</div>
-</div>
-</div>
+
+<pre class="command-line">
+<span class="command">apm publish --rename new-package-name</span>
+</pre>
         </div>
       </div>
       <div class="footer-pad"></div>

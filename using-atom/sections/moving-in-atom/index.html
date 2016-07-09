@@ -317,123 +317,96 @@
 
 
         </div>
+
+        <div id="platform-nav">
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all">
+      <a href="#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        
+        <h1 class="document-title">
+          <span class="article-title">2.2 Moving in Atom</span>
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/moving-in-atom.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
         <div class="markdown-body document-content">
           
-          <h1>
-            <span class="article-title">2.2 Moving in Atom</span>
-            <a class="improve-link"
-                href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/moving-in-atom.asciidoc" data-proofer-ignore>
-              <span class="octicon octicon-pencil"></span> Improve this page
-            </a>
-          </h1>
-          <div class="sect2">
-<h3 id="moving-in-atom">Moving in Atom</h3>
-<div class="paragraph">
-<p>While it’s pretty easy to move around Atom by clicking with the mouse or using the arrow keys, there are some keybindings that may help you keep your hands on the keyboard and navigate around a little faster.</p>
-</div>
-<div class="paragraph">
+          <h3>
+<a id="moving-in-atom" class="anchor" href="#moving-in-atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Moving in Atom</h3>
+
+<p>While it's pretty easy to move around Atom by clicking with the mouse or using the arrow keys, there are some keybindings that may help you keep your hands on the keyboard and navigate around a little faster.</p>
+
 <p>First of all, Atom ships with many of the basic Emacs keybindings for navigating a document. To go up and down a single character, you can use <code>ctrl-P</code> and <code>ctrl-N</code>. To go left and right a single character, you can use <code>ctrl-B</code> and <code>ctrl-F</code>. These are the equivalent of using the arrow keys, though some people prefer not having to move their hands to where the arrow keys are located on their keyboard.</p>
-</div>
-<div class="paragraph">
+
 <p>In addition to single character movement, there are a number of other movement keybindings.</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">
-<code>alt-left</code>, <code>alt-B</code>
-</dt>
-<dd>
-<p>Move to beginning of word</p>
-</dd>
-<dt class="hdlist1">
-<code>alt-right</code>, <code>alt-F</code>
-</dt>
-<dd>
-<p>Move to end of word</p>
-</dd>
-<dt class="hdlist1">
-<code>cmd-left</code>, <code>ctrl-A</code>
-</dt>
-<dd>
-<p>Move to first character of line</p>
-</dd>
-<dt class="hdlist1">
-<code>cmd-right</code>, <code>ctrl-E</code>
-</dt>
-<dd>
-<p>Move to end of line</p>
-</dd>
-<dt class="hdlist1"><code>cmd-up</code></dt>
-<dd>
-<p>Move to top of file</p>
-</dd>
-<dt class="hdlist1"><code>cmd-down</code></dt>
-<dd>
-<p>Move to bottom of file</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
+
+<p><code>alt-left</code>, <code>alt-B</code>:: Move to beginning of word<br>
+<code>alt-right</code>, <code>alt-F</code>:: Move to end of word<br>
+<code>cmd-left</code>, <code>ctrl-A</code>:: Move to first character of line<br>
+<code>cmd-right</code>, <code>ctrl-E</code>:: Move to end of line<br>
+<code>cmd-up</code>:: Move to top of file<br>
+<code>cmd-down</code>:: Move to bottom of file</p>
+
 <p>You can also move directly to a specific line (and column) number with <code>ctrl-G</code>. This will bring up a dialog that asks which line you would like to jump to. You can also use the <code>row:column</code> syntax to jump to a character in that line as well.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/goto.png" alt="Go to line">
-</div>
-<div class="title">Figure 1. Go directly to a line</div>
-</div>
-<div class="sect3">
-<h4 id="navigating-by-symbols">Navigating by Symbols</h4>
-<div class="paragraph">
+
+<p><img src="../../images/goto.png" alt="Go directly to a line"></p>
+
+<h4>
+<a id="navigating-by-symbols" class="anchor" href="#navigating-by-symbols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Navigating by Symbols</h4>
+
 <p>You can also jump around a little more informatively. To jump to a symbol such as a method definition, press <code>cmd-r</code>. This opens a list of all symbols in the current file, which you can fuzzy filter similarly to <code>cmd-t</code>. To search for symbols across your project, use <code>cmd-shift-r</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../../images/symbol.png" alt="Search by symbol across your project">
-</div>
-<div class="title">Figure 2. Search by symbol across your project</div>
-</div>
-<div class="paragraph">
+
+<p><img src="../../images/symbol.png" alt="Search by symbol across your project"></p>
+
 <p>You can also use <code>ctrl-alt-down</code> to jump directly to the declaration of the method or function under the cursor.</p>
-</div>
-<div class="paragraph">
-<p>First you’ll need to make sure you have a <code>tags</code> (or <code>TAGS</code>) file generated for your project. This can be done by installing <a href="http://ctags.sourceforge.net">ctags</a> and running a command such as <code>ctags -R src/</code> from the command line in your project’s root directory.</p>
-</div>
-<div class="paragraph">
-<p>If you’re on a Mac using <a href="http://brew.sh/">Homebrew</a>, you can just run <code>brew install ctags</code>.</p>
-</div>
-<div class="paragraph">
+
+<p>First you'll need to make sure you have a <code>tags</code> (or <code>TAGS</code>) file generated for your project. This can be done by installing <a href="http://ctags.sourceforge.net">ctags</a> and running a command such as <code>ctags -R src/</code> from the command line in your project's root directory.</p>
+
+<p>If you're on a Mac using <a href="http://brew.sh/">Homebrew</a>, you can just run <code>brew install ctags</code>.</p>
+
 <p>You can customize how tags are generated by creating your own <code>.ctags</code> file in your home directory (<code>~/.ctags</code>). An example can be found <a href="https://github.com/atom/symbols-view/blob/master/lib/ctags-config">here</a>.</p>
-</div>
-<div class="paragraph">
+
 <p>The symbols navigation functionality is implemented in the <a href="https://github.com/atom/symbols-view">atom/symbols-view</a> package.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_atom_bookmarks">Atom Bookmarks</h4>
-<div class="paragraph">
+
+<h4>
+<a id="atom-bookmarks" class="anchor" href="#atom-bookmarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom Bookmarks</h4>
+
 <p>Atom also has a great way to bookmark specific lines in your project so you can jump back to them quickly.</p>
-</div>
-<div class="paragraph">
-<p>If you press <code>cmd-F2</code>, Atom will toggle a "bookmark" on the current line. You can set these throughout your project and use them to quickly find and jump to important lines of your project. A small bookmark symbol is added to the line gutter, like on line 22 of <a href="#_bookmarks_image">View and filter bookmarks.</a>.</p>
-</div>
-<div class="paragraph">
+
+<p>If you press <code>cmd-F2</code>, Atom will toggle a "bookmark" on the current line. You can set these throughout your project and use them to quickly find and jump to important lines of your project. A small bookmark symbol is added to the line gutter, like on line 22 of <a href="#bookmarks-image">the image below</a>.</p>
+
 <p>If you hit <code>F2</code>, Atom will jump to the next bookmark in the file you currently have focused. If you use <code>shift-F2</code> it will cycle backwards through them instead.</p>
-</div>
-<div class="paragraph">
-<p>You can also see a list of all your project’s current bookmarks and quickly filter them and jump to any of them by hitting <code>ctrl-F2</code>.</p>
-</div>
-<div id="_bookmarks_image" class="imageblock">
-<div class="content">
-<img src="../../images/bookmarks.png" alt="bookmarks">
-</div>
-<div class="title">Figure 3. View and filter bookmarks.</div>
-</div>
-<div class="paragraph">
+
+<p>You can also see a list of all your project's current bookmarks and quickly filter them and jump to any of them by hitting <code>ctrl-F2</code>.</p>
+
+<p><a name="bookmarks-image"></a><br>
+<img src="../../images/bookmarks.png" alt="View and filter bookmarks"></p>
+
 <p>The bookmarks functionality is implemented in the <a href="https://github.com/atom/bookmarks">atom/bookmarks</a> package.</p>
-</div>
-</div>
-</div>
         </div>
       </div>
       <div class="footer-pad"></div>
