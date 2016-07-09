@@ -76,11 +76,11 @@ $subtleGreen: lighten($greenLight, 15);
   .markdown-body {
     font-size: 16px;
 
-    .anchor {
-      .octicon {
-        color: $lightText;
-      }
-    }
+    // .anchor {
+    //   .octicon {
+    //     color: $lightText;
+    //   }
+    // }
 
     pre {
       margin: 0;
@@ -492,15 +492,25 @@ $improve-link-separator-spacing: 1em;
   margin-left: $improve-link-separator-spacing / 2;
 }
 
+h1.document-title {
+  font-size: 1.0em;
+  border-bottom: 0;
+  text-align:right;
+  font-weight: 200;
+}
+
+
 /* syntax highlighting and coloring text in general */
 .document-content {
-  padding-left:15px;
+  padding-left:24px;
 
-  h1 {
-    font-size: 1.0em;
-    border-bottom: 0;
-    text-align:right;
-    font-weight: 200;
+  h1, h2, h3, h4, h5, h6 {
+    &:hover {
+      .anchor {
+        display: inline;
+        margin-left: 5px;
+      }
+    }
   }
 
   pre {

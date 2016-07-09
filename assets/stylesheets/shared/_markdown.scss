@@ -1,3 +1,17 @@
+// Monospace stack gives 99% coverage to all OSes:
+// http://www.codestyle.org/servlets/FontStack?stack=Monaco%2CDejaVu+Sans+Mono%2CCourier+New&generic=monospace&x=12&y=4
+$monospace: Monaco,"DejaVu Sans Mono","Courier New",monospace;
+
+/* colors */
+$text-color        : #333;
+$text-color-medium : #666;
+$text-color-light  : #999;
+$dark-green        : #325D72;
+$border-color      : #ddd;
+$link-color        : #4183c4;
+$light-grey-fill   : #eee;
+$warning-color     : #d06806;
+
 .markdown-body {
   hr {
     border: 0;
@@ -13,6 +27,127 @@
     color: #c5c8c6;
     background-color: #1d1f21;
     border: 0;
+  }
+
+  .alert {
+    position:relative;
+    margin:0 auto;
+    padding:15px;
+    font-size:12px;
+    color:#264c72;
+    border: 1px solid #97c1da;
+    border-radius: 3px;
+    @include gradient(#d8ebf8, #d0e3ef);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-shadow: 0 1px 0 rgba(#fff, 0.8);
+
+    & + .alert { margin-top: 5px; }
+
+    & > *:first-child { margin-top: 0 }
+    & > *:last-child { margin-bottom: 0 }
+
+    &.note{
+      color:#4c7226;
+      @include gradient(#dbe2d3, #dce3d4);
+      border: 1px solid #819c67;
+    }
+
+    &.warning{
+      color:#613A00;
+      @include gradient(#ffe3c8, #f5dac0);
+      border: 1px solid #dca874;
+    }
+
+    &.danger{
+      color:#9c2400;
+      @include gradient(#f8d8d8, #efd0d0);
+      border: 1px solid #da9797;
+    }
+
+    code {
+      font-size:12px;
+    }
+  }
+
+  // Light colored code blocks, that can include tooltips as <span.tooltip>.
+  //
+  // .conmmand-line - Dark codeblocks with color highligting for the
+  //                  various types of input/output
+  // span.tooltip   - Grey text used to to give extra info to the reader
+  // span.output    - Green text used to show text output by the terminal
+  // em             - Yellow itallic text that indicates information that
+  //                  should be replaced with the reader's own info.
+  //
+  // No styleguide reference.
+  pre {
+    padding: 8px 10px 8px;
+    margin: 10px 0;
+    border: 1px solid $border-color;
+    border-bottom-width:2px;
+    @include rounded-corners(3px);
+    font-family: $monospace;
+    font-size: 13px;
+    color: $text-color-medium;
+    -webkit-font-smoothing: inherit;
+    overflow: auto;
+
+    code {
+      padding: 0;
+      border: none;
+    }
+
+    span {
+      white-space: pre-wrap;
+    }
+
+    span.tooltip {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+
+      span {
+        display: block;
+        color: $text-color-light;
+      }
+
+      &:hover {
+        background: #eee;
+        padding: 0 2px;
+        margin-left: -2px;
+        @include rounded-corners(3px);
+      }
+    }
+
+    &.command-line {
+      border: 2px solid $border-color;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      -webkit-font-smoothing: auto;
+
+      em {
+        color: #F9FE64;
+        font-style: italic;
+      }
+
+      .command:before {
+        content: "$ ";
+      }
+
+      .comment {
+        color: #ccc;
+      }
+
+      .output {
+        color: #63E463;
+
+        span {
+          position: fixed;
+          top: -1000px;
+          left: -1000px;
+        }
+      }
+    }
   }
 
   .line {

@@ -1,6 +1,18 @@
-pipeline_config:
+asciidoc_pipeline_config:
   pipeline:
     - :AsciiDocFilter
+    - :TableOfContentsFilter
+    - :RougeFilter
+    - :EmojiFilter
+    - :HTTPSFilter
+  http_url: https://github.com
+  base_url: /
+  asset_root: https://a248.e.akamai.net/assets.github.com/images/icons
+
+markdown_pipeline_config:
+  pipeline:
+    - ExtendedMarkdownFilter
+    - :TableOfContentsFilter
     - :RougeFilter
     - :EmojiFilter
     - :HTTPSFilter

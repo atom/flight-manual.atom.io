@@ -1,0 +1,272 @@
+---
+title: Basic Customization
+---
+### Basic Customization
+
+Now that we are feeling comfortable with just about everything built into Atom, let's look at how to tweak it. Perhaps there is a keybinding that you use a lot but feels wrong or a color that isn't quite right for you. Atom is amazingly flexible, so let's go over some of the simpler flexes it can do.
+
+#### Configuring with CSON
+
+All of Atom's config files (with the exception of your [style sheet](#style-tweaks) and your [Init Script](/hacking-atom/sections/the-init-file)) are written in CSON, short for [CoffeeScript Object Notation](https://github.com/bevry/cson#what-is-cson). Just like its namesake JSON, [JavaScript Object Notation](http://json.org/), CSON is a text format for storing structured data in the form of simple objects made up of key-value pairs.
+
+```coffee
+key:
+  key: value
+  key: value
+  key: [value, value]
+```
+
+Objects are the backbone of any CSON file, and are delineated with either indentation (as in the above example), or with curly brackets (`{}`). A key's value can either be a String, a Number, an Object, a Boolean, `null`, or an Array of any of these data types.
+
+{{#warning}}
+
+Unlike CSS's selectors, CSON's keys can only be repeated once per object. If there are duplicate keys, then the last usage of that key overwrites all others, as if they weren't there. The same holds true for Atom's config files.
+
+{{/warning}}
+
+{{#warning}}
+
+Avoid this:
+
+```coffee
+# DON'T DO THIS
+'.source.js':
+  'console.log':
+    'prefix': 'log'
+    'body': 'console.log(${1:"crash"});$2'
+
+# Only this snippet will be loaded
+'.source.js':
+  'console.error':
+    'prefix': 'error'
+    'body': 'console.error(${1:"crash"});$2'
+```
+
+Use this instead:
+
+```coffee
+# DO THIS: Both of these will be loaded
+'.source.js':
+  'console.log':
+    'prefix': 'log'
+    'body': 'console.log(${1:"crash"});$2'
+  'console.error':
+    'prefix': 'error'
+    'body': 'console.error(${1:"crash"});$2'
+```
+
+{{/warning}}
+
+#### Style Tweaks
+
+If you want to apply quick-and-dirty personal styling changes without creating an entire theme that you intend to publish, you can add styles to the `styles.less` file in your `~/.atom` directory.
+
+You can open this file in an editor from the _Atom > Open Your Stylesheet_ menu.
+
+![Open your stylesheet](../../images/menubar.png)
+
+For example, to change the colors of the status-bar, you could add the following rule to your `styles.less` file:
+
+```css
+.status-bar {
+  color: white;
+  background-color: black;
+}
+```
+
+The easiest way to see what classes are available to style is to inspect the DOM manually via the developer tools. We'll go over the developer tools in great detail in the next chapter, but for now let's take a simple look.
+
+You can open the Developer Tools by hitting `alt-cmd-I`, which will bring up the Chrome developer tools panel.
+
+![Developer Tools](../../images/devtools.png)
+
+You can now easily inspect all the elements in your current editor. If you want to update the style of something, you simply need to figure out what classes it has and add a Less rule to your styles file to modify it.
+
+If you are unfamiliar with Less, it is a basic CSS preprocessor that makes some things in CSS a bit easier. You can learn more about it at [lesscss.org](http://www.lesscss.org).
+
+If you prefer to use CSS instead, you can do that in the same `styles.less` file, since CSS is also valid in Less. Or this file can be renamed to `styles.css` and contain CSS only.
+
+##### Styling the editor
+
+Atom's text editor content uses a Shadow DOM to protect it against accidental style overriding from the rest of the Atom UI. For that reason, any tweaking of the syntax highlighting, selection or gutter styles need a special `atom-text-editor::shadow` selector prepended.
+
+As an example, if you would like to change the color of the cursor, the `.cursor` selector isn't enough and instead you'd have to add `atom-text-editor::shadow` in front:
+
+
+```css
+atom-text-editor::shadow .cursor {
+  border-color: pink;
+}
+```
+
+#### Customizing Key Bindings
+
+Atom keymaps work similarly to stylesheets. Just as stylesheets use selectors to apply styles to elements, Atom keymaps use selectors to associate keystrokes with events in specific contexts. Here's a small example, excerpted from Atom's built-in keymaps:
+
+
+```coffee
+'atom-text-editor':
+  'enter': 'editor:newline'
+
+'atom-text-editor[mini] input':
+  'enter': 'core:confirm'
+```
+
+This keymap defines the meaning of `enter` in two different contexts. In a normal editor, pressing `enter` emits the `editor:newline` event, which causes the editor to insert a newline. But if the same keystroke occurs inside a select list's mini-editor, it instead emits the `core:confirm` event based on the binding in the more-specific selector.
+
+By default, `~/.atom/keymap.cson` is loaded when Atom is started. It will always be loaded last, giving you the chance to override bindings that are defined by Atom's core keymaps or third-party packages.
+
+You can open this file in an editor from the _Atom > Open Your Keymap_ menu.
+
+You'll want to know all the commands available to you. Open the Settings panel (`cmd-,`) and select the _Keybindings_ tab. It will show you all the keybindings currently in use. If you want to see what selector is taking precedence in a given context, use (`cmd-.`) to open the Keybindings Resolver view. This will tell you if some more specific selector is overriding your customization.
+
+#### Global Configuration Settings
+
+Atom loads configuration settings from the `config.cson` file in your _~/.atom_ directory, which contains CSON: [CSON](https://github.com/atom/season).
+
+```coffee
+'core':
+  'excludeVcsIgnoredPaths': true
+'editor':
+  'fontSize': 18
+```
+
+The configuration itself is grouped by the package name or one of the two core namespaces: `core` and `editor`.
+
+You can open this file in an editor from the _Atom > Open Your Config_ menu.
+
+##### Configuration Key Reference
+
+* `core`
+** `customFileTypes`: Associations of language scope to file extensions (see [Customizing Language Recognition](#customizing-language-recognition))
+** `disabledPackages`: An array of package names to disable
+** `excludeVcsIgnoredPaths`: Don't search within files specified by `.gitignore`
+** `ignoredNames`: File names to ignore across all of Atom
+** `projectHome`: The directory where projects are assumed to be located
+** `themes`: An array of theme names to load, in cascading order
+* `editor`
+** `autoIndent`: Enable/disable basic auto-indent (defaults to `true`)
+** `nonWordCharacters`: A string of non-word characters to define word boundaries
+** `fontSize`: The editor font size
+** `fontFamily`: The editor font family
+** `invisibles`: A hash of characters Atom will use to render whitespace characters. Keys are whitespace character types, values are rendered characters (use value `false` to turn off individual whitespace character types)
+*** `tab`: Hard tab characters
+*** `cr`: Carriage return (for Microsoft-style line endings)
+*** `eol`: `\n` characters
+*** `space`: Leading and trailing space characters
+** `preferredLineLength`: Identifies the length of a line (defaults to `80`)
+** `showInvisibles`: Whether to render placeholders for invisible characters (defaults to `false`)
+** `showIndentGuide`: Show/hide indent indicators within the editor
+** `showLineNumbers`: Show/hide line numbers within the gutter
+** `softWrap`: Enable/disable soft wrapping of text within the editor
+** `softWrapAtPreferredLineLength`: Enable/disable soft line wrapping at `preferredLineLength`
+** `tabLength`: Number of spaces within a tab (defaults to `2`)
+* `fuzzyFinder`
+** `ignoredNames`: Files to ignore *only* in the fuzzy-finder
+* `whitespace`
+** `ensureSingleTrailingNewline`: Whether to reduce multiple newlines to one at the end of files
+** `removeTrailingWhitespace`: Enable/disable stripping of whitespace at the end of lines (defaults to `true`)
+* `wrap-guide`
+** `columns`: Array of hashes with a `pattern` and `column` key to match the
+path of the current editor to a column position.
+
+#### Language Specific Configuration Settings
+
+You can also set several configuration settings differently for different file types. For example, you may want Atom to soft wrap markdown files, have two-space tabs for ruby files, and four-space tabs for python files.
+
+There are several settings now scoped to an editor's language. Here is the current list:
+
+```
+editor.tabLength
+editor.softWrap
+editor.softWrapAtPreferredLineLength
+editor.preferredLineLength
+editor.scrollPastEnd
+editor.showInvisibles
+editor.showIndentGuide
+editor.nonWordCharacters
+editor.invisibles
+editor.autoIndent
+editor.normalizeIndentOnPaste
+```
+
+##### Language-specific Settings in the Settings View
+
+You can edit these config settings in the settings view on a per-language basis. Click on "Packages" in the navigation on the left, search for the language of your choice, select it, and edit away!
+
+![Python specific settings](../../images/python-settings.png)
+
+##### Language-specific Settings in your Config File
+
+You can also edit the actual configuration file directly. Open your config file via the Command Palette, type "open config", and hit enter.
+
+Global settings are under a global key, and each language can have its own top-level key. This key is the language's scope. Language-specific settings override anything set in the global section.
+
+```coffee
+'global': # all languages unless overridden
+  'editor':
+    'softWrap': false
+    'tabLength': 8
+
+'.source.gfm': # markdown overrides
+  'editor':
+    'softWrap': true
+
+'.source.ruby': # ruby overrides
+  'editor':
+    'tabLength': 2
+
+'.source.python': # python overrides
+  'editor':
+    'tabLength': 4
+```
+
+##### Finding a language's scope name
+
+In order to write these overrides effectively, you'll need to know the scope name for the language. We've already done this for finding a scope for writing a snippet in [Snippet format](/using-atom/sections/snippets#snippet-format), but we can quickly cover it again.
+
+The scope name is shown in the settings view for each language. Click on "Packages" in the navigation on the left, search for the language of your choice, select it, and you should see the scope name under the language name heading:
+
+![Finding a language grammar](../../images/python-grammar.png)
+
+#### Customizing Language Recognition
+
+If you want to customize which language package is used when loading files with a certain extension, you need only manually edit your Atom `config.cson` file. You can open it using the _Application: Open Your Config_ command from the Command Palette. For example, if you wanted to add the `foo` extension to the CoffeeScript language, you could add this to your configuration file under the `*.core` section:
+
+```coffee
+'*'
+  core:
+    customFileTypes:
+      'source.coffee': [
+        'foo'
+      ]
+```
+
+In the example above, `source.coffee` is the language's scope name (see [Finding a language's scope name](#finding-a-languages-scope-name) for more information) and `foo` is the file extension to match without the period. Adding a period to the beginning of either of these will not work.
+
+#### Controlling Where Customization is Stored to Simplify Your Workflow
+
+The CSON configuration files for Atom are stored on disk on your machine. The location for this storage is customizable. The default is to use the home directory of the user executing the application. The Atom Home directory will, by default, be called .atom and will be located in the root of the home directory of the user.
+
+##### Custom home location with an environment variable
+
+An environment variable can be used, though to make Atom use a different location. This can be useful for several reasons. One of these may be that multiple user accounts on a machine want to use the same Atom Home. The environment variable used to specify and alternate location is called ATOM_HOME. If this environment variable exists, the location specified will be used to load and store Atom settings.
+
+##### Taking your customization with you with Portable Mode
+
+In addition to using the `ATOM_HOME` environment variable, Atom can also be set to use "Portable Mode".
+Portable Mode is most useful for taking Atom with you, with all your custom setting and packages, from machine to machine. This may take the form of keeping Atom on a USB drive or a cloud storage platform that syncs folders to different machines, like Dropbox. Atom is in Portable Mode when there is a directory named .atom sibling to the directory in which the atom executable file lives. For example, the installed Atom directory can be placed into a Dropbox folder next to a .atom folder.
+
+![Portable mode directory structure](../../images/portable-mode-folder.png)
+
+With such a setup, Atom will use the same Home directory with the same settings for any machine with this directory syncronized/plugged in.
+
+##### Moving to Portable Mode
+
+Atom provides a command-line parameter option for setting Portable Mode.
+
+``` command-line
+$ atom --portable
+```
+
+Executing atom with the --portable option will take the .atom directory you have in the default location (`~/.atom`) and copy the relevant contents for your configuration to a new home directory in the Portable Mode location. This enables easily moving from the default location to a portable operation without losing the customization you have already set up.
