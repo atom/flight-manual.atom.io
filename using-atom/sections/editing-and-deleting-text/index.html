@@ -365,51 +365,81 @@
 
 <p>There are a handful of cool keybindings for basic text manipulation that might come in handy. These range from moving around lines of text and duplicating lines to changing the case.</p>
 
-<p><code>ctrl-T</code>:: Transpose characters. This swaps the two characters on either side of the cursor.</p>
+<ul>
+<li>
+<kbd class="platform-mac">Cmd+J</kbd><kbd class="platform-windows platform-linux">Ctrl+J</kbd> - Join the next line to the end of the current line</li>
+<li>
+<kbd class="platform-mac">Cmd+Ctrl+Up/Down</kbd><kbd class="platform-windows platform-linux">Ctrl+Up/Down</kbd> - Move the current line up or down</li>
+<li>
+<kbd class="platform-mac">Cmd+Shift+D</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+D</kbd> - Duplicate the current line</li>
+<li>
+<kbd class="platform-mac">Cmd+K</kbd> <kbd class="platform-mac">Cmd+U</kbd><kbd class="platform-windows platform-linux">Ctrl+K</kbd> <kbd class="platform-windows platform-linux">Ctrl+U</kbd> - Upper case the current word</li>
+<li>
+<kbd class="platform-mac">Cmd+K</kbd> <kbd class="platform-mac">Cmd+L</kbd><kbd class="platform-windows platform-linux">Ctrl+K</kbd> <kbd class="platform-windows platform-linux">Ctrl+L</kbd> - Lower case the current word</li>
+</ul>
 
-<p><kbd class="platform-mac">Cmd+J</kbd><kbd class="platform-windows platform-linux">Ctrl+J</kbd>:: Join the next line to the end of the current line</p>
+<div class="platform-mac">
 
-<p><code>ctrl-cmd-up</code>, <code>ctrl-cmd-down</code>:: Move the current line up or down</p>
+<ul>
+<li>
+<kbd class="platform-mac">Ctrl+T</kbd> - Transpose characters. This swaps the two characters on either side of the cursor.</li>
+</ul>
 
-<p><code>cmd-shift-D</code>:: Duplicate the current line</p>
+</div>
 
-<p><code>cmd-K, cmd-U</code>:: Upper case the current word</p>
-
-<p><code>cmd-K, cmd-L</code>:: Lower case the current word</p>
-
-<p>Atom also has built in functionality to re-flow a paragraph to hard-wrap at a given maximum line length. You can format the current selection to have lines no longer than 80 (or whatever number <code>editor.preferredLineLength</code> is set to) characters using <code>cmd-alt-Q</code>. If nothing is selected, the current paragraph will be reflowed.</p>
+<p>Atom also has built in functionality to re-flow a paragraph to hard-wrap at a given maximum line length. You can format the current selection to have lines no longer than 80 (or whatever number <code>editor.preferredLineLength</code> is set to) characters using <kbd class="platform-mac">Alt+Cmd+Q</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Q</kbd>. If nothing is selected, the current paragraph will be reflowed.</p>
 
 <h4>
 <a id="deleting-and-cutting" class="anchor" href="#deleting-and-cutting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deleting and Cutting</h4>
 
 <p>You can also delete or cut text out of your buffer with some shortcuts. Be ruthless.</p>
 
-<p><code>ctrl-shift-K</code>:: Delete current line</p>
+<ul>
+<li>
+<kbd class="platform-mac platform-windows platform-linux">Ctrl+Shift+K</kbd> - Delete current line</li>
+<li>
+<span class="platform-mac"><kbd class="platform-mac">Alt+Backspace</kbd> or <kbd class="platform-mac">Alt+H</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Backspace</kbd> - Delete to beginning of word</li>
+<li>
+<span class="platform-mac"><kbd class="platform-mac">Alt+Delete</kbd> or <kbd class="platform-mac">Alt+D</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Delete</kbd> - Delete to beginning of word</li>
+</ul>
 
-<p><code>cmd-delete</code>:: Delete to end of line (<code>cmd-fn-backspace</code> on mac)</p>
+<div class="platform-mac">
 
-<p><code>ctrl-K</code>:: Cut to end of line</p>
+<ul>
+<li>
+<kbd class="platform-mac">Cmd+Delete</kbd> - Delete to end of line</li>
+<li>
+<kbd class="platform-mac">Ctrl+K</kbd> - Cut to end of line</li>
+<li>
+<kbd class="platform-mac">Cmd+Backspace</kbd> - Delete to beginning of line</li>
+</ul>
 
-<p><code>cmd-backspace</code>:: Delete to beginning of line</p>
-
-<p><code>alt-backspace</code>, <code>alt-H</code>:: Delete to beginning of word</p>
-
-<p><code>alt-delete</code>, <code>alt-D</code>:: Delete to end of word</p>
+</div>
 
 <h4>
 <a id="multiple-cursors-and-selections" class="anchor" href="#multiple-cursors-and-selections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multiple Cursors and Selections</h4>
 
 <p>One of the cool things that Atom can do out of the box is support multiple cursors. This can be incredibly helpful in manipulating long lists of text.</p>
 
-<p><code>cmd-click</code>:: Add new cursor</p>
+<ul>
+<li>
+<kbd class="platform-mac">Cmd+Click</kbd><kbd class="platform-windows platform-linux">Ctrl+Click</kbd> - Add a new cursor at the clicked location</li>
+<li>
+<kbd class="platform-mac">Ctrl+Shift+Up/Down</kbd><kbd class="platform-windows">Alt+Ctrl+Up/Down</kbd><kbd class="platform-linux">Alt+Shift+Up/Down</kbd> - Add another cursor above/below the current cursor</li>
+<li>
+<kbd class="platform-mac">Cmd+D</kbd><kbd class="platform-windows platform-linux">Ctrl+D</kbd> - Select the next word in the document that is the same as the currently selected word</li>
+<li>
+<kbd class="platform-mac">Cmd+Ctrl+G</kbd><kbd class="platform-windows platform-linux">Alt+F3</kbd> - Select all words in the document that are the same as the currently selected word</li>
+</ul>
 
-<p><code>cmd-shift-L</code>:: Convert a multi-line selection into multiple cursors</p>
+<div class="platform-mac">
 
-<p><code>ctrl-shift-up</code>, <code>ctrl-shift-down</code>:: Add another cursor above/below the current cursor</p>
+<ul>
+<li>
+<kbd class="platform-mac">Cmd+Shift+L</kbd> - Convert a multi-line selection into multiple cursors</li>
+</ul>
 
-<p><code>cmd-D</code>:: Select the next word in the document that is the same as the currently selected word</p>
-
-<p><code>ctrl-cmd-G</code>:: Select all words in a document that are the same as the one under the current cursor(s)</p>
+</div>
 
 <p>Using these commands you can place cursors in multiple places in your document and effectively execute the same commands in multiple places at once.</p>
 
@@ -447,20 +477,26 @@
 
 <p>There are a few other interesting bracket related commands that you can use.</p>
 
-<p><code>ctrl-m</code>:: Jump to the bracket matching the one adjacent to the cursor. It jumps to the nearest enclosing bracket when there's no adjacent bracket.</p>
+<ul>
+<li>
+<kbd class="platform-mac platform-windows platform-linux">Ctrl+M</kbd> - Jump to the bracket matching the one adjacent to the cursor. It jumps to the nearest enclosing bracket when there's no adjacent bracket.</li>
+<li>
+<kbd class="platform-mac">Cmd+Ctrl+M</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+M</kbd> - Select all the text inside the current brackets</li>
+<li>
+<kbd class="platform-mac">Alt+Cmd+.</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+.</kbd> - Close the current XML/HTML tag</li>
+</ul>
 
-<p><code>ctrl-cmd-m</code>:: Select all the text inside the current brackets</p>
-
-<p><code>alt-cmd-.</code>:: Close the current XML/HTML tag</p>
-
-<p>The brackets functionality is implemented in the <a href="https://github.com/atom/bracket-matcher">atom/bracket-matcher</a> package. Like all of these packages, to change defaults related to bracket handling, or to disable it entirely, you can navigate to this package in the Settings view.</p>
+<p>The brackets functionality is implemented in the <a href="https://github.com/atom/bracket-matcher">bracket-matcher</a> package. Like all of these packages, to change defaults related to bracket handling, or to disable it entirely, you can navigate to this package in the Settings view.</p>
 
 <h4>
 <a id="encoding" class="anchor" href="#encoding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Encoding</h4>
 
 <p>Atom also ships with some basic file encoding support should you find yourself working with non-UTF-8 encoded files, or should you wish to create one.</p>
 
-<p><code>ctrl-shift-U</code>:: Toggle menu to change file encoding</p>
+<ul>
+<li>
+<kbd class="platform-mac platform-windows">Ctrl+Shift+U</kbd><kbd class="platform-linux">Alt+U</kbd> - Toggle menu to change file encoding</li>
+</ul>
 
 <p>If you pull up the file encoding dialog, you can choose an alternate file encoding to save your file in.</p>
 
@@ -470,7 +506,7 @@
 
 <p>If you pull up the encoding menu and change the active encoding to something else, the file will be written out in that encoding the next time you save the file.</p>
 
-<p>The encoding selector is implemented in the <a href="https://github.com/atom/encoding-selector">atom/encoding-selector</a> package.</p>
+<p>The encoding selector is implemented in the <a href="https://github.com/atom/encoding-selector">encoding-selector</a> package.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
