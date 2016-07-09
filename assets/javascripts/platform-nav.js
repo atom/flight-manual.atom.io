@@ -1,14 +1,14 @@
 (function() {
   var $body = $('body')
 
-  window.setupSwitcher = function () {
+  window.detectPlatform = function () {
     $('body').addClass('platform-switch')
 
-    if (navigator.appVersion.indexOf('Win') !== -1) {
+    if (navigator.userAgent.indexOf('Win') !== -1) {
       $('body').addClass('platform-windows')
-    } else if (navigator.appVersion.indexOf('Mac') !== -1) {
+    } else if (navigator.userAgent.indexOf('Mac') !== -1) {
       $('body').addClass('platform-mac')
-    } else if (navigator.appVersion.indexOf('Linux') !== -1) {
+    } else if (navigator.userAgent.indexOf('Linux') !== -1) {
       $('body').addClass('platform-linux')
     } else {
       $('body').addClass('platform-all')
@@ -54,8 +54,8 @@
     })
   }
 
-  $(function () {
-    setupSwitcher()
+  window.setupSwitcher = function () {
+    detectPlatform()
 
     var $articleBody = $('.document-content')
 
@@ -97,5 +97,9 @@
 
       updateArticlePlatform(platform)
     }
+  }
+
+  $(function () {
+    setupSwitcher()
   })
 })()
