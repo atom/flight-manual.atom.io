@@ -11,7 +11,7 @@ There are a handful of cool keybindings for basic text manipulation that might c
 
 `ctrl-T`:: Transpose characters. This swaps the two characters on either side of the cursor.
 
-`cmd-J`:: Join the next line to the end of the current line
+<kbd class="platform-mac">Cmd+J</kbd><kbd class="platform-windows platform-linux">Ctrl+J</kbd>:: Join the next line to the end of the current line
 
 `ctrl-cmd-up`, `ctrl-cmd-down`:: Move the current line up or down
 

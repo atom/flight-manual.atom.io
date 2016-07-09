@@ -13,6 +13,8 @@
           <%= renderp '/includes/toc.html', :heading => 'h4', :title => @item[:title] %>
         </div>
 
+        <%= renderp '/includes/platform-nav.html' %>
+
         <% section = lookup_section('toc', @item[:title]) %>
         <h1 class="document-title">
           <span class="article-title"><%= section << ' ' << @item[:title] if section %></span>

@@ -59,14 +59,13 @@ All screenshots should be taken using Atom's default themes and settings.
 
 Key combinations should be wrapped in `<kbd>` tags and presented in a common way:
 
-1. **All** key combinations must be given a class indicating the applicable platform:
+1. **All** key combinations must be given *at least one* class indicating platforms to which they apply:
     * `.platform-mac` - A macOS key combination
-    * `.platform-other` - A key combination that applies to Linux or Windows
-    * `.platform-windows` - A key combination that applies to Windows, *but not Linux*
-    * `.platform-linux` - A key combination that applies to Linux, *but not Windows*
+    * `.platform-windows` - A key combination that applies to Windows
+    * `.platform-linux` - A key combination that applies to Linux
     * `.platform-all` - A key combination that applies to all platforms
 1. Key combinations should be wrapped in a single set of `<kbd>` tags: <kbd class="platform-mac">Cmd+N</kbd>
-1. Each key combination of a key sequence should be wrapped in separate `<kbd>` tags and separated by a space: <kbd class="platform-other">Ctrl+K</kbd> <kbd class="platform-other">Right</kbd>
+1. Each key combination of a key sequence should be wrapped in separate `<kbd>` tags and separated by a space: <kbd class="platform-windows platform-linux">Ctrl+K</kbd> <kbd class="platform-windows platform-linux">Right</kbd>
 1. Modifier key names should be capitalized: <kbd class="platform-all">Shift</kbd>, <kbd class="platform-all">Ctrl</kbd>, <kbd class="platform-all">Alt</kbd>, <kbd class="platform-mac">Cmd</kbd>
 1. Key combinations should be joined by `+`: <kbd class="platform-all">Ctrl+N</kbd>
 1. Letter keys should always be capitalized: <kbd class="platform-all">N</kbd>

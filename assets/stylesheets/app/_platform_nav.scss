@@ -1,0 +1,74 @@
+body {
+  // A way to switch between platform specific instructions in an article.
+  //
+  // No styleguide reference.
+  div.document-content {
+    div, span, kbd {
+      &.platform-mac,
+      &.platform-windows,
+      &.platform-linux {
+        display: none;
+      }
+    }
+  }
+
+  &.platform-switch {
+    div.document-content {
+      div, span, kbd {
+        &.platform-all {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.platform-switch.platform-mac div.document-content .platform-mac,
+  &.platform-switch.platform-windows div.document-content .platform-windows,
+  &.platform-switch.platform-linux div.document-content .platform-linux,
+  &.platform-switch.platform-all div.document-content .platform-all {
+    display: inline;
+  }
+}
+
+#platform-nav {
+  display: none;
+  text-align: right;
+  text-transform: uppercase;
+
+  ul {
+    font-size: 80%;
+    list-style-type: none;
+
+    li {
+      display: inline;
+      padding-bottom: 5px;
+
+      a, a:visited {
+        border-left: 1px solid #999;
+        padding-left: 5px;
+        padding-right: 5px;
+        text-decoration: none;
+      }
+
+      &.hidden {
+        display: none;
+      }
+
+      &.selected {
+        color: $brownDark;
+        cursor: default;
+        background: url(/assets/images/site/under-triangle.gif) center bottom no-repeat;
+
+        a {
+          color: $brownDark;
+        }
+      }
+
+      &:first-child {
+        a {
+          border: none;
+        }
+      }
+    }
+  }
+}

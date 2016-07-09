@@ -1,9 +1,0 @@
-// In case JavaScript is disabled, default to displaying only instructions for all platforms
-// and keybindings for non-Mac systems
-.platform-all, .platform-other {
-  display: inline;
-}
-
-.platform-mac, .platform-windows, .platform-linux {
-  display: none;
-}
