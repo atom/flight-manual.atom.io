@@ -33,7 +33,10 @@ end
 desc "Run the HTML-Proofer"
 task :run_proofer do
   require 'html-proofer'
-  HTMLProofer.check_directory("./output").run
+
+  # Ignore platform switcher hash URLs
+  platform_hash_urls = ['#platform-mac', '#platform-windows', '#platform-linux', '#platform-all']
+  HTMLProofer.check_directory("./output", {:url_ignore => platform_hash_urls}).run
 end
 
 # Prompt user for a commit message; default: P U B L I S H :emoji:
