@@ -19,10 +19,6 @@ To add more types of files to the list of what Atom will try to spell check, go 
 
 The default grammars to spell check are `text.plain, source.gfm, text.git-commit` but you can add something like `source.asciidoc` if you wish to check those types of files too.
 
-The Atom spell checker uses the system dictionary, so if you want it to check your spelling in another language or locale, you can change it easily.
-
-![Changing your spell checking dictionary](../../images/dictionary.png)
-
 The spell checking is implemented in the [atom/spell-check](https://github.com/atom/spell-check) package.
 
 ==== Previews
