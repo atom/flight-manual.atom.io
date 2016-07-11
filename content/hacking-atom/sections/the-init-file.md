@@ -3,7 +3,7 @@ title: The Init File
 ---
 ### The Init File
 
-When Atom finishes loading, it will evaluate `init.coffee` in your `~/.atom` directory, giving you a chance to run CoffeeScript code to make customizations. Code in this file has full access to [Atom's API](https://atom.io/docs/api/latest). If customizations become extensive, consider creating a package, which we will cover in link:../package-word-count[package-word-count].
+When Atom finishes loading, it will evaluate `init.coffee` in your `~/.atom` directory, giving you a chance to run CoffeeScript code to make customizations. Code in this file has full access to [Atom's API](https://atom.io/docs/api/latest). If customizations become extensive, consider creating a package, which we will cover in [Package: Word Count](../package-word-count).
 
 You can open the `init.coffee` file in an editor from the _Atom > Init Script..._ menu. This file can also be named `init.js` and contain JavaScript code.
 
