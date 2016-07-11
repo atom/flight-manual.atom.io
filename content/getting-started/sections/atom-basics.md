@@ -39,6 +39,8 @@ If you want to see a different platform than the one we detected, you may choose
 
 ![Platform Selector](../../images/platform-selector.png "Platform Selector")
 
+If the Platform Selector is not present, then the current page doesn't have any platform-specific content.
+
 If you have customized your Atom keymap, you can always see the keybinding you have mapped in the Command Palette or the Keybindings tab in the [Settings View](#settings-and-preferences).
 
 {{/note}}
