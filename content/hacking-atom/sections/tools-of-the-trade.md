@@ -23,10 +23,6 @@ module.exports =
     myPackageViewState: @myPackageView.serialize()
 ```
 
-We'll go over examples like this in a bit, but this is what the language looks like.
+We'll go over examples like this in a bit, but this is what the language looks like. Just about everything you can do with CoffeeScript in Atom is also doable in JavaScript. You can brush up on CoffeeScript at [coffeescript.org](http://coffeescript.org).
 
-Just about everything you can do with CoffeeScript in Atom is also doable in JavaScript, but as most of the community uses CoffeeScript, you will probably want to write your packages in it. This will help you get contributions from the community and in many instances write simpler code.
-
-You can brush up on CoffeeScript at [coffeescript.org](http://coffeescript.org).
-
-Less is an even simpler transition from CSS. It adds a number of useful things like variables and functions to CSS. You can brush up on your Less skills at [lesscss.org](http://lesscss.org/). Our usage of Less won't get too complex in this book however, so as long as you know basic CSS you should be fine.
+Less is an even simpler transition from CSS. It adds a number of useful things like variables and functions to CSS. You can learn about Less at [lesscss.org](http://lesscss.org/). Our usage of Less won't get too complex in this book however, so as long as you know basic CSS you should be fine.
