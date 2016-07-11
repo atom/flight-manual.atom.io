@@ -15,6 +15,10 @@ If you're not sure about the change or the idea for the change, open an issue fi
 
 Take a look at the [Issues List](https://github.com/atom/flight-manual.atom.io/issues) for things that people would like added or fixed.
 
+## Adding, Removing or Reordering Pages
+
+In order to add or remove pages, or change the ordering of pages within the Table of Contents, you should edit the [`data/toc.yml`](data/toc.yml) file.
+
 ## Conventions
 
 In order to make the Flight Manual consistent, these conventions must be followed when adding or updating content.
