@@ -17,7 +17,7 @@ Any misspelled words will be highlighted (by default with a dashed red line bene
 
 To add more types of files to the list of what Atom will try to spell check, go to the Spell Check package settings in your Settings view and add any grammars you want to spell check.
 
-The default grammars to spell check are `text.plain, source.gfm, text.git-commit` but you can add something like `source.asciidoc` if you wish to check those types of files too.
+The default grammars to spell check are `text.plain`, `source.gfm`, and `text.git-commit` but you can add something like `source.asciidoc` if you wish to check those types of files too.
 
 The spell checking is implemented in the [spell-check](https://github.com/atom/spell-check) package.
 
