@@ -11,7 +11,7 @@ In these docs, we'll concentrate on writing in Markdown; however, other prose ma
 
 If you're working in text (which includes plain text files, GitHub markdown and Git commit messages by default), Atom will automatically try to check your spelling.
 
-Any misspelled words will be highlighted (by default with a dashed red line beneath the word) and you can pull up a menu of possible corrections by hitting <kbd class="platform-mac">Cmd+:</kbd><kbd class="platform-windows platform-linux">Ctrl+:</kbd> (or by choosing "Correct Spelling" from the right-click context menu or from the Command Palette).
+Any misspelled words will be highlighted (by default with a dashed red line beneath the word) and you can pull up a menu of possible corrections by hitting <kbd class="platform-mac">Cmd+Shift+;</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+;</kbd> (or by choosing "Correct Spelling" from the right-click context menu or from the Command Palette).
 
 ![Checking your spelling](../../images/spellcheck.png)
 
