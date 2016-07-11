@@ -44,7 +44,8 @@ GEM
     json (1.8.3)
     liquid (3.0.6)
     mercenary (0.3.5)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
+      pkg-config (~> 1.1.7)
     minitest (5.8.4)
     nanoc (4.1.4)
       cri (~> 2.3)
@@ -55,11 +56,12 @@ GEM
     nanoc-html-pipeline (0.3.3)
       html-pipeline (~> 2.0)
       nanoc (>= 3.1, < 5.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
-    nokogiri (1.6.7.2-x64-mingw32)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+    nokogiri (1.6.8-x64-mingw32)
+      mini_portile2 (~> 2.1.0)
     parallel (1.6.2)
+    pkg-config (1.1.7)
     rake (11.1.1)
     rouge (1.10.1)
     thread_safe (0.3.5)
@@ -86,5 +88,8 @@ DEPENDENCIES
   nanoc-html-pipeline (= 0.3.3)
   rake
 
+RUBY VERSION
+   ruby 2.3.0p0
+
 BUNDLED WITH
-   1.11.2
+   1.12.5
