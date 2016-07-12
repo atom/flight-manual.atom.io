@@ -26,6 +26,8 @@
   })
 </script>
 
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
   </head>
   <body class="layout-article">
     <div class="footer-push">
@@ -81,7 +83,9 @@
           
 
 
-<h4>Chapter 1: Getting Started</h4>
+<h4>
+  <a href="/getting-started">Chapter 1: Getting Started</a>
+</h4>
 <ul>
   
   
@@ -109,7 +113,9 @@
 </ul>
 
 
-<h4>Chapter 2: Using Atom</h4>
+<h4>
+  <a href="/using-atom">Chapter 2: Using Atom</a>
+</h4>
 <ul>
   
   
@@ -187,7 +193,9 @@
 </ul>
 
 
-<h4>Chapter 3: Hacking Atom</h4>
+<h4>
+  <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+</h4>
 <ul>
   
   
@@ -250,7 +258,9 @@
 </ul>
 
 
-<h4>Chapter 4: Behind Atom</h4>
+<h4>
+  <a href="/behind-atom">Chapter 4: Behind Atom</a>
+</h4>
 <ul>
   
   
@@ -298,7 +308,9 @@
 </ul>
 
 
-<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<h4>
+  <a href="/upgrading-to-1-0-apis">Chapter 5: Upgrading to 1.0 APIs</a>
+</h4>
 <ul>
   
   
@@ -340,11 +352,6 @@
         linux
       </a>
     </li>
-    <li class="platform-all">
-      <a href="#platform-all" data-platform="all">
-        all
-      </a>
-    </li>
   </ul>
 </div>
 
@@ -365,53 +372,79 @@
 
 <p>While it's pretty easy to move around Atom by clicking with the mouse or using the arrow keys, there are some keybindings that may help you keep your hands on the keyboard and navigate around a little faster.</p>
 
-<p>First of all, Atom ships with many of the basic Emacs keybindings for navigating a document. To go up and down a single character, you can use <code>ctrl-P</code> and <code>ctrl-N</code>. To go left and right a single character, you can use <code>ctrl-B</code> and <code>ctrl-F</code>. These are the equivalent of using the arrow keys, though some people prefer not having to move their hands to where the arrow keys are located on their keyboard.</p>
+<div class="platform-mac">
 
-<p>In addition to single character movement, there are a number of other movement keybindings.</p>
+<p>Atom ships with many of the basic Emacs keybindings for navigating a document. To go up and down a single character, you can use <kbd class="platform-mac">Ctrl+P</kbd> and <kbd class="platform-mac">Ctrl+N</kbd>. To go left and right a single character, you can use <kbd class="platform-mac">Ctrl+B</kbd> and <kbd class="platform-mac">Ctrl+F</kbd>. These are the equivalent of using the arrow keys, though some people prefer not having to move their hands to where the arrow keys are located on their keyboard.</p>
 
-<p><code>alt-left</code>, <code>alt-B</code>:: Move to beginning of word<br>
-<code>alt-right</code>, <code>alt-F</code>:: Move to end of word<br>
-<code>cmd-left</code>, <code>ctrl-A</code>:: Move to first character of line<br>
-<code>cmd-right</code>, <code>ctrl-E</code>:: Move to end of line<br>
-<code>cmd-up</code>:: Move to top of file<br>
-<code>cmd-down</code>:: Move to bottom of file</p>
+<p>In addition to single character movement, there are a number of other movement keybindings:</p>
 
-<p>You can also move directly to a specific line (and column) number with <code>ctrl-G</code>. This will bring up a dialog that asks which line you would like to jump to. You can also use the <code>row:column</code> syntax to jump to a character in that line as well.</p>
+</div>
 
-<p><img src="../../images/goto.png" alt="Go directly to a line"></p>
+<div class="platform-windows">
+
+<p>Atom has support for all the standard Windows cursor movement key combinations. To go up, down, left or right a single character you can use the arrow keys.</p>
+
+<p>In addition to single character movement, there are a number of other movement keybindings:</p>
+
+</div>
+
+<div class="platform-linux">
+
+<p>Atom has support for all the standard Linux cursor movement key combinations. To go up, down, left or right a single character you can use the arrow keys.</p>
+
+<p>In addition to single character movement, there are a number of other movement keybindings:</p>
+
+</div>
+
+<ul>
+<li>
+<span class="platform-mac"><kbd class="platform-mac">Alt+Left</kbd> or <kbd class="platform-mac">Alt+B</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Left</kbd> - Move to the beginning of word</li>
+<li>
+<span class="platform-mac"><kbd class="platform-mac">Alt+Right</kbd> or <kbd class="platform-mac">Alt+F</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Right</kbd> - Move to the end of word</li>
+<li>
+<span class="platform-mac"><kbd class="platform-mac">Cmd+Left</kbd> or <kbd class="platform-mac">Ctrl+A</kbd></span><kbd class="platform-windows platform-linux">Home</kbd> - Move to the first character of the current line</li>
+<li>
+<span class="platform-mac"><kbd class="platform-mac">Cmd+Right</kbd> or <kbd class="platform-mac">Ctrl+E</kbd></span><kbd class="platform-windows platform-linux">End</kbd> - Move to the end of the line</li>
+<li>
+<kbd class="platform-mac">Cmd+Up</kbd><kbd class="platform-windows platform-linux">Ctrl+PgUp</kbd> - Move to the top of the file</li>
+<li>
+<kbd class="platform-mac">Cmd+Down</kbd><kbd class="platform-windows platform-linux">Ctrl+PgDn</kbd> - Move to the bottom of the file</li>
+</ul>
+
+<p>You can also move directly to a specific line (and column) number with <kbd class="platform-all">Ctrl+G</kbd>. This will bring up a dialog that asks which line you would like to jump to. You can also use the <code>row:column</code> syntax to jump to a character in that line as well.</p>
+
+<p><img src="../../images/goto.png" alt="Go directly to a line" title="Go directly to a line"></p>
 
 <h4>
 <a id="navigating-by-symbols" class="anchor" href="#navigating-by-symbols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Navigating by Symbols</h4>
 
-<p>You can also jump around a little more informatively. To jump to a symbol such as a method definition, press <code>cmd-r</code>. This opens a list of all symbols in the current file, which you can fuzzy filter similarly to <code>cmd-t</code>. To search for symbols across your project, use <code>cmd-shift-r</code>.</p>
+<p>You can also jump around a little more informatively with the Symbols View. To jump to a symbol such as a method definition, press <kbd class="platform-mac">Cmd+R</kbd><kbd class="platform-windows platform-linux">Ctrl+R</kbd>. This opens a list of all symbols in the current file, which you can fuzzy filter similarly to <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd>. You can also search for symbols across your project but it requires a <code>tags</code> file.</p>
 
 <p><img src="../../images/symbol.png" alt="Search by symbol across your project"></p>
 
-<p>You can also use <code>ctrl-alt-down</code> to jump directly to the declaration of the method or function under the cursor.</p>
+<p>You can generate a <code>tags</code> file by using the <a href="http://ctags.sourceforge.net">ctags utility</a>. Once it is installed, you can use it to generate a <code>tags</code> file by running a command to generate it. See the <a href="http://ctags.sourceforge.net/ctags.html">ctags documentation</a> for details.</p>
 
-<p>First you'll need to make sure you have a <code>tags</code> (or <code>TAGS</code>) file generated for your project. This can be done by installing <a href="http://ctags.sourceforge.net">ctags</a> and running a command such as <code>ctags -R src/</code> from the command line in your project's root directory.</p>
+<p>Once you have your <code>tags</code> file generated, you can use it to search for symbols across your project by pressing <kbd class="platform-mac">Cmd+Shift+R</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+R</kbd>. This also enables you to use <kbd class="platform-mac">Alt+Cmd+Down</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Down</kbd> to go to and <kbd class="platform-mac">Alt+Cmd+Up</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Up</kbd> to return from the declaration of the symbol under the cursor.</p>
 
-<p>If you're on a Mac using <a href="http://brew.sh/">Homebrew</a>, you can just run <code>brew install ctags</code>.</p>
+<p>You can customize how tags are generated by creating your own <code>.ctags</code> file in your home directory, <span class="platform-mac platform-linux"><code>~/.ctags</code></span><span class="platform-windows"><code>%USERPROFILE%\.ctags</code></span>. An example can be found <a href="https://github.com/atom/symbols-view/blob/master/lib/ctags-config">here</a>.</p>
 
-<p>You can customize how tags are generated by creating your own <code>.ctags</code> file in your home directory (<code>~/.ctags</code>). An example can be found <a href="https://github.com/atom/symbols-view/blob/master/lib/ctags-config">here</a>.</p>
-
-<p>The symbols navigation functionality is implemented in the <a href="https://github.com/atom/symbols-view">atom/symbols-view</a> package.</p>
+<p>The symbols navigation functionality is implemented in the <a href="https://github.com/atom/symbols-view">symbols-view</a> package.</p>
 
 <h4>
-<a id="atom-bookmarks" class="anchor" href="#atom-bookmarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom Bookmarks</h4>
+<a id="bookmarks" class="anchor" href="#bookmarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bookmarks</h4>
 
 <p>Atom also has a great way to bookmark specific lines in your project so you can jump back to them quickly.</p>
 
-<p>If you press <code>cmd-F2</code>, Atom will toggle a "bookmark" on the current line. You can set these throughout your project and use them to quickly find and jump to important lines of your project. A small bookmark symbol is added to the line gutter, like on line 22 of <a href="#bookmarks-image">the image below</a>.</p>
+<p>If you press <kbd class="platform-mac">Cmd+F2</kbd><kbd class="platform-windows">Alt+Ctrl+F2</kbd><kbd class="platform-linux">Ctrl+Shift+F2</kbd>, Atom will toggle a "bookmark" on the current line. You can set these throughout your project and use them to quickly find and jump to important lines of your project. A small bookmark symbol is added to the line gutter, like on line 22 of <a href="#bookmarks-image">the image below</a>.</p>
 
-<p>If you hit <code>F2</code>, Atom will jump to the next bookmark in the file you currently have focused. If you use <code>shift-F2</code> it will cycle backwards through them instead.</p>
+<p>If you hit <kbd class="platform-all">F2</kbd>, Atom will jump to the next bookmark in the file you currently have focused. If you use <kbd class="platform-all">Shift+F2</kbd> it will cycle backwards through them instead.</p>
 
-<p>You can also see a list of all your project's current bookmarks and quickly filter them and jump to any of them by hitting <code>ctrl-F2</code>.</p>
+<p>You can also see a list of all your project's current bookmarks and quickly filter them and jump to any of them by hitting <kbd class="platform-all">Ctrl+F2</kbd>.</p>
 
 <p><a name="bookmarks-image"></a><br>
-<img src="../../images/bookmarks.png" alt="View and filter bookmarks"></p>
+<img src="../../images/bookmarks.png" alt="View and filter bookmarks" title="View and filter bookmarks"></p>
 
-<p>The bookmarks functionality is implemented in the <a href="https://github.com/atom/bookmarks">atom/bookmarks</a> package.</p>
+<p>The bookmarks functionality is implemented in the <a href="https://github.com/atom/bookmarks">bookmarks</a> package.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
@@ -422,7 +455,7 @@
       <ul class="footer-left">
         <li><a href="https://atom.io/terms">Terms of Use</a></li>
         <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
-        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
         <li><a href="https://atom.io/releases">Releases</a></li>
         <li><a href="https://atom.io/faq">FAQ</a></li>
         <li><a href="https://atom.io/contact">Contact</a></li>

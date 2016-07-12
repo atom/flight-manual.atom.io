@@ -26,6 +26,8 @@
   })
 </script>
 
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
   </head>
   <body class="layout-article">
     <div class="footer-push">
@@ -81,7 +83,9 @@
           
 
 
-<h4>Chapter 1: Getting Started</h4>
+<h4>
+  <a href="/getting-started">Chapter 1: Getting Started</a>
+</h4>
 <ul>
   
   
@@ -109,7 +113,9 @@
 </ul>
 
 
-<h4>Chapter 2: Using Atom</h4>
+<h4>
+  <a href="/using-atom">Chapter 2: Using Atom</a>
+</h4>
 <ul>
   
   
@@ -187,7 +193,9 @@
 </ul>
 
 
-<h4>Chapter 3: Hacking Atom</h4>
+<h4>
+  <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+</h4>
 <ul>
   
   
@@ -250,7 +258,9 @@
 </ul>
 
 
-<h4>Chapter 4: Behind Atom</h4>
+<h4>
+  <a href="/behind-atom">Chapter 4: Behind Atom</a>
+</h4>
 <ul>
   
   
@@ -298,7 +308,9 @@
 </ul>
 
 
-<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<h4>
+  <a href="/upgrading-to-1-0-apis">Chapter 5: Upgrading to 1.0 APIs</a>
+</h4>
 <ul>
   
   
@@ -340,11 +352,6 @@
         linux
       </a>
     </li>
-    <li class="platform-all">
-      <a href="#platform-all" data-platform="all">
-        all
-      </a>
-    </li>
   </ul>
 </div>
 
@@ -377,35 +384,29 @@
 </code></pre>
 
 
-<p>Objects are the backbone of any CSON file, and are delineated with either indentation (as in the above example), or with curly brackets (<code>{}</code>). A key's value can either be a String, a Number, an Object, a Boolean, <code>null</code>, or an Array of any of these data types.</p>
+<p>Objects are the backbone of any CSON file, and are delineated by indentation (as in the above example). A key's value can either be a String, a Number, an Object, a Boolean, <code>null</code>, or an Array of any of these data types.</p>
 
 <div class="alert warning">
 
-<p>Unlike CSS's selectors, CSON's keys can only be repeated once per object. If there are duplicate keys, then the last usage of that key overwrites all others, as if they weren't there. The same holds true for Atom's config files.</p>
+<p>Just like the more common JSON, CSON's keys can only be repeated once per object. If there are duplicate keys, then the last usage of that key overwrites all others, as if they weren't there. The same holds true for Atom's config files.</p>
 
-</div>
+<p><strong>Don't do this:</strong></p>
 
-<div class="alert warning">
-
-<p>Avoid this:</p>
-
-<pre class="highlight highlight-coffee"><code><span class="c1"># DON'T DO THIS
+<pre class="highlight highlight-coffee"><code><span class="c1"># Only the second snippet will be loaded
 </span><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'console.log'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'log'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.log(${1:"crash"});$2'</span>
-
-<span class="c1"># Only this snippet will be loaded
-</span><span class="s">'.source.js'</span><span class="o">:</span>
+<span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'console.error'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'error'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.error(${1:"crash"});$2'</span>
 </code></pre>
 
 
-<p>Use this instead:</p>
+<p><strong>Use this instead:</strong></p>
 
-<pre class="highlight highlight-coffee"><code><span class="c1"># DO THIS: Both of these will be loaded
+<pre class="highlight highlight-coffee"><code><span class="c1"># Both snippets will be loaded
 </span><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'console.log'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'log'</span>
@@ -421,13 +422,15 @@
 <h4>
 <a id="style-tweaks" class="anchor" href="#style-tweaks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Style Tweaks</h4>
 
-<p>If you want to apply quick-and-dirty personal styling changes without creating an entire theme that you intend to publish, you can add styles to the <code>styles.less</code> file in your <code>~/.atom</code> directory.</p>
+<p>If you want to apply quick-and-dirty personal styling changes without creating an entire theme that you intend to publish, you can add styles to the <code>styles.less</code> file in your <span class="platform-mac platform-linux"><code>~/.atom</code></span><span class="platform-windows"><code>%USERPROFILE%\.atom</code></span> directory. You can open this file in an editor from the <span class="platform-mac"><em>Atom &gt; Stylesheet</em></span><span class="platform-windows"><em>File &gt; Stylesheet</em></span><span class="platform-linux"><em>Edit &gt; Stylesheet</em></span> menu.</p>
 
-<p>You can open this file in an editor from the <em>Atom &gt; Open Your Stylesheet</em> menu.</p>
+<div class="platform-mac">
 
-<p><img src="../../images/menubar.png" alt="Open your stylesheet"></p>
+<p><img src="../../images/menubar.png" alt="Open your stylesheet" title="Open your stylesheet"></p>
 
-<p>For example, to change the colors of the status-bar, you could add the following rule to your <code>styles.less</code> file:</p>
+</div>
+
+<p>For example, to change the colors of the Status Bar, you could add the following rule to your <code>styles.less</code> file:</p>
 
 <pre class="highlight highlight-css"><code><span class="nc">.status-bar</span> <span class="p">{</span>
   <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
@@ -436,22 +439,24 @@
 </code></pre>
 
 
-<p>The easiest way to see what classes are available to style is to inspect the DOM manually via the developer tools. We'll go over the developer tools in great detail in the next chapter, but for now let's take a simple look.</p>
+<p>The easiest way to see what classes are available to style is to inspect the DOM manually via the Developer Tools. We'll go over the Developer Tools in great detail in the next chapter, but for now let's take a simple look. You can open the Developer Tools by pressing <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows">Alt+Ctrl+I</kbd><kbd class="platform-linux">Ctrl+Shift+I</kbd>, which will bring up the Chromium Developer Tools panel.</p>
 
-<p>You can open the Developer Tools by hitting <code>alt-cmd-I</code>, which will bring up the Chrome developer tools panel.</p>
+<p><img src="../../images/devtools.png" alt="Developer Tools" title="Developer Tools"></p>
 
-<p><img src="../../images/devtools.png" alt="Developer Tools"></p>
+<p>With the Developer Tools, you can inspect all the elements in Atom. If you want to update the style of something, you can figure out what classes it has and add a Less rule to your stylesheet to modify it.</p>
 
-<p>You can now easily inspect all the elements in your current editor. If you want to update the style of something, you simply need to figure out what classes it has and add a Less rule to your styles file to modify it.</p>
+<div class="alert tip">
 
 <p>If you are unfamiliar with Less, it is a basic CSS preprocessor that makes some things in CSS a bit easier. You can learn more about it at <a href="http://www.lesscss.org">lesscss.org</a>.</p>
 
-<p>If you prefer to use CSS instead, you can do that in the same <code>styles.less</code> file, since CSS is also valid in Less. Or this file can be renamed to <code>styles.css</code> and contain CSS only.</p>
+<p>If you prefer to use CSS instead, you can do that in the same <code>styles.less</code> file, since CSS is also valid in Less.</p>
+
+</div>
 
 <h5>
-<a id="styling-the-editor" class="anchor" href="#styling-the-editor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styling the editor</h5>
+<a id="styling-the-editor" class="anchor" href="#styling-the-editor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styling the Editor</h5>
 
-<p>Atom's text editor content uses a Shadow DOM to protect it against accidental style overriding from the rest of the Atom UI. For that reason, any tweaking of the syntax highlighting, selection or gutter styles need a special <code>atom-text-editor::shadow</code> selector prepended.</p>
+<p>Atom's text editor content uses a Shadow DOM to protect it against accidental style overriding from the rest of the Atom UI. For that reason, any tweaking of the styles within an editor including syntax highlighting, selection or gutter styles need a special <code>atom-text-editor::shadow</code> selector prepended.</p>
 
 <p>As an example, if you would like to change the color of the cursor, the <code>.cursor</code> selector isn't enough and instead you'd have to add <code>atom-text-editor::shadow</code> in front:</p>
 
@@ -462,9 +467,9 @@
 
 
 <h4>
-<a id="customizing-key-bindings" class="anchor" href="#customizing-key-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing Key Bindings</h4>
+<a id="customizing-keybindings" class="anchor" href="#customizing-keybindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing Keybindings</h4>
 
-<p>Atom keymaps work similarly to stylesheets. Just as stylesheets use selectors to apply styles to elements, Atom keymaps use selectors to associate keystrokes with events in specific contexts. Here's a small example, excerpted from Atom's built-in keymaps:</p>
+<p>Atom keymaps work similarly to stylesheets. Just as stylesheets use selectors to apply styles to elements, Atom keymaps use selectors to associate key combinations with events in specific contexts. Here's a small example, excerpted from Atom's built-in keymap:</p>
 
 <pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
   <span class="s">'enter'</span><span class="o">:</span> <span class="s">'editor:newline'</span>
@@ -474,29 +479,30 @@
 </code></pre>
 
 
-<p>This keymap defines the meaning of <code>enter</code> in two different contexts. In a normal editor, pressing <code>enter</code> emits the <code>editor:newline</code> event, which causes the editor to insert a newline. But if the same keystroke occurs inside a select list's mini-editor, it instead emits the <code>core:confirm</code> event based on the binding in the more-specific selector.</p>
+<p>This keymap defines the meaning of <kbd class="platform-all">Enter</kbd> in two different contexts. In a normal editor, pressing <kbd class="platform-all">Enter</kbd> triggers the <code>editor:newline</code> command, which causes the editor to insert a newline. But if the same keystroke occurs inside a select list's mini-editor, it instead triggers the <code>core:confirm</code> command based on the binding in the more-specific selector.</p>
 
-<p>By default, <code>~/.atom/keymap.cson</code> is loaded when Atom is started. It will always be loaded last, giving you the chance to override bindings that are defined by Atom's core keymaps or third-party packages.</p>
+<p>By default, <code>keymap.cson</code> is loaded when Atom is started. It will always be loaded last, giving you the chance to override bindings that are defined by Atom's core keymaps or third-party packages. You can open this file in an editor from the <span class="platform-mac"><em>Atom &gt; Keymap</em></span><span class="platform-windows"><em>File &gt; Keymap</em></span><span class="platform-linux"><em>Edit &gt; Keymap</em></span> menu.</p>
 
-<p>You can open this file in an editor from the <em>Atom &gt; Open Your Keymap</em> menu.</p>
+<p>You can see all the keybindings that are currently configured in your installation of Atom in the Keybindings tab in the Settings View.</p>
 
-<p>You'll want to know all the commands available to you. Open the Settings panel (<code>cmd-,</code>) and select the <em>Keybindings</em> tab. It will show you all the keybindings currently in use. If you want to see what selector is taking precedence in a given context, use (<code>cmd-.</code>) to open the Keybindings Resolver view. This will tell you if some more specific selector is overriding your customization.</p>
+<p>If you run into problems with keybindings, the Keybinding Resolver is a huge help. It can be opened with the <kbd class="platform-mac">Cmd+.</kbd><kbd class="platform-windows platform-linux">Ctrl+.</kbd> key combination. It will show you what keys Atom saw you press and what command Atom executed because of that combination.</p>
 
 <h4>
 <a id="global-configuration-settings" class="anchor" href="#global-configuration-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Global Configuration Settings</h4>
 
-<p>Atom loads configuration settings from the <code>config.cson</code> file in your <em>~/.atom</em> directory, which contains CSON: <a href="https://github.com/atom/season">CSON</a>.</p>
+<p>Atom loads configuration settings from the <code>config.cson</code> file in your <span class="platform-mac platform-linux"><code>~/.atom</code></span><span class="platform-windows"><code>%USERPROFILE\.atom</code></span> directory.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'core'</span><span class="o">:</span>
-  <span class="s">'excludeVcsIgnoredPaths'</span><span class="o">:</span> <span class="no">true</span>
-<span class="s">'editor'</span><span class="o">:</span>
-  <span class="s">'fontSize'</span><span class="o">:</span> <span class="mi">18</span>
+<pre class="highlight highlight-coffee"><code><span class="s">'*'</span><span class="o">:</span>
+  <span class="s">'core'</span><span class="o">:</span>
+    <span class="s">'excludeVcsIgnoredPaths'</span><span class="o">:</span> <span class="no">true</span>
+  <span class="s">'editor'</span><span class="o">:</span>
+    <span class="s">'fontSize'</span><span class="o">:</span> <span class="mi">18</span>
 </code></pre>
 
 
-<p>The configuration itself is grouped by the package name or one of the two core namespaces: <code>core</code> and <code>editor</code>.</p>
+<p>The configuration is grouped into global settings under the <code>*</code> key and language-specific settings under scope named keys like <code>.python.source</code> or <code>.html.text</code>. Underneath that, you'll find configuration settings grouped by package name or one of the two core namespaces: <code>core</code> or <code>editor</code>.</p>
 
-<p>You can open this file in an editor from the <em>Atom &gt; Open Your Config</em> menu.</p>
+<p>You can open this file in an editor from the <span class="platform-mac"><em>Atom &gt; Config</em></span><span class="platform-windows"><em>File &gt; Config</em></span><span class="platform-linux"><em>Edit &gt; Config</em></span> menu.</p>
 
 <h5>
 <a id="configuration-key-reference" class="anchor" href="#configuration-key-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration Key Reference</h5>
@@ -504,41 +510,92 @@
 <ul>
 <li>
 <code>core</code>
-** <code>customFileTypes</code>: Associations of language scope to file extensions (see <a href="#customizing-language-recognition">Customizing Language Recognition</a>)
-** <code>disabledPackages</code>: An array of package names to disable
-** <code>excludeVcsIgnoredPaths</code>: Don't search within files specified by <code>.gitignore</code>
-** <code>ignoredNames</code>: File names to ignore across all of Atom
-** <code>projectHome</code>: The directory where projects are assumed to be located
-** <code>themes</code>: An array of theme names to load, in cascading order</li>
+
+<ul>
+<li>
+<code>customFileTypes</code>: Associations of language scope to file extensions (see <a href="#customizing-language-recognition">Customizing Language Recognition</a>)</li>
+<li>
+<code>disabledPackages</code>: An array of package names to disable</li>
+<li>
+<code>excludeVcsIgnoredPaths</code>: Don't search within files specified by <code>.gitignore</code>
+</li>
+<li>
+<code>ignoredNames</code>: File names to ignore across all of Atom</li>
+<li>
+<code>projectHome</code>: The directory where projects are assumed to be located</li>
+<li>
+<code>themes</code>: An array of theme names to load, in cascading order</li>
+</ul>
+</li>
 <li>
 <code>editor</code>
-** <code>autoIndent</code>: Enable/disable basic auto-indent (defaults to <code>true</code>)
-** <code>nonWordCharacters</code>: A string of non-word characters to define word boundaries
-** <code>fontSize</code>: The editor font size
-** <code>fontFamily</code>: The editor font family
-** <code>invisibles</code>: A hash of characters Atom will use to render whitespace characters. Keys are whitespace character types, values are rendered characters (use value <code>false</code> to turn off individual whitespace character types)
-*** <code>tab</code>: Hard tab characters
-*** <code>cr</code>: Carriage return (for Microsoft-style line endings)
-*** <code>eol</code>: <code>\n</code> characters
-*** <code>space</code>: Leading and trailing space characters
-** <code>preferredLineLength</code>: Identifies the length of a line (defaults to <code>80</code>)
-** <code>showInvisibles</code>: Whether to render placeholders for invisible characters (defaults to <code>false</code>)
-** <code>showIndentGuide</code>: Show/hide indent indicators within the editor
-** <code>showLineNumbers</code>: Show/hide line numbers within the gutter
-** <code>softWrap</code>: Enable/disable soft wrapping of text within the editor
-** <code>softWrapAtPreferredLineLength</code>: Enable/disable soft line wrapping at <code>preferredLineLength</code>
-** <code>tabLength</code>: Number of spaces within a tab (defaults to <code>2</code>)</li>
+
+<ul>
+<li>
+<code>autoIndent</code>: Enable/disable basic auto-indent (defaults to <code>true</code>)</li>
+<li>
+<code>nonWordCharacters</code>: A string of non-word characters to define word boundaries</li>
+<li>
+<code>fontSize</code>: The editor font size</li>
+<li>
+<code>fontFamily</code>: The editor font family</li>
+<li>
+<code>invisibles</code>: A hash of characters Atom will use to render whitespace characters. Keys are whitespace character types,     values are rendered characters (use value <code>false</code> to turn off individual whitespace character types)
+
+<ul>
+<li>
+<code>tab</code>: Hard tab characters</li>
+<li>
+<code>cr</code>: Carriage return (for Microsoft-style line endings)</li>
+<li>
+<code>eol</code>: <code>\n</code> characters</li>
+<li>
+<code>space</code>: Leading and trailing space characters</li>
+</ul>
+</li>
+<li>
+<code>preferredLineLength</code>: Identifies the length of a line (defaults to <code>80</code>)</li>
+<li>
+<code>showInvisibles</code>: Whether to render placeholders for invisible characters (defaults to <code>false</code>)</li>
+<li>
+<code>showIndentGuide</code>: Show/hide indent indicators within the editor</li>
+<li>
+<code>showLineNumbers</code>: Show/hide line numbers within the gutter</li>
+<li>
+<code>softWrap</code>: Enable/disable soft wrapping of text within the editor</li>
+<li>
+<code>softWrapAtPreferredLineLength</code>: Enable/disable soft line wrapping at <code>preferredLineLength</code>
+</li>
+<li>
+<code>tabLength</code>: Number of spaces within a tab (defaults to <code>2</code>)</li>
+</ul>
+</li>
 <li>
 <code>fuzzyFinder</code>
-** <code>ignoredNames</code>: Files to ignore <em>only</em> in the fuzzy-finder</li>
+
+<ul>
+<li>
+<code>ignoredNames</code>: Files to ignore <em>only</em> in the fuzzy-finder</li>
+</ul>
+</li>
 <li>
 <code>whitespace</code>
-** <code>ensureSingleTrailingNewline</code>: Whether to reduce multiple newlines to one at the end of files
-** <code>removeTrailingWhitespace</code>: Enable/disable stripping of whitespace at the end of lines (defaults to <code>true</code>)</li>
+
+<ul>
+<li>
+<code>ensureSingleTrailingNewline</code>: Whether to reduce multiple newlines to one at the end of files</li>
+<li>
+<code>removeTrailingWhitespace</code>: Enable/disable stripping of whitespace at the end of lines (defaults to <code>true</code>)</li>
+</ul>
+</li>
 <li>
 <code>wrap-guide</code>
-** <code>columns</code>: Array of hashes with a <code>pattern</code> and <code>column</code> key to match the
-path of the current editor to a column position.</li>
+
+<ul>
+<li>
+<code>columns</code>: Array of hashes with a <code>pattern</code> and <code>column</code> key to match the path of the current editor to a column position.</li>
+</ul>
+</li>
 </ul>
 
 <h4>
@@ -564,18 +621,18 @@ editor.normalizeIndentOnPaste
 <h5>
 <a id="language-specific-settings-in-the-settings-view" class="anchor" href="#language-specific-settings-in-the-settings-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language-specific Settings in the Settings View</h5>
 
-<p>You can edit these config settings in the settings view on a per-language basis. Click on "Packages" in the navigation on the left, search for the language of your choice, select it, and edit away!</p>
+<p>You can edit these config settings in the Settings View on a per-language basis. Click on "Packages" tab in the navigation bar on the left, search for the language of your choice, select it, and edit away!</p>
 
-<p><img src="../../images/python-settings.png" alt="Python specific settings"></p>
+<p><img src="../../images/python-settings.png" alt="Python-specific settings" title="Python-specific settings"></p>
 
 <h5>
 <a id="language-specific-settings-in-your-config-file" class="anchor" href="#language-specific-settings-in-your-config-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language-specific Settings in your Config File</h5>
 
-<p>You can also edit the actual configuration file directly. Open your config file via the Command Palette, type "open config", and hit enter.</p>
+<p>You can also edit the <code>config.cson</code> directly. To open your configuration file via the Command Palette, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> type <code>open config</code>, and press <kbd class="platform-all">Enter</kbd>.</p>
 
-<p>Global settings are under a global key, and each language can have its own top-level key. This key is the language's scope. Language-specific settings override anything set in the global section.</p>
+<p>Global settings are under the <code>*</code> key, and each language can have its own top-level key. This key is the language's scope. Language-specific settings take precedence over anything set in the global section for that language only.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'global'</span><span class="o">:</span> <span class="c1"># all languages unless overridden
+<pre class="highlight highlight-coffee"><code><span class="s">'*'</span><span class="o">:</span> <span class="c1"># all languages unless overridden
 </span>  <span class="s">'editor'</span><span class="o">:</span>
     <span class="s">'softWrap'</span><span class="o">:</span> <span class="no">false</span>
     <span class="s">'tabLength'</span><span class="o">:</span> <span class="mi">8</span>
@@ -595,18 +652,18 @@ editor.normalizeIndentOnPaste
 
 
 <h5>
-<a id="finding-a-languages-scope-name" class="anchor" href="#finding-a-languages-scope-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finding a language's scope name</h5>
+<a id="finding-a-languages-scope-name" class="anchor" href="#finding-a-languages-scope-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finding a Language's Scope Name</h5>
 
-<p>In order to write these overrides effectively, you'll need to know the scope name for the language. We've already done this for finding a scope for writing a snippet in <a href="/using-atom/sections/snippets#snippet-format">Snippet format</a>, but we can quickly cover it again.</p>
+<p>In order to write these overrides effectively, you'll need to know the scope name for the language. We've already done this for finding a scope for writing a snippet in <a href="/using-atom/sections/snippets#snippet-format">Snippet Format</a>, but we can quickly cover it again.</p>
 
 <p>The scope name is shown in the settings view for each language. Click on "Packages" in the navigation on the left, search for the language of your choice, select it, and you should see the scope name under the language name heading:</p>
 
-<p><img src="../../images/python-grammar.png" alt="Finding a language grammar"></p>
+<p><img src="../../images/python-grammar.png" alt="Finding a language grammar" title="Finding a grammar's scope name"></p>
 
 <h4>
 <a id="customizing-language-recognition" class="anchor" href="#customizing-language-recognition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing Language Recognition</h4>
 
-<p>If you want to customize which language package is used when loading files with a certain extension, you need only manually edit your Atom <code>config.cson</code> file. You can open it using the <em>Application: Open Your Config</em> command from the Command Palette. For example, if you wanted to add the <code>foo</code> extension to the CoffeeScript language, you could add this to your configuration file under the <code>*.core</code> section:</p>
+<p>If you want Atom to always recognize certain file types as a specific grammar, you'll need to manually edit your <code>config.cson</code> file. You can open it using the <em>Application: Open Your Config</em> command from the Command Palette. For example, if you wanted to add the <code>foo</code> extension to the CoffeeScript language, you could add this to your configuration file under the <code>*.core</code> section:</p>
 
 <pre class="highlight highlight-coffee"><code><span class="s">'*'</span>
   <span class="na">core</span><span class="o">:</span>
@@ -617,17 +674,17 @@ editor.normalizeIndentOnPaste
 </code></pre>
 
 
-<p>In the example above, <code>source.coffee</code> is the language's scope name (see <a href="#finding-a-languages-scope-name">Finding a language's scope name</a> for more information) and <code>foo</code> is the file extension to match without the period. Adding a period to the beginning of either of these will not work.</p>
+<p>In the example above, <code>source.coffee</code> is the language's scope name (see <a href="#finding-a-languages-scope-name">Finding a Language's Scope Name</a> for more information) and <code>foo</code> is the file extension to match without the period. Adding a period to the beginning of either of these will not work.</p>
 
 <h4>
 <a id="controlling-where-customization-is-stored-to-simplify-your-workflow" class="anchor" href="#controlling-where-customization-is-stored-to-simplify-your-workflow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controlling Where Customization is Stored to Simplify Your Workflow</h4>
 
-<p>The CSON configuration files for Atom are stored on disk on your machine. The location for this storage is customizable. The default is to use the home directory of the user executing the application. The Atom Home directory will, by default, be called .atom and will be located in the root of the home directory of the user.</p>
+<p>The CSON configuration files for Atom are stored on disk on your machine. The location for this storage is customizable. The default is to use the home directory of the user executing the application. The Atom Home directory will, by default, be called <code>.atom</code> and will be located in the root of the home directory of the user.</p>
 
 <h5>
 <a id="custom-home-location-with-an-environment-variable" class="anchor" href="#custom-home-location-with-an-environment-variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom home location with an environment variable</h5>
 
-<p>An environment variable can be used, though to make Atom use a different location. This can be useful for several reasons. One of these may be that multiple user accounts on a machine want to use the same Atom Home. The environment variable used to specify and alternate location is called ATOM_HOME. If this environment variable exists, the location specified will be used to load and store Atom settings.</p>
+<p>An environment variable can be used, though to make Atom use a different location. This can be useful for several reasons. One of these may be that multiple user accounts on a machine want to use the same Atom Home. The environment variable used to specify and alternate location is called <code>ATOM_HOME</code>. If this environment variable exists, the location specified will be used to load and store Atom settings.</p>
 
 <h5>
 <a id="taking-your-customization-with-you-with-portable-mode" class="anchor" href="#taking-your-customization-with-you-with-portable-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Taking your customization with you with Portable Mode</h5>
@@ -648,7 +705,7 @@ Portable Mode is most useful for taking Atom with you, with all your custom sett
 <span class="command">atom --portable</span>
 </pre>
 
-<p>Executing atom with the --portable option will take the .atom directory you have in the default location (<code>~/.atom</code>) and copy the relevant contents for your configuration to a new home directory in the Portable Mode location. This enables easily moving from the default location to a portable operation without losing the customization you have already set up.</p>
+<p>Executing atom with the <code>--portable</code> option will take the <code>.atom</code> directory you have in the default location (<code>~/.atom</code>) and copy the relevant contents for your configuration to a new home directory in the Portable Mode location. This enables easily moving from the default location to a portable operation without losing the customization you have already set up.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
@@ -659,7 +716,7 @@ Portable Mode is most useful for taking Atom with you, with all your custom sett
       <ul class="footer-left">
         <li><a href="https://atom.io/terms">Terms of Use</a></li>
         <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
-        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
         <li><a href="https://atom.io/releases">Releases</a></li>
         <li><a href="https://atom.io/faq">FAQ</a></li>
         <li><a href="https://atom.io/contact">Contact</a></li>

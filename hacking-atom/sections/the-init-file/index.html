@@ -26,6 +26,8 @@
   })
 </script>
 
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
   </head>
   <body class="layout-article">
     <div class="footer-push">
@@ -81,7 +83,9 @@
           
 
 
-<h4>Chapter 1: Getting Started</h4>
+<h4>
+  <a href="/getting-started">Chapter 1: Getting Started</a>
+</h4>
 <ul>
   
   
@@ -109,7 +113,9 @@
 </ul>
 
 
-<h4>Chapter 2: Using Atom</h4>
+<h4>
+  <a href="/using-atom">Chapter 2: Using Atom</a>
+</h4>
 <ul>
   
   
@@ -187,7 +193,9 @@
 </ul>
 
 
-<h4>Chapter 3: Hacking Atom</h4>
+<h4>
+  <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+</h4>
 <ul>
   
   
@@ -250,7 +258,9 @@
 </ul>
 
 
-<h4>Chapter 4: Behind Atom</h4>
+<h4>
+  <a href="/behind-atom">Chapter 4: Behind Atom</a>
+</h4>
 <ul>
   
   
@@ -298,7 +308,9 @@
 </ul>
 
 
-<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<h4>
+  <a href="/upgrading-to-1-0-apis">Chapter 5: Upgrading to 1.0 APIs</a>
+</h4>
 <ul>
   
   
@@ -340,11 +352,6 @@
         linux
       </a>
     </li>
-    <li class="platform-all">
-      <a href="#platform-all" data-platform="all">
-        all
-      </a>
-    </li>
   </ul>
 </div>
 
@@ -363,9 +370,9 @@
           <h3>
 <a id="the-init-file" class="anchor" href="#the-init-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Init File</h3>
 
-<p>When Atom finishes loading, it will evaluate <code>init.coffee</code> in your <code>~/.atom</code> directory, giving you a chance to run CoffeeScript code to make customizations. Code in this file has full access to <a href="https://atom.io/docs/api/latest">Atom's API</a>. If customizations become extensive, consider creating a package, which we will cover in <a href="../package-word-count">Package: Word Count</a>.</p>
+<p>When Atom finishes loading, it will evaluate <code>init.coffee</code> in your <span class="platform-mac platform-linux"><code>~/.atom</code></span><span class="platform-windows"><code>%USERPROFILE%\.atom</code></span> directory, giving you a chance to run CoffeeScript code to make customizations. Code in this file has full access to <a href="https://atom.io/docs/api/latest">Atom's API</a>. If customizations become extensive, consider creating a package, which we will cover in <a href="../package-word-count">Package: Word Count</a>.</p>
 
-<p>You can open the <code>init.coffee</code> file in an editor from the <em>Atom &gt; Init Script...</em> menu. This file can also be named <code>init.js</code> and contain JavaScript code.</p>
+<p>You can open the <code>init.coffee</code> file in an editor from the <span class="platform-mac"><em>Atom &gt; Init Script</em></span><span class="platform-windows"><em>File &gt; Init Script</em></span><span class="platform-linux"><em>Edit &gt; Init Script</em></span> menu. This file can also be named <code>init.js</code> and contain JavaScript code.</p>
 
 <p>For example, if you have the Audio Beep configuration setting enabled, you could add the following code to your <code>init.coffee</code> file to have Atom greet you with an audio beep every time it loads:</p>
 
@@ -385,7 +392,7 @@
 </code></pre>
 
 
-<p>Now, reload Atom and use the <a href="/getting-started/sections/atom-basics/#command-palette">Command Palette</a> to execute the new command, "Markdown: Paste As Link", by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a <a href="/using-atom/sections/basic-customization/#customizing-key-bindings">keymap for the command</a>.</p>
+<p>Now, reload Atom and use the <a href="/getting-started/sections/atom-basics/#command-palette">Command Palette</a> to execute the new command, "Markdown: Paste As Link", by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a <a href="/using-atom/sections/basic-customization/#customizing-keybindings">keybinding for the command</a>.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
@@ -396,7 +403,7 @@
       <ul class="footer-left">
         <li><a href="https://atom.io/terms">Terms of Use</a></li>
         <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
-        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
         <li><a href="https://atom.io/releases">Releases</a></li>
         <li><a href="https://atom.io/faq">FAQ</a></li>
         <li><a href="https://atom.io/contact">Contact</a></li>

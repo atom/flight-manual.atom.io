@@ -26,6 +26,8 @@
   })
 </script>
 
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
   </head>
   <body class="layout-article">
     <div class="footer-push">
@@ -81,7 +83,9 @@
           
 
 
-<h4>Chapter 1: Getting Started</h4>
+<h4>
+  <a href="/getting-started">Chapter 1: Getting Started</a>
+</h4>
 <ul>
   
   
@@ -109,7 +113,9 @@
 </ul>
 
 
-<h4>Chapter 2: Using Atom</h4>
+<h4>
+  <a href="/using-atom">Chapter 2: Using Atom</a>
+</h4>
 <ul>
   
   
@@ -187,7 +193,9 @@
 </ul>
 
 
-<h4>Chapter 3: Hacking Atom</h4>
+<h4>
+  <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+</h4>
 <ul>
   
   
@@ -250,7 +258,9 @@
 </ul>
 
 
-<h4>Chapter 4: Behind Atom</h4>
+<h4>
+  <a href="/behind-atom">Chapter 4: Behind Atom</a>
+</h4>
 <ul>
   
   
@@ -298,7 +308,9 @@
 </ul>
 
 
-<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<h4>
+  <a href="/upgrading-to-1-0-apis">Chapter 5: Upgrading to 1.0 APIs</a>
+</h4>
 <ul>
   
   
@@ -340,11 +352,6 @@
         linux
       </a>
     </li>
-    <li class="platform-all">
-      <a href="#platform-all" data-platform="all">
-        all
-      </a>
-    </li>
   </ul>
 </div>
 
@@ -365,24 +372,48 @@
 
 <p>Text selections in Atom support a number of actions, such as scoping deletion, indentation and search actions, and marking text for actions such as quoting and bracketing.</p>
 
-<p>Selections mirror many of the movement commands. They're actually exactly the same keybindings as the movement commands, but with a <code>shift</code> key added in.</p>
+<p>Selections mirror many of the movement commands. They're actually exactly the same keybindings as the movement commands, but with a <kbd class="platform-all">Shift</kbd> key added in.</p>
 
-<p><code>ctrl-shift-P</code>:: Select up<br>
-<code>ctrl-shift-N</code>:: Select down<br>
-<code>ctrl-shift-B</code>:: Select previous character<br>
-<code>ctrl-shift-F</code>:: Select next character<br>
-<code>alt-shift-B</code>, <code>alt-shift-left</code>:: Select to beginning of word<br>
-<code>alt-shift-F</code>, <code>alt-shift-right</code>:: Select to end of word<br>
-<code>ctrl-shift-E</code>, <code>cmd-shift-right</code>:: Select to end of line<br>
-<code>ctrl-shift-A</code>, <code>cmd-shift-left</code>:: Select to first character of line<br>
-<code>cmd-shift-up</code>:: Select to top of file<br>
-<code>cmd-shift-down</code>:: Select to bottom of file</p>
+<ul>
+<li>
+<kbd class="platform-all">Shift+Up</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+P</kbd></span> - Select up</li>
+<li>
+<kbd class="platform-all">Shift+Down</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+N</kbd></span> - Select down</li>
+<li>
+<kbd class="platform-all">Shift+Left</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+B</kbd></span> - Select previous character</li>
+<li>
+<kbd class="platform-all">Shift+Right</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+F</kbd></span> - Select next character</li>
+<li>
+<kbd class="platform-mac">Alt+Shift+Left</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+Left</kbd><span class="platform-mac"> or <kbd class="platform-mac">Alt+Shift+B</kbd></span> - Select to beginning of word</li>
+<li>
+<kbd class="platform-mac">Alt+Shift+Right</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+Right</kbd><span class="platform-mac"> or <kbd class="platform-mac">Alt+Shift+F</kbd></span> - Select to end of word</li>
+<li>
+<kbd class="platform-mac">Cmd+Shift+Right</kbd><kbd class="platform-windows platform-linux">Shift+End</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+E</kbd></span> - Select to end of line</li>
+<li>
+<kbd class="platform-mac">Cmd+Shift+Left</kbd><kbd class="platform-windows platform-linux">Shift+Home</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+A</kbd></span> - Select to first character of line</li>
+<li>
+<kbd class="platform-mac">Cmd+Shift+Up</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+Home</kbd> - Select to top of file</li>
+<li>
+<kbd class="platform-mac">Cmd+Shift+Down</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+End</kbd> - Select to bottom of file</li>
+</ul>
 
 <p>In addition to the cursor movement selection commands, there are also a few commands that help with selecting specific areas of content.</p>
 
-<p><code>cmd-A</code>:: Select the entire buffer<br>
-<code>cmd-L</code>:: Select entire line<br>
-<code>ctrl-shift-W</code>:: Select current word</p>
+<ul>
+<li>
+<kbd class="platform-mac">Cmd+A</kbd><kbd class="platform-windows platform-linux">Ctrl+A</kbd> - Select the entire contents of the file</li>
+<li>
+<kbd class="platform-mac">Cmd+L</kbd><kbd class="platform-windows platform-linux">Ctrl+L</kbd> - Select the entire line</li>
+</ul>
+
+<div class="platform-mac">
+
+<ul>
+<li>
+<kbd class="platform-mac">Ctrl+Shift+W</kbd> - Select the current word</li>
+</ul>
+
+</div>
         </div>
       </div>
       <div class="footer-pad"></div>
@@ -393,7 +424,7 @@
       <ul class="footer-left">
         <li><a href="https://atom.io/terms">Terms of Use</a></li>
         <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
-        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
         <li><a href="https://atom.io/releases">Releases</a></li>
         <li><a href="https://atom.io/faq">FAQ</a></li>
         <li><a href="https://atom.io/contact">Contact</a></li>

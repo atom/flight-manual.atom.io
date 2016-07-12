@@ -26,6 +26,8 @@
   })
 </script>
 
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
   </head>
   <body class="layout-article">
     <div class="footer-push">
@@ -81,7 +83,9 @@
           
 
 
-<h4>Chapter 1: Getting Started</h4>
+<h4>
+  <a href="/getting-started">Chapter 1: Getting Started</a>
+</h4>
 <ul>
   
   
@@ -109,7 +113,9 @@
 </ul>
 
 
-<h4>Chapter 2: Using Atom</h4>
+<h4>
+  <a href="/using-atom">Chapter 2: Using Atom</a>
+</h4>
 <ul>
   
   
@@ -187,7 +193,9 @@
 </ul>
 
 
-<h4>Chapter 3: Hacking Atom</h4>
+<h4>
+  <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+</h4>
 <ul>
   
   
@@ -250,7 +258,9 @@
 </ul>
 
 
-<h4>Chapter 4: Behind Atom</h4>
+<h4>
+  <a href="/behind-atom">Chapter 4: Behind Atom</a>
+</h4>
 <ul>
   
   
@@ -298,7 +308,9 @@
 </ul>
 
 
-<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<h4>
+  <a href="/upgrading-to-1-0-apis">Chapter 5: Upgrading to 1.0 APIs</a>
+</h4>
 <ul>
   
   
@@ -340,11 +352,6 @@
         linux
       </a>
     </li>
-    <li class="platform-all">
-      <a href="#platform-all" data-platform="all">
-        all
-      </a>
-    </li>
   </ul>
 </div>
 
@@ -363,36 +370,34 @@
           <h3>
 <a id="version-control-in-atom" class="anchor" href="#version-control-in-atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version Control in Atom</h3>
 
-<p>Version control is an important aspect of any project and Atom comes with basic <a href="http://git-scm.com">Git</a> and <a href="https://github.com">GitHub</a> integration baked in.</p>
+<p>Version control is an important aspect of any project and Atom comes with basic <a href="http://git-scm.com">Git</a> and <a href="https://github.com">GitHub</a> integration built in.</p>
 
 <h4>
 <a id="checkout-head-revision" class="anchor" href="#checkout-head-revision" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checkout HEAD revision</h4>
 
-<p>The <code>cmd-alt-Z</code> keybinding checks out the HEAD revision of the file in the editor.</p>
+<p>The <kbd class="platform-mac">Alt+Cmd+Z</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Z</kbd> keybinding checks out the <code>HEAD</code> revision of the file in the editor.</p>
 
-<p>This is a quick way to discard any saved and staged changes you've made and restore the file to the version in the HEAD commit. This is essentially the same as running <code>git checkout HEAD -- &lt;path&gt;</code> and <code>git reset HEAD -- &lt;path&gt;</code> from the command line for that path.</p>
+<p>This is a quick way to discard any saved and staged changes you've made and restore the file to the version in the <code>HEAD</code> commit. This is essentially the same as running <code>git checkout HEAD -- &lt;path&gt;</code> and <code>git reset HEAD -- &lt;path&gt;</code> from the command line for that path.</p>
 
-<p><img src="../../images/git-checkout-head.gif" alt="Git checkout HEAD"></p>
+<p><img src="../../images/git-checkout-head.gif" alt="Git checkout `HEAD`" title="Git checkout `HEAD`"></p>
 
-<p>This command goes onto the undo stack so you can use <code>cmd-Z</code> afterwards to restore the previous contents.</p>
+<p>This command goes onto the undo stack so you can use <kbd class="platform-mac">Cmd+Z</kbd><kbd class="platform-windows platform-linux">Ctrl+Z</kbd> afterwards to restore the previous contents.</p>
 
 <h4>
 <a id="git-status-list" class="anchor" href="#git-status-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git status list</h4>
 
-<p>Atom ships with the fuzzy-finder package which provides <code>cmd-T</code> to quickly open files in the project and <code>cmd-B</code> to jump to any open editor.</p>
+<p>Atom ships with the <a href="https://github.com/atom/fuzzy-finder">fuzzy-finder package</a> which provides <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd> to quickly open files in the project and <kbd class="platform-mac">Cmd+B</kbd><kbd class="platform-windows platform-linux">Ctrl+B</kbd> to jump to any open editor. The package also provides <kbd class="platform-mac">Cmd+Shift+B</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+B</kbd> which displays a list of all the untracked and modified files in the project. These will be the same files that you would see on the command line if you ran <code>git status</code>.</p>
 
-<p>The package also comes with <code>cmd-shift-B</code> which pops up a list of all the untracked and modified files in the project. These will be the same files that you would see on the command line if you ran git status.</p>
+<p><img src="../../images/git-status.gif" alt="Git status list" title="`git status` list"></p>
 
-<p><img src="../../images/git-status.gif" alt="Git status list"></p>
-
-<p>An octicon will appear to the right of each file letting you know whether it is untracked or modified.</p>
+<p>An icon will appear to the right of each file letting you know whether it is untracked or modified.</p>
 
 <h4>
 <a id="commit-editor" class="anchor" href="#commit-editor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commit editor</h4>
 
-<p>Atom can be used as your Git commit editor and ships with the language-git package which adds syntax highlighting to edited commit, merge, and rebase messages.</p>
+<p>Atom can be used as your Git commit editor and ships with the <a href="https://github.com/atom/language-git">language-git package</a> which adds syntax highlighting to edited commit, merge, and rebase messages.</p>
 
-<p><img src="../../images/git-message.gif" alt="Git commit message highlighting"></p>
+<p><img src="../../images/git-message.gif" alt="Git commit message highlighting" title="Git commit message highlighting"></p>
 
 <p>You can configure Atom to be your Git commit editor with the following command:</p>
 
@@ -400,46 +405,47 @@
 <span class="command">git config --global core.editor "atom --wait"</span>
 </pre>
 
-<p>The <a href="https://github.com/atom/language-git">language-git</a> package will help you with your brevity by colorizing the first lines of commit messages when they're longer than 50 and 65 characters.</p>
+<p>The <a href="https://github.com/atom/language-git">language-git</a> package will help remind you to be brief by colorizing the first lines of commit messages when they're longer than 50 or 65 characters.</p>
 
 <h4>
 <a id="status-bar-icons" class="anchor" href="#status-bar-icons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status bar icons</h4>
 
-<p>The <a href="https://github.com/atom/language-git">status-bar</a> package that ships with Atom includes several Git decorations that display on the right side of the status bar.</p>
+<p>The <a href="https://github.com/atom/status-bar">status-bar</a> package that ships with Atom includes several Git decorations that display on the right side of the status bar:</p>
 
-<p><img src="../../images/git-status-bar.png" alt="Git Status Bar"></p>
+<p><img src="../../images/git-status-bar.png" alt="Git Status Bar decorations" title="Git Status Bar decorations"></p>
 
-<p>The currently checked out branch name is shown with the number of commits the branch is ahead of or behind its upstream branch.</p>
-
-<p>An icon is added if the file is untracked, modified, or ignored. The number of lines added and removed since the file was last committed will be displayed as well.</p>
+<p>The currently checked out branch name is shown with the number of commits the branch is ahead of or behind its upstream branch. An icon is added if the file is untracked, modified, or ignored. The number of lines added and removed since the file was last committed will be displayed as well.</p>
 
 <h4>
 <a id="line-diffs" class="anchor" href="#line-diffs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Line diffs</h4>
 
 <p>The included <a href="https://github.com/atom/git-diff">git-diff</a> package colorizes the gutter next to lines that have been added, edited, or removed.</p>
 
-<p><img src="../../images/git-lines.png" alt="Git line diffs"></p>
+<p><img src="../../images/git-lines.png" alt="Git line diff indications" title="Git line diff indications"></p>
 
-<p>This package also adds <code>alt-g down</code> and <code>alt-g up</code> keybindings that allow you to move the cursor to the next/previous diff hunk in the current editor.</p>
+<p>This package also adds <kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">Down</kbd> and <kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">Up</kbd> keybindings that allow you to move the cursor to the next or previous diff in the current editor.</p>
 
 <h4>
 <a id="open-on-github" class="anchor" href="#open-on-github" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open on GitHub</h4>
 
 <p>If the project you're working on is on GitHub, there are also some very useful integrations you can use.  Most of the commands will take the current file you're viewing and open a view of that file on GitHub - for instance, the blame or commit history of that file.</p>
 
-<p><code>alt-G O</code>:: Open file on GitHub</p>
+<ul>
+<li>
+<kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">O</kbd> - Open file on GitHub</li>
+<li>
+<kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">B</kbd> - Open Blame view of file on GitHub</li>
+<li>
+<kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">H</kbd> - Open History view of file on GitHub</li>
+<li>
+<kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">C</kbd> - Copy the URL of the current file on GitHub to the clipboard</li>
+<li>
+<kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">R</kbd> - Branch compare on GitHub</li>
+</ul>
 
-<p><code>alt-G B</code>:: Open blame of file on GitHub</p>
+<p>The branch comparison shows you the commits that are on the branch you're currently working on locally that are not on the mainline branch.</p>
 
-<p><code>alt-G H</code>:: Open history of file on GitHub</p>
-
-<p><code>alt-G C</code>:: Copy the URL of the current file on GitHub</p>
-
-<p><code>alt-G R</code>:: Branch compare on GitHub</p>
-
-<p>The branch comparison simply shows you the commits that are on the branch you're currently working on locally that are not on the mainline branch.</p>
-
-<p><img src="../../images/open-on-github.png" alt="Open Blame of file on GitHub"></p>
+<p><img src="../../images/open-on-github.png" alt="Open Blame of file on GitHub" title="Open Blame of file on GitHub"></p>
         </div>
       </div>
       <div class="footer-pad"></div>
@@ -450,7 +456,7 @@
       <ul class="footer-left">
         <li><a href="https://atom.io/terms">Terms of Use</a></li>
         <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
-        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
         <li><a href="https://atom.io/releases">Releases</a></li>
         <li><a href="https://atom.io/faq">FAQ</a></li>
         <li><a href="https://atom.io/contact">Contact</a></li>

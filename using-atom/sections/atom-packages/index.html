@@ -26,6 +26,8 @@
   })
 </script>
 
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
   </head>
   <body class="layout-article">
     <div class="footer-push">
@@ -81,7 +83,9 @@
           
 
 
-<h4>Chapter 1: Getting Started</h4>
+<h4>
+  <a href="/getting-started">Chapter 1: Getting Started</a>
+</h4>
 <ul>
   
   
@@ -109,7 +113,9 @@
 </ul>
 
 
-<h4>Chapter 2: Using Atom</h4>
+<h4>
+  <a href="/using-atom">Chapter 2: Using Atom</a>
+</h4>
 <ul>
   
   
@@ -187,7 +193,9 @@
 </ul>
 
 
-<h4>Chapter 3: Hacking Atom</h4>
+<h4>
+  <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+</h4>
 <ul>
   
   
@@ -250,7 +258,9 @@
 </ul>
 
 
-<h4>Chapter 4: Behind Atom</h4>
+<h4>
+  <a href="/behind-atom">Chapter 4: Behind Atom</a>
+</h4>
 <ul>
   
   
@@ -298,7 +308,9 @@
 </ul>
 
 
-<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<h4>
+  <a href="/upgrading-to-1-0-apis">Chapter 5: Upgrading to 1.0 APIs</a>
+</h4>
 <ul>
   
   
@@ -340,11 +352,6 @@
         linux
       </a>
     </li>
-    <li class="platform-all">
-      <a href="#platform-all" data-platform="all">
-        all
-      </a>
-    </li>
   </ul>
 </div>
 
@@ -365,24 +372,24 @@
 
 <p>First we'll start with the Atom package system. As we mentioned previously, Atom itself is a very basic core of functionality that ships with a number of useful packages that add new features like the <a href="https://github.com/atom/tree-view">Tree View</a> and the <a href="https://github.com/atom/settings-view">Settings View</a>.</p>
 
-<p>In fact, there are more than 70 packages that comprise all of the functionality that is available in Atom by default. For example, the <a href="https://github.com/atom/welcome">Welcome dialog</a> that you see when you first start Atom, the <a href="https://github.com/atom/spell-check">spell checker</a>, the <a href="https://github.com/atom/one-dark-ui">themes</a> and the <a href="https://github.com/atom/fuzzy-finder">fuzzy finder</a> are all packages that are separately maintained and all use the same APIs that you have access to, as we'll see in great detail in link:/hacking-atom[Hacking Atom].</p>
+<p>In fact, there are more than 90 packages that comprise all of the functionality that is available in Atom by default. For example, the <a href="https://github.com/atom/welcome">Welcome screen</a> that you see when you first start Atom, the <a href="https://github.com/atom/spell-check">spell checker</a>, the <a href="https://github.com/atom/one-dark-ui">themes</a> and the <a href="https://github.com/atom/fuzzy-finder">Fuzzy Finder</a> are all packages that are separately maintained and all use the same APIs that you have access to, as we'll see in great detail in <a href="/hacking-atom/">Hacking Atom</a>.</p>
 
 <p>This means that packages can be incredibly powerful and can change everything from the very look and feel of the entire interface to the basic operation of even core functionality.</p>
 
-<p>In order to install a new package, you can use the Install tab in the now familiar Settings view. Simply open up the Settings view (<code>cmd-,</code>), click on the "Install" tab and type your search query into the box under Install Packages that hints "Search Packages".</p>
+<p>In order to install a new package, you can use the Install tab in the now familiar Settings View. Open up the Settings View using <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd>, click on the "Install" tab and type your search query into the box under Install Packages.</p>
 
-<p>The packages listed here have been published to <a href="https://atom.io/packages">atom.io</a> which is the official registry for Atom packages. Searching on the settings pane will go to the atom.io package registry and pull in anything that matches your search terms.</p>
+<p>The packages listed here have been published to <a href="http://atom.io/packages">http://atom.io/packages</a> which is the official registry for Atom packages. Searching on the Settings View will go to the Atom package registry and pull in anything that matches your search terms.</p>
 
-<p><img src="../../images/packages-install.png" alt="Package install screen"></p>
+<p><img src="../../images/packages-install.png" alt="Package install screen" title="Package install screen"></p>
 
 <p>All of the packages will come up with an "Install" button. Clicking that will download the package and install it. Your editor will now have the functionality that the package provides.</p>
 
 <h4>
 <a id="package-settings" class="anchor" href="#package-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package Settings</h4>
 
-<p>Once a package is installed in Atom, it will show up in the side pane under the "Packages" tab, along with all the preinstalled packages that come with Atom. To filter the list in order to find one, you can type into the "Filter packages by name" textbox.</p>
+<p>Once a package is installed in Atom, it will show up in the Settings View under the "Packages" tab, along with all the preinstalled packages that come with Atom. To filter the list in order to find one, you can type into search box directly under the "Installed Packages" heading.</p>
 
-<p><img src="../../images/package-specific-settings.png" alt="Package settings screen"></p>
+<p><img src="../../images/package-specific-settings.png" alt="Package settings screen" title="Package settings screen"></p>
 
 <p>Clicking on the "Settings" button for a package will give you the settings screen for that package specifically. Here you have the option of changing some of the default variables for the package, seeing what all the command keybindings are, disabling the package temporarily, looking at the source code, seeing the current version of the package, reporting issues and uninstalling the package.</p>
 
@@ -391,30 +398,34 @@
 <h4>
 <a id="atom-themes" class="anchor" href="#atom-themes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom Themes</h4>
 
-<p>You can also find and install new themes for Atom from the Settings view. These can be either UI themes or syntax highlighting themes and you can search for them from the "Install" tab, just like searching for new packages. Make sure to press the "Themes" toggle next to the search box.</p>
+<p>You can also find and install new themes for Atom from the Settings View. These can be either UI themes or syntax themes and you can search for them from the "Install" tab, just like searching for new packages. Make sure to press the "Themes" toggle next to the search box.</p>
 
-<p><img src="../../images/themes.png" alt="Theme search screen"></p>
+<p><img src="../../images/themes.png" alt="Theme search screen" title="Theme search screen"></p>
 
-<p>Clicking on the theme title will take you to a profile page for the theme on atom.io, which usually has a screenshot of the theme. This way you can see what it looks like before installing it.</p>
+<p>Clicking on the theme title will take you to a profile page for the theme on atom.io, which often has a screenshot of the theme. This way you can see what it looks like before installing it.</p>
 
-<p>Clicking on "Install" will install the theme and make it available in the Theme dropdowns as we saw in <a href="/getting-started/sections/atom-basics/#changing-the-theme">Color Themes</a>.</p>
+<p>Clicking on "Install" will install the theme and make it available in the Theme dropdowns as we saw in <a href="/getting-started/sections/atom-basics/#changing-the-theme">Changing the Theme</a>.</p>
 
-<p><img src="../../images/unity-theme.png" alt="Example of the Unity UI theme with Monokai syntax theme"></p>
+<p><img src="../../images/unity-theme.png" alt="Example of the Unity UI theme with Monokai syntax theme" title="Example of the Unity UI theme with Monokai syntax theme"></p>
 
 <h4>
 <a id="command-line" class="anchor" href="#command-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command Line</h4>
 
 <p>You can also install packages or themes from the command line using <code>apm</code>.</p>
 
+<div class="alert tip">
+
 <p>Check that you have <code>apm</code> installed by running the following command in your terminal:</p>
 
-<pre class="highlight highlight-shell"><code><span class="gp">$ </span>apm <span class="nb">help </span>install
-</code></pre>
-
+<pre class="command-line">
+<span class="command">apm help install</span>
+</pre>
 
 <p>You should see a message print out with details about the <code>apm install</code> command.</p>
 
-<p>If you do not, launch Atom and run the <em>Atom &gt; Install Shell Commands</em> menu to install the <code>apm</code> and <code>atom</code> commands.</p>
+<p>If you do not, see the <a href="/getting-started/sections/installing-atom">Installing Atom section</a> for instructions on how to install the <code>atom</code> and <code>apm</code> commands for your system.</p>
+
+</div>
 
 <p>You can also install packages by using the <code>apm install</code> command:</p>
 
@@ -429,27 +440,29 @@
 
 <p>You can also use <code>apm</code> to find new packages to install. If you run <code>apm search</code>, you can search the package registry for a search term.</p>
 
-<pre><code>$ apm search coffee
-Search Results For 'coffee' (5)
-├── coffee-trace Add smart trace statements to coffee files with one keypress each. (77 downloads, 3 stars)
-├── coffee-navigator Code navigation panel for Coffee Script (557 downloads, 8 stars)
-├── atom-compile-coffee This Atom.io Package compiles .coffee Files on save to .js files. (myJavascript.coffee -&gt; myJavascript.js) (349 downloads, 4 stars)
-├── coffee-lint CoffeeScript linter (3336 downloads, 18 stars)
-└── git-grep `git grep` in atom editor (1224 downloads, 9 stars)
-</code></pre>
+<pre class="command-line">
+<span class="command">apm search coffee</span>
+<span class="output">Search Results For 'coffee' (5)</span>
+<span class="output">├── coffee-trace Add smart trace statements to coffee files with one keypress each. (77 downloads, 3 stars)</span>
+<span class="output">├── coffee-navigator Code navigation panel for Coffee Script (557 downloads, 8 stars)</span>
+<span class="output">├── atom-compile-coffee This Atom.io Package compiles .coffee Files on save to .js files. (myJavascript.coffee -&gt; myJavascript.js) (349 downloads, 4 stars)</span>
+<span class="output">├── coffee-lint CoffeeScript linter (3336 downloads, 18 stars)</span>
+<span class="output">└── git-grep `git grep` in atom editor (1224 downloads, 9 stars)</span>
+</pre>
 
 <p>You can use <code>apm view</code> to see more information about a specific package.</p>
 
-<pre><code>$ apm view git-grep
-git-grep
-├── 0.7.0
-├── git://github.com/mizchi/atom-git-grep
-├── `git grep` in atom editor
-├── 1224 downloads
-└── 9 stars
+<pre class="command-line">
+<span class="command">apm view git-grep</span>
+<span class="output">git-grep</span>
+<span class="output">├── 0.7.0</span>
+<span class="output">├── git://github.com/mizchi/atom-git-grep</span>
+<span class="output">├── `git grep` in atom editor</span>
+<span class="output">├── 1224 downloads</span>
+<span class="output">└── 9 stars&gt;</span>
 
-Run `apm install git-grep` to install this package.
-</code></pre>
+<span class="output">Run `apm install git-grep` to install this package.</span>
+</pre>
         </div>
       </div>
       <div class="footer-pad"></div>
@@ -460,7 +473,7 @@ Run `apm install git-grep` to install this package.
       <ul class="footer-left">
         <li><a href="https://atom.io/terms">Terms of Use</a></li>
         <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
-        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
         <li><a href="https://atom.io/releases">Releases</a></li>
         <li><a href="https://atom.io/faq">FAQ</a></li>
         <li><a href="https://atom.io/contact">Contact</a></li>

@@ -26,6 +26,8 @@
   })
 </script>
 
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
   </head>
   <body class="layout-article">
     <div class="footer-push">
@@ -81,7 +83,9 @@
           
 
 
-<h4>Chapter 1: Getting Started</h4>
+<h4>
+  <a href="/getting-started">Chapter 1: Getting Started</a>
+</h4>
 <ul>
   
   
@@ -109,7 +113,9 @@
 </ul>
 
 
-<h4>Chapter 2: Using Atom</h4>
+<h4>
+  <a href="/using-atom">Chapter 2: Using Atom</a>
+</h4>
 <ul>
   
   
@@ -187,7 +193,9 @@
 </ul>
 
 
-<h4>Chapter 3: Hacking Atom</h4>
+<h4>
+  <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+</h4>
 <ul>
   
   
@@ -250,7 +258,9 @@
 </ul>
 
 
-<h4>Chapter 4: Behind Atom</h4>
+<h4>
+  <a href="/behind-atom">Chapter 4: Behind Atom</a>
+</h4>
 <ul>
   
   
@@ -298,7 +308,9 @@
 </ul>
 
 
-<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<h4>
+  <a href="/upgrading-to-1-0-apis">Chapter 5: Upgrading to 1.0 APIs</a>
+</h4>
 <ul>
   
   
@@ -340,11 +352,6 @@
         linux
       </a>
     </li>
-    <li class="platform-all">
-      <a href="#platform-all" data-platform="all">
-        all
-      </a>
-    </li>
   </ul>
 </div>
 
@@ -365,9 +372,9 @@
 
 <p>Snippets are an incredibly powerful way to quickly generate commonly needed code syntax from a shortcut.</p>
 
-<p>The idea is that you can type something like <code>habtm</code> and then hit the <code>tab</code> key and that will expand into <code>has_and_belongs_to_many</code>.</p>
+<p>The idea is that you can type something like <code>habtm</code> and then press the <kbd class="platform-all">Tab</kbd> key and it will expand into <code>has_and_belongs_to_many</code>.</p>
 
-<p>Many of the packages come bundled with their own snippets that are specific to that mode. For example, the <code>language-html</code> package that provides support for HTML syntax highlighting and grammar comes with dozens of snippets to create many of the various HTML tags you might want to use. If you create a new HTML file in Atom, you can type <code>html</code> and then hit <code>tab</code> and it will expand to:</p>
+<p>Many Core and Community packages come bundled with their own snippets that are specific to it. For example, the <code>language-html</code> package that provides support for HTML syntax highlighting and grammar comes with dozens of snippets to create many of the various HTML tags you might want to use. If you create a new HTML file in Atom, you can type <code>html</code> and then press <kbd class="platform-all">Tab</kbd> and it will expand to:</p>
 
 <pre class="highlight highlight-html"><code><span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
@@ -380,11 +387,11 @@
 </code></pre>
 
 
-<p>It will also position the cursor in the middle of the <code>title</code> tag so you can immediately start filling out the tag. Many snippets have multiple focus points that you can move through with the <code>tab</code> key as well - for instance, in the case of this HTML snippet, once you've filled out the title tag you can hit <code>tab</code> and the cursor will move to the middle of the body tag.</p>
+<p>It will also position the cursor in the middle of the <code>title</code> tag so you can immediately start filling out the tag. Many snippets have multiple focus points that you can move through with the <kbd class="platform-all">Tab</kbd> key as well - for instance, in the case of this HTML snippet, once you've filled out the title tag you can press <kbd class="platform-all">Tab</kbd> and the cursor will move to the middle of the <code>body</code> tag.</p>
 
-<p>To see all the available snippets for the file type that you currently have open, you can type <code>alt-shift-S</code>.</p>
+<p>To see all the available snippets for the file type that you currently have open, you can type <kbd class="platform-all">Alt+Shift+S</kbd>.</p>
 
-<p><img src="../../images/snippets.png" alt="View all available snippets"></p>
+<p><img src="../../images/snippets.png" alt="View all available snippets" title="View all available snippets"></p>
 
 <p>You can also use fuzzy search to filter this list down by typing in the selection box. Selecting one of them will execute the snippet where your cursor is (or multiple cursors are).</p>
 
@@ -393,7 +400,7 @@
 
 <p>So that's pretty cool, but what if there is something the language package didn't include or something that is custom to the code you write? Luckily it's incredibly easy to add your own snippets.</p>
 
-<p>There is a text file in your <code>~/.atom</code> directory called <code>snippets.cson</code> that contains all your custom snippets that are loaded when you launch Atom. However, you can also easily open up that file by selecting the <em>Atom &gt; Snippets...</em> menu.</p>
+<p>There is a text file in your <span class="platform-mac platform-linux"><code>~/.atom</code></span><span class="platform-windows"><code>%USERPROFILE%\.atom</code></span> directory called <code>snippets.cson</code> that contains all your custom snippets that are loaded when you launch Atom. You can also easily open up that file by selecting the <span class="platform-mac"><em>Atom &gt; Snippets</em></span><span class="platform-linux"><em>Edit &gt; Snippets</em></span><span class="platform-windows"><em>File &gt; Snippets</em></span> menu.</p>
 
 <h5>
 <a id="snippet-format" class="anchor" href="#snippet-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snippet Format</h5>
@@ -407,17 +414,17 @@
 </code></pre>
 
 
-<p>The outermost keys are the selectors where these snippets should be active. The easiest way to determine what this should be is to go to the language package of the language you want to add a snippet for and look for the "Scope" string.</p>
+<p>The leftmost keys are the selectors where these snippets should be active. The easiest way to determine what this should be is to go to the language package of the language you want to add a snippet for and look for the "Scope" string.</p>
 
 <p>For example, if we wanted to add a snippet that would work for Java files, we would look up the <code>language-java</code> package in our Settings view and we can see the Scope is <code>source.java</code>. Then the top level snippet key would be that prepended by a period (like a CSS class selector would do).</p>
 
-<p><img src="../../images/snippet-scope.png" alt="Finding the selector scope for a snippet"></p>
+<p><img src="../../images/snippet-scope.png" alt="Finding the selector scope for a snippet" title="Finding the selector scope for a snippet"></p>
 
-<p>The next level of keys are the snippet names. These are used for describing the snippet in a more readable way in the snippet menu. It's generally best to use some sort of short human readable string here.</p>
+<p>The next level of keys are the snippet names. These are used for describing the snippet in a more readable way in the snippet menu. You can name them whatever you want.</p>
 
 <p>Under each snippet name is a <code>prefix</code> that should trigger the snippet and a <code>body</code> to insert when the snippet is triggered.</p>
 
-<p>Each <code>$</code> followed by a number is a tab stop. Tab stops are cycled through by pressing <code>tab</code> once a snippet has been triggered.</p>
+<p>Each <code>$</code> followed by a number is a tab stop. Tab stops are cycled through by pressing <kbd class="platform-all">Tab</kbd> once a snippet has been triggered.</p>
 
 <p>Tab stops with the same number will create multiple cursors.</p>
 
@@ -429,12 +436,16 @@
 
 <p>The string <code>"crash"</code> would be initially selected and pressing tab again would place the cursor after the <code>;</code></p>
 
-<p>WARNING: Snippet keys, unlike CSS selectors, can only be repeated once per level. If there are duplicate keys at the same level, then only the last one will be read. See <a href="/using-atom/sections/basic-customization/#configuring-with-cson">Configuring with CSON</a> for more information.</p>
+<div class="alert warning">
+
+<p>Snippet keys, unlike CSS selectors, can only be repeated once per level. If there are duplicate keys at the same level, then only the last one will be read. See <a href="/using-atom/sections/basic-customization/#configuring-with-cson">Configuring with CSON</a> for more information.</p>
+
+</div>
 
 <h5>
 <a id="multi-line-snippet-body" class="anchor" href="#multi-line-snippet-body" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multi-line Snippet Body</h5>
 
-<p>You can also use multi-line syntax using <code>"""</code> for larger templates:</p>
+<p>You can also use <a href="http://coffeescript.org/#strings">CoffeeScript multi-line syntax</a> using <code>"""</code> for larger templates:</p>
 
 <pre class="highlight highlight-coffee"><code><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'if, else if, else'</span><span class="o">:</span>
@@ -451,7 +462,7 @@
 </code></pre>
 
 
-<p>As you might expect, there is a snippet to create snippets. If you open up a snippets file and type <code>snip</code> and then hit <code>tab</code>, you will get the following text inserted:</p>
+<p>As you might expect, there is a snippet to create snippets. If you open up a snippets file and type <code>snip</code> and then press <kbd class="platform-all">Tab</kbd>, you will get the following text inserted:</p>
 
 <pre class="highlight highlight-coffee"><code><span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'Snippet Name'</span><span class="o">:</span>
@@ -462,7 +473,7 @@
 
 <p><img class="emoji" title=":boom:" alt=":boom:" src="https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f4a5.png" height="20" width="20" align="absmiddle"> just fill that bad boy out and you have yourself a snippet. As soon as you save the file, Atom should reload the snippets and you will immediately be able to try it out.</p>
 
-<p>The snippets functionality is implemented in the <a href="https://github.com/atom/snippets">atom/snippets</a> package.</p>
+<p>The snippets functionality is implemented in the <a href="https://github.com/atom/snippets">snippets</a> package.</p>
 
 <p>For more examples, see the snippets in the <a href="https://github.com/atom/language-html/blob/master/snippets/language-html.cson">language-html</a> and <a href="https://github.com/atom/language-javascript/blob/master/snippets/language-javascript.cson">language-javascript</a> packages.</p>
         </div>
@@ -475,7 +486,7 @@
       <ul class="footer-left">
         <li><a href="https://atom.io/terms">Terms of Use</a></li>
         <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
-        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
         <li><a href="https://atom.io/releases">Releases</a></li>
         <li><a href="https://atom.io/faq">FAQ</a></li>
         <li><a href="https://atom.io/contact">Contact</a></li>

@@ -26,6 +26,8 @@
   })
 </script>
 
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
   </head>
   <body class="layout-article">
     <div class="footer-push">
@@ -81,7 +83,9 @@
           
 
 
-<h4>Chapter 1: Getting Started</h4>
+<h4>
+  <a href="/getting-started">Chapter 1: Getting Started</a>
+</h4>
 <ul>
   
   
@@ -109,7 +113,9 @@
 </ul>
 
 
-<h4>Chapter 2: Using Atom</h4>
+<h4>
+  <a href="/using-atom">Chapter 2: Using Atom</a>
+</h4>
 <ul>
   
   
@@ -187,7 +193,9 @@
 </ul>
 
 
-<h4>Chapter 3: Hacking Atom</h4>
+<h4>
+  <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+</h4>
 <ul>
   
   
@@ -250,7 +258,9 @@
 </ul>
 
 
-<h4>Chapter 4: Behind Atom</h4>
+<h4>
+  <a href="/behind-atom">Chapter 4: Behind Atom</a>
+</h4>
 <ul>
   
   
@@ -298,7 +308,9 @@
 </ul>
 
 
-<h4>Chapter 5: Upgrading to 1.0 APIs</h4>
+<h4>
+  <a href="/upgrading-to-1-0-apis">Chapter 5: Upgrading to 1.0 APIs</a>
+</h4>
 <ul>
   
   
@@ -340,11 +352,6 @@
         linux
       </a>
     </li>
-    <li class="platform-all">
-      <a href="#platform-all" data-platform="all">
-        all
-      </a>
-    </li>
   </ul>
 </div>
 
@@ -363,22 +370,36 @@
           <h3>
 <a id="installing-atom" class="anchor" href="#installing-atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Atom</h3>
 
-<p>To get started with Atom, we'll need to get it on your system. This section will go over installing Atom on Mac, Windows and Linux, as well as the basics of how to build it from source.</p>
+<p>To get started with Atom, we'll need to get it on your system. This section will go over installing Atom on your system as well as the basics of how to build it from source.</p>
 
-<p>Installing Atom should be fairly simple on any of these systems. Generally you can simply go to <a href="https://atom.io">https://atom.io</a> and at the top of the page you should see a download button as shown here:</p>
+<p>Installing Atom should be fairly simple. Generally, you can go to <a href="https://atom.io">https://atom.io</a> and at the top of the page you should see a download button as shown here:</p>
 
-<p><img src="../../images/linux-downloads.png" alt="Download buttons on atom.io"></p>
+<div class="platform-mac">
 
-<p>The buttons should be specific to your platform and easily installable. However, let's go over them here in a bit of detail.</p>
+<p><img src="../../images/mac-downloads.png" alt="Download buttons on https://atom.io" title="Download buttons on https://atom.io"></p>
+
+</div>
+
+<div class="platform-windows">
+
+<p><img src="../../images/windows-downloads.png" alt="Download buttons on https://atom.io" title="Download buttons on https://atom.io"></p>
+
+</div>
+
+<div class="platform-linux">
+
+<p><img src="../../images/linux-downloads.png" alt="Download buttons on https://atom.io" title="Download buttons on https://atom.io"></p>
+
+</div>
+
+<p>The button or buttons should be specific to your platform and the download package should be easily installable. However, let's go over them here in a bit of detail.</p>
+
+<div class="platform-mac">
 
 <h4>
-<a id="atom-on-mac" class="anchor" href="#atom-on-mac" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom on Mac</h4>
+<a id="installing-atom-on-mac" class="anchor" href="#installing-atom-on-mac" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Atom on Mac</h4>
 
-<p>Atom was originally built for Mac and should be a simple setup process. You can either press the download button from the atom.io site or you can go to the <a href="https://github.com/atom/atom/releases/latest">Atom releases page</a>.</p>
-
-<p>Here you can download the <code>atom-mac.zip</code> file explicitly.</p>
-
-<p>Once you have that file, you can click on it to extract the binary and then drag the new <code>Atom</code> application into your "Applications" folder.</p>
+<p>Atom follows the standard Mac zip installation process. You can either press the download button from the <a href="https://atom.io">https://atom.io</a> site or you can go to the <a href="https://github.com/atom/atom/releases/latest">Atom releases page</a> to download the <code>atom-mac.zip</code> file explicitly. Once you have that file, you can click on it to extract the application and then drag the new <code>Atom</code> application into your "Applications" folder.</p>
 
 <p>When you first open Atom, it will try to install the <code>atom</code> and <code>apm</code> commands for use in the terminal. In some cases, Atom might not be able to install these commands because it needs an administrator password. To check if Atom was able to install the <code>atom</code> command, for example, open a terminal window and type <code>which atom</code>. If the <code>atom</code> command has been installed, you'll see something like this:</p>
 
@@ -397,12 +418,14 @@ $
 
 <p>To install the <code>atom</code> and <code>apm</code> commands, run "Window: Install Shell Commands" from the <a href="/getting-started/sections/atom-basics#command-palette">Command Palette</a>, which will prompt you for an administrator password.</p>
 
+</div>
+
+<div class="platform-windows">
+
 <h4>
-<a id="atom-on-windows" class="anchor" href="#atom-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom on Windows</h4>
+<a id="installing-atom-on-windows" class="anchor" href="#installing-atom-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Atom on Windows</h4>
 
-<p>Atom is available with a Windows installer that can be downloaded from <a href="https://atom.io">https://atom.io</a> or from <a href="https://github.com/atom/atom/releases/latest">Atom Releases</a> named AtomSetup.exe</p>
-
-<p>This will install Atom, add the <code>atom</code> and <code>apm</code> commands to your <code>PATH</code>, create shortcuts on the desktop and in the start menu, add an "Open with Atom" context menu in the Explorer and make Atom available for association with files using "Open with..."</p>
+<p>Atom is available with a Windows installer that can be downloaded from <a href="https://atom.io">https://atom.io</a> or from <a href="https://github.com/atom/atom/releases/latest">Atom Releases</a> named <code>AtomSetup.exe</code>. This setup program will install Atom, add the <code>atom</code> and <code>apm</code> commands to your <code>PATH</code>, create shortcuts on the desktop and in the start menu, add an "Open with Atom" context menu in the Explorer and make Atom available for association with files using "Open with...".</p>
 
 <p><img src="../../images/windows.gif" alt="Atom on Windows"></p>
 
@@ -435,14 +458,18 @@ $
 </ul>
 
 <h5>
-<a id="msi-installer-for-windows" class="anchor" href="#msi-installer-for-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>MSI installer for Windows</h5>
+<a id="msi-installer-for-windows" class="anchor" href="#msi-installer-for-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>MSI Installer for Windows</h5>
 
-<p>Atom is also available in an .MSI package from <a href="https://github.com/atom/atom/releases/latest">Atom Releases</a> which can be deployed or installed on a machine. Any user signing in to that machine will find Atom installed for them automatically (it may take a few seconds the first time they sign in for the icon to appear on the desktop).</p>
+<p>Atom is also available in an .MSI package from <a href="https://github.com/atom/atom/releases/latest">Atom Releases</a> which can be deployed or installed on a machine. Any user signing in to that machine will find Atom installed for them automatically. (It may take a few seconds the first time they sign in for the icon to appear on the desktop).</p>
 
 <p>Should the user uninstall Atom it will only affect themselves and it will not automatically reinstall when they next sign in. If eventually that individual wants to reinstall Atom again, they can delete the <code>%LOCALAPPDATA%\Atom</code> folder.</p>
 
+</div>
+
+<div class="platform-linux">
+
 <h4>
-<a id="atom-on-linux" class="anchor" href="#atom-on-linux" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom on Linux</h4>
+<a id="installing-atom-on-linux" class="anchor" href="#installing-atom-on-linux" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Atom on Linux</h4>
 
 <p>To install Atom on Linux, you can download a <a href="https://atom.io/download/deb">Debian package</a> or <a href="https://atom.io/download/rpm">RPM package</a> either from the <a href="https://atom.io">main Atom website</a> or from the <a href="https://github.com/atom/atom/releases/latest">Atom project releases page</a>.</p>
 
@@ -458,10 +485,12 @@ $
 <span class="command">rpm -i atom.x86_64.rpm</span>
 </pre>
 
-<h4>
-<a id="atom-from-source" class="anchor" href="#atom-from-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom from Source</h4>
+</div>
 
-<p>If none of those options works for you or you just want to build Atom from source, you can also do that. The Atom GitHub repository has detailed <a href="https://github.com/atom/atom/tree/master/docs/build-instructions">build instructions for Mac, Windows, Linux and FreeBSD</a>.</p>
+<h4>
+<a id="building-atom-from-source" class="anchor" href="#building-atom-from-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building Atom from Source</h4>
+
+<p>If you just want to build Atom from source, you can also do that. The Atom GitHub repository has detailed <a href="https://github.com/atom/atom/tree/master/docs/build-instructions">build instructions for Mac, Windows, Linux and FreeBSD</a>.</p>
 
 <h4>
 <a id="proxy-and-firewall-settings" class="anchor" href="#proxy-and-firewall-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Proxy and Firewall Settings</h4>
@@ -469,8 +498,7 @@ $
 <h5>
 <a id="behind-a-firewall" class="anchor" href="#behind-a-firewall" aria-hidden="true"><span class="octicon octicon-link"></span></a>Behind a firewall?</h5>
 
-<p>If you are behind a firewall and seeing SSL errors when installing packages<br>
-you can disable strict SSL by running:</p>
+<p>If you are behind a firewall and seeing SSL errors when installing packages you can disable strict SSL by running:</p>
 
 <pre class="command-line">
 <span class="command">apm config set strict-ssl false</span>
@@ -482,7 +510,7 @@ you can disable strict SSL by running:</p>
 <p>If you are using a HTTP(S) proxy you can configure <code>apm</code> to use it by running:</p>
 
 <pre class="command-line">
-<span class="command">apm config set https-proxy https://9.0.2.1:0</span>
+<span class="command">apm config set https-proxy <em>YOUR_PROXY_ADDRESS</em></span>
 </pre>
 
 <p>You can run <code>apm config get https-proxy</code> to verify it has been set correctly.</p>
@@ -496,7 +524,7 @@ you can disable strict SSL by running:</p>
       <ul class="footer-left">
         <li><a href="https://atom.io/terms">Terms of Use</a></li>
         <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
-        <li><a href="http://contributor-covenant.org/version/1/2/0">Code of Conduct</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
         <li><a href="https://atom.io/releases">Releases</a></li>
         <li><a href="https://atom.io/faq">FAQ</a></li>
         <li><a href="https://atom.io/contact">Contact</a></li>
