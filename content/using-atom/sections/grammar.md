@@ -3,14 +3,14 @@ title: Grammar
 ---
 ### Grammar
 
-The "grammar" of a buffer is what language Atom thinks that file content is. Types of grammars would be Java or Markdown. We looked at this a bit when we created some snippets in link:/using-atom/sections/snippets[Snippets].
+The "grammar" of a file is what language Atom has associated with that file. Types of grammars would include "Java" or "GitHub-Flavored Markdown". We looked at this a bit when we created some snippets in [Snippets](/using-atom/sections/snippets/).
 
-If you load up a file, Atom does a little work to try to figure out what type of file it is. Largely this is accomplished by looking at its file extension (`.md` is generally a Markdown file, etc), though sometimes it has to inspect the content a bit to figure it out if it's ambiguous.
+When you load a file, Atom does a little work to try to figure out what type of file it is. Largely this is accomplished by looking at its file extension (`.md` is generally a Markdown file, etc), though sometimes it has to inspect the content a bit to figure it out.
 
-If you load up a file and Atom can't determine a grammar for the file, it will default to 'Plain Text', which is the simplest one. If it does default to 'Plain Text' or miscategorize a file, or if for any reason you wish to change the active grammar of a file, you can pull up the Grammar selector with `ctrl-shift-L`.
+When you open a file and Atom can't determine a grammar for the file, it will default to "Plain Text", which is the simplest one. If it does default to "Plain Text", picks the wrong grammar for the file, or if for any reason you wish to change the selected grammar, you can pull up the Grammar Selector with <kbd class="platform-all">Ctrl+Shift+L</kbd>.
 
-![Grammar selector](../../images/grammar.png)
+![Grammar Selector](../../images/grammar.png "Grammar Selector")
 
-Once the grammar of a file is changed manually, Atom will remember that until you set it back to auto-detect or choose a different grammar manually.
+When the grammar of a file is changed, Atom will remember that for the current session.
 
-The Grammar selector functionality is implemented in the [atom/grammar-selector](https://github.com/atom/grammar-selector) package.
+The Grammar Selector functionality is implemented in the [grammar-selector](https://github.com/atom/grammar-selector) package.

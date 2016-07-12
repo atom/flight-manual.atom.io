@@ -5,48 +5,66 @@ title: Moving in Atom
 
 While it's pretty easy to move around Atom by clicking with the mouse or using the arrow keys, there are some keybindings that may help you keep your hands on the keyboard and navigate around a little faster.
 
-First of all, Atom ships with many of the basic Emacs keybindings for navigating a document. To go up and down a single character, you can use `ctrl-P` and `ctrl-N`. To go left and right a single character, you can use `ctrl-B` and `ctrl-F`. These are the equivalent of using the arrow keys, though some people prefer not having to move their hands to where the arrow keys are located on their keyboard.
+{{#mac}}
 
-In addition to single character movement, there are a number of other movement keybindings.
+Atom ships with many of the basic Emacs keybindings for navigating a document. To go up and down a single character, you can use <kbd class="platform-mac">Ctrl+P</kbd> and <kbd class="platform-mac">Ctrl+N</kbd>. To go left and right a single character, you can use <kbd class="platform-mac">Ctrl+B</kbd> and <kbd class="platform-mac">Ctrl+F</kbd>. These are the equivalent of using the arrow keys, though some people prefer not having to move their hands to where the arrow keys are located on their keyboard.
 
-`alt-left`, `alt-B`:: Move to beginning of word
-`alt-right`, `alt-F`:: Move to end of word
-`cmd-left`, `ctrl-A`:: Move to first character of line
-`cmd-right`, `ctrl-E`:: Move to end of line
-`cmd-up`:: Move to top of file
-`cmd-down`:: Move to bottom of file
+In addition to single character movement, there are a number of other movement keybindings:
 
-You can also move directly to a specific line (and column) number with `ctrl-G`. This will bring up a dialog that asks which line you would like to jump to. You can also use the `row:column` syntax to jump to a character in that line as well.
+{{/mac}}
 
-![Go directly to a line](../../images/goto.png)
+{{#windows}}
+
+Atom has support for all the standard Windows cursor movement key combinations. To go up, down, left or right a single character you can use the arrow keys.
+
+In addition to single character movement, there are a number of other movement keybindings:
+
+{{/windows}}
+
+{{#linux}}
+
+Atom has support for all the standard Linux cursor movement key combinations. To go up, down, left or right a single character you can use the arrow keys.
+
+In addition to single character movement, there are a number of other movement keybindings:
+
+{{/linux}}
+
+* <span class="platform-mac"><kbd class="platform-mac">Alt+Left</kbd> or <kbd class="platform-mac">Alt+B</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Left</kbd> - Move to the beginning of word
+* <span class="platform-mac"><kbd class="platform-mac">Alt+Right</kbd> or <kbd class="platform-mac">Alt+F</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Right</kbd> - Move to the end of word
+* <span class="platform-mac"><kbd class="platform-mac">Cmd+Left</kbd> or <kbd class="platform-mac">Ctrl+A</kbd></span><kbd class="platform-windows platform-linux">Home</kbd> - Move to the first character of the current line
+* <span class="platform-mac"><kbd class="platform-mac">Cmd+Right</kbd> or <kbd class="platform-mac">Ctrl+E</kbd></span><kbd class="platform-windows platform-linux">End</kbd> - Move to the end of the line
+* <kbd class="platform-mac">Cmd+Up</kbd><kbd class="platform-windows platform-linux">Ctrl+PgUp</kbd> - Move to the top of the file
+* <kbd class="platform-mac">Cmd+Down</kbd><kbd class="platform-windows platform-linux">Ctrl+PgDn</kbd> - Move to the bottom of the file
+
+You can also move directly to a specific line (and column) number with <kbd class="platform-all">Ctrl+G</kbd>. This will bring up a dialog that asks which line you would like to jump to. You can also use the `row:column` syntax to jump to a character in that line as well.
+
+![Go directly to a line](../../images/goto.png "Go directly to a line")
 
 #### Navigating by Symbols
 
-You can also jump around a little more informatively. To jump to a symbol such as a method definition, press `cmd-r`. This opens a list of all symbols in the current file, which you can fuzzy filter similarly to `cmd-t`. To search for symbols across your project, use `cmd-shift-r`.
+You can also jump around a little more informatively with the Symbols View. To jump to a symbol such as a method definition, press <kbd class="platform-mac">Cmd+R</kbd><kbd class="platform-windows platform-linux">Ctrl+R</kbd>. This opens a list of all symbols in the current file, which you can fuzzy filter similarly to <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd>. You can also search for symbols across your project but it requires a `tags` file.
 
 ![Search by symbol across your project](../../images/symbol.png)
 
-You can also use `ctrl-alt-down` to jump directly to the declaration of the method or function under the cursor.
+You can generate a `tags` file by using the [ctags utility](http://ctags.sourceforge.net). Once it is installed, you can use it to generate a `tags` file by running a command to generate it. See the [ctags documentation](http://ctags.sourceforge.net/ctags.html) for details.
 
-First you'll need to make sure you have a `tags` (or `TAGS`) file generated for your project. This can be done by installing [ctags](http://ctags.sourceforge.net) and running a command such as `ctags -R src/` from the command line in your project's root directory.
+Once you have your `tags` file generated, you can use it to search for symbols across your project by pressing <kbd class="platform-mac">Cmd+Shift+R</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+R</kbd>. This also enables you to use <kbd class="platform-mac">Alt+Cmd+Down</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Down</kbd> to go to and <kbd class="platform-mac">Alt+Cmd+Up</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Up</kbd> to return from the declaration of the symbol under the cursor.
 
-If you're on a Mac using [Homebrew](http://brew.sh/), you can just run `brew install ctags`.
+You can customize how tags are generated by creating your own `.ctags` file in your home directory, <span class="platform-mac platform-linux">`~/.ctags`</span><span class="platform-windows">`%USERPROFILE%\.ctags`</span>. An example can be found [here](https://github.com/atom/symbols-view/blob/master/lib/ctags-config).
 
-You can customize how tags are generated by creating your own `.ctags` file in your home directory (`~/.ctags`). An example can be found [here](https://github.com/atom/symbols-view/blob/master/lib/ctags-config).
+The symbols navigation functionality is implemented in the [symbols-view](https://github.com/atom/symbols-view) package.
 
-The symbols navigation functionality is implemented in the [atom/symbols-view](https://github.com/atom/symbols-view) package.
-
-#### Atom Bookmarks
+#### Bookmarks
 
 Atom also has a great way to bookmark specific lines in your project so you can jump back to them quickly.
 
-If you press `cmd-F2`, Atom will toggle a "bookmark" on the current line. You can set these throughout your project and use them to quickly find and jump to important lines of your project. A small bookmark symbol is added to the line gutter, like on line 22 of [the image below](#bookmarks-image).
+If you press <kbd class="platform-mac">Cmd+F2</kbd><kbd class="platform-windows">Alt+Ctrl+F2</kbd><kbd class="platform-linux">Ctrl+Shift+F2</kbd>, Atom will toggle a "bookmark" on the current line. You can set these throughout your project and use them to quickly find and jump to important lines of your project. A small bookmark symbol is added to the line gutter, like on line 22 of [the image below](#bookmarks-image).
 
-If you hit `F2`, Atom will jump to the next bookmark in the file you currently have focused. If you use `shift-F2` it will cycle backwards through them instead.
+If you hit <kbd class="platform-all">F2</kbd>, Atom will jump to the next bookmark in the file you currently have focused. If you use <kbd class="platform-all">Shift+F2</kbd> it will cycle backwards through them instead.
 
-You can also see a list of all your project's current bookmarks and quickly filter them and jump to any of them by hitting `ctrl-F2`.
+You can also see a list of all your project's current bookmarks and quickly filter them and jump to any of them by hitting <kbd class="platform-all">Ctrl+F2</kbd>.
 
 <a name="bookmarks-image"/>
-![View and filter bookmarks](../../images/bookmarks.png)
+![View and filter bookmarks](../../images/bookmarks.png "View and filter bookmarks")
 
-The bookmarks functionality is implemented in the [atom/bookmarks](https://github.com/atom/bookmarks) package.
+The bookmarks functionality is implemented in the [bookmarks](https://github.com/atom/bookmarks) package.

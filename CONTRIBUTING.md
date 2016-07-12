@@ -15,6 +15,10 @@ If you're not sure about the change or the idea for the change, open an issue fi
 
 Take a look at the [Issues List](https://github.com/atom/flight-manual.atom.io/issues) for things that people would like added or fixed.
 
+## Adding, Removing or Reordering Pages
+
+In order to add or remove pages, or change the ordering of pages within the Table of Contents, you should edit the [`data/toc.yml`](data/toc.yml) file.
+
 ## Conventions
 
 In order to make the Flight Manual consistent, these conventions must be followed when adding or updating content.
@@ -28,14 +32,71 @@ In order to make the Flight Manual consistent, these conventions must be followe
 * `warning` should be used when there is a risk to some activity so extra caution is advised
 * `danger` should be used when there is a risk of data loss or some irreversible action that needs to be taken
 
+**Note:** The block tags must be separated both above and below by blank lines:
+
+```markdown
+<!-- This works -->
+
+{{#tip}}
+
+Some interesting stuff ...
+
+{{/tip}}
+
+<!-- This doesn't -->
+
+{{#tip}}
+Some stuff that won't show up right ...
+{{/tip}}
+```
+
+### OS-specific Sections
+
+The Flight Manual now supports OS-specific content. There are three major ways to describe OS-specific content:
+
+* OS-specific blocks
+* OS-specific spans
+* OS-specific keybindings - [See Keybindings below](#keybindings)
+
+The OS-specific signifiers are:
+
+* `platform-all` for things that apply to all platforms
+* `platform-linux` for things that apply to Linux
+* `platform-mac` for things that apply to Mac
+* `platform-windows` for things that apply to Windows
+
+They are listed as CSS classes in tags that delineate OS-specific stuff. For example:
+
+```markdown
+<span class="platform-mac">This text will only be seen by Mac users.</span><span class="platform-windows platform-linux">This text will be seen by both Windows and Linux users.</span>
+```
+
+`platform-all` has a special quality besides being visible to all platforms, if a page contains non-OS-specific sections or non-OS-specific sections and `platform-all` sections, the Platform Selector (see below) is not shown.
+
+![Platform Selector](/getting-started/images/platform-selector.png "Platform Selector")
+
+#### OS-specific Blocks
+
+These use the same format as [Admonition blocks](#admonition-blocks), but apply to one of the three major platforms:
+
+* `mac` - Content to be displayed only for macOS
+* `windows` - Content to be displayed only for Windows
+* `linux` - Content to be displayed only for Linux
+
 ### Language
 
+* **DO NOT** use "hit" or "strike" when referring to activating a key combination
+* **DO** use "press" or "type" when referring to activating a key combination
 * **DO NOT** use Latin contractions such as "i.e.", "e.g.", "c.f.", among others
 * **DO** use the English equivalent: "i.e." &rarr; "in other words", "e.g." &rarr; "for example", "c.f." &rarr; hyperlink to the thing you're referring to
+* **DO** use [title-case](http://titlecase.com) for *all* headings
 
 ### Images
 
-If you add images, run `./scripts/crush.rb` (you'll also need to have the [pngcrush utility][pngcrush] installed) before committing images to the repository, and try to make them PNG files. This looks through all the files and resizes and crushes them to an appropriate resolution.
+* **DO** use PNG for static images
+* **DO** use GIF for animated images
+* **AVOID** having platform-specific UI in screenshots
+* If you must have platform-specific UI, create three screenshots one for each platform and use OS-specific blocks to display the correct one for the platform
 
 Always add both a description and title text to image links:
 

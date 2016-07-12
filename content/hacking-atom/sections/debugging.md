@@ -94,7 +94,7 @@ The keybinding resolver shows you a list of keybindings that exist for the keyst
 * the CSS selector used to define the context in which the keybinding is valid, and
 * the file in which the keybinding is defined.
 
-Of all the keybindings that are listed (grey color), at most one keybinding is matched and executed (green color). If the command you wanted to trigger isn't listed, then a keybinding for that command hasn't been defined. More keybindings are provided by [packages](https://atom.io/packages) and you can define your own keybindings as we saw in [Customizing Keybindings](/using-atom/sections/basic-customization/#customizing-key-bindings).
+Of all the keybindings that are listed (grey color), at most one keybinding is matched and executed (green color). If the command you wanted to trigger isn't listed, then a keybinding for that command hasn't been defined. More keybindings are provided by [packages](https://atom.io/packages) and you can define your own keybindings as we saw in [Customizing Keybindings](/using-atom/sections/basic-customization/#customizing-keybindings).
 
 If multiple keybindings are matched, Atom determines which keybinding will be executed based on the [specificity of the selectors and the order in which they were loaded](/behind-atom/sections/keymaps-in-depth/#specificity-and-cascade-order). If the command you wanted to trigger is listed in the Keybinding Resolver, but wasn't the one that was executed, this is normally explained by one of two causes:
 

@@ -16,7 +16,7 @@ body {
     div.document-content {
       div, span, kbd {
         &.platform-all {
-          display: none;
+          display: inline;
         }
       }
     }

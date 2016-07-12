@@ -11,13 +11,13 @@ In these docs, we'll concentrate on writing in Markdown; however, other prose ma
 
 If you're working in text (which includes plain text files, GitHub markdown and Git commit messages by default), Atom will automatically try to check your spelling.
 
-Any misspelled words will be highlighted (by default with a dashed red line beneath the word) and you can pull up a menu of possible corrections by hitting <kbd class="platform-mac">Cmd+:</kbd><kbd class="platform-windows platform-linux">Ctrl+:</kbd> (or by choosing "Correct Spelling" from the right-click context menu or from the Command Palette).
+Any misspelled words will be highlighted (by default with a dashed red line beneath the word) and you can pull up a menu of possible corrections by hitting <kbd class="platform-mac">Cmd+Shift+;</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+;</kbd> (or by choosing "Correct Spelling" from the right-click context menu or from the Command Palette).
 
 ![Checking your spelling](../../images/spellcheck.png)
 
 To add more types of files to the list of what Atom will try to spell check, go to the Spell Check package settings in your Settings view and add any grammars you want to spell check.
 
-The default grammars to spell check are `text.plain, source.gfm, text.git-commit` but you can add something like `source.asciidoc` if you wish to check those types of files too.
+The default grammars to spell check are `text.plain`, `source.gfm`, and `text.git-commit` but you can add something like `source.asciidoc` if you wish to check those types of files too.
 
 The spell checking is implemented in the [spell-check](https://github.com/atom/spell-check) package.
 
