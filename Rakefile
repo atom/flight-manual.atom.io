@@ -1,7 +1,4 @@
-require "colorize"
 require "find"
-
-require_relative "./lib/tasks/validate_article_title"
 
 task :default => [:test]
 
@@ -42,6 +39,9 @@ end
 # Detects instances of Issue #204
 desc "Validate article titles match file name and header"
 task :validate_article_titles do
+  require "colorize"
+  require_relative "./lib/tasks/validate_article_title"
+
   pass = true
 
   Find.find('./content') do |path|
