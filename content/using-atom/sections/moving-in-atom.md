@@ -46,7 +46,7 @@ You can also jump around a little more informatively with the Symbols View. To j
 
 ![Search by symbol across your project](../../images/symbol.png)
 
-You can generate a `tags` file by using the [ctags utility](http://ctags.sourceforge.net). Once it is installed, you can use it to generate a `tags` file by running a command to generate it. See the [ctags documentation](http://ctags.sourceforge.net/ctags.html) for details.
+You can generate a `tags` file by using the [ctags utility](https://ctags.io/). Once it is installed, you can use it to generate a `tags` file by running a command to generate it. See the [ctags documentation](http://docs.ctags.io/en/latest/) for details.
 
 Once you have your `tags` file generated, you can use it to search for symbols across your project by pressing <kbd class="platform-mac">Cmd+Shift+R</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+R</kbd>. This also enables you to use <kbd class="platform-mac">Alt+Cmd+Down</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Down</kbd> to go to and <kbd class="platform-mac">Alt+Cmd+Up</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Up</kbd> to return from the declaration of the symbol under the cursor.
 
