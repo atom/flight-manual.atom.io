@@ -1,3 +1,8 @@
+require "colorize"
+require "find"
+
+require_relative "./lib/tasks/validate_article_title"
+
 task :default => [:test]
 
 desc "Remove the tmp dir"
@@ -34,8 +39,27 @@ task :run_proofer do
   HTMLProofer.check_directory("./output", {:url_ignore => platform_hash_urls}).run
 end
 
+# Detects instances of Issue #204
+desc "Validate article titles match file name and header"
+task :validate_article_titles do
+  pass = true
+
+  Find.find('./content') do |path|
+    if path =~ /sections.*\.md$/
+      validate = ValidateArticleTitle.new(path).all
+
+      unless validate.errors.empty?
+        pass = false
+        validate.errors.each { |error| puts "#{error}".red }
+      end
+    end
+  end
+
+  raise "Validate article titles failed" unless pass
+end
+
 desc "Test the output"
-task :test => [:remove_tmp_dir, :remove_output_dir, :build, :run_proofer]
+task :test => [:validate_article_titles, :remove_tmp_dir, :remove_output_dir, :build, :run_proofer]
 
 # Prompt user for a commit message; default: P U B L I S H :emoji:
 def commit_message(no_commit_msg = false)
