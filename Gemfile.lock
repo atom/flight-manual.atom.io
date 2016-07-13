@@ -81,7 +81,7 @@ DEPENDENCIES
   html-pipeline-asciidoc_filter (~> 1.5)
   html-pipeline-rouge_filter (~> 1.0)
   html-proofer (~> 3.0)
-  nanoc (~> 4.1)
+  nanoc (>= 4.1, < 4.2)
   nanoc-conref-fs (~> 0.5)
   nanoc-html-pipeline (= 0.3.3)
   rake

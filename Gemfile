@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 # essential
-gem 'nanoc', '~> 4.1'
+# Until https://github.com/gjtorikian/nanoc-conref-fs/issues/5 is fixed, can't update to v4.2
+gem 'nanoc', ['>= 4.1', '< 4.2']
 gem 'nanoc-conref-fs', '~> 0.5'
 
 # rendering
