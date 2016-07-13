@@ -93,20 +93,50 @@ Should the user uninstall Atom it will only affect themselves and it will not au
 
 #### Installing Atom on Linux
 
-To install Atom on Linux, you can download a [Debian package](https://atom.io/download/deb) or [RPM package](https://atom.io/download/rpm) either from the [main Atom website](https://atom.io) or from the [Atom project releases page][releases].
+To install Atom on Linux, you can download a [Debian package](https://atom.io/download/deb) or [RPM package](https://atom.io/download/rpm) either from the [main Atom website](https://atom.io) or from the [Atom project releases page][releases]. These packages do not currently have auto-update features, so when you would like to upgrade to a new release of Atom, you will have to repeat this installation process.
 
 [releases]: https://github.com/atom/atom/releases/latest
 
-On Debian, you would install the Debian package with `dpkg -i`:
+##### Debian and Related
+
+To install Atom on Debian, Ubuntu, or related systems:
 
 ``` command-line
+# Install Atom
 $ sudo dpkg -i atom-amd64.deb
+
+# Install Atom's dependencies if they are missing
+$ sudo apt-get -f install
 ```
 
-On RedHat or another RPM based system, you would use the `rpm -i` command:
+##### RedHat Enterprise and Related
+
+To install Atom on CentOS, Oracle Linux, RedHat Enterprise Linux, Scientific Linux or related systems that use the yum package manager:
 
 ``` command-line
-$ rpm -i atom.x86_64.rpm
+$ sudo yum install -y atom.x86_64.rpm
+```
+
+To install Atom if you want to download and install on a single line:
+
+``` command-line
+$ sudo yum install -y https://github.com/atom/atom/archive/atom.x86_64.rpm
+```
+
+##### Fedora and Related
+
+To download and install the latest release of Atom on Fedora or other systems that use the DNF package manager:
+
+``` command-line
+$ sudo dnf install -y https://github.com/atom/atom/archive/atom.x86_64.rpm
+```
+
+##### SUSE and Related
+
+To download and install the latest release of Atom on openSUSE or other systems that use the Zypp package manager:
+
+``` command-line
+$ sudo zypper in -y https://github.com/atom/atom/archive/atom.x86_64.rpm
 ```
 
 {{/linux}}
