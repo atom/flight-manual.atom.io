@@ -10,6 +10,7 @@ GEM
     addressable (2.4.0)
     asciidoctor (1.5.4)
     colored (1.2)
+    colorize (0.8.1)
     cri (2.7.0)
       colored (~> 1.2)
     ethon (0.8.1)
@@ -75,6 +76,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (~> 4.2)
+  colorize (~> 0.8.1)
   extended-markdown-filter (~> 0.4)
   gemoji (= 2.1.0)
   github-markdown (~> 0.6.9)

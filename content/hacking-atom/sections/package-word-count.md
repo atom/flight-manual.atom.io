@@ -1,5 +1,5 @@
 ---
-title: "Create and Publish an Example Package: Word Count"
+title: "Package: Word Count"
 ---
 ### Package: Word Count
 

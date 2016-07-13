@@ -18,5 +18,6 @@ gem 'activesupport', '~> 4.2'
 gem 'rake'
 
 group :test do
+  gem 'colorize', '~> 0.8.1'
   gem 'html-proofer', '~> 3.0'
 end
