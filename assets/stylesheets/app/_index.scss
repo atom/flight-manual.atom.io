@@ -12,18 +12,21 @@
   h3 a {
     color: inherit;
   }
-  ul {
-    list-style-type: none;
-    margin: 0;
-    margin-left: 15px;
-    padding: 0;
-    li {
-      margin-top: 4px;
-      font-size: 1.2em;
-      small {
-        font-size: 0.9em;
-        color: #666;
-        margin-right: 10px;
+
+  .markdown-body {
+    ul {
+      list-style-type: none;
+      margin: 0;
+      margin-left: 15px;
+      padding: 0;
+      li {
+        margin-top: 4px;
+        font-size: 1.2em;
+        small {
+          font-size: 0.9em;
+          color: #666;
+          margin-right: 10px;
+        }
       }
     }
   }
