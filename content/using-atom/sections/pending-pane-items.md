@@ -1,5 +1,5 @@
 ---
-Title: Pending Pane Items
+title: Pending Pane Items
 ---
 ### Pending Pane Items
 
