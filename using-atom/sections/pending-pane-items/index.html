@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Summary</title>
+<title></title>
 
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
 
@@ -254,7 +254,7 @@
     </li>
     
   
-    <li class="selected">
+    <li class="unselected">
       <a href="/hacking-atom/sections/summary">Summary</a>
     </li>
     
@@ -363,9 +363,9 @@
 
         
         <h1 class="document-title">
-          <span class="article-title">1.4 Summary</span>
+          <span class="article-title"></span>
           <a class="improve-link"
-              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/summary.md" data-proofer-ignore>
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/pending-pane-items.md" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
           </a>
         </h1>
@@ -373,13 +373,22 @@
         <div class="markdown-body document-content">
           
           <h3>
-<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h3>
+<a id="pending-pane-items" class="anchor" href="#pending-pane-items" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pending Pane Items</h3>
 
-<p>If you finished this chapter, you should be an Atom-hacking master. We've discussed how you should work with CoffeeScript, and how to put it to good use in creating packages. You should also be able to do this in your own created theme now.</p>
+<p><em>"Pending Pane Items" were formerly referred to as "Preview Tabs"</em></p>
 
-<p>Even when something goes wrong, you should be able to debug this easily. But also fewer things should go wrong, because you are capable of writing great specs for Atom.</p>
+<p>When you open a new file by single-clicking in the Tree View, it will open in a new tab with an italic title. This indicates that the file is "pending". When a file is pending, it will be replaced by the next pending file that is opened. This allows you to click through a bunch of files to find something without having to go back and close them all.</p>
 
-<p>In the next chapter, we’ll go into more of a deep dive on individual internal APIs and systems of Atom, even looking at some Atom source to see how things are really getting done.</p>
+<p>You can confirm a pending file by doing any of the following:</p>
+
+<ul>
+<li>Double-clicking the tab of the file</li>
+<li>Double-clicking the file in the tree view</li>
+<li>Editing the contents of the file</li>
+<li>Saving the file</li>
+</ul>
+
+<p>You can also open a file already confirmed by double-clicking it in the tree view instead of single-clicking it.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
