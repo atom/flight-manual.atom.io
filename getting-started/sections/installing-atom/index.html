@@ -471,18 +471,52 @@ $
 <h4>
 <a id="installing-atom-on-linux" class="anchor" href="#installing-atom-on-linux" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Atom on Linux</h4>
 
-<p>To install Atom on Linux, you can download a <a href="https://atom.io/download/deb">Debian package</a> or <a href="https://atom.io/download/rpm">RPM package</a> either from the <a href="https://atom.io">main Atom website</a> or from the <a href="https://github.com/atom/atom/releases/latest">Atom project releases page</a>.</p>
+<p>To install Atom on Linux, you can download a <a href="https://atom.io/download/deb">Debian package</a> or <a href="https://atom.io/download/rpm">RPM package</a> either from the <a href="https://atom.io">main Atom website</a> or from the <a href="https://github.com/atom/atom/releases/latest">Atom project releases page</a>. These packages do not currently have auto-update features, so when you would like to upgrade to a new release of Atom, you will have to repeat this installation process.</p>
 
-<p>On Debian, you would install the Debian package with <code>dpkg -i</code>:</p>
+<h5>
+<a id="debian-and-related" class="anchor" href="#debian-and-related" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debian and Related</h5>
+
+<p>To install Atom on Debian, Ubuntu, or related systems:</p>
 
 <pre class="command-line">
+<span class="comment"># Install Atom</span>
 <span class="command">sudo dpkg -i atom-amd64.deb</span>
+
+<span class="comment"># Install Atom's dependencies if they are missing</span>
+<span class="command">sudo apt-get -f install</span>
 </pre>
 
-<p>On RedHat or another RPM based system, you would use the <code>rpm -i</code> command:</p>
+<h5>
+<a id="redhat-enterprise-and-related" class="anchor" href="#redhat-enterprise-and-related" aria-hidden="true"><span class="octicon octicon-link"></span></a>RedHat Enterprise and Related</h5>
+
+<p>To install Atom on CentOS, Oracle Linux, RedHat Enterprise Linux, Scientific Linux or related systems that use the yum package manager:</p>
 
 <pre class="command-line">
-<span class="command">rpm -i atom.x86_64.rpm</span>
+<span class="command">sudo yum install -y atom.x86_64.rpm</span>
+</pre>
+
+<p>To install Atom if you want to download and install on a single line:</p>
+
+<pre class="command-line">
+<span class="command">sudo yum install -y https://github.com/atom/atom/archive/atom.x86_64.rpm</span>
+</pre>
+
+<h5>
+<a id="fedora-and-related" class="anchor" href="#fedora-and-related" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fedora and Related</h5>
+
+<p>To download and install the latest release of Atom on Fedora or other systems that use the DNF package manager:</p>
+
+<pre class="command-line">
+<span class="command">sudo dnf install -y https://github.com/atom/atom/archive/atom.x86_64.rpm</span>
+</pre>
+
+<h5>
+<a id="suse-and-related" class="anchor" href="#suse-and-related" aria-hidden="true"><span class="octicon octicon-link"></span></a>SUSE and Related</h5>
+
+<p>To download and install the latest release of Atom on openSUSE or other systems that use the Zypp package manager:</p>
+
+<pre class="command-line">
+<span class="command">sudo zypper in -y https://github.com/atom/atom/archive/atom.x86_64.rpm</span>
 </pre>
 
 </div>
