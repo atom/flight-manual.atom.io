@@ -117,18 +117,12 @@ To install Atom on CentOS, Oracle Linux, RedHat Enterprise Linux, Scientific Lin
 $ sudo yum install -y atom.x86_64.rpm
 ```
 
-To install Atom if you want to download and install on a single line:
-
-``` command-line
-$ sudo yum install -y https://github.com/atom/atom/archive/atom.x86_64.rpm
-```
-
 ##### Fedora and Related
 
 To download and install the latest release of Atom on Fedora or other systems that use the DNF package manager:
 
 ``` command-line
-$ sudo dnf install -y https://github.com/atom/atom/archive/atom.x86_64.rpm
+$ sudo dnf install -y atom.x86_64.rpm
 ```
 
 ##### SUSE and Related
@@ -136,7 +130,7 @@ $ sudo dnf install -y https://github.com/atom/atom/archive/atom.x86_64.rpm
 To download and install the latest release of Atom on openSUSE or other systems that use the Zypp package manager:
 
 ``` command-line
-$ sudo zypper in -y https://github.com/atom/atom/archive/atom.x86_64.rpm
+$ sudo zypper in -y atom.x86_64.rpm
 ```
 
 {{/linux}}
