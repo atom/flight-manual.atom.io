@@ -25,11 +25,6 @@ task :build do
   end
 end
 
-desc "Test the output"
-task :test => [:remove_tmp_dir, :remove_output_dir, :build] do
-  Rake::Task['run_proofer'].invoke
-end
-
 desc "Run the HTML-Proofer"
 task :run_proofer do
   require 'html-proofer'
@@ -38,6 +33,9 @@ task :run_proofer do
   platform_hash_urls = ['#platform-mac', '#platform-windows', '#platform-linux', '#platform-all']
   HTMLProofer.check_directory("./output", {:url_ignore => platform_hash_urls}).run
 end
+
+desc "Test the output"
+task :test => [:remove_tmp_dir, :remove_output_dir, :build, :run_proofer]
 
 # Prompt user for a commit message; default: P U B L I S H :emoji:
 def commit_message(no_commit_msg = false)
