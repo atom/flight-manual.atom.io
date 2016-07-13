@@ -15,3 +15,9 @@ You can confirm a pending file by doing any of the following:
 * Saving the file
 
 You can also open a file already confirmed by double-clicking it in the tree view instead of single-clicking it.
+
+#### Disabling Pending Pane Items
+
+![Allow Pending Pane Items setting](../../images/allow-pending-pane-items.png "Allow Pending Pane Items setting")
+
+If you would prefer to not have files open in pending form, you can disable this behavior by unchecking "Allow Pending Pane Items" in the Core Settings section of the Settings View. With pending pane items disabled, single-clicking a file in the Tree View will select the file but not open it. You will have to double-click the file to open it.
