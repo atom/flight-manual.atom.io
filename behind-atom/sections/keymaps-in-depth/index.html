@@ -380,6 +380,8 @@
 
 <p>Keymap files are encoded as JSON or CSON files containing nested hashes. They work much like style sheets, but instead of applying style properties to elements matching the selector, they specify the meaning of keystrokes on elements matching the selector. Here is an example of some bindings that apply when keystrokes pass through <code>atom-text-editor</code> elements:</p>
 
+<div class="platform-mac">
+
 <pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
   <span class="s">'cmd-delete'</span><span class="o">:</span> <span class="s">'editor:delete-to-beginning-of-line'</span>
   <span class="s">'alt-backspace'</span><span class="o">:</span> <span class="s">'editor:delete-to-beginning-of-word'</span>
@@ -393,14 +395,52 @@
 </code></pre>
 
 
-<p>Beneath the first selector are several bindings, mapping specific <em>keystroke patterns</em> to <em>commands</em>. When an element with the <code>atom-text-editor</code> class is focused and <code>cmd-delete</code> is pressed, a custom DOM event called <code>editor:delete-to-beginning-of-line</code> is emitted on the <code>atom-text-editor</code> element.</p>
+</div>
+
+<div class="platform-windows">
+
+<pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+  <span class="s">'ctrl-left'</span><span class="o">:</span> <span class="s">'editor:move-to-beginning-of-word'</span>
+  <span class="s">'ctrl-right'</span><span class="o">:</span> <span class="s">'editor:move-to-end-of-word'</span>
+  <span class="s">'ctrl-shift-left'</span><span class="o">:</span> <span class="s">'editor:select-to-beginning-of-word'</span>
+  <span class="s">'ctrl-shift-right'</span><span class="o">:</span> <span class="s">'editor:select-to-end-of-word'</span>
+  <span class="s">'ctrl-backspace'</span><span class="o">:</span> <span class="s">'editor:delete-to-beginning-of-word'</span>
+  <span class="s">'ctrl-delete'</span><span class="o">:</span> <span class="s">'editor:delete-to-end-of-word'</span>
+
+<span class="s">'atom-text-editor:not([mini])'</span><span class="o">:</span>
+  <span class="s">'ctrl-alt-['</span><span class="o">:</span> <span class="s">'editor:fold-current-row'</span>
+  <span class="s">'ctrl-alt-]'</span><span class="o">:</span> <span class="s">'editor:unfold-current-row'</span>
+</code></pre>
+
+
+</div>
+
+<div class="platform-linux">
+
+<pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+  <span class="s">'ctrl-left'</span><span class="o">:</span> <span class="s">'editor:move-to-beginning-of-word'</span>
+  <span class="s">'ctrl-right'</span><span class="o">:</span> <span class="s">'editor:move-to-end-of-word'</span>
+  <span class="s">'ctrl-shift-left'</span><span class="o">:</span> <span class="s">'editor:select-to-beginning-of-word'</span>
+  <span class="s">'ctrl-shift-right'</span><span class="o">:</span> <span class="s">'editor:select-to-end-of-word'</span>
+  <span class="s">'ctrl-backspace'</span><span class="o">:</span> <span class="s">'editor:delete-to-beginning-of-word'</span>
+  <span class="s">'ctrl-delete'</span><span class="o">:</span> <span class="s">'editor:delete-to-end-of-word'</span>
+
+<span class="s">'atom-text-editor:not([mini])'</span><span class="o">:</span>
+  <span class="s">'ctrl-alt-['</span><span class="o">:</span> <span class="s">'editor:fold-current-row'</span>
+  <span class="s">'ctrl-alt-]'</span><span class="o">:</span> <span class="s">'editor:unfold-current-row'</span>
+</code></pre>
+
+
+</div>
+
+<p>Beneath the first selector are several keybindings, mapping specific key combinations to commands. When an element with the <code>atom-text-editor</code> class is focused and <kbd class="platform-mac">Alt+Backspace</kbd><kbd class="platform-windows platform-linux">Ctrl+Backspace</kbd> is pressed, a custom DOM event called <code>editor:delete-to-beginning-of-word</code> is emitted on the <code>atom-text-editor</code> element.</p>
 
 <p>The second selector group also targets editors, but only if they don't have the <code>mini</code> attribute. In this example, the commands for code folding don't really make sense on mini-editors, so the selector restricts them to regular editors.</p>
 
 <h5>
-<a id="keystroke-patterns" class="anchor" href="#keystroke-patterns" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keystroke Patterns</h5>
+<a id="key-combinations" class="anchor" href="#key-combinations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Combinations</h5>
 
-<p>Keystroke patterns express one or more keystrokes combined with optional modifier keys. For example: <code>ctrl-w v</code>, or <code>cmd-shift-up</code>. A keystroke is composed of the following symbols, separated by a <code>-</code>. A multi-keystroke pattern can be expressed as keystroke patterns separated by spaces.</p>
+<p>Key combinations express one or more keys combined with optional modifier keys. For example: <code>ctrl-w v</code>, or <code>cmd-shift-up</code>. A key combination is composed of the following symbols, separated by a <code>-</code>. A key sequence can be expressed as key combinations separated by spaces.</p>
 
 <table>
 <thead>
@@ -434,7 +474,7 @@
 <h5>
 <a id="commands" class="anchor" href="#commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commands</h5>
 
-<p>Commands are custom DOM events that are triggered when a keystroke matches a binding. This allows user interface code to listen for named commands without specifying the specific keybinding that triggers it. For example, the following code creates a command to insert the current date in an editor:</p>
+<p>Commands are custom DOM events that are triggered when a key combination or sequence matches a binding. This allows user interface code to listen for named commands without specifying the specific keybinding that triggers it. For example, the following code creates a command to insert the current date in an editor:</p>
 
 <pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-text-editor'</span><span class="p">,</span>
   <span class="s">'user:insert-date'</span><span class="o">:</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">-&gt;</span>
@@ -445,7 +485,7 @@
 
 <p><code>atom.commands</code> refers to the global <code>CommandRegistry</code> instance where all commands are set and consequently picked up by the command palette.</p>
 
-<p>When you are looking to bind new keys, it is often useful to use the command palette (<code>ctrl-shift-p</code>) to discover what commands are being listened for in a given focus context. Commands are "humanized" following a simple algorithm, so a command like <code>editor:fold-current-row</code> would appear as "Editor: Fold Current Row".</p>
+<p>When you are looking to bind new keys, it is often useful to use the Command Palette (<kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd>) to discover what commands are being listened for in a given focus context. Commands are "humanized" following a simple algorithm, so a command like <code>editor:fold-current-row</code> would appear as "Editor: Fold Current Row".</p>
 
 <h5>
 <a id="composed-commands" class="anchor" href="#composed-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>"Composed" Commands</h5>
@@ -471,7 +511,7 @@
 
 <p>As is the case with CSS applying styles, when multiple bindings match for a single element, the conflict is resolved by choosing the most <em>specific</em> selector. If two matching selectors have the same specificity, the binding for the selector appearing later in the cascade takes precedence.</p>
 
-<p>Currently, there's no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We eventually plan to introduce a custom CSS-like file format for keymaps that allows for ordering within a single file. For now, we've opted to handle cases where selector ordering is critical by breaking the keymap into two separate files, such as <code>snippets-1.cson</code> and <code>snippets-2.cson</code>.</p>
+<p>Currently, there's no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We handle cases where selector ordering is critical by breaking the keymap into separate files, such as <code>snippets-1.cson</code> and <code>snippets-2.cson</code>.</p>
 
 <h4>
 <a id="removing-bindings" class="anchor" href="#removing-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing Bindings</h4>
@@ -495,7 +535,7 @@
 <h4>
 <a id="overloading-key-bindings" class="anchor" href="#overloading-key-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overloading Key Bindings</h4>
 
-<p>Occasionally, it makes sense to layer multiple actions on top of the same key binding. An example of this is the snippets package. Snippets are inserted by typing a snippet prefix such as <code>for</code> and then pressing <code>tab</code>. Every time <code>tab</code> is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. If a snippet <em>doesn't</em> exist, we want <code>tab</code> to actually insert whitespace.</p>
+<p>Occasionally, it makes sense to layer multiple actions on top of the same key binding. An example of this is the snippets package. Snippets are inserted by typing a snippet prefix such as <code>for</code> and then pressing <kbd class="platform-all">Tab</kbd>. Every time <kbd class="platform-all">Tab</kbd> is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. If a snippet <em>doesn't</em> exist, we want <kbd class="platform-all">Tab</kbd> to actually insert whitespace.</p>
 
 <p>To achieve this, the snippets package makes use of the <code>.abortKeyBinding()</code> method on the event object representing the <code>snippets:expand</code> command.</p>
 

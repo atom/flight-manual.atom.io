@@ -382,19 +382,37 @@
 
 <p>You might be running into an issue which was already fixed in a more recent version of Atom than the one you're using.</p>
 
-<p>If you're building Atom from source, pull down the latest version of master and <a href="https://github.com/atom/atom#building">re-build</a>.</p>
-
 <p>If you're using released version, check which version of Atom you're using:</p>
 
 <pre class="command-line">
 <span class="command">atom --version</span>
-Atom    : 1.8.0
-Electron: 0.36.8
-Chrome  : 47.0.2526.110
-Node    : 5.1.1
+<span class="output">Atom    : 1.8.0</span>
+<span class="output">Electron: 0.36.8</span>
+<span class="output">Chrome  : 47.0.2526.110</span>
+<span class="output">Node    : 5.1.1</span>
 </pre>
 
-<p>Head on over to the <a href="https://github.com/atom/atom/releases">list of releases</a> and see if there's a more recent release. You can update to the most recent release by downloading Atom from the releases page, or with the in-app auto-updater. The in-app auto-updater checks for and downloads a new version after you restart Atom, or if you use the <code>Atom &gt; Check for Update</code> menu option.</p>
+<p>Then check for the <a href="https://github.com/atom/atom/releases/latest">latest Stable version</a>.</p>
+
+<div class="platform-mac">
+
+<p>If there is a more recent release available, you can update to the most recent release with the auto-update functionality built in to Atom and the <a href="https://github.com/atom/about">about package</a>. You can open the About View by using the <em>Atom &gt; About</em> menu option to see whether Atom is up-to-date, downloading a new update or click the button to "Restart and Install Update".</p>
+
+</div>
+
+<div class="platform-windows">
+
+<p>If there is a more recent release available, you can update to the most recent release with the auto-update functionality built in to Atom and the <a href="https://github.com/atom/about">about package</a>. You can open the About View by using the <em>Help &gt; About</em> menu option to see whether Atom is up-to-date, downloading a new update or click the button to "Restart and Install Update".</p>
+
+</div>
+
+<div class="platform-linux">
+
+<p>To update to the latest version, you can download it from <a href="https://atom.io">the atom.io website</a> or <a href="https://github.com/atom/atom/releases/latest">the latest release on GitHub</a> and follow the <a href="/getting-started/sections/installing-atom/#installing-atom-on-linux">Installation instructions for Atom on Linux</a>.</p>
+
+</div>
+
+<p>If you're building Atom from source, pull down the latest version of master and <a href="https://github.com/atom/atom#building">re-build</a>.</p>
 
 <h4>
 <a id="check-if-the-problem-shows-up-in-safe-mode" class="anchor" href="#check-if-the-problem-shows-up-in-safe-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check if the problem shows up in safe mode</h4>
@@ -409,9 +427,9 @@ Node    : 5.1.1
 
 <p>This starts Atom, but does not load packages from <code>~/.atom/packages</code> or <code>~/.atom/dev/packages</code> and disables loading of your init script. If you can no longer reproduce the problem in safe mode, it's likely it was caused by one of the packages or the init script.</p>
 
-<p>If removing all content from the Init script and starting Atom normally still produces the error, then try figuring out which package is causing trouble. Start Atom normally again and open Settings (<code>cmd-,</code>). Since Settings allow you to disable each installed package, you can disable packages one by one until you can no longer reproduce the issue. Restart (<code>cmd-q</code>) or reload (<code>cmd-ctrl-alt-l</code>) Atom after you disable each package to make sure it's completely gone.</p>
+<p>If removing all content from the Init script and starting Atom normally still produces the error, then try figuring out which package is causing trouble. Start Atom normally again and open the Settings View with <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd>. Since the Settings View allow you to disable each installed package, you can disable packages one by one until you can no longer reproduce the issue. Restart Atom or reload Atom with <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd> after you disable each package to make sure it's completely gone.</p>
 
-<p>When you find the problematic package, you can disable or uninstall the package, and consider creating an issue on the package's GitHub repository.</p>
+<p>When you find the problematic package, you can disable or uninstall the package. We strongly recommend creating an issue on the package's GitHub repository. The <a href="https://discuss.atom.io/c/faq">Atom FAQ</a> has information on <a href="https://discuss.atom.io/t/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it/25581">how to contact the maintainers of any Atom community package or theme</a>.</p>
 
 <h4>
 <a id="check-for-linked-packages" class="anchor" href="#check-for-linked-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check for linked packages</h4>
@@ -420,85 +438,103 @@ Node    : 5.1.1
 
 <pre class="command-line">
 <span class="command">apm links</span>
-/Users/octocat/.atom/dev/packages (0)
-└── (no links)
-/Users/octocat/.atom/packages (1)
-└── color-picker -&gt; /Users/octocat/github/color-picker
+<span class="output">/Users/octocat/.atom/dev/packages (0)</span>
+<span class="output">└── (no links)</span>
+<span class="output">/Users/octocat/.atom/packages (1)</span>
+<span class="output">└── color-picker -&gt; /Users/octocat/github/color-picker</span>
 </pre>
 
 <p>You can remove links using the <code>apm unlink</code> command:</p>
 
 <pre class="command-line">
 <span class="command">apm unlink color-picker</span>
-Unlinking /Users/octocat/.atom/packages/color-picker ✓
+<span class="output">Unlinking /Users/octocat/.atom/packages/color-picker ✓</span>
 </pre>
 
 <p>See <code>apm links --help</code> and <code>apm unlink --help</code> for more information on these commands.</p>
 
+<div class="alert tip">
+
+<p><strong>Tip:</strong> You can also use <code>apm unlink --all</code> to easily unlink all packages and themes.</p>
+
+</div>
+
 <h4>
 <a id="check-atom-and-package-settings" class="anchor" href="#check-atom-and-package-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check Atom and package settings</h4>
 
-<p>In some cases, unexpected behavior might be caused by misconfigured or unconfigured settings in Atom or in one of the packages.</p>
+<p>In some cases, unexpected behavior might be caused by settings in Atom or in one of the packages.</p>
 
-<p>Open Atom's <a href="https://github.com/atom/settings-view">Settings View</a> with <code>cmd-,</code> the <code>Atom &gt; Preferences</code> menu option, or the <code>Settings View: Open</code> command from the <a href="https://github.com/atom/command-palette">Command Palette</a>.</p>
+<p>Open Atom's <a href="https://github.com/atom/settings-view">Settings View</a> with <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd>, the <span class="platform-mac"><em>Atom &gt; Preferences</em></span><span class="platform-windows"><em>File &gt; Preferences</em></span><span class="platform-linux"><em>Edit &gt; Preferences</em></span> menu option, or the "Settings View: Open" command from the <a href="https://github.com/atom/command-palette">Command Palette</a>.</p>
 
 <p><img src="../../images/settings-view.png" alt="Settings View"></p>
 
-<p>Check Atom's settings in the Settings pane, there's a description of each configuration option <a href="https://atom.io/docs/latest/customizing-atom#configuration-key-reference">here</a>. For example, if you want Atom to hide the invisible symbols representing whitespace characters, disable the "Show Invisibles" option.</p>
+<p>Check Atom's settings in the Settings View, there's a description of most configuration options <a href="/using-atom/sections/basic-customization/#configuration-key-reference">the the Basic Customization section</a>. For example, if you want Atom to hide the invisible symbols representing whitespace characters, disable the "Show Invisibles" option.</p>
 
-<p>Most of these options are also available on a per-language basis which means that they may be different for specific languages (e.g. JavaScript or Python). To check the per-language settings, open the settings for the <code>language-*</code> package under Settings View &gt; Packages (e.g. the <code>language-javascript</code> or <code>langauge-python</code> package).</p>
+<p>Some of these options are also available on a per-language basis which means that they may be different for specific languages, for example JavaScript or Python. To check the per-language settings, open the settings for the language package under the Packages tab in the Settings View, for example the language-javascript or language-python package.</p>
 
-<p>Since Atom ships with a set of packages and you can also install additional packages yourself, check the list of packages and their settings. For example, if you'd like to get rid of the vertical line in the middle of the editor, disable the <a href="https://atom.io/packages/wrap-guide">Wrap Guide package</a>. And if you don't like it when Atom strips trailing whitespace or ensures that there's a single trailing newline in the file, you can configure that in the <a href="https://atom.io/packages/whitespace">Whitespace packages'</a> settings.</p>
+<p>Since Atom ships with a set of packages and you can also install additional packages yourself, check the list of packages and their settings. For instance, if you'd like to get rid of the vertical line in the middle of the editor, disable the <a href="https://atom.io/packages/wrap-guide">Wrap Guide package</a>. And if you don't like it when Atom strips trailing whitespace or ensures that there's a single trailing newline in the file, you can configure that in the <a href="https://atom.io/packages/whitespace">whitespace package's</a> settings.</p>
 
 <p><img src="../../images/package-settings.png" alt="Package Settings"></p>
 
 <h4>
-<a id="check-your-config-files" class="anchor" href="#check-your-config-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check your config files</h4>
+<a id="check-your-configuration" class="anchor" href="#check-your-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check Your Configuration</h4>
 
-<p>You might have defined some custom styles, keymaps or snippets in link:/using-atom/sections/basic-customization[your config files]. In some situations, these personal hacks might be causing the unexpected behavior you're observing so try clearing those files and restarting Atom.</p>
+<p>You might have defined some custom styles, keymaps or snippets in <a href="/using-atom/sections/basic-customization/">one of your configuration files</a>. In some situations, these personal hacks might be causing the unexpected behavior you're observing so try clearing those files and restarting Atom.</p>
 
 <h4>
-<a id="check-the-keybindings" class="anchor" href="#check-the-keybindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check the keybindings</h4>
+<a id="check-your-keybindings" class="anchor" href="#check-your-keybindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check Your Keybindings</h4>
 
-<p>If a command is not executing when you hit a keystroke or the wrong command is executing, there might be an issue with the keybindings for that keystroke. Atom ships with the <a href="https://atom.io/packages/keybinding-resolver">Keybinding resolver</a>, a neat package which helps you understand which keybindings are executed.</p>
+<p>If a command is not executing when you press a key combination or the wrong command is executing, there might be an issue with the keybinding for that combination. Atom ships with the <a href="https://atom.io/packages/keybinding-resolver">Keybinding Resolver</a>, a neat package which helps you understand what key Atom saw you press and the command that was triggered because of it.</p>
 
-<p>Show the keybinding resolver with <code>cmd-.</code> or with "Key Binding Resolver: Show" from the Command palette. With the keybinding resolver shown, hit a keystroke:</p>
+<p>Show the keybinding resolver with <kbd class="platform-mac">Cmd+.</kbd><kbd class="platform-windows platform-linux">Ctrl+.</kbd> or with "Keybinding Resolver: Show" from the Command palette. With the Keybinding Resolver shown, press a key combination:</p>
 
 <p><img src="../../images/keybinding-resolver.png" alt="Keybinding Resolver"></p>
 
-<p>The keybinding resolver shows you a list of keybindings that exist for the keystroke, where each item in the list has the following:</p>
+<p>The Keybinding Resolver shows you a list of keybindings that exist for the key combination, where each item in the list has the following:</p>
 
 <ul>
-<li>the command for the keybinding,</li>
-<li>the CSS selector used to define the context in which the keybinding is valid, and</li>
-<li>the file in which the keybinding is defined.</li>
+<li>the command for the keybinding</li>
+<li>the CSS selector used to define the context in which the keybinding is valid</li>
+<li>the file in which the keybinding is defined</li>
 </ul>
 
-<p>Of all the keybindings that are listed (grey color), at most one keybinding is matched and executed (green color). If the command you wanted to trigger isn't listed, then a keybinding for that command hasn't been defined. More keybindings are provided by <a href="https://atom.io/packages">packages</a> and you can define your own keybindings as we saw in <a href="/using-atom/sections/basic-customization/#customizing-keybindings">Customizing Keybindings</a>.</p>
+<p>The keybindings are listed in two colors. All the keybindings that are matched but not executed are shown in gray. The one that is executed, if any, is shown in green. If the command you wanted to trigger isn't listed, then a keybinding for that command hasn't been loaded.</p>
 
 <p>If multiple keybindings are matched, Atom determines which keybinding will be executed based on the <a href="/behind-atom/sections/keymaps-in-depth/#specificity-and-cascade-order">specificity of the selectors and the order in which they were loaded</a>. If the command you wanted to trigger is listed in the Keybinding Resolver, but wasn't the one that was executed, this is normally explained by one of two causes:</p>
 
 <ul>
-<li>the keystroke was not used in the context defined by the keybinding's selector. For example, you can't trigger the <code>tree-view:add-file</code> command if the Tree View is not focused, or</li>
-<li>there is another keybinding that took precedence. This often happens when you install a package which defines keybindings that conflict with existing keybindings. If the package's keybindings have selectors with higher specificity or were loaded later, they'll have priority over existing ones.</li>
+<li>
+<p>The key combination was not used in the context defined by the keybinding's selector</p>
+
+<p>For example, you can't trigger the keybinding for the <code>tree-view:add-file</code> command if the Tree View is not focused.</p>
+</li>
+<li>
+<p>There is another keybinding that took precedence</p>
+
+<p>This often happens when you install a package which defines keybindings that conflict with existing keybindings. If the package's keybindings have selectors with higher specificity or were loaded later, they'll have priority over existing ones.</p>
+</li>
 </ul>
 
-<p>Atom loads core Atom keybindings and package keybindings first, and user-defined keybindings last. Since user-defined keybindings are loaded last, you can use your <code>keymap.cson</code> file to tweak the keybindings and sort out problems like these. For example, you can remove keybindings with <a href="/behind-atom/sections/keymaps-in-depth/#removing-bindings">the <code>unset!</code> directive</a>.</p>
+<p>Atom loads core Atom keybindings and package keybindings first, and user-defined keybindings last. Since user-defined keybindings are loaded last, you can use your <code>keymap.cson</code> file to tweak the keybindings and sort out problems like these. See the <a href="/behind-atom/sections/keymaps-in-depth/">Keymaps in Depth section</a> for more information.</p>
 
-<p>If you notice that a package's keybindings are taking precedence over core Atom keybindings, it might be a good idea to report the issue on the package's GitHub repository.</p>
+<p>If you notice that a package's keybindings are taking precedence over core Atom keybindings, it might be a good idea to report the issue on that package's GitHub repository. The <a href="https://discuss.atom.io/c/faq">Atom FAQ</a> has information on <a href="https://discuss.atom.io/t/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it/25581">how to contact the maintainers of any Atom community package or theme</a>.</p>
 
 <h4>
-<a id="check-for-errors-in-the-developer-tools" class="anchor" href="#check-for-errors-in-the-developer-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check for errors in the developer tools</h4>
+<a id="check-for-errors-in-the-developer-tools" class="anchor" href="#check-for-errors-in-the-developer-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check for Errors in the Developer Tools</h4>
 
-<p>When an error is thrown in Atom, you will normally see a red notification which provides details about the error and allows you to create an issue on the right repository.</p>
+<p>When an unexpected error occurs Atom, you will normally see a red notification which provides details about the error and allows you to create an issue on the right repository:</p>
 
 <p><img src="../../images/exception-notification.png" alt="Exception Notification"></p>
 
-<p>In some situations, instead of showing a notification, the developer tools are automatically shown with the error logged in the Console tab. However, if the dev tools are open before the error is triggered, a full stack trace for the error will be logged:</p>
+<p>If you can reproduce the error, use this approach to get the full stack trace and <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues">report the issue</a>.</p>
+
+<div class="alert note">
+
+<p><strong>Note:</strong> When running in Dev Mode, the developer tools are automatically shown with the error logged in the Console tab.</p>
 
 <p><img src="../../images/devtools-error.png" alt="DevTools Error"></p>
 
-<p>If you can reproduce the error, use this approach to get the full stack trace and <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues">report the issue</a>.</p>
+</div>
 
 <h4>
 <a id="diagnose-startup-performance" class="anchor" href="#diagnose-startup-performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Diagnose Startup Performance</h4>
@@ -510,13 +546,37 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓
 <p>Timecop displays the following information:</p>
 
 <ul>
-<li>Atom startup times (e.g. time taken to launch the application, load the window, and rebuild the previously opened editors)</li>
-<li>File compilation times (e.g. compilation of CoffeeScript, LESS and CSON files)</li>
+<li>Atom startup times</li>
+<li>File compilation times</li>
 <li>Package loading and activation times</li>
 <li>Theme loading and activation times</li>
 </ul>
 
-<p>If a specific package has high load or activation times, you might consider disabling it to improve startup speed.</p>
+<p>If a specific package has high load or activation times, you might consider reporting an Issue to the maintainers. You can also disable the package to potentially improve future startup times.</p>
+
+<h4>
+<a id="diagnose-runtime-performance" class="anchor" href="#diagnose-runtime-performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Diagnose Runtime Performance</h4>
+
+<p>If you're experiencing performance problems in a particular situation, your <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues">Issue reports</a> will be more valuable if you include a saved profile from Chrome's CPU profiler that gives some insight into what is slow.</p>
+
+<p>To run a profile, open the Developer Tools with <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+I</kbd>. From there:</p>
+
+<ol>
+<li>Click the Profiles tab</li>
+<li>Select "Collect JavaScript CPU Profile"</li>
+<li>Click "Start"</li>
+</ol>
+
+<p><img src="../../images/cpu-profile-start.png" alt="DevTools Profiler"></p>
+
+<p>Once that is done, then perform the slow action to capture a recording. When finished, click "Stop". Switch to the "Chart" view, and a graph of the recorded actions will appear. You can save and post the profile data by clicking "Save" next to the profile's name in the left panel.</p>
+
+<p><img src="../../images/cpu-profile-done.png" alt="DevTools Profiler"></p>
+
+<p>To learn more, check out the <a href="https://developer.chrome.com/devtools/docs/cpu-profiling">Chrome documentation on CPU profiling</a>.</p>
+
+<h4>
+<a id="profiling-startup-performance" class="anchor" href="#profiling-startup-performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Profiling Startup Performance</h4>
 
 <p>If the time for loading the window looks high, you can create a CPU profile for that period using the <code>--profile-startup</code> command line flag when starting Atom:</p>
 
@@ -524,29 +584,20 @@ Unlinking /Users/octocat/.atom/packages/color-picker ✓
 <span class="command">atom --profile-startup .</span>
 </pre>
 
-<p>This will automatically capture a CPU profile as Atom is loading and open the dev tools once Atom loads. You can then switch to the Profiles tab of the dev tools to inspect the "startup" profile and also save it in case you want to share it in an issue.</p>
+<p>This will automatically capture a CPU profile as Atom is loading and open the Developer Tools once Atom loads. From there:</p>
+
+<ol>
+<li>Click the Profiles tab in the Developer Tools</li>
+<li>Select the "startup" profile</li>
+<li>Click the "Save" link for the startup profile</li>
+</ol>
+
+<p>You can then include the startup profile in any Issue you report.</p>
 
 <h4>
-<a id="diagnose-runtime-performance" class="anchor" href="#diagnose-runtime-performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Diagnose Runtime Performance</h4>
+<a id="check-your-build-tools" class="anchor" href="#check-your-build-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check Your Build Tools</h4>
 
-<p>If you're experiencing performance problems in a particular situation, your <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues">reports</a> will be more valuable if you include a screenshot from Chrome's CPU profiler that gives some insight into what is slow.</p>
-
-<p>To run a profile, open the dev tools ("Window: Toggle Dev Tools" in the <a href="https://atom.io/docs/latest/getting-started-atom-basics#command-palette">Command Palette</a>), navigate to the <code>Profiles</code> tab, select <code>Collect JavaScript CPU Profile</code>, and click <code>Start</code>.</p>
-
-<p><img src="../../images/cpu-profile-start.png" alt="DevTools Profiler"></p>
-
-<p>Then refocus Atom and perform the slow action to capture a recording. When finished, click <code>Stop</code>. Switch to the <code>Chart</code> view, and a graph of the recorded actions will appear. Try to zoom in on the slow area, then take a screenshot to include with your report. You can also save and post the profile data by clicking <code>Save</code> next to the profile's name (for example <code>Profile 1</code>) in the left panel.</p>
-
-<p><img src="../../images/cpu-profile-done.png" alt="DevTools Profiler"></p>
-
-<p>To learn more, check out the <a href="https://developer.chrome.com/devtools/docs/cpu-profiling">Chrome documentation on CPU profiling</a>.</p>
-
-<h4>
-<a id="check-that-you-have-a-build-toolchain-installed" class="anchor" href="#check-that-you-have-a-build-toolchain-installed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check that you have a build toolchain installed</h4>
-
-<p>If you are having issues installing a package using <code>apm install</code>, this could be because the package has dependencies on libraries that contain native code and so you will need to have a C++ compiler and Python installed to be able to install it.</p>
-
-<p>You can run <code>apm install --check</code> to see if <code>apm</code> can build native code on your machine.</p>
+<p>If you are having issues installing a package using <code>apm install</code>, this could be because the package has dependencies on libraries that contain native code. This means you will need to have a C++ compiler and Python installed to be able to install it. You can run <code>apm install --check</code> to see if the Atom package manager can build native code on your machine.</p>
 
 <p>Check out the pre-requisites in the <a href="https://github.com/atom/atom/tree/master/docs/build-instructions">build instructions</a> for your platform for more details.</p>
         </div>

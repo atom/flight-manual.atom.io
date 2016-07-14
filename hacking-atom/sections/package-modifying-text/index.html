@@ -392,7 +392,7 @@
 <h4>
 <a id="basic-text-insertion" class="anchor" href="#basic-text-insertion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Text Insertion</h4>
 
-<p>To begin, press <code>cmd-shift-P</code> to bring up the <a href="https://github.com/atom/command-palette">Command Palette</a>. Type "generate package" and select the "Package Generator: Generate Package" command, just as we did in <a href="/hacking-atom/sections/package-word-count/#package-generator">the section on package generation</a>. Enter <code>ascii-art</code> as the name of the package.</p>
+<p>To begin, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> to bring up the <a href="https://github.com/atom/command-palette">Command Palette</a>. Type "generate package" and select the "Package Generator: Generate Package" command, just as we did in <a href="/hacking-atom/sections/package-word-count/#package-generator">the section on package generation</a>. Enter <code>ascii-art</code> as the name of the package.</p>
 
 <p>Now let's edit the package files to make our ASCII Art package do something interesting. Since this package doesn't need any UI, we can remove all view-related code so go ahead and delete <code>lib/ascii-art-view.coffee</code>, <code>spec/ascii-art-view-spec.coffee</code>, and <code>styles/</code>.</p>
 
@@ -419,7 +419,7 @@
 <h5>
 <a id="create-a-command" class="anchor" href="#create-a-command" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a Command</h5>
 
-<p>Now let's add a command. It is recommended that you namespace your commands with the package name followed by a <code>:</code>, so as you can see in the code, we called our command <code>ascii-art:convert</code> and it will call the <code>convert()</code> method when it's called.</p>
+<p>Now let's add a command. You should namespace your commands with the package name followed by a <code>:</code> and then the name of the command. As you can see in the code, we called our command <code>ascii-art:convert</code> and we will define it to call the <code>convert()</code> method when it's executed.</p>
 
 <p>So far, that will simply log to the console. Let's start by making it insert something into the text buffer.</p>
 
@@ -429,19 +429,19 @@
 </code></pre>
 
 
-<p>As in <a href="/hacking-atom/sections/package-word-count/#counting-the-words">Counting Words</a>, we're using <code>atom.workspace.getActiveTextEditor()</code> to get the object that represents the active text editor. If this <code>convert()</code> method is called when not focused on a text editor, this will simply return a blank string, so we can skip the next line.</p>
+<p>As in <a href="/hacking-atom/sections/package-word-count/#counting-the-words">Counting Words</a>, we're using <code>atom.workspace.getActiveTextEditor()</code> to get the object that represents the active text editor. If this <code>convert()</code> method is called when not focused on a text editor, nothing will happen.</p>
 
-<p>Next we insert a string into the current text editor with the <a href="https://atom.io/docs/api/latest/TextEditor#instance-insertText"><code>insertText()</code></a> method. This will insert the text wherever the cursor currently is in the current editor. If there is a selection, it will replace all selections with the "Hello, World!" text.</p>
+<p>Next we insert a string into the current text editor with the <a href="https://atom.io/docs/api/latest/TextEditor#instance-insertText"><code>insertText()</code></a> method. This will insert the text wherever the cursor currently is in the current editor. If there are selections, it will replace all selections with the "Hello, World!" text.</p>
 
 <h5>
 <a id="reload-the-package" class="anchor" href="#reload-the-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reload the Package</h5>
 
-<p>Before we can trigger <code>ascii-art:convert</code>, we need to load the latest code for our package by reloading the window. Run the command "Window: Reload" from the command palette or by pressing <code>ctrl-alt-cmd-l</code>.</p>
+<p>Before we can trigger <code>ascii-art:convert</code>, we need to load the latest code for our package by reloading the window. Run the command "Window: Reload" from the Command Palette or by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd>.</p>
 
 <h5>
 <a id="trigger-the-command" class="anchor" href="#trigger-the-command" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trigger the Command</h5>
 
-<p>Now open the command panel and search for the "Ascii Art: Convert" command. But it's not there! To fix this, open <code>package.json</code> and find the property called <code>activationCommands</code>. Activation commands speed up load time by allowing Atom to delay a package's activation until it's needed. So remove the existing command and use <code>ascii-art:convert</code> in <code>activationCommands</code>:</p>
+<p>Now open the Command Palette and search for the "Ascii Art: Convert" command. But it's not there! To fix this, open <code>package.json</code> and find the property called <code>activationCommands</code>. Activation commands make Atom launch faster by allowing Atom to delay a package's activation until it's needed. So remove the existing command and use <code>ascii-art:convert</code> in <code>activationCommands</code>:</p>
 
 <pre class="highlight highlight-json"><code><span class="s2">"activationCommands"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="nt">"atom-workspace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ascii-art:convert"</span><span class="w">
@@ -449,12 +449,12 @@
 </span></code></pre>
 
 
-<p>First, reload the window by running the command "Window: Reload" from the command palette. Now when you run the "Ascii Art: Convert" command it will output 'Hello, World!'</p>
+<p>First, reload the window by running the command "Window: Reload" from the command palette. Now when you run the "Ascii Art: Convert" command it will insert "Hello, World!" into the active editor, if any.</p>
 
 <h5>
 <a id="add-a-key-binding" class="anchor" href="#add-a-key-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add a Key Binding</h5>
 
-<p>Now let's add a key binding to trigger the <code>ascii-art:convert</code> command. Open <code>keymaps/ascii-art.cson</code> and add a key binding linking <code>ctrl-alt-a</code> to the <code>ascii-art:convert</code> command. You can delete the pre-existing key binding since you don't need it anymore.</p>
+<p>Now let's add a key binding to trigger the <code>ascii-art:convert</code> command. Open <code>keymaps/ascii-art.cson</code> and add a key binding linking <kbd class="platform-all">Alt+Ctrl+A</kbd> to the <code>ascii-art:convert</code> command. You can delete the pre-existing key binding since you won't need it anymore.</p>
 
 <p>When finished, the file should look like this:</p>
 
@@ -464,6 +464,14 @@
 
 
 <p>Now reload the window and verify that the key binding works.</p>
+
+<div class="alert warning">
+
+<p><strong>Warning:</strong> The Atom keymap system is <em>case-sensitive</em>. This means that there is a distinction between <code>a</code> and <code>A</code> when creating keybindings. <code>a</code> means that you want to trigger the keybinding when you press <kbd class="platform-all">A</kbd>. But <code>A</code> means that you want to trigger the keybinding when you press <kbd class="platform-all">Shift+A</kbd>. You can also write <code>shift-a</code> when you want to trigger the keybinding when you press <kbd class="platform-all">Shift+A</kbd>.</p>
+
+<p>We <strong>strongly</strong> recommend always using lowercase and explicitly spelling out when you want to include <kbd class="platform-all">Shift</kbd> in your keybindings.</p>
+
+</div>
 
 <h4>
 <a id="add-the-ascii-art" class="anchor" href="#add-the-ascii-art" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add the ASCII Art</h4>
@@ -476,18 +484,18 @@
 </span></code></pre>
 
 
-<p>After saving the file, run the command "Update Package Dependencies: Update" from the Command Palette. This will install the package's node module dependencies, only figlet in this case. You will need to run "Update Package Dependencies: Update" whenever you update the dependencies field in your <em>package.json</em> file.</p>
+<p>After saving the file, run the command "Update Package Dependencies: Update" from the Command Palette. This will install the package's node module dependencies, only figlet in this case. You will need to run "Update Package Dependencies: Update" whenever you update the dependencies field in your <code>package.json</code> file.</p>
 
 <p>If for some reason this doesn't work, you'll see a message saying "Failed to update package dependencies" and you will find a new <code>npm-debug.log</code> file in your directory. That file should give you some idea as to what went wrong.</p>
 
-<p>Now require the figlet node module in <em>lib/ascii-art.coffee</em> and instead of inserting 'Hello, World!', convert the selected text to ASCII art.</p>
+<p>Now require the figlet node module in <code>lib/ascii-art.coffee</code> and instead of inserting "Hello, World!", convert the selected text to ASCII art.</p>
 
 <pre class="highlight highlight-coffeescript"><code><span class="na">convert</span><span class="o">:</span> <span class="o">-&gt;</span>
   <span class="k">if</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
     <span class="nx">selection</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getSelectedText</span><span class="p">()</span>
 
     <span class="nx">figlet</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'figlet'</span>
-    <span class="nx">font</span> <span class="o">=</span> <span class="s">"o8"</span>
+    <span class="nx">font</span> <span class="o">=</span> <span class="s">"O8"</span>
     <span class="nx">figlet</span> <span class="nx">selection</span><span class="p">,</span> <span class="p">{</span><span class="na">font</span><span class="o">:</span> <span class="nx">font</span><span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">art</span><span class="p">)</span> <span class="o">-&gt;</span>
       <span class="k">if</span> <span class="nx">error</span>
         <span class="nx">console</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
@@ -496,7 +504,7 @@
 </code></pre>
 
 
-<p>Now reload the editor, select some text in an editor window and hit <code>ctrl-alt-a</code>. It should be replaced with a ridiculous ASCII art version instead.</p>
+<p>Now reload the editor, select some text in an editor window and press <kbd class="platform-all">Alt+Ctrl+A</kbd>. It should be replaced with a ridiculous ASCII art version instead.</p>
 
 <p>There are a couple of new things in this example we should look at quickly. The first is the <a href="https://atom.io/docs/api/latest/TextEditor#instance-getSelectedText"><code>editor.getSelectedText()</code></a> which, as you might guess, returns the text that is currently selected.</p>
 

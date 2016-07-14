@@ -377,9 +377,9 @@
 
 <p>Atom's interface is rendered using HTML, and it's styled via <a href="http://lesscss.org/">Less</a> which is a superset of CSS. Don't worry if you haven't heard of Less before; it's just like CSS, but with a few handy extensions.</p>
 
-<p>Atom supports two types of themes: <em>UI</em> and <em>syntax</em>.  UI themes style elements such as the tree view, the tabs, drop-down lists, and the status bar. Syntax themes style the code inside the editor.</p>
+<p>Atom supports two types of themes: <em>UI</em> and <em>Syntax</em>.  UI themes style elements such as the tree view, the tabs, drop-down lists, and the status bar. Syntax themes style the code, gutter and other elements inside the editor view.</p>
 
-<p>Themes can be installed and changed from the settings view which you can open by selecting the <em>Atom &gt; Preferences...</em> menu and navigating to the <em>Install</em> section and the <em>Themes</em> section on the left hand side.</p>
+<p>Themes can be installed and changed from the Settings View which you can open by selecting the <span class="platform-mac"><em>Atom &gt; Preferences</em></span><span class="platform-windows"><em>File &gt; Preferences</em></span><span class="platform-linux"><em>Edit &gt; Preferences</em></span> menu, and clicking the "Install" or "Themes" tab on the left hand navigation.</p>
 
 <h4>
 <a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h4>
@@ -390,7 +390,7 @@
 <li>Less is a superset of CSS, but it has some really handy features like variables. If you aren't familiar with its syntax, take a few minutes to <a href="https://speakerdeck.com/danmatthews/less-css">familiarize yourself</a>.</li>
 <li>You may also want to review the concept of a <code>package.json</code> (as covered in <a href="/hacking-atom/sections/package-word-count/#packagejson">Atom <code>package.json</code></a>). This file is used to help distribute your theme to Atom users.</li>
 <li>Your theme's <code>package.json</code> must contain a <code>theme</code> key with a value of <code>ui</code> or <code>syntax</code> for Atom to recognize and load it as a theme.</li>
-<li>You can find existing themes to install or fork on <a href="https://atom.io/themes">atom.io</a>.</li>
+<li>You can find existing themes to install or fork in <a href="https://atom.io/themes">the atom.io themes registry</a>.</li>
 </ul>
 
 <h4>
@@ -398,15 +398,15 @@
 
 <p>Let's create your first theme.</p>
 
-<p>To get started, hit <code>cmd-shift-P</code>, and start typing "Generate Syntax Theme" to generate a new theme package. Select "Generate Syntax Theme," and you'll be asked for the path where your theme will be created. Let's call ours <em>motif-syntax</em>.</p>
+<p>To get started, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and start typing "Generate Syntax Theme" to generate a new theme package. Select "Generate Syntax Theme," and you'll be asked for the path where your theme will be created. Let's call ours <code>motif-syntax</code>.</p>
 
 <div class="alert tip">
 
-<p>Syntax themes should end with <em>-syntax</em> and UI themes should end with <em>-ui</em>.</p>
+<p><strong>Tip:</strong> Syntax themes should end with <em>-syntax</em> and UI themes should end with <em>-ui</em>.</p>
 
 </div>
 
-<p>Atom will pop open a new window, showing the motif-syntax theme, with a default set of folders and files created for us. If you open the settings view (<code>cmd-,</code>) and navigate to the "Themes" section on the left, you'll see the "Motif" theme listed in the <em>Syntax Theme</em> drop-down. Select it from the menu to activate it, now when you open an editor you should see your new motif-syntax theme in action.</p>
+<p>Atom will display a new window, showing the motif-syntax theme, with a default set of folders and files created for us. If you open the Settings View with <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd> and click the "Themes" tab on the left, you'll see the "Motif" theme listed in the "Syntax Theme" drop-down. Select it from the menu to activate it, now when you open an editor you should see your new motif-syntax theme in action.</p>
 
 <p>Open up <code>styles/colors.less</code> to change the various color variables which have already been defined. For example, turn <code>@red</code> into <code>#f4c2c1</code>.</p>
 
@@ -414,26 +414,26 @@
 
 <p>As an example, let's make the <code>.gutter</code> <code>background-color</code> into <code>@red</code>.</p>
 
-<p>Reload Atom by pressing <code>cmd-alt-ctrl-l</code> to see the changes you made reflected in your Atom window. Pretty neat!</p>
+<p>Reload Atom by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd> to see the changes you made reflected in your Atom window. Pretty neat!</p>
 
 <div class="alert tip">
 
-<p>You can avoid reloading to see changes you make by opening an atom window in dev mode. To open a Dev Mode Atom window run <code>atom --dev .</code> in the terminal, use <code>cmd-shift-o</code> or use the <em>View &gt; Developer &gt; Open in Dev Mode</em> menu. When you edit your theme, changes will instantly be reflected!</p>
+<p><strong>Tip:</strong> You can avoid reloading to see changes you make by opening an atom window in Dev Mode. To open a Dev Mode Atom window run <code>atom --dev .</code> in the terminal, or use the <em>View &gt; Developer &gt; Open in Dev Mode</em> menu. When you edit your theme, changes will instantly be reflected!</p>
 
 </div>
 
 <div class="alert note">
 
-<p>It's advised to <em>not</em> specify a <code>font-family</code> in your syntax theme because it will override the Font Family field in Atom's settings. If you still like to recommend a font that goes well with your theme, we recommend you do so in your README.</p>
+<p><strong>Note:</strong> It's advised to <em>not</em> specify a <code>font-family</code> in your syntax theme because it will override the Font Family field in Atom's settings. If you still like to recommend a font that goes well with your theme, we suggest you do so in your README.</p>
 
 </div>
 
 <h4>
-<a id="creating-an-interface-theme" class="anchor" href="#creating-an-interface-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating an Interface Theme</h4>
+<a id="creating-a-ui-theme" class="anchor" href="#creating-a-ui-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a UI Theme</h4>
 
-<p>Interface themes <strong>must</strong> provide a <code>ui-variables.less</code> file which contains all of the variables provided by the core themes, which we'll cover in <a href="#theme-variables">Theme Variables</a>.</p>
+<p>UI themes <strong>must</strong> provide a <code>ui-variables.less</code> file which contains all of the variables provided by the core themes, which we'll cover in <a href="#theme-variables">Theme Variables</a>.</p>
 
-<p>To create an interface UI theme, do the following:</p>
+<p>To create a UI theme, do the following:</p>
 
 <ol>
 <li>Fork one of the following repositories:
@@ -447,39 +447,46 @@
 <li>Open a terminal in the forked theme's directory</li>
 <li>Open your new theme in a Dev Mode Atom window run <code>atom --dev .</code> in the terminal or use the <em>View &gt; Developer &gt; Open in Dev Mode</em> menu</li>
 <li>Change the name of the theme in the theme's <code>package.json</code> file</li>
-<li>Name your theme end with a <code>-ui</code>. i.e. <code>super-white-ui</code>
+<li>Name your theme end with a <code>-ui</code>, for example <code>super-white-ui</code>
 </li>
-<li>Run <code>apm link</code> to symlink your repository to <code>~/.atom/packages</code>
+<li>Run <code>apm link --dev</code> to symlink your repository to <code>~/.atom/dev/packages</code>
 </li>
-<li>Reload Atom using <code>cmd-alt-ctrl-L</code>
+<li>Reload Atom using <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd>
 </li>
-<li>Enable the theme via <em>UI Theme</em> drop-down in the <em>Themes</em> section of the settings view</li>
+<li>Enable the theme via the "UI Theme" drop-down in the "Themes" tab of the Settings View</li>
 <li>Make changes! Since you opened the theme in a Dev Mode window, changes will be instantly reflected in the editor without having to reload.</li>
 </ol>
+
+<div class="alert tip">
+
+<p><strong>Tip:</strong> Because we used <code>apm link --dev</code> in the above instructions, if you break anything you can always close Atom and launch Atom normally to force Atom to the default theme. This allows you to continue working on your theme even if something goes catastrophically wrong.</p>
+
+</div>
 
 <h4>
 <a id="development-workflow" class="anchor" href="#development-workflow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development workflow</h4>
 
-<p>There are a few of tools to help make theme development faster and easier.</p>
+<p>There are a few tools to help make theme development faster and easier.</p>
 
 <h5>
 <a id="live-reload" class="anchor" href="#live-reload" aria-hidden="true"><span class="octicon octicon-link"></span></a>Live Reload</h5>
 
-<p>Reloading by hitting <code>cmd-alt-ctrl-L</code> after you make changes to your theme is less than ideal. Atom supports <a href="https://github.com/atom/dev-live-reload">live updating</a> of styles on Dev Mode Atom windows.</p>
+<p>Reloading by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd> after you make changes to your theme is less than ideal. Atom supports <a href="https://github.com/atom/dev-live-reload">live updating</a> of styles on Atom windows in Dev Mode.</p>
 
-<p>To enable a Dev Mode window:</p>
+<p>To launch a Dev Mode window:</p>
 
-<ol>
-<li>Open your theme directory in a dev window by either going to the <strong>View &gt; Developer &gt; Open in Dev Mode</strong> menu or by hitting the <code>cmd-shift-o</code> shortcut</li>
-<li>Make a change to your theme file and save it. Your change should be immediately applied!</li>
-</ol>
+<ul>
+<li>Open your theme directory in a dev window by selecting the <em>View &gt; Developer &gt; Open in Dev Mode</em> menu item</li>
+<li>Launch Atom from the terminal with <code>atom --dev</code>
+</li>
+</ul>
 
-<p>If you'd like to reload all the styles at any time, you can use the shortcut <code>cmd-ctrl-shift-r</code>.</p>
+<p>If you'd like to reload all the styles at any time, you can use the shortcut <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd>.</p>
 
 <h5>
 <a id="developer-tools" class="anchor" href="#developer-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developer Tools</h5>
 
-<p>Atom is based on the Chrome browser, and supports Chrome's Developer Tools. You can open them by selecting the <em>View &gt; Toggle Developer Tools</em> menu, or by using the <code>cmd-alt-i</code> shortcut.</p>
+<p>Atom is based on the Chrome browser, and supports Chrome's Developer Tools. You can open them by selecting the <em>View &gt; Developer &gt; Toggle Developer Tools</em> menu, or by using the <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+I</kbd> shortcut.</p>
 
 <p>The dev tools allow you to inspect elements and take a look at their CSS properties.</p>
 
@@ -490,9 +497,9 @@
 <h5>
 <a id="atom-styleguide" class="anchor" href="#atom-styleguide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom Styleguide</h5>
 
-<p>If you are creating an interface theme, you'll want a way to see how your theme changes affect all the components in the system. The <a href="https://github.com/atom/styleguide">styleguide</a> is a page that renders every component Atom supports.</p>
+<p>If you are creating an interface theme, you'll want a way to see how your theme changes affect all the components in the system. The <a href="https://github.com/atom/styleguide">Styleguide</a> is a page that renders every component Atom supports.</p>
 
-<p>To open the styleguide, open the command palette (<code>cmd-shift-P</code>) and search for "styleguide", or use the shortcut <code>cmd-ctrl-shift-g</code>.</p>
+<p>To open the Styleguide, open the command palette with <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and search for "styleguide", or use the shortcut <kbd class="platform-mac">Cmd+Ctrl+Shift+G</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+G</kbd>.</p>
 
 <p><img src="../../images/styleguide.png" alt="Style Guide"></p>
 
@@ -567,72 +574,57 @@
 <a id="component-colors" class="anchor" href="#component-colors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Component colors</h6>
 
 <ul>
-<li>
-<code>@base-background-color</code> -</li>
-<li><p><code>@base-border-color</code> -</p></li>
-<li><p><code>@pane-item-background-color</code> -</p></li>
-<li><p><code>@pane-item-border-color</code> -</p></li>
-<li><p><code>@input-background-color</code> -</p></li>
-<li><p><code>@input-border-color</code> -</p></li>
-<li><p><code>@tool-panel-background-color</code> -</p></li>
-<li><p><code>@tool-panel-border-color</code> -</p></li>
-<li><p><code>@inset-panel-background-color</code> -</p></li>
-<li><p><code>@inset-panel-border-color</code> -</p></li>
-<li><p><code>@panel-heading-background-color</code> -</p></li>
-<li><p><code>@panel-heading-border-color</code> -</p></li>
-<li><p><code>@overlay-background-color</code> -</p></li>
-<li><p><code>@overlay-border-color</code> -</p></li>
-<li><p><code>@button-background-color</code> -</p></li>
-<li>
-<code>@button-background-color-hover</code> -</li>
-<li>
-<code>@button-background-color-selected</code> -</li>
-<li><p><code>@button-border-color</code> -</p></li>
-<li><p><code>@tab-bar-background-color</code> -</p></li>
-<li>
-<code>@tab-bar-border-color</code> -</li>
-<li>
-<code>@tab-background-color</code> -</li>
-<li>
-<code>@tab-background-color-active</code> -</li>
-<li><p><code>@tab-border-color</code> -</p></li>
-<li><p><code>@tree-view-background-color</code> -</p></li>
-<li><p><code>@tree-view-border-color</code> -</p></li>
-<li><p><code>@ui-site-color-1</code> -</p></li>
-<li>
-<code>@ui-site-color-2</code> -</li>
-<li>
-<code>@ui-site-color-3</code> -</li>
-<li>
-<code>@ui-site-color-4</code> -</li>
-<li>
-<code>@ui-site-color-5</code> -</li>
+<li><code>@base-background-color</code></li>
+<li><p><code>@base-border-color</code></p></li>
+<li><p><code>@pane-item-background-color</code></p></li>
+<li><p><code>@pane-item-border-color</code></p></li>
+<li><p><code>@input-background-color</code></p></li>
+<li><p><code>@input-border-color</code></p></li>
+<li><p><code>@tool-panel-background-color</code></p></li>
+<li><p><code>@tool-panel-border-color</code></p></li>
+<li><p><code>@inset-panel-background-color</code></p></li>
+<li><p><code>@inset-panel-border-color</code></p></li>
+<li><p><code>@panel-heading-background-color</code></p></li>
+<li><p><code>@panel-heading-border-color</code></p></li>
+<li><p><code>@overlay-background-color</code></p></li>
+<li><p><code>@overlay-border-color</code></p></li>
+<li><p><code>@button-background-color</code></p></li>
+<li><code>@button-background-color-hover</code></li>
+<li><code>@button-background-color-selected</code></li>
+<li><p><code>@button-border-color</code></p></li>
+<li><p><code>@tab-bar-background-color</code></p></li>
+<li><code>@tab-bar-border-color</code></li>
+<li><code>@tab-background-color</code></li>
+<li><code>@tab-background-color-active</code></li>
+<li><p><code>@tab-border-color</code></p></li>
+<li><p><code>@tree-view-background-color</code></p></li>
+<li><p><code>@tree-view-border-color</code></p></li>
+<li><p><code>@ui-site-color-1</code></p></li>
+<li><code>@ui-site-color-2</code></li>
+<li><code>@ui-site-color-3</code></li>
+<li><code>@ui-site-color-4</code></li>
+<li><code>@ui-site-color-5</code></li>
 </ul>
 
 <h6>
 <a id="component-sizes" class="anchor" href="#component-sizes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Component sizes</h6>
 
 <ul>
-<li><p><code>@disclosure-arrow-size</code> -</p></li>
-<li><p><code>@component-padding</code> -</p></li>
-<li>
-<code>@component-icon-padding</code> -</li>
-<li>
-<code>@component-icon-size</code> -</li>
-<li>
-<code>@component-line-height</code> -</li>
-<li><p><code>@component-border-radius</code> -</p></li>
-<li><p><code>@tab-height</code> -</p></li>
+<li><p><code>@disclosure-arrow-size</code></p></li>
+<li><p><code>@component-padding</code></p></li>
+<li><code>@component-icon-padding</code></li>
+<li><code>@component-icon-size</code></li>
+<li><code>@component-line-height</code></li>
+<li><p><code>@component-border-radius</code></p></li>
+<li><p><code>@tab-height</code></p></li>
 </ul>
 
 <h6>
 <a id="fonts" class="anchor" href="#fonts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fonts</h6>
 
 <ul>
-<li>
-<code>@font-size</code> -</li>
-<li>
-<code>@font-family</code> -</li>
+<li><code>@font-size</code></li>
+<li><code>@font-family</code></li>
 </ul>
         </div>
       </div>

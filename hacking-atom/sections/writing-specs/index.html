@@ -373,24 +373,24 @@
         <div class="markdown-body document-content">
           
           <h3>
-<a id="writing-specs" class="anchor" href="#writing-specs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing specs</h3>
+<a id="writing-specs" class="anchor" href="#writing-specs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing Specs</h3>
 
 <p>We've looked at and written a few specs through the examples already. Now it's time to take a closer look at the spec framework itself. How exactly do you write tests in Atom?</p>
 
 <p>Atom uses <a href="http://jasmine.github.io/1.3/introduction.html">Jasmine</a> as its spec framework. Any new functionality should have specs to guard against regressions.</p>
 
 <h4>
-<a id="create-a-new-spec" class="anchor" href="#create-a-new-spec" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a new spec</h4>
+<a id="create-a-new-spec" class="anchor" href="#create-a-new-spec" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a New Spec</h4>
 
 <p><a href="https://github.com/atom/atom/tree/master/spec">Atom specs</a> and <a href="https://github.com/atom/markdown-preview/tree/master/spec">package specs</a> are added to their respective <code>spec</code> directory. The example below creates a spec for Atom core.</p>
 
 <h5>
-<a id="create-a-spec-file" class="anchor" href="#create-a-spec-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a spec file</h5>
+<a id="create-a-spec-file" class="anchor" href="#create-a-spec-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a Spec File</h5>
 
-<p>Spec files <strong>must</strong> end with <code>-spec</code> so add <code>sample-spec.coffee</code> to <code>atom/spec</code>.</p>
+<p>Spec files <strong>must</strong> end with <code>-spec</code> so add <code>sample-spec.coffee</code> to the <code>spec</code> directory.</p>
 
 <h5>
-<a id="add-one-or-more-describe-methods" class="anchor" href="#add-one-or-more-describe-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add one or more <code>describe</code> methods</h5>
+<a id="add-one-or-more-describe-methods" class="anchor" href="#add-one-or-more-describe-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add One or More <code>describe</code> Methods</h5>
 
 <p>The <code>describe</code> method takes two arguments, a description and a function. If the description explains a behavior it typically begins with <code>when</code>; if it is more like a unit test it begins with the method name.</p>
 
@@ -407,9 +407,9 @@
 
 
 <h5>
-<a id="add-one-or-more-it-method" class="anchor" href="#add-one-or-more-it-method" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add one or more <code>it</code> method</h5>
+<a id="add-one-or-more-it-methods" class="anchor" href="#add-one-or-more-it-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add One or More <code>it</code> Methods</h5>
 
-<p>The <code>it</code> method also takes two arguments, a description and a function. Try and make the description flow with the <code>it</code> method. For example, a description of <code>this should work</code> doesn't read well as <code>it this should work</code>. But a description of <code>should work</code> sounds great as <code>it should work</code>.</p>
+<p>The <code>it</code> method also takes two arguments, a description and a function. Try and make the description flow with the <code>it</code> method. For example, a description of "this should work" doesn't read well as "it this should work". But a description of "should work" sounds great as "it should work".</p>
 
 <pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">it</span> <span class="s">"has some expectations that should pass"</span><span class="p">,</span> <span class="o">-&gt;</span>
@@ -418,9 +418,9 @@
 
 
 <h5>
-<a id="add-one-or-more-expectations" class="anchor" href="#add-one-or-more-expectations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add one or more expectations</h5>
+<a id="add-one-or-more-expectations" class="anchor" href="#add-one-or-more-expectations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add One or More Expectations</h5>
 
-<p>The best way to learn about expectations is to read the <a href="http://jasmine.github.io/1.3/introduction.html#section-Expectations">Jasmine documentation</a>) about them. Below is a simple example.</p>
+<p>The best way to learn about expectations is to read the <a href="http://jasmine.github.io/1.3/introduction.html#section-Expectations">Jasmine documentation</a> about them. Below is a simple example.</p>
 
 <pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">it</span> <span class="s">"has some expectations that should pass"</span><span class="p">,</span> <span class="o">-&gt;</span>
@@ -430,7 +430,7 @@
 
 
 <h6>
-<a id="custom-matchers" class="anchor" href="#custom-matchers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom matchers</h6>
+<a id="custom-matchers" class="anchor" href="#custom-matchers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Matchers</h6>
 
 <p>In addition to the Jasmine's built-in matchers, Atom includes the following:</p>
 
@@ -446,7 +446,7 @@
 <p>These are defined in <a href="https://github.com/atom/atom/blob/master/spec/spec-helper.coffee">spec/spec-helper.coffee</a>.</p>
 
 <h4>
-<a id="asynchronous-specs" class="anchor" href="#asynchronous-specs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous specs</h4>
+<a id="asynchronous-specs" class="anchor" href="#asynchronous-specs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous Specs</h4>
 
 <p>Writing Asynchronous specs can be tricky at first. Some examples.</p>
 
@@ -479,12 +479,13 @@
 <p>If you need to wait for multiple promises use a new <code>waitsForPromise</code> function for each promise. (Caution: Without <code>beforeEach</code> this example will fail!)</p>
 
 <pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"waiting for the packages to load"</span><span class="p">,</span> <span class="o">-&gt;</span>
-
   <span class="nx">beforeEach</span> <span class="o">-&gt;</span>
     <span class="nx">waitsForPromise</span> <span class="o">-&gt;</span>
       <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="s">'sample.js'</span><span class="p">)</span>
+
     <span class="nx">waitsForPromise</span> <span class="o">-&gt;</span>
       <span class="nx">atom</span><span class="p">.</span><span class="na">packages</span><span class="p">.</span><span class="na">activatePackage</span><span class="p">(</span><span class="s">'tabs'</span><span class="p">)</span>
+
     <span class="nx">waitsForPromise</span> <span class="o">-&gt;</span>
       <span class="nx">atom</span><span class="p">.</span><span class="na">packages</span><span class="p">.</span><span class="na">activatePackage</span><span class="p">(</span><span class="s">'tree-view'</span><span class="p">)</span>
 
@@ -495,17 +496,18 @@
 
 
 <h5>
-<a id="asynchronous-functions-with-callbacks" class="anchor" href="#asynchronous-functions-with-callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous functions with callbacks</h5>
+<a id="asynchronous-functions-with-callbacks" class="anchor" href="#asynchronous-functions-with-callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous Functions with Callbacks</h5>
 
 <p>Specs for asynchronous functions can be done using the <code>waitsFor</code> and <code>runs</code> functions. A simple example.</p>
 
 <pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"fs.readdir(path, cb)"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">it</span> <span class="s">"is async"</span><span class="p">,</span> <span class="o">-&gt;</span>
     <span class="nx">spy</span> <span class="o">=</span> <span class="nx">jasmine</span><span class="p">.</span><span class="na">createSpy</span><span class="p">(</span><span class="s">'fs.readdirSpy'</span><span class="p">)</span>
-
     <span class="nx">fs</span><span class="p">.</span><span class="na">readdir</span><span class="p">(</span><span class="s">'/tmp/example'</span><span class="p">,</span> <span class="nx">spy</span><span class="p">)</span>
+
     <span class="nx">waitsFor</span> <span class="o">-&gt;</span>
       <span class="nx">spy</span><span class="p">.</span><span class="na">callCount</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
     <span class="nx">runs</span> <span class="o">-&gt;</span>
       <span class="nx">exp</span> <span class="o">=</span> <span class="p">[</span><span class="no">null</span><span class="p">,</span> <span class="p">[</span><span class="s">'example.coffee'</span><span class="p">]]</span>
       <span class="nx">expect</span><span class="p">(</span><span class="nx">spy</span><span class="p">.</span><span class="na">mostRecentCall</span><span class="p">.</span><span class="na">args</span><span class="p">).</span><span class="na">toEqual</span> <span class="nx">exp</span>
@@ -513,14 +515,14 @@
 </code></pre>
 
 
-<p>For a more detailed documentation on asynchronous tests please visit the <a href="http://jasmine.github.io/1.3/introduction.html#section-Asynchronous_Support">Jasmine documentation</a>).</p>
+<p>For a more detailed documentation on asynchronous tests please visit the <a href="http://jasmine.github.io/1.3/introduction.html#section-Asynchronous_Support">Jasmine documentation</a>.</p>
 
 <h4>
-<a id="running-specs" class="anchor" href="#running-specs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running specs</h4>
+<a id="running-specs" class="anchor" href="#running-specs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running Specs</h4>
 
-<p>Most of the time you'll want to run specs by triggering the <code>window:run-package-specs</code> command. This command is not only to run package specs, it is also for Atom core specs. This will run all the specs in the current project's spec directory. If you want to run the Atom core specs and <strong>all</strong> the default package specs trigger the <code>window:run-all-specs</code> command.</p>
+<p>Most of the time you'll want to run specs by triggering the <code>window:run-package-specs</code> command. This command is not only to run package specs, it can also be used to run Atom core specs when working on Atom itself. This will run all the specs in the current project's <code>spec</code> directory.</p>
 
-<p>To run a limited subset of specs use the <code>fdescribe</code> or <code>fit</code> methods. You can use those to focus a single spec or several specs. In the example above, focusing an individual spec looks like this:</p>
+<p>To run a limited subset of specs use the <code>fdescribe</code> or <code>fit</code> methods. You can use those to focus a single spec or several specs. Modified from the example above, focusing an individual spec looks like this:</p>
 
 <pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">fit</span> <span class="s">"has some expectations that should pass"</span><span class="p">,</span> <span class="o">-&gt;</span>
@@ -535,12 +537,13 @@
 <p>It is now easy to run the specs in a CI environment like Travis and AppVeyor. See the <a href="http://blog.atom.io/2014/04/25/ci-for-your-packages.html">Travis CI For Your Packages</a> and <a href="http://blog.atom.io/2014/07/28/windows-ci-for-your-packages.html">AppVeyor CI For Your Packages</a> posts for more details.</p>
 
 <h5>
-<a id="running-via-the-command-line" class="anchor" href="#running-via-the-command-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running via the command line</h5>
+<a id="running-via-the-command-line" class="anchor" href="#running-via-the-command-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running via the Command Line</h5>
 
 <p>To run tests on the command line, run Atom with the <code>--test</code> flag followed by one or more paths to test files or directories. You can also specify a <code>--timeout</code> option, which will force-terminate your tests after a certain number of seconds have passed.</p>
 
-<pre><code>atom --test --timeout 60 ./test/test-1.js ./test/test-2.js
-</code></pre>
+<pre class="command-line">
+atom --test --timeout 60 ./test/test-1.js ./test/test-2.js
+</pre>
 
 <h4>
 <a id="customizing-your-test-runner" class="anchor" href="#customizing-your-test-runner" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing your test runner</h4>

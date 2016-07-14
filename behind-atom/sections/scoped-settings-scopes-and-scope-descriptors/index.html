@@ -380,7 +380,7 @@
 <p>Language-specific settings are a subset of something more general we call "scoped settings". Scoped settings allow targeting down to a specific syntax token type. For example, you could conceivably set a setting to target only Ruby comments, only code inside Markdown files, or even only JavaScript function names.</p>
 
 <h4>
-<a id="scope-names-in-syntax-tokens" class="anchor" href="#scope-names-in-syntax-tokens" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scope names in syntax tokens</h4>
+<a id="scope-names-in-syntax-tokens" class="anchor" href="#scope-names-in-syntax-tokens" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scope Names in Syntax Tokens</h4>
 
 <p>Each token in the editor has a collection of scope names. For example, the aforementioned JavaScript function name might have the scope names <code>function</code> and <code>name</code>. An open paren might have the scope names <code>punctuation</code>, <code>parameters</code>, <code>begin</code>.</p>
 
@@ -417,7 +417,8 @@
 </code></pre>
 
 
-<p>==== Scope Descriptors</p>
+<h4>
+<a id="scope-descriptors" class="anchor" href="#scope-descriptors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scope Descriptors</h4>
 
 <p>A scope descriptor is an <a href="https://atom.io/docs/api/latest/ScopeDescriptor">Object</a> that wraps an <code>Array</code> of <code>String</code>s. The Array describes a path from the root of the syntax tree to a token including <em>all</em> scope names for the entire path.</p>
 

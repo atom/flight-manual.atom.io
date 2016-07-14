@@ -378,7 +378,7 @@
 <p>It's possible that you have themes or grammars from <a href="http://macromates.com">TextMate</a> that you like and use and would like to convert to Atom. If so, you're in luck because there are tools to help with the conversion.</p>
 
 <h4>
-<a id="converting-a-textmate-bundle" class="anchor" href="#converting-a-textmate-bundle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Converting a TextMate Bundle</h4>
+<a id="converting-a-textmate-grammar-bundle" class="anchor" href="#converting-a-textmate-grammar-bundle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Converting a TextMate Grammar Bundle</h4>
 
 <p>Converting a TextMate bundle will allow you to use its editor preferences, snippets, and colorization inside Atom.</p>
 
@@ -387,16 +387,14 @@
 <p>You can convert the R bundle with the following command:</p>
 
 <pre class="command-line">
-<span class="command">apm init --package ~/.atom/packages/language-r \</span>
-  --convert https://github.com/textmate/r.tmbundle
+<span class="command">apm init --package language-r \</span>
+    --convert https://github.com/textmate/r.tmbundle
 </pre>
 
-<p>You can now browse to <code>~/.atom/packages/language-r</code> to see the converted bundle.</p>
-
-<p>Your new package is now ready to use, launch Atom and open a <code>.r</code> file in the editor to see it in action!</p>
+<p>You can now change directory into <code>language-r</code> to see the converted bundle. Once you link your package with the <code>apm link</code> command, your new package is ready to use. Launch Atom and open a <code>.r</code> file in the editor to see it in action!</p>
 
 <h4>
-<a id="converting-a-textmate-theme" class="anchor" href="#converting-a-textmate-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Converting a TextMate Theme</h4>
+<a id="converting-a-textmate-syntax-theme" class="anchor" href="#converting-a-textmate-syntax-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Converting a TextMate Syntax Theme</h4>
 
 <p>This section will go over how to convert a <a href="http://macromates.com">TextMate</a> theme to an Atom<br>
 theme.</p>
@@ -416,18 +414,16 @@ theme.</p>
 <p>Now, let's say you've downloaded the theme to <code>~/Downloads/MyTheme.tmTheme</code>, you can convert the theme with the following command:</p>
 
 <pre class="command-line">
-<span class="command">apm init --theme ~/.atom/packages/my-theme \</span>
-  --convert ~/Downloads/MyTheme.tmTheme
+<span class="command">apm init --theme my-theme \</span>
+    --convert ~/Downloads/MyTheme.tmTheme
 </pre>
 
-<p>You can then browse to <code>~/.atom/packages/my-theme</code> to see the converted theme.</p>
+<p>You can then change directory to <code>my-theme</code> to see the converted theme.</p>
 
 <h5>
 <a id="activate-the-theme" class="anchor" href="#activate-the-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activate the Theme</h5>
 
-<p>Now that your theme is installed to <code>~/.atom/packages</code> you can enable it by launching Atom and selecting the <em>Atom &gt; Preferences...</em> menu.</p>
-
-<p>Select the <em>Themes</em> link on the left side and choose <em>My Theme</em> from the <strong>Syntax Theme</strong> dropdown menu to enable your new theme.</p>
+<p>Once your theme is installed you can enable it by launching Atom and opening the Settings View with the <span class="platform-mac"><em>Atom &gt; Preferences</em></span><span class="platform-windows"><em>File &gt; Preferences</em></span><span class="platform-linux"><em>Edit &gt; Preferences</em></span> menu item. Then select the "Themes" tab on the left side navigation. Finally, choose "My Theme" from the "Syntax Theme" dropdown menu to enable your new theme.</p>
 
 <p>Your theme is now enabled, open an editor to see it in action!</p>
         </div>

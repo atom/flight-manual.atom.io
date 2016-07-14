@@ -383,15 +383,15 @@
 
 <p>Here's an example from Atom's light syntax theme. Note that the <code>atom-text-editor</code> selector intended to target the editor from the outside has been retained to allow the theme to keep working during the transition phase when it is possible to disable the shadow DOM.</p>
 
-<pre class="highlight highlight-css"><code><span class="nt">atom-text-editor</span><span class="o">,</span> <span class="nd">:host</span> <span class="p">{</span> <span class="c">/* :host added */</span>
-  <span class="nl">background-color</span><span class="p">:</span> <span class="err">@</span><span class="n">syntax-background-color</span><span class="p">;</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">syntax-text-color</span><span class="p">;</span>
+<pre class="highlight highlight-less"><code>atom-text-editor, :host { /* :host added */
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
 
-  <span class="err">.invisible-character</span> <span class="err">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">syntax-invisible-character-color</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="c">/* more nested selectors... */</span>
-<span class="err">}</span>
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+  /* more nested selectors... */
+}
 </code></pre>
 
         </div>
