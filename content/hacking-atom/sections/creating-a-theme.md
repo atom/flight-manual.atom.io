@@ -5,9 +5,9 @@ title: Creating a Theme
 
 Atom's interface is rendered using HTML, and it's styled via [Less](http://lesscss.org/) which is a superset of CSS. Don't worry if you haven't heard of Less before; it's just like CSS, but with a few handy extensions.
 
-Atom supports two types of themes: _UI_ and _syntax_.  UI themes style elements such as the tree view, the tabs, drop-down lists, and the status bar. Syntax themes style the code inside the editor.
+Atom supports two types of themes: _UI_ and _Syntax_.  UI themes style elements such as the tree view, the tabs, drop-down lists, and the status bar. Syntax themes style the code, gutter and other elements inside the editor view.
 
-Themes can be installed and changed from the settings view which you can open by selecting the _Atom > Preferences..._ menu and navigating to the _Install_ section and the _Themes_ section on the left hand side.
+Themes can be installed and changed from the Settings View which you can open by selecting the <span class="platform-mac">_Atom > Preferences_</span><span class="platform-windows">_File > Preferences_</span><span class="platform-linux">_Edit > Preferences_</span> menu, and clicking the "Install" or "Themes" tab on the left hand navigation.
 
 #### Getting Started
 
@@ -16,21 +16,21 @@ Themes are pretty straightforward but it's still helpful to be familiar with a f
 * Less is a superset of CSS, but it has some really handy features like variables. If you aren't familiar with its syntax, take a few minutes to [familiarize yourself](https://speakerdeck.com/danmatthews/less-css).
 * You may also want to review the concept of a `package.json` (as covered in [Atom `package.json`](/hacking-atom/sections/package-word-count/#packagejson)). This file is used to help distribute your theme to Atom users.
 * Your theme's `package.json` must contain a `theme` key with a value of `ui` or `syntax` for Atom to recognize and load it as a theme.
-* You can find existing themes to install or fork on [atom.io](https://atom.io/themes).
+* You can find existing themes to install or fork in [the atom.io themes registry](https://atom.io/themes).
 
 #### Creating a Syntax Theme
 
 Let's create your first theme.
 
-To get started, hit `cmd-shift-P`, and start typing "Generate Syntax Theme" to generate a new theme package. Select "Generate Syntax Theme," and you'll be asked for the path where your theme will be created. Let's call ours _motif-syntax_.
+To get started, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and start typing "Generate Syntax Theme" to generate a new theme package. Select "Generate Syntax Theme," and you'll be asked for the path where your theme will be created. Let's call ours `motif-syntax`.
 
 {{#tip}}
 
-Syntax themes should end with _-syntax_ and UI themes should end with _-ui_.
+**Tip:** Syntax themes should end with _-syntax_ and UI themes should end with _-ui_.
 
 {{/tip}}
 
-Atom will pop open a new window, showing the motif-syntax theme, with a default set of folders and files created for us. If you open the settings view (`cmd-,`) and navigate to the "Themes" section on the left, you'll see the "Motif" theme listed in the _Syntax Theme_ drop-down. Select it from the menu to activate it, now when you open an editor you should see your new motif-syntax theme in action.
+Atom will display a new window, showing the motif-syntax theme, with a default set of folders and files created for us. If you open the Settings View with <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd> and click the "Themes" tab on the left, you'll see the "Motif" theme listed in the "Syntax Theme" drop-down. Select it from the menu to activate it, now when you open an editor you should see your new motif-syntax theme in action.
 
 Open up `styles/colors.less` to change the various color variables which have already been defined. For example, turn `@red` into `#f4c2c1`.
 
@@ -38,57 +38,63 @@ Then open `styles/base.less` and modify the various selectors that have already 
 
 As an example, let's make the `.gutter` `background-color` into `@red`.
 
-Reload Atom by pressing `cmd-alt-ctrl-l` to see the changes you made reflected in your Atom window. Pretty neat!
+Reload Atom by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd> to see the changes you made reflected in your Atom window. Pretty neat!
 
 {{#tip}}
 
-You can avoid reloading to see changes you make by opening an atom window in dev mode. To open a Dev Mode Atom window run `atom --dev .` in the terminal, use `cmd-shift-o` or use the _View > Developer > Open in Dev Mode_ menu. When you edit your theme, changes will instantly be reflected!
+**Tip:** You can avoid reloading to see changes you make by opening an atom window in Dev Mode. To open a Dev Mode Atom window run `atom --dev .` in the terminal, or use the _View > Developer > Open in Dev Mode_ menu. When you edit your theme, changes will instantly be reflected!
 
 {{/tip}}
 
 {{#note}}
 
-It's advised to _not_ specify a `font-family` in your syntax theme because it will override the Font Family field in Atom's settings. If you still like to recommend a font that goes well with your theme, we recommend you do so in your README.
+**Note:** It's advised to _not_ specify a `font-family` in your syntax theme because it will override the Font Family field in Atom's settings. If you still like to recommend a font that goes well with your theme, we suggest you do so in your README.
 
 {{/note}}
 
-#### Creating an Interface Theme
+#### Creating a UI Theme
 
-Interface themes **must** provide a `ui-variables.less` file which contains all of the variables provided by the core themes, which we'll cover in [Theme Variables](#theme-variables).
+UI themes **must** provide a `ui-variables.less` file which contains all of the variables provided by the core themes, which we'll cover in [Theme Variables](#theme-variables).
 
-To create an interface UI theme, do the following:
+To create a UI theme, do the following:
 
 1. Fork one of the following repositories:
-  * [atom-dark-ui](https://github.com/atom/atom-dark-ui)
-  * [atom-light-ui](https://github.com/atom/atom-light-ui)
+    * [atom-dark-ui](https://github.com/atom/atom-dark-ui)
+    * [atom-light-ui](https://github.com/atom/atom-light-ui)
 2. Clone the forked repository to the local filesystem
 3. Open a terminal in the forked theme's directory
 4. Open your new theme in a Dev Mode Atom window run `atom --dev .` in the terminal or use the _View > Developer > Open in Dev Mode_ menu
 5. Change the name of the theme in the theme's `package.json` file
-6. Name your theme end with a `-ui`. i.e. `super-white-ui`
-7. Run `apm link` to symlink your repository to `~/.atom/packages`
-8. Reload Atom using `cmd-alt-ctrl-L`
-9. Enable the theme via _UI Theme_ drop-down in the _Themes_ section of the settings view
+6. Name your theme end with a `-ui`, for example `super-white-ui`
+7. Run `apm link --dev` to symlink your repository to `~/.atom/dev/packages`
+8. Reload Atom using <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd>
+9. Enable the theme via the "UI Theme" drop-down in the "Themes" tab of the Settings View
 10. Make changes! Since you opened the theme in a Dev Mode window, changes will be instantly reflected in the editor without having to reload.
+
+{{#tip}}
+
+**Tip:** Because we used `apm link --dev` in the above instructions, if you break anything you can always close Atom and launch Atom normally to force Atom to the default theme. This allows you to continue working on your theme even if something goes catastrophically wrong.
+
+{{/tip}}
 
 #### Development workflow
 
-There are a few of tools to help make theme development faster and easier.
+There are a few tools to help make theme development faster and easier.
 
 ##### Live Reload
 
-Reloading by hitting `cmd-alt-ctrl-L` after you make changes to your theme is less than ideal. Atom supports [live updating](https://github.com/atom/dev-live-reload) of styles on Dev Mode Atom windows.
+Reloading by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd> after you make changes to your theme is less than ideal. Atom supports [live updating](https://github.com/atom/dev-live-reload) of styles on Atom windows in Dev Mode.
 
-To enable a Dev Mode window:
+To launch a Dev Mode window:
 
-1. Open your theme directory in a dev window by either going to the __View > Developer > Open in Dev Mode__ menu or by hitting the `cmd-shift-o` shortcut
-2. Make a change to your theme file and save it. Your change should be immediately applied!
+* Open your theme directory in a dev window by selecting the _View > Developer > Open in Dev Mode_ menu item
+* Launch Atom from the terminal with `atom --dev`
 
-If you'd like to reload all the styles at any time, you can use the shortcut `cmd-ctrl-shift-r`.
+If you'd like to reload all the styles at any time, you can use the shortcut <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd>.
 
 ##### Developer Tools
 
-Atom is based on the Chrome browser, and supports Chrome's Developer Tools. You can open them by selecting the _View > Toggle Developer Tools_ menu, or by using the `cmd-alt-i` shortcut.
+Atom is based on the Chrome browser, and supports Chrome's Developer Tools. You can open them by selecting the _View > Developer > Toggle Developer Tools_ menu, or by using the <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+I</kbd> shortcut.
 
 The dev tools allow you to inspect elements and take a look at their CSS properties.
 
@@ -98,9 +104,9 @@ Check out Google's [extensive tutorial](https://developer.chrome.com/devtools/do
 
 ##### Atom Styleguide
 
-If you are creating an interface theme, you'll want a way to see how your theme changes affect all the components in the system. The [styleguide](https://github.com/atom/styleguide) is a page that renders every component Atom supports.
+If you are creating an interface theme, you'll want a way to see how your theme changes affect all the components in the system. The [Styleguide](https://github.com/atom/styleguide) is a page that renders every component Atom supports.
 
-To open the styleguide, open the command palette (`cmd-shift-P`) and search for "styleguide", or use the shortcut `cmd-ctrl-shift-g`.
+To open the Styleguide, open the command palette with <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and search for "styleguide", or use the shortcut <kbd class="platform-mac">Cmd+Ctrl+Shift+G</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+G</kbd>.
 
 ![Style Guide](../../images/styleguide.png)
 
@@ -154,60 +160,60 @@ Here's an example `.less` file that a package can define using theme variables:
 
 ###### Component colors
 
-* `@base-background-color` -
-* `@base-border-color` -
+* `@base-background-color`
+* `@base-border-color`
 
-* `@pane-item-background-color` -
-* `@pane-item-border-color` -
+* `@pane-item-background-color`
+* `@pane-item-border-color`
 
-* `@input-background-color` -
-* `@input-border-color` -
+* `@input-background-color`
+* `@input-border-color`
 
-* `@tool-panel-background-color` -
-* `@tool-panel-border-color` -
+* `@tool-panel-background-color`
+* `@tool-panel-border-color`
 
-* `@inset-panel-background-color` -
-* `@inset-panel-border-color` -
+* `@inset-panel-background-color`
+* `@inset-panel-border-color`
 
-* `@panel-heading-background-color` -
-* `@panel-heading-border-color` -
+* `@panel-heading-background-color`
+* `@panel-heading-border-color`
 
-* `@overlay-background-color` -
-* `@overlay-border-color` -
+* `@overlay-background-color`
+* `@overlay-border-color`
 
-* `@button-background-color` -
-* `@button-background-color-hover` -
-* `@button-background-color-selected` -
-* `@button-border-color` -
+* `@button-background-color`
+* `@button-background-color-hover`
+* `@button-background-color-selected`
+* `@button-border-color`
 
-* `@tab-bar-background-color` -
-* `@tab-bar-border-color` -
-* `@tab-background-color` -
-* `@tab-background-color-active` -
-* `@tab-border-color` -
+* `@tab-bar-background-color`
+* `@tab-bar-border-color`
+* `@tab-background-color`
+* `@tab-background-color-active`
+* `@tab-border-color`
 
-* `@tree-view-background-color` -
-* `@tree-view-border-color` -
+* `@tree-view-background-color`
+* `@tree-view-border-color`
 
-* `@ui-site-color-1` -
-* `@ui-site-color-2` -
-* `@ui-site-color-3` -
-* `@ui-site-color-4` -
-* `@ui-site-color-5` -
+* `@ui-site-color-1`
+* `@ui-site-color-2`
+* `@ui-site-color-3`
+* `@ui-site-color-4`
+* `@ui-site-color-5`
 
 ###### Component sizes
 
-* `@disclosure-arrow-size` -
+* `@disclosure-arrow-size`
 
-* `@component-padding` -
-* `@component-icon-padding` -
-* `@component-icon-size` -
-* `@component-line-height` -
-* `@component-border-radius` -
+* `@component-padding`
+* `@component-icon-padding`
+* `@component-icon-size`
+* `@component-line-height`
+* `@component-border-radius`
 
-* `@tab-height` -
+* `@tab-height`
 
 ###### Fonts
 
-* `@font-size` -
-* `@font-family` -
+* `@font-size`
+* `@font-family`
