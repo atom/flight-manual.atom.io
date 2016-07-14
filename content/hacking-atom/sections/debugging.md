@@ -13,10 +13,10 @@ If you're using released version, check which version of Atom you're using:
 
 ``` command-line
 $ atom --version
-Atom    : 1.8.0
-Electron: 0.36.8
-Chrome  : 47.0.2526.110
-Node    : 5.1.1
+> Atom    : 1.8.0
+> Electron: 0.36.8
+> Chrome  : 47.0.2526.110
+> Node    : 5.1.1
 ```
 
 Then check for the [latest Stable version](https://github.com/atom/atom/releases/latest).
