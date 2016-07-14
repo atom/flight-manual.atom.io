@@ -473,7 +473,9 @@ input.documents-search-input {
     font-size: 0.95em;
     li {
       padding: 1px;
-      padding-left: 15px;
+      padding-left: 30px;
+      text-indent: -15px;
+      
       &.selected {
         background: #eee;
       }
