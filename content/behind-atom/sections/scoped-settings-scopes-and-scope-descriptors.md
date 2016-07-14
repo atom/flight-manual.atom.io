@@ -7,7 +7,7 @@ Atom supports language-specific settings. You can soft wrap only Markdown files,
 
 Language-specific settings are a subset of something more general we call "scoped settings". Scoped settings allow targeting down to a specific syntax token type. For example, you could conceivably set a setting to target only Ruby comments, only code inside Markdown files, or even only JavaScript function names.
 
-#### Scope names in syntax tokens
+#### Scope Names in Syntax Tokens
 
 Each token in the editor has a collection of scope names. For example, the aforementioned JavaScript function name might have the scope names `function` and `name`. An open paren might have the scope names `punctuation`, `parameters`, `begin`.
 
@@ -43,7 +43,7 @@ Scope selectors allow you to target specific tokens just like a CSS selector tar
 atom.config.set('my-package.my-setting', 'special value', scopeSelector: '.source.js .function.name')
 ```
 
-==== Scope Descriptors
+#### Scope Descriptors
 
 A scope descriptor is an [Object](https://atom.io/docs/api/latest/ScopeDescriptor) that wraps an `Array` of `String`s. The Array describes a path from the root of the syntax tree to a token including _all_ scope names for the entire path.
 
