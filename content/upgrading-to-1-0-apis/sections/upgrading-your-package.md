@@ -83,11 +83,11 @@ Just run your specs, and all the deprecations will be displayed in yellow.
 
 ![Deprecations in Specs](../../images/spec-deps.png)
 
-{{#info}}
+{{#note}}
 
-Deprecations are only displayed when executing specs through the "Window: Run Package Specs" command in the Atom UI. Deprecations are not displayed when running specs at the terminal.
+**Note:** Deprecations are only displayed when executing specs through the "Window: Run Package Specs" command in the Atom UI. Deprecations are not displayed when running specs at the terminal.
 
-{{/info}}
+{{/note}}
 
 ##### Deprecation Cop
 

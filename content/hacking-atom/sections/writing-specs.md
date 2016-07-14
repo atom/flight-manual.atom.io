@@ -1,21 +1,21 @@
 ---
 title: Writing specs
 ---
-### Writing specs
+### Writing Specs
 
 We've looked at and written a few specs through the examples already. Now it's time to take a closer look at the spec framework itself. How exactly do you write tests in Atom?
 
 Atom uses [Jasmine](http://jasmine.github.io/1.3/introduction.html) as its spec framework. Any new functionality should have specs to guard against regressions.
 
-#### Create a new spec
+#### Create a New Spec
 
 [Atom specs](https://github.com/atom/atom/tree/master/spec) and [package specs](https://github.com/atom/markdown-preview/tree/master/spec) are added to their respective `spec` directory. The example below creates a spec for Atom core.
 
-##### Create a spec file
+##### Create a Spec File
 
-Spec files **must** end with `-spec` so add `sample-spec.coffee` to `atom/spec`.
+Spec files **must** end with `-spec` so add `sample-spec.coffee` to the `spec` directory.
 
-##### Add one or more `describe` methods
+##### Add One or More `describe` Methods
 
 The `describe` method takes two arguments, a description and a function. If the description explains a behavior it typically begins with `when`; if it is more like a unit test it begins with the method name.
 
@@ -31,9 +31,9 @@ describe "Editor::moveUp", ->
   # contents
 ```
 
-##### Add one or more `it` method
+##### Add One or More `it` Methods
 
-The `it` method also takes two arguments, a description and a function. Try and make the description flow with the `it` method. For example, a description of `this should work` doesn't read well as `it this should work`. But a description of `should work` sounds great as `it should work`.
+The `it` method also takes two arguments, a description and a function. Try and make the description flow with the `it` method. For example, a description of "this should work" doesn't read well as "it this should work". But a description of "should work" sounds great as "it should work".
 
 ```coffee
 describe "when a test is written", ->
@@ -41,9 +41,9 @@ describe "when a test is written", ->
     # Expectations
 ```
 
-##### Add one or more expectations
+##### Add One or More Expectations
 
-The best way to learn about expectations is to read the [Jasmine documentation](http://jasmine.github.io/1.3/introduction.html#section-Expectations)) about them. Below is a simple example.
+The best way to learn about expectations is to read the [Jasmine documentation](http://jasmine.github.io/1.3/introduction.html#section-Expectations) about them. Below is a simple example.
 
 ```coffee
 describe "when a test is written", ->
@@ -52,7 +52,7 @@ describe "when a test is written", ->
     expect("oranges").not.toEqual("apples")
 ```
 
-###### Custom matchers
+###### Custom Matchers
 
 In addition to the Jasmine's built-in matchers, Atom includes the following:
 
@@ -65,7 +65,7 @@ In addition to the Jasmine's built-in matchers, Atom includes the following:
 
 These are defined in [spec/spec-helper.coffee](https://github.com/atom/atom/blob/master/spec/spec-helper.coffee).
 
-#### Asynchronous specs
+#### Asynchronous Specs
 
 Writing Asynchronous specs can be tricky at first. Some examples.
 
@@ -98,12 +98,13 @@ If you need to wait for multiple promises use a new `waitsForPromise` function f
 
 ```coffee
 describe "waiting for the packages to load", ->
-
   beforeEach ->
     waitsForPromise ->
       atom.workspace.open('sample.js')
+
     waitsForPromise ->
       atom.packages.activatePackage('tabs')
+
     waitsForPromise ->
       atom.packages.activatePackage('tree-view')
 
@@ -112,7 +113,7 @@ describe "waiting for the packages to load", ->
     expect(atom.packages.isPackageActive('tree-view')).toBe true
 ```
 
-##### Asynchronous functions with callbacks
+##### Asynchronous Functions with Callbacks
 
 Specs for asynchronous functions can be done using the `waitsFor` and `runs` functions. A simple example.
 
@@ -120,23 +121,24 @@ Specs for asynchronous functions can be done using the `waitsFor` and `runs` fun
 describe "fs.readdir(path, cb)", ->
   it "is async", ->
     spy = jasmine.createSpy('fs.readdirSpy')
-
     fs.readdir('/tmp/example', spy)
+
     waitsFor ->
       spy.callCount > 0
+
     runs ->
       exp = [null, ['example.coffee']]
       expect(spy.mostRecentCall.args).toEqual exp
       expect(spy).toHaveBeenCalledWith(null, ['example.coffee'])
 ```
 
-For a more detailed documentation on asynchronous tests please visit the [Jasmine documentation](http://jasmine.github.io/1.3/introduction.html#section-Asynchronous_Support)).
+For a more detailed documentation on asynchronous tests please visit the [Jasmine documentation](http://jasmine.github.io/1.3/introduction.html#section-Asynchronous_Support).
 
-#### Running specs
+#### Running Specs
 
-Most of the time you'll want to run specs by triggering the `window:run-package-specs` command. This command is not only to run package specs, it is also for Atom core specs. This will run all the specs in the current project's spec directory. If you want to run the Atom core specs and **all** the default package specs trigger the `window:run-all-specs` command.
+Most of the time you'll want to run specs by triggering the `window:run-package-specs` command. This command is not only to run package specs, it can also be used to run Atom core specs when working on Atom itself. This will run all the specs in the current project's `spec` directory.
 
-To run a limited subset of specs use the `fdescribe` or `fit` methods. You can use those to focus a single spec or several specs. In the example above, focusing an individual spec looks like this:
+To run a limited subset of specs use the `fdescribe` or `fit` methods. You can use those to focus a single spec or several specs. Modified from the example above, focusing an individual spec looks like this:
 
 ```coffee
 describe "when a test is written", ->
@@ -149,12 +151,11 @@ describe "when a test is written", ->
 
 It is now easy to run the specs in a CI environment like Travis and AppVeyor. See the [Travis CI For Your Packages](http://blog.atom.io/2014/04/25/ci-for-your-packages.html) and [AppVeyor CI For Your Packages](http://blog.atom.io/2014/07/28/windows-ci-for-your-packages.html) posts for more details.
 
-
-##### Running via the command line
+##### Running via the Command Line
 
 To run tests on the command line, run Atom with the `--test` flag followed by one or more paths to test files or directories. You can also specify a `--timeout` option, which will force-terminate your tests after a certain number of seconds have passed.
 
-```
+``` command-line
 atom --test --timeout 60 ./test/test-1.js ./test/test-2.js
 ```
 

@@ -21,24 +21,23 @@ class MyView extends View
   attached: ->
     @fontSizeObserveSubscription =
       atom.config.observe 'editor.fontSize', (newValue, {previous}) =>
-        @adjustFontSize()
+        @adjustFontSize(newValue)
 
   detached: ->
     @fontSizeObserveSubscription.dispose()
 ```
 
-The `atom.config.observe` method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use `atom.config.onDidChange`
-instead.
+The `atom.config.observe` method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use `atom.config.onDidChange` instead.
 
-Subscription methods return *disposable* subscription objects. Note in the example above how we save the subscription to the `@fontSizeObserveSubscription` instance variable and dispose of it when the view is detached. To group multiple subscriptions together, you can add them all to a [`CompositeDisposable`](https://atom.io/docs/api/latest/CompositeDisposable) that you dispose when the view is detached.
+Subscription methods return [`Disposable`](https://atom.io/docs/api/latest/Disposable) objects that can be used to unsubscribe. Note in the example above how we save the subscription to the `@fontSizeObserveSubscription` instance variable and dispose of it when the view is detached. To group multiple subscriptions together, you can add them all to a [`CompositeDisposable`](https://atom.io/docs/api/latest/CompositeDisposable) that you dispose when the view is detached.
 
 #### Writing Config Settings
 
-The `atom.config` database is populated on startup from `~/.atom/config.cson`, but you can programmatically write to it with `atom.config.set`:
+The `atom.config` database is populated on startup from <span class="platform-mac platform-linux">`~/.atom/config.cson`</span><span class="platform-windows">`%USERPROFILE%\.atom\config.cson`</span>, but you can programmatically write to it with `atom.config.set`:
 
 ```coffeescript
 # basic key update
 atom.config.set("core.showInvisibles", true)
 ```
 
-If you're exposing package configuration via specific key paths, you'll want to associate them with a schema in your package's main module. Read more about schemas in the [config API docs](https://atom.io/docs/api/latest/Config).
+If you're exposing package configuration via specific key paths, you'll want to associate them with a schema in your package's main module. Read more about schemas in the [Config API documentation](https://atom.io/docs/api/latest/Config).

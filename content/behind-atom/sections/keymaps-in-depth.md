@@ -7,6 +7,8 @@ title: Keymaps In-Depth
 
 Keymap files are encoded as JSON or CSON files containing nested hashes. They work much like style sheets, but instead of applying style properties to elements matching the selector, they specify the meaning of keystrokes on elements matching the selector. Here is an example of some bindings that apply when keystrokes pass through `atom-text-editor` elements:
 
+{{#mac}}
+
 ```coffee
 'atom-text-editor':
   'cmd-delete': 'editor:delete-to-beginning-of-line'
@@ -20,13 +22,51 @@ Keymap files are encoded as JSON or CSON files containing nested hashes. They wo
   'cmd-alt-]': 'editor:unfold-current-row'
 ```
 
-Beneath the first selector are several bindings, mapping specific *keystroke patterns* to *commands*. When an element with the `atom-text-editor` class is focused and `cmd-delete` is pressed, a custom DOM event called `editor:delete-to-beginning-of-line` is emitted on the `atom-text-editor` element.
+{{/mac}}
+
+{{#windows}}
+
+```coffee
+'atom-text-editor':
+  'ctrl-left': 'editor:move-to-beginning-of-word'
+  'ctrl-right': 'editor:move-to-end-of-word'
+  'ctrl-shift-left': 'editor:select-to-beginning-of-word'
+  'ctrl-shift-right': 'editor:select-to-end-of-word'
+  'ctrl-backspace': 'editor:delete-to-beginning-of-word'
+  'ctrl-delete': 'editor:delete-to-end-of-word'
+
+'atom-text-editor:not([mini])':
+  'ctrl-alt-[': 'editor:fold-current-row'
+  'ctrl-alt-]': 'editor:unfold-current-row'
+```
+
+{{/windows}}
+
+{{#linux}}
+
+```coffee
+'atom-text-editor':
+  'ctrl-left': 'editor:move-to-beginning-of-word'
+  'ctrl-right': 'editor:move-to-end-of-word'
+  'ctrl-shift-left': 'editor:select-to-beginning-of-word'
+  'ctrl-shift-right': 'editor:select-to-end-of-word'
+  'ctrl-backspace': 'editor:delete-to-beginning-of-word'
+  'ctrl-delete': 'editor:delete-to-end-of-word'
+
+'atom-text-editor:not([mini])':
+  'ctrl-alt-[': 'editor:fold-current-row'
+  'ctrl-alt-]': 'editor:unfold-current-row'
+```
+
+{{/linux}}
+
+Beneath the first selector are several keybindings, mapping specific key combinations to commands. When an element with the `atom-text-editor` class is focused and <kbd class="platform-mac">Alt+Backspace</kbd><kbd class="platform-windows platform-linux">Ctrl+Backspace</kbd> is pressed, a custom DOM event called `editor:delete-to-beginning-of-word` is emitted on the `atom-text-editor` element.
 
 The second selector group also targets editors, but only if they don't have the `mini` attribute. In this example, the commands for code folding don't really make sense on mini-editors, so the selector restricts them to regular editors.
 
-##### Keystroke Patterns
+##### Key Combinations
 
-Keystroke patterns express one or more keystrokes combined with optional modifier keys. For example: `ctrl-w v`, or `cmd-shift-up`. A keystroke is composed of the following symbols, separated by a `-`. A multi-keystroke pattern can be expressed as keystroke patterns separated by spaces.
+Key combinations express one or more keys combined with optional modifier keys. For example: `ctrl-w v`, or `cmd-shift-up`. A key combination is composed of the following symbols, separated by a `-`. A key sequence can be expressed as key combinations separated by spaces.
 
 | Type           | Examples     |
 | :------------- | :------------- |
@@ -36,7 +76,7 @@ Keystroke patterns express one or more keystrokes combined with optional modifie
 
 ##### Commands
 
-Commands are custom DOM events that are triggered when a keystroke matches a binding. This allows user interface code to listen for named commands without specifying the specific keybinding that triggers it. For example, the following code creates a command to insert the current date in an editor:
+Commands are custom DOM events that are triggered when a key combination or sequence matches a binding. This allows user interface code to listen for named commands without specifying the specific keybinding that triggers it. For example, the following code creates a command to insert the current date in an editor:
 
 ```coffee
 atom.commands.add 'atom-text-editor',
@@ -47,7 +87,7 @@ atom.commands.add 'atom-text-editor',
 
 `atom.commands` refers to the global `CommandRegistry` instance where all commands are set and consequently picked up by the command palette.
 
-When you are looking to bind new keys, it is often useful to use the command palette (`ctrl-shift-p`) to discover what commands are being listened for in a given focus context. Commands are "humanized" following a simple algorithm, so a command like `editor:fold-current-row` would appear as "Editor: Fold Current Row".
+When you are looking to bind new keys, it is often useful to use the Command Palette (<kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd>) to discover what commands are being listened for in a given focus context. Commands are "humanized" following a simple algorithm, so a command like `editor:fold-current-row` would appear as "Editor: Fold Current Row".
 
 ##### "Composed" Commands
 
@@ -71,7 +111,7 @@ Then let's say we want to map this custom command to `alt-ctrl-z`, you could add
 
 As is the case with CSS applying styles, when multiple bindings match for a single element, the conflict is resolved by choosing the most *specific* selector. If two matching selectors have the same specificity, the binding for the selector appearing later in the cascade takes precedence.
 
-Currently, there's no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We eventually plan to introduce a custom CSS-like file format for keymaps that allows for ordering within a single file. For now, we've opted to handle cases where selector ordering is critical by breaking the keymap into two separate files, such as `snippets-1.cson` and `snippets-2.cson`.
+Currently, there's no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We handle cases where selector ordering is critical by breaking the keymap into separate files, such as `snippets-1.cson` and `snippets-2.cson`.
 
 #### Removing Bindings
 
@@ -92,7 +132,7 @@ If you want to force the native browser behavior for a given keystroke, use the 
 
 #### Overloading Key Bindings
 
-Occasionally, it makes sense to layer multiple actions on top of the same key binding. An example of this is the snippets package. Snippets are inserted by typing a snippet prefix such as `for` and then pressing `tab`. Every time `tab` is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. If a snippet *doesn't* exist, we want `tab` to actually insert whitespace.
+Occasionally, it makes sense to layer multiple actions on top of the same key binding. An example of this is the snippets package. Snippets are inserted by typing a snippet prefix such as `for` and then pressing <kbd class="platform-all">Tab</kbd>. Every time <kbd class="platform-all">Tab</kbd> is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. If a snippet *doesn't* exist, we want <kbd class="platform-all">Tab</kbd> to actually insert whitespace.
 
 To achieve this, the snippets package makes use of the `.abortKeyBinding()` method on the event object representing the `snippets:expand` command.
 

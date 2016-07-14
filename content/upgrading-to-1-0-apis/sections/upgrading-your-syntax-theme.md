@@ -11,7 +11,7 @@ When theme style sheets are loaded into the text editor's shadow DOM, selectors 
 
 Here's an example from Atom's light syntax theme. Note that the `atom-text-editor` selector intended to target the editor from the outside has been retained to allow the theme to keep working during the transition phase when it is possible to disable the shadow DOM.
 
-```css
+```less
 atom-text-editor, :host { /* :host added */
   background-color: @syntax-background-color;
   color: @syntax-text-color;

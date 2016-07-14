@@ -25,7 +25,7 @@ You can also have packages that are owned by a [GitHub organization](https://hel
 
 {{#danger}}
 
-This is a permanent change. There is no going back!
+**Danger:** :rotating_light: This is a permanent change. There is no going back! :rotating_light:
 
 {{/danger}}
 
@@ -35,7 +35,7 @@ If you want to hand off support of your package to someone else, you can do that
 
 {{#warning}}
 
-It is important that you unpublish your package _before_ deleting your repository. If you delete the repository first, you will lose access to the package and will not be able to recover it without assistance.
+**Warning:** It is important that you unpublish your package _before_ deleting your repository. If you delete the repository first, you will lose access to the package and will not be able to recover it without assistance.
 
 {{/warning}}
 
@@ -51,12 +51,12 @@ This will remove your package from the https://atom.io package registry. Anyone 
 
 If you need to rename your package for any reason, you can do so with one simple command – `apm publish --rename` changes the `name` field in your package's `package.json`, pushes a new commit and tag, and publishes your renamed package. Requests made to the previous name will be forwarded to the new name.
 
-{{#tip}}
-
-Once a package name has been used, it cannot be re-used by another package even if the original package is unpublished.
-
-{{/tip}}
-
 ``` command-line
 $ apm publish --rename new-package-name
 ```
+
+{{#tip}}
+
+**Tip:** Once a package name has been used, it cannot be re-used by another package even if the original package is unpublished.
+
+{{/tip}}

@@ -19,7 +19,7 @@ As an example, to add a monitor icon, use the `icon icon-device-desktop` classes
 
 To see an overview of all icons open the [Styleguide](http://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/#atom-styleguide). Under the "Icons" section you'll find all the Octicons that are available.
 
-![Octicons in the Styleguide](../../images/iconography.png)
+![Octicons in the Styleguide](../../images/iconography.png "Octicons in the Styleguide")
 
 #### Size
 
@@ -27,4 +27,4 @@ Octicons look best with a `font-size` of `16px`. It's already used as the defaul
 
 #### Usability
 
-Although icons can make your UI visually appealing, when used without a text label, it can be hard to guess its meaning. In cases where space for a text label is insufficient, consider adding a [tooltip](https://atom.io/docs/api/latest/TooltipManager) that appears on hover. Or a more subtle `title="label"` attribute would already help as well.
+Although icons can make your UI visually appealing, when used without a text label, it can be hard to guess its meaning. In cases where space for a text label is insufficient, consider adding a [tooltip](https://atom.io/docs/api/latest/TooltipManager) that appears on hover. Or a more subtle `title="label"` attribute would help as well.

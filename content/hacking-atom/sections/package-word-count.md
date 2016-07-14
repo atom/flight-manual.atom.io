@@ -7,13 +7,13 @@ Let's get started by writing a very simple package and looking at some of the to
 
 #### Package Generator
 
-The simplest way to start a package is to use the built-in package generator that ships with Atom. As you might expect by now, this generator is itself a separate package implemented in [atom/package-generator](https://github.com/atom/package-generator).
+The simplest way to start a package is to use the built-in package generator that ships with Atom. As you might expect by now, this generator is itself a separate package implemented in [package-generator](https://github.com/atom/package-generator).
 
-You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Atom will then create that directory and fill it out with a skeleton project and link it into your `.atom` directory so it's loaded when you launch your editor next time.
+You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Name it `your-name-word-count`. Atom will then create that directory and fill it out with a skeleton project and link it into your <span class="platform-mac platform-linux">`~/.atom/packages`</span><span class="platform-windows">`%USERPROFILE%\.atom\packages`</span> directory so it's loaded when you launch your editor next time.
 
 {{#note}}
 
-**Note:** You may encounter a situation where your package is not loaded. That is because a new package using the same name as an actual package hosted on [atom.io](https://atom.io/packages) (e.g. "wordcount" and "word-count") is not being loaded as you expected. Try another name in that case.
+**Note:** You may encounter a situation where your package is not loaded. That is because a new package using the same name as an actual package hosted on [atom.io](https://atom.io/packages) (e.g. "wordcount" and "word-count") is not being loaded as you expected. If you follow our suggestion above of using the `your-name-word-count` package name, you *should* be safe :grinning:
 
 {{/note}}
 
@@ -25,15 +25,15 @@ The basic package layout is as follows:
 
 ```
 my-package/
-  grammars/
-  keymaps/
-  lib/
-  menus/
-  spec/
-  snippets/
-  styles/
-  index.coffee
-  package.json
+├─ grammars/
+├─ keymaps/
+├─ lib/
+├─ menus/
+├─ spec/
+├─ snippets/
+├─ styles/
+├─ index.coffee
+└─ package.json
 ```
 
 Not every package will have (or need) all of these directories and the package generator doesn't create `snippets` or `grammars`. Let's see what some of these are so we can start messing with them.
@@ -42,11 +42,11 @@ Not every package will have (or need) all of these directories and the package g
 
 Similar to [Node modules](http://en.wikipedia.org/wiki/Npm_(software)), Atom packages contain a `package.json` file in their top-level directory. This file contains metadata about the package, such as the path to its "main" module, library dependencies, and manifests specifying the order in which its resources should be loaded.
 
-In addition to the regular [Node `package.json` keys](https://docs.npmjs.com/files/package.json) available, Atom `package.json` files have their own additions.
+In addition to some of the regular [Node `package.json` keys](https://docs.npmjs.com/files/package.json) available, Atom `package.json` files have their own additions.
 
 * `main`: the path to the CoffeeScript file that's the entry point to your package. If this is missing, Atom will default to looking for an `index.coffee` or `index.js`.
 * `styles`: an Array of Strings identifying the order of the
-style sheets your package needs to load. If not specified, style sheets in the _styles_ directory are added alphabetically.
+style sheets your package needs to load. If not specified, style sheets in the `styles` directory are added alphabetically.
 * `keymaps`: an Array of Strings identifying the order of the key mappings your package needs to load. If not specified, mappings in the `keymaps` directory are added alphabetically.
 * `menus`: an Array of Strings identifying the order of the menu mappings your package needs to load. If not specified, mappings in the `menus` directory are added alphabetically.
 * `snippets`: an Array of Strings identifying the order of the snippets your package needs to load. If not specified, snippets in the `snippets` directory are added alphabetically.
@@ -64,7 +64,7 @@ The `package.json` in the package we've just generated looks like this currently
   "activationCommands": {
     "atom-workspace": "wordcount:toggle"
   },
-  "repository": "https://github.com/atom/wordcount",
+  "repository": "https://github.com/atom/your-name-word-count",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
@@ -83,10 +83,10 @@ If you wanted to use activationHooks, you might have:
   "version": "0.0.0",
   "description": "A short description of your package",
   "activationHooks": ["language-javascript:grammar-used", "language-coffee-script:grammar-used"],
-  "repository": "https://github.com/atom/wordcount",
+  "repository": "https://github.com/atom/your-name-word-count",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
   }
@@ -95,13 +95,19 @@ If you wanted to use activationHooks, you might have:
 
 One of the first things you should do is ensure that this information is filled out. The name, description, repository URL the project will be at, and the license can all be filled out immediately. The other information we'll get into more detail on as we go.
 
+{{#warning}}
+
+**Warning:** Do not forget to update the repository URL. The one generated for you is invalid by design and will prevent you from publishing your package until updated.
+
+{{/warning}}
+
 ##### Source Code
 
 If you want to extend Atom's behavior, your package should contain a single top-level module, which you export from whichever file is indicated by the `main` key in your `package.json` file. In the package we just generated, the main package file is `lib/wordcount.coffee`. The remainder of your code should be placed in the `lib` directory, and required from your top-level file. If the `main` key is not in your `package.json` file, it will look for `index.coffee` or `index.js` as the main entry point.
 
 Your package's top-level module is a singleton object that manages the lifecycle of your extensions to Atom. Even if your package creates ten different views and appends them to different parts of the DOM, it's all managed from your top-level object.
 
-Your package's top-level module should implement the following methods:
+Your package's top-level module can implement the following basic methods:
 
 * `activate(state)`: This **optional** method is called when your package is activated. It is passed the state data from the last time the window was serialized if your module implements the `serialize()` method. Use this to do initialization work when your package is started (like setting up DOM elements or binding events).
 * `serialize()`: This **optional** method is called when the window is shutting down, allowing you to return JSON to represent the state of your component. When the window is later restored, the data you returned is passed to your module's `activate` method so you can restore your view to where the user left
@@ -112,38 +118,38 @@ off.
 
 Style sheets for your package should be placed in the `styles` directory. Any style sheets in this directory will be loaded and attached to the DOM when your package is activated. Style sheets can be written as CSS or [Less](http://lesscss.org), but Less is recommended.
 
-Ideally, you won't need much in the way of styling. Atom provides a standard set of components which define both the colors and UI elements for any package that fits into Atom seamlessly. You can view all of Atom's UI components by opening the styleguide: open the command palette (`cmd-shift-P`) and search for `styleguide`, or just type `cmd-ctrl-shift-G`.
+Ideally, you won't need much in the way of styling. Atom provides a standard set of components which define both the colors and UI elements for any package that fits into Atom seamlessly. You can view all of Atom's UI components by opening the styleguide: open the command palette <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and search for `styleguide`, or type <kbd class="platform-mac">Cmd+Ctrl+Shift+G</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+G</kbd>.
 
 If you _do_ need special styling, try to keep only structural styles in the package style sheets. If you _must_ specify colors and sizing, these should be taken from the active theme's [ui-variables.less](https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less).
 
-An optional `styleSheets` array in your _package.json_ can list the style sheets by name to specify a loading order; otherwise, style sheets are loaded alphabetically.
+An optional `styleSheets` array in your `package.json` can list the style sheets by name to specify a loading order; otherwise, style sheets are loaded alphabetically.
 
 ##### Keymaps
 
-It's recommended that you provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the `keymaps/wordcount.cson` file:
+You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the `keymaps/wordcount.cson` file:
 
 ```coffee
 'atom-workspace':
   'ctrl-alt-o': 'wordcount:toggle'
 ```
 
-This means that if you hit `ctrl-alt-o`, our package will run the `toggle` command. We'll look at that code next, but if you want to change the default key mapping, you can do that in this file.
+This means that if you press <kbd class="platform-all">Alt+Ctrl+O</kbd>, our package will run the `your-name-word-count:toggle` command. We'll look at that code next, but if you want to change the default key mapping, you can do that in this file.
 
 Keymaps are placed in the `keymaps` subdirectory. By default, all keymaps are loaded in alphabetical order. An optional `keymaps` array in your `package.json` can specify which keymaps to load and in what order.
 
-Keybindings are executed by determining which element the keypress occurred on. In the example above, the `wordcount:toggle` command is executed when pressing `ctrl-alt-o` on the `atom-workspace` element. Because the `atom-workspace` element is the parent of the entire Atom UI, this means the key combination will work anywhere in the application.
+Keybindings are executed by determining which element the keypress occurred on. In the example above, the `your-name-word-count:toggle` command is executed when pressing <kbd class="platform-all">Alt+Ctrl+O</kbd> on the `atom-workspace` element. Because the `atom-workspace` element is the parent of the entire Atom UI, this means the key combination will work anywhere in the application.
 
 We'll cover more advanced keybinding stuff a bit later in [Keymaps in Depth](/behind-atom/sections/keymaps-in-depth/).
 
 ##### Menus
 
-Menus are placed in the `menus` subdirectory. This defines menu elements like what pops up when you right click (a context-menu) or would go in the menu bar (application menu) to trigger functionality in your plugin.
+Menus are placed in the `menus` subdirectory. This defines menu elements like what pops up when you right click a context-menu or would go in the application menu to trigger functionality in your plugin.
 
 By default, all menus are loaded in alphabetical order. An optional `menus` array in your `package.json` can specify which menus to load and in what order.
 
 ###### Application Menu
 
-It's recommended that you create an application menu item for common actions with your package that aren't tied to a specific element. If we look in the `menus/wordcount.cson` file that was generated for us, we'll see a section that looks like this:
+It's recommended that you create an application menu item under the _Packages_ menu for common actions with your package that aren't tied to a specific element. If we look in the `menus/your-name-word-count.cson` file that was generated for us, we'll see a section that looks like this:
 
 ```coffee
 'menu': [
@@ -154,7 +160,7 @@ It's recommended that you create an application menu item for common actions wit
       'submenu': [
         {
           'label': 'Toggle'
-          'command': 'wordcount:toggle'
+          'command': 'your-name-word-count:toggle'
         }
       ]
     ]
@@ -162,24 +168,24 @@ It's recommended that you create an application menu item for common actions wit
 ]
 ```
 
-This section puts a "Toggle" menu item under a menu group named "Word Count" in the "Packages" menu.
+This section puts a "Toggle" menu item under a menu group named "Your Name Word Count" in the "Packages" menu.
 
 ![Application Menu Item](../../images/menu.png)
 
-When you select that menu item, it will run the `wordcount:toggle` command, which we'll look at in a bit.
+When you select that menu item, it will run the `your-name-word-count:toggle` command, which we'll look at in a bit.
 
 The menu templates you specify are merged with all other templates provided by other packages in the order which they were loaded.
 
 ###### Context Menu
 
-It's recommended to specify a context menu item for commands that are linked to specific parts of the interface. In our `menus/wordcount.cson` file, we can see an auto-generated section that looks like this:
+It's recommended to specify a context menu item for commands that are linked to specific parts of the interface. In our `menus/your-name-word-count.cson` file, we can see an auto-generated section that looks like this:
 
 ```coffee
 'context-menu':
   'atom-text-editor': [
     {
       'label': 'Toggle Word Count'
-      'command': 'wordcount:toggle'
+      'command': 'your-name-word-count:toggle'
     }
   ]
 ```
@@ -188,7 +194,7 @@ This adds a "Toggle Word Count" menu option to the menu that pops up when you ri
 
 ![Context Menu Entry](../../images/context-menu.png)
 
-When you click that it will again run the `wordcount:toggle` method in your code.
+When you click that it will again run the `your-name-word-count:toggle` method in your code.
 
 Context menus are created by determining which element was selected and then adding all of the menu items whose selectors match that element (in the order which they were loaded). The process is then repeated for the elements until reaching the top of the DOM tree.
 
@@ -210,9 +216,9 @@ You can also add separators and submenus to your context menus. To add a submenu
   ]
 ```
 
-#### Developing our Package
+#### Developing Our Package
 
-Currently with the generated package we have, if we run that `toggle` command through the menu or the command palette, we'll get a little pop up that says "The Wordcount package is Alive! It's ALIVE!".
+Currently with the generated package we have, if we run that `your-name-word-count:toggle` command through the menu or the command palette, we'll get a dialog that says "The Wordcount package is Alive! It's ALIVE!".
 
 ![Wordcount Package is Alive Dialog](../../images/toggle.png)
 
@@ -220,21 +226,21 @@ Currently with the generated package we have, if we run that `toggle` command th
 
 Let's take a look at the code in our `lib` directory and see what is happening.
 
-There are two files in our `lib` directory. One is the main file (`lib/wordcount.coffee`), which is pointed to in the `package.json` file as the main file to execute for this package. This file handles the logic of the whole plugin.
+There are two files in our `lib` directory. One is the main file (`lib/your-name-word-count.coffee`), which is pointed to in the `package.json` file as the main file to execute for this package. This file handles the logic of the whole plugin.
 
-The second file is a View class, `lib/wordcount-view.coffee`, which handles the UI elements of the package. Let's look at this file first, since it's pretty simple.
+The second file is a View class, `lib/your-name-word-count-view.coffee`, which handles the UI elements of the package. Let's look at this file first, since it's pretty simple.
 
 ```coffee
 module.exports =
-class WordcountView
+class YourNameWordCountView
   constructor: (serializedState) ->
     # Create root element
     @element = document.createElement('div')
-    @element.classList.add('wordcount')
+    @element.classList.add('your-name-word-count')
 
     # Create message element
     message = document.createElement('div')
-    message.textContent = "The Wordcount package is Alive! It's ALIVE!"
+    message.textContent = "The Your Name Word Count package is Alive! It's ALIVE!"
     message.classList.add('message')
     @element.appendChild(message)
 
@@ -249,31 +255,31 @@ class WordcountView
     @element
 ```
 
-Basically the only thing happening here is that when the View class is created, it creates a simple `div` element and adds the `wordcount` class to it (so we can find or style it later) and then adds the "`Wordcount package is Alive!`" text to it. There is also a `getElement` method which returns that `div`. The `serialize` and `destroy` methods don't do anything and we won't have to worry about that until another example.
+Basically the only thing happening here is that when the View class is created, it creates a simple `div` element and adds the `your-name-word-count` class to it (so we can find or style it later) and then adds the "`Your Name Word Count package is Alive!`" text to it. There is also a `getElement` method which returns that `div`. The `serialize` and `destroy` methods don't do anything and we won't have to worry about that until another example.
 
-Notice that we're simply using the basic browser DOM methods (ie, `createElement()`, `appendChild()`).
+Notice that we're simply using the basic browser DOM methods: `createElement()` and `appendChild()`.
 
-The second file we have is the main entry point to the package (again, because it's referenced in the `package.json` file). Let's take a look at that file.
+The second file we have is the main entry point to the package. Again, because it's referenced in the `package.json` file. Let's take a look at that file.
 
 ```coffee
-WordcountView = require './wordcount-view'
+YourNameWordCountView = require './your-name-word-count-view'
 {CompositeDisposable} = require 'atom'
 
-module.exports = Wordcount =
-  wordcountView: null
+module.exports = YourNameWordCount =
+  yourNameWordCountView: null
   modalPanel: null
   subscriptions: null
 
   activate: (state) ->
-    @wordcountView = new WordcountView(state.wordcountViewState)
-    @modalPanel = atom.workspace.addModalPanel(item: @wordcountView.getElement(), visible: false)
+    @yourNameWordCountView = new YourNameWordCountView(state.yourNameWordCountViewState)
+    @modalPanel = atom.workspace.addModalPanel(item: @yourNameWordCountView.getElement(), visible: false)
 
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
     @subscriptions.add atom.commands.add 'atom-workspace',
-      'wordcount:toggle': => @toggle()
+      'your-name-word-count:toggle': => @toggle()
 
   deactivate: ->
     @modalPanel.destroy()
@@ -281,10 +287,10 @@ module.exports = Wordcount =
     @wordcountView.destroy()
 
   serialize: ->
-    wordcountViewState: @wordcountView.serialize()
+    yourNameWordCountViewState: @yourNameWordCountView.serialize()
 
   toggle: ->
-    console.log 'Wordcount was toggled!'
+    console.log 'YourNameWordCount was toggled!'
 
     if @modalPanel.isVisible()
       @modalPanel.hide()
@@ -301,9 +307,9 @@ The `activate` command does a number of things. For one, it is not called automa
 This method does two things. The first is that it creates an instance of the View class we have and adds the element that it creates to a hidden modal panel in the Atom workspace.
 
 ```coffee
-@wordcountView = new WordcountView(state.wordcountViewState)
+@yourNameWordCountView = new YourNameWordCountView(state.yourNameWordCountViewState)
 @modalPanel = atom.workspace.addModalPanel(
-                  item: @wordcountView.getElement(),
+                  item: @yourNameWordCountView.getElement(),
                   visible: false
               )
 ```
@@ -317,14 +323,14 @@ The next thing this method does is create an instance of the CompositeDisposable
 @subscriptions = new CompositeDisposable
 
 # Register command that toggles this view
-@subscriptions.add atom.commands.add 'atom-workspace', 'wordcount:toggle': => @toggle()
+@subscriptions.add atom.commands.add 'atom-workspace', 'your-name-word-count:toggle': => @toggle()
 ```
 
 Next we have the `toggle` method. This method simply toggles the visibility of the modal panel that we created in the `activate` method.
 
 ```coffee
 toggle: ->
-  console.log 'Wordcount was toggled!'
+  console.log 'YourNameWordCount was toggled!'
 
   if @modalPanel.isVisible()
     @modalPanel.hide()
@@ -338,20 +344,23 @@ This should be fairly simple to understand. We're looking to see if the modal el
 
 So, let's review the actual flow in this package.
 
-* Atom starts up
-* Atom reads the package.json
-* Atom reads keymaps, menus, main file
-* User runs a package command
-* Atom executes the `activate` method
-  ** Creates a WordCount view, which creates a div
-  ** Grabs that div and sticks it in a hidden modal
-* Atom executes the package command
-  ** Sees that the modal is hidden, makes it visible
-* User runs a package command again
-* Atom executes the package command
-  ** Sees that the modal is visible, makes it hidden
-* You shut down Atom
-  ** Serializations?
+1. Atom starts up
+1. Atom starts loading packages
+1. Atom reads your `package.json`
+1. Atom loads keymaps, menus, styles and the main module
+1. Atom finishes loading packages
+1. At some point, the user executes your package command `your-name-word-count:toggle`
+1. Atom executes the `activate` method in your main module which sets up the UI by creating the hidden modal view
+1. Atom executes the package command `your-name-word-count:toggle` which reveals the hidden modal view
+1. At some point, the user executes the `your-name-word-count:toggle` command again
+1. Atom executes the command which hides the modal view
+1. Eventually, Atom is shut down which can trigger any serializations that your package has defined
+
+{{#tip}}
+
+**Tip:** Keep in mind that the flow will be slightly different if you choose not to use `activationCommands` in your package.
+
+{{/tip}}
 
 ##### Counting the Words
 
@@ -366,7 +375,7 @@ toggle: ->
   else
     editor = atom.workspace.getActiveTextEditor()
     words = editor.getText().split(/\s+/).length
-    @wordcountView.setCount(words)
+    @yourNameWordCountView.setCount(words)
     @modalPanel.show()
 ```
 
@@ -376,7 +385,7 @@ Next we get the number of words by calling [`getText()`](https://atom.io/docs/ap
 
 Finally, we tell our view to update the word count it displays by calling the `setCount()` method on our view and then showing the modal again. Since that method doesn't yet exist, let's create it now.
 
-We can add this code to the end of our `wordcount-view.coffee` file:
+We can add this code to the end of our `your-name-word-count-view.coffee` file:
 
 ```coffee
 setCount: (count) ->
@@ -384,7 +393,7 @@ setCount: (count) ->
   @element.children[0].textContent = displayText
 ```
 
-Pretty simple - we take the count number that was passed in and place it into a string that we then stick into the element that our view is controlling.
+Pretty simple! We take the count number that was passed in and place it into a string that we then stick into the element that our view is controlling.
 
 ![Word Count Working](../../images/wordcount.png)
 
@@ -392,7 +401,7 @@ Pretty simple - we take the count number that was passed in and place it into a 
 
 You'll notice a few `console.log` statements in the code. One of the cool things about Atom being built on Chromium is that you can use some of the same debugging tools available to you that you have when doing web development.
 
-To open up the Developer Console, hit `alt-cmd-I`, or choose the menu option _View > Developer > Toggle Developer Tools_.
+To open up the Developer Console, press <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+I</kbd>, or choose the menu option _View > Developer > Toggle Developer Tools_.
 
 ![Developer Tools Debugging](../../images/dev-tools.png)
 
@@ -402,21 +411,21 @@ From here you can inspect objects, run code and view console output just as thou
 
 Your package should have tests, and if they're placed in the `spec` directory, they can be run by Atom.
 
-Under the hood, [Jasmine](http://jasmine.github.io) executes your tests, so you can assume that any DSL available there is also available to your package.
+Under the hood, [Jasmine v1.3](https://jasmine.github.io/1.3/introduction.html) executes your tests, so you can assume that any DSL available there is also available to your package.
 
 ##### Running Tests
 
-Once you've got your test suite written, you can run it by pressing `cmd-alt-ctrl-p` or via the _Developer > Run Package Specs_ menu. Our generated package comes with an example test suite, so you can run this right now to see what happens.
+Once you've got your test suite written, you can run it by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+P</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+P</kbd> or via the _View > Developer > Run Package Specs_ menu. Our generated package comes with an example test suite, so you can run this right now to see what happens.
 
 ![Spec Suite Results](../../images/spec-suite.png)
 
-You can also use the `apm test` command to run them from the command line. It prints the test output and results to the console and returns the proper status code depending on whether the tests passed or failed.
+You can also use the `atom --test spec` command to run them from the command line. It prints the test output and results to the console and returns the proper status code depending on whether the tests passed or failed.
 
 #### Publishing
 
 Now that our simple plugin is working and tested, let's go ahead and publish it so it's available to the world.
 
-Atom bundles a command line utility called `apm` which we first used back in [Atom command line](/using-atom/sections/atom-packages/#command-line) to search for and install packages via the command line. The `apm` command can also be used to publish Atom packages to the public registry and update them.
+Atom bundles a command line utility called `apm` which we first used back in [Command Line](/using-atom/sections/atom-packages/#command-line) to search for and install packages via the command line. The `apm` command can also be used to publish Atom packages to the public registry and update them.
 
 ##### Prepare Your Package
 
@@ -426,12 +435,12 @@ There are a few things you should double check before publishing:
 * Your `package.json` file has a `version` field with a value of  `"0.0.0"`.
 * Your `package.json` file has an `engines` field that contains an entry for Atom such as: `"engines": {"atom": ">=1.0.0 <2.0.0"}`.
 * Your package has a `README.md` file at the root.
-* Your package is in a Git repository that has been pushed to [GitHub](https://github.com). Follow [this guide](http://guides.github.com/overviews/desktop) if your package isn't already on GitHub.
 * Change the `repository` url in the `package.json` file to match the URL of your repository.
+* Your package is in a Git repository that has been pushed to [GitHub](https://github.com). Follow [this guide](http://guides.github.com/overviews/desktop) if your package isn't already on GitHub.
 
 ##### Publish Your Package
 
-Before you publish a package it is a good idea to check ahead of time if a package with the same name has already been published to [atom.io](https://atom.io). You can do that by visiting `https://atom.io/packages/my-package` to see if the package already exists. If it does, update your package's name to something that is available before proceeding.
+Before you publish a package it is a good idea to check ahead of time if a package with the same name has already been published to [the atom.io package registry](https://atom.io/packages). You can do that by visiting `https://atom.io/packages/your-name-word-count` to see if the package already exists. If it does, update your package's name to something that is available before proceeding.
 
 Now let's review what the `apm publish` command does:
 
@@ -450,7 +459,7 @@ $ apm publish minor
 
 If this is the first package you are publishing, the `apm publish` command may prompt you for your GitHub username and password. This is required to publish and you only need to enter this information the first time you publish. The credentials are stored securely in your [keychain](https://en.wikipedia.org/wiki/Keychain_(Apple)) once you login.
 
-Your package is now published and available on atom.io. Head on over to `https://atom.io/packages/my-package` to see your package's page.
+Your package is now published and available on atom.io. Head on over to `https://atom.io/packages/your-name-word-count` to see your package's page.
 
 With `apm publish`, you can bump the version and publish by using
 
@@ -466,9 +475,7 @@ The `minor` option to the publish command tells apm to increment the second numb
 
 The `patch` option to the publish command tells apm to increment the third number of the version before publishing so the published version will be `0.0.1` and the Git tag created will be `v0.0.1`.
 
-Use `major` when you make a change that breaks backwards compatibility, like changing defaults or removing features. Use `minor` when adding new functionality or making improvements on existing code. Use `patch` when you fix a bug that was causing incorrect behaviour.
-
-Check out [semantic versioning](http://semver.org) to learn more about versioning your package releases.
+Use `major` when you make a change that breaks backwards compatibility, like changing defaults or removing features. Use `minor` when adding new functionality or making improvements on existing code. Use `patch` when you fix a bug that was causing incorrect behaviour. Check out [semantic versioning](http://semver.org) to learn more about best practices for versioning your package releases.
 
 You can also run `apm help publish` to see all the available options and `apm help` to see all the other available commands.
 
