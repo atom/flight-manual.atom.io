@@ -9,6 +9,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     asciidoctor (1.5.4)
+    coderay (1.1.1)
     colored (1.2)
     colorize (0.8.1)
     cri (2.7.0)
@@ -45,6 +46,7 @@ GEM
     json (1.8.3)
     liquid (3.0.6)
     mercenary (0.3.5)
+    method_source (0.8.2)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     nanoc (4.1.4)
@@ -61,8 +63,13 @@ GEM
     nokogiri (1.6.7.2-x64-mingw32)
       mini_portile2 (~> 2.0.0.rc2)
     parallel (1.6.2)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rake (11.1.1)
     rouge (1.10.1)
+    slop (3.6.0)
     thread_safe (0.3.5)
     typhoeus (0.8.0)
       ethon (>= 0.8.0)
@@ -86,6 +93,7 @@ DEPENDENCIES
   nanoc (>= 4.1, < 4.2)
   nanoc-conref-fs (~> 0.5)
   nanoc-html-pipeline (= 0.3.3)
+  pry
   rake
 
 BUNDLED WITH
