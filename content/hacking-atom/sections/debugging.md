@@ -5,7 +5,7 @@ title: Debugging
 
 Atom provides several tools to help you understand unexpected behavior and debug problems. This guide describes some of those tools and a few approaches to help you debug and provide more helpful information when [submitting issues](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues):
 
-#### Update to the latest version
+#### Update to the Latest Version
 
 You might be running into an issue which was already fixed in a more recent version of Atom than the one you're using.
 
@@ -41,7 +41,7 @@ To update to the latest version, you can download it from [the atom.io website](
 
 If you're building Atom from source, pull down the latest version of master and [re-build](https://github.com/atom/atom#building).
 
-#### Check if the problem shows up in safe mode
+#### Using Safe Mode
 
 A large part of Atom's functionality comes from packages you can install. Atom will also execute the code in your [init script](/hacking-atom/sections/the-init-file) on startup. In some cases, these packages and the code in the init script might be causing unexpected behavior, problems, or performance issues.
 
@@ -57,7 +57,59 @@ If removing all content from the Init script and starting Atom normally still pr
 
 When you find the problematic package, you can disable or uninstall the package. We strongly recommend creating an issue on the package's GitHub repository. The [Atom FAQ](https://discuss.atom.io/c/faq) has information on [how to contact the maintainers of any Atom community package or theme](https://discuss.atom.io/t/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it/25581).
 
-#### Check for linked packages
+#### Clearing Saved State
+
+Atom saves a number of things about your environment when you exit in order to restore Atom to the same configuration when you next launch the program. In some cases the state that gets saved can be something undesirable that prevents Atom from working properly. In these cases, you may want to clear the state that Atom has saved.
+
+{{#danger}}
+
+:rotating_light: **Danger:** Clearing the saved state permanently destroys any state that Atom has saved *across all projects*. This includes unsaved changes to files you may have been editing in all projects. This is a destructive action.
+
+{{/danger}}
+
+Clearing the saved state can be done by opening a terminal and executing:
+
+``` command-line
+$ atom --clear-window-state
+```
+
+#### Reset to Factory Defaults
+
+In some cases, you may want to reset Atom to "factory defaults", in other words clear all of your configuration and remove all packages. This can easily be done by opening a terminal and executing:
+
+{{#mac}}
+
+``` command-line
+$ mv ~/.atom ~/.atom-backup
+```
+
+{{/mac}}
+
+{{#linux}}
+
+``` command-line
+$ mv ~/.atom ~/.atom-backup
+```
+
+{{/linux}}
+
+{{#windows}}
+
+``` command-line
+$ rename %USERPROFILE%\.atom .atom-backup
+```
+
+{{/windows}}
+
+Once that is complete, you can launch Atom as normal. Everything will be just as if you first installed Atom.
+
+{{#tip}}
+
+**Tip:** The command given above doesn't delete the old configuration, just puts it somewhere that Atom can't find it. If there are pieces of the old configuration you want to retrieve, you can find them in the <span class="platform-mac platform-linux">`~/.atom-backup`</span><span class="platform-windows">`%USERPROFILE%\.atom-backup`</span> directory.
+
+{{/tip}}
+
+#### Check for Linked Packages
 
 If you develop or contribute to Atom packages, there may be left-over packages linked to your `~/.atom/packages` or `~/.atom/dev/packages` directories. You can use the `apm links` command to list all linked packages:
 
@@ -84,7 +136,7 @@ See `apm links --help` and `apm unlink --help` for more information on these com
 
 {{/tip}}
 
-#### Check Atom and package settings
+#### Check Atom and Package Settings
 
 In some cases, unexpected behavior might be caused by settings in Atom or in one of the packages.
 
