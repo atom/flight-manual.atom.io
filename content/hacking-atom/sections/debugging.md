@@ -5,7 +5,7 @@ title: Debugging
 
 Atom provides several tools to help you understand unexpected behavior and debug problems. This guide describes some of those tools and a few approaches to help you debug and provide more helpful information when [submitting issues](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues):
 
-#### Update to the latest version
+#### Update to the Latest Version
 
 You might be running into an issue which was already fixed in a more recent version of Atom than the one you're using.
 
@@ -41,7 +41,7 @@ To update to the latest version, you can download it from [the atom.io website](
 
 If you're building Atom from source, pull down the latest version of master and [re-build](https://github.com/atom/atom#building).
 
-#### Check if the problem shows up in safe mode
+#### Using Safe Mode
 
 A large part of Atom's functionality comes from packages you can install. Atom will also execute the code in your [init script](/hacking-atom/sections/the-init-file) on startup. In some cases, these packages and the code in the init script might be causing unexpected behavior, problems, or performance issues.
 
@@ -109,7 +109,7 @@ Once that is complete, you can launch Atom as normal. Everything will be just as
 
 {{/tip}}
 
-#### Check for linked packages
+#### Check for Linked Packages
 
 If you develop or contribute to Atom packages, there may be left-over packages linked to your `~/.atom/packages` or `~/.atom/dev/packages` directories. You can use the `apm links` command to list all linked packages:
 
@@ -136,7 +136,7 @@ See `apm links --help` and `apm unlink --help` for more information on these com
 
 {{/tip}}
 
-#### Check Atom and package settings
+#### Check Atom and Package Settings
 
 In some cases, unexpected behavior might be caused by settings in Atom or in one of the packages.
 
