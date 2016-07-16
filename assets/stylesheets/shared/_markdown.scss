@@ -375,3 +375,11 @@ $warning-color     : #d06806;
     }
   }
 }
+
+.platform-windows {
+  pre.command-line {
+    .command:before {
+      content: "C:\\> ";
+    }
+  }
+}

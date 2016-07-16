@@ -96,7 +96,7 @@ $ mv ~/.atom ~/.atom-backup
 {{#windows}}
 
 ``` command-line
-C:\> rename %USERPROFILE%\.atom %USERPROFILE%\.atom-backup
+$ rename %USERPROFILE%\.atom %USERPROFILE%\.atom-backup
 ```
 
 {{/windows}}
