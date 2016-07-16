@@ -28,9 +28,37 @@ In order to make the Flight Manual consistent, these conventions must be followe
 [Admonition blocks](https://github.com/gjtorikian/extended-markdown-filter#admonition-blocks) are used to call out certain pieces of information. There are four levels of admonitions: tip, info, warning and danger.
 
 * `tip` should be used when there is a best practice or convention that should be noted
-* `info` should be used when there is some extra bit of information that is interesting, but not necessary
+* `note` should be used when there is some extra bit of information that is interesting, but not necessary
 * `warning` should be used when there is a risk to some activity so extra caution is advised
 * `danger` should be used when there is a risk of data loss or some irreversible action that needs to be taken
+
+**Accessibility:** Always add the text version of the name of the admonition block to the first line of the first paragraph inside the block. In addition, for `danger` admonition blocks, you should add the `:rotating_light:` emoji at the very beginning. This allows people who are colorblind to tell the difference between the various blocks.
+
+```markdown
+{{#tip}}
+
+**Tip:** This is a tip.
+
+{{/tip}}
+
+{{#note}}
+
+**Note:** This is some information.
+
+{{/note}}
+
+{{#warning}}
+
+**Warning:** This is some scary stuff.
+
+{{/warning}}
+
+{{#danger}}
+
+:rotating_light: **Danger:** Turn back now!
+
+{{/danger}}
+```
 
 **Note:** The block tags must be separated both above and below by blank lines:
 
@@ -39,14 +67,14 @@ In order to make the Flight Manual consistent, these conventions must be followe
 
 {{#tip}}
 
-Some interesting stuff ...
+**Tip:** Some interesting stuff ...
 
 {{/tip}}
 
 <!-- This doesn't -->
 
 {{#tip}}
-Some stuff that won't show up right ...
+**Tip:** Some stuff that won't show up right ...
 {{/tip}}
 ```
 
