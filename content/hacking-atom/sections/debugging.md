@@ -57,6 +57,58 @@ If removing all content from the Init script and starting Atom normally still pr
 
 When you find the problematic package, you can disable or uninstall the package. We strongly recommend creating an issue on the package's GitHub repository. The [Atom FAQ](https://discuss.atom.io/c/faq) has information on [how to contact the maintainers of any Atom community package or theme](https://discuss.atom.io/t/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it/25581).
 
+#### Clearing Saved State
+
+Atom saves a number of things about your environment when you exit in order to restore Atom to the same configuration when you next launch the program. In some cases the state that gets saved can be something undesirable that prevents Atom from working properly. In these cases, you may want to clear the state that Atom has saved.
+
+{{#danger}}
+
+:rotating_light: **Danger:** Clearing the saved state permanently destroys any state that Atom has saved *across all projects*. This includes unsaved changes to files you may have been editing in all projects. This is a destructive action.
+
+{{/danger}}
+
+Clearing the saved state can be done by opening a terminal and executing:
+
+``` command-line
+$ atom --clear-window-state
+```
+
+#### Reset to Factory Defaults
+
+In some cases, you may want to reset Atom to "factory defaults", in other words clear all of your configuration and remove all packages. This can easily be done by opening a terminal and executing:
+
+{{#mac}}
+
+``` command-line
+$ mv ~/.atom ~/.atom-backup
+```
+
+{{/mac}}
+
+{{#linux}}
+
+``` command-line
+$ mv ~/.atom ~/.atom-backup
+```
+
+{{/linux}}
+
+{{#windows}}
+
+``` command-line
+C:\> rename %USERPROFILE%\.atom %USERPROFILE%\.atom-backup
+```
+
+{{/windows}}
+
+Once that is complete, you can launch Atom as normal. Everything will be just as if you first installed Atom.
+
+{{#tip}}
+
+**Tip:** The command given above doesn't delete the old configuration, just puts it somewhere that Atom can't find it. If there are pieces of the old configuration you want to retrieve, you can find them in the <span class="platform-mac platform-linux">`~/.atom-backup`</span><span class="platform-windows">`%USERPROFILE%\.atom-backup`</span> directory.
+
+{{/tip}}
+
 #### Check for linked packages
 
 If you develop or contribute to Atom packages, there may be left-over packages linked to your `~/.atom/packages` or `~/.atom/dev/packages` directories. You can use the `apm links` command to list all linked packages:
