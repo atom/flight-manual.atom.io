@@ -11,21 +11,9 @@ When you launch Atom for the first time, you should get a screen that looks like
 
 This is the Atom welcome screen and gives you a pretty good starting point for how to get started with the editor.
 
-#### Basic Terminology
+#### Terminology
 
-First of all, let's get acquainted with some of the terminology we'll be using in this manual.
-
-* **Buffer**
-
-    A buffer is the text content of a file in Atom. It's basically the same as a file for most descriptions, but it's the version Atom has in memory. For instance, you can change the text of a buffer and it isn't written to its associated file until you save it.
-
-* **Keybinding**
-
-    A keybinding is the mapping of a key combination, such as <kbd class="platform-all">Ctrl+Enter</kbd> to an Atom command.
-
-* **Pane**
-
-    A pane is a visual section of the editor space. If you look at the welcome screen we just launched, you can see two Panes - each one having a single tab in it.
+You can find definitions for all of the various terms that we use throughout the manual in our [Glossary](/resources/sections/glossary/).
 
 #### Command Palette
 
