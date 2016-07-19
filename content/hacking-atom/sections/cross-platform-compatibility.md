@@ -43,7 +43,7 @@ If you need to use a path for a URL use the file: protocol with an absolute path
 
 #### `fs.stat` on directories
 
-The `fs.stat` function does not return the size of the contents of a directory are but rather the allocation size of the directory itself. This returns 0 on Windows and 1024 on macOS and so should not be relied upon.
+The `fs.stat` function does not return the size of the contents of a directory but rather the allocation size of the directory itself. This returns 0 on Windows and 1024 on macOS and so should not be relied upon.
 
 #### `path.relative` can't traverse drives
 
