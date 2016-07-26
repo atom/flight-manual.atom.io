@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Cross-Platform Compatibility</title>
+<title>Resources</title>
 
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
 
@@ -210,7 +210,7 @@
         <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
       </li>
     
-      <li class="selected">
+      <li class="unselected">
         <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
       </li>
     
@@ -321,122 +321,19 @@
 
         
         <h1 class="document-title">
-          <span class="article-title">3.9 Cross-Platform Compatibility</span>
+          <span class="article-title"></span>
           <a class="improve-link"
-              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/cross-platform-compatibility.md" data-proofer-ignore>
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/resources/index.md" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
           </a>
         </h1>
 
         <div class="markdown-body document-content">
           
-          <h3>
-<a id="cross-platform-compatibility" class="anchor" href="#cross-platform-compatibility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cross-Platform Compatibility</h3>
+          <h2>
+<a id="resources" class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h2>
 
-<p>Atom runs on a number of platforms and while Electron and Node take care of many of the details there<br>
-are still some considerations to ensure your package works on other operating systems.</p>
-
-<h4>
-<a id="symlinks" class="anchor" href="#symlinks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Symlinks</h4>
-
-<p>File symlinks can be used on Windows by non-Administrators by specifying 'junction' as the type (this argument is ignored on macOS &amp; Linux).</p>
-
-<p>Also consider:</p>
-
-<ul>
-<li>
-<em>Symlinks committed to Git</em> will not checkout correctly on Windows - <em>dynamically create what you need with <code>fs.symlink</code> instead</em>
-</li>
-<li>
-<em>Symlinked directories</em> are only available to Administrators on Windows - <em>avoid a dependency on them</em>
-</li>
-</ul>
-
-<h4>
-<a id="filenames" class="anchor" href="#filenames" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filenames</h4>
-
-<ul>
-<li>
-<em>Reserved filenames</em> on Windows are <code>com1</code>-<code>com9</code>, <code>lpt1</code>-<code>lpt9</code>, <code>con</code>, <code>nul</code>, <code>aux</code> and <code>prn</code> (regardless of extension, e.g. <code>prn.txt</code> is disallowed)</li>
-<li>
-<em>Reserved characters</em> on Windows are ? \ / &lt; &gt; ? % | : "  <em>so avoid where possible</em>
-</li>
-<li>
-<em>Names with spaces</em> when passed to the command line;
-
-<ul>
-<li>Windows requires you <em>surround the path with double quotes</em> e.g. <code>c:\my test</code>
-</li>
-<li>macOS and Linux require <em>a backslash before each space</em> e.g. <code>/my\ test</code>
-</li>
-</ul>
-</li>
-</ul>
-
-<h4>
-<a id="file-paths" class="anchor" href="#file-paths" aria-hidden="true"><span class="octicon octicon-link"></span></a>File paths</h4>
-
-<ul>
-<li>Windows uses <code>\</code> although some tools and PowerShell allow <code>/</code> too</li>
-<li>macOS and Linux use <code>/</code>
-</li>
-</ul>
-
-<p>You can dynamically find out what your platform uses with <code>path.sep</code> or better yet <em>use the node path library functions</em> such as <code>join</code> and <code>normalize</code> which automatically take care of this.</p>
-
-<p>Windows supports up to <em>250 characters</em> for a path - <em>avoid deeply nested directory structures</em></p>
-
-<h4>
-<a id="paths-are-not-urls" class="anchor" href="#paths-are-not-urls" aria-hidden="true"><span class="octicon octicon-link"></span></a>Paths are not URLs</h4>
-
-<p>URL parsing routines should not be used on file paths. While they initially look like a relative path it will fail in a number of scenarios on all platforms.</p>
-
-<ul>
-<li>Various characters are misinterpreted, e.g. <code>?</code> as query string, <code>#</code> as a fragment identifier</li>
-<li>
-<strong>Windows</strong> drive specifiers are incorrectly parsed as a protocol</li>
-</ul>
-
-<p>If you need to use a path for a URL use the file: protocol with an absolute path instead to ensure drive letters and slashes are appropriately addressed, e.g. <code>file:///c|/test/pic.png</code></p>
-
-<h4>
-<a id="fsstat-on-directories" class="anchor" href="#fsstat-on-directories" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>fs.stat</code> on directories</h4>
-
-<p>The <code>fs.stat</code> function does not return the size of the contents of a directory but rather the allocation size of the directory itself. This returns 0 on Windows and 1024 on macOS and so should not be relied upon.</p>
-
-<h4>
-<a id="pathrelative-cant-traverse-drives" class="anchor" href="#pathrelative-cant-traverse-drives" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>path.relative</code> can't traverse drives</h4>
-
-<ul>
-<li>On a macOS or Linux system <code>path.relative</code> can be used to calculate a relative path to traverse between any two given paths.</li>
-<li>On Windows this is not always possible as it can contain multiple absolute roots, e.g. <code>c:\</code> and <code>d:\</code>
-</li>
-</ul>
-
-<h4>
-<a id="rapid-file-operations" class="anchor" href="#rapid-file-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rapid file operations</h4>
-
-<p>Creation and deletion operations may take a few milliseconds to complete. If you need to remove many files and folders consider <a href="https://www.npmjs.com/package/rimraf">RimRAF</a> which has built-in retry logic for this.</p>
-
-<h4>
-<a id="line-endings" class="anchor" href="#line-endings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Line endings</h4>
-
-<ul>
-<li>Windows uses <code>CRLF</code>
-</li>
-<li>macOS and Linux use <code>LF</code>
-</li>
-<li>Git on Windows often has <code>autocrlf</code> set which automatically converts between the two</li>
-</ul>
-
-<p>If you are writing specs that use text file fixtures consider that this will interfere with file lengths, hash codes and direct text comparisons. It will also change the Atom selection length by 1 character per line.</p>
-
-<p>If you have spec fixtures that are text files you may want to tell Git to force LF, CRLF or not convert them by specifying the paths in <code>.gitattributes</code> e.g.</p>
-
-<pre><code>spec/fixtures/always-crlf.txt eol=crlf
-spec/fixtures/always-lf.txt eol=lf
-spec/fixtures/leave-as-is.txt -text
-</code></pre>
+<p>Collection of general resources for the rest of the manual.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
