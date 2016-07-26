@@ -46,6 +46,9 @@ Chapters:
     - Summary
 
 Appendices:
+  Resources:
+    - Glossary
+
   Upgrading to 1.0 APIs:
     - Upgrading Your Package
     - Upgrading Your UI Theme Or Package Selectors
