@@ -51,17 +51,23 @@ and it will look up the correct Ruby version for you.
 
 ### Installing Additional ruby packages.
 
-Now run the following commands
+Run
 
 ```sh
 gem install bundler
-gem install colorize -v '0.8.1
+
+```
+
+Now run the  command `script/bootstrap`.
+You will probably be prompted to install various packages. For instance.
+
+```sh
+gem install colorize -v '0.8.1'
 gem install pry -v '0.10.4'
 gem install html-pipeline -v '2.2.4'
 ```
 
-_*Note: these version numbers were correct at the time of writing.
-However you should probably
+After installing each package you will need to run `script/bootstrap` again
 
 ## Install Node.js
 
@@ -71,7 +77,8 @@ will work with the Flight Manual toolchain.
 You can install a modern version of Node via your [package manager](https://nodejs.org/en/download/package-manager/).
 If you don't have access to a package manager
 then use one of the pre-built [installers](https://nodejs.org/en/download/)
-#TODO Double Check that npm is installed.
+
+\#TODO Double Check that npm is installed.
 
 Alternatively you  can install a Node environment manager from the
 [nvm](https://github.com/creationix/nvm) repo.
