@@ -44,7 +44,7 @@ Reload Atom by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class
 
 {{#tip}}
 
-**Tip:** You can avoid reloading to see changes you make by opening an atom window in Dev Mode. To open a Dev Mode Atom window run `atom --dev .` in the terminal, or use the _View > Developer > Open in Dev Mode_ menu. When you edit your theme, changes will instantly be reflected!
+**Tip:** You can avoid reloading to see changes you make by opening an Atom window in Dev Mode. To open a Dev Mode Atom window run `atom --dev .` in the terminal, or use the _View > Developer > Open in Dev Mode_ menu. When you edit your theme, changes will instantly be reflected!
 
 {{/tip}}
 
