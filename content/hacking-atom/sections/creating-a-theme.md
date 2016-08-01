@@ -7,6 +7,8 @@ Atom's interface is rendered using HTML, and it's styled via [Less](http://lessc
 
 Atom supports two types of themes: _UI_ and _Syntax_.  UI themes style elements such as the tree view, the tabs, drop-down lists, and the status bar. Syntax themes style the code, gutter and other elements inside the editor view.
 
+![Theme separation](../images/theme-separation.png)
+
 Themes can be installed and changed from the Settings View which you can open by selecting the <span class="platform-mac">_Atom > Preferences_</span><span class="platform-windows">_File > Preferences_</span><span class="platform-linux">_Edit > Preferences_</span> menu, and clicking the "Install" or "Themes" tab on the left hand navigation.
 
 #### Getting Started
