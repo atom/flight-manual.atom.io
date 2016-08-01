@@ -60,9 +60,7 @@ UI themes **must** provide a `ui-variables.less` file which contains all of the 
 
 To create a UI theme, do the following:
 
-1. Fork one of the following repositories:
-    * [atom-dark-ui](https://github.com/atom/atom-dark-ui)
-    * [atom-light-ui](https://github.com/atom/atom-light-ui)
+1. Fork the [ui-theme-template](https://github.com/atom-community/ui-theme-template)
 2. Clone the forked repository to the local filesystem
 3. Open a terminal in the forked theme's directory
 4. Open your new theme in a Dev Mode Atom window run `atom --dev .` in the terminal or use the _View > Developer > Open in Dev Mode_ menu
