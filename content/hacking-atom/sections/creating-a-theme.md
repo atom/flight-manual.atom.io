@@ -137,7 +137,7 @@ Check out Google's [extensive tutorial](https://developer.chrome.com/devtools/do
 
 ##### Atom Styleguide
 
-If you are creating an interface theme, you'll want a way to see how your theme changes affect all the components in the system. The [Styleguide](https://github.com/atom/styleguide) is a page that renders every component Atom supports.
+If you are creating an UI theme, you'll want a way to see how your theme changes affect all the components in the system. The [Styleguide](https://github.com/atom/styleguide) is a page that renders every component Atom supports.
 
 To open the Styleguide, open the command palette with <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and search for "styleguide", or use the shortcut <kbd class="platform-mac">Cmd+Ctrl+Shift+G</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+G</kbd>.
 
