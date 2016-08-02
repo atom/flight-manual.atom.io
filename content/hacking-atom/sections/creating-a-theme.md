@@ -142,3 +142,13 @@ If you are creating an UI theme, you'll want a way to see how your theme changes
 To open the Styleguide, open the command palette with <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and search for "styleguide", or use the shortcut <kbd class="platform-mac">Cmd+Ctrl+Shift+G</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+G</kbd>.
 
 ![Style Guide](../../images/styleguide.png)
+
+##### Side by side
+
+Sometimes when creating a theme (or package) things can go wrong and the editor becomes un-usable. E.g. if the text and background have the same color or something gets pushed out of sight. To avoid having to open Atom in "normal" mode to fix the issue, it's advised to open **two** Atom windows. One for making changes and one in Dev Mode to see the changes getting applied.
+
+![Side by side screenshot](../../images/theme-side-by-side.png)
+
+> Make changes on the **left**, see the changes getting applied in "Dev Mode" on the **right**.
+
+Now if you mess up something, only the window in "Dev Mode"  will be affected and you can easily correct the mistake in your "normal" window.
