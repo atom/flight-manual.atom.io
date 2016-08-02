@@ -121,7 +121,7 @@ Reloading by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="
 To launch a Dev Mode window:
 
 * Open your theme directory in a dev window by selecting the _View > Developer > Open in Dev Mode_ menu item
-* Launch Atom from the terminal with `atom --dev`
+* Or launch Atom from the terminal with `atom --dev`
 
 If you'd like to reload all the styles at any time, you can use the shortcut <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd>.
 
