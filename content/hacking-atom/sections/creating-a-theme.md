@@ -152,3 +152,9 @@ Sometimes when creating a theme (or package) things can go wrong and the editor 
 > Make changes on the **left**, see the changes getting applied in "Dev Mode" on the **right**.
 
 Now if you mess up something, only the window in "Dev Mode"  will be affected and you can easily correct the mistake in your "normal" window.
+
+#### Publish your theme
+
+Once you're happy with your theme and would like to share it with other Atom users, it's time to publish it. :tada:
+
+Follow the steps in the [Publishing](http://flight-manual.atom.io/hacking-atom/sections/package-word-count/#publishing) section of the Word Count example. Publishing a theme works exactly the same.
