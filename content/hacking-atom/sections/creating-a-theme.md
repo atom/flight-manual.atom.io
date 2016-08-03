@@ -7,6 +7,8 @@ Atom's interface is rendered using HTML, and it's styled via [Less](http://lessc
 
 Atom supports two types of themes: _UI_ and _Syntax_.  UI themes style elements such as the tree view, the tabs, drop-down lists, and the status bar. Syntax themes style the code, gutter and other elements inside the editor view.
 
+![Theme boundary](../../images/theme-boundary.png)
+
 Themes can be installed and changed from the Settings View which you can open by selecting the <span class="platform-mac">_Atom > Preferences_</span><span class="platform-windows">_File > Preferences_</span><span class="platform-linux">_Edit > Preferences_</span> menu, and clicking the "Install" or "Themes" tab on the left hand navigation.
 
 #### Getting Started
@@ -42,7 +44,7 @@ Reload Atom by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class
 
 {{#tip}}
 
-**Tip:** You can avoid reloading to see changes you make by opening an atom window in Dev Mode. To open a Dev Mode Atom window run `atom --dev .` in the terminal, or use the _View > Developer > Open in Dev Mode_ menu. When you edit your theme, changes will instantly be reflected!
+**Tip:** You can avoid reloading to see changes you make by opening an Atom window in Dev Mode. To open a Dev Mode Atom window run `atom --dev .` in the terminal, or use the _View > Developer > Open in Dev Mode_ menu. When you edit your theme, changes will instantly be reflected!
 
 {{/tip}}
 
@@ -54,13 +56,9 @@ Reload Atom by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class
 
 #### Creating a UI Theme
 
-UI themes **must** provide a `ui-variables.less` file which contains all of the variables provided by the core themes, which we'll cover in [Theme Variables](#theme-variables).
-
 To create a UI theme, do the following:
 
-1. Fork one of the following repositories:
-    * [atom-dark-ui](https://github.com/atom/atom-dark-ui)
-    * [atom-light-ui](https://github.com/atom/atom-light-ui)
+1. Fork the [ui-theme-template](https://github.com/atom-community/ui-theme-template)
 2. Clone the forked repository to the local filesystem
 3. Open a terminal in the forked theme's directory
 4. Open your new theme in a Dev Mode Atom window run `atom --dev .` in the terminal or use the _View > Developer > Open in Dev Mode_ menu
@@ -77,6 +75,41 @@ To create a UI theme, do the following:
 
 {{/tip}}
 
+#### Theme Variables
+
+UI themes **must** provide a `ui-variables.less` and Syntax themes a `syntax-variables.less` file. It contains predefined variables that packages use to make sure the look and feel matches.
+
+Here the variables with the default values:
+- [ui-variables.less](https://github.com/atom/atom/blob/master/static/variables/ui-variables.less)
+- [syntax-variables.less](https://github.com/atom/atom/blob/master/static/variables/syntax-variables.less)
+
+These default values will be used as a fallback in case a theme doesn't define its own variables.
+
+##### Use in Packages
+
+In any of your package's `.less` files, you can access the theme variables by importing the `ui-variables` or `syntax-variables` file from Atom.
+
+Your package should generally only specify structural styling, and these should come from [the style guide](https://github.com/atom/styleguide). Your package shouldn't specify colors, padding sizes, or anything in absolute pixels. You should instead use the theme variables. If you follow this guideline, your package will look good out of the box with any theme!
+
+Here's an example `.less` file that a package can define using theme variables:
+
+```css
+@import "ui-variables";
+
+.my-selector {
+  background-color: @base-background-color;
+  padding: @component-padding;
+}
+```
+
+```css
+@import "syntax-variables";
+
+.my-selector {
+  background-color: @syntax-background-color;
+}
+```
+
 #### Development workflow
 
 There are a few tools to help make theme development faster and easier.
@@ -88,7 +121,7 @@ Reloading by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="
 To launch a Dev Mode window:
 
 * Open your theme directory in a dev window by selecting the _View > Developer > Open in Dev Mode_ menu item
-* Launch Atom from the terminal with `atom --dev`
+* Or launch Atom from the terminal with `atom --dev`
 
 If you'd like to reload all the styles at any time, you can use the shortcut <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd>.
 
@@ -104,116 +137,24 @@ Check out Google's [extensive tutorial](https://developer.chrome.com/devtools/do
 
 ##### Atom Styleguide
 
-If you are creating an interface theme, you'll want a way to see how your theme changes affect all the components in the system. The [Styleguide](https://github.com/atom/styleguide) is a page that renders every component Atom supports.
+If you are creating an UI theme, you'll want a way to see how your theme changes affect all the components in the system. The [Styleguide](https://github.com/atom/styleguide) is a page that renders every component Atom supports.
 
 To open the Styleguide, open the command palette with <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and search for "styleguide", or use the shortcut <kbd class="platform-mac">Cmd+Ctrl+Shift+G</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+G</kbd>.
 
 ![Style Guide](../../images/styleguide.png)
 
-#### Theme Variables
+##### Side by side
 
-Atom's UI provides a set of variables you can use in your own themes and packages.
+Sometimes when creating a theme (or package) things can go wrong and the editor becomes un-usable. E.g. if the text and background have the same color or something gets pushed out of sight. To avoid having to open Atom in "normal" mode to fix the issue, it's advised to open **two** Atom windows. One for making changes and one in Dev Mode to see the changes getting applied.
 
-##### Use in Themes
+![Side by side screenshot](../../images/theme-side-by-side.png)
 
-Each custom theme must specify a `ui-variables.less` file with all of the following variables defined. The top-most theme specified in the theme settings will be loaded and available for import.
+> Make changes on the **left**, see the changes getting applied in "Dev Mode" on the **right**.
 
-##### Use in Packages
+Now if you mess up something, only the window in "Dev Mode"  will be affected and you can easily correct the mistake in your "normal" window.
 
-In any of your package's `.less` files, you can access the theme variables by importing the `ui-variables` file from Atom.
+#### Publish your theme
 
-Your package should generally only specify structural styling, and these should come from [the style guide](https://github.com/atom/styleguide). Your package shouldn't specify colors, padding sizes, or anything in absolute pixels. You should instead use the theme variables. If you follow this guideline, your package will look good out of the box with any theme!
+Once you're happy with your theme and would like to share it with other Atom users, it's time to publish it. :tada:
 
-Here's an example `.less` file that a package can define using theme variables:
-
-```css
-@import "ui-variables";
-
-.my-selector {
-  background-color: @base-background-color;
-  padding: @component-padding;
-}
-```
-
-##### Variables
-
-###### Text colors
-
-* `@text-color`
-* `@text-color-subtle`
-* `@text-color-highlight`
-* `@text-color-selected`
-* `@text-color-info` - A blue
-* `@text-color-success`- A green
-* `@text-color-warning`- An orange or yellow
-* `@text-color-error` - A red
-
-###### Background colors
-
-* `@background-color-info` - A blue
-* `@background-color-success` - A green
-* `@background-color-warning` - An orange or yellow
-* `@background-color-error` - A red
-* `@background-color-highlight`
-* `@background-color-selected`
-* `@app-background-color` - The app's background under all the editor components
-
-###### Component colors
-
-* `@base-background-color`
-* `@base-border-color`
-
-* `@pane-item-background-color`
-* `@pane-item-border-color`
-
-* `@input-background-color`
-* `@input-border-color`
-
-* `@tool-panel-background-color`
-* `@tool-panel-border-color`
-
-* `@inset-panel-background-color`
-* `@inset-panel-border-color`
-
-* `@panel-heading-background-color`
-* `@panel-heading-border-color`
-
-* `@overlay-background-color`
-* `@overlay-border-color`
-
-* `@button-background-color`
-* `@button-background-color-hover`
-* `@button-background-color-selected`
-* `@button-border-color`
-
-* `@tab-bar-background-color`
-* `@tab-bar-border-color`
-* `@tab-background-color`
-* `@tab-background-color-active`
-* `@tab-border-color`
-
-* `@tree-view-background-color`
-* `@tree-view-border-color`
-
-* `@ui-site-color-1`
-* `@ui-site-color-2`
-* `@ui-site-color-3`
-* `@ui-site-color-4`
-* `@ui-site-color-5`
-
-###### Component sizes
-
-* `@disclosure-arrow-size`
-
-* `@component-padding`
-* `@component-icon-padding`
-* `@component-icon-size`
-* `@component-line-height`
-* `@component-border-radius`
-
-* `@tab-height`
-
-###### Fonts
-
-* `@font-size`
-* `@font-family`
+Follow the steps in the [Publishing](http://flight-manual.atom.io/hacking-atom/sections/package-word-count/#publishing) section of the Word Count example. Publishing a theme works exactly the same.
