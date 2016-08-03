@@ -337,6 +337,8 @@
 
 <p>Atom supports two types of themes: <em>UI</em> and <em>Syntax</em>.  UI themes style elements such as the tree view, the tabs, drop-down lists, and the status bar. Syntax themes style the code, gutter and other elements inside the editor view.</p>
 
+<p><img src="../../images/theme-boundary.png" alt="Theme boundary"></p>
+
 <p>Themes can be installed and changed from the Settings View which you can open by selecting the <span class="platform-mac"><em>Atom &gt; Preferences</em></span><span class="platform-windows"><em>File &gt; Preferences</em></span><span class="platform-linux"><em>Edit &gt; Preferences</em></span> menu, and clicking the "Install" or "Themes" tab on the left hand navigation.</p>
 
 <h4>
@@ -376,7 +378,7 @@
 
 <div class="alert tip">
 
-<p><strong>Tip:</strong> You can avoid reloading to see changes you make by opening an atom window in Dev Mode. To open a Dev Mode Atom window run <code>atom --dev .</code> in the terminal, or use the <em>View &gt; Developer &gt; Open in Dev Mode</em> menu. When you edit your theme, changes will instantly be reflected!</p>
+<p><strong>Tip:</strong> You can avoid reloading to see changes you make by opening an Atom window in Dev Mode. To open a Dev Mode Atom window run <code>atom --dev .</code> in the terminal, or use the <em>View &gt; Developer &gt; Open in Dev Mode</em> menu. When you edit your theme, changes will instantly be reflected!</p>
 
 </div>
 
@@ -389,17 +391,10 @@
 <h4>
 <a id="creating-a-ui-theme" class="anchor" href="#creating-a-ui-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a UI Theme</h4>
 
-<p>UI themes <strong>must</strong> provide a <code>ui-variables.less</code> file which contains all of the variables provided by the core themes, which we'll cover in <a href="#theme-variables">Theme Variables</a>.</p>
-
 <p>To create a UI theme, do the following:</p>
 
 <ol>
-<li>Fork one of the following repositories:
-
-<ul>
-<li><a href="https://github.com/atom/atom-dark-ui">atom-dark-ui</a></li>
-<li><a href="https://github.com/atom/atom-light-ui">atom-light-ui</a></li>
-</ul>
+<li>Fork the <a href="https://github.com/atom-community/ui-theme-template">ui-theme-template</a>
 </li>
 <li>Clone the forked repository to the local filesystem</li>
 <li>Open a terminal in the forked theme's directory</li>
@@ -422,6 +417,46 @@
 </div>
 
 <h4>
+<a id="theme-variables" class="anchor" href="#theme-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Theme Variables</h4>
+
+<p>UI themes <strong>must</strong> provide a <code>ui-variables.less</code> and Syntax themes a <code>syntax-variables.less</code> file. It contains predefined variables that packages use to make sure the look and feel matches.</p>
+
+<p>Here the variables with the default values:</p>
+
+<ul>
+<li><a href="https://github.com/atom/atom/blob/master/static/variables/ui-variables.less">ui-variables.less</a></li>
+<li><a href="https://github.com/atom/atom/blob/master/static/variables/syntax-variables.less">syntax-variables.less</a></li>
+</ul>
+
+<p>These default values will be used as a fallback in case a theme doesn't define its own variables.</p>
+
+<h5>
+<a id="use-in-packages" class="anchor" href="#use-in-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use in Packages</h5>
+
+<p>In any of your package's <code>.less</code> files, you can access the theme variables by importing the <code>ui-variables</code> or <code>syntax-variables</code> file from Atom.</p>
+
+<p>Your package should generally only specify structural styling, and these should come from <a href="https://github.com/atom/styleguide">the style guide</a>. Your package shouldn't specify colors, padding sizes, or anything in absolute pixels. You should instead use the theme variables. If you follow this guideline, your package will look good out of the box with any theme!</p>
+
+<p>Here's an example <code>.less</code> file that a package can define using theme variables:</p>
+
+<pre class="highlight highlight-css"><code><span class="k">@import</span> <span class="s1">"ui-variables"</span><span class="p">;</span>
+
+<span class="nc">.my-selector</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="err">@</span><span class="n">base-background-color</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="err">@</span><span class="n">component-padding</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<pre class="highlight highlight-css"><code><span class="k">@import</span> <span class="s1">"syntax-variables"</span><span class="p">;</span>
+
+<span class="nc">.my-selector</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="err">@</span><span class="n">syntax-background-color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<h4>
 <a id="development-workflow" class="anchor" href="#development-workflow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development workflow</h4>
 
 <p>There are a few tools to help make theme development faster and easier.</p>
@@ -435,7 +470,7 @@
 
 <ul>
 <li>Open your theme directory in a dev window by selecting the <em>View &gt; Developer &gt; Open in Dev Mode</em> menu item</li>
-<li>Launch Atom from the terminal with <code>atom --dev</code>
+<li>Or launch Atom from the terminal with <code>atom --dev</code>
 </li>
 </ul>
 
@@ -455,135 +490,31 @@
 <h5>
 <a id="atom-styleguide" class="anchor" href="#atom-styleguide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom Styleguide</h5>
 
-<p>If you are creating an interface theme, you'll want a way to see how your theme changes affect all the components in the system. The <a href="https://github.com/atom/styleguide">Styleguide</a> is a page that renders every component Atom supports.</p>
+<p>If you are creating an UI theme, you'll want a way to see how your theme changes affect all the components in the system. The <a href="https://github.com/atom/styleguide">Styleguide</a> is a page that renders every component Atom supports.</p>
 
 <p>To open the Styleguide, open the command palette with <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and search for "styleguide", or use the shortcut <kbd class="platform-mac">Cmd+Ctrl+Shift+G</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+G</kbd>.</p>
 
 <p><img src="../../images/styleguide.png" alt="Style Guide"></p>
 
+<h5>
+<a id="side-by-side" class="anchor" href="#side-by-side" aria-hidden="true"><span class="octicon octicon-link"></span></a>Side by side</h5>
+
+<p>Sometimes when creating a theme (or package) things can go wrong and the editor becomes un-usable. E.g. if the text and background have the same color or something gets pushed out of sight. To avoid having to open Atom in "normal" mode to fix the issue, it's advised to open <strong>two</strong> Atom windows. One for making changes and one in Dev Mode to see the changes getting applied.</p>
+
+<p><img src="../../images/theme-side-by-side.png" alt="Side by side screenshot"></p>
+
+<blockquote>
+<p>Make changes on the <strong>left</strong>, see the changes getting applied in "Dev Mode" on the <strong>right</strong>.</p>
+</blockquote>
+
+<p>Now if you mess up something, only the window in "Dev Mode"  will be affected and you can easily correct the mistake in your "normal" window.</p>
+
 <h4>
-<a id="theme-variables" class="anchor" href="#theme-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Theme Variables</h4>
+<a id="publish-your-theme" class="anchor" href="#publish-your-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publish your theme</h4>
 
-<p>Atom's UI provides a set of variables you can use in your own themes and packages.</p>
+<p>Once you're happy with your theme and would like to share it with other Atom users, it's time to publish it. <img class="emoji" title=":tada:" alt=":tada:" src="https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f389.png" height="20" width="20" align="absmiddle"></p>
 
-<h5>
-<a id="use-in-themes" class="anchor" href="#use-in-themes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use in Themes</h5>
-
-<p>Each custom theme must specify a <code>ui-variables.less</code> file with all of the following variables defined. The top-most theme specified in the theme settings will be loaded and available for import.</p>
-
-<h5>
-<a id="use-in-packages" class="anchor" href="#use-in-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use in Packages</h5>
-
-<p>In any of your package's <code>.less</code> files, you can access the theme variables by importing the <code>ui-variables</code> file from Atom.</p>
-
-<p>Your package should generally only specify structural styling, and these should come from <a href="https://github.com/atom/styleguide">the style guide</a>. Your package shouldn't specify colors, padding sizes, or anything in absolute pixels. You should instead use the theme variables. If you follow this guideline, your package will look good out of the box with any theme!</p>
-
-<p>Here's an example <code>.less</code> file that a package can define using theme variables:</p>
-
-<pre class="highlight highlight-css"><code><span class="k">@import</span> <span class="s1">"ui-variables"</span><span class="p">;</span>
-
-<span class="nc">.my-selector</span> <span class="p">{</span>
-  <span class="nl">background-color</span><span class="p">:</span> <span class="err">@</span><span class="n">base-background-color</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="err">@</span><span class="n">component-padding</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-
-
-<h5>
-<a id="variables" class="anchor" href="#variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables</h5>
-
-<h6>
-<a id="text-colors" class="anchor" href="#text-colors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Text colors</h6>
-
-<ul>
-<li><code>@text-color</code></li>
-<li><code>@text-color-subtle</code></li>
-<li><code>@text-color-highlight</code></li>
-<li><code>@text-color-selected</code></li>
-<li>
-<code>@text-color-info</code> - A blue</li>
-<li>
-<code>@text-color-success</code>- A green</li>
-<li>
-<code>@text-color-warning</code>- An orange or yellow</li>
-<li>
-<code>@text-color-error</code> - A red</li>
-</ul>
-
-<h6>
-<a id="background-colors" class="anchor" href="#background-colors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Background colors</h6>
-
-<ul>
-<li>
-<code>@background-color-info</code> - A blue</li>
-<li>
-<code>@background-color-success</code> - A green</li>
-<li>
-<code>@background-color-warning</code> - An orange or yellow</li>
-<li>
-<code>@background-color-error</code> - A red</li>
-<li><code>@background-color-highlight</code></li>
-<li><code>@background-color-selected</code></li>
-<li>
-<code>@app-background-color</code> - The app's background under all the editor components</li>
-</ul>
-
-<h6>
-<a id="component-colors" class="anchor" href="#component-colors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Component colors</h6>
-
-<ul>
-<li><code>@base-background-color</code></li>
-<li><p><code>@base-border-color</code></p></li>
-<li><p><code>@pane-item-background-color</code></p></li>
-<li><p><code>@pane-item-border-color</code></p></li>
-<li><p><code>@input-background-color</code></p></li>
-<li><p><code>@input-border-color</code></p></li>
-<li><p><code>@tool-panel-background-color</code></p></li>
-<li><p><code>@tool-panel-border-color</code></p></li>
-<li><p><code>@inset-panel-background-color</code></p></li>
-<li><p><code>@inset-panel-border-color</code></p></li>
-<li><p><code>@panel-heading-background-color</code></p></li>
-<li><p><code>@panel-heading-border-color</code></p></li>
-<li><p><code>@overlay-background-color</code></p></li>
-<li><p><code>@overlay-border-color</code></p></li>
-<li><p><code>@button-background-color</code></p></li>
-<li><code>@button-background-color-hover</code></li>
-<li><code>@button-background-color-selected</code></li>
-<li><p><code>@button-border-color</code></p></li>
-<li><p><code>@tab-bar-background-color</code></p></li>
-<li><code>@tab-bar-border-color</code></li>
-<li><code>@tab-background-color</code></li>
-<li><code>@tab-background-color-active</code></li>
-<li><p><code>@tab-border-color</code></p></li>
-<li><p><code>@tree-view-background-color</code></p></li>
-<li><p><code>@tree-view-border-color</code></p></li>
-<li><p><code>@ui-site-color-1</code></p></li>
-<li><code>@ui-site-color-2</code></li>
-<li><code>@ui-site-color-3</code></li>
-<li><code>@ui-site-color-4</code></li>
-<li><code>@ui-site-color-5</code></li>
-</ul>
-
-<h6>
-<a id="component-sizes" class="anchor" href="#component-sizes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Component sizes</h6>
-
-<ul>
-<li><p><code>@disclosure-arrow-size</code></p></li>
-<li><p><code>@component-padding</code></p></li>
-<li><code>@component-icon-padding</code></li>
-<li><code>@component-icon-size</code></li>
-<li><code>@component-line-height</code></li>
-<li><p><code>@component-border-radius</code></p></li>
-<li><p><code>@tab-height</code></p></li>
-</ul>
-
-<h6>
-<a id="fonts" class="anchor" href="#fonts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fonts</h6>
-
-<ul>
-<li><code>@font-size</code></li>
-<li><code>@font-family</code></li>
-</ul>
+<p>Follow the steps in the <a href="http://flight-manual.atom.io/hacking-atom/sections/package-word-count/#publishing">Publishing</a> section of the Word Count example. Publishing a theme works exactly the same.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
