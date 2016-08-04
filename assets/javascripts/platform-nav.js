@@ -48,7 +48,7 @@
 
   window.initPlatformNav = function () {
     var $platformNav = $('#platform-nav')
-    $platformNav.show()
+    $platformNav.addClass('show')
     $platformNav.find('a').click(function () {
       updateArticlePlatform($(this).data('platform'))
     })
