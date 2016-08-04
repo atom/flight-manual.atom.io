@@ -18,7 +18,6 @@
 
         <% section = lookup_section('toc', @item[:title]) %>
         <h1 class="document-title">
-          <span class="article-title"><%= section << ' ' << @item[:title] if section %></span>
           <a class="improve-link"
               href="<%= "https://github.com/atom/flight-manual.atom.io/edit/master/content#{@item.identifier}" %>" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
