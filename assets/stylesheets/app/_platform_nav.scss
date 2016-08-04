@@ -34,9 +34,11 @@ body {
   display: none;
   text-align: right;
   text-transform: uppercase;
+
   &.show {
     display: inline-block;
   }
+
   ul {
     display: inline-block;
     margin: 0;
@@ -45,34 +47,22 @@ body {
     list-style-type: none;
 
     li {
-      display: inline;
-      padding-bottom: 5px;
-
-      a, a:visited {
-        border-left: 1px solid #999;
-        padding-left: 5px;
-        padding-right: 5px;
-        text-decoration: none;
-      }
+      display: inline-block;
 
       &.hidden {
         display: none;
       }
 
-      &.selected {
-        color: $brownDark;
-        cursor: default;
-        background: url(/assets/images/site/under-triangle.gif) center bottom no-repeat;
-
-        a {
-          color: $brownDark;
-        }
+      a {
+        margin: 0 .25em;
+        padding: .15em 0;
+        text-decoration: none;
       }
 
-      &:first-child {
-        a {
-          border: none;
-        }
+      &.selected a {
+        color: $brownDark;
+        border-bottom: 1px solid $border-color;
+        cursor: default;
       }
     }
   }
