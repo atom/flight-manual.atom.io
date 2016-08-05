@@ -14,7 +14,7 @@ There are a few things you should double check before publishing:
 * Your `package.json` file has a `version` field with a value of `"0.0.0"`.
 * Your `package.json` file has an `engines` field that contains an entry for Atom such as: `"engines": {"atom": ">=1.0.0 <2.0.0"}`.
 * Your package has a `README.md` file at the root.
-* Change the `repository` url in the `package.json` file to match the URL of your repository.
+* Your `repository` URL in the `package.json` file is the same as the URL of your repository.
 * Your package is in a Git repository that has been pushed to [GitHub](https://github.com). Follow [this guide](http://guides.github.com/overviews/desktop) if your package isn't already on GitHub.
 
 #### Publish Your Package
