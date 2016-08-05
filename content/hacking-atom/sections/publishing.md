@@ -32,7 +32,7 @@ Now let's review what the `apm publish` command does:
 Now run the following commands to publish your package:
 
 ``` command-line
-$ cd ~/github/my-package
+$ cd path-to-your-package
 $ apm publish minor
 ```
 
