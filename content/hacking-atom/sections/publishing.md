@@ -11,7 +11,7 @@ Atom bundles a command line utility called `apm` which we first used back in [Co
 There are a few things you should double check before publishing:
 
 * Your `package.json` file has `name`, `description`, and `repository` fields.
-* Your `package.json` file has a `version` field with a value of  `"0.0.0"`.
+* Your `package.json` file has a `version` field with a value of `"0.0.0"`.
 * Your `package.json` file has an `engines` field that contains an entry for Atom such as: `"engines": {"atom": ">=1.0.0 <2.0.0"}`.
 * Your package has a `README.md` file at the root.
 * Change the `repository` url in the `package.json` file to match the URL of your repository.
