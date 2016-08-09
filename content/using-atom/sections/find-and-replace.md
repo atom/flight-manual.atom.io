@@ -22,7 +22,9 @@ You can also find and replace throughout your entire project if you invoke the p
 
 This is a great way to find out where in your project a function is called, an anchor is linked to or a specific misspelling is located. Click on the matching line to jump to that location in that file.
 
-You can limit a search to a subset of the files in your project by entering a [glob pattern](http://en.wikipedia.org/wiki/Glob_%28programming%29) into the "File/Directory pattern" text box. When you have multiple project folders open, this feature can also be used to search in only one of those folders. For example, if you had the folders `/path1/folder1` and `/path2/folder2` open, you could enter a pattern starting with `folder1` to search only in the first folder.
+You can limit a search to a subset of the files in your project by entering a [glob pattern](http://en.wikipedia.org/wiki/Glob_%28programming%29) into the "File/Directory pattern" text box. For example, the pattern `src/*.js` would restrict the search to javascript files in the `src` directory. The "globstar" pattern (`**`) can be used to match arbitrarily many subdirectories. For example, `docs/**/*.md` will match `docs/a/foo.md`, `docs/a/b/foo.md`, etc.
+
+When you have multiple project folders open, this feature can also be used to search in only one of those folders. For example, if you had the folders `/path1/folder1` and `/path2/folder2` open, you could enter a pattern starting with `folder1` to search only in the first folder.
 
 Press <kbd class="platform-all">Esc</kbd> while focused on the Find and Replace panel to clear the pane from your workspace.
 
