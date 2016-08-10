@@ -356,7 +356,9 @@
 
 <p>This is a great way to find out where in your project a function is called, an anchor is linked to or a specific misspelling is located. Click on the matching line to jump to that location in that file.</p>
 
-<p>You can limit a search to a subset of the files in your project by entering a <a href="http://en.wikipedia.org/wiki/Glob_%28programming%29">glob pattern</a> into the "File/Directory pattern" text box. When you have multiple project folders open, this feature can also be used to search in only one of those folders. For example, if you had the folders <code>/path1/folder1</code> and <code>/path2/folder2</code> open, you could enter a pattern starting with <code>folder1</code> to search only in the first folder.</p>
+<p>You can limit a search to a subset of the files in your project by entering a <a href="http://en.wikipedia.org/wiki/Glob_%28programming%29">glob pattern</a> into the "File/Directory pattern" text box. For example, the pattern <code>src/*.js</code> would restrict the search to javascript files in the <code>src</code> directory. The "globstar" pattern (<code>**</code>) can be used to match arbitrarily many subdirectories. For example, <code>docs/**/*.md</code> will match <code>docs/a/foo.md</code>, <code>docs/a/b/foo.md</code>, etc.</p>
+
+<p>When you have multiple project folders open, this feature can also be used to search in only one of those folders. For example, if you had the folders <code>/path1/folder1</code> and <code>/path2/folder2</code> open, you could enter a pattern starting with <code>folder1</code> to search only in the first folder.</p>
 
 <p>Press <kbd class="platform-all">Esc</kbd> while focused on the Find and Replace panel to clear the pane from your workspace.</p>
 
