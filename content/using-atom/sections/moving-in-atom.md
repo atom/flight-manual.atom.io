@@ -33,8 +33,8 @@ In addition to single character movement, there are a number of other movement k
 * <span class="platform-mac"><kbd class="platform-mac">Alt+Right</kbd> or <kbd class="platform-mac">Alt+F</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Right</kbd> - Move to the end of word
 * <span class="platform-mac"><kbd class="platform-mac">Cmd+Left</kbd> or <kbd class="platform-mac">Ctrl+A</kbd></span><kbd class="platform-windows platform-linux">Home</kbd> - Move to the first character of the current line
 * <span class="platform-mac"><kbd class="platform-mac">Cmd+Right</kbd> or <kbd class="platform-mac">Ctrl+E</kbd></span><kbd class="platform-windows platform-linux">End</kbd> - Move to the end of the line
-* <kbd class="platform-mac">Cmd+Up</kbd><kbd class="platform-windows platform-linux">Ctrl+PgUp</kbd> - Move to the top of the file
-* <kbd class="platform-mac">Cmd+Down</kbd><kbd class="platform-windows platform-linux">Ctrl+PgDn</kbd> - Move to the bottom of the file
+* <kbd class="platform-mac">Cmd+Up</kbd><kbd class="platform-windows platform-linux">Ctrl+Home</kbd> - Move to the top of the file
+* <kbd class="platform-mac">Cmd+Down</kbd><kbd class="platform-windows platform-linux">Ctrl+End</kbd> - Move to the bottom of the file
 
 You can also move directly to a specific line (and column) number with <kbd class="platform-all">Ctrl+G</kbd>. This will bring up a dialog that asks which line you would like to jump to. You can also use the `row:column` syntax to jump to a character in that line as well.
 
