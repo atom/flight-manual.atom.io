@@ -29,7 +29,7 @@ You can also delete or cut text out of your buffer with some shortcuts. Be ruthl
 
 * <kbd class="platform-mac platform-windows platform-linux">Ctrl+Shift+K</kbd> - Delete current line
 * <span class="platform-mac"><kbd class="platform-mac">Alt+Backspace</kbd> or <kbd class="platform-mac">Alt+H</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Backspace</kbd> - Delete to beginning of word
-* <span class="platform-mac"><kbd class="platform-mac">Alt+Delete</kbd> or <kbd class="platform-mac">Alt+D</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Delete</kbd> - Delete to beginning of word
+* <span class="platform-mac"><kbd class="platform-mac">Alt+Delete</kbd> or <kbd class="platform-mac">Alt+D</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Delete</kbd> - Delete to ending of word
 
 {{#mac}}
 
