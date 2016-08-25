@@ -29,7 +29,7 @@ You can also have packages that are owned by a [GitHub organization](https://hel
 
 {{/danger}}
 
-If you want to hand off support of your package to someone else, you can do that by [transferring the package's repository](https://help.github.com/articles/transferring-a-repository/) to the new owner.
+If you want to hand off support of your package to someone else, you can do that by [transferring the package's repository](https://help.github.com/articles/transferring-a-repository/) to the new owner. Once you do that, they can publish a new version with the updated repository information in the `package.json`.
 
 #### Unpublish Your Package
 
