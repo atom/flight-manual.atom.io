@@ -102,6 +102,27 @@ As you might expect, there is a snippet to create snippets. If you open up a sni
 
 :boom: just fill that bad boy out and you have yourself a snippet. As soon as you save the file, Atom should reload the snippets and you will immediately be able to try it out.
 
+##### Multiple Snippets per Source
+
+You can see below the format for including multiple snippets *for the same scope* in your `snippets.cson` file. Just include the snippet name, prefix, and body keys for additional snippets inside the scope key: 
+
+```coffee
+'.text.md':
+  'Hello World':
+    'prefix': 'hewo'
+    'body': 'Hello World!'
+
+  'Github Hello':
+    'prefix': 'gihe'
+    'body': 'Octocat says Hi!'
+    
+  'Octocat Image Link':
+    'prefix': 'octopic'
+    'body': '![GitHub Octocat](https://assets-cdn.github.com/images/modules/logos_page/Octocat.png)'
+```
+
+Again, see [Configuring with CSON](/using-atom/sections/basic-customization/#configuring-with-cson) for more information on CSON key structure and non-repeatability.
+
 The snippets functionality is implemented in the [snippets](https://github.com/atom/snippets) package.
 
 For more examples, see the snippets in the [language-html](https://github.com/atom/language-html/blob/master/snippets/language-html.cson) and [language-javascript](https://github.com/atom/language-javascript/blob/master/snippets/language-javascript.cson) packages.
