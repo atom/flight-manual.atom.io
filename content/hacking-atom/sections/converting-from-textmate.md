@@ -14,8 +14,7 @@ Let's convert the TextMate bundle for the [R](https://en.wikipedia.org/wiki/R_(p
 You can convert the R bundle with the following command:
 
 ``` command-line
-$ apm init --package language-r \
-    --convert https://github.com/textmate/r.tmbundle
+$ apm init --package language-r --convert https://github.com/textmate/r.tmbundle
 ```
 
 You can now change directory into `language-r` to see the converted bundle. Once you link your package with the `apm link` command, your new package is ready to use. Launch Atom and open a `.r` file in the editor to see it in action!
@@ -38,8 +37,7 @@ Download the theme you wish to convert, you can browse existing TextMate themes 
 Now, let's say you've downloaded the theme to `~/Downloads/MyTheme.tmTheme`, you can convert the theme with the following command:
 
 ``` command-line
-$ apm init --theme my-theme \
-    --convert ~/Downloads/MyTheme.tmTheme
+$ apm init --theme my-theme --convert ~/Downloads/MyTheme.tmTheme
 ```
 
 You can then change directory to `my-theme` to see the converted theme.
