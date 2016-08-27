@@ -157,4 +157,4 @@ Now if you mess up something, only the window in "Dev Mode"  will be affected an
 
 Once you're happy with your theme and would like to share it with other Atom users, it's time to publish it. :tada:
 
-Follow the steps in the [Publishing](http://flight-manual.atom.io/hacking-atom/sections/package-word-count/#publishing) section of the Word Count example. Publishing a theme works exactly the same.
+Follow the steps on the [Publishing](../publishing/) page. The example used is for the Word Count package, but publishing a theme works exactly the same.
