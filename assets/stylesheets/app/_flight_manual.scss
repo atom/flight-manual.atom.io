@@ -475,7 +475,7 @@ input.documents-search-input {
       padding: 1px;
       padding-left: 30px;
       text-indent: -15px;
-      
+
       &.selected {
         background: #eee;
       }
@@ -484,14 +484,9 @@ input.documents-search-input {
 }
 
 // Adjustments for page-specific links to improve the docs
-$improve-link-separator-spacing: 1em;
-
-.article-title {
-  margin-right: $improve-link-separator-spacing / 2;
-}
 
 .improve-link {
-  margin-left: $improve-link-separator-spacing / 2;
+  margin-left: 2em;
 }
 
 h1.document-title {

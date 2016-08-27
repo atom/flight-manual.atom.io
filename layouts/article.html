@@ -14,11 +14,9 @@
           <%= renderp '/includes/toc.html', :heading => 'h4', :title => @item[:title] %>
         </div>
 
-        <%= renderp '/includes/platform-nav.html' %>
-
         <% section = lookup_section('toc', @item[:title]) %>
         <h1 class="document-title">
-          <span class="article-title"><%= section << ' ' << @item[:title] if section %></span>
+          <%= renderp '/includes/platform-nav.html' %>
           <a class="improve-link"
               href="<%= "https://github.com/atom/flight-manual.atom.io/edit/master/content#{@item.identifier}" %>" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
