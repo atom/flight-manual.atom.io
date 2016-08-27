@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title></title>
+<title>Publishing</title>
 
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
 
@@ -198,7 +198,7 @@
         <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
       </li>
     
-      <li class="unselected">
+      <li class="selected">
         <a href="/hacking-atom/sections/publishing">Publishing</a>
       </li>
     
@@ -326,28 +326,75 @@
 </div>
 
           <a class="improve-link"
-              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/xx-status-bar.asciidoc" data-proofer-ignore>
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/publishing.md" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
           </a>
         </h1>
 
         <div class="markdown-body document-content">
           
-          <div class="sect2">
-<h3 id="package-status-bar-word-count">
-<a id="package-status-bar-word-count" class="anchor" href="#package-status-bar-word-count" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package: Status Bar Word Count</h3>
-<div class="sect3">
-<h4 id="basic-debugging">
-<a id="basic-debugging" class="anchor" href="#basic-debugging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Debugging</h4>
-<div class="ulist">
+          <h3>
+<a id="publishing" class="anchor" href="#publishing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publishing</h3>
+
+<p>Atom bundles a command line utility called <code>apm</code> which we first used back in <a href="/using-atom/sections/atom-packages/#command-line">Command Line</a> to search for and install packages via the command line. The <code>apm</code> command can also be used to publish Atom packages to the public registry and update them.</p>
+
+<h4>
+<a id="prepare-your-package" class="anchor" href="#prepare-your-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prepare Your Package</h4>
+
+<p>There are a few things you should double check before publishing:</p>
+
 <ul>
-<li>
-<p>devmode</p>
-</li>
+<li>Your <code>package.json</code> file has <code>name</code>, <code>description</code>, and <code>repository</code> fields.</li>
+<li>Your <code>package.json</code> file has a <code>version</code> field with a value of <code>"0.0.0"</code>.</li>
+<li>Your <code>package.json</code> file has an <code>engines</code> field that contains an entry for Atom such as: <code>"engines": {"atom": "&gt;=1.0.0 &lt;2.0.0"}</code>.</li>
+<li>Your package has a <code>README.md</code> file at the root.</li>
+<li>Your <code>repository</code> URL in the <code>package.json</code> file is the same as the URL of your repository.</li>
+<li>Your package is in a Git repository that has been pushed to <a href="https://github.com">GitHub</a>. Follow <a href="http://guides.github.com/overviews/desktop">this guide</a> if your package isn't already on GitHub.</li>
 </ul>
-</div>
-</div>
-</div>
+
+<h4>
+<a id="publish-your-package" class="anchor" href="#publish-your-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publish Your Package</h4>
+
+<p>Before you publish a package it is a good idea to check ahead of time if a package with the same name has already been published to <a href="https://atom.io/packages">the atom.io package registry</a>. You can do that by visiting <code>https://atom.io/packages/your-package-name</code> to see if the package already exists. If it does, update your package's name to something that is available before proceeding.</p>
+
+<p>Now let's review what the <code>apm publish</code> command does:</p>
+
+<ol>
+<li>Registers the package name on atom.io if it is being published for the first time.</li>
+<li>Updates the <code>version</code> field in the <code>package.json</code> file and commits it.</li>
+<li>Creates a new <a href="http://git-scm.com/book/en/Git-Basics-Tagging">Git tag</a> for the version being published.</li>
+<li>Pushes the tag and current branch up to GitHub.</li>
+<li>Updates atom.io with the new version being published.</li>
+</ol>
+
+<p>Now run the following commands to publish your package:</p>
+
+<pre class="command-line">
+<span class="command">cd path-to-your-package</span>
+<span class="command">apm publish minor</span>
+</pre>
+
+<p>If this is the first package you are publishing, the <code>apm publish</code> command may prompt you for your GitHub username and password. This is required to publish and you only need to enter this information the first time you publish. The credentials are stored securely in your <a href="https://en.wikipedia.org/wiki/Keychain_(Apple)">keychain</a> once you login.</p>
+
+<p>Your package is now published and available on atom.io. Head on over to <code>https://atom.io/packages/your-package-name</code> to see your package's page.</p>
+
+<p>With <code>apm publish</code>, you can bump the version and publish by using</p>
+
+<pre class="command-line">
+<span class="command">apm publish <version-type></version-type></span>
+</pre>
+
+<p>where <code>&lt;version-type&gt;</code> can be <code>major</code>, <code>minor</code> and <code>patch</code>.</p>
+
+<p>The <code>major</code> option to the publish command tells apm to increment the first number of the version before publishing so the published version will be <code>1.0.0</code> and the Git tag created will be <code>v1.0.0</code>.</p>
+
+<p>The <code>minor</code> option to the publish command tells apm to increment the second number of the version before publishing so the published version will be <code>0.1.0</code> and the Git tag created will be <code>v0.1.0</code>.</p>
+
+<p>The <code>patch</code> option to the publish command tells apm to increment the third number of the version before publishing so the published version will be <code>0.0.1</code> and the Git tag created will be <code>v0.0.1</code>.</p>
+
+<p>Use <code>major</code> when you make a change that breaks backwards compatibility, like changing defaults or removing features. Use <code>minor</code> when adding new functionality or making improvements on existing code. Use <code>patch</code> when you fix a bug that was causing incorrect behaviour. Check out <a href="http://semver.org">semantic versioning</a> to learn more about best practices for versioning your package releases.</p>
+
+<p>You can also run <code>apm help publish</code> to see all the available options and <code>apm help</code> to see all the other available commands.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
