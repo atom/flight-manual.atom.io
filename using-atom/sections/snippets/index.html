@@ -436,6 +436,28 @@
 
 <p><img class="emoji" title=":boom:" alt=":boom:" src="https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f4a5.png" height="20" width="20" align="absmiddle"> just fill that bad boy out and you have yourself a snippet. As soon as you save the file, Atom should reload the snippets and you will immediately be able to try it out.</p>
 
+<h5>
+<a id="multiple-snippets-per-source" class="anchor" href="#multiple-snippets-per-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multiple Snippets per Source</h5>
+
+<p>You can see below the format for including multiple snippets <em>for the same scope</em> in your <code>snippets.cson</code> file. Just include the snippet name, prefix, and body keys for additional snippets inside the scope key: </p>
+
+<pre class="highlight highlight-coffee"><code><span class="s">'.text.md'</span><span class="o">:</span>
+  <span class="s">'Hello World'</span><span class="o">:</span>
+    <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'hewo'</span>
+    <span class="s">'body'</span><span class="o">:</span> <span class="s">'Hello World!'</span>
+
+  <span class="s">'Github Hello'</span><span class="o">:</span>
+    <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'gihe'</span>
+    <span class="s">'body'</span><span class="o">:</span> <span class="s">'Octocat says Hi!'</span>
+
+  <span class="s">'Octocat Image Link'</span><span class="o">:</span>
+    <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'octopic'</span>
+    <span class="s">'body'</span><span class="o">:</span> <span class="s">'![GitHub Octocat](https://assets-cdn.github.com/images/modules/logos_page/Octocat.png)'</span>
+</code></pre>
+
+
+<p>Again, see <a href="/using-atom/sections/basic-customization/#configuring-with-cson">Configuring with CSON</a> for more information on CSON key structure and non-repeatability.</p>
+
 <p>The snippets functionality is implemented in the <a href="https://github.com/atom/snippets">snippets</a> package.</p>
 
 <p>For more examples, see the snippets in the <a href="https://github.com/atom/language-html/blob/master/snippets/language-html.cson">language-html</a> and <a href="https://github.com/atom/language-javascript/blob/master/snippets/language-javascript.cson">language-javascript</a> packages.</p>
