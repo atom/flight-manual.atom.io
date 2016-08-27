@@ -104,7 +104,7 @@ As you might expect, there is a snippet to create snippets. If you open up a sni
 
 ##### Multiple Snippets per Source
 
-You can see below the format for including multiple snippets *for the same scope* in your `snippets.cson` file. Just include the snippet name, prefix, and body keys for additional snippets inside the scope key: 
+You can see below the format for including multiple snippets for the same scope in your `snippets.cson` file. Just include the snippet name, prefix, and body keys for additional snippets inside the scope key:
 
 ```coffee
 '.text.md':
@@ -115,13 +115,15 @@ You can see below the format for including multiple snippets *for the same scope
   'Github Hello':
     'prefix': 'gihe'
     'body': 'Octocat says Hi!'
-    
+
   'Octocat Image Link':
     'prefix': 'octopic'
     'body': '![GitHub Octocat](https://assets-cdn.github.com/images/modules/logos_page/Octocat.png)'
 ```
 
 Again, see [Configuring with CSON](/using-atom/sections/basic-customization/#configuring-with-cson) for more information on CSON key structure and non-repeatability.
+
+#### More Info
 
 The snippets functionality is implemented in the [snippets](https://github.com/atom/snippets) package.
 
