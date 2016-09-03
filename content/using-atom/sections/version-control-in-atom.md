@@ -5,6 +5,8 @@ title: Version Control in Atom
 
 Version control is an important aspect of any project and Atom comes with basic [Git](http://git-scm.com) and [GitHub](https://github.com) integration built in.
 
+In order to use version control in Atom, the project root needs to contain the Git repository.
+
 #### Checkout HEAD revision
 
 The <kbd class="platform-mac">Alt+Cmd+Z</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Z</kbd> keybinding checks out the `HEAD` revision of the file in the editor.
