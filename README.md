@@ -50,7 +50,3 @@ While the server is running, you can see the site in your browser at http://loca
 ## Contributing
 
 If you'd like to help out by making a change, adding content or improving something, take a look at the [contributor's guide](CONTRIBUTING.md).
-
-## Maintainers
-
-There is currently no one maintaining the book. Active contributions are welcome!
