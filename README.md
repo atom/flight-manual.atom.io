@@ -20,9 +20,9 @@ To check the current progress and planned content of the book, check out the [ou
 
 ### Prerequisites
 
-* You'll need Ruby installed on your system. The required version can be found in *.ruby-version*.
-* You'll need the `bundle` command installed. You can do this with `gem install bundler`.
-* You'll need Node and NPM installed, too. The required version can be found in *package.json*.
+* You'll need [Ruby installed on your system](https://www.ruby-lang.org/en/documentation/installation/). The required version can be found in [`.ruby-version`](.ruby-version).
+* You'll need the bundler Ruby Gem installed. You can do this with `gem install bundler`.
+* You'll need [Node installed](https://nodejs.org/en/download/), too. The required version can be found in [`package.json`](package.json).
 
 ### Fetching dependencies
 
