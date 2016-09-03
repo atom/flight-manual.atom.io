@@ -16,7 +16,7 @@ This book is published under the Creative Commons BY-SA license. If you contribu
 
 To check the current progress and planned content of the book, check out the [outline](outline.md). This is a good place to start if you're looking for something to add.
 
-## Generating the book
+## Testing Changes Locally
 
 ### Prerequisites
 
