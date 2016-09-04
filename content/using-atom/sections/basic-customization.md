@@ -225,7 +225,7 @@ The scope name is shown in the settings view for each language. Click on "Packag
 
 ![Finding a language grammar](../../images/python-grammar.png "Finding a grammar's scope name")
 
-Another way to find the scope for a specific language is to open a file of its kind and press <kbd class="platform-mac">Alt+Cmd+P</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Shift+P</kbd> to show all scopes for the current position of the cursor.
+Another way to find the scope for a specific language is to open a file of its kind and press <kbd class="platform-mac">Alt+Cmd+P</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Shift+P</kbd> to show all scopes for the current position of the cursor. The scope mentioned top most is always the language for this kind of file, the scopes following are specific to the cursor position:
 
 ![Finding a language grammar with cursor scope](../../images/cursor-scope.png "Finding a language grammar with cursor scope")
 
