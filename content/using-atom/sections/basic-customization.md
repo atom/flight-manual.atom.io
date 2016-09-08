@@ -225,6 +225,12 @@ The scope name is shown in the settings view for each language. Click on "Packag
 
 ![Finding a language grammar](../../images/python-grammar.png "Finding a grammar's scope name")
 
+Another way to find the scope for a specific language is to open a file of its kind and press <kbd class="platform-mac">Alt+Cmd+P</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Shift+P</kbd> to show all scopes for the current position of the cursor. The scope mentioned top most is always the language for this kind of file, the scopes following are specific to the cursor position:
+
+![Finding a language grammar with cursor scope](../../images/cursor-scope.png "Finding a language grammar with cursor scope")
+
+These scopes can be especially useful to [style the editor](#styling-the-editor), since they can also be used as class names in your stylesheet.
+
 #### Customizing Language Recognition
 
 If you want Atom to always recognize certain file types as a specific grammar, you'll need to manually edit your `config.cson` file. You can open it using the _Application: Open Your Config_ command from the Command Palette. For example, if you wanted to add the `foo` extension to the CoffeeScript language, you could add this to your configuration file under the `*.core` section:
