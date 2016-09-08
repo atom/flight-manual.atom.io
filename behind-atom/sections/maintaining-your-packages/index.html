@@ -344,7 +344,7 @@
 <p>If you mistakenly published a version of your package or perhaps you find a glaring bug or security hole, you may want to unpublish just that version of your package. For example, if your package is named <code>package-name</code> and the bad version of your package is v1.2.3 then the command you would execute is:</p>
 
 <pre class="command-line">
-<span class="command">apm unpublish package-name@1.2.3</span>
+<span class="command">apm unpublish <em>package-name@1.2.3</em></span>
 </pre>
 
 <p>This will remove just this particular version from the <a href="https://atom.io">https://atom.io</a> package registry. Anyone who has already downloaded this version will still have it, but it will no longer be available for installation by others.</p>
@@ -379,7 +379,7 @@
 <p>If you no longer want to support your package and cannot find anyone to take it over, you can unpublish your package from <a href="https://atom.io">https://atom.io</a>. For example, if your package is named <code>package-name</code> then the command you would execute is:</p>
 
 <pre class="command-line">
-<span class="command">apm unpublish package-name</span>
+<span class="command">apm unpublish <em>package-name</em></span>
 </pre>
 
 <p>This will remove your package from the <a href="https://atom.io">https://atom.io</a> package registry. Anyone who has already downloaded a copy of your package will still have it and be able to use it, but it will no longer be available for installation by others.</p>
@@ -390,7 +390,7 @@
 <p>If you need to rename your package for any reason, you can do so with one simple command – <code>apm publish --rename</code> changes the <code>name</code> field in your package's <code>package.json</code>, pushes a new commit and tag, and publishes your renamed package. Requests made to the previous name will be forwarded to the new name.</p>
 
 <pre class="command-line">
-<span class="command">apm publish --rename new-package-name</span>
+<span class="command">apm publish --rename <em>new-package-name</em></span>
 </pre>
 
 <div class="alert tip">
