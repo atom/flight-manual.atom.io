@@ -10,7 +10,7 @@ While publishing is, by far, the most common action you will perform when workin
 If you mistakenly published a version of your package or perhaps you find a glaring bug or security hole, you may want to unpublish just that version of your package. For example, if your package is named `package-name` and the bad version of your package is v1.2.3 then the command you would execute is:
 
 ``` command-line
-$ apm unpublish package-name@1.2.3
+$ apm unpublish <em>package-name@1.2.3</em>
 ```
 
 This will remove just this particular version from the https://atom.io package registry. Anyone who has already downloaded this version will still have it, but it will no longer be available for installation by others.
@@ -42,7 +42,7 @@ If you want to hand off support of your package to someone else, you can do that
 If you no longer want to support your package and cannot find anyone to take it over, you can unpublish your package from https://atom.io. For example, if your package is named `package-name` then the command you would execute is:
 
 ``` command-line
-$ apm unpublish package-name
+$ apm unpublish <em>package-name</em>
 ```
 
 This will remove your package from the https://atom.io package registry. Anyone who has already downloaded a copy of your package will still have it and be able to use it, but it will no longer be available for installation by others.
@@ -52,7 +52,7 @@ This will remove your package from the https://atom.io package registry. Anyone 
 If you need to rename your package for any reason, you can do so with one simple command – `apm publish --rename` changes the `name` field in your package's `package.json`, pushes a new commit and tag, and publishes your renamed package. Requests made to the previous name will be forwarded to the new name.
 
 ``` command-line
-$ apm publish --rename new-package-name
+$ apm publish --rename <em>new-package-name</em>
 ```
 
 {{#tip}}
