@@ -16,7 +16,7 @@
   }
 
   var platformPrefix = 'platform-'
-  var validPlatforms = ['mac', 'windows', 'linux', 'all']
+  var validPlatforms = ['mac', 'windows', 'linux']
 
   var classForPlatform = function (platform) {
     return platformPrefix + platform
