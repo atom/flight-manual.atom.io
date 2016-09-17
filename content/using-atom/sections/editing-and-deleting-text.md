@@ -60,7 +60,7 @@ Using these commands you can place cursors in multiple places in your document a
 
 This can be incredibly helpful in doing many type of repetitive tasks such as renaming variables or changing the format of some text. You can use this with almost any plugin or command - for example, changing case and moving or duplicating lines.
 
-You can also use the mouse to select text with the `command` key pressed down to select multiple regions of your text simultaneously.
+You can also use the mouse to select text with the <kbd class="platform-mac">Cmd</kbd><kbd class="platform-windows platform-linux">Ctrl</kbd> key pressed down to select multiple regions of your text simultaneously.
 
 #### Whitespace
 
