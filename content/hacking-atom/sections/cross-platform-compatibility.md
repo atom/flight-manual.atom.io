@@ -20,7 +20,7 @@ Also consider:
 * *Reserved filenames* on Windows are `com1`-`com9`, `lpt1`-`lpt9`, `con`, `nul`, `aux` and `prn` (regardless of extension, e.g. `prn.txt` is disallowed)
 * *Reserved characters* on Windows are ? \ / < > ? % | : "  _so avoid where possible_
 * *Names with spaces* when passed to the command line;
-    * Windows requires you _surround the path with double quotes_ e.g. `c:\my test`
+    * Windows requires you _surround the path with double quotes_ e.g. `"c:\my test"`
     * macOS and Linux require _a backslash before each space_ e.g. `/my\ test`
 
 #### File paths
