@@ -101,7 +101,7 @@ They are listed as CSS classes in tags that delineate OS-specific stuff. For exa
 
 `platform-all` has a special quality besides being visible to all platforms, if a page contains non-OS-specific sections or non-OS-specific sections and `platform-all` sections, the Platform Selector (see below) is not shown.
 
-![Platform Selector](/getting-started/images/platform-selector.png "Platform Selector")
+![Platform Selector](/content/getting-started/images/platform-selector.png "Platform Selector")
 
 #### OS-specific Blocks
 
