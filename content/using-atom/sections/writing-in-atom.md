@@ -3,15 +3,15 @@ title: Writing in Atom
 ---
 ### Writing in Atom
 
-Though it is probably most common to use Atom to write software code, Atom can also be used to write prose quite effectively. Most often this is done in some sort of markup language such as Asciidoc or [Markdown](https://help.github.com/articles/about-writing-and-formatting-on-github/) (which this manual is written in). Here we'll quickly cover a few of the tools Atom provides for helping you write prose.
+Though it is probably most common to use Atom to write software code, Atom can also be used to write prose quite effectively. Most often this is done in some sort of markup language such as Asciidoc or [Markdown](https://help.github.com/articles/about-writing-and-formatting-on-github/) (in which this manual is written). Here we'll quickly cover a few of the tools Atom provides for helping you write prose.
 
 In these docs, we'll concentrate on writing in Markdown; however, other prose markup languages like Asciidoc have packages that provide similar functionality.
 
 #### Spell Checking
 
-If you're working in text (which includes plain text files, GitHub markdown and Git commit messages by default), Atom will automatically try to check your spelling.
+If you're working in text (which includes plain text files, GitHub markdown, and Git commit messages by default), Atom will automatically try to check your spelling.
 
-Any misspelled words will be highlighted (by default with a dashed red line beneath the word) and you can pull up a menu of possible corrections by hitting <kbd class="platform-mac">Cmd+Shift+;</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+;</kbd> (or by choosing "Correct Spelling" from the right-click context menu or from the Command Palette).
+Any misspelled words will be highlighted (by default with a dashed red line beneath the word), and you can pull up a menu of possible corrections by hitting <kbd class="platform-mac">Cmd+Shift+;</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+;</kbd> (or by choosing "Correct Spelling" from the right-click context menu or from the Command Palette).
 
 ![Checking your spelling](../../images/spellcheck.png)
 
