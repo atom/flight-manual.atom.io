@@ -3,8 +3,7 @@ title: Cross-Platform Compatibility
 ---
 ### Cross-Platform Compatibility
 
-Atom runs on a number of platforms and while Electron and Node take care of many of the details there
-are still some considerations to ensure your package works on other operating systems.
+Atom runs on a number of platforms and while Electron and Node take care of many of the details there are still some considerations to ensure your package works on other operating systems.
 
 #### Symlinks
 
