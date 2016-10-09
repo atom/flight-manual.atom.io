@@ -7,7 +7,7 @@ Atom contains a number of packages that are Node modules instead of Atom package
 
 #### Linking a Node Module Into Your Atom Dev Environment
 
-Here are the steps to run a local version of a node module *not an apm* within Atom. We're using `atom-keymap` as an example:
+Here are the steps to run a local version of a node module within Atom. We're using `atom-keymap` as an example:
 
 ``` command-line
 $ git clone https://github.com/atom/atom-keymap.git
@@ -15,7 +15,7 @@ $ cd atom-keymap
 $ npm install
 $ npm link
 
-# This is the special step, it makes the npm work with Atom's version of Node
+# This is the special step, it makes npm work with Atom's version of Node
 $ apm rebuild
 
 $ cd WHERE-YOU-CLONED-ATOM
