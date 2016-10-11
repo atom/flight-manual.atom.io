@@ -18,11 +18,11 @@ $ npm link
 # This is the special step, it makes the npm work with Atom's version of Node
 $ apm rebuild
 
-$ cd WHERE-YOU-CLONED-ATOM
+$ cd <em>WHERE YOU CLONED ATOM</em>
 $ npm link atom-keymap
 
 # Should work!
-$ atom
+$ atom --dev .
 ```
 
 After this, you'll have to `npm install` and `apm rebuild` when you make a change to the node module's code.
