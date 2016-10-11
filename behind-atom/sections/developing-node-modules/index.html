@@ -341,7 +341,7 @@
 <h4>
 <a id="linking-a-node-module-into-your-atom-dev-environment" class="anchor" href="#linking-a-node-module-into-your-atom-dev-environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Linking a Node Module Into Your Atom Dev Environment</h4>
 
-<p>Here are the steps to run a local version of a node module <em>not an apm</em> within Atom. We're using <code>atom-keymap</code> as an example:</p>
+<p>Here are the steps to run a local version of a Node module, <em>not</em> an Atom package, within Atom. We're using <code>atom-keymap</code> as an example:</p>
 
 <pre class="command-line">
 <span class="command">git clone https://github.com/atom/atom-keymap.git</span>
@@ -349,17 +349,25 @@
 <span class="command">npm install</span>
 <span class="command">npm link</span>
 
-<span class="comment"># This is the special step, it makes the npm work with Atom's version of Node</span>
+<span class="comment"># This is the special step, it makes the Node module work with Atom's version of Node</span>
 <span class="command">apm rebuild</span>
 
-<span class="command">cd WHERE-YOU-CLONED-ATOM</span>
+<span class="command">cd <em>WHERE YOU CLONED ATOM</em></span>
 <span class="command">npm link atom-keymap</span>
 
 <span class="comment"># Should work!</span>
-<span class="command">atom</span>
+<span class="command">atom --dev .</span>
 </pre>
 
-<p>After this, you'll have to <code>npm install</code> and <code>apm rebuild</code> when you make a change to the node module's code.</p>
+<p>After you get the Node module linked and working, every time you make a change to the Node module's code, you will have to exit Atom and do the following:</p>
+
+<pre class="command-line">
+<span class="command">cd <em>WHERE YOU CLONED THE NODE MODULE</em></span>
+<span class="command">npm install</span>
+<span class="command">apm rebuild</span>
+<span class="command">cd <em>WHERE YOU CLONED ATOM</em></span>
+<span class="command">atom --dev .</span>
+</pre>
         </div>
       </div>
       <div class="footer-pad"></div>
