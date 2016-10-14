@@ -257,6 +257,7 @@ An environment variable can be used, though to make Atom use a different locatio
 ##### Taking your customization with you with Portable Mode
 
 In addition to using the `ATOM_HOME` environment variable, Atom can also be set to use "Portable Mode".
+
 Portable Mode is most useful for taking Atom with you, with all your custom setting and packages, from machine to machine. This may take the form of keeping Atom on a USB drive or a cloud storage platform that syncs folders to different machines, like Dropbox. Atom is in Portable Mode when there is a directory named .atom sibling to the directory in which the atom executable file lives. For example, the installed Atom directory can be placed into a Dropbox folder next to a .atom folder.
 
 ![Portable mode directory structure](../../images/portable-mode-folder.png)
