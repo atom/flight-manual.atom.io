@@ -4,7 +4,7 @@ title: Removing Shadow DOM styles
 
 ### Removing Shadow DOM styles
 
-In Atom `1.13` the Shadow DOM got removed from text editors. For more background on the reasoning, check out the [Pull Request](https://github.com/atom/atom/pull/12903). In this guide you will learn how to migrate your theme or package.
+In Atom `1.13` the Shadow DOM got removed from text editors. For more background on the reasoning, check out the [Pull Request](https://github.com/atom/atom/pull/12903) where it was removed. In this guide you will learn how to migrate your theme or package.
 
 
 #### Summary
