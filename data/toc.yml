@@ -54,3 +54,6 @@ Appendices:
     - Upgrading Your Package
     - Upgrading Your UI Theme Or Package Selectors
     - Upgrading Your Syntax Theme
+
+  Shadow DOM:
+    - Removing Shadow DOM styles
