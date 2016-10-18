@@ -217,7 +217,7 @@ Another way to find the scope for a specific language is to open a file of its k
 
 ![Finding a language grammar with cursor scope](../../images/cursor-scope.png "Finding a language grammar with cursor scope")
 
-These scopes can be especially useful to [style the editor](#styling-the-editor), since they can also be used as class names in your stylesheet.
+These scopes can be especially useful to style the editor, since they can also be used as class names in your stylesheet.
 
 #### Customizing Language Recognition
 
