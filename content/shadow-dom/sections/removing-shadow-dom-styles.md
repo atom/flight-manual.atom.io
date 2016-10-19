@@ -150,6 +150,27 @@ After:
 __Note__: Selectors like the `.gutter`, `.indent-guide`, `.cursor` etc., that also get styled in Syntax themes, don't need a prefix. __Only__ grammar selectors that get used by language packages. E.g. `.syntax--keyword`, `.syntax--keyword.syntax--operator.syntax--js`.
 
 
+#### I followed the guide, but now my styling is broken!
+
+By removing `::shadow` from `atom-text-editor`, specificity will be decreased. This can cause the side effect that some of your properties won't be strong enough. To fix that, you can increase specificity on your selector. A simple way is to just repeat your class (in the example below it's `.my-class`):
+
+Before:
+
+```less
+atom-text-editor::shadow .my-class {
+  color: hotpink;
+}
+```
+
+After:
+
+```less
+atom-text-editor .my-class.my-class {
+  color: hotpink;
+}
+```
+
+
 #### When should I migrate my theme/package?
 
 - If you already want to test the migration on master or Beta channel, make sure to change your `package.json` file to `"engines": { "atom": ">=1.13.0 <2.0.0" }`. This will prevent Atom from updating your theme or package before the user also updates Atom to version `1.13`.
