@@ -113,6 +113,17 @@ As is the case with CSS applying styles, when multiple bindings match for a sing
 
 Currently, there's no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We handle cases where selector ordering is critical by breaking the keymap into separate files, such as `snippets-1.cson` and `snippets-2.cson`.
 
+##### Selectors and Custom Packages
+
+If a keybinding should only apply to a specific grammar, you can limit bindings to that grammar using the `data-grammar` attribute on the `atom-text-editor` element:
+
+```coffee
+"atom-text-editor[data-grammar='source example']":
+  'ctrl-.': 'custom:custom-command'
+```
+
+While selectors can be applied to the entire editor by what grammar is associated with it, they cannot be applied to scopes defined within the grammar or to sub-elements of `atom-text-editor`.
+
 #### Removing Bindings
 
 When the keymap system encounters a binding with the `unset!` directive as its command, it will treat the current element as if it had no key bindings matching the current keystroke sequence and continue searching from its parent. If you want to remove a binding from a keymap you don't control, such as keymaps in Atom core or in packages, use the `unset!` directive.
