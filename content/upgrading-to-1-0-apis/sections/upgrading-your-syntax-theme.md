@@ -4,7 +4,7 @@ title: Upgrading Your Syntax Theme
 
 {{#note}}
 
-**Note:** The Shadow DOM got removed in Atom `1.13`. The `:host` selector described below won't work and should not be used anymore.
+**Note:** The Shadow DOM was removed in Atom `1.13`. The `:host` selector described below won't work and should not be used anymore.
 
 {{/note}}
 
