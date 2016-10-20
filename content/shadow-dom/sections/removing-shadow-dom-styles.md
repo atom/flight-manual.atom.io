@@ -15,7 +15,6 @@ Before | +/- | After
 ---|---|---
 `atom-text-editor::shadow {}` | - `::shadow` | `atom-text-editor {}`
 `.class /deep/ .class {}` | - `/deep/` | `.class .class {}`
-`index.atom-text-editor.less` | - `.atom-text-editor` | `index.less`
 `atom-text-editor, :host {}` | - `:host` | `atom-text-editor {}`
 `.comment {}` | + `.syntax--` | `.syntax--comment {}`
 
@@ -65,27 +64,6 @@ After:
   width: 8px;
   height: 8px;
 }
-```
-
-
-##### Context-Targeted Style Sheets
-
-Atom also allowed you to target a specific shadow DOM context with an entire style sheet by adding `.atom-text-editor` to the file name. This is now not necessary anymore and can be removed.
-
-Before:
-
-```
-my-ui-theme/
-  styles/
-    index.atom-text-editor.less
-```
-
-After:
-
-```
-my-ui-theme/
-  styles/
-    index.less
 ```
 
 
@@ -148,6 +126,27 @@ After:
 ```
 
 __Note__: Selectors like the `.gutter`, `.indent-guide`, `.cursor` etc., that also get styled in Syntax themes, don't need a prefix. __Only__ grammar selectors that get used by language packages. E.g. `.syntax--keyword`, `.syntax--keyword.syntax--operator.syntax--js`.
+
+
+#### Context-Targeted Style Sheets
+
+Atom also allowed you to target a specific shadow DOM context with an entire style sheet by adding `.atom-text-editor` to the file name. This is now not necessary anymore and can be removed.
+
+Before:
+
+```
+my-ui-theme/
+  styles/
+    index.atom-text-editor.less
+```
+
+After:
+
+```
+my-ui-theme/
+  styles/
+    index.less
+```
 
 
 #### I followed the guide, but now my styling is broken!
