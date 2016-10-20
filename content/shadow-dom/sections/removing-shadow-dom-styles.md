@@ -125,7 +125,7 @@ After:
 }
 ```
 
-__Note__: Selectors like the `.gutter`, `.indent-guide`, `.cursor` etc., that also get styled in Syntax themes, don't need a prefix. __Only__ grammar selectors that get used by language packages. E.g. `.syntax--keyword`, `.syntax--keyword.syntax--operator.syntax--js`.
+__Note__: Selectors like the `.gutter`, `.indent-guide`, `.cursor` among others, that are also part of Syntax themes, don't need a prefix. __Only__ grammar selectors that get used by language packages. For example `.syntax--keyword`, `.syntax--keyword.syntax--operator.syntax--js`.
 
 
 #### Context-Targeted Style Sheets
@@ -173,4 +173,4 @@ atom-text-editor .my-class.my-class {
 #### When should I migrate my theme/package?
 
 - If you already want to test the migration on master or Beta channel, make sure to change your `package.json` file to `"engines": { "atom": ">=1.13.0 <2.0.0" }`. This will prevent Atom from updating your theme or package before the user also updates Atom to version `1.13`.
-- Or you can wait until Atom `1.13` reaches __Stable__ (probably beginning of December 2016). Don't worry if you're a bit late, Atom will transform the deprecated selectors automatically to avoid breaking any themes or packages. But users will start to see a deprecation warning in [deprecation-cop](https://github.com/atom/deprecation-cop).
+- Or you can wait until Atom `1.13` reaches __Stable__. Check the [release notes](https://github.com/atom/atom/releases/tag/v1.13.0) and if that page doesn't show a 404, you're good to go. Don't worry if you're a bit late, Atom will transform the deprecated selectors automatically to avoid breaking any themes or packages. But users will start to see a deprecation warning in [deprecation-cop](https://github.com/atom/deprecation-cop).
