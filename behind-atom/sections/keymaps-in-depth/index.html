@@ -474,6 +474,18 @@
 
 <p>Currently, there's no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We handle cases where selector ordering is critical by breaking the keymap into separate files, such as <code>snippets-1.cson</code> and <code>snippets-2.cson</code>.</p>
 
+<h5>
+<a id="selectors-and-custom-packages" class="anchor" href="#selectors-and-custom-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selectors and Custom Packages</h5>
+
+<p>If a keybinding should only apply to a specific grammar, you can limit bindings to that grammar using the <code>data-grammar</code> attribute on the <code>atom-text-editor</code> element:</p>
+
+<pre class="highlight highlight-coffee"><code><span class="s">"atom-text-editor[data-grammar='source example']"</span><span class="o">:</span>
+  <span class="s">'ctrl-.'</span><span class="o">:</span> <span class="s">'custom:custom-command'</span>
+</code></pre>
+
+
+<p>While selectors can be applied to the entire editor by what grammar is associated with it, they cannot be applied to scopes defined within the grammar or to sub-elements of <code>atom-text-editor</code>.</p>
+
 <h4>
 <a id="removing-bindings" class="anchor" href="#removing-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing Bindings</h4>
 
