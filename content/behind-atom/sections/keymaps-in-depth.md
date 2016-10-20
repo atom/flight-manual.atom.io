@@ -114,14 +114,15 @@ As is the case with CSS applying styles, when multiple bindings match for a sing
 Currently, there's no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We handle cases where selector ordering is critical by breaking the keymap into separate files, such as `snippets-1.cson` and `snippets-2.cson`.
 
 ##### Selectors and Custom Packages
-If a keybinding should only apply to a specific package instead of globally, you can limit bindings to only that grammar using the data-grammar attribute:
+
+If a keybinding should only apply to a specific grammar, you can limit bindings to that grammar using the `data-grammar` attribute on the `atom-text-editor` element:
 
 ```coffee
-"atom-text-editor[data-grammar='source somegrammar']":
+"atom-text-editor[data-grammar='source example']":
   'ctrl-.': 'custom:custom-command'
 ```
 
-While selectors can be applied to your entire grammar, they cannot be applied to scopes defined in a package grammar or to sub-elements of atom-text-editor at this time.
+While selectors can be applied to the entire editor by what grammar is associated with it, they cannot be applied to scopes defined within the grammar or to sub-elements of `atom-text-editor`.
 
 #### Removing Bindings
 
