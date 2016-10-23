@@ -23,9 +23,9 @@ There are a handful of cool keybindings for basic text manipulation that might c
 
 Atom also has built in functionality to re-flow a paragraph to hard-wrap at a given maximum line length. You can format the current selection to have lines no longer than 80 (or whatever number `editor.preferredLineLength` is set to) characters using <kbd class="platform-mac">Alt+Cmd+Q</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Q</kbd>. If nothing is selected, the current paragraph will be reflowed.
 
-#### Deleting and Cutting
+#### Deleting Text
 
-You can also delete or cut text out of your buffer with some shortcuts. Be ruthless.
+You can also delete text out of your buffer with some shortcuts. Be ruthless.
 
 * <kbd class="platform-mac platform-windows platform-linux">Ctrl+Shift+K</kbd> - Delete current line
 * <span class="platform-mac"><kbd class="platform-mac">Alt+Backspace</kbd> or <kbd class="platform-mac">Alt+H</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Backspace</kbd> - Delete to beginning of word
