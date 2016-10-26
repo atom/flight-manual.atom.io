@@ -118,7 +118,7 @@ If you run into problems with keybindings, the Keybinding Resolver is a huge hel
 
 #### Global Configuration Settings
 
-Atom loads configuration settings from the `config.cson` file in your <span class="platform-mac platform-linux">`~/.atom`</span><span class="platform-windows">`%USERPROFILE\.atom`</span> directory.
+Atom loads configuration settings from the `config.cson` file in your <span class="platform-mac platform-linux">`~/.atom`</span><span class="platform-windows">`%USERPROFILE%\.atom`</span> directory.
 
 ```coffee
 '*':
