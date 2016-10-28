@@ -183,7 +183,6 @@ editor.showIndentGuide
 editor.nonWordCharacters
 editor.invisibles
 editor.autoIndent
-editor.normalizeIndentOnPaste
 ```
 
 ##### Language-specific Settings in the Settings View
