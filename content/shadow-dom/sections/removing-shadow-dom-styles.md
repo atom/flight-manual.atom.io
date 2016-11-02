@@ -151,7 +151,7 @@ my-ui-theme/
 
 #### I followed the guide, but now my styling is broken!
 
-By removing `::shadow` from `atom-text-editor`, specificity will be decreased. This can cause the side effect that some of your properties won't be strong enough. To fix that, you can increase specificity on your selector. A simple way is to just repeat your class (in the example below it's `.my-class`):
+By replacing `atom-text-editor::shadow` with `atom-text-editor.editor`, specificity might have changed. This can cause the side effect that some of your properties won't be strong enough. To fix that, you can increase specificity on your selector. A simple way is to just repeat your class (in the example below it's `.my-class`):
 
 Before:
 
