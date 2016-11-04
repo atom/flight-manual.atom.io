@@ -3,23 +3,25 @@ title: Iconography
 ---
 ### Iconography
 
-Atom comes bundled with the [Octicons 2.1.2](https://github.com/github/octicons/tree/v2.1.2) icon set. Use them to add icons to your packages.
+Atom comes bundled with the [Octicons 4.4.0](https://github.com/github/octicons/tree/v4.4.0) icon set. Use them to add icons to your packages.
+
+> NOTE: Some older icons from version `2.1.2` are still kept for backwards compatibility.
+
+#### Overview
+
+In the [Styleguide](http://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/#atom-styleguide) under the "Icons" section you'll find all the Octicons that are available.
+
+![Octicons in the Styleguide](../../images/iconography.png "Octicons in the Styleguide")
 
 #### Usage
 
-Atom's usage of the Octicons differs just a bit from the [standard way](https://octicons.github.com/icon/mark-github/). The biggest difference is in the naming of the icon classes. Instead of the `octicon octicon-` prefix, you would use a more generic `icon icon-` prefix.
+Octicons can be added with simple CSS classes in your markup. Prefix the icon names with `icon icon-`.
 
-As an example, to add a monitor icon, use the `icon icon-device-desktop` classes in your markup:
+As an example, to add a monitor icon (`device-desktop`), use the `icon icon-device-desktop` classes:
 
 ```html
 <span class="icon icon-device-desktop"></span>
 ```
-
-#### Overview
-
-To see an overview of all icons open the [Styleguide](http://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/#atom-styleguide). Under the "Icons" section you'll find all the Octicons that are available.
-
-![Octicons in the Styleguide](../../images/iconography.png "Octicons in the Styleguide")
 
 #### Size
 
