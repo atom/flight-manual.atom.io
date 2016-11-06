@@ -173,16 +173,18 @@ You can also set several configuration settings differently for different file t
 There are several settings now scoped to an editor's language. Here is the current list:
 
 ```
-editor.tabLength
-editor.softWrap
-editor.softWrapAtPreferredLineLength
+editor.autoIndent
+editor.autoIndentOnPaste
+editor.invisibles
+editor.nonWordCharacters
 editor.preferredLineLength
 editor.scrollPastEnd
-editor.showInvisibles
 editor.showIndentGuide
-editor.nonWordCharacters
-editor.invisibles
-editor.autoIndent
+editor.showInvisibles
+editor.softWrap
+editor.softWrapAtPreferredLineLength
+editor.softWrapHangingIndent
+editor.tabLength
 ```
 
 ##### Language-specific Settings in the Settings View
