@@ -111,7 +111,7 @@ This is a great tool if you're used to the terminal or you work from the termina
 
 ##### Editing and Saving a File
 
-Editing a file is pretty straightforward. You can click around and scroll with your mouse and type to change the content. There is no special editing mode or key commands (by default; packages for vim, emacs, and other styles are available).
+Editing a file is pretty straightforward. You can click around and scroll with your mouse and type to change the content. There is no special editing mode or key commands. If you prefer editors with modes or more complex key commands, you should take a look at the [Atom package list](https://atom.io/packages). There are a lot of packages that emulate popular styles.
 
 To save a file you can choose *File > Save* from the menu bar or <kbd class="platform-mac">Cmd+S</kbd><kbd class="platform-windows platform-linux">Ctrl+S</kbd> to save the file. If you choose *File > Save As* or press <kbd class="platform-mac">Cmd+Shift+S</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+S</kbd> then you can save the current content in your editor under a different file name. Finally, you can choose *File > Save All* <span class="platform-mac">or press <kbd class="platform-mac">Alt+Cmd+S</kbd></span> to save all the open files in Atom.
 
