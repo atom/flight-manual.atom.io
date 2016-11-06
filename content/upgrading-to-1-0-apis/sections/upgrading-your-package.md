@@ -81,7 +81,7 @@ All of the methods in Atom core that have changes will emit deprecation messages
 
 Just run your specs, and all the deprecations will be displayed in yellow.
 
-![Deprecations in Specs](../../images/spec-deps.png)
+![Deprecations in Specs](../images/spec-deps.png)
 
 {{#note}}
 
@@ -93,7 +93,7 @@ Just run your specs, and all the deprecations will be displayed in yellow.
 
 Run Atom in Dev Mode, `atom --dev`, with your package loaded, and open Deprecation Cop (search for "deprecation" in the command palette). Deprecated methods will appear in Deprecation Cop only after they have been called.
 
-![Deprecation Cop](../../images/dep-cop.png)
+![Deprecation Cop](../images/dep-cop.png)
 
 When Deprecation Cop is open, and deprecated methods are called, a `Refresh` button will appear in the top right of the Deprecation Cop interface. So exercise your package, then come back to Deprecation Cop and click the `Refresh` button.
 
@@ -608,4 +608,4 @@ atom.workspaceView.command 'core:close core:cancel', ->
 
 #### Upgrading your stylesheet's selectors
 
-Many selectors have changed, and we have introduced the [Shadow DOM](http://blog.atom.io/2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html) to the editor. See the [Upgrading Your UI Theme And Package Selectors guide](https://atom.io/docs/latest/upgrading/upgrading-your-ui-theme) for more information in upgrading your package stylesheets.
+Many selectors have changed, and we have introduced the [Shadow DOM](http://blog.atom.io/2014/11/18/avoiding-style-pollution-with-the-shadow-dom.html) to the editor. See the [Upgrading Your UI Theme And Package Selectors guide](http://flight-manual.atom.io/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors) for more information in upgrading your package stylesheets.
