@@ -4,10 +4,10 @@ Contributing is easy!
 
 1. [Fork this repository](https://github.com/atom/flight-manual.atom.io#fork-destination-box)
 2. Download your fork. [(Click here for help)](https://help.github.com/articles/fork-a-repo/#keep-your-fork-synced)
-3. Create a named feature branch ([we use Github flow](https://guides.github.com/introduction/flow/index.html))
+3. Create a named feature branch ([We use Github flow](https://guides.github.com/introduction/flow/index.html))
 4. Make a change to the Asciidoc (or whatever you want to change),
-5. push it to a branch
-6. send us a [Pull Request](https://github.com/atom/flight-manual.atom.io/pulls).
+5. Push it to a branch
+6. Send us a [Pull Request](https://github.com/atom/flight-manual.atom.io/pulls).
 
 If you're not sure about the change or the idea for the change, open an issue first to see if it's something we'll want to pull in. If you want to make some sort of sweeping grammatical or narrative change, please check with us first because we don't want you to do a ton of work and not get it merged.
 
@@ -140,7 +140,7 @@ This way when someone hovers over the image, the description of the image appear
 
 All screenshots should be taken using Atom's default themes and settings.
 
-[pngcrush]: http://pmt.sourceforge.net/pngcrush/
+Using [**PNGCRUSH**](http://pmt.sourceforge.net/pngcrush) to optimize PNG files.
 
 ### Keybindings
 
