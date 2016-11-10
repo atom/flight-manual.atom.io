@@ -50,6 +50,9 @@ Appendices:
   Resources:
     - Glossary
 
+  Shadow DOM:
+    - Removing Shadow DOM styles
+
   Upgrading to 1.0 APIs:
     - Upgrading Your Package
     - Upgrading Your UI Theme Or Package Selectors

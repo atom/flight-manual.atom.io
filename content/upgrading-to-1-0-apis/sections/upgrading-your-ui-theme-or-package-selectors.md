@@ -1,6 +1,14 @@
 ---
 title: Upgrading Your UI Theme Or Package Selectors
 ---
+
+{{#note}}
+
+**Note:** The Shadow DOM was removed in Atom `1.13`. The `::shadow` and `/deep/` selectors and the context-targeted style sheets described below won't work and should not be used anymore.
+
+{{/note}}
+
+
 ### Upgrading Your UI Theme Or Package Selectors
 
 In addition to changes in Atom's scripting API, we'll also be making some breaking changes to Atom's DOM structure, requiring style sheets and keymaps in both packages and themes to be updated.
