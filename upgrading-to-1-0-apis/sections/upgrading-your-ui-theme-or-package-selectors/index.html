@@ -281,7 +281,18 @@
   </ul>
 
   <h4>
-    <a href="/upgrading-to-1-0-apis">Appendix B: Upgrading to 1.0 APIs</a>
+    <a href="/shadow-dom">Appendix B: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix C: Upgrading to 1.0 APIs</a>
   </h4>
   <ul>
     
@@ -333,7 +344,13 @@
 
         <div class="markdown-body document-content">
           
-          <h3>
+          <div class="alert note">
+
+<p><strong>Note:</strong> The Shadow DOM was removed in Atom <code>1.13</code>. The <code>::shadow</code> and <code>/deep/</code> selectors and the context-targeted style sheets described below won't work and should not be used anymore.</p>
+
+</div>
+
+<h3>
 <a id="upgrading-your-ui-theme-or-package-selectors" class="anchor" href="#upgrading-your-ui-theme-or-package-selectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading Your UI Theme Or Package Selectors</h3>
 
 <p>In addition to changes in Atom's scripting API, we'll also be making some breaking changes to Atom's DOM structure, requiring style sheets and keymaps in both packages and themes to be updated.</p>

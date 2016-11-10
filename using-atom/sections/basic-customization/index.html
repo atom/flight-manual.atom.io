@@ -281,7 +281,18 @@
   </ul>
 
   <h4>
-    <a href="/upgrading-to-1-0-apis">Appendix B: Upgrading to 1.0 APIs</a>
+    <a href="/shadow-dom">Appendix B: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix C: Upgrading to 1.0 APIs</a>
   </h4>
   <ul>
     
@@ -418,19 +429,6 @@
 <p>If you prefer to use CSS instead, you can do that in the same <code>styles.less</code> file, since CSS is also valid in Less.</p>
 
 </div>
-
-<h5>
-<a id="styling-the-editor" class="anchor" href="#styling-the-editor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styling the Editor</h5>
-
-<p>Atom's text editor content uses a Shadow DOM to protect it against accidental style overriding from the rest of the Atom UI. For that reason, any tweaking of the styles within an editor including syntax highlighting, selection or gutter styles need a special <code>atom-text-editor::shadow</code> selector prepended.</p>
-
-<p>As an example, if you would like to change the color of the cursor, the <code>.cursor</code> selector isn't enough and instead you'd have to add <code>atom-text-editor::shadow</code> in front:</p>
-
-<pre class="highlight highlight-css"><code><span class="nt">atom-text-editor</span><span class="nd">::shadow</span> <span class="nc">.cursor</span> <span class="p">{</span>
-  <span class="nl">border-color</span><span class="p">:</span> <span class="no">pink</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-
 
 <h4>
 <a id="customizing-keybindings" class="anchor" href="#customizing-keybindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing Keybindings</h4>
@@ -631,7 +629,7 @@ editor.tabLength
 
 <p><img src="../../images/cursor-scope.png" alt="Finding a language grammar with cursor scope" title="Finding a language grammar with cursor scope"></p>
 
-<p>These scopes can be especially useful to <a href="#styling-the-editor">style the editor</a>, since they can also be used as class names in your stylesheet.</p>
+<p>These scopes can be especially useful to style the editor, since they can also be used as class names in your stylesheet.</p>
 
 <h4>
 <a id="customizing-language-recognition" class="anchor" href="#customizing-language-recognition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing Language Recognition</h4>

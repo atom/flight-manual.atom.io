@@ -281,7 +281,18 @@
   </ul>
 
   <h4>
-    <a href="/upgrading-to-1-0-apis">Appendix B: Upgrading to 1.0 APIs</a>
+    <a href="/shadow-dom">Appendix B: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix C: Upgrading to 1.0 APIs</a>
   </h4>
   <ul>
     
@@ -333,7 +344,13 @@
 
         <div class="markdown-body document-content">
           
-          <h3>
+          <div class="alert note">
+
+<p><strong>Note:</strong> The Shadow DOM was removed in Atom <code>1.13</code>. The <code>:host</code> selector described below won't work and should not be used anymore.</p>
+
+</div>
+
+<h3>
 <a id="upgrading-your-syntax-theme" class="anchor" href="#upgrading-your-syntax-theme" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading Your Syntax Theme</h3>
 
 <p>Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom">Shadow DOM 101</a> on HTML 5 Rocks.</p>

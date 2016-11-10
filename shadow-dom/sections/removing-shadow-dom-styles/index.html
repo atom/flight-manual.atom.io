@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title></title>
+<title>Removing Shadow DOM styles</title>
 
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
 
@@ -285,7 +285,7 @@
   </h4>
   <ul>
     
-      <li class="unselected">
+      <li class="selected">
         <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
       </li>
     
@@ -337,14 +337,220 @@
 </div>
 
           <a class="improve-link"
-              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/404.md" data-proofer-ignore>
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/shadow-dom/sections/removing-shadow-dom-styles.md" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
           </a>
         </h1>
 
         <div class="markdown-body document-content">
           
-          <p>Not Found!</p>
+          <h3>
+<a id="removing-shadow-dom-styles" class="anchor" href="#removing-shadow-dom-styles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing Shadow DOM styles</h3>
+
+<p>In Atom <code>1.13</code> the Shadow DOM got removed from text editors. For more background on the reasoning, check out the <a href="https://github.com/atom/atom/pull/12903">Pull Request</a> where it was removed. In this guide you will learn how to migrate your theme or package.</p>
+
+<h4>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h4>
+
+<p>Here a quick summary to see all the changes at a glance:</p>
+
+<table>
+<thead>
+<tr>
+<th>Before</th>
+<th>+/-</th>
+<th>After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>atom-text-editor::shadow {}</code></td>
+<td>- <code>::shadow</code>
+</td>
+<td><code>atom-text-editor {}</code></td>
+</tr>
+<tr>
+<td><code>.class /deep/ .class {}</code></td>
+<td>- <code>/deep/</code>
+</td>
+<td><code>.class .class {}</code></td>
+</tr>
+<tr>
+<td><code>atom-text-editor, :host {}</code></td>
+<td>- <code>:host</code>
+</td>
+<td><code>atom-text-editor {}</code></td>
+</tr>
+<tr>
+<td><code>.comment {}</code></td>
+<td>+ <code>.syntax--</code>
+</td>
+<td><code>.syntax--comment {}</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Below you'll find more detailed examples.</p>
+
+<h4>
+<a id="ui-themes-and-packages" class="anchor" href="#ui-themes-and-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>UI themes and packages</h4>
+
+<h5>
+<a id="shadow" class="anchor" href="#shadow" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>::shadow</code>
+</h5>
+
+<p>Remove the <code>::shadow</code> pseudo-element selector from <code>atom-text-editor</code>.</p>
+
+<p>Before:</p>
+
+<pre class="highlight highlight-less"><code>atom-text-editor::shadow .cursor {
+  border-color: hotpink;
+}
+</code></pre>
+
+
+<p>After:</p>
+
+<pre class="highlight highlight-less"><code>atom-text-editor .cursor {
+  border-color: hotpink;
+}
+</code></pre>
+
+
+<h5>
+<a id="deep" class="anchor" href="#deep" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>/deep/</code>
+</h5>
+
+<p>Remove the <code>/deep/</code> combinator selector. It didn't get used that often, mainly to customize the scrollbars.</p>
+
+<p>Before:</p>
+
+<pre class="highlight highlight-less"><code>.scrollbars-visible-always /deep/ ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+</code></pre>
+
+
+<p>After:</p>
+
+<pre class="highlight highlight-less"><code>.scrollbars-visible-always ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+</code></pre>
+
+
+<h4>
+<a id="syntax-themes" class="anchor" href="#syntax-themes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Syntax themes</h4>
+
+<h5>
+<a id="host" class="anchor" href="#host" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>:host</code>
+</h5>
+
+<p>Remove the <code>:host</code> pseudo-element selector. To scope any styles to the text editor, using <code>atom-text-editor</code> is already enough.</p>
+
+<p>Before:</p>
+
+<pre class="highlight highlight-less"><code>atom-text-editor, :host {
+  .cursor {
+    border-color: hotpink;
+  }
+}
+</code></pre>
+
+
+<p>After:</p>
+
+<pre class="highlight highlight-less"><code>atom-text-editor {
+  .cursor {
+    border-color: hotpink;
+  }
+}
+</code></pre>
+
+
+<h5>
+<a id="syntax--" class="anchor" href="#syntax--" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>syntax--</code>
+</h5>
+
+<p>Add a <code>syntax--</code> prefix to all grammar selectors used by language packages. It looks a bit verbose, but it will protect all the grammar selectors from accidental style pollution.</p>
+
+<p>Before:</p>
+
+<pre class="highlight highlight-less"><code>.comment {
+  color: @mono-3;
+  font-style: italic;
+
+  .markup.link {
+    color: @mono-3;
+  }
+}
+</code></pre>
+
+
+<p>After:</p>
+
+<pre class="highlight highlight-less"><code>.syntax--comment {
+  color: @mono-3;
+  font-style: italic;
+
+  .syntax--markup.syntax--link {
+    color: @mono-3;
+  }
+}
+</code></pre>
+
+
+<p><strong>Note</strong>: Selectors like the <code>.gutter</code>, <code>.indent-guide</code>, <code>.cursor</code> among others, that are also part of Syntax themes, don't need a prefix. <strong>Only</strong> grammar selectors that get used by language packages. For example <code>.syntax--keyword</code>, <code>.syntax--keyword.syntax--operator.syntax--js</code>.</p>
+
+<h4>
+<a id="context-targeted-style-sheets" class="anchor" href="#context-targeted-style-sheets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context-Targeted Style Sheets</h4>
+
+<p>Atom also allowed you to target a specific shadow DOM context with an entire style sheet by adding <code>.atom-text-editor</code> to the file name. This is now not necessary anymore and can be removed.</p>
+
+<p>Before:</p>
+
+<pre><code>my-ui-theme/
+  styles/
+    index.atom-text-editor.less
+</code></pre>
+
+<p>After:</p>
+
+<pre><code>my-ui-theme/
+  styles/
+    index.less
+</code></pre>
+
+<h4>
+<a id="i-followed-the-guide-but-now-my-styling-is-broken" class="anchor" href="#i-followed-the-guide-but-now-my-styling-is-broken" aria-hidden="true"><span class="octicon octicon-link"></span></a>I followed the guide, but now my styling is broken!</h4>
+
+<p>By replacing <code>atom-text-editor::shadow</code> with <code>atom-text-editor.editor</code>, specificity might have changed. This can cause the side effect that some of your properties won't be strong enough. To fix that, you can increase specificity on your selector. A simple way is to just repeat your class (in the example below it's <code>.my-class</code>):</p>
+
+<p>Before:</p>
+
+<pre class="highlight highlight-less"><code>atom-text-editor::shadow .my-class {
+  color: hotpink;
+}
+</code></pre>
+
+
+<p>After:</p>
+
+<pre class="highlight highlight-less"><code>atom-text-editor .my-class.my-class {
+  color: hotpink;
+}
+</code></pre>
+
+
+<h4>
+<a id="when-should-i-migrate-my-themepackage" class="anchor" href="#when-should-i-migrate-my-themepackage" aria-hidden="true"><span class="octicon octicon-link"></span></a>When should I migrate my theme/package?</h4>
+
+<ul>
+<li>If you already want to test the migration on master or Beta channel, make sure to change your <code>package.json</code> file to <code>"engines": { "atom": "&gt;=1.13.0 &lt;2.0.0" }</code>. This will prevent Atom from updating your theme or package before the user also updates Atom to version <code>1.13</code>.</li>
+<li>Or you can wait until Atom <code>1.13</code> reaches <strong>Stable</strong>. Check <a href="http://blog.atom.io/">blog.atom.io</a> to see if <code>1.13</code> already has been released. Don't worry if you're a bit late, Atom will transform the deprecated selectors automatically to avoid breaking any themes or packages. But users will start to see a deprecation warning in <a href="https://github.com/atom/deprecation-cop">deprecation-cop</a>.</li>
+</ul>
         </div>
       </div>
       <div class="footer-pad"></div>
