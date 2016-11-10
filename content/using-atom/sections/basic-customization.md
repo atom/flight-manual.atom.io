@@ -84,18 +84,6 @@ If you prefer to use CSS instead, you can do that in the same `styles.less` file
 
 {{/tip}}
 
-##### Styling the Editor
-
-Atom's text editor content uses a Shadow DOM to protect it against accidental style overriding from the rest of the Atom UI. For that reason, any tweaking of the styles within an editor including syntax highlighting, selection or gutter styles need a special `atom-text-editor::shadow` selector prepended.
-
-As an example, if you would like to change the color of the cursor, the `.cursor` selector isn't enough and instead you'd have to add `atom-text-editor::shadow` in front:
-
-```css
-atom-text-editor::shadow .cursor {
-  border-color: pink;
-}
-```
-
 #### Customizing Keybindings
 
 Atom keymaps work similarly to stylesheets. Just as stylesheets use selectors to apply styles to elements, Atom keymaps use selectors to associate key combinations with events in specific contexts. Here's a small example, excerpted from Atom's built-in keymap:
@@ -230,7 +218,7 @@ Another way to find the scope for a specific language is to open a file of its k
 
 ![Finding a language grammar with cursor scope](../../images/cursor-scope.png "Finding a language grammar with cursor scope")
 
-These scopes can be especially useful to [style the editor](#styling-the-editor), since they can also be used as class names in your stylesheet.
+These scopes can be especially useful to style the editor, since they can also be used as class names in your stylesheet.
 
 #### Customizing Language Recognition
 

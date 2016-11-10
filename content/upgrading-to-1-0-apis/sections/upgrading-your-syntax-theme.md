@@ -1,6 +1,13 @@
 ---
 title: Upgrading Your Syntax Theme
 ---
+
+{{#note}}
+
+**Note:** The Shadow DOM was removed in Atom `1.13`. The `:host` selector described below won't work and should not be used anymore.
+
+{{/note}}
+
 ### Upgrading Your Syntax Theme
 
 Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the [Shadow DOM 101](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom) on HTML 5 Rocks.
