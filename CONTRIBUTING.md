@@ -140,7 +140,7 @@ This way when someone hovers over the image, the description of the image appear
 
 All screenshots should be taken using Atom's default themes and settings.
 
-[pngcrush]: http://pmt.sourceforge.net/pngcrush
+[pngcrush]: http://pmt.sourceforge.net/pngcrush/
 
 ### Keybindings
 
