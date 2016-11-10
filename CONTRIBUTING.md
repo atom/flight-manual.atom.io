@@ -5,7 +5,7 @@ Contributing is easy!
 1. [Fork this repository](https://github.com/atom/flight-manual.atom.io#fork-destination-box)
 2. Download your fork. [(Click here for help)](https://help.github.com/articles/fork-a-repo/#keep-your-fork-synced)
 3. Create a named feature branch ([we use Github flow](https://guides.github.com/introduction/flow/index.html))
-4. Make a change to the Asciidoc (or whatever you want to change),
+4. Make a change to the content
 5. push it to a branch
 6. send us a [Pull Request](https://github.com/atom/flight-manual.atom.io/pulls).
 
