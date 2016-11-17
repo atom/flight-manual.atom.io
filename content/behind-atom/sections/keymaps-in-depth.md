@@ -148,14 +148,14 @@ When the keymap system encounters a binding with the `abort!` directive as its c
 
 {{/mac}}
 
-{{#win}}
+{{#windows}}
 
 ```coffee
 'atom-text-editor':
   'ctrl-o': 'abort!'
 ```
 
-{{/win}}
+{{/windows}}
 
 {{#linux}}
 
