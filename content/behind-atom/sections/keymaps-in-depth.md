@@ -126,9 +126,7 @@ While selectors can be applied to the entire editor by what grammar is associate
 
 #### Removing Bindings
 
-When the keymap system encounters a binding with the `unset!` directive as its command, it will treat the current element as if it had no key bindings matching the current keystroke sequence and continue searching from its parent. If you want to remove a binding from a keymap you don't control, such as keymaps in Atom core or in packages, use the `unset!` directive.
-
-For example, the following code removes the keybinding for `a` in the Tree View, which is normally used to trigger the `tree-view:add-file` command:
+When the keymap system encounters a binding with the `unset!` directive as its command, it will treat the current element as if it had no key bindings matching the current keystroke sequence and continue searching from its parent. For example, the following code removes the keybinding for `a` in the Tree View, which is normally used to trigger the `tree-view:add-file` command:
 
 ```coffee
 '.tree-view':
@@ -136,6 +134,39 @@ For example, the following code removes the keybinding for `a` in the Tree View,
 ```
 
 ![Keybinding Resolver](../../images/keybinding.png)
+
+But if some element above the Tree View had a keybinding for `a`, that keybinding would still execute even when the focus is inside the Tree View.
+
+When the keymap system encounters a binding with the `abort!` directive as its command, it will stop searching for a keybinding. For example, the following code removes the keybinding for <kbd class='platform-mac'>Cmd+O</kbd><kbd class='platform-windows platform-linux'>Ctrl+O</kbd> when the selection is inside an editor pane:
+
+{{#mac}}
+
+```coffee
+'atom-text-editor':
+  'cmd-o': 'abort!'
+```
+
+{{/mac}}
+
+{{#win}}
+
+```coffee
+'atom-text-editor':
+  'ctrl-o': 'abort!'
+```
+
+{{/win}}
+
+{{#linux}}
+
+```coffee
+'atom-text-editor':
+  'ctrl-o': 'abort!'
+```
+
+{{/linux}}
+
+But if you click inside the Tree View and press <kbd class='platform-mac'>Cmd+O</kbd><kbd class='platform-windows platform-linux'>Ctrl+O</kbd>, it will work.
 
 #### Forcing Chromium's Native Keystroke Handling
 
