@@ -1,5 +1,0 @@
-=== Package: Status Bar Word Count
-
-==== Basic Debugging
-
-- devmode
