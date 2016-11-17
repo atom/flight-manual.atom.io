@@ -202,6 +202,31 @@ If you can reproduce the error, use this approach to get the full stack trace an
 
 {{/note}}
 
+#### Find Crash Logs
+
+{{#mac}}
+
+When Atom crashes, you will find a crash dump in Console.app. You can launch Console.app using Spotlight or you can find it in `/Applications/Utilities/Console.app`. Once you have launched the program, you can find the latest crash dump by following these instructions:
+
+1. Click "User Reports" in the left-most column
+1. Find the latest entry in the middle column that starts with `Atom` and ends with `.crash`
+
+Once you have the crash dump, you can save it to send in later if it is needed for debugging.
+
+{{/mac}}
+
+{{#windows}}
+
+When Atom crashes, you will find a crash dump inside your `%TEMP%\Atom Crashes` directory. It will be the newest file with the `.dmp` extension. Once you have the crash dump, you can save it to send in later if it is needed for debugging.
+
+{{/windows}}
+
+{{#linux}}
+
+When Atom crashes, it should write a core dump if system settings permit. In order to find whether the core dump is written and to where, consult the documentation for your distribution of Linux. Once you have the core dump, you can save it to send in later if it is needed for debugging.
+
+{{/linux}}
+
 #### Diagnose Startup Performance
 
 If Atom is taking a long time to start, you can use the [Timecop package](https://github.com/atom/timecop) to get insight into where Atom spends time while loading.
