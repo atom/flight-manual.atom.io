@@ -500,9 +500,7 @@
 <h4>
 <a id="removing-bindings" class="anchor" href="#removing-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing Bindings</h4>
 
-<p>When the keymap system encounters a binding with the <code>unset!</code> directive as its command, it will treat the current element as if it had no key bindings matching the current keystroke sequence and continue searching from its parent. If you want to remove a binding from a keymap you don't control, such as keymaps in Atom core or in packages, use the <code>unset!</code> directive.</p>
-
-<p>For example, the following code removes the keybinding for <code>a</code> in the Tree View, which is normally used to trigger the <code>tree-view:add-file</code> command:</p>
+<p>When the keymap system encounters a binding with the <code>unset!</code> directive as its command, it will treat the current element as if it had no key bindings matching the current keystroke sequence and continue searching from its parent. For example, the following code removes the keybinding for <code>a</code> in the Tree View, which is normally used to trigger the <code>tree-view:add-file</code> command:</p>
 
 <pre class="highlight highlight-coffee"><code><span class="s">'.tree-view'</span><span class="o">:</span>
   <span class="s">'a'</span><span class="o">:</span> <span class="s">'unset!'</span>
@@ -510,6 +508,39 @@
 
 
 <p><img src="../../images/keybinding.png" alt="Keybinding Resolver"></p>
+
+<p>But if some element above the Tree View had a keybinding for <code>a</code>, that keybinding would still execute even when the focus is inside the Tree View.</p>
+
+<p>When the keymap system encounters a binding with the <code>abort!</code> directive as its command, it will stop searching for a keybinding. For example, the following code removes the keybinding for <kbd class="platform-mac">Cmd+O</kbd><kbd class="platform-windows platform-linux">Ctrl+O</kbd> when the selection is inside an editor pane:</p>
+
+<div class="platform-mac">
+
+<pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+  <span class="s">'cmd-o'</span><span class="o">:</span> <span class="s">'abort!'</span>
+</code></pre>
+
+
+</div>
+
+<p>{{#win}}</p>
+
+<pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+  <span class="s">'ctrl-o'</span><span class="o">:</span> <span class="s">'abort!'</span>
+</code></pre>
+
+
+<p>{{/win}}</p>
+
+<div class="platform-linux">
+
+<pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+  <span class="s">'ctrl-o'</span><span class="o">:</span> <span class="s">'abort!'</span>
+</code></pre>
+
+
+</div>
+
+<p>But if you click inside the Tree View and press <kbd class="platform-mac">Cmd+O</kbd><kbd class="platform-windows platform-linux">Ctrl+O</kbd>, it will work.</p>
 
 <h4>
 <a id="forcing-chromiums-native-keystroke-handling" class="anchor" href="#forcing-chromiums-native-keystroke-handling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Forcing Chromium's Native Keystroke Handling</h4>
