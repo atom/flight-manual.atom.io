@@ -78,6 +78,11 @@ gulp.task("images", function() {
     .pipe(gulp.dest("output/assets/images"));
 });
 
+gulp.task("favicon", function() {
+  return gulp.src("assets/images/favicon.ico")
+    .pipe(gulp.dest("output/"));
+});
+
 gulp.task("nanoc:compile", function (cb) {
   exec("bundle exec nanoc compile", function (err, stdout, stderr) {
     console.log(stdout);
@@ -112,6 +117,6 @@ gulp.task("watch:assets", function() {
 });
 
 gulp.task("serve", [ "server", "watch:nanoc", "watch:assets" ]);
-gulp.task("assets", [ "css", "sass", 'javascript', "octicons", "images" ]);
+gulp.task("assets", [ "css", "sass", 'javascript', "octicons", "images", "favicon" ]);
 gulp.task("build", [ "nanoc:compile", "assets" ]);
 gulp.task("default", [ "nanoc:compile", "assets", "serve" ]);
