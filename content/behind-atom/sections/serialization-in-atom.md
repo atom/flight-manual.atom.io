@@ -7,7 +7,7 @@ When a window is refreshed or restored from a previous session, the view and its
 
 #### Package Serialization Hook
 
-Your package's main module can optionally include a `serialize` method, which will be called before your package is deactivated. You should return JSON, which will be handed back to you as an argument to `activate` next time it is called. In the following example, the package keeps an instance of `MyObject` in the same state across refreshes.
+Your package's main module can optionally include a `serialize` method, which will be called before your package is deactivated. You should return a JSON-serializable object, which will be handed back to you as an object argument to `activate` next time it is called. In the following example, the package keeps an instance of `MyObject` in the same state across refreshes.
 
 ```coffee-script
 module.exports =
