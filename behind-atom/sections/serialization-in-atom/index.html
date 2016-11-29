@@ -352,7 +352,7 @@
 <h4>
 <a id="package-serialization-hook" class="anchor" href="#package-serialization-hook" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package Serialization Hook</h4>
 
-<p>Your package's main module can optionally include a <code>serialize</code> method, which will be called before your package is deactivated. You should return JSON, which will be handed back to you as an argument to <code>activate</code> next time it is called. In the following example, the package keeps an instance of <code>MyObject</code> in the same state across refreshes.</p>
+<p>Your package's main module can optionally include a <code>serialize</code> method, which will be called before your package is deactivated. You should return a JSON-serializable object, which will be handed back to you as an object argument to <code>activate</code> next time it is called. In the following example, the package keeps an instance of <code>MyObject</code> in the same state across refreshes.</p>
 
 <pre class="highlight highlight-coffee-script"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
   <span class="na">activate</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">-&gt;</span>
