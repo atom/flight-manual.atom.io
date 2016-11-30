@@ -72,7 +72,7 @@ Key combinations express one or more keys combined with optional modifier keys. 
 | :------------- | :------------- |
 | Character literals | `a` `4` `$` |
 | Modifier keys | `cmd` `ctrl` `alt` `shift` |
-| Special keys | `enter` `escape` `backspace` `delete` `tab` `home` `end` `pageup` `pagedown` `left` `right` `up` `down` |
+| Special keys | `enter` `escape` `backspace` `delete` `tab` `home` `end` `pageup` `pagedown` `left` `right` `up` `down` `space` |
 
 ##### Commands
 
