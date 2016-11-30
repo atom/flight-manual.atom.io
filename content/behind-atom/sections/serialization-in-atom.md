@@ -26,9 +26,6 @@ module.exports =
 
 ```coffee-script
 class MyObject
-  atom.deserializers.add(this)
-
-  @deserialize: ({data}) -> new MyObject(data)
   constructor: (@data) ->
   serialize: -> { deserializer: 'MyObject', data: @data }
 ```
@@ -37,13 +34,47 @@ class MyObject
 
 Objects that you want to serialize should implement `.serialize()`. This method should return a serializable object, and it must contain a key named `deserializer` whose value is the name of a registered deserializer that can convert the rest of the data to an object. It's usually just the name of the class itself.
 
-##### `deserialize(data)`
+##### Registering Deserializers
 
-The other side of the coin is the `deserialize` method, which is usually a class-level method on the same class that implements `serialize`. This method's job is to convert a state object returned from a previous call `serialize` back into a genuine object.
+The other side of the coin is deserializers, whose job is to convert a state object returned from a previous call to `serialize` back into a genuine object.
 
-##### atom.deserializers.add(klass)
+###### `deserializers` in `package.json`
 
-You need to call the `atom.deserializers.add` method with your class in order to make it available to the deserialization system. Now you can call the global `deserialize` method with state returned from `serialize`, and your class's `deserialize` method will be selected automatically.
+The preferred way to register deserializers is via your package's `package.json` file:
+
+```json
+{
+  "name": "wordcount",
+  ...
+  "deserializers": {
+    "MyObject": "deserializeMyObject"
+  }
+}
+```
+
+Here, the key (`"MyObject"`) is the name of the deserializer—the same string used by the `deserializer` field in the object returned by your `serialize()` method. The value (`"deserializeMyObject"`) is the name of a function in your main module that'll be passed the serialized data and will return a genuine object. For example, your main module might look like this:
+
+```coffee-script
+module.exports =
+  deserializeMyObject: ({data}) -> new MyObject(data)
+```
+
+Now you can call the global `deserialize` method with state returned from `serialize`, and your class's `deserialize` method will be selected automatically.
+
+###### atom.deserializers.add(klass)
+
+An alternative is to use the `atom.deserializers.add` method with your class in order to make it available to the deserialization system. Usually this is used in conjunction with a class-level `deserialize` method:
+
+```coffee-script
+class MyObject
+  atom.deserializers.add(this)
+
+  @deserialize: ({data}) -> new MyObject(data)
+  constructor: (@data) ->
+  serialize: -> { deserializer: 'MyObject', data: @data }
+```
+
+While this used to be the standard method of registering a deserializer, the `package.json` method is now preferred since it allows Atom to defer loading and executing your code until it's actually needed.
 
 #### Versioning
 
