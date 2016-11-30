@@ -371,9 +371,6 @@
 <a id="serialization-methods" class="anchor" href="#serialization-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization Methods</h4>
 
 <pre class="highlight highlight-coffee-script"><code><span class="k">class</span> <span class="nx">MyObject</span>
-  <span class="nx">atom</span><span class="p">.</span><span class="na">deserializers</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
-
-  <span class="vi">@</span><span class="na">deserialize</span><span class="o">:</span> <span class="p">({</span><span class="nx">data</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nx">MyObject</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
   <span class="na">constructor</span><span class="o">:</span> <span class="p">(</span><span class="vi">@</span><span class="na">data</span><span class="p">)</span> <span class="o">-&gt;</span>
   <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="na">deserializer</span><span class="o">:</span> <span class="s">'MyObject'</span><span class="p">,</span> <span class="na">data</span><span class="o">:</span> <span class="vi">@</span><span class="na">data</span> <span class="p">}</span>
 </code></pre>
@@ -386,15 +383,50 @@
 <p>Objects that you want to serialize should implement <code>.serialize()</code>. This method should return a serializable object, and it must contain a key named <code>deserializer</code> whose value is the name of a registered deserializer that can convert the rest of the data to an object. It's usually just the name of the class itself.</p>
 
 <h5>
-<a id="deserializedata" class="anchor" href="#deserializedata" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>deserialize(data)</code>
-</h5>
+<a id="registering-deserializers" class="anchor" href="#registering-deserializers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Registering Deserializers</h5>
 
-<p>The other side of the coin is the <code>deserialize</code> method, which is usually a class-level method on the same class that implements <code>serialize</code>. This method's job is to convert a state object returned from a previous call <code>serialize</code> back into a genuine object.</p>
+<p>The other side of the coin is deserializers, whose job is to convert a state object returned from a previous call to <code>serialize</code> back into a genuine object.</p>
 
-<h5>
-<a id="atomdeserializersaddklass" class="anchor" href="#atomdeserializersaddklass" aria-hidden="true"><span class="octicon octicon-link"></span></a>atom.deserializers.add(klass)</h5>
+<h6>
+<a id="deserializers-in-packagejson" class="anchor" href="#deserializers-in-packagejson" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>deserializers</code> in <code>package.json</code>
+</h6>
 
-<p>You need to call the <code>atom.deserializers.add</code> method with your class in order to make it available to the deserialization system. Now you can call the global <code>deserialize</code> method with state returned from <code>serialize</code>, and your class's <code>deserialize</code> method will be selected automatically.</p>
+<p>The preferred way to register deserializers is via your package's <code>package.json</code> file:</p>
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+  </span><span class="nt">"deserializers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"MyObject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deserializeMyObject"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<p>Here, the key (<code>"MyObject"</code>) is the name of the deserializer—the same string used by the <code>deserializer</code> field in the object returned by your <code>serialize()</code> method. The value (<code>"deserializeMyObject"</code>) is the name of a function in your main module that'll be passed the serialized data and will return a genuine object. For example, your main module might look like this:</p>
+
+<pre class="highlight highlight-coffee-script"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
+  <span class="na">deserializeMyObject</span><span class="o">:</span> <span class="p">({</span><span class="nx">data</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nx">MyObject</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</code></pre>
+
+
+<p>Now you can call the global <code>deserialize</code> method with state returned from <code>serialize</code>, and your class's <code>deserialize</code> method will be selected automatically.</p>
+
+<h6>
+<a id="atomdeserializersaddklass" class="anchor" href="#atomdeserializersaddklass" aria-hidden="true"><span class="octicon octicon-link"></span></a>atom.deserializers.add(klass)</h6>
+
+<p>An alternative is to use the <code>atom.deserializers.add</code> method with your class in order to make it available to the deserialization system. Usually this is used in conjunction with a class-level <code>deserialize</code> method:</p>
+
+<pre class="highlight highlight-coffee-script"><code><span class="k">class</span> <span class="nx">MyObject</span>
+  <span class="nx">atom</span><span class="p">.</span><span class="na">deserializers</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+
+  <span class="vi">@</span><span class="na">deserialize</span><span class="o">:</span> <span class="p">({</span><span class="nx">data</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nx">MyObject</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+  <span class="na">constructor</span><span class="o">:</span> <span class="p">(</span><span class="vi">@</span><span class="na">data</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="na">deserializer</span><span class="o">:</span> <span class="s">'MyObject'</span><span class="p">,</span> <span class="na">data</span><span class="o">:</span> <span class="vi">@</span><span class="na">data</span> <span class="p">}</span>
+</code></pre>
+
+
+<p>While this used to be the standard method of registering a deserializer, the <code>package.json</code> method is now preferred since it allows Atom to defer loading and executing your code until it's actually needed.</p>
 
 <h4>
 <a id="versioning" class="anchor" href="#versioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Versioning</h4>
