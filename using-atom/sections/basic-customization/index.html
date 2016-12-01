@@ -636,7 +636,7 @@ editor.tabLength
 
 <p>If you want Atom to always recognize certain file types as a specific grammar, you'll need to manually edit your <code>config.cson</code> file. You can open it using the <em>Application: Open Your Config</em> command from the Command Palette. For example, if you wanted to add the <code>foo</code> extension to the CoffeeScript language, you could add this to your configuration file under the <code>*.core</code> section:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'*'</span>
+<pre class="highlight highlight-coffee"><code><span class="s">'*'</span><span class="o">:</span>
   <span class="na">core</span><span class="o">:</span>
     <span class="na">customFileTypes</span><span class="o">:</span>
       <span class="s">'source.coffee'</span><span class="o">:</span> <span class="p">[</span>
