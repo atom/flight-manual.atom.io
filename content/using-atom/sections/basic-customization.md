@@ -225,7 +225,7 @@ These scopes can be especially useful to style the editor, since they can also b
 If you want Atom to always recognize certain file types as a specific grammar, you'll need to manually edit your `config.cson` file. You can open it using the _Application: Open Your Config_ command from the Command Palette. For example, if you wanted to add the `foo` extension to the CoffeeScript language, you could add this to your configuration file under the `*.core` section:
 
 ```coffee
-'*'
+'*':
   core:
     customFileTypes:
       'source.coffee': [
