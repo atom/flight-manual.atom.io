@@ -9,7 +9,7 @@ It's possible that you have themes or grammars from [TextMate](http://macromates
 
 Converting a TextMate bundle will allow you to use its editor preferences, snippets, and colorization inside Atom.
 
-Let's convert the TextMate bundle for the [R](https://en.wikipedia.org/wiki/R_(programming_language)) programming language. You can find other existing TextMate bundles [on GitHub](https://github.com/textmate).
+Let's convert the TextMate bundle for the [R](https://en.wikipedia.org/wiki/R_(programming_language)) programming language. You can find other existing TextMate bundles [on GitHub](https://github.com/xadadmin).
 
 You can convert the R bundle with the following command:
 
