@@ -1,13 +1,9 @@
 ---
 title: Editing and Deleting Text
 ---
-### Editing and Deleting Text
-
-So far we've looked at a number of ways to move around and select regions of a file, so now let's actually change some of that text. Obviously you can type in order to insert characters, but there are also a number of ways to delete and manipulate text that could come in handy.
+### Multiple Ways to Edit and Delete Text
 
 #### Basic Manipulation
-
-There are a handful of cool keybindings for basic text manipulation that might come in handy. These range from moving around lines of text and duplicating lines to changing the case.
 
 * <kbd class="platform-mac">Cmd+J</kbd><kbd class="platform-windows platform-linux">Ctrl+J</kbd> - Join the next line to the end of the current line
 * <kbd class="platform-mac">Cmd+Ctrl+Up/Down</kbd><kbd class="platform-windows platform-linux">Ctrl+Up/Down</kbd> - Move the current line up or down
