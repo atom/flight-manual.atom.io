@@ -1,9 +1,9 @@
 ---
 title: Moving in Atom
 ---
-### Moving in Atom
+### Moving in Atom (with keybindings)
 
-While it's pretty easy to move around Atom by clicking with the mouse or using the arrow keys, there are some keybindings that may help you keep your hands on the keyboard and navigate around a little faster.
+Here are some keybindings so you can use your keyboard to navigate around a little faster.
 
 {{#mac}}
 
