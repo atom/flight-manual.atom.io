@@ -60,27 +60,6 @@ Atom is available with a Windows installer that can be downloaded from https://a
 
 ![Atom on Windows](../../images/windows.gif)
 
-##### Portable mode for Windows
-
-Atom can also be run in portable mode on Windows allowing it to be placed on a removable storage device where it will also store its settings, packages, cache, etc. so you can easily take it from machine to machine without needing to install anything.
-
-To get started with Atom in portable mode:
-
-1. Download `atom-windows.zip` from [Atom Releases][releases]
-1. Extract `atom-windows.zip` to your removable storage device
-1. Launch atom.exe from the extracted Atom folder
-1. Once Atom has launched it will create an `.atom` folder in `%USERPROFILE%`
-1. Move that `.atom` folder to be alongside your Atom folder on your removable storage device
-
-Now whenever you launch `atom.exe` from your removable storage device it will operate in portable mode and store all its settings and packages in the `.atom` folder on the device.
-
-Note that there are some limitations to portable mode:
-
-* No Explorer integration or command-line `PATH` setup
-* The `.atom` folder must be alongside the folder containing `atom.exe` (not inside it)
-* The `.atom` folder must be writeable
-* The `ATOM_HOME` environment variable must not be set (this overrides portable behavior)
-
 ##### MSI Installer for Windows
 
 Atom is also available in an .MSI package from [Atom Releases](https://github.com/atom/atom/releases/latest) which can be deployed or installed on a machine. Any user signing in to that machine will find Atom installed for them automatically. (It may take a few seconds the first time they sign in for the icon to appear on the desktop).
@@ -97,7 +76,7 @@ To install Atom on Linux, you can download a [Debian package](https://atom.io/do
 
 [releases]: https://github.com/atom/atom/releases/latest
 
-##### Debian and Related
+##### Debian and Ubuntu (deb/apt)
 
 To install Atom on Debian, Ubuntu, or related systems:
 
@@ -109,7 +88,7 @@ $ sudo dpkg -i atom-amd64.deb
 $ sudo apt-get -f install
 ```
 
-##### RedHat Enterprise and Related
+##### RedHat and CentOS (yum)
 
 To install Atom on CentOS, Oracle Linux, RedHat Enterprise Linux, Scientific Linux or related systems that use the yum package manager:
 
@@ -117,17 +96,17 @@ To install Atom on CentOS, Oracle Linux, RedHat Enterprise Linux, Scientific Lin
 $ sudo yum install -y atom.x86_64.rpm
 ```
 
-##### Fedora and Related
+##### Fedora (dnf)
 
-To download and install the latest release of Atom on Fedora or other systems that use the DNF package manager:
+To install the latest release of Atom on Fedora or other systems that use the DNF package manager:
 
 ``` command-line
 $ sudo dnf install -y atom.x86_64.rpm
 ```
 
-##### SUSE and Related
+##### SUSE (zypp)
 
-To download and install the latest release of Atom on openSUSE or other systems that use the Zypp package manager:
+To install the latest release of Atom on openSUSE or other systems that use the Zypp package manager:
 
 ``` command-line
 $ sudo zypper in -y atom.x86_64.rpm
@@ -135,13 +114,54 @@ $ sudo zypper in -y atom.x86_64.rpm
 
 {{/linux}}
 
+
+#### Portable Mode
+
+Atom stores configuration and state in a `.atom` directory usually located in your home directory <span class="platform-windows">(`%userprofile%` on Windows)</span>. You can however run Atom in portable mode where both the app and the configuration are stored together such as on a removable storage device.
+
+To setup Atom in portable mode download the [zip/tar.gz package for your system](https://github.com/atom/atom/releases/latest) and extract it to your removable storage.
+
+{{windows}}
+Then create a `.atom` directory alongside the directory that contains atom.exe, for example:
+
+```
+e:\atom-1.14\atom.exe
+e:\.atom
+```
+{{/windows}}
+
+{{mac}}
+Then create a `.atom` directory alongside the Atom.app application, for example:
+
+```
+/MyUSB/Atom.app
+/MyUSB/.atom
+```
+{{/mac}}
+
+{{linux}}
+Then create a `.atom` directory alongside the directory that contains the Atom binary, for example:
+
+```
+/media/myusb/atom-1.14/atom
+/media/myusb/.atom
+```
+{{/linux}}
+
+##### Portable Notes
+
+- The `.atom` directory must be writeable
+- You can move an existing `.atom` directory to your portable device
+- Atom can also store its Electron user data in your `.atom` directory - just create a subdirectory called `electronUserData` inside `.atom`
+- Alternatively you can set the `ATOM_HOME` environment variable to point wherever you want (you can write a .sh or .cmd script to temporarily set it and launch it from that)
+
 #### Building Atom from Source
 
 If you just want to build Atom from source, you can also do that. The Atom GitHub repository has detailed [build instructions for Mac, Windows, Linux and FreeBSD](https://github.com/atom/atom/tree/master/docs/build-instructions).
 
 #### Proxy and Firewall Settings
 
-##### Behind a firewall?
+##### Behind a Firewall?
 
 If you are behind a firewall and seeing SSL errors when installing packages you can disable strict SSL by running:
 
@@ -149,7 +169,7 @@ If you are behind a firewall and seeing SSL errors when installing packages you 
 $ apm config set strict-ssl false
 ```
 
-##### Using a proxy?
+##### Using a Proxy?
 
 If you are using a HTTP(S) proxy you can configure `apm` to use it by running:
 
