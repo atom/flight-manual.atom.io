@@ -70,7 +70,7 @@ For example, to change the colors of the Status Bar, you could add the following
 }
 ```
 
-The easiest way to see what classes are available to style is to inspect the DOM manually via the Developer Tools. We'll go over the Developer Tools in great detail in the next chapter, but for now let's take a simple look. You can open the Developer Tools by pressing <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows">Ctrl+Shift+I</kbd><kbd class="platform-linux">Ctrl+Shift+I</kbd>, which will bring up the Chromium Developer Tools panel.
+The easiest way to see what classes are available to style is to inspect the DOM manually via the Developer Tools. We'll go over the Developer Tools in great detail in the next chapter, but for now let's take a simple look. You can open the Developer Tools by pressing <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+I</kbd>, which will bring up the Chromium Developer Tools panel.
 
 ![Developer Tools](../../images/devtools.png "Developer Tools")
 
