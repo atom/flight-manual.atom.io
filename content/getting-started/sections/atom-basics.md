@@ -145,7 +145,7 @@ This is one of the interesting things about Atom. Many of its core features are 
 
 Once you have a project open in Atom, you can easily find and open any file within that project.
 
-If you press <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd> or <kbd class="platform-mac">Cmd+P</kbd><kbd class="platform-windows platform-linux">Ctrl+P</kbd>, the Fuzzy Finder will pop up. This will let you quickly search for any file in any directory your project by typing parts of the path.
+If you press <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd> or <kbd class="platform-mac">Cmd+P</kbd><kbd class="platform-windows platform-linux">Ctrl+P</kbd>, the Fuzzy Finder will pop up. This will let you quickly search for any file in any directory in your project by typing parts of the path.
 
 ![Opening files with the Fuzzy Finder](../../images/finder.png "Opening files with the Fuzzy Finder")
 
