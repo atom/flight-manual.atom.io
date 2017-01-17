@@ -347,25 +347,29 @@
           <h3>
 <a id="iconography" class="anchor" href="#iconography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iconography</h3>
 
-<p>Atom comes bundled with the <a href="https://github.com/github/octicons/tree/v2.1.2">Octicons 2.1.2</a> icon set. Use them to add icons to your packages.</p>
+<p>Atom comes bundled with the <a href="https://github.com/github/octicons/tree/v4.4.0">Octicons 4.4.0</a> icon set. Use them to add icons to your packages.</p>
 
-<h4>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h4>
-
-<p>Atom's usage of the Octicons differs just a bit from the <a href="https://octicons.github.com/icon/mark-github/">standard way</a>. The biggest difference is in the naming of the icon classes. Instead of the <code>octicon octicon-</code> prefix, you would use a more generic <code>icon icon-</code> prefix.</p>
-
-<p>As an example, to add a monitor icon, use the <code>icon icon-device-desktop</code> classes in your markup:</p>
-
-<pre class="highlight highlight-html"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon-device-desktop"</span><span class="nt">&gt;&lt;/span&gt;</span>
-</code></pre>
-
+<blockquote>
+<p>NOTE: Some older icons from version <code>2.1.2</code> are still kept for backwards compatibility.</p>
+</blockquote>
 
 <h4>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h4>
 
-<p>To see an overview of all icons open the <a href="http://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/#atom-styleguide">Styleguide</a>. Under the "Icons" section you'll find all the Octicons that are available.</p>
+<p>In the <a href="http://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/#atom-styleguide">Styleguide</a> under the "Icons" section you'll find all the Octicons that are available.</p>
 
 <p><img src="../../images/iconography.png" alt="Octicons in the Styleguide" title="Octicons in the Styleguide"></p>
+
+<h4>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h4>
+
+<p>Octicons can be added with simple CSS classes in your markup. Prefix the icon names with <code>icon icon-</code>.</p>
+
+<p>As an example, to add a monitor icon (<code>device-desktop</code>), use the <code>icon icon-device-desktop</code> classes:</p>
+
+<pre class="highlight highlight-html"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon icon-device-desktop"</span><span class="nt">&gt;&lt;/span&gt;</span>
+</code></pre>
+
 
 <h4>
 <a id="size" class="anchor" href="#size" aria-hidden="true"><span class="octicon octicon-link"></span></a>Size</h4>
