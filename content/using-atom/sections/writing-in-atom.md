@@ -47,4 +47,4 @@ If you type `img` and hit `tab` you get a Markdown-formatted image embed code li
 | Item One       | Item Two       |
 ```
 
-Although there are only a handful of Markdown snippets (`b` for bold, `i` for italic, `code` for a code block, etc), they save you from having to look up the more obscure syntaxes. Again, you can easily see a list of all available snippets for the type of file you're currently in by hitting <kbd class="platform-mac platform-windows platform-linux">Alt+Shift+S</kbd>.
+Although there are only a handful of Markdown snippets (`b` for bold, `i` for italic, `code` for a code block, etc), they save you from having to look up the more obscure syntaxes. Again, you can easily see a list of all available snippets for the type of file you're currently in by choosing "Snippets: Available" in the Command Palette.

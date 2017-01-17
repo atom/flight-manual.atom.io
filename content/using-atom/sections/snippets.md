@@ -21,7 +21,7 @@ Many Core and Community packages come bundled with their own snippets that are s
 
 It will also position the cursor in the middle of the `title` tag so you can immediately start filling out the tag. Many snippets have multiple focus points that you can move through with the <kbd class="platform-all">Tab</kbd> key as well - for instance, in the case of this HTML snippet, once you've filled out the title tag you can press <kbd class="platform-all">Tab</kbd> and the cursor will move to the middle of the `body` tag.
 
-To see all the available snippets for the file type that you currently have open, you can type <kbd class="platform-all">Alt+Shift+S</kbd>.
+To see all the available snippets for the file type that you currently have open, choose "Snippets: Available" in the Command Palette.
 
 ![View all available snippets](../../images/snippets.png "View all available snippets")
 
