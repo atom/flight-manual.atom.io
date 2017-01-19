@@ -1,46 +1,48 @@
 ---
-title: Why Atom?
+titre: Pourquoi Atom?
 ---
-### Why Atom?
+### Pourquoi Atom?
 
-There are a lot of text editors out there; why should you spend your time learning about and using Atom?
+Il existe un grand nombre d'éditeurs de texte sur le web; alors pourquoi perdre son temps à apprendre à utiliser Atom?
 
-Editors like Sublime and TextMate offer convenience but only limited extensibility. On the other end of the spectrum, Emacs and Vim offer extreme flexibility, but they aren't very approachable and can only be customized with special-purpose scripting languages.
+Les éditeurs comme Sublime ou TextMate sont faciles à utiliser mais n'offre qu'une extensibilité limitée. Contrairement à Emacs et Vim qui permettent une plus grande flexibilité mais qui ne sont pas vraiment abordable et qui ne peuvent être customiser qu'avec des scripts de langages spéciaux uniquement.
 
-We think we can do better. Our goal is a zero-compromise combination of hackability and usability: an editor that will be welcoming to an elementary school student on their first day learning to code, but also a tool they won't outgrow as they develop into seasoned hackers.
+Avec Atom, on pense que l'on peut réaliser quelque chose de mieux. Notre objectif est une combinaison sans compromis entre la sécurité contre le hacking et l'utilisation de l'éditeur: un éditeur qui sera à la fois accueillant pour un débutant en programmation mais qu'il continuera d'utiliser au fur et à mesure de son apprentissage.
 
-As we've used Atom to build Atom, what began as an experiment has gradually matured into a tool we can't live without. On the surface, Atom is the modern desktop text editor you've come to expect. Pop the hood, however, and you'll discover a system begging to be hacked on.
+Alors que l'on construisait Atom grâce à Atom, ce qui a commencé en simple expérience est devenu graduellement en un outil indispensable pour notre quotidien. A la surface, Atom est juste un éditeur de texte moderne auquel on est habitué. Soulèvez le capot et tu trouveras un système qui ne demande qu'à être hacker.
 
-#### The Nucleus of Atom
+#### Le Noyau d'Atom
 
-The web is not without its faults, but two decades of development has forged it into an incredibly malleable and powerful platform. So when we set out to write a text editor that we ourselves would want to extend, web technology was the obvious choice. But first, we had to free it from its chains.
+Comme on le sait, le web a ses défauts, mais deux décennies de développement l'on transformé en une plateforme incroyablement
+malléable et puissante. Donc, lorsque nous nous sommes mis à développer un éditeur de texte, la technologie Web était le choix
+évident. Mais d'abord, il fallait le libérer de ses chaînes.
 
-##### The Native Web
+##### La Toile Web
 
-Web browsers are great for browsing web pages, but writing code is a specialized activity that warrants dedicated tools. More importantly, the browser severely restricts access to the local system for security reasons, and for us, a text editor that couldn't write files or run local subprocesses was a non-starter.
+Les navigateurs Web sont géniaux pour naviguer sur des pages web, mais écrire du code est une activité un peu spéciale qui nécessite des outils adéquats à la tâche. Plus important, les navigateurs restreignent sérieusement l'accès au système local pour des raisons de sécurité, et pour nous, un éditeur de texte qui ne pouvait pas écrire des fichiers ou exécuter des sous processus locaux n'était pas envisageable.
 
-For this reason, we didn't build Atom as a traditional web application. Instead, Atom is a specialized variant of Chromium designed to be a text editor rather than a web browser. Every Atom window is essentially a locally-rendered web page.
+C'est pour cette raison que nous n'avons pas construit Atom comme une application web traditionnelle. 
 
-All the APIs available to a typical Node.js application are also available to the code running in each window's JavaScript context. This hybrid provides a really unique client-side development experience.
+Au lieu de cela, Atom est une variante spécialisée de Chromium conçu pour être un éditeur de texte plutôt qu'un navigateur Web. Chaque fenêtre Atom est essentiellement une page Web locale. Toutes les API disponibles pour une application Node.js typique sont également disponibles pour le code en cours d'exécution dans le contexte JavaScript de chaque fenêtre. Cet éditeur hybride offre une expérience de développement client unique.
 
-Since everything is local, you don't have to worry about asset pipelines, script concatenation, and asynchronous module definitions. If you want to load some code, just require it at the top of your file. Node's module system makes it easy to break the system down into lots of small, focused packages.
+Comme tout est local, vous n'avez pas à vous soucier des pipelines d'actifs, de la concaténation de scripts et des définitions de modules asynchrones. Si vous voulez charger un code, il suffit de le demander en haut de votre fichier. Le système de modules de noeud simplifie la coupure du système en lots de petits paquets ciblés.
 
-##### JavaScript, Meet C++
+##### JavaScript, Voici C++
 
-Interacting with native code is also really simple. For example, we wrote a wrapper around the Oniguruma regular expression engine for our TextMate grammar support. In a browser, that would have required adventures with NaCl or Esprima. Node integration made it easy.
+Intéragir avec le code source est assez simple. Par exemple, nous avons écrit un papier sur les expressions régulières d'Oniguruma pour notre assistance de grammaire TextMate. Avec un navigateur, il aura fallu avoir recours à Esprima ou NaCl. L'intégration des noeuds dans Atom rend la tâche plus simple.
 
-In addition to the Node APIs, we also expose APIs for native dialogs, adding application and context menu items, manipulating the window dimensions, etc.
+En plus des API de Noeud, nous exposons aussi des API pour des dialogues natals, permettant ainsi l'ajout d'applications, des menus contextuels, des manipulations de fenêtres, etc.
 
-##### Web Tech: The Fun Parts
+##### Web Tech: les parties amusantes
 
-Another great thing about writing code for Atom is the guarantee that it's running on the newest version of Chromium. That means we can ignore issues like browser compatibility and polyfills. We can use all the web's shiny features of tomorrow, today.
+Une autre chose plutôt sympathique avec Atom lorsque l'on écrit du code est la garantie que l'on tourne sur la dernière version de Chromium. Cela veut dire que l'on a pas besoin de se soucier des problèmes de compatibilités entre le navigateur et les polyfills. Nous pouvons donc utiliser toutes les magnifiques fonctionnalités du web de demain... aujourd'hui.
 
-For example, the layout of our workspace and panes is based on flexbox. It's an emerging standard and has gone through a lot of change since we started using it, but none of that mattered as long as it worked.
+Par exemple, la disposition de notre espace de travail est basée sur Flexbox. Cette norme est assez récente et est sujet à beaucoup de changements depuis que nous avons commencé à l'utiliser mais cela ne nous importe peu tant que ça fonctionne.
 
-With the entire industry pushing web technology forward, we're confident that we're building Atom on fertile ground. Native UI technologies come and go, but the web is a standard that becomes more capable and ubiquitous with every passing year. We're excited to dig deeper into its toolbox.
+Grâce à l'évolution constante des technologies du Web, nous sommes confiant quant à la direction que prend le projet Atom. Les technologies UI vont et viennent, mais le web est une norme qui devient de plus en plus complète et omniprésente au fil des années. Et explorer les fins fonds de ses capacités est quelque chose qui nous motive et qui nous excite.
 
-#### An Open Source Text Editor
+#### Un éditeur de texte Open Source
 
-We see Atom as a perfect complement to GitHub's primary mission of building better software by working together. Atom is a long-term investment, and GitHub will continue to support its development with a dedicated team going forward. But we also know that we can't achieve our vision for Atom alone. As Emacs and Vim have demonstrated over the past three decades, if you want to build a thriving, long-lasting community around a text editor, it has to be open source.
+Pour nous, Atom est un exemple parfait de complément à la principale mission de GitHub, à savoir la construction, la création de meilleurs logiciels grâce à l'entraide et au travail fourni tous ensemble. Atom est un projet à long terme, et GitHub sera toujours là pour nous soutenir. Mais nous ne pouvons atteindre la perfection seuls Comme nous l'on montré Emacs ou Vim, au cours des 3 dernières décennies, c'est que pour construire une communauté florissante et durable autour d'un projet comme Atom, cela passe par un éditeur open source.
 
-The entire Atom editor is free and open source and is available under the https://github.com/atom organization.
+Atom est gratuit et open source et vous pouvez le retrouver à l'adresse https://github.com/atom.
