@@ -68,24 +68,27 @@ You can also use `apm` to find new packages to install. If you run `apm search`,
 
 ``` command-line
 $ apm search coffee
-> Search Results For 'coffee' (5)
-> ├── coffee-trace Add smart trace statements to coffee files with one keypress each. (77 downloads, 3 stars)
-> ├── coffee-navigator Code navigation panel for Coffee Script (557 downloads, 8 stars)
-> ├── atom-compile-coffee This Atom.io Package compiles .coffee Files on save to .js files. (myJavascript.coffee -> myJavascript.js) (349 downloads, 4 stars)
-> ├── coffee-lint CoffeeScript linter (3336 downloads, 18 stars)
-> └── git-grep `git grep` in atom editor (1224 downloads, 9 stars)
+> Search Results For 'coffee' (29)
+> ├── build-coffee Atom Build provider for coffee, compiles CoffeeScript (1160 downloads, 2 stars)
+> ├── scallahan-coffee-syntax A coffee inspired theme from the guys over at S.CALLAHAN (183 downloads, 0 stars)
+> ├── coffee-paste Copy/Paste As : Js ➤ Coffee / Coffee ➤ Js (902 downloads, 4 stars)
+> ├── atom-coffee-repl Coffee REPL for Atom Editor (894 downloads, 2 stars)
+> ├── coffee-navigator Code navigation panel for Coffee Script (3493 downloads, 22 stars)
+> ...
+> ├── language-iced-coffeescript Iced coffeescript for atom (202 downloads, 1 star)
+> └── slontech-syntax Dark theme for web developers ( HTML, CSS/LESS, PHP, MYSQL, javascript, AJAX, coffee, JSON ) (2018 downloads, 3 stars)
 ```
 
 You can use `apm view` to see more information about a specific package.
 
 ``` command-line
-$ apm view git-grep
-> git-grep
-> ├── 0.7.0
-> ├── git://github.com/mizchi/atom-git-grep
-> ├── `git grep` in atom editor
-> ├── 1224 downloads
-> └── 9 stars>
-
-> Run `apm install git-grep` to install this package.
+$ apm view build-coffee
+> build-coffee
+> ├── 0.6.4
+> ├── https://github.com/idleberg/atom-build-coffee
+> ├── Atom Build provider for coffee, compiles CoffeeScript
+> ├── 1152 downloads
+> └── 2 stars
+> 
+> Run `apm install build-coffee` to install this package.
 ```
