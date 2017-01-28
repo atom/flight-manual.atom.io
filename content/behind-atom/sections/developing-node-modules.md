@@ -21,9 +21,9 @@ $ apm rebuild
 $ cd <em>WHERE YOU CLONED ATOM</em>
 $ npm link atom-keymap
 
-# If you have cloned Atom in a different location then ~/github/atom
+# If you have cloned Atom in a different location than <span class="platform-mac platform-linux">~/github/atom</span><span class="platform-windows">%USERPROFILE%\github\atom</span>
 # you need to set the following environment variable
-$ export ATOM_DEV_RESOURCE_PATH=<em>WHERE YOU CLONED ATOM</em>
+$ <span class="platform-mac platform-linux">export</span><span class="platform-windows">setx</span> ATOM_DEV_RESOURCE_PATH=<em>WHERE YOU CLONED ATOM</em>
 
 # Should work!
 $ atom --dev .
