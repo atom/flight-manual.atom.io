@@ -21,6 +21,10 @@ $ apm rebuild
 $ cd <em>WHERE YOU CLONED ATOM</em>
 $ npm link atom-keymap
 
+# If you have cloned Atom in a different location then ~/github/atom
+# you need to set the following environment variable
+$ export ATOM_DEV_RESOURCE_PATH=<em>WHERE YOU CLONED ATOM</em>
+
 # Should work!
 $ atom --dev .
 ```
