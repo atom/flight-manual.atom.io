@@ -121,7 +121,7 @@ Atom stores configuration and state in a `.atom` directory usually located in yo
 
 To setup Atom in portable mode download the [zip/tar.gz package for your system](https://github.com/atom/atom/releases/latest) and extract it to your removable storage.
 
-{{windows}}
+{{#windows}}
 Then create a `.atom` directory alongside the directory that contains atom.exe, for example:
 
 ```
@@ -130,7 +130,7 @@ e:\.atom
 ```
 {{/windows}}
 
-{{mac}}
+{{#mac}}
 Then create a `.atom` directory alongside the Atom.app application, for example:
 
 ```
@@ -139,7 +139,7 @@ Then create a `.atom` directory alongside the Atom.app application, for example:
 ```
 {{/mac}}
 
-{{linux}}
+{{#linux}}
 Then create a `.atom` directory alongside the directory that contains the Atom binary, for example:
 
 ```
