@@ -407,34 +407,6 @@ $
 <p><img src="../../images/windows.gif" alt="Atom on Windows"></p>
 
 <h5>
-<a id="portable-mode-for-windows" class="anchor" href="#portable-mode-for-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Portable mode for Windows</h5>
-
-<p>Atom can also be run in portable mode on Windows allowing it to be placed on a removable storage device where it will also store its settings, packages, cache, etc. so you can easily take it from machine to machine without needing to install anything.</p>
-
-<p>To get started with Atom in portable mode:</p>
-
-<ol>
-<li>Download <code>atom-windows.zip</code> from <a href="https://github.com/atom/atom/releases/latest">Atom Releases</a>
-</li>
-<li>Extract <code>atom-windows.zip</code> to your removable storage device</li>
-<li>Launch atom.exe from the extracted Atom folder</li>
-<li>Once Atom has launched it will create an <code>.atom</code> folder in <code>%USERPROFILE%</code>
-</li>
-<li>Move that <code>.atom</code> folder to be alongside your Atom folder on your removable storage device</li>
-</ol>
-
-<p>Now whenever you launch <code>atom.exe</code> from your removable storage device it will operate in portable mode and store all its settings and packages in the <code>.atom</code> folder on the device.</p>
-
-<p>Note that there are some limitations to portable mode:</p>
-
-<ul>
-<li>No Explorer integration or command-line <code>PATH</code> setup</li>
-<li>The <code>.atom</code> folder must be alongside the folder containing <code>atom.exe</code> (not inside it)</li>
-<li>The <code>.atom</code> folder must be writeable</li>
-<li>The <code>ATOM_HOME</code> environment variable must not be set (this overrides portable behavior)</li>
-</ul>
-
-<h5>
 <a id="msi-installer-for-windows" class="anchor" href="#msi-installer-for-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>MSI Installer for Windows</h5>
 
 <p>Atom is also available in an .MSI package from <a href="https://github.com/atom/atom/releases/latest">Atom Releases</a> which can be deployed or installed on a machine. Any user signing in to that machine will find Atom installed for them automatically. (It may take a few seconds the first time they sign in for the icon to appear on the desktop).</p>
@@ -451,7 +423,7 @@ $
 <p>To install Atom on Linux, you can download a <a href="https://atom.io/download/deb">Debian package</a> or <a href="https://atom.io/download/rpm">RPM package</a> either from the <a href="https://atom.io">main Atom website</a> or from the <a href="https://github.com/atom/atom/releases/latest">Atom project releases page</a>. These packages do not currently have auto-update features, so when you would like to upgrade to a new release of Atom, you will have to repeat this installation process.</p>
 
 <h5>
-<a id="debian-and-related" class="anchor" href="#debian-and-related" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debian and Related</h5>
+<a id="debian-and-ubuntu-debapt" class="anchor" href="#debian-and-ubuntu-debapt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debian and Ubuntu (deb/apt)</h5>
 
 <p>To install Atom on Debian, Ubuntu, or related systems:</p>
 
@@ -464,7 +436,7 @@ $
 </pre>
 
 <h5>
-<a id="redhat-enterprise-and-related" class="anchor" href="#redhat-enterprise-and-related" aria-hidden="true"><span class="octicon octicon-link"></span></a>RedHat Enterprise and Related</h5>
+<a id="redhat-and-centos-yum" class="anchor" href="#redhat-and-centos-yum" aria-hidden="true"><span class="octicon octicon-link"></span></a>RedHat and CentOS (yum)</h5>
 
 <p>To install Atom on CentOS, Oracle Linux, RedHat Enterprise Linux, Scientific Linux or related systems that use the yum package manager:</p>
 
@@ -473,24 +445,69 @@ $
 </pre>
 
 <h5>
-<a id="fedora-and-related" class="anchor" href="#fedora-and-related" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fedora and Related</h5>
+<a id="fedora-dnf" class="anchor" href="#fedora-dnf" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fedora (dnf)</h5>
 
-<p>To download and install the latest release of Atom on Fedora or other systems that use the DNF package manager:</p>
+<p>To install the latest release of Atom on Fedora or other systems that use the DNF package manager:</p>
 
 <pre class="command-line">
 <span class="command">sudo dnf install -y atom.x86_64.rpm</span>
 </pre>
 
 <h5>
-<a id="suse-and-related" class="anchor" href="#suse-and-related" aria-hidden="true"><span class="octicon octicon-link"></span></a>SUSE and Related</h5>
+<a id="suse-zypp" class="anchor" href="#suse-zypp" aria-hidden="true"><span class="octicon octicon-link"></span></a>SUSE (zypp)</h5>
 
-<p>To download and install the latest release of Atom on openSUSE or other systems that use the Zypp package manager:</p>
+<p>To install the latest release of Atom on openSUSE or other systems that use the Zypp package manager:</p>
 
 <pre class="command-line">
 <span class="command">sudo zypper in -y atom.x86_64.rpm</span>
 </pre>
 
 </div>
+
+<h4>
+<a id="portable-mode" class="anchor" href="#portable-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Portable Mode</h4>
+
+<p>Atom stores configuration and state in a <code>.atom</code> directory usually located in your home directory <span class="platform-windows">(<code>%userprofile%</code> on Windows)</span>. You can however run Atom in portable mode where both the app and the configuration are stored together such as on a removable storage device.</p>
+
+<p>To setup Atom in portable mode download the <a href="https://github.com/atom/atom/releases/latest">zip/tar.gz package for your system</a> and extract it to your removable storage.</p>
+
+<p>{{windows}}<br>
+Then create a <code>.atom</code> directory alongside the directory that contains atom.exe, for example:</p>
+
+<pre><code>e:\atom-1.14\atom.exe
+e:\.atom
+</code></pre>
+
+
+
+<p>{{mac}}<br>
+Then create a <code>.atom</code> directory alongside the Atom.app application, for example:</p>
+
+<pre><code>/MyUSB/Atom.app
+/MyUSB/.atom
+</code></pre>
+
+
+
+<p>{{linux}}<br>
+Then create a <code>.atom</code> directory alongside the directory that contains the Atom binary, for example:</p>
+
+<pre><code>/media/myusb/atom-1.14/atom
+/media/myusb/.atom
+</code></pre>
+
+
+
+<h5>
+<a id="portable-notes" class="anchor" href="#portable-notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Portable Notes</h5>
+
+<ul>
+<li>The <code>.atom</code> directory must be writeable</li>
+<li>You can move an existing <code>.atom</code> directory to your portable device</li>
+<li>Atom can also store its Electron user data in your <code>.atom</code> directory - just create a subdirectory called <code>electronUserData</code> inside <code>.atom</code>
+</li>
+<li>Alternatively you can set the <code>ATOM_HOME</code> environment variable to point wherever you want (you can write a .sh or .cmd script to temporarily set it and launch it from that)</li>
+</ul>
 
 <h4>
 <a id="building-atom-from-source" class="anchor" href="#building-atom-from-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building Atom from Source</h4>
@@ -501,7 +518,7 @@ $
 <a id="proxy-and-firewall-settings" class="anchor" href="#proxy-and-firewall-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Proxy and Firewall Settings</h4>
 
 <h5>
-<a id="behind-a-firewall" class="anchor" href="#behind-a-firewall" aria-hidden="true"><span class="octicon octicon-link"></span></a>Behind a firewall?</h5>
+<a id="behind-a-firewall" class="anchor" href="#behind-a-firewall" aria-hidden="true"><span class="octicon octicon-link"></span></a>Behind a Firewall?</h5>
 
 <p>If you are behind a firewall and seeing SSL errors when installing packages you can disable strict SSL by running:</p>
 
@@ -510,7 +527,7 @@ $
 </pre>
 
 <h5>
-<a id="using-a-proxy" class="anchor" href="#using-a-proxy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using a proxy?</h5>
+<a id="using-a-proxy" class="anchor" href="#using-a-proxy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using a Proxy?</h5>
 
 <p>If you are using a HTTP(S) proxy you can configure <code>apm</code> to use it by running:</p>
 
