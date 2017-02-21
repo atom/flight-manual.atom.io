@@ -43,10 +43,10 @@ Your package is now published and available on atom.io. Head on over to `https:/
 With `apm publish`, you can bump the version and publish by using
 
 ``` command-line
-$ apm publish <version-type>
+$ apm publish <em>version-type</em>
 ```
 
-where `<version-type>` can be `major`, `minor` and `patch`.
+where `version-type` can be `major`, `minor` and `patch`.
 
 The `major` option to the publish command tells apm to increment the first number of the version before publishing so the published version will be `1.0.0` and the Git tag created will be `v1.0.0`.
 
