@@ -467,6 +467,25 @@
 </code></pre>
 
 
+<p><code>waitsForPromise</code> can take an additional object argument before the function. The object can have the following properties:</p>
+
+<ul>
+<li>
+<code>shouldReject</code> Whether the promise should reject or resolve (default: <code>false</code>)</li>
+<li>
+<code>timeout</code> The amount of time (in ms) to wait for the promise to be resolved or rejected (default: <code>process.env.CI ? 60000 : 5000</code>)</li>
+<li>
+<code>label</code> The label to display if promise times out (default: <code>'promise to be resolved or rejected'</code>)</li>
+</ul>
+
+<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when we open a file"</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="nx">it</span> <span class="s">"should be opened in an editor"</span><span class="p">,</span> <span class="o">-&gt;</span>
+    <span class="nx">waitsForPromise</span> <span class="p">{</span> <span class="na">shouldReject</span><span class="o">:</span> <span class="no">false</span><span class="p">,</span> <span class="na">timeout</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="na">label</span><span class="o">:</span> <span class="s">'promise to be resolved or rejected'</span> <span class="p">},</span> <span class="o">-&gt;</span>
+      <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="s">'c.coffee'</span><span class="p">).</span><span class="na">then</span> <span class="p">(</span><span class="nx">editor</span><span class="p">)</span> <span class="o">-&gt;</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">editor</span><span class="p">.</span><span class="na">getPath</span><span class="p">()).</span><span class="na">toContain</span> <span class="s">'c.coffee'</span>
+</code></pre>
+
+
 <h5>
 <a id="asynchronous-functions-with-callbacks" class="anchor" href="#asynchronous-functions-with-callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous Functions with Callbacks</h5>
 
