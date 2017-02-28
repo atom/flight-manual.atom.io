@@ -113,6 +113,20 @@ describe "waiting for the packages to load", ->
     expect(atom.packages.isPackageActive('tree-view')).toBe true
 ```
 
+`waitsForPromise` can take an additional object argument before the function. The object can have the following properties:
+
+* `shouldReject` Whether the promise should reject or resolve (default: `false`)
+* `timeout` The amount of time (in ms) to wait for the promise to be resolved or rejected (default: `process.env.CI ? 60000 : 5000`)
+* `label` The label to display if promise times out (default: `'promise to be resolved or rejected'`)
+
+```coffee
+describe "when we open a file", ->
+  it "should be opened in an editor", ->
+    waitsForPromise { shouldReject: false, timeout: 5000, label: 'promise to be resolved or rejected' }, ->
+      atom.workspace.open('c.coffee').then (editor) ->
+        expect(editor.getPath()).toContain 'c.coffee'
+```
+
 ##### Asynchronous Functions with Callbacks
 
 Specs for asynchronous functions can be done using the `waitsFor` and `runs` functions. A simple example.
