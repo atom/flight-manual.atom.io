@@ -202,3 +202,25 @@ When the event handler observes that the cursor does not follow a valid prefix, 
   is resumed, triggering a binding on the next-most-specific CSS selector for
   the same element or continuing upward to parent elements.
 * If no bindings are found, the event is handled by Chromium normally.
+
+#### Overriding Atom's Keyboard Layout Recognition
+
+Sometimes the problem isn't mapping the command to a key combination, the problem is that Atom doesn't recognize properly what keys you're pressing. This is due to [some limitations in how Chromium reports keyboard events](http://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html). But even this can be customized now.
+
+You can add the following to your `init.coffee` to send <kbd class="platform-all">Ctrl+@</kbd> when you press <kbd class="platform-all">Ctrl+Alt+G</kbd>:
+
+```coffee
+atom.keymaps.addKeystrokeResolver ({event}) ->
+  if event.code is 'KeyG' and event.altKey and event.ctrlKey
+    return 'ctrl-@'
+```
+
+Or if you've converted your init script to JavaScript:
+
+```javascript
+atom.keymaps.addKeystrokeResolver(({event}) => {
+  if (event.code === 'KeyG' && event.altKey && event.ctrlKey) {
+    return 'ctrl-@'
+  }
+})
+```
