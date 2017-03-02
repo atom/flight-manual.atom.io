@@ -354,6 +354,12 @@
 
 <p>The simplest way to start a package is to use the built-in package generator that ships with Atom. As you might expect by now, this generator is itself a separate package implemented in <a href="https://github.com/atom/package-generator">package-generator</a>.</p>
 
+<div class="alert note">
+
+<p><strong>Note:</strong> By default, the package generator emits JavaScript. You can change this to CoffeeScript to follow along better with this tutorial. In the Settings View, go to the package-generator settings and change the "Package Syntax" setting to "CoffeeScript".</p>
+
+</div>
+
 <p>You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Name it <code>your-name-word-count</code>. Atom will then create that directory and fill it out with a skeleton project and link it into your <span class="platform-mac platform-linux"><code>~/.atom/packages</code></span><span class="platform-windows"><code>%USERPROFILE%\.atom\packages</code></span> directory so it's loaded when you launch your editor next time.</p>
 
 <div class="alert note">
