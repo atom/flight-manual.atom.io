@@ -581,6 +581,29 @@ is resumed, triggering a binding on the next-most-specific CSS selector for
 the same element or continuing upward to parent elements.</li>
 <li>If no bindings are found, the event is handled by Chromium normally.</li>
 </ul>
+
+<h4>
+<a id="overriding-atoms-keyboard-layout-recognition" class="anchor" href="#overriding-atoms-keyboard-layout-recognition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overriding Atom's Keyboard Layout Recognition</h4>
+
+<p>Sometimes the problem isn't mapping the command to a key combination, the problem is that Atom doesn't recognize properly what keys you're pressing. This is due to <a href="http://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html">some limitations in how Chromium reports keyboard events</a>. But even this can be customized now.</p>
+
+<p>You can add the following to your <code>init.coffee</code> to send <kbd class="platform-all">Ctrl+@</kbd> when you press <kbd class="platform-all">Ctrl+Alt+G</kbd>:</p>
+
+<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">keymaps</span><span class="p">.</span><span class="na">addKeystrokeResolver</span> <span class="p">({</span><span class="nx">event</span><span class="p">})</span> <span class="o">-&gt;</span>
+  <span class="k">if</span> <span class="nx">event</span><span class="p">.</span><span class="na">code</span> <span class="o">is</span> <span class="s">'KeyG'</span> <span class="o">and</span> <span class="nx">event</span><span class="p">.</span><span class="na">altKey</span> <span class="o">and</span> <span class="nx">event</span><span class="p">.</span><span class="na">ctrlKey</span>
+    <span class="k">return</span> <span class="s">'ctrl-@'</span>
+</code></pre>
+
+
+<p>Or if you've converted your init script to JavaScript:</p>
+
+<pre class="highlight highlight-javascript"><code><span class="nx">atom</span><span class="p">.</span><span class="nx">keymaps</span><span class="p">.</span><span class="nx">addKeystrokeResolver</span><span class="p">(({</span><span class="nx">event</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span> <span class="o">===</span> <span class="s1">'KeyG'</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">altKey</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">ctrlKey</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'ctrl-@'</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+
         </div>
       </div>
       <div class="footer-pad"></div>
