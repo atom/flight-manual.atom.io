@@ -211,7 +211,7 @@ You can add the following to your `init.coffee` to send <kbd class="platform-all
 
 ```coffee
 atom.keymaps.addKeystrokeResolver ({event}) ->
-  if event.code is 'KeyG' and event.altKey and event.ctrlKey
+  if event.code is 'KeyG' and event.altKey and event.ctrlKey and event.type isnt 'keyup'
     return 'ctrl-@'
 ```
 
@@ -219,7 +219,7 @@ Or if you've converted your init script to JavaScript:
 
 ```javascript
 atom.keymaps.addKeystrokeResolver(({event}) => {
-  if (event.code === 'KeyG' && event.altKey && event.ctrlKey) {
+  if (event.code === 'KeyG' && event.altKey && event.ctrlKey && event.type !== 'keyup') {
     return 'ctrl-@'
   }
 })
