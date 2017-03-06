@@ -590,7 +590,7 @@ the same element or continuing upward to parent elements.</li>
 <p>You can add the following to your <code>init.coffee</code> to send <kbd class="platform-all">Ctrl+@</kbd> when you press <kbd class="platform-all">Ctrl+Alt+G</kbd>:</p>
 
 <pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">keymaps</span><span class="p">.</span><span class="na">addKeystrokeResolver</span> <span class="p">({</span><span class="nx">event</span><span class="p">})</span> <span class="o">-&gt;</span>
-  <span class="k">if</span> <span class="nx">event</span><span class="p">.</span><span class="na">code</span> <span class="o">is</span> <span class="s">'KeyG'</span> <span class="o">and</span> <span class="nx">event</span><span class="p">.</span><span class="na">altKey</span> <span class="o">and</span> <span class="nx">event</span><span class="p">.</span><span class="na">ctrlKey</span>
+  <span class="k">if</span> <span class="nx">event</span><span class="p">.</span><span class="na">code</span> <span class="o">is</span> <span class="s">'KeyG'</span> <span class="o">and</span> <span class="nx">event</span><span class="p">.</span><span class="na">altKey</span> <span class="o">and</span> <span class="nx">event</span><span class="p">.</span><span class="na">ctrlKey</span> <span class="o">and</span> <span class="nx">event</span><span class="p">.</span><span class="na">type</span> <span class="o">isnt</span> <span class="s">'keyup'</span>
     <span class="k">return</span> <span class="s">'ctrl-@'</span>
 </code></pre>
 
@@ -598,7 +598,7 @@ the same element or continuing upward to parent elements.</li>
 <p>Or if you've converted your init script to JavaScript:</p>
 
 <pre class="highlight highlight-javascript"><code><span class="nx">atom</span><span class="p">.</span><span class="nx">keymaps</span><span class="p">.</span><span class="nx">addKeystrokeResolver</span><span class="p">(({</span><span class="nx">event</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span> <span class="o">===</span> <span class="s1">'KeyG'</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">altKey</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">ctrlKey</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span> <span class="o">===</span> <span class="s1">'KeyG'</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">altKey</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">ctrlKey</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">type</span> <span class="o">!==</span> <span class="s1">'keyup'</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s1">'ctrl-@'</span>
   <span class="p">}</span>
 <span class="p">})</span>
