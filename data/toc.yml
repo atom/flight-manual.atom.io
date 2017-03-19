@@ -44,6 +44,7 @@ Chapters:
     - Developing Node Modules
     - Interacting With Other Packages Via Services
     - Maintaining Your Packages
+    - How Atom Uses Chromium Snapshots
     - Summary
 
 Appendices:
