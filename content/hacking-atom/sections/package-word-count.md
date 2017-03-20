@@ -404,7 +404,7 @@ Pretty simple! We take the count number that was passed in and place it into a s
 
 {{#note}}
 
-**Note:** To see your changes, you'll need to reload the code. You can do this by reloading the window (The window:reload command in the command palette). A common practice is to have two Atom windows, one for developing your package, and one for testing and reloading.
+**Note:** To see your changes, you'll need to reload the code. You can do this by reloading the window (The `window:reload` command in the Command Palette). A common practice is to have two Atom windows, one for developing your package, and one for testing and reloading.
 
 {{/note}}
 
