@@ -33,12 +33,6 @@ If you want to hand off support of your package to someone else, you can do that
 
 #### Unpublish Your Package
 
-{{#warning}}
-
-**Warning:** It is important that you unpublish your package _before_ deleting your repository. If you delete the repository first, you will lose access to the package and will not be able to recover it without assistance.
-
-{{/warning}}
-
 If you no longer want to support your package and cannot find anyone to take it over, you can unpublish your package from https://atom.io. For example, if your package is named `package-name` then the command you would execute is:
 
 ``` command-line
