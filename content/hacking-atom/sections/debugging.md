@@ -9,7 +9,7 @@ Atom provides several tools to help you understand unexpected behavior and debug
 
 You might be running into an issue which was already fixed in a more recent version of Atom than the one you're using.
 
-If you're using released version, check which version of Atom you're using:
+If you're using a released version, check which version of Atom you're using:
 
 ``` command-line
 $ atom --version
