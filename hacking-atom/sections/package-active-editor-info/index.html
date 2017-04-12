@@ -1,0 +1,593 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Package: Active Editor Info</title>
+
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+
+      indexUrl: '/search.json',
+
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    })
+  })
+</script>
+
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
+  </head>
+  <body class="layout-article">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="http://blog.atom.io">Blog</a></li>
+      <li><a href="https://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search">
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="search" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+  <h4>
+    <a href="/getting-started">Chapter 1: Getting Started</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/why-atom">Why Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/using-atom">Chapter 2: Using Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/snippets">Snippets</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/folding">Folding</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/panes">Panes</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/pending-pane-items">Pending Pane Items</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/grammar">Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+      </li>
+    
+      <li class="selected">
+        <a href="/hacking-atom/sections/package-active-editor-info">Package: Active Editor Info</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/publishing">Publishing</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/iconography">Iconography</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/debugging">Debugging</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/behind-atom">Chapter 4: Behind Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+
+
+  <h4>
+    <a href="/resources">Appendix A: Resources</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/resources/sections/glossary">Glossary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/shadow-dom">Appendix B: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix C: Upgrading to 1.0 APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+      </li>
+    
+  </ul>
+
+
+        </div>
+
+        
+        <h1 class="document-title">
+          <div id="platform-nav">
+  <span class="octicon octicon-device-desktop"></span>
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+  </ul>
+</div>
+
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/package-active-editor-info.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
+        <div class="markdown-body document-content">
+          
+          <h3>
+<a id="package-active-editor-info" class="anchor" href="#package-active-editor-info" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package: Active Editor Info</h3>
+
+<div class="alert warning">
+
+<p><strong>Warning:</strong> Some additional features described in this section are not available until Atom v1.17, which is currently in <a href="https://atom.io/beta">Beta</a>.</p>
+
+</div>
+
+<p>We saw in our <a href="/hacking-atom/sections/package-word-count/">Word Count</a> package how we could show information in a modal panel. However, panels aren't the only way to extend Atom's UI—you can also add items to the workspace. These items can be dragged to new locations (for example, one of the docks on the edges of the window), and Atom will restore them the next time you open the project. This system is used by Atom's tree view, as well as by third party packages like <a href="http://nuclide.io">Nuclide</a> for its console, debugger, outline view, and diagnostics (linter results).</p>
+
+<p>For this package, we'll define a workspace item that tells us some information about our active text editor. The final package can be viewed at <a href="https://github.com/atom/active-editor-info">https://github.com/atom/active-editor-info</a>.</p>
+
+<h4>
+<a id="create-the-package" class="anchor" href="#create-the-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create the Package</h4>
+
+<p>To begin, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> to bring up the <a href="https://github.com/atom/command-palette">Command Palette</a>. Type "generate package" and select the "Package Generator: Generate Package" command, just as we did in <a href="/hacking-atom/sections/package-word-count/#package-generator">the section on package generation</a>. Enter <code>active-editor-info</code> as the name of the package.</p>
+
+<h4>
+<a id="add-an-opener" class="anchor" href="#add-an-opener" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add an Opener</h4>
+
+<p>Now let's edit the package files to show our view in a workspace item instead of a modal panel. The way we do this is by registering an <em>opener</em> with Atom. Openers are just functions that accept a URI and return a view (if it's a URI that the opener knows about). When you call <code>atom.workspace.open()</code>, Atom will go through all of its openers until it finds one that can handle the URI you passed.</p>
+
+<p>Let's open <code>lib/active-editor-info.js</code> and edit our <code>activate()</code> method to register an opener:</p>
+
+<pre class="highlight highlight-js"><code><span class="s1">'use babel'</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="nx">ActiveEditorInfoView</span> <span class="nx">from</span> <span class="s1">'./active-editor-info-view'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">,</span> <span class="nx">Disposable</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'atom'</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+
+  <span class="na">subscriptions</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+
+  <span class="nx">activate</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span><span class="p">(</span>
+      <span class="c1">// Add an opener for our view.</span>
+      <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">addOpener</span><span class="p">(</span><span class="nx">uri</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">uri</span> <span class="o">===</span> <span class="s1">'atom://active-editor-info'</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">new</span> <span class="nx">ActiveEditorInfoView</span><span class="p">();</span>
+        <span class="p">}</span>
+      <span class="p">}),</span>
+
+      <span class="c1">// Register command that toggles this view</span>
+      <span class="nx">atom</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'atom-workspace'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s1">'active-editor-info:toggle'</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">toggle</span><span class="p">()</span>
+      <span class="p">}),</span>
+
+      <span class="c1">// Destroy any ActiveEditorInfoViews when the package is deactivated.</span>
+      <span class="k">new</span> <span class="nx">Disposable</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getPaneItems</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">item</span> <span class="k">instanceof</span> <span class="nx">ActiveEditorInfoView</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">item</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+      <span class="p">})</span>
+    <span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">deactivate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+  <span class="p">},</span>
+
+  <span class="nx">toggle</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Toggle it!'</span><span class="p">)</span>
+  <span class="p">}</span>
+
+<span class="p">};</span>
+</code></pre>
+
+
+<p>You'll notice we also removed the <code>activeEditorInfoView</code> property and the <code>serialize()</code> method. That's because, with workspace items, it's possible to have more than one instance of a given view. Since each instance can have its own state, each should do its own serialization instead of relying on a package-level <code>serialize()</code> method. We'll come back to that later.</p>
+
+<p>You probably also noticed that our <code>toggle()</code> implementation just logs the text "Toggle it!" to the console. Let's make it actually toggle our view:</p>
+
+<pre class="highlight highlight-js"><code>  <span class="nx">toggle</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">'atom://active-editor-info'</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre>
+
+
+<h4>
+<a id="updating-the-view" class="anchor" href="#updating-the-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updating the View</h4>
+
+<p>Atom uses the same view abstractions everywhere, so we can almost use the generated ActiveEditorInfoView class as-is. We just need to add two small methods:</p>
+
+<pre class="highlight highlight-js"><code>  <span class="nx">getTitle</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Used by Atom for tab text</span>
+    <span class="k">return</span> <span class="s1">'Active Editor Info'</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">getURI</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Used by Atom to identify the view when toggling.</span>
+    <span class="k">return</span> <span class="s1">'atom://active-editor-info'</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre>
+
+
+<p>Now reload the window and run the "Active Editor Info: Toggle" command from the command palette! Our view will appear in a new tab in the center of the workspace. If you want, you can drag it into one of the docks. Toggling it again will then hide that dock. If you close the tab and run the toggle command again, it will appear in the last place you had it.</p>
+
+<div class="alert note">
+
+<p>We've repeated the same URI three times now. That's okay, but it's probably a good idea to define the URL in one place and then import it from that module wherever you need it.</p>
+
+</div>
+
+<h4>
+<a id="constraining-our-items-locations" class="anchor" href="#constraining-our-items-locations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constraining Our Item's Locations</h4>
+
+<p>The purpose of our view is to show information about the active text editor, so it doesn't really make sense to show our item in the center of the workspace (where the text editor will be). Let's add some methods to our view class to influence where its opened:</p>
+
+<pre class="highlight highlight-js"><code>  <span class="nx">getDefaultLocation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// This location will be used if the user hasn't overridden it by dragging the item elsewhere.</span>
+    <span class="c1">// Valid values are "left", "right", "bottom", and "center" (the default).</span>
+    <span class="k">return</span> <span class="s1">'right'</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">getAllowedLocations</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// The locations into which the item can be moved.</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s1">'left'</span><span class="p">,</span> <span class="s1">'right'</span><span class="p">,</span> <span class="s1">'bottom'</span><span class="p">];</span>
+  <span class="p">}</span>
+</code></pre>
+
+
+<p>Now our item will appear in the right dock intially and users will only be able to drag it to one of the other docks.</p>
+
+<h4>
+<a id="show-active-editor-info" class="anchor" href="#show-active-editor-info" aria-hidden="true"><span class="octicon octicon-link"></span></a>Show Active Editor Info</h4>
+
+<p>Now that we have our view all wired up, let's update it to show some information about the active text editor. Add this to the constructor:</p>
+
+<pre class="highlight highlight-js"><code><span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getCenter</span><span class="p">().</span><span class="nx">observeActivePaneItem</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">isTextEditor</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">message</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s1">'Open a file to see important information about it.'</span><span class="p">;</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">message</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="err">`</span>
+    <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">$</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">getFileName</span><span class="p">()</span> <span class="o">||</span> <span class="s1">'untitled'</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="nx">Soft</span> <span class="nx">Wrap</span><span class="err">:</span><span class="o">&lt;</span><span class="sr">/b&gt; ${item.softWrapped}&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="nx">Tab</span> <span class="nx">Length</span><span class="err">:</span><span class="o">&lt;</span><span class="sr">/b&gt; ${item.getTabLength</span><span class="se">()</span><span class="sr">}&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="nx">Encoding</span><span class="err">:</span><span class="o">&lt;</span><span class="sr">/b&gt; ${item.getEncoding</span><span class="se">()</span><span class="sr">}&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="nx">Line</span> <span class="nx">Count</span><span class="err">:</span><span class="o">&lt;</span><span class="sr">/b&gt; ${item.getLineCount</span><span class="se">()</span><span class="sr">}&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span>  <span class="err">`</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre>
+
+
+<p>Now whenever you open a text editor in the center, the view will update with some information about it.</p>
+
+<div class="alert warning">
+
+<p>We use a template string here because it's simple and we have a lot of control over what's going into it, but this could easily result in the insertion of unwanted HTML if you're not careful. Sanitize your input and use the DOM API or a templating system when doing this for real.</p>
+
+</div>
+
+<p>Also, don't forget to clean up the subscription in the <code>destroy()</code> method:</p>
+
+<pre class="highlight highlight-js"><code><span class="nx">destroy</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<h4>
+<a id="serialization" class="anchor" href="#serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization</h4>
+
+<p>If you were to reload Atom now, you'd see that our item had disappeared. That's because we haven't told Atom how to serialize it yet. Let's do that now.</p>
+
+<p>The first step is to implement a <code>serialize()</code> method on our ActiveEditorInfoView class. Atom will call the <code>serialize()</code> method on every item in the workspace periodically to save its state.</p>
+
+<pre class="highlight highlight-js"><code>  <span class="nx">serialize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="c1">// This is used to look up the deserializer function. It can be any string, but it needs to be</span>
+      <span class="c1">// unique across all packages!</span>
+      <span class="na">deserializer</span><span class="p">:</span> <span class="s1">'active-editor-info/ActiveEditorInfoView'</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+</code></pre>
+
+
+<div class="alert note">
+
+<p>All of our view's state is derived from the active text editor so we only need the <code>deserializer</code> field. If we had other state that we wanted to preserve across reloads, we would just add things to the object we're returning. Just make sure that they're JSON serializable!</p>
+
+</div>
+
+<p>Next we need to register a deserializer function that Atom can use to recreate the real object when it starts up. The best way to do that is to add a "deserializers" object to our <code>package.json</code> file:</p>
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active-editor-info"</span><span class="p">,</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+  </span><span class="nt">"deserializers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"active-editor-info/ActiveEditorInfoView"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deserializeActiveEditorInfoView"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<p>Notice that the key (<code>"active-editor-info/ActiveEditorInfoView"</code>) matches the string we used in our <code>serialize()</code> method above. The value (<code>"deserializeActiveEditorInfoView"</code>) refers to a function in our main module, which we still need to add. Go back to <code>active-editor-info.js</code> and do that now:</p>
+
+<pre class="highlight highlight-js"><code>  <span class="nx">deserializeActiveEditorInfoView</span><span class="p">(</span><span class="nx">serialized</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">ActiveEditorInfoView</span><span class="p">();</span>
+  <span class="p">}</span>
+</code></pre>
+
+
+<p>The value returned from our <code>serialize()</code> method will be passed to this function. Since our serialized object didn't include any state, we can just return a new ActiveEditorInfoView instance.</p>
+
+<p>Reload Atom and toggle the view with the "Active Editor Info: Toggle" command. Then reload Atom again. Your view should be just where you left it!</p>
+
+<h4>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h4>
+
+<p>In this section, we've made a toggleable workspace item whose placement can be controlled by the user. This could be helpful when creating all sorts of visual tools for working with code!</p>
+        </div>
+      </div>
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+        <li><a href="https://github.com/atom/flight-manual.atom.io/blob/master/CONTRIBUTING.md">Contribute!</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
