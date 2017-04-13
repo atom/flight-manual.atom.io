@@ -45,6 +45,7 @@ Chapters:
     - Developing Node Modules
     - Interacting With Other Packages Via Services
     - Maintaining Your Packages
+    - Per Package Transpilation
     - Summary
 
 Appendices:
