@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Using Atom</title>
+<title>How Atom Uses Chromium Snapshots</title>
 
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
 
@@ -265,7 +265,7 @@
         <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
       </li>
     
-      <li class="unselected">
+      <li class="selected">
         <a href="/behind-atom/sections/how-atom-uses-chromium-snapshots">How Atom Uses Chromium Snapshots</a>
       </li>
     
@@ -345,19 +345,23 @@
 </div>
 
           <a class="improve-link"
-              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/index.md" data-proofer-ignore>
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/behind-atom/sections/how-atom-uses-chromium-snapshots.md" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
           </a>
         </h1>
 
         <div class="markdown-body document-content">
           
-          <h2>
-<a id="using-atom" class="anchor" href="#using-atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Atom</h2>
+          <h3>
+<a id="how-atom-uses-chromium-snapshots" class="anchor" href="#how-atom-uses-chromium-snapshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>How Atom Uses Chromium Snapshots</h3>
 
-<p>Now that we've covered the very basics of Atom, we are ready to see how to really start getting the most out of using it. In this chapter we'll look at how to find and install new packages in order to add new functionality, how to find and install new themes, how to work with and manipulate text in a more advanced way, how to customize the editor in any way you wish, how to work with Git for version control and more.</p>
+<p>In order to improve startup time, when Atom is built we create a <a href="https://v8project.blogspot.it/2015/09/custom-startup-snapshots.html">V8 snapshot</a> in which we preload core services and packages. Then, at runtime, we finish loading Atom by supplying all the information we didn't have during the compilation phase (e.g. loading third party packages, custom style sheets, configuration, etc.).</p>
 
-<p>At the end of this chapter, you should have a customized environment that you're comfortable in and you should be able to change, create and move through your text like a master.</p>
+<p><a href="https://github.com/atom/electron-link">electron-link</a> is the tool that powers snapshots, as it enables us to traverse the entire require graph (starting at the entry point) and replace all the forbidden <code>require</code> calls (e.g. require calls to native modules, node core modules or other modules that can't be accessed in the snapshot <a href="https://github.com/v8/v8/wiki/Embedder%27s-Guide#contexts">V8 context</a>) with a function that will be called at runtime. When adding new code to Atom, we always try to put it inside the snapshot by, for example, deferring the usage of DOM APIs or native node modules to a later moment in time when those facilities are available. If that is not possible, we will add the unsupported code paths to the <a href="https://github.com/atom/atom/blob/74ff9fdb91205b89673209caf1e2ceb373e9c59f/script/lib/generate-startup-snapshot.js#L19-L65">list of files that get excluded from the snapshot</a>, ensuring we only exclude those ones that are not supported as opposed to skipping an entire Node module.</p>
+
+<p>The output of electron-link is a single script containing the code for all the modules reachable from the entry point, which we then <a href="https://github.com/atom/atom/blob/74ff9fdb91205b89673209caf1e2ceb373e9c59f/script/lib/generate-startup-snapshot.js#L73-L78">supply to mksnapshot</a> to generate a snapshot blob.</p>
+
+<p>The generated blob is finally <a href="https://github.com/atom/atom/blob/74ff9fdb91205b89673209caf1e2ceb373e9c59f/script/lib/generate-startup-snapshot.js#L80-L89">copied into the application bundle</a> and will be automatically loaded by Electron when running Atom.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
