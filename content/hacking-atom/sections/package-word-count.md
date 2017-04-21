@@ -133,7 +133,7 @@ An optional `styleSheets` array in your `package.json` can list the style sheets
 
 ##### Keymaps
 
-You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the `keymaps/wordcount.cson` file:
+You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the `keymaps/wordcount.json` file:
 
 ```coffee
 'atom-workspace':
