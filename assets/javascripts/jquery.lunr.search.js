@@ -7,7 +7,7 @@ const searchPlugin = function () {
       clearTimeout(timeout)
       timeout = setTimeout(function () {
         fn.apply(context, args)
-      }, 100)
+      }, 101)
     }
   }
 
