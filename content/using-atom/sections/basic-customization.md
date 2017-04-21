@@ -1,6 +1,33 @@
 ---
 title: Basic Customization
 ---
+
+
+#### Customizing Keybindings
+
+To change keybindings, 
+  press ctrl + , - keybindings
+  or go to file - settings - keybindings
+
+Atom keymaps work similarly to stylesheets. Just as stylesheets use selectors to apply styles to elements, Atom keymaps use selectors to associate key combinations with events in specific contexts. Here's a small example, excerpted from Atom's built-in keymap:
+
+```coffee
+'atom-text-editor':
+  'enter': 'editor:newline'
+
+'atom-text-editor[mini] input':
+  'enter': 'core:confirm'
+```
+
+This keymap defines the meaning of <kbd class="platform-all">Enter</kbd> in two different contexts. In a normal editor, pressing <kbd class="platform-all">Enter</kbd> triggers the `editor:newline` command, which causes the editor to insert a newline. But if the same keystroke occurs inside a select list's mini-editor, it instead triggers the `core:confirm` command based on the binding in the more-specific selector.
+
+By default, `keymap.cson` is loaded when Atom is started. It will always be loaded last, giving you the chance to override bindings that are defined by Atom's core keymaps or third-party packages. You can open this file in an editor from the <span class="platform-mac">_Atom > Keymap_</span><span class="platform-windows">_File > Keymap_</span><span class="platform-linux">_Edit > Keymap_</span> menu.
+
+You can see all the keybindings that are currently configured in your installation of Atom in the Keybindings tab in the Settings View.
+
+If you run into problems with keybindings, the Keybinding Resolver is a huge help. It can be opened with the <kbd class="platform-mac">Cmd+.</kbd><kbd class="platform-windows platform-linux">Ctrl+.</kbd> key combination. It will show you what keys Atom saw you press and what command Atom executed because of that combination.
+
+
 ### Basic Customization
 
 Now that we are feeling comfortable with just about everything built into Atom, let's look at how to tweak it. Perhaps there is a keybinding that you use a lot but feels wrong or a color that isn't quite right for you. Atom is amazingly flexible, so let's go over some of the simpler flexes it can do.
@@ -84,25 +111,6 @@ If you prefer to use CSS instead, you can do that in the same `styles.less` file
 
 {{/tip}}
 
-#### Customizing Keybindings
-
-Atom keymaps work similarly to stylesheets. Just as stylesheets use selectors to apply styles to elements, Atom keymaps use selectors to associate key combinations with events in specific contexts. Here's a small example, excerpted from Atom's built-in keymap:
-
-```coffee
-'atom-text-editor':
-  'enter': 'editor:newline'
-
-'atom-text-editor[mini] input':
-  'enter': 'core:confirm'
-```
-
-This keymap defines the meaning of <kbd class="platform-all">Enter</kbd> in two different contexts. In a normal editor, pressing <kbd class="platform-all">Enter</kbd> triggers the `editor:newline` command, which causes the editor to insert a newline. But if the same keystroke occurs inside a select list's mini-editor, it instead triggers the `core:confirm` command based on the binding in the more-specific selector.
-
-By default, `keymap.cson` is loaded when Atom is started. It will always be loaded last, giving you the chance to override bindings that are defined by Atom's core keymaps or third-party packages. You can open this file in an editor from the <span class="platform-mac">_Atom > Keymap_</span><span class="platform-windows">_File > Keymap_</span><span class="platform-linux">_Edit > Keymap_</span> menu.
-
-You can see all the keybindings that are currently configured in your installation of Atom in the Keybindings tab in the Settings View.
-
-If you run into problems with keybindings, the Keybinding Resolver is a huge help. It can be opened with the <kbd class="platform-mac">Cmd+.</kbd><kbd class="platform-windows platform-linux">Ctrl+.</kbd> key combination. It will show you what keys Atom saw you press and what command Atom executed because of that combination.
 
 #### Global Configuration Settings
 
