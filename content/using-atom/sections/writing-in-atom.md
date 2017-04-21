@@ -1,11 +1,11 @@
 ---
 title: Writing in Atom
 ---
-### Writing in Atom
+### Tools to Write in Atom
 
-Though it is probably most common to use Atom to write software code, Atom can also be used to write prose quite effectively. Most often this is done in some sort of markup language such as Asciidoc or [Markdown](https://help.github.com/articles/about-writing-and-formatting-on-github/) (in which this manual is written). Here we'll quickly cover a few of the tools Atom provides for helping you write prose.
+Atom can write prose in some sort of markup language like Asciidoc or [Markdown](https://help.github.com/articles/about-writing-and-formatting-on-github/) (which this manual is written).
 
-In these docs, we'll concentrate on writing in Markdown; however, other prose markup languages like Asciidoc have packages that provide similar functionality.
+We'll focus on writing in Markdown, but other prose markup languages like Asciidoc have packages that provide similar functionality.
 
 #### Spell Checking
 
