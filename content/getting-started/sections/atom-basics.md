@@ -1,97 +1,98 @@
 ---
-title: Atom Basics
+titre: Les bases Atom
 ---
-### Atom Basics
+### Les Bases Atom
 
-Now that Atom is installed on your system, let's fire it up, configure it and get acquainted with the editor.
+Maintenant qu'Atom est installé sur votre système, c'est partis, configuré-le et familiarisez vous avec l'éditeur.
 
-When you launch Atom for the first time, you should get a screen that looks like this:
+Quand vous lancez Atom pour la première fois, vous devrez avoir un écran qui ressemble à ça:
 
 ![Atom's welcome screen](../../images/first-launch.png)
 
-This is the Atom welcome screen and gives you a pretty good starting point for how to get started with the editor.
+Ceci est l'écran d'accueil d'Atom qui vous donne un bon point de départ pour savoir commennt débuter avec l'éditeur.
 
-#### Terminology
+#### Terminologie
 
-You can find definitions for all of the various terms that we use throughout the manual in our [Glossary](/resources/sections/glossary/).
+Vous pouvez trouver les définitions de chaques termes que nous utilisons tout au long du manuel et du glossaire.
+(/resources/sections/glossary/).
 
-#### Command Palette
+#### Palette de Commande
 
-In that welcome screen, we are introduced to probably the most important command in Atom, the Command Palette. If you press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> while focused in an editor pane, the command palette will pop up.
+Sur cet écran d'accueil, nous allons introduire la partie qui est probablement la plus importante des commandes d'Atom, la palette de commande. Si vous appuyez <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> la palette de commande va apparaitre.
 
 {{#note}}
 
-Throughout the book we will use shortcut keybindings like <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> to demonstrate how to run a command. These are the default keybindings for the platform that we detected you running.
+Tout au long de la documentation, nous utiliserons des raccourcis clavier comme <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> pour montrer comment utiliser une commande. Il y a déja des raccourcis clavier par défauts pour votre système d'exploitation qui ont été détécté au lancement.
 
-If you want to see a different platform than the one we detected, you may choose a different one by using the platform selector near the top of the page:
+Si vous voulez voir un système différent de celui que nous avons détécté, vous pouvez en choisir un different en utilisant le sélécteur en haut de la page:
 
 ![Platform Selector](../../images/platform-selector.png "Platform Selector")
 
-If the Platform Selector is not present, then the current page doesn't have any platform-specific content.
+Si le système n'est pas présent, alors la page actuelle n'a aucun contenu spécifique au système.
 
-If you have customized your Atom keymap, you can always see the keybinding you have mapped in the Command Palette or the Keybindings tab in the [Settings View](#settings-and-preferences).
+Si vous avez personalisé vos raccourci Atom, vous pouvez toujours voir votre configuratoin dans la "Command Palette" ou l'onglet clavier dans les paramètres [Settings View](#settings-and-preferences).
 
 {{/note}}
 
-This search-driven menu can do just about any major task that is possible in Atom. Instead of clicking around all the application menus to look for something, you can press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and search for the command.
+Ce menu de recherche peut accomplir n'importe quelle tâche possible sur Atom. Au lieu de cliquer sur tous les menus d'applications pour rechercher quelque chose, appuyez simplement sur <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> et rechercher votre commande.
 
 ![Command Palette](../../images/command-palette.png "Command Palette")
 
-Not only can you see and quickly search through thousands of possible commands, but you can also see if there is a keybinding associated with it. This is great because it means you can guess your way to doing interesting things while also learning the shortcut key strokes for doing it.
+Non seulement vous pouvez voir et rechercher rapidement des milliers de commandes possibles, mais vous pouvez également voir s'il y a un raccourci clavier associé. C'est formidable parce que cela signifie que vous pouvez deviner votre façon de faire des choses intéressantes tout en apprenant les touches de raccourci pour le faire.
 
-For the rest of the book, we will try to be clear as to the text you can search for in the Command Palette in addition to the keybinding for different commands.
+Pour le reste de la documentation, nous allons essayer d'être clair dans le texte que vous pouvez rechercher sur la palette de commande.
 
-#### Settings and Preferences
+#### Paramètres et préférences
 
-Atom has a number of settings and preferences you can modify in the Settings View.
+Atom a de nombreux paramètres que vous pouvez modifier dans l'écran des paramètres.
 
 ![Settings View](../../images/settings.png "Settings View")
 
-This includes things like changing the theme, specifying how to handle wrapping, font settings, tab size, scroll speed and much more. You can also use this screen to install new packages and themes, which we'll cover in [Atom Packages](/using-atom/sections/atom-packages).
+Cela inclut des choses comme changer le thème, spécifier comment gérer les manipulations , les paramètres de police, la taille de l'onglet, la vitesse de défilement et bien plus encore. Vous pouvez également utiliser cet écran pour installer de nouveaux packages et thèmes, que nous aborderons dans les packages d'Atom [Atom Packages](/using-atom/sections/atom-packages).
 
-To open the Settings View, you can:
+Pour ouvrir l'écran des paramètres, vous pouvez:
 
-* Use the <span class="platform-mac">*Atom > Preferences*</span><span class="platform-windows">*File > Settings*</span><span class="platform-linux">*Edit > Preferences*</span> menu item in the menu bar
-* Search for `settings-view:open` in the [Command Palette](#command-palette)
-* Use the <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd> keybinding
+* Utilisez <span class="platform-mac">*Atom > Preferences*</span><span class="platform-windows">*File > Settings*</span><span class="platform-linux">*Edit > Preferences*</span> dans la barre de menu
+* Recherchez `settings-view:open` in the [Command Palette](#command-palette)
+* Utilisez les raccourcis clavier <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd> 
 
-##### Changing the Theme
+##### Changer le Thème
 
-The Settings View also lets you change the themes for Atom. Atom ships with 4 different UI themes, dark and light variants of the Atom and One theme, as well as 8 different syntax themes. You can modify the active theme or install new themes by clicking on the Themes tab in the sidebar of the Settings View.
+L'écran des paramètres vous permet également de modifier les thèmes pour Atom. Atom propose 4 thèmes d'interface utilisateur différents, des variantes foncées et claires du thème Atom et One, ainsi que 8 thèmes avec des syntaxes différentes. Vous pouvez modifier le thème actif ou installer de nouveaux thèmes en cliquant sur l'onglet Thèmes dans la barre latérale dans l'écran des Paramètres.
 
 ![Changing the theme from the Settings View](../../images/theme.png "Changing the theme from the Settings View")
 
-The UI themes control the style of UI elements like the tabs and the tree view, while the syntax themes control the syntax highlighting of text you load into the editor. To change the syntax or UI theme, simply pick something different in the appropriate dropdown list.
+Les thèmes de l'interface utilisateur contrôlent le style des éléments, tels que les onglets et l'arborescence, tandis que les thèmes de syntaxe contrôlent la mise en évidence de la syntaxe de texte que vous chargez dans l'éditeur. Pour modifier la syntaxe ou le thème de l'interface utilisateur, choisissez simplement quelque chose de différent dans la liste déroulante appropriée.
 
-There are also dozens of themes on https://atom.io that you can choose from if you want something different. We will cover customizing a theme in [Style Tweaks](/using-atom/sections/basic-customization) and creating your own theme in [Creating a Theme](/hacking-atom/sections/creating-a-theme).
+Il ya aussi des dizaines de thèmes sur https://atom.io que vous pouvez choisir si vous voulez quelque chose de différent. Nous aborderons la personnalisation d'un thème dans [Style Tweaks](/using-atom/sections/basic-customization) et la création de votre propre thème dans [Creating a Theme](/hacking-atom/sections/creating-a-theme).
 
 ##### Soft Wrap
 
-You can use the Settings View to specify your whitespace and wrapping preferences.
+Vous pouvez utiliser l'écran des paramètres pour spécifier vos préférences de tabulation et de contoure.
 
 ![Whitespace and wrapping preferences settings](../../images/settings-wrap.png)
 
-Enabling "Soft Tabs" will insert spaces instead of actual tab characters when you press the <kbd class="platform-all">Tab</kbd> key and the "Tab Length" setting specifies how many spaces to insert when you do so, or how many spaces are used to represent a tab if "Soft Tabs" is disabled.
+Activer l'option "Soft Tabs" vous permettra d'insérer des espaces à la place des caractères de tabulation lorsque vous appuyer sur <kbd class="platform-all">Tab</kbd> et le paramètre "Tab Length" vous permmetra de spécifier le nombre d'espaces que vous souhaitez, ou combien d'espaces il faut pour représenter une tabulation si l'option "Soft Tabs" est désactivée.
 
-The "Soft Wrap" option will wrap lines that are too long to fit in your current window. If soft wrapping is disabled, the lines will simply run off the side of the screen and you will have to scroll the window to see the rest of the content. If "Soft Wrap At Preferred Line Length" is toggled, the lines will wrap at 80 characters instead of the end of the screen. You can also change the default line length to a value other than 80 on this screen.
+L'option "Soft Wrap" coupera les lignes qui sont trop longues pour tenir dans votre fenêtre. Si celle-ci est désactivée, vous serez obligés de faire défiler votre fenêtre pour voir le reste. Si vous choissisez l'option "Soft Wrap At Preferred Line Length", les lignes seront coupées automatiquement au bout du 80ième caractère au lieu de la fin de l'écran. Cette valeur est bien sur modifiable.
 
-In [Basic Customization](/using-atom/sections/basic-customization/) we will see how to set different wrap preferences for different types of files (for example, if you want to wrap Markdown files but not other files).
+Dans la personnalisation de base [Basic Customization](/using-atom/sections/basic-customization/) nous verrons comment définir différentes préférences de coupures pour différents types de fichiers (par exemple, si vous souhaitez couper les fichiers Markdown mais pas les autres).
 
-#### Opening, Modifying and Saving Files
+#### Ouvrir, Modifier et Sauvegarder des fichiers
 
-Now that your editor is looking and acting how you want, let's start opening up and editing files. This is a text editor after all, right?
+Maintenant que votre éditeur est à votre convenance, commençons l'ouverture et l'édition de fichiers. C'est pour ça que vous être sur Atom, non?
 
-##### Opening a File
+##### Ouvrir un fichier
 
-There are several ways to open a file in Atom. You can do it by choosing *File > Open* from the menu bar or by pressing <kbd class="platform-mac">Cmd+O</kbd><kbd class="platform-windows platform-linux">Ctrl+O</kbd> to choose a file from the standard dialog.
+Il y a plusieurs moyens d'ouvrir un fichier dans Atom. Vous pouvez le faire en sélectionnant Fichier > Ouvrir depuis la barre menue ou en appuyant sur <kbd class="platform-mac">Cmd+O</kbd><kbd class="platform-windows platform-linux">Ctrl+O</kbd> pour choisir un fichier de la boite de dialogue.
 
 ![Open file by dialog](../../images/open-file.png "Open file by dialog")
 
-This is useful for opening a file that is not contained in the project you're currently in (more on that next), or if you're starting from a new window for some reason.
+Cette méthode est utile pour ouvrir un fichier qui n'est pas contenu dans le projet sur lequel vous êtes actuelement en train de travailler, ou si vous commencez à partir d'une nouvelle fenêtre.
 
-Another way to open a file in Atom is from the command line using the `atom` command. <span class="platform-mac">The Atom menu bar has a command named "Install Shell Commands" which installs the `atom` and `apm` commands [if Atom wasn't able to install them itself](/getting-started/sections/installing-atom/#installing-atom-on-mac).</span><span class="platform-windows platform-linux">The `atom` and `apm` commands are installed automatically as a part of Atom's [installation process](/getting-started/sections/installing-atom/).</span>
+Un autre moyen d'ouvrir un fichier dans Atom est de passer par les lignes de commandes en utilisant les commandes `atom` <span class="platform-mac">. La barre de menu Atom possède une commande appelée "Install Shell Commands" qui installe les commandes `atom` et `apm` (/getting-started/sections/installing-atom/#installing-atom-on-mac).</span><span class="platform-windows platform-linux">Les commandes `atom` and `apm` sont installées automatiquement [installation process](/getting-started/sections/installing-atom/).</span>
 
-You can run the `atom` command with one or more file paths to open up those files in Atom.
+On peut ouvrir un ou plusieurs fichiers en même temps grâce à la commande `atom`.
 
 ``` command-line
 $ atom --help
@@ -107,66 +108,67 @@ $ atom --help
 > ...
 ```
 
-This is a great tool if you're used to the terminal or you work from the terminal a lot. Just fire off `atom [files]` and you're ready to start editing.
 
-##### Editing and Saving a File
+Cette méthode est facile d'utilisation si vous êtes habitué à utiliser un terminal ou à travailler à partir d'un terminal. Lancer juste `atom [files]`et vous êtes prêt à écrire.
 
-Editing a file is pretty straightforward. You can click around and scroll with your mouse and type to change the content. There is no special editing mode or key commands. If you prefer editors with modes or more complex key commands, you should take a look at the [Atom package list](https://atom.io/packages). There are a lot of packages that emulate popular styles.
+##### Editer et sauvegarder des fichiers
 
-To save a file you can choose *File > Save* from the menu bar or <kbd class="platform-mac">Cmd+S</kbd><kbd class="platform-windows platform-linux">Ctrl+S</kbd> to save the file. If you choose *File > Save As* or press <kbd class="platform-mac">Cmd+Shift+S</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+S</kbd> then you can save the current content in your editor under a different file name. Finally, you can choose *File > Save All* <span class="platform-mac">or press <kbd class="platform-mac">Alt+Cmd+S</kbd></span> to save all the open files in Atom.
+Editer un fichier est plutôt facile. Vous pouvez cliquer et scroller le contenu et écrire pour changer le contenu. Il n'y a pas de mode d'édition spécial ou de commandes particulières. Si vous voulez quelque chose d'un peu plus complexe, regardez donc les différents packages d'Atom [Atom package list](https://atom.io/packages). Il y en a beaucoup qui sont assez similaires aux styles assez populaires.
+ 
+Pour sauvegarder un fichier, aller dans Fichier > Sauvegarder depuis le menu ou appuyer sur <kbd class="platform-mac">Cmd+S</kbd><kbd class="platform-windows platform-linux">Ctrl+S</kbd>. Si vous choissisez Fichier > Enregistrer-sous ou <kbd class="platform-mac">Cmd+Shift+S</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+S</kbd>, vous pouvez ainsi renommer votre fichier tout en le sauvegardant. Enfin, vous pouvez sauvegarder l'intégralité de vos fichiers ouverts en allant dans Fichier > Sauvegarder tout <span class="platform-mac">or press <kbd class="platform-mac">Alt+Cmd+S</kbd></span>.
 
-#### Opening Directories
+#### Ouvrir des répertoires
 
-Atom doesn't just work with single files though; you will most likely spend most of your time working on projects with multiple files. To open a directory, choose the menu item <span class="platform-mac">*File > Open*</span><span class="platform-windows platform-linux">*File > Open Folder*</span> and select a directory from the dialog. You can also add more than one directory to your current Atom window, by choosing *File > Add Project Folder* from the menu bar or pressing <kbd class="platform-mac">Cmd+Shift+O</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+O</kbd>.
+Atom ne fonctionne pas seulement avec des fichiers uniques; Vous passerez probablement la plupart de votre temps à travailler sur des projets avec plusieurs fichiers. Pour ouvrir un répertoire, choisissez le menu <span class="platform-mac">*File > Open*</span><span class="platform-windows platform-linux">*File > Open Folder*</span> et sélectionnez un répertoire dans la boîte de dialogue. Vous pouvez également ajouter plus d'un répertoire à votre fenêtre Atom actuelle, en choisissant Fichier> Ajouter un dossier de projet dans la barre de menus ou en appuyant sur <kbd class="platform-mac">Cmd+Shift+O</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+O</kbd>.
 
-You can open any number of directories from the command line by passing their paths to the `atom` command line tool. For example, you could run the command `atom ./hopes ./dreams` to open both the `hopes` and the `dreams` directories at the same time.
+Vous pouvez ouvrir autant de répertoires que vous voulez grâce à la ligne de commande `atom` en indiquant tous les chemins correspondants. Par exemple, vous pouvez exécuter la commande `atom ./hopes ./dreams` pour ouvrir à la fois les répertoires `hopes`et `dreams`en même temps.
 
-When you open Atom with one or more directories, you will automatically get a Tree View on the side of your window.
+Lorsque vous ouvrez Atom avec un ou plusieurs répertoires, une arborescence s'affiche automatiquement sur le côté de votre fenêtre.
 
 ![Tree View in an open project](../../images/project-view.png "Tree View in an open project")
 
-The Tree View allows you to explore and modify the file and directory structure of your project. You can open, rename, delete and create new files from this view.
+L'arborescence vous permet d'explorer et de modifier la structure des fichiers et des répertoires de votre projet. Vous pouvez ouvrir, renommer, supprimer et créer de nouveaux fichiers à partir de cette vue.
 
-You can also hide and show it with <kbd class="platform-mac">Cmd+\\</kbd><kbd class="platform-windows platform-linux">Ctrl+\\</kbd> or the `tree-view:toggle` command from the Command Palette, and <kbd class="platform-mac">Ctrl+0</kbd><kbd class="platform-windows platform-linux">Alt+\\</kbd> will focus it. When the Tree view has focus you can press <kbd class="platform-all">A</kbd>, <kbd class="platform-all">M</kbd>, or <kbd class="platform-all">Delete</kbd> to add, move or delete files and folders. You can also right-click on a file or folder in the Tree view to see many of the various options, including all of these plus showing the file in <span class="platform-mac">Finder</span><span class="platform-windows">Windows Explorer</span><span class="platform-linux">your native filesystem</span> or copying the file path to the clipboard.
-
+Vous pouvez également le masquer et le montrer avec <kbd class="platform-mac">Cmd+\\</kbd><kbd class="platform-windows platform-linux">Ctrl+\\</kbd> ou la commande `tree-view:toggle` toggle à partir de la palette de commandes, et <kbd class="platform-mac">Ctrl+0</kbd><kbd class="platform-windows platform-linux">Alt+\\</kbd> le zoomera. Lorsque la vue arborescente est activée, vous pouvez appuyer sur <kbd class="platform-all">A</kbd>, <kbd class="platform-all">M</kbd>, or <kbd class="platform-all">Delete</kbd> pour ajouter, déplacer ou supprimer des fichiers et des dossiers. Vous pouvez également cliquer avec le bouton droit de la souris sur un fichier  <span class="platform-mac">Finder</span><span class="platform-windows">Windows Explorer</span><span class="platform-linux">your native filesystem</span> ou un dossier dans la vue Arborescence pour voir plusieurs des différentes options.
+ 
 {{#note}}
 
-**Atom Packages**
+**Packages d'Atom**
 
-Like many parts of Atom, the Tree View is not built directly into the editor, but is its own standalone package that is shipped with Atom by default. Packages that are bundled with Atom are referred to as Core packages. Ones that aren't bundled with Atom are referred to as Community packages.
+Comme plusieurs parties d'Atom, l'arborescence n'est pas directement intégrée à l'éditeur, mais est son propre package autonome livré avec Atom par défaut. Les packages regroupés sous Atom sont désignés sous le nom de packages Core. Ceux qui ne sont pas regroupés avec Atom sont désignés sous le nom de packages communautaires.
 
-You can find the source code to the Tree View on GitHub at https://github.com/atom/tree-view.
+Vous pouvez trouver le code source de l'arborescence sur https://github.com/atom/tree-view.
 
-This is one of the interesting things about Atom. Many of its core features are actually just packages implemented the same way you would implement any other functionality. This means that if you don't like the Tree View for example, you could write your own implementation of that functionality and replace it entirely.
+C'est l'une des choses intéressantes au sujet d'Atom. Beaucoup de ses fonctionnalités de base sont en fait simplement des packages mis en œuvre de la même façon que vous mettre en œuvre toute autre fonctionnalité. Cela signifie que si vous n'aimez pas l'arborescence, vous pouvez écrire votre propre implémentation de cette fonctionnalité et la remplacer entièrement.
 
 {{/note}}
 
-##### Opening a File in a Project
+##### Ouvrir un fichier dans un projet
 
-Once you have a project open in Atom, you can easily find and open any file within that project.
+Une fois que vous avez ouvert un projet dans Atom, vous pouvez facilement trouver et ouvrir tout fichier présent au sein du projet.
 
-If you press <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd> or <kbd class="platform-mac">Cmd+P</kbd><kbd class="platform-windows platform-linux">Ctrl+P</kbd>, the Fuzzy Finder will pop up. This will let you quickly search for any file in your project by typing parts of the path.
+Si vous appuyer sur <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd> or <kbd class="platform-mac">Cmd+P</kbd><kbd class="platform-windows platform-linux">Ctrl+P</kbd>, Fuzzy Finder apparaitra. Cela vous permettra d'effectuer une recherche rapide de n'importe quel fichier présent dans le projet.
 
 ![Opening files with the Fuzzy Finder](../../images/finder.png "Opening files with the Fuzzy Finder")
 
-You can also search through only the files currently opened (rather than every file in your project) with <kbd class="platform-mac">Cmd+B</kbd><kbd class="platform-windows platform-linux">Ctrl+B</kbd>. This searches through your "buffers" or open files. You can also limit this fuzzy search with <kbd class="platform-mac">Cmd+Shift+B</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+B</kbd>, which searches only through the files which are new or have been modified since your last Git commit.
+Vous pouvez également rechercher uniquement les fichiers ouverts (plutôt que tous les fichiers de votre projet) avec <kbd class="platform-mac">Cmd+B</kbd><kbd class="platform-windows platform-linux">Ctrl+B</kbd>. Cela recherche dans vos "tampons" ou des fichiers ouverts. Vous pouvez également limiter cette recherche avec <kbd class="platform-mac">Cmd+Shift+B</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+B</kbd>, qui ne recherche que les fichiers qui sont nouveaux ou qui ont été modifiés depuis votre dernier commit Git.
 
-The fuzzy finder uses the `core.ignoredNames`, `fuzzy-finder.ignoredNames` and `core.excludeVCSIgnoredPaths` configuration settings to filter out files and folders that will not be shown. If you have a project with tons of files you don't want it to search through, you can add patterns or paths to either of these config settings or your [standard `.gitignore` files](https://git-scm.com/docs/gitignore). We'll learn more about config settings in [Global Configuration Settings](/using-atom/sections/basic-customization/#global-configuration-settings), but for now you can easily set these in the Settings View under Core Settings.
+Fuzzy finder utilise les paramètres `core.ignoredNames`, `fuzzy-finder.ignoredNames` et `core.excludeVCSIgnoredPaths` pour filtrer les fichiers et les dossiers qui ne seront pas affichés. Si vous avez un projet avec des tonnes de fichiers dont vous ne voulez pas faire la recherche, vous pouvez ajouter des motifs ou des chemins à ces paramètres de configuration ou à vos fichiers [standard `.gitignore` files](https://git-scm.com/docs/gitignore). Nous en apprendrons plus sur les paramètres de configuration dans les paramètres de [Global Configuration Settings](/using-atom/sections/basic-customization/#global-configuration-settings), mais pour l'instant, vous pouvez facilement les définir dans la vue Paramètres sous Paramètres de base.
 
-Both `core.ignoredNames` and `fuzzy-finder.ignoredNames` are interpreted as glob patterns as implemented by the [minimatch Node module](https://github.com/isaacs/minimatch).
+Les noms `core.ignoredNames` et `fuzzy-finder.ignoredNames` sont interprétés comme schémas globaux comme implémenté par le [minimatch Node module](https://github.com/isaacs/minimatch).
 
 {{#tip}}
 
-**Configuration Setting Notation**
+**Notation de configuration**
 
-Sometimes you'll see us refer to configuration settings all spelled out like "Ignored Names in Core Settings". Other times you'll see us use the shorthand name like `core.ignoredNames`. Both of these refer to the same thing. The shorthand is the package name, then a dot `.`, followed by the "camel-cased" name of the setting.
+Vous verrez parfois que nous ferons références à des paramètres de configuration appelés "Ignored names in Core Settings". D'autres fois, vous nous verrez utiliser le nom abrégé comme `core.ignoredNames`. Les deux se réfèrent à la même chose. Le raccourci est le nom du package, puis un point `.`, Suivi du nom "camel-cased" du paramètre.
 
-If you have a phrase you want to camel-case, follow these steps:
+Si vous avez une phrase que vous voulez à camel-case, procédez comme suit:
 
-1. Lowercase the first word
-1. Capitalize the first letter in all other words
-1. Remove the spaces
+1. Passez en minuscule le premier mot
+1. Passez en majuscule la première lettre de chaque mot suivant
+1. Supprimez les espaces
 
-So "Ignored Names" becomes "ignoredNames".
+Ainsi "Ignored Names" devient "ignoredNames".
 
 {{/tip}}
