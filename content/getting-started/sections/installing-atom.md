@@ -184,3 +184,12 @@ $ apm config set https-proxy <em>YOUR_PROXY_ADDRESS</em>
 ```
 
 You can run `apm config get https-proxy` to verify it has been set correctly.
+
+##### Behind a corporate proxy and can't get through after setting both https-proxy and http-proxy with your credentials?
+
+Set both https-proxy and http-proxy to the same (for instance, http//user:password@proxy.corp.com:8080).
+
+``` command-line
+$ apm config set https-proxy <em>YOUR_PROXY_ADDRESS</em>
+$ apm config set http-proxy <em>YOUR_PROXY_ADDRESS</em>
+```
