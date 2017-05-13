@@ -139,7 +139,7 @@ You can open this file in an editor from the <span class="platform-mac">_Atom > 
         * `cr`: Carriage return (for Microsoft-style line endings)
         * `eol`: `\n` characters
         * `space`: Leading and trailing space characters
-    * `lineHeight`: Height of editor lines, as a multiplier of font size.
+    * `lineHeight`: Height of editor lines, as a multiplier of font size
     * `preferredLineLength`: Identifies the length of a line (defaults to `80`)
     * `showInvisibles`: Whether to render placeholders for invisible characters (defaults to `false`)
     * `showIndentGuide`: Show/hide indent indicators within the editor
