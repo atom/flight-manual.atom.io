@@ -345,7 +345,7 @@ toggle: ->
     @modalPanel.show()
 ```
 
-This should be fairly simple to understand. We're looking to see if the modal element is visible and hiding or showing it depending on it's current state.
+This should be fairly simple to understand. We're looking to see if the modal element is visible and hiding or showing it depending on its current state.
 
 ##### The Flow
 
