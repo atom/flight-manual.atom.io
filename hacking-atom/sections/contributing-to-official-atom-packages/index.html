@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Atom Selections</title>
+<title>Contributing to Official Atom Packages</title>
 
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
 
@@ -119,7 +119,7 @@
         <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
       </li>
     
-      <li class="selected">
+      <li class="unselected">
         <a href="/using-atom/sections/atom-selections">Atom Selections</a>
       </li>
     
@@ -226,7 +226,7 @@
         <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
       </li>
     
-      <li class="unselected">
+      <li class="selected">
         <a href="/hacking-atom/sections/contributing-to-official-atom-packages">Contributing to Official Atom Packages</a>
       </li>
     
@@ -349,7 +349,7 @@
 </div>
 
           <a class="improve-link"
-              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/atom-selections.md" data-proofer-ignore>
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/contributing-to-official-atom-packages.md" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
           </a>
         </h1>
@@ -357,52 +357,51 @@
         <div class="markdown-body document-content">
           
           <h3>
-<a id="atom-selections" class="anchor" href="#atom-selections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom Selections</h3>
+<a id="contributing-to-official-atom-packages" class="anchor" href="#contributing-to-official-atom-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing to Official Atom Packages</h3>
 
-<p>Text selections in Atom support a number of actions, such as scoping deletion, indentation and search actions, and marking text for actions such as quoting and bracketing.</p>
+<p>If you think you know which package is causing the issue you are reporting, feel free to open up the issue in that specific repository instead. When in doubt just open the issue here but be aware that it may get closed here and reopened in the proper package's repository.</p>
 
-<p>Selections mirror many of the movement commands. They're actually exactly the same keybindings as the movement commands, but with a <kbd class="platform-all">Shift</kbd> key added in.</p>
+<h4>
+<a id="hacking-on-packages" class="anchor" href="#hacking-on-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacking on Packages</h4>
 
-<ul>
-<li>
-<kbd class="platform-all">Shift+Up</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+P</kbd></span> - Select up</li>
-<li>
-<kbd class="platform-all">Shift+Down</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+N</kbd></span> - Select down</li>
-<li>
-<kbd class="platform-all">Shift+Left</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+B</kbd></span> - Select previous character</li>
-<li>
-<kbd class="platform-all">Shift+Right</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+F</kbd></span> - Select next character</li>
-<li>
-<kbd class="platform-mac">Alt+Shift+Left</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+Left</kbd><span class="platform-mac"> or <kbd class="platform-mac">Alt+Shift+B</kbd></span> - Select to beginning of word</li>
-<li>
-<kbd class="platform-mac">Alt+Shift+Right</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+Right</kbd><span class="platform-mac"> or <kbd class="platform-mac">Alt+Shift+F</kbd></span> - Select to end of word</li>
-<li>
-<kbd class="platform-mac">Cmd+Shift+Right</kbd><kbd class="platform-windows platform-linux">Shift+End</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+E</kbd></span> - Select to end of line</li>
-<li>
-<kbd class="platform-mac">Cmd+Shift+Left</kbd><kbd class="platform-windows platform-linux">Shift+Home</kbd><span class="platform-mac"> or <kbd class="platform-mac">Ctrl+Shift+A</kbd></span> - Select to first character of line</li>
-<li>
-<kbd class="platform-mac">Cmd+Shift+Up</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+Home</kbd> - Select to top of file</li>
-<li>
-<kbd class="platform-mac">Cmd+Shift+Down</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+End</kbd> - Select to bottom of file</li>
-</ul>
+<h5>
+<a id="cloning" class="anchor" href="#cloning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cloning</h5>
 
-<p>In addition to the cursor movement selection commands, there are also a few commands that help with selecting specific areas of content.</p>
+<p>The first step is creating your own clone.</p>
 
-<ul>
-<li>
-<kbd class="platform-mac">Cmd+A</kbd><kbd class="platform-windows platform-linux">Ctrl+A</kbd> - Select the entire contents of the file</li>
-<li>
-<kbd class="platform-mac">Cmd+L</kbd><kbd class="platform-windows platform-linux">Ctrl+L</kbd> - Select the entire line</li>
-</ul>
+<p>For example, if you want to make changes to the <code>tree-view</code> package, fork the repo on your github account, then clone it:</p>
 
-<div class="platform-mac">
+<pre class="command-line">
+<span class="command">git clone git@github.com:<em>your-username</em>/tree-view.git</span>
+</pre>
 
-<ul>
-<li>
-<kbd class="platform-mac">Ctrl+Shift+W</kbd> - Select the current word</li>
-</ul>
+<p>Next install all the dependencies:</p>
 
-</div>
+<pre class="command-line">
+<span class="command">cd tree-view</span>
+<span class="command">apm install</span>
+<span class="output">Installing modules ✓</span>
+</pre>
+
+<p>Now you can link it to development mode so when you run an Atom window with <code>atom --dev</code>, you will use your fork instead of the built in package:</p>
+
+<pre class="command-line">
+<span class="command">apm link -d</span>
+</pre>
+
+<h5>
+<a id="running-in-development-mode" class="anchor" href="#running-in-development-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running in Development Mode</h5>
+
+<p>Editing a package in Atom is a bit of a circular experience: you're using Atom to modify itself. What happens if you temporarily break something? You don't want the version of Atom you're using to edit to become useless in the process. For this reason, you'll only want to load packages in <strong>development mode</strong> while you are working on them. You'll perform your editing in <strong>stable mode</strong>, only switching to development mode to test your changes.</p>
+
+<p>To open a development mode window, use the "Application: Open Dev" command. You can also run dev mode from the command line with <code>atom --dev</code>.</p>
+
+<p>To load your package in development mode, create a symlink to it in <code>~/.atom/dev/packages</code>. This occurs automatically when you clone the package with <code>apm develop</code>. You can also run <code>apm link --dev</code> and <code>apm unlink --dev</code> from the package directory to create and remove dev-mode symlinks.</p>
+
+<h5>
+<a id="installing-dependencies" class="anchor" href="#installing-dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Dependencies</h5>
+
+<p>You'll want to keep dependencies up to date by running <code>apm update</code> after pulling any upstream changes.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
