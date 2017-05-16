@@ -5,7 +5,7 @@ title: "Package: Active Editor Info"
 
 {{#warning}}
 
-**Warning:** Some additional features described in this section are not available until Atom v1.17, which is currently in [Beta](https://atom.io/beta).
+**Warning:** Some features described in this section are completely new with Atom v1.17, which is currently in [Beta](https://atom.io/beta). You cannot complete this section without running Atom v1.17.
 
 {{/warning}}
 
