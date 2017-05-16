@@ -3,7 +3,7 @@ title: Contributing to Official Atom Packages
 ---
 ### Contributing to Official Atom Packages
 
-If you think you know which package is causing the issue you are reporting, feel free to open up the issue in that specific repository instead. When in doubt just open the issue here but be aware that it may get closed here and reopened in the proper package's repository.
+If you think you know which package is causing the issue you are reporting, feel free to open up the issue in that specific repository instead. When in doubt just open the issue on the [atom/atom](https://github.com/atom/atom) repository but be aware that it may get closed and reopened in the proper package's repository.
 
 #### Hacking on Packages
 
