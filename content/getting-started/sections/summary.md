@@ -1,8 +1,10 @@
 ---
-title: Summary
+titre: Sommaire
 ---
-### Summary
+### Sommaire
 
-You should now have a basic understanding of what Atom is and what you want to do with it. You should also have it installed on your system and be able to use it for the most basic text editing operations.
+Maintenant, vous devriez commencer à comprendre ce qu'est Atom et ce que vous pouvez en faire.
+Vous devriez également l'avoir déjà installé sur votre ordinateur et être capable de l'utiliser pour les opérations
+d'éditions les plus simples qu'il soit.
 
-Now you're ready to start digging into the fun stuff.
+Cela implique que vous êtes maintenant prêt à vous plonger dans des choses plus amusantes.
