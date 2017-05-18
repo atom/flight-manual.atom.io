@@ -19,7 +19,7 @@ This command goes onto the undo stack so you can use <kbd class="platform-mac">C
 
 #### Git status list
 
-Atom ships with the [fuzzy-finder package](https://github.com/atom/fuzzy-finder) which provides <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd> to quickly open files in the project and <kbd class="platform-mac">Cmd+B</kbd><kbd class="platform-windows platform-linux">Ctrl+B</kbd> to jump to any open editor. The package also provides <kbd class="platform-mac">Cmd+Shift+B</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+B</kbd> which displays a list of all the untracked and modified files in the project. These will be the same files that you would see on the command line if you ran `git status`.
+Atom ships with the [fuzzy-finder package](https://github.com/atom/fuzzy-finder) which provides <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd> to quickly open files in the project and <kbd class="platform-mac">Cmd+B</kbd><kbd class="platform-windows platform-linux">Ctrl+B</kbd> to jump to any open editor. The package also provides <kbd class="platform-mac">Shift+Cmd+B</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+B</kbd> which displays a list of all the untracked and modified files in the project. These will be the same files that you would see on the command line if you ran `git status`.
 
 ![Git status list](../../images/git-status.gif "`git status` list")
 
