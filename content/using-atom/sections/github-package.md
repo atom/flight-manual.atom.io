@@ -11,7 +11,7 @@ Atom's newest core package brings Git and GitHub integration right inside your e
 - [Stage](#stage)
 - [Discard](#discard-changes)
 - [Commit](#commit)
-- [Amend](#amend)
+- [Amend](#amend-previous-commit)
 - [Push](#push)
 - [Pull](#pull)
 - [Resolve conflicts](#resolve-conflicts)
