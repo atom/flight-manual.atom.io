@@ -3,7 +3,7 @@ title: GitHub package
 ---
 ### GitHub package
 
-Atom's newest core package brings Git and GitHub integration right inside your editor!
+The github package brings Git and GitHub integration right inside Atom.
 
 - [Initialize](#initialize-repositories)
 - [Clone](#clone-repositories)
