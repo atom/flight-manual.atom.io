@@ -13,6 +13,16 @@ A buffer is the text content of a file in Atom. It's basically the same as a fil
 
 A command is a bit of functionality in Atom that can be triggered by the user either through a [keybinding](#keybinding) or a menu item.
 
+#### Dock
+
+Docks are collapsible [pane containers](#pane-container) that attach to the left, right, and bottom sides of the Atom window.
+
+Examples:
+
+* Tree View
+* Git
+* GitHub
+
 #### Key Combination
 
 A key combination is some combination or sequence of keys that are pressed to perform a task.
@@ -43,6 +53,10 @@ An Atom plugin. There is a bunch more information in the section on [Atom Packag
 
 A pane is a visual section of the editor space. Each pane can hold multiple [pane items](#pane-item). There is always at least one pane in each Atom window.
 
+#### Pane Container
+
+A section of the Atom UI that can contain multiple [panes](#pane).
+
 #### Pane Item
 
 Some item, often an editor, that is displayed within a [pane](#pane). In the default configuration of Atom, pane items are represented by tabs at the top of each pane.
@@ -61,4 +75,3 @@ Examples:
 
 * Find and Replace
 * Keybinding Resolver
-* Tree View
