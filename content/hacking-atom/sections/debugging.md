@@ -252,7 +252,7 @@ If a specific package has high load or activation times, you might consider repo
 
 If you're experiencing performance problems in a particular situation, your [Issue reports](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues) will be more valuable if you include a saved profile from Chrome's CPU profiler that gives some insight into what is slow.
 
-To run a profile, open the Developer Tools with <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+I</kbd>. From there:
+To run a profile, open the Developer Tools with <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Shift+Ctrl+I</kbd>. From there:
 
 1. Click the Profiles tab
 1. Select "Collect JavaScript CPU Profile"
