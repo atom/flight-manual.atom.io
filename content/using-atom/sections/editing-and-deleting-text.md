@@ -89,7 +89,7 @@ Atom will also automatically autocomplete `[]`, `()`, and `{}`, `""`, `''`, `“
 There are a few other interesting bracket related commands that you can use.
 
 * <kbd class="platform-mac platform-windows platform-linux">Ctrl+M</kbd> - Jump to the bracket matching the one adjacent to the cursor. It jumps to the nearest enclosing bracket when there's no adjacent bracket.
-* <kbd class="platform-mac">Cmd+Ctrl+M</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+M</kbd> - Select all the text inside the current brackets
+* <kbd class="platform-mac">Cmd+Ctrl+M</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+,</kbd> - Select all the text inside the current brackets
 * <kbd class="platform-mac">Alt+Cmd+.</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+.</kbd> - Close the current XML/HTML tag
 
 The brackets functionality is implemented in the [bracket-matcher](https://github.com/atom/bracket-matcher) package. Like all of these packages, to change defaults related to bracket handling, or to disable it entirely, you can navigate to this package in the Settings view.
