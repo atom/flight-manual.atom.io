@@ -170,7 +170,13 @@ But if you click inside the Tree View and press <kbd class='platform-mac'>Cmd+O<
 
 #### Forcing Chromium's Native Keystroke Handling
 
-If you want to force the native browser behavior for a given keystroke, use the `native!` directive as the command of a binding. This can be useful to enable the correct behavior in native input elements, for example. If you apply the `.native-key-bindings` class to an element, all the keystrokes typically handled by the browser will be assigned the `native!` directive.
+If you want to force the native browser behavior for a given keystroke, use the `native!` directive as the command of a binding. This can be useful to enable the correct behavior in native input elements.  If you apply the `.native-key-bindings` class to an element, all the keystrokes typically handled by the browser will be assigned the `native!` directive.
+
+{{#tip}}
+
+**Tip:** Components and input elements may not correctly handle backspace and arrow keys without forcing this behavior.  If your backspace isn't working correctly inside of a component, add either the directive or the `.native-key-bindings` class.
+
+{{/tip}}
 
 #### Overloading Key Bindings
 
