@@ -144,7 +144,7 @@ Open Atom's [Settings View](https://github.com/atom/settings-view) with <kbd cla
 
 ![Settings View](../../images/settings-view.png)
 
-Check Atom's settings in the Settings View, there's a description of most configuration options [the the Basic Customization section](/using-atom/sections/basic-customization/#configuration-key-reference). For example, if you want Atom to hide the invisible symbols representing whitespace characters, disable the "Show Invisibles" option.
+Check Atom's settings in the Settings View, there's a description of most configuration options in the [Basic Customization section](/using-atom/sections/basic-customization/#configuration-key-reference). For example, if you want Atom to hide the invisible symbols representing whitespace characters, disable the "Show Invisibles" option.
 
 Some of these options are also available on a per-language basis which means that they may be different for specific languages, for example JavaScript or Python. To check the per-language settings, open the settings for the language package under the Packages tab in the Settings View, for example the language-javascript or language-python package.
 
