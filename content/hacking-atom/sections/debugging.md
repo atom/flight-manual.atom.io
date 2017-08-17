@@ -136,6 +136,14 @@ See `apm links --help` and `apm unlink --help` for more information on these com
 
 {{/tip}}
 
+#### Check for Incompatible Packages
+
+If you have packages installed that use native Node modules, when you upgrade to a new version of Atom, they might need to be rebuilt. Atom detects this and through the [incompatible-packages package](https://github.com/atom/incompatible-packages) displays an indicator in the status bar when this happens.
+
+![Incompatible Packages Status Bar Indicator](../../images/incompatible-packages-indicator.png "Incompatible Packages Status Bar Indicator")
+
+If you see this indicator, click it and follow the instructions.
+
 #### Check Atom and Package Settings
 
 In some cases, unexpected behavior might be caused by settings in Atom or in one of the packages.
