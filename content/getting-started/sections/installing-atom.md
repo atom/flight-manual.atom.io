@@ -60,12 +60,6 @@ Atom is available with a Windows installer that can be downloaded from https://a
 
 ![Atom on Windows](../../images/windows.gif)
 
-##### MSI Installer for Windows
-
-Atom is also available in an .MSI package from [Atom Releases](https://github.com/atom/atom/releases/latest) which can be deployed or installed on a machine. Any user signing in to that machine will find Atom installed for them automatically. (It may take a few seconds the first time they sign in for the icon to appear on the desktop).
-
-Should the user uninstall Atom it will only affect themselves and it will not automatically reinstall when they next sign in. If eventually that individual wants to reinstall Atom again, they can delete the `%LOCALAPPDATA%\Atom` folder.
-
 {{/windows}}
 
 {{#linux}}
