@@ -33,7 +33,10 @@ task :run_proofer do
 
   # Ignore platform switcher hash URLs
   platform_hash_urls = ['#platform-mac', '#platform-windows', '#platform-linux', '#platform-all']
-  HTMLProofer.check_directory("./output", {:url_ignore => platform_hash_urls}).run
+  HTMLProofer.check_directory("./output", {
+    :url_ignore => platform_hash_urls,
+    :typhoeus => { :ssl_verifypeer => false }
+  }).run
 end
 
 # Detects instances of Issue #204
