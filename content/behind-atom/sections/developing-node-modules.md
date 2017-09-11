@@ -15,11 +15,10 @@ $ cd atom-keymap
 $ npm install
 $ npm link
 $ cd <em>WHERE YOU CLONED ATOM</em>
+$ npm link atom-keymap
 
 # This is the special step, it makes the Node module work with Atom's version of Node
 $ apm rebuild
-
-$ npm link atom-keymap
 
 # If you have cloned Atom in a different location than <span class="platform-mac platform-linux">~/github/atom</span><span class="platform-windows">%USERPROFILE%\github\atom</span>
 # you need to set the following environment variable
