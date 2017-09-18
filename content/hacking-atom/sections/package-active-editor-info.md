@@ -3,7 +3,7 @@ title: "Package: Active Editor Info"
 ---
 ### Package: Active Editor Info
 
-We saw in our [Word Count](/hacking-atom/sections/package-word-count/) package how we could show information in a modal panel. However, panels aren't the only way to extend Atom's UI—you can also add items to the workspace. These items can be dragged to new locations (for example, one of the docks on the edges of the window), and Atom will restore them the next time you open the project. This system is used by Atom's tree view, as well as by third party packages like [Nuclide](http://nuclide.io) for its console, debugger, outline view, and diagnostics (linter results).
+We saw in our [Word Count](/hacking-atom/sections/package-word-count/) package how we could show information in a modal panel. However, panels aren't the only way to extend Atom's UI—you can also add items to the workspace. These items can be dragged to new locations (for example, one of the docks on the edges of the window), and Atom will restore them the next time you open the project. This system is used by Atom's tree view, as well as by third party packages like [Nuclide](https://nuclide.io) for its console, debugger, outline view, and diagnostics (linter results).
 
 For this package, we'll define a workspace item that tells us some information about our active text editor. The final package can be viewed at https://github.com/atom/active-editor-info.
 
