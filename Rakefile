@@ -35,7 +35,7 @@ task :run_proofer do
   platform_hash_urls = ['#platform-mac', '#platform-windows', '#platform-linux', '#platform-all']
   HTMLProofer.check_directory("./output", {
     :url_ignore => platform_hash_urls,
-    :typhoeus => { :ssl_verifypeer => false, :verbose => true }
+    :typhoeus => { :ssl_verifypeer => false }
   }).run
 end
 
