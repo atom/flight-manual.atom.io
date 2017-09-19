@@ -20,5 +20,5 @@ gem 'pry'
 
 group :test do
   gem 'colorize', '~> 0.8.1'
-  gem 'html-proofer', '~> 3.0'
+  gem 'html-proofer', '~> 3.7'
 end
