@@ -375,10 +375,10 @@
 <span class="command">cd atom-keymap</span>
 <span class="command">npm install</span>
 <span class="command">npm link</span>
-<span class="comment"># This is the special step, it makes the Node module work with Atom's version of Node</span>
-<span class="command">apm rebuild</span>
 <span class="command">cd <em>WHERE YOU CLONED ATOM</em></span>
 <span class="command">npm link atom-keymap</span>
+<span class="comment"># This is the special step, it makes the Node module work with Atom's version of Node</span>
+<span class="command">apm rebuild</span>
 <span class="comment"># If you have cloned Atom in a different location than <span class="platform-mac platform-linux">~/github/atom</span><span class="platform-windows">%USERPROFILE%\github\atom</span></span>
 <span class="comment"># you need to set the following environment variable</span>
 <span class="command"><span class="platform-mac platform-linux">export</span><span class="platform-windows">setx</span> ATOM_DEV_RESOURCE_PATH=<em>WHERE YOU CLONED ATOM</em></span>
