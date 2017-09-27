@@ -153,20 +153,24 @@ By default, all menus are loaded in alphabetical order. An optional `menus` arra
 It's recommended that you create an application menu item under the _Packages_ menu for common actions with your package that aren't tied to a specific element. If we look in the `menus/your-name-word-count.json` file that was generated for us, we'll see a section that looks like this:
 
 ```javascript
-'menu': [
+
+"menu": [
   {
-    'label': 'Packages'
-    'submenu': [
-      'label': 'Word Count'
-      'submenu': [
-        {
-          'label': 'Toggle'
-          'command': 'your-name-word-count:toggle'
-        }
-      ]
+    "label": "Packages",
+    "submenu": [
+      {
+        "label": "Word Count",
+        "submenu": [
+          {
+            "label": "Toggle",
+            "command": "your-name-word-count:toggle"
+          }
+        ]
+      }
     ]
   }
 ]
+
 ```
 
 This section puts a "Toggle" menu item under a menu group named "Your Name Word Count" in the "Packages" menu.
@@ -182,13 +186,14 @@ The menu templates you specify are merged with all other templates provided by o
 It's recommended to specify a context menu item for commands that are linked to specific parts of the interface. In our `menus/your-name-word-count.json` file, we can see an auto-generated section that looks like this:
 
 ```javascript
-'context-menu':
-  'atom-text-editor': [
-    {
-      'label': 'Toggle Word Count'
-      'command': 'your-name-word-count:toggle'
-    }
-  ]
+"context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle your-name-word-count",
+        "command": "your-name-word-count:toggle"
+      }
+    ]
+  }
 ```
 
 This adds a "Toggle Word Count" menu option to the menu that pops up when you right-click in an Atom text editor pane.
@@ -202,19 +207,35 @@ Context menus are created by determining which element was selected and then add
 You can also add separators and submenus to your context menus. To add a submenu, provide a `submenu` key instead of a command. To add a separator, add an item with a single `type: 'separator'` key/value pair. For instance, you could do something like this:
 
 ```javascript
-'context-menu':
-  'atom-workspace': [
-    {
-      label: 'Text'
-      submenu: [
-        {label: 'Inspect Element', command: 'core:inspect'}
-        {type: 'separator'}
-        {label: 'Selector All', command: 'core:select-all'}
-        {type: 'separator'}
-        {label: 'Deleted Selected Text', command: 'core:delete'}
-      ]
-    }
-  ]
+{
+  "context-menu": {
+    "atom-workspace": [
+      {
+        "label": "Text",
+        "submenu": [
+          {
+            "label": "Inspect Element",
+            "command": "core:inspect"
+          },
+          {
+            "type": "separator"
+          },
+          {
+            "label": "Selector All",
+            "command": "core:select-all"
+          },
+          {
+            "type": "separator"
+          },
+          {
+            "label": "Deleted Selected Text",
+            "command": "core:delete"
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
 
 #### Developing Our Package
