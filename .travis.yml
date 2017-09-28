@@ -11,3 +11,7 @@ git:
 script:
   - npm install
   - script/cibuild
+addons:
+  apt:
+    packages:
+      - libcurl3-dev

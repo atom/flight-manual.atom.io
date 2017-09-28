@@ -107,7 +107,7 @@ As you might expect, there is a snippet to create snippets. If you open up a sni
 You can see below the format for including multiple snippets for the same scope in your `snippets.cson` file. Just include the snippet name, prefix, and body keys for additional snippets inside the scope key:
 
 ```coffee
-'.text.md':
+'.source.gfm':
   'Hello World':
     'prefix': 'hewo'
     'body': 'Hello World!'
