@@ -130,8 +130,11 @@ An optional `styleSheets` array in your `package.json` can list the style sheets
 You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the `keymaps/wordcount.json` file:
 
 ```javascript
-'atom-workspace':
-  'ctrl-alt-o': 'wordcount:toggle'
+{
+  "atom-workspace": {
+    "ctrl-alt-o": "your-name-word-count:toggle"
+  }
+}
 ```
 
 This means that if you press <kbd class="platform-all">Alt+Ctrl+O</kbd>, our package will run the `your-name-word-count:toggle` command. We'll look at that code next, but if you want to change the default key mapping, you can do that in this file.
