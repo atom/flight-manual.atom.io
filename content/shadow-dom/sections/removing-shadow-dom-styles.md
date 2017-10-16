@@ -9,7 +9,7 @@ In Atom `1.13` the Shadow DOM got removed from text editors. For more background
 
 #### Summary
 
-Here a quick summary to see all the changes at a glance:
+Here is a quick summary to see all the changes at a glance:
 
 Before | +/- | After
 ---|---|---
