@@ -7,7 +7,7 @@ Packages have the ability to handle special URIs; for example, a package named `
 
 {{#warning}}
 
-**Warning:** Handling URIs triggered from other applications, like a web browser, is a powerful tool, but also one that can be jarring. You should shape your package's user experience to handle this well. In general, you should **avoid taking direct action on behalf of a user**. For example, a URI handler that installs a package is bad, but a URI handler that shows the package's pane in the settings view is useful. A URI handler that immediately clones a repo is bad, but a URI handler that prompts the user to clone a repo is okay.
+**Warning:** Handling URIs triggered from other applications, like a web browser, is a powerful tool, but also one that can be jarring. You should shape your package's user experience to handle this well. In general, you should **avoid taking direct action on behalf of a user**. For example, a URI handler that immediately installs a package is too invasive, but a URI handler that shows the package's pane in the settings view is useful. A URI handler that begins to clone a repo is bad, but a URI handler that *prompts* the user to clone a repo is okay.
 
 Any package with a URI handler that we feel violates this guideline is subject to removal from the Atom package registry at our discretion.
 
@@ -68,7 +68,7 @@ Notice that the query string arguments are available in the `query` property, bu
 
 #### Controlling Activation Deferral
 
-For performance reasons, adding a `uriHandler` entry to your package's `package.json` will enable *deferred activation*. This means that Atom will not activate your package until it has a URI for it to handle — it will then activate your package and then immediately call the URI handler method. If you want to disable the deferred loading, ensuring your package is activated upon startup, you can add `"deferredActivation": false` to the URI handler config. For example,
+For performance reasons, adding a `uriHandler` entry to your package's `package.json` will enable *deferred activation*. This means that Atom will not activate your package until it has a URI for it to handle — it will then activate your package and then immediately call the URI handler method. If you want to disable the deferred activation, ensuring your package is activated upon startup, you can add `"deferActivation": false` to the URI handler config. For example,
 
 ```json
 "uriHandler": {
