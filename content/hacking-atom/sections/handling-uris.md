@@ -5,6 +5,14 @@ title: Handling URIs
 
 Packages have the ability to handle special URIs; for example, a package named `my-package` can register itself to handle any URI starting with `atom://my-package/`.
 
+{{#warning}}
+
+**Warning:** Handling URIs triggered from other applications, like a web browser, is a powerful tool, but also one that can be jarring. You should shape your package's user experience to handle this well. In general, you should **avoid taking direct action on behalf of a user**. For example, a URI handler that installs a package is bad, but a URI handler that shows the package's pane in the settings view is useful. A URI handler that immediately clones a repo is bad, but a URI handler that prompts the user to clone a repo is okay.
+
+We have the right to remove any packages that have URI handlers that we feel violates this guideline from the Atom package registry.
+
+{{/warning}}
+
 #### Modifying your `package.json`
 
 The first step to handling URIs from your package is to modify its `package.json` file. You should add a new key called `uriHandler`, and its value should be an object.
