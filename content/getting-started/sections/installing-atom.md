@@ -56,9 +56,13 @@ To install the `atom` and `apm` commands, run "Window: Install Shell Commands" f
 
 #### Installing Atom on Windows
 
-Atom is available with a Windows installer that can be downloaded from https://atom.io or from [Atom Releases][releases] named `AtomSetup.exe`. This setup program will install Atom, add the `atom` and `apm` commands to your `PATH`, create shortcuts on the desktop and in the start menu, add an "Open with Atom" context menu in the Explorer and make Atom available for association with files using "Open with...".
+Atom is available with a Windows installer that can be downloaded from https://atom.io or from [Atom Releases][releases] named `AtomSetup.exe`. This setup program will install Atom, add the `atom` and `apm` commands to your `PATH`, and create shortcuts on the desktop and in the start menu.
 
-![Atom on Windows](../../images/windows.gif)
+![Atom on Windows](../../images/windows-system-settings.png)
+
+The installer used to automatically add an "Open with Atom" context menu in Explorer and make Atom available for association with files using "Open with...". This is now controlled by the System Settings panel as seen above.
+
+With Atom open, click on `File > Settings`, and the the `System` tab on the left. Check the boxes next to `Show in file context menus`, as well as `Show in folder context menus`. And you’re all set.
 
 {{/windows}}
 
