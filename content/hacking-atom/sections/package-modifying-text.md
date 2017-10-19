@@ -27,26 +27,26 @@ Now let's edit the package files to make our ASCII Art package do something inte
 Next, open up `lib/ascii-art.js` and remove all view code, so it looks like this:
 
 ```javascript
-const {CompositeDisposable} = require('atom');
+const {CompositeDisposable} = require('atom')
 
 module.exports = {
   subscriptions: null,
 
-  activate() {
-    this.subscriptions = new CompositeDisposable;
-    return this.subscriptions.add(atom.commands.add('atom-workspace',
+  activate () {
+    this.subscriptions = new CompositeDisposable()
+    this.subscriptions.add(atom.commands.add('atom-workspace',
       {'ascii-art:convert': () => this.convert()})
-    );
+    )
   },
 
-  deactivate() {
-    return this.subscriptions.dispose();
+  deactivate () {
+    this.subscriptions.dispose()
   },
 
   convert() {
-    return console.log('Convert text!');
+    console.log('Convert text!')
   }
-};
+}
 ```
 
 ##### Create a Command
@@ -57,9 +57,9 @@ So far, that will simply log to the console. Let's start by making it insert som
 
 ```javascript
 convert() {
-  let editor;
-  if (editor = atom.workspace.getActiveTextEditor()) {
-    return editor.insertText('Hello, World!');
+  const editor = atom.workspace.getActiveTextEditor()
+  if (editor) {
+    editor.insertText('Hello, World!')
   }
 }
 ```
@@ -126,22 +126,22 @@ If for some reason this doesn't work, you'll see a message saying "Failed to upd
 Now require the figlet node module in `lib/ascii-art.js` and instead of inserting "Hello, World!", convert the selected text to ASCII art.
 
 ```javascript
-convert() {
-   let editor;
-   if (editor = atom.workspace.getActiveTextEditor()) {
-     const selection = editor.getSelectedText();
+convert () {
+  const editor = atom.workspace.getActiveTextEditor()
+  if (editor) {
+    const selection = editor.getSelectedText()
 
-     const figlet = require('figlet');
-     const font = "O8";
-     return figlet(selection, {font}, function(error, art) {
-       if (error) {
-         return console.error(error);
-       } else {
-         return editor.insertText(`\n${art}\n`);
-       }
-     });
-   }
- }
+    const figlet = require('figlet')
+    const font = 'o8'
+    figlet(selection, {font}, function (error, art) {
+      if (error) {
+        console.error(error)
+      } else {
+        editor.insertText(`\n${art}\n`)
+      }
+    })
+  }
+}
 ```
 
 Now reload the editor, select some text in an editor window and press <kbd class="platform-all">Alt+Ctrl+A</kbd>. It should be replaced with a ridiculous ASCII art version instead.
