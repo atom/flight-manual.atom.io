@@ -60,9 +60,9 @@ Atom is available with a Windows installer that can be downloaded from https://a
 
 ![Atom on Windows](../../images/windows-system-settings.png)
 
-The installer used to automatically add an "Open with Atom" context menu in Explorer and make Atom available for association with files using "Open with...". This is now controlled by the System Settings panel as seen above.
+The context menu `Open with Atom` in File Explorer, and the option to make Atom available for file association using `Open with...`, is controlled by the System Settings panel as seen above.
 
-With Atom open, click on `File > Settings`, and the the `System` tab on the left. Check the boxes next to `Show in file context menus`, as well as `Show in folder context menus`. And you’re all set.
+With Atom open, click on `File > Settings`, and then the `System` tab on the left. Check the boxes next to `Show in file context menus`, as well as `Show in folder context menus`. And you’re all set.
 
 {{/windows}}
 
