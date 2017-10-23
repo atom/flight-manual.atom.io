@@ -370,12 +370,6 @@
 
 <p>The simplest way to start a package is to use the built-in package generator that ships with Atom. As you might expect by now, this generator is itself a separate package implemented in <a href="https://github.com/atom/package-generator">package-generator</a>.</p>
 
-<div class="alert note">
-
-<p><strong>Note:</strong> By default, the package generator emits JavaScript. You can change this to CoffeeScript to follow along better with this tutorial. In the Settings View, go to the package-generator settings and change the "Package Syntax" setting to "CoffeeScript".</p>
-
-</div>
-
 <p>You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Name it <code>your-name-word-count</code>. Atom will then create that directory and fill it out with a skeleton project and link it into your <span class="platform-mac platform-linux"><code>~/.atom/packages</code></span><span class="platform-windows"><code>%USERPROFILE%\.atom\packages</code></span> directory so it's loaded when you launch your editor next time.</p>
 
 <div class="alert note">
@@ -398,7 +392,7 @@
 ├─ spec/
 ├─ snippets/
 ├─ styles/
-├─ index.coffee
+├─ index.js
 └─ package.json
 </code></pre>
 
@@ -414,7 +408,7 @@
 
 <ul>
 <li>
-<code>main</code>: the path to the CoffeeScript file that's the entry point to your package. If this is missing, Atom will default to looking for an <code>index.coffee</code> or <code>index.js</code>.</li>
+<code>main</code>: the path to the JavaScript file that's the entry point to your package. If this is missing, Atom will default to looking for an <code>index.coffee</code> or <code>index.js</code>.</li>
 <li>
 <code>styles</code>: an Array of Strings identifying the order of the
 style sheets your package needs to load. If not specified, style sheets in the <code>styles</code> directory are added alphabetically.</li>
@@ -481,7 +475,7 @@ style sheets your package needs to load. If not specified, style sheets in the <
 <h5>
 <a id="source-code" class="anchor" href="#source-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Source Code</h5>
 
-<p>If you want to extend Atom's behavior, your package should contain a single top-level module, which you export from whichever file is indicated by the <code>main</code> key in your <code>package.json</code> file. In the package we just generated, the main package file is <code>lib/wordcount.coffee</code>. The remainder of your code should be placed in the <code>lib</code> directory, and required from your top-level file. If the <code>main</code> key is not in your <code>package.json</code> file, it will look for <code>index.coffee</code> or <code>index.js</code> as the main entry point.</p>
+<p>If you want to extend Atom's behavior, your package should contain a single top-level module, which you export from whichever file is indicated by the <code>main</code> key in your <code>package.json</code> file. In the package we just generated, the main package file is <code>lib/wordcount.js</code>. The remainder of your code should be placed in the <code>lib</code> directory, and required from your top-level file. If the <code>main</code> key is not in your <code>package.json</code> file, it will look for <code>index.js</code> or <code>index.coffee</code> as the main entry point.</p>
 
 <p>Your package's top-level module is a singleton object that manages the lifecycle of your extensions to Atom. Even if your package creates ten different views and appends them to different parts of the DOM, it's all managed from your top-level object.</p>
 
@@ -513,10 +507,13 @@ off.</li>
 <h5>
 <a id="keymaps" class="anchor" href="#keymaps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keymaps</h5>
 
-<p>You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the <code>keymaps/wordcount.cson</code> file:</p>
+<p>You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the <code>keymaps/wordcount.json</code> file:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'atom-workspace'</span><span class="o">:</span>
-  <span class="s">'ctrl-alt-o'</span><span class="o">:</span> <span class="s">'wordcount:toggle'</span>
+<pre class="highlight highlight-javascript"><code><span class="p">{</span>
+  <span class="s2">"atom-workspace"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"ctrl-alt-o"</span><span class="err">:</span> <span class="s2">"your-name-word-count:toggle"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
 
@@ -538,22 +535,26 @@ off.</li>
 <h6>
 <a id="application-menu" class="anchor" href="#application-menu" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Menu</h6>
 
-<p>It's recommended that you create an application menu item under the <em>Packages</em> menu for common actions with your package that aren't tied to a specific element. If we look in the <code>menus/your-name-word-count.cson</code> file that was generated for us, we'll see a section that looks like this:</p>
+<p>It's recommended that you create an application menu item under the <em>Packages</em> menu for common actions with your package that aren't tied to a specific element. If we look in the <code>menus/your-name-word-count.json</code> file that was generated for us, we'll see a section that looks like this:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'menu'</span><span class="o">:</span> <span class="p">[</span>
+<pre class="highlight highlight-javascript"><code>
+<span class="s2">"menu"</span><span class="err">:</span> <span class="p">[</span>
   <span class="p">{</span>
-    <span class="s">'label'</span><span class="o">:</span> <span class="s">'Packages'</span>
-    <span class="s">'submenu'</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s">'label'</span><span class="o">:</span> <span class="s">'Word Count'</span>
-      <span class="s">'submenu'</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s">'label'</span><span class="o">:</span> <span class="s">'Toggle'</span>
-          <span class="s">'command'</span><span class="o">:</span> <span class="s">'your-name-word-count:toggle'</span>
-        <span class="p">}</span>
-      <span class="p">]</span>
+    <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Packages"</span><span class="p">,</span>
+    <span class="s2">"submenu"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Word Count"</span><span class="p">,</span>
+        <span class="s2">"submenu"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Toggle"</span><span class="p">,</span>
+            <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"your-name-word-count:toggle"</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">]</span>
+
 </code></pre>
 
 
@@ -568,15 +569,16 @@ off.</li>
 <h6>
 <a id="context-menu" class="anchor" href="#context-menu" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context Menu</h6>
 
-<p>It's recommended to specify a context menu item for commands that are linked to specific parts of the interface. In our <code>menus/your-name-word-count.cson</code> file, we can see an auto-generated section that looks like this:</p>
+<p>It's recommended to specify a context menu item for commands that are linked to specific parts of the interface. In our <code>menus/your-name-word-count.json</code> file, we can see an auto-generated section that looks like this:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'context-menu'</span><span class="o">:</span>
-  <span class="s">'atom-text-editor'</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s">'label'</span><span class="o">:</span> <span class="s">'Toggle Word Count'</span>
-      <span class="s">'command'</span><span class="o">:</span> <span class="s">'your-name-word-count:toggle'</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+<pre class="highlight highlight-javascript"><code><span class="s2">"context-menu"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"atom-text-editor"</span><span class="err">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Toggle your-name-word-count"</span><span class="p">,</span>
+        <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"your-name-word-count:toggle"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
 </code></pre>
 
 
@@ -590,19 +592,35 @@ off.</li>
 
 <p>You can also add separators and submenus to your context menus. To add a submenu, provide a <code>submenu</code> key instead of a command. To add a separator, add an item with a single <code>type: 'separator'</code> key/value pair. For instance, you could do something like this:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'context-menu'</span><span class="o">:</span>
-  <span class="s">'atom-workspace'</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="na">label</span><span class="o">:</span> <span class="s">'Text'</span>
-      <span class="na">submenu</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="na">label</span><span class="o">:</span> <span class="s">'Inspect Element'</span><span class="p">,</span> <span class="na">command</span><span class="o">:</span> <span class="s">'core:inspect'</span><span class="p">}</span>
-        <span class="p">{</span><span class="na">type</span><span class="o">:</span> <span class="s">'separator'</span><span class="p">}</span>
-        <span class="p">{</span><span class="na">label</span><span class="o">:</span> <span class="s">'Selector All'</span><span class="p">,</span> <span class="na">command</span><span class="o">:</span> <span class="s">'core:select-all'</span><span class="p">}</span>
-        <span class="p">{</span><span class="na">type</span><span class="o">:</span> <span class="s">'separator'</span><span class="p">}</span>
-        <span class="p">{</span><span class="na">label</span><span class="o">:</span> <span class="s">'Deleted Selected Text'</span><span class="p">,</span> <span class="na">command</span><span class="o">:</span> <span class="s">'core:delete'</span><span class="p">}</span>
-      <span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+<pre class="highlight highlight-javascript"><code><span class="p">{</span>
+  <span class="s2">"context-menu"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"atom-workspace"</span><span class="err">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Text"</span><span class="p">,</span>
+        <span class="s2">"submenu"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Inspect Element"</span><span class="p">,</span>
+            <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"core:inspect"</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"separator"</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Selector All"</span><span class="p">,</span>
+            <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"core:select-all"</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"separator"</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Deleted Selected Text"</span><span class="p">,</span>
+            <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"core:delete"</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
 
@@ -618,32 +636,38 @@ off.</li>
 
 <p>Let's take a look at the code in our <code>lib</code> directory and see what is happening.</p>
 
-<p>There are two files in our <code>lib</code> directory. One is the main file (<code>lib/your-name-word-count.coffee</code>), which is pointed to in the <code>package.json</code> file as the main file to execute for this package. This file handles the logic of the whole plugin.</p>
+<p>There are two files in our <code>lib</code> directory. One is the main file (<code>lib/your-name-word-count.js</code>), which is pointed to in the <code>package.json</code> file as the main file to execute for this package. This file handles the logic of the whole plugin.</p>
 
-<p>The second file is a View class, <code>lib/your-name-word-count-view.coffee</code>, which handles the UI elements of the package. Let's look at this file first, since it's pretty simple.</p>
+<p>The second file is a View class, <code>lib/your-name-word-count-view.js</code>, which handles the UI elements of the package. Let's look at this file first, since it's pretty simple.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
-<span class="k">class</span> <span class="nx">YourNameWordCountView</span>
-  <span class="na">constructor</span><span class="o">:</span> <span class="p">(</span><span class="nx">serializedState</span><span class="p">)</span> <span class="o">-&gt;</span>
-    <span class="c1"># Create root element
-</span>    <span class="vi">@</span><span class="na">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">'div'</span><span class="p">)</span>
-    <span class="vi">@</span><span class="na">element</span><span class="p">.</span><span class="na">classList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">'your-name-word-count'</span><span class="p">)</span>
+<pre class="highlight highlight-javascript"><code><span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">YourNameWordCountView</span> <span class="p">{</span>
 
-    <span class="c1"># Create message element
-</span>    <span class="nx">message</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="na">createElement</span><span class="p">(</span><span class="s">'div'</span><span class="p">)</span>
-    <span class="nx">message</span><span class="p">.</span><span class="na">textContent</span> <span class="o">=</span> <span class="s">"The Your Name Word Count package is Alive! It's ALIVE!"</span>
-    <span class="nx">message</span><span class="p">.</span><span class="na">classList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">'message'</span><span class="p">)</span>
-    <span class="vi">@</span><span class="na">element</span><span class="p">.</span><span class="na">appendChild</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">serializedState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Create root element</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'your-name-word-count'</span><span class="p">);</span>
 
-  <span class="c1"># Returns an object that can be retrieved when package is activated
-</span>  <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span>
+    <span class="c1">// Create message element</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+    <span class="nx">message</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">'The YourNameWordCount package is Alive! It\'s ALIVE!'</span><span class="p">;</span>
+    <span class="nx">message</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'message'</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+  <span class="p">}</span>
 
-  <span class="c1"># Tear down any state and detach
-</span>  <span class="na">destroy</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">element</span><span class="p">.</span><span class="na">remove</span><span class="p">()</span>
+  <span class="c1">// Returns an object that can be retrieved when package is activated</span>
+  <span class="nx">serialize</span><span class="p">()</span> <span class="p">{}</span>
 
-  <span class="na">getElement</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">element</span>
+  <span class="c1">// Tear down any state and detach</span>
+  <span class="nx">destroy</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">getElement</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+
 </code></pre>
 
 
@@ -653,40 +677,53 @@ off.</li>
 
 <p>The second file we have is the main entry point to the package. Again, because it's referenced in the <code>package.json</code> file. Let's take a look at that file.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">YourNameWordCountView</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'./your-name-word-count-view'</span>
-<span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
+<pre class="highlight highlight-javascript"><code><span class="kr">import</span> <span class="nx">YourNameWordCountView</span> <span class="nx">from</span> <span class="s1">'./your-name-word-count-view'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">CompositeDisposable</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'atom'</span><span class="p">;</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span> <span class="nx">YourNameWordCount</span> <span class="o">=</span>
-  <span class="na">yourNameWordCountView</span><span class="o">:</span> <span class="no">null</span>
-  <span class="na">modalPanel</span><span class="o">:</span> <span class="no">null</span>
-  <span class="na">subscriptions</span><span class="o">:</span> <span class="no">null</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 
-  <span class="na">activate</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">yourNameWordCountView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YourNameWordCountView</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="na">yourNameWordCountViewState</span><span class="p">)</span>
-    <span class="vi">@</span><span class="na">modalPanel</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">addModalPanel</span><span class="p">(</span><span class="na">item</span><span class="o">:</span> <span class="vi">@</span><span class="na">yourNameWordCountView</span><span class="p">.</span><span class="na">getElement</span><span class="p">(),</span> <span class="na">visible</span><span class="o">:</span> <span class="no">false</span><span class="p">)</span>
+  <span class="na">yourNameWordCountView</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="na">modalPanel</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="na">subscriptions</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
 
-    <span class="c1"># Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
-</span>    <span class="vi">@</span><span class="na">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span>
+  <span class="nx">activate</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">yourNameWordCountView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YourNameWordCountView</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">yourNameWordCountViewState</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">addModalPanel</span><span class="p">({</span>
+      <span class="na">item</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">yourNameWordCountView</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(),</span>
+      <span class="na">visible</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">});</span>
 
-    <span class="c1"># Register command that toggles this view
-</span>    <span class="vi">@</span><span class="na">subscriptions</span><span class="p">.</span><span class="na">add</span> <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-workspace'</span><span class="p">,</span>
-      <span class="s">'your-name-word-count:toggle'</span><span class="o">:</span> <span class="o">=&gt;</span> <span class="vi">@</span><span class="na">toggle</span><span class="p">()</span>
+    <span class="c1">// Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span><span class="p">();</span>
 
-  <span class="na">deactivate</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">destroy</span><span class="p">()</span>
-    <span class="vi">@</span><span class="na">subscriptions</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span>
-    <span class="vi">@</span><span class="na">wordcountView</span><span class="p">.</span><span class="na">destroy</span><span class="p">()</span>
+    <span class="c1">// Register command that toggles this view</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'atom-workspace'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="s1">'your-name-word-count:toggle'</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">toggle</span><span class="p">()</span>
+    <span class="p">}));</span>
+  <span class="p">},</span>
 
-  <span class="na">serialize</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="na">yourNameWordCountViewState</span><span class="o">:</span> <span class="vi">@</span><span class="na">yourNameWordCountView</span><span class="p">.</span><span class="na">serialize</span><span class="p">()</span>
+  <span class="nx">deactivate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">yourNameWordCountView</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+  <span class="p">},</span>
 
-  <span class="na">toggle</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">'YourNameWordCount was toggled!'</span>
+  <span class="nx">serialize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">yourNameWordCountViewState</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">yourNameWordCountView</span><span class="p">.</span><span class="nx">serialize</span><span class="p">()</span>
+    <span class="p">};</span>
+  <span class="p">},</span>
 
-    <span class="k">if</span> <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">isVisible</span><span class="p">()</span>
-      <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span>
-    <span class="k">else</span>
-      <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">show</span><span class="p">()</span>
+  <span class="nx">toggle</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'YourNameWordCount was toggled!'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span><span class="p">.</span><span class="nx">isVisible</span><span class="p">()</span> <span class="p">?</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span><span class="p">.</span><span class="nx">hide</span><span class="p">()</span> <span class="p">:</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span><span class="p">.</span><span class="nx">show</span><span class="p">()</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">};</span>
 </code></pre>
 
 
@@ -698,11 +735,11 @@ off.</li>
 
 <p>This method does two things. The first is that it creates an instance of the View class we have and adds the element that it creates to a hidden modal panel in the Atom workspace.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="vi">@</span><span class="na">yourNameWordCountView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YourNameWordCountView</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="na">yourNameWordCountViewState</span><span class="p">)</span>
-<span class="vi">@</span><span class="na">modalPanel</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">addModalPanel</span><span class="p">(</span>
-                  <span class="na">item</span><span class="o">:</span> <span class="vi">@</span><span class="na">yourNameWordCountView</span><span class="p">.</span><span class="na">getElement</span><span class="p">(),</span>
-                  <span class="na">visible</span><span class="o">:</span> <span class="no">false</span>
-              <span class="p">)</span>
+<pre class="highlight highlight-javascript"><code><span class="k">this</span><span class="p">.</span><span class="nx">yourNameWordCountView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YourNameWordCountView</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">yourNameWordCountViewState</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">addModalPanel</span><span class="p">({</span>
+  <span class="na">item</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">yourNameWordCountView</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(),</span>
+  <span class="na">visible</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">});</span>
 </code></pre>
 
 
@@ -710,23 +747,26 @@ off.</li>
 
 <p>The next thing this method does is create an instance of the CompositeDisposable class so it can register all the commands that can be called from the plugin so other plugins could subscribe to these events.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="c1"># Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
-</span><span class="vi">@</span><span class="na">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span>
+<pre class="highlight highlight-javascript"><code><span class="c1">// Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span><span class="p">();</span>
 
-<span class="c1"># Register command that toggles this view
-</span><span class="vi">@</span><span class="na">subscriptions</span><span class="p">.</span><span class="na">add</span> <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-workspace'</span><span class="p">,</span> <span class="s">'your-name-word-count:toggle'</span><span class="o">:</span> <span class="o">=&gt;</span> <span class="vi">@</span><span class="na">toggle</span><span class="p">()</span>
+<span class="c1">// Register command that toggles this view</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'atom-workspace'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="s1">'your-name-word-count:toggle'</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">toggle</span><span class="p">()</span>
+<span class="p">}));</span>
 </code></pre>
 
 
 <p>Next we have the <code>toggle</code> method. This method simply toggles the visibility of the modal panel that we created in the <code>activate</code> method.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="na">toggle</span><span class="o">:</span> <span class="o">-&gt;</span>
-  <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">'YourNameWordCount was toggled!'</span>
-
-  <span class="k">if</span> <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">isVisible</span><span class="p">()</span>
-    <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span>
-  <span class="k">else</span>
-    <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">show</span><span class="p">()</span>
+<pre class="highlight highlight-javascript"><code><span class="nx">toggle</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'YourNameWordCount was toggled!'</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span><span class="p">.</span><span class="nx">isVisible</span><span class="p">()</span> <span class="p">?</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span><span class="p">.</span><span class="nx">hide</span><span class="p">()</span> <span class="p">:</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span><span class="p">.</span><span class="nx">show</span><span class="p">()</span>
+  <span class="p">);</span>
+<span class="p">}</span>
 </code></pre>
 
 
@@ -766,14 +806,16 @@ off.</li>
 
 <p>We'll do this in a very simple way. When the dialog is toggled, we'll count the words right before displaying the modal. So let's do this in the <code>toggle</code> command.  If we add some code to count the words and ask the view to update itself, we'll have something like this:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="na">toggle</span><span class="o">:</span> <span class="o">-&gt;</span>
-  <span class="k">if</span> <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">isVisible</span><span class="p">()</span>
-    <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">hide</span><span class="p">()</span>
-  <span class="k">else</span>
-    <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
-    <span class="nx">words</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getText</span><span class="p">().</span><span class="na">split</span><span class="p">(</span><span class="sr">/\s+/</span><span class="p">).</span><span class="na">length</span>
-    <span class="vi">@</span><span class="na">yourNameWordCountView</span><span class="p">.</span><span class="na">setCount</span><span class="p">(</span><span class="nx">words</span><span class="p">)</span>
-    <span class="vi">@</span><span class="na">modalPanel</span><span class="p">.</span><span class="na">show</span><span class="p">()</span>
+<pre class="highlight highlight-javascript"><code><span class="nx">toggle</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span><span class="p">.</span><span class="nx">isVisible</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveTextEditor</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">words</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getText</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">+/</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">yourNameWordCountView</span><span class="p">.</span><span class="nx">setCount</span><span class="p">(</span><span class="nx">words</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">modalPanel</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
 
@@ -783,11 +825,12 @@ off.</li>
 
 <p>Finally, we tell our view to update the word count it displays by calling the <code>setCount()</code> method on our view and then showing the modal again. Since that method doesn't yet exist, let's create it now.</p>
 
-<p>We can add this code to the end of our <code>your-name-word-count-view.coffee</code> file:</p>
+<p>We can add this code to the end of our <code>your-name-word-count-view.js</code> file:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="na">setCount</span><span class="o">:</span> <span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="o">-&gt;</span>
-  <span class="nx">displayText</span> <span class="o">=</span> <span class="s">"There are </span><span class="si">#{</span><span class="nx">count</span><span class="si">}</span><span class="s"> words."</span>
-  <span class="vi">@</span><span class="na">element</span><span class="p">.</span><span class="na">children</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="na">textContent</span> <span class="o">=</span> <span class="nx">displayText</span>
+<pre class="highlight highlight-javascript"><code><span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">displayText</span> <span class="o">=</span> <span class="err">`</span><span class="nx">There</span> <span class="nx">are</span> <span class="nx">$</span><span class="p">{</span><span class="nx">count</span><span class="p">}</span> <span class="nx">words</span><span class="p">.</span><span class="err">`</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">displayText</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre>
 
 

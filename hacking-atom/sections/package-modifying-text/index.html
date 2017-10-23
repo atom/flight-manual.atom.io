@@ -382,25 +382,30 @@
 
 <p>To begin, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> to bring up the <a href="https://github.com/atom/command-palette">Command Palette</a>. Type "generate package" and select the "Package Generator: Generate Package" command, just as we did in <a href="/hacking-atom/sections/package-word-count/#package-generator">the section on package generation</a>. Enter <code>ascii-art</code> as the name of the package.</p>
 
-<p>Now let's edit the package files to make our ASCII Art package do something interesting. Since this package doesn't need any UI, we can remove all view-related code so go ahead and delete <code>lib/ascii-art-view.coffee</code>, <code>spec/ascii-art-view-spec.coffee</code>, and <code>styles/</code>.</p>
+<p>Now let's edit the package files to make our ASCII Art package do something interesting. Since this package doesn't need any UI, we can remove all view-related code so go ahead and delete <code>lib/ascii-art-view.js</code>, <code>spec/ascii-art-view-spec.js</code>, and <code>styles/</code>.</p>
 
-<p>Next, open up <code>lib/ascii-art.coffee</code> and remove all view code, so it looks like this:</p>
+<p>Next, open up <code>lib/ascii-art.js</code> and remove all view code, so it looks like this:</p>
 
-<pre class="highlight highlight-coffeescript"><code><span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
+<pre class="highlight highlight-javascript"><code><span class="kr">const</span> <span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'atom'</span><span class="p">)</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
-  <span class="na">subscriptions</span><span class="o">:</span> <span class="no">null</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">subscriptions</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
 
-  <span class="na">activate</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span>
-    <span class="vi">@</span><span class="na">subscriptions</span><span class="p">.</span><span class="na">add</span> <span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-workspace'</span><span class="p">,</span>
-      <span class="s">'ascii-art:convert'</span><span class="o">:</span> <span class="o">=&gt;</span> <span class="vi">@</span><span class="na">convert</span><span class="p">()</span>
+  <span class="nx">activate</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CompositeDisposable</span><span class="p">()</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'atom-workspace'</span><span class="p">,</span>
+      <span class="p">{</span><span class="s1">'ascii-art:convert'</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">convert</span><span class="p">()})</span>
+    <span class="p">)</span>
+  <span class="p">},</span>
 
-  <span class="na">deactivate</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">subscriptions</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span>
+  <span class="nx">deactivate</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
+  <span class="p">},</span>
 
-  <span class="na">convert</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">'Convert text!'</span>
+  <span class="nx">convert</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Convert text!'</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
 
@@ -411,9 +416,12 @@
 
 <p>So far, that will simply log to the console. Let's start by making it insert something into the text buffer.</p>
 
-<pre class="highlight highlight-coffeescript"><code><span class="na">convert</span><span class="o">:</span> <span class="o">-&gt;</span>
-  <span class="k">if</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
-    <span class="nx">editor</span><span class="p">.</span><span class="na">insertText</span><span class="p">(</span><span class="s">'Hello, World!'</span><span class="p">)</span>
+<pre class="highlight highlight-javascript"><code><span class="nx">convert</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveTextEditor</span><span class="p">()</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">editor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">editor</span><span class="p">.</span><span class="nx">insertText</span><span class="p">(</span><span class="s1">'Hello, World!'</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
 
@@ -442,12 +450,16 @@
 <h5>
 <a id="add-a-key-binding" class="anchor" href="#add-a-key-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add a Key Binding</h5>
 
-<p>Now let's add a key binding to trigger the <code>ascii-art:convert</code> command. Open <code>keymaps/ascii-art.cson</code> and add a key binding linking <kbd class="platform-all">Alt+Ctrl+A</kbd> to the <code>ascii-art:convert</code> command. You can delete the pre-existing key binding since you won't need it anymore.</p>
+<p>Now let's add a key binding to trigger the <code>ascii-art:convert</code> command. Open <code>keymaps/ascii-art.json</code> and add a key binding linking <kbd class="platform-all">Alt+Ctrl+A</kbd> to the <code>ascii-art:convert</code> command. You can delete the pre-existing key binding since you won't need it anymore.</p>
 
 <p>When finished, the file should look like this:</p>
 
-<pre class="highlight highlight-coffeescript"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
-  <span class="s">'ctrl-alt-a'</span><span class="o">:</span> <span class="s">'ascii-art:convert'</span>
+<pre class="highlight highlight-javascript"><code><span class="p">{</span>
+  <span class="s2">"atom-text-editor"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"ctrl-alt-a"</span><span class="err">:</span> <span class="s2">"ascii-art:convert"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
 </code></pre>
 
 
@@ -476,19 +488,24 @@
 
 <p>If for some reason this doesn't work, you'll see a message saying "Failed to update package dependencies" and you will find a new <code>npm-debug.log</code> file in your directory. That file should give you some idea as to what went wrong.</p>
 
-<p>Now require the figlet node module in <code>lib/ascii-art.coffee</code> and instead of inserting "Hello, World!", convert the selected text to ASCII art.</p>
+<p>Now require the figlet node module in <code>lib/ascii-art.js</code> and instead of inserting "Hello, World!", convert the selected text to ASCII art.</p>
 
-<pre class="highlight highlight-coffeescript"><code><span class="na">convert</span><span class="o">:</span> <span class="o">-&gt;</span>
-  <span class="k">if</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
-    <span class="nx">selection</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getSelectedText</span><span class="p">()</span>
+<pre class="highlight highlight-javascript"><code><span class="nx">convert</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveTextEditor</span><span class="p">()</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">editor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">selection</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getSelectedText</span><span class="p">()</span>
 
-    <span class="nx">figlet</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'figlet'</span>
-    <span class="nx">font</span> <span class="o">=</span> <span class="s">"O8"</span>
-    <span class="nx">figlet</span> <span class="nx">selection</span><span class="p">,</span> <span class="p">{</span><span class="na">font</span><span class="o">:</span> <span class="nx">font</span><span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">art</span><span class="p">)</span> <span class="o">-&gt;</span>
-      <span class="k">if</span> <span class="nx">error</span>
-        <span class="nx">console</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-      <span class="k">else</span>
-        <span class="nx">editor</span><span class="p">.</span><span class="na">insertText</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="si">#{</span><span class="nx">art</span><span class="si">}</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="nx">figlet</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'figlet'</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="nx">font</span> <span class="o">=</span> <span class="s1">'o8'</span>
+    <span class="nx">figlet</span><span class="p">(</span><span class="nx">selection</span><span class="p">,</span> <span class="p">{</span><span class="nx">font</span><span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">art</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">editor</span><span class="p">.</span><span class="nx">insertText</span><span class="p">(</span><span class="err">`\</span><span class="nx">n$</span><span class="p">{</span><span class="nx">art</span><span class="p">}</span><span class="err">\</span><span class="nx">n</span><span class="err">`</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
 
