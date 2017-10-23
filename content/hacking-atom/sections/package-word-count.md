@@ -418,12 +418,12 @@ We'll do this in a very simple way. When the dialog is toggled, we'll count the 
 ```javascript
 toggle() {
   if (this.modalPanel.isVisible()) {
-    return this.modalPanel.hide();
+    this.modalPanel.hide();
   } else {
     const editor = atom.workspace.getActiveTextEditor();
     const words = editor.getText().split(/\s+/).length;
     this.yourNameWordCountView.setCount(words);
-    return this.modalPanel.show();
+    this.modalPanel.show();
   }
 }
 ```
@@ -439,7 +439,7 @@ We can add this code to the end of our `your-name-word-count-view.js` file:
 ```javascript
 setCount(count) {
   const displayText = `There are ${count} words.`;
-  return this.element.children[0].textContent = displayText;
+  this.element.children[0].textContent = displayText;
 }
 ```
 
