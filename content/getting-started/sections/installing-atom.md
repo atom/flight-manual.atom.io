@@ -158,6 +158,7 @@ Then create a `.atom` directory alongside the directory that contains the Atom b
 - You can move an existing `.atom` directory to your portable device
 - Atom can also store its Electron user data in your `.atom` directory - just create a subdirectory called `electronUserData` inside `.atom`
 - Alternatively you can set the `ATOM_HOME` environment variable to point wherever you want (you can write a .sh or .cmd script to temporarily set it and launch it from that)
+- Portable mode installations will not automatically update
 
 #### Building Atom from Source
 
