@@ -70,7 +70,7 @@ Next we insert a string into the current text editor with the [`insertText()`](h
 
 ##### Reload the Package
 
-Before we can trigger `ascii-art:convert`, we need to load the latest code for our package by reloading the window. Run the command "Window: Reload" from the Command Palette or by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd>.
+Before we can trigger `ascii-art:convert`, we need to load the latest code for our package by reloading the window. Run the command "Window: Reload" from the Command Palette or by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+F5</kbd>.
 
 ##### Trigger the Command
 
