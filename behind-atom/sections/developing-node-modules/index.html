@@ -368,7 +368,7 @@
 <h4>
 <a id="linking-a-node-module-into-your-atom-dev-environment" class="anchor" href="#linking-a-node-module-into-your-atom-dev-environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Linking a Node Module Into Your Atom Dev Environment</h4>
 
-<p>Here are the steps to run a local version of a Node module, <em>not</em> an Atom package, within Atom. We're using <code>atom-keymap</code> as an example:</p>
+<p>Here are the steps to run a local version of a Node module within Atom. We're using <code>atom-keymap</code> as an example:</p>
 
 <pre class="command-line">
 <span class="command">git clone https://github.com/atom/atom-keymap.git</span>
@@ -391,8 +391,8 @@
 <pre class="command-line">
 <span class="command">cd <em>WHERE YOU CLONED THE NODE MODULE</em></span>
 <span class="command">npm install</span>
-<span class="command">apm rebuild</span>
 <span class="command">cd <em>WHERE YOU CLONED ATOM</em></span>
+<span class="command">apm rebuild</span>
 <span class="command">atom --dev .</span>
 </pre>
         </div>
