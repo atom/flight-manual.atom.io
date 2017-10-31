@@ -35,11 +35,11 @@ Here's a sample package, written in JavaScript, that handles URIs with the `pack
 
 ```js
 export default {
-  activate() {
+  activate () {
     // normal activation code here
-  }
+  },
 
-  handleURI(parsedUri, rawUri) {
+  handleURI (parsedUri, rawUri) {
     console.log(parsedUri)
   }
 }
