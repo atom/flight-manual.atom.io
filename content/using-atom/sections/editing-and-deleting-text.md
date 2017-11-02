@@ -42,7 +42,7 @@ You can also delete or cut text out of your buffer with some shortcuts. Be ruthl
 
 {{#note}}
 
-If you aren't happy with the default keybindings that Atom comes with you easily change these to what best suits your needs!  See [Customizing Keybindings](http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings) and [Keymaps In-Depth](http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/) for more info on how to do this.
+If the default keybindings on Atom don't feel right to you and you'd like to change them, you can easily do that by modifying your `keymap.cson`.  See [Customizing Keybindings](http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings) and [Keymaps In-Depth](http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/) for more info on how to do this.
 
 {{/note}}
 
