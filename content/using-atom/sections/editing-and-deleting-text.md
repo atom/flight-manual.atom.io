@@ -39,6 +39,14 @@ You can also delete or cut text out of your buffer with some shortcuts. Be ruthl
 
 {{/mac}}
 
+
+{{#note}}
+
+If you aren't happy with the default keybindings that Atom comes with you easily change these to what best suits your needs!  See [Customizing Keybindings](http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings) and [Keymaps In-Depth](http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/) for more info on how to do this.
+
+{{/note}}
+
+
 #### Multiple Cursors and Selections
 
 One of the cool things that Atom can do out of the box is support multiple cursors. This can be incredibly helpful in manipulating long lists of text.
