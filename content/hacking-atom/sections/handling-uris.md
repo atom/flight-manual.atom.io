@@ -3,11 +3,11 @@ title: Handling URIs
 ---
 ### Handling URIs
 
-Packages have the ability to handle special URIs; for example, a package named `my-package` can register itself to handle any URI starting with `atom://my-package/`.
+Beginning in Atom 1.23, packages have the ability to handle special URIs triggered from the system; for example, a package named `my-package` can register itself to handle any URI starting with `atom://my-package/`.
 
 {{#warning}}
 
-**Warning:** Handling URIs triggered from other applications, like a web browser, is a powerful tool, but also one that can be jarring. You should shape your package's user experience to handle this well. In general, you should **avoid taking direct action on behalf of a user**. For example, a URI handler that immediately installs a package is too invasive, but a URI handler that shows the package's pane in the settings view is useful. A URI handler that begins to clone a repo is bad, but a URI handler that *prompts* the user to clone a repo is okay.
+**Warning:** Handling URIs triggered from other applications, like a web browser, is a powerful tool, but also one that can be jarring. You should shape your package's user experience to handle this well. In general, you should **avoid taking direct action on behalf of a user**. For example, a URI handler that immediately installs a package is too invasive, but a URI handler that shows the package's pane in the settings view is useful. A URI handler that begins to clone a repo is overly aggressive, but a URI handler that *prompts* the user to clone a repo is okay.
 
 Any package with a URI handler that we feel violates this guideline is subject to removal from the Atom package registry at our discretion.
 
@@ -39,13 +39,13 @@ export default {
     // normal activation code here
   },
 
-  handleURI (parsedUri, rawUri) {
+  handleURI (parsedUri) {
     console.log(parsedUri)
   }
 }
 ```
 
-When Atom handles, for example, the URI `atom://my-package/my/test/url?value=true&other=false`, the package would log out something like the following:
+When Atom handles, for example, the URI `atom://my-package/my/test/url?value=42&other=false`, the package would log out something like the following:
 
 ```js
 {
@@ -57,7 +57,7 @@ When Atom handles, for example, the URI `atom://my-package/my/test/url?value=tru
   hostname: 'my-package',
   hash: null,
   search: '?value=true&other=false',
-  query: { value: 'true', other: 'false' },
+  query: { value: '42', other: 'false' },
   pathname: '/my/test/url',
   path: '/my/test/url?value=true&other=false',
   href: 'atom://my-package/my/test/url?value=true&other=false'
@@ -78,3 +78,7 @@ For performance reasons, adding a `uriHandler` entry to your package's `package.
 ```
 
 Before doing this, make sure your package actually needs to be activated immediately — disabling deferred activation means Atom takes longer to start since it has to activate all packages without deferred activation.
+
+#### Linux Support
+
+Because URI handling is different across operating systems and distributions, there is no built-in URI handler support for Atom on Linux. If you want to configure URI handling on your system yourself, then you should configure `atom:` protocol URI's to trigger atom with the `--uri-handler` flag; for example, the URI `atom://test/uri` should launch Atom via `atom --uri-handler atom://test/uri`.
