@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Version Control in Atom</title>
+<title>Handling URIs</title>
 
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
 
@@ -155,7 +155,7 @@
         <a href="/using-atom/sections/grammar">Grammar</a>
       </li>
     
-      <li class="selected">
+      <li class="unselected">
         <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
       </li>
     
@@ -222,7 +222,7 @@
         <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
       </li>
     
-      <li class="unselected">
+      <li class="selected">
         <a href="/hacking-atom/sections/handling-uris">Handling URIs</a>
       </li>
     
@@ -357,7 +357,7 @@
 </div>
 
           <a class="improve-link"
-              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/version-control-in-atom.md" data-proofer-ignore>
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/handling-uris.md" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
           </a>
         </h1>
@@ -365,86 +365,92 @@
         <div class="markdown-body document-content">
           
           <h3>
-<a id="version-control-in-atom" class="anchor" href="#version-control-in-atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version Control in Atom</h3>
+<a id="handling-uris" class="anchor" href="#handling-uris" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling URIs</h3>
 
-<p>Version control is an important aspect of any project and Atom comes with basic <a href="http://git-scm.com">Git</a> and <a href="https://github.com">GitHub</a> integration built in.</p>
+<p>Beginning in Atom 1.23, packages have the ability to handle special URIs triggered from the system; for example, a package named <code>my-package</code> can register itself to handle any URI starting with <code>atom://my-package/</code>.</p>
 
-<p>In order to use version control in Atom, the project root needs to contain the Git repository.</p>
+<div class="alert warning">
 
-<h4>
-<a id="checkout-head-revision" class="anchor" href="#checkout-head-revision" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checkout HEAD revision</h4>
+<p><strong>Warning:</strong> Handling URIs triggered from other applications, like a web browser, is a powerful tool, but also one that can be jarring. You should shape your package's user experience to handle this well. In general, you should <strong>avoid taking direct action on behalf of a user</strong>. For example, a URI handler that immediately installs a package is too invasive, but a URI handler that shows the package's pane in the settings view is useful. A URI handler that begins to clone a repo is overly aggressive, but a URI handler that <em>prompts</em> the user to clone a repo is okay.</p>
 
-<p>The <kbd class="platform-mac">Alt+Cmd+Z</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Z</kbd> keybinding checks out the <code>HEAD</code> revision of the file in the editor.</p>
+<p>Any package with a URI handler that we feel violates this guideline is subject to removal from the Atom package registry at our discretion.</p>
 
-<p>This is a quick way to discard any saved and staged changes you've made and restore the file to the version in the <code>HEAD</code> commit. This is essentially the same as running <code>git checkout HEAD -- &lt;path&gt;</code> and <code>git reset HEAD -- &lt;path&gt;</code> from the command line for that path.</p>
-
-<p><img src="../../images/git-checkout-head.gif" alt="Git checkout `HEAD`" title="Git checkout `HEAD`"></p>
-
-<p>This command goes onto the undo stack so you can use <kbd class="platform-mac">Cmd+Z</kbd><kbd class="platform-windows platform-linux">Ctrl+Z</kbd> afterwards to restore the previous contents.</p>
+</div>
 
 <h4>
-<a id="git-status-list" class="anchor" href="#git-status-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git status list</h4>
+<a id="modifying-your-packagejson" class="anchor" href="#modifying-your-packagejson" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modifying your <code>package.json</code>
+</h4>
 
-<p>Atom ships with the <a href="https://github.com/atom/fuzzy-finder">fuzzy-finder package</a> which provides <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd> to quickly open files in the project and <kbd class="platform-mac">Cmd+B</kbd><kbd class="platform-windows platform-linux">Ctrl+B</kbd> to jump to any open editor. The package also provides <kbd class="platform-mac">Cmd+Shift+B</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+B</kbd> which displays a list of all the untracked and modified files in the project. These will be the same files that you would see on the command line if you ran <code>git status</code>.</p>
+<p>The first step to handling URIs from your package is to modify its <code>package.json</code> file. You should add a new key called <code>uriHandler</code>, and its value should be an object.</p>
 
-<p><img src="../../images/git-status.gif" alt="Git status list" title="`git status` list"></p>
+<p>The <code>uriHandler</code> object <em>must</em> contain a key called <code>method</code> with a string value that tells Atom which method in your package to call when a URI needs to be handled. The object can <em>optionally</em> include a key called <code>deferActivation</code> which can be set to the boolean <code>false</code> to prevent Atom from deferring activation of your package — see more below.</p>
 
-<p>An icon will appear to the right of each file letting you know whether it is untracked or modified.</p>
+<p>For example, if we want our package <code>my-package</code> to handle URIs with a method on our package's main module called <code>handleURI</code>, we could add the following to our <code>package.json</code>:</p>
 
-<h4>
-<a id="commit-editor" class="anchor" href="#commit-editor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commit editor</h4>
+<pre class="highlight highlight-json"><code><span class="s2">"uriHandler"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"handleURI"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p>Atom can be used as your Git commit editor and ships with the <a href="https://github.com/atom/language-git">language-git package</a> which adds syntax highlighting to edited commit, merge, and rebase messages.</p>
-
-<p><img src="../../images/git-message.gif" alt="Git commit message highlighting" title="Git commit message highlighting"></p>
-
-<p>You can configure Atom to be your Git commit editor with the following command:</p>
-
-<pre class="command-line">
-<span class="command">git config --global core.editor "atom --wait"</span>
-</pre>
-
-<p>The <a href="https://github.com/atom/language-git">language-git</a> package will help remind you to be brief by colorizing the first lines of commit messages when they're longer than 50 or 65 characters.</p>
 
 <h4>
-<a id="status-bar-icons" class="anchor" href="#status-bar-icons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status bar icons</h4>
+<a id="modifying-your-main-module" class="anchor" href="#modifying-your-main-module" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modifying your Main Module</h4>
 
-<p>The <a href="https://github.com/atom/status-bar">status-bar</a> package that ships with Atom includes several Git decorations that display on the right side of the status bar:</p>
+<p>Now that we've told Atom that we want our package to handle URIs beginning with <code>atom://my-package/</code> via our <code>handleURI</code> method, we need to actually write this method. Atom passes two arguments to your URI handler method; the first one is the fully-parsed URI plus query string, <a href="https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost">parsed with Node's <code>url.parse(uri, true)</code></a>. The second argument is the raw, string URI; this is normally not needed since the first argument gives you structured information about the URI.</p>
 
-<p><img src="../../images/git-status-bar.png" alt="Git Status Bar decorations" title="Git Status Bar decorations"></p>
+<p>Here's a sample package, written in JavaScript, that handles URIs with the <code>package.json</code> configuration we saw above.</p>
 
-<p>The currently checked out branch name is shown with the number of commits the branch is ahead of or behind its upstream branch. An icon is added if the file is untracked, modified, or ignored. The number of lines added and removed since the file was last committed will be displayed as well.</p>
+<pre class="highlight highlight-js"><code><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">activate</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// normal activation code here</span>
+  <span class="p">},</span>
+
+  <span class="nx">handleURI</span> <span class="p">(</span><span class="nx">parsedUri</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsedUri</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>When Atom handles, for example, the URI <code>atom://my-package/my/test/url?value=42&amp;other=false</code>, the package would log out something like the following:</p>
+
+<pre class="highlight highlight-js"><code><span class="p">{</span>
+  <span class="nl">protocol</span><span class="p">:</span> <span class="s1">'atom:'</span><span class="p">,</span>
+  <span class="nx">slashes</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">auth</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">host</span><span class="err">:</span> <span class="s1">'my-package'</span><span class="p">,</span>
+  <span class="nx">port</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">hostname</span><span class="err">:</span> <span class="s1">'my-package'</span><span class="p">,</span>
+  <span class="nx">hash</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">search</span><span class="err">:</span> <span class="s1">'?value=true&amp;other=false'</span><span class="p">,</span>
+  <span class="nx">query</span><span class="err">:</span> <span class="p">{</span> <span class="nl">value</span><span class="p">:</span> <span class="s1">'42'</span><span class="p">,</span> <span class="nx">other</span><span class="err">:</span> <span class="s1">'false'</span> <span class="p">},</span>
+  <span class="nx">pathname</span><span class="err">:</span> <span class="s1">'/my/test/url'</span><span class="p">,</span>
+  <span class="nx">path</span><span class="err">:</span> <span class="s1">'/my/test/url?value=true&amp;other=false'</span><span class="p">,</span>
+  <span class="nx">href</span><span class="err">:</span> <span class="s1">'atom://my-package/my/test/url?value=true&amp;other=false'</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>Notice that the query string arguments are available in the <code>query</code> property, but are strings — you'll have to convert to other native types yourself.</p>
 
 <h4>
-<a id="line-diffs" class="anchor" href="#line-diffs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Line diffs</h4>
+<a id="controlling-activation-deferral" class="anchor" href="#controlling-activation-deferral" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controlling Activation Deferral</h4>
 
-<p>The included <a href="https://github.com/atom/git-diff">git-diff</a> package colorizes the gutter next to lines that have been added, edited, or removed.</p>
+<p>For performance reasons, adding a <code>uriHandler</code> entry to your package's <code>package.json</code> will enable <em>deferred activation</em>. This means that Atom will not activate your package until it has a URI for it to handle — it will then activate your package and then immediately call the URI handler method. If you want to disable the deferred activation, ensuring your package is activated upon startup, you can add <code>"deferActivation": false</code> to the URI handler config. For example,</p>
 
-<p><img src="../../images/git-lines.png" alt="Git line diff indications" title="Git line diff indications"></p>
+<pre class="highlight highlight-json"><code><span class="s2">"uriHandler"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"handleURI"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"deferActivation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p>This package also adds <kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">Down</kbd> and <kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">Up</kbd> keybindings that allow you to move the cursor to the next or previous diff in the current editor.</p>
+
+<p>Before doing this, make sure your package actually needs to be activated immediately — disabling deferred activation means Atom takes longer to start since it has to activate all packages without deferred activation.</p>
 
 <h4>
-<a id="open-on-github" class="anchor" href="#open-on-github" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open on GitHub</h4>
+<a id="linux-support" class="anchor" href="#linux-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Linux Support</h4>
 
-<p>If the project you're working on is on GitHub, there are also some very useful integrations you can use.  Most of the commands will take the current file you're viewing and open a view of that file on GitHub - for instance, the blame or commit history of that file.</p>
-
-<ul>
-<li>
-<kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">O</kbd> - Open file on GitHub</li>
-<li>
-<kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">B</kbd> - Open Blame view of file on GitHub</li>
-<li>
-<kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">H</kbd> - Open History view of file on GitHub</li>
-<li>
-<kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">C</kbd> - Copy the URL of the current file on GitHub to the clipboard</li>
-<li>
-<kbd class="platform-all">Alt+G</kbd> <kbd class="platform-all">R</kbd> - Branch compare on GitHub</li>
-</ul>
-
-<p>The branch comparison shows you the commits that are on the branch you're currently working on locally that are not on the mainline branch.</p>
-
-<p><img src="../../images/open-on-github.png" alt="Open Blame of file on GitHub" title="Open Blame of file on GitHub"></p>
+<p>Because URI handling is different across operating systems and distributions, there is no built-in URI handler support for Atom on Linux. If you want to configure URI handling on your system yourself, then you should configure <code>atom:</code> protocol URI's to trigger atom with the <code>--uri-handler</code> flag; for example, the URI <code>atom://test/uri</code> should launch Atom via <code>atom --uri-handler atom://test/uri</code>.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
