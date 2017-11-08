@@ -3,6 +3,8 @@ title: Hacking on Atom Core
 ---
 ### Hacking on Atom Core
 
+If you're hitting a bug in Atom or just want to experiment with adding a feature to the core of the system, you'll want to run Atom in dev mode with access to a local copy of the Atom source.
+
 #### Fork the atom/atom repository
 
 Follow the [GitHub Help instructions on how to fork a repo](https://help.github.com/articles/fork-a-repo/).
