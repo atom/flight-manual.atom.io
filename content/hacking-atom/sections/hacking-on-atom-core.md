@@ -3,7 +3,7 @@ title: Hacking on Atom Core
 ---
 ### Hacking on Atom Core
 
-If you're hitting a bug in Atom or just want to experiment with adding a feature to the core of the system, you'll want to run Atom in dev mode with access to a local copy of the Atom source.
+If you're hitting a bug in Atom or just want to experiment with adding a feature to the core of the system, you'll want to run Atom in Dev Mode with access to a local copy of the Atom source.
 
 #### Fork the atom/atom repository
 
