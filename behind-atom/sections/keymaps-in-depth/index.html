@@ -569,7 +569,13 @@
 <h4>
 <a id="forcing-chromiums-native-keystroke-handling" class="anchor" href="#forcing-chromiums-native-keystroke-handling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Forcing Chromium's Native Keystroke Handling</h4>
 
-<p>If you want to force the native browser behavior for a given keystroke, use the <code>native!</code> directive as the command of a binding. This can be useful to enable the correct behavior in native input elements, for example. If you apply the <code>.native-key-bindings</code> class to an element, all the keystrokes typically handled by the browser will be assigned the <code>native!</code> directive.</p>
+<p>If you want to force the native browser behavior for a given keystroke, use the <code>native!</code> directive as the command of a binding. This can be useful to enable the correct behavior in native input elements.  If you apply the <code>.native-key-bindings</code> class to an element, all the keystrokes typically handled by the browser will be assigned the <code>native!</code> directive.</p>
+
+<div class="alert tip">
+
+<p><strong>Tip:</strong> Components and input elements may not correctly handle backspace and arrow keys without forcing this behavior.  If your backspace isn't working correctly inside of a component, add either the directive or the <code>.native-key-bindings</code> class.</p>
+
+</div>
 
 <h4>
 <a id="overloading-key-bindings" class="anchor" href="#overloading-key-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overloading Key Bindings</h4>
