@@ -1,0 +1,819 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Hacking on Atom Core</title>
+
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+
+      indexUrl: '/search.json',
+
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    })
+  })
+</script>
+
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
+  </head>
+  <body class="layout-article">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="http://blog.atom.io">Blog</a></li>
+      <li><a href="https://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search">
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="search" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+  <h4>
+    <a href="/getting-started">Chapter 1: Getting Started</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/why-atom">Why Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/using-atom">Chapter 2: Using Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/snippets">Snippets</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/folding">Folding</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/panes">Panes</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/pending-pane-items">Pending Pane Items</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/grammar">Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/github-package">GitHub package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-active-editor-info">Package: Active Editor Info</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/publishing">Publishing</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/iconography">Iconography</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/debugging">Debugging</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/handling-uris">Handling URIs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+      </li>
+    
+      <li class="selected">
+        <a href="/hacking-atom/sections/hacking-on-atom-core">Hacking on Atom Core</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/contributing-to-official-atom-packages">Contributing to Official Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/behind-atom">Chapter 4: Behind Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/how-atom-uses-chromium-snapshots">How Atom Uses Chromium Snapshots</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+
+
+  <h4>
+    <a href="/resources">Appendix A: Resources</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/resources/sections/glossary">Glossary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/shadow-dom">Appendix B: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix C: Upgrading to 1.0 APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+      </li>
+    
+  </ul>
+
+
+        </div>
+
+        
+        <h1 class="document-title">
+          <div id="platform-nav">
+  <span class="octicon octicon-device-desktop"></span>
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+  </ul>
+</div>
+
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/hacking-on-atom-core.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
+        <div class="markdown-body document-content">
+          
+          <h3>
+<a id="hacking-on-atom-core" class="anchor" href="#hacking-on-atom-core" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacking on Atom Core</h3>
+
+<p>If you're hitting a bug in Atom or just want to experiment with adding a feature to the core of the system, you'll want to run Atom in Dev Mode with access to a local copy of the Atom source.</p>
+
+<h4>
+<a id="fork-the-atomatom-repository" class="anchor" href="#fork-the-atomatom-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fork the atom/atom repository</h4>
+
+<p>Follow the <a href="https://help.github.com/articles/fork-a-repo/">GitHub Help instructions on how to fork a repo</a>.</p>
+
+<h4>
+<a id="cloning-and-bootstrapping" class="anchor" href="#cloning-and-bootstrapping" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cloning and bootstrapping</h4>
+
+<p>Once you've set up your fork of the atom/atom repository, you can clone it to your local machine:</p>
+
+<pre class="command-line">
+<span class="command">git clone git@github.com:<em>your-username</em>/atom.git</span>
+</pre>
+
+<p>From there, you can navigate into the directory where you've cloned the Atom source code and run the bootstrap script to install all the required dependencies:</p>
+
+<pre class="command-line">
+<span class="command">cd <em>where-you-cloned-atom</em></span>
+<span class="command">script/bootstrap</span>
+</pre>
+
+<h4>
+<a id="running-in-development-mode" class="anchor" href="#running-in-development-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running in Development Mode</h4>
+
+<p>Once you have a local copy of Atom cloned and bootstrapped, you can then run Atom in Development Mode. But first, you have to set the <code>ATOM_DEV_RESOURCE_PATH</code> environment variable. It defaults to <span class="platform-mac platform-linux"><code>~/github</code></span><span class="platform-windows"><code>%USERPROFILE%\github</code></span> which then expects the <code>atom/atom</code> repository to be cloned into <span class="platform-mac platform-linux"><code>$ATOM_DEV_RESOURCE_PATH/atom</code></span><span class="platform-windows"><code>%ATOM_DEV_RESOURCE_PATH%\atom</code></span>. To run Atom in Dev Mode, use the <code>--dev</code> parameter from the terminal:</p>
+
+<pre class="command-line">
+<span class="command">atom --dev <em>path-to-open</em></span>
+</pre>
+
+<p>There are a couple benefits of running Atom in Dev Mode:</p>
+
+<ol>
+<li>When the <code>ATOM_DEV_RESOURCE_PATH</code> environment variable is set correctly, Atom is run using the source code from your local <code>atom/atom</code> repository. This means that you don't have to run <span class="platform-mac platform-linux"><code>script/build</code></span><span class="platform-windows"><code>script\build</code></span> every time you change code. Just restart Atom 👍</li>
+<li>Packages that exist in <span class="platform-mac platform-linux"><code>~/.atom/dev/packages</code></span><span class="platform-windows"><code>%USERPROFILE%\.atom\dev\packages</code></span> are loaded instead of packages of the same name normally loaded from other locations. This means that you can have development versions of packages you use loaded but easily go back to the stable versions by launching without Dev Mode.</li>
+</ol>
+
+<h4>
+<a id="running-atom-core-tests-locally" class="anchor" href="#running-atom-core-tests-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running Atom Core Tests Locally</h4>
+
+<p>In order to run Atom Core tests from the terminal, first be certain to set the <code>ATOM_DEV_RESOURCE_PATH</code> environment variable as mentioned above and then:</p>
+
+<pre class="command-line">
+<span class="command">cd <em>path-to-your-local-atom-repo</em></span>
+<span class="command">atom --test spec</span>
+</pre>
+
+<h4>
+<a id="building" class="anchor" href="#building" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building</h4>
+
+<p>In order to build Atom from source, you need to have a number of other requirements and take additional steps.</p>
+
+<div class="platform-mac">
+
+<h5>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h5>
+
+<ul>
+<li>macOS 10.9 or later</li>
+<li>Node.js 6.x or later (we recommend installing it via <a href="https://github.com/creationix/nvm">nvm</a>)</li>
+<li>npm 3.10.x or later (run <code>npm install -g npm</code>)</li>
+<li>Command Line Tools for <a href="https://developer.apple.com/xcode/downloads/">Xcode</a> (run <code>xcode-select --install</code> to install)</li>
+</ul>
+
+</div>
+
+<div class="platform-windows">
+
+<ul>
+<li>Node.js 6.9.4 or later (the architecture of node available to the build system will determine whether you build 32-bit or 64-bit Atom)</li>
+<li>Python v2.7.x
+
+<ul>
+<li>The <code>python.exe</code> must be available at <code>%SystemDrive%\Python27\python.exe</code>. If it is installed elsewhere create a symbolic link to the directory containing the <code>python.exe</code> using: <code>mklink /d %SystemDrive%\Python27 D:\elsewhere\Python27</code>
+</li>
+</ul>
+</li>
+<li>7zip (7z.exe available from the command line) - for creating distribution zip files</li>
+<li>
+<p>Visual Studio, either:</p>
+
+<ul>
+<li><a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">Visual C++ Build Tools 2015</a></li>
+<li>
+<a href="https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs">Visual Studio 2013 Update 5</a> (Express Edition or better)</li>
+<li>
+<a href="https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs">Visual Studio 2015</a> (Community Edition or better)</li>
+</ul>
+
+<p>Also ensure that:</p>
+
+<ul>
+<li>The default installation folder is chosen so the build tools can find it</li>
+<li>If using Visual Studio make sure Visual C++ support is selected/installed</li>
+<li>If using Visual C++ Build Tools make sure Windows 8 SDK is selected/installed</li>
+<li>A <code>git</code> command is in your path</li>
+<li>Set the <code>GYP_MSVS_VERSION</code> environment variable to the Visual Studio/Build Tools version (<code>2013</code> or <code>2015</code>) e.g. <code>[Environment]::SetEnvironmentVariable("GYP_MSVS_VERSION", "2015", "User")</code> in PowerShell (or set it in Windows advanced system settings).</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<div class="platform-linux">
+
+<p>Ubuntu LTS 12.04 64-bit is the recommended platform.</p>
+
+<h5>
+<a id="requirements-1" class="anchor" href="#requirements-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h5>
+
+<ul>
+<li>OS with 64-bit or 32-bit architecture</li>
+<li>C++11 toolchain</li>
+<li>Git</li>
+<li>Node.js 6.x or later (we recommend installing it via <a href="https://github.com/creationix/nvm">nvm</a>)</li>
+<li>npm 3.10.x or later (run <code>npm install -g npm</code>)</li>
+<li>Ensure node-gyp uses python2 (run <code>npm config set python /usr/bin/python2 -g</code>, use <code>sudo</code> if you didn't install node via nvm)</li>
+<li>Development headers for <a href="https://wiki.gnome.org/Projects/Libsecret">libsecret</a>.</li>
+</ul>
+
+<p>For more details, scroll down to find how to setup a specific Linux distro.</p>
+
+<h6>
+<a id="ubuntu--debian" class="anchor" href="#ubuntu--debian" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ubuntu / Debian</h6>
+
+<ul>
+<li>
+<p>Install GNOME headers and other basic prerequisites:</p>
+
+<pre class="command-line">
+<span class="command">sudo apt-get install build-essential git libsecret-1-dev fakeroot rpm libx11-dev libxkbfile-dev</span>
+</pre>
+</li>
+<li>
+<p>If <code>script/build</code> exits with an error, you may need to install a newer C++ compiler with C++11:</p>
+
+<pre class="command-line">
+<span class="command">sudo add-apt-repository ppa:ubuntu-toolchain-r/test</span>
+<span class="command">sudo apt-get update</span>
+<span class="command">sudo apt-get install gcc-5 g++-5</span>
+<span class="command">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 80 --slave /usr/bin/g++ g++ /usr/bin/g++-5</span>
+<span class="command">sudo update-alternatives --config gcc # choose gcc-5 from the list</span>
+</pre>
+</li>
+</ul>
+
+<h6>
+<a id="fedora-22" class="anchor" href="#fedora-22" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fedora 22+</h6>
+
+<pre class="command-line">
+<span class="command">sudo dnf --assumeyes install make gcc gcc-c++ glibc-devel git-core libsecret-devel rpmdevtools libX11-devel libxkbfile-devel</span>
+</pre>
+
+<h6>
+<a id="fedora-21--centos--rhel" class="anchor" href="#fedora-21--centos--rhel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fedora 21 / CentOS / RHEL</h6>
+
+<pre class="command-line">
+<span class="command">sudo yum install -y make gcc gcc-c++ glibc-devel git-core libsecret-devel rpmdevtools</span>
+</pre>
+
+<h6>
+<a id="arch" class="anchor" href="#arch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arch</h6>
+
+<pre class="command-line">
+sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python2 libx11 libxkbfile
+</pre>
+
+<p>Be certain to use <code>export PYTHON=/usr/bin/python2</code> before building Atom.</p>
+
+<h6>
+<a id="slackware" class="anchor" href="#slackware" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slackware</h6>
+
+<pre class="command-line">
+<span class="command">sbopkg -k -i node -i atom</span>
+</pre>
+
+<h6>
+<a id="opensuse" class="anchor" href="#opensuse" aria-hidden="true"><span class="octicon octicon-link"></span></a>openSUSE</h6>
+
+<pre class="command-line">
+<span class="command">sudo zypper install nodejs nodejs-devel make gcc gcc-c++ glibc-devel git-core libsecret-devel rpmdevtools libX11-devel libxkbfile-devel</span>
+</pre>
+
+</div>
+
+<h5>
+<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructions</h5>
+
+<pre class="command-line">
+<span class="command">script/build</span>
+</pre>
+
+<div class="platform-mac">
+
+<p>To also install the newly built application, use <code>script/build --install</code>.</p>
+
+</div>
+
+<div class="platform-windows">
+
+<p>To also install the newly built application, use <code>script\build --create-windows-installer</code> and launch one of the generated installers.</p>
+
+</div>
+
+<div class="platform-linux">
+
+<p>To also install the newly built application, use the <code>--create-debian-package</code> or <code>--create-rpm-package</code> option and then install the generated package via the system package manager.</p>
+
+</div>
+
+<h5>
+<a id="scriptbuild-options" class="anchor" href="#scriptbuild-options" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>script/build</code> Options</h5>
+
+<div class="platform-mac">
+
+<ul>
+<li>
+<code>--code-sign</code>: signs the application with the GitHub certificate specified in <code>$ATOM_MAC_CODE_SIGNING_CERT_DOWNLOAD_URL</code>.</li>
+<li>
+<code>--compress-artifacts</code>: zips the generated application as <code>out/atom-mac.zip</code>.</li>
+<li>
+<code>--install[=dir]</code>: installs the application at <code>${dir}/Atom.app</code> for dev and stable versions or at <code>${dir}/Atom-Beta.app</code> for beta versions; <code>${dir}</code> defaults to <code>/Applications</code>.</li>
+</ul>
+
+</div>
+
+<div class="platform-windows">
+
+<ul>
+<li>
+<code>--code-sign</code>: signs the application with the GitHub certificate specified in <code>$WIN_P12KEY_URL</code>.</li>
+<li>
+<code>--compress-artifacts</code>: zips the generated application as <code>out\atom-windows.zip</code> (requires <a href="http://www.7-zip.org">7-Zip</a>).</li>
+<li>
+<code>--create-windows-installer</code>: creates an <code>.exe</code> and two <code>.nupkg</code> packages in the <code>out</code> directory.</li>
+<li>
+<code>--install[=dir]</code>: installs the application in <code>${dir}\Atom\app-dev</code>; <code>${dir}</code> defaults to <code>%LOCALAPPDATA%</code>.</li>
+</ul>
+
+</div>
+
+<div class="platform-linux">
+
+<ul>
+<li>
+<code>--compress-artifacts</code>: zips the generated application as <code>out/atom-{arch}.tar.gz</code>.</li>
+<li>
+<code>--create-debian-package</code>: creates a .deb package as <code>out/atom-{arch}.deb</code>
+</li>
+<li>
+<code>--create-rpm-package</code>: creates a .rpm package as <code>out/atom-{arch}.rpm</code>
+</li>
+<li>
+<code>--install[=dir]</code>: installs the application in <code>${dir}</code>; <code>${dir}</code> defaults to <code>/usr/local</code>.</li>
+</ul>
+
+</div>
+
+<h5>
+<a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting</h5>
+
+<div class="platform-mac">
+
+<p>Use <a href="https://github.com/atom/atom/search?q=label%3Abuild-error+label%3Amac&amp;type=Issues">this search</a> to get a list of reports about build errors on macOS.</p>
+
+</div>
+
+<div class="platform-windows">
+
+<h6>
+<a id="common-errors" class="anchor" href="#common-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Common Errors</h6>
+
+<ul>
+<li>
+<p><code>node is not recognized</code></p>
+
+<ul>
+<li>If you just installed Node.js, you'll need to restart Command Prompt before the <code>node</code> command is available on your path.</li>
+</ul>
+</li>
+<li>
+<p><code>msbuild.exe failed with exit code: 1</code></p>
+
+<ul>
+<li>If using <strong>Visual Studio</strong>, ensure you have the <strong>Visual C++</strong> component installed. Go into Add/Remove Programs, select Visual Studio, press Modify, and then check the Visual C++ box.</li>
+<li>If using <strong>Visual C++ Build Tools</strong>, ensure you have the <strong>Windows 8 SDK</strong> component installed. Go into Add/Remove Programs, select Visual C++ Build Tools, press Modify and then check the Windows 8 SDK box.</li>
+</ul>
+</li>
+<li>
+<p><code>script\build</code> stops with no error or warning shortly after displaying the versions of node, npm and Python</p>
+
+<ul>
+<li>Make sure that the path where you have checked out Atom does not include a space. For example, use <code>C:\atom</code> instead of <code>C:\my stuff\atom</code>.</li>
+<li>Try moving the repository to <code>C:\atom</code>. Most likely, the path is too long. See <a href="https://github.com/atom/atom/issues/2200">issue #2200</a>.</li>
+</ul>
+</li>
+<li>
+<p><code>error MSB4025: The project file could not be loaded. Invalid character in the given encoding.</code></p>
+
+<ul>
+<li>This can occur because your home directory (<code>%USERPROFILE%</code>) has non-ASCII characters in it. This is a bug in <a href="https://code.google.com/p/gyp/">gyp</a>
+which is used to build native Node.js modules and there is no known workaround.
+
+<ul>
+<li><a href="https://github.com/TooTallNate/node-gyp/issues/297">https://github.com/TooTallNate/node-gyp/issues/297</a></li>
+<li><a href="https://code.google.com/p/gyp/issues/detail?id=393">https://code.google.com/p/gyp/issues/detail?id=393</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>'node_modules\.bin\npm' is not recognized as an internal or external command, operable program or batch file.</code></p>
+
+<ul>
+<li>This occurs if the previous build left things in a bad state. Run <code>script\clean</code> and then <code>script\build</code> again.</li>
+</ul>
+</li>
+<li>
+<p><code>script\build</code> stops at installing runas with <code>Failed at the runas@x.y.z install script.</code></p>
+
+<ul>
+<li>See the next item.</li>
+</ul>
+</li>
+<li>
+<p><code>error MSB8020: The build tools for Visual Studio 201? (Platform Toolset = 'v1?0') cannot be found.</code></p>
+
+<ul>
+<li>Try setting the <code>GYP_MSVS_VERSION</code> environment variable to <strong>2013</strong> or <strong>2015</strong> depending on what version of Visual Studio/Build Tools is installed and then <code>script\clean</code> followed by <code>script\build</code> (re-open the Command Prompt if you set the variable using the GUI).</li>
+</ul>
+</li>
+<li>
+<p><code>'node-gyp' is not recognized as an internal or external command, operable program or batch file.</code></p>
+
+<ul>
+<li>Try running <code>npm install -g node-gyp</code>, and run <code>script\build</code> again.</li>
+</ul>
+</li>
+<li>
+<p>Other <code>node-gyp</code> errors on first build attempt, even though the right Node.js and Python versions are installed.</p>
+
+<ul>
+<li>Do try the build command one more time as experience shows it often works on second try in many cases.</li>
+</ul>
+</li>
+</ul>
+
+<h6>
+<a id="windows-build-error-reports" class="anchor" href="#windows-build-error-reports" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows build error reports</h6>
+
+<ul>
+<li>If all else fails, use <a href="https://github.com/atom/atom/search?q=label%3Abuild-error+label%3Awindows&amp;type=Issues">this search</a> to get a list of reports about build errors on Windows, and see if yours has already been reported.</li>
+<li>If it hasn't, please open a new issue with your Windows version, architecture (x86 or x64), and a text dump of your build output, including the Node.js and Python versions.</li>
+</ul>
+
+</div>
+
+<div class="platform-linux">
+
+<h6>
+<a id="typeerror-unable-to-watch-path" class="anchor" href="#typeerror-unable-to-watch-path" aria-hidden="true"><span class="octicon octicon-link"></span></a>TypeError: Unable to watch path</h6>
+
+<p>If you get following error with a big traceback right after Atom starts:</p>
+
+<pre><code>TypeError: Unable to watch path
+</code></pre>
+
+<p>you have to increase number of watched files by inotify.  For testing if this is the reason for this error you can execute:</p>
+
+<pre class="command-line">
+<span class="command">sudo sysctl fs.inotify.max_user_watches=32768</span>
+</pre>
+
+<p>then restart Atom.  If Atom now works fine, you can make this setting permanent:</p>
+
+<pre class="command-line">
+<span class="command">echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_user_watches</span>
+</pre>
+
+<p>See also <a href="https://github.com/atom/atom/issues/2082">#2082</a>.</p>
+
+<h6>
+<a id="usrbinenv-node-no-such-file-or-directory" class="anchor" href="#usrbinenv-node-no-such-file-or-directory" aria-hidden="true"><span class="octicon octicon-link"></span></a>/usr/bin/env: node: No such file or directory</h6>
+
+<p>If you get this notice when attempting to run any script, you either do not have<br>
+Node.js installed, or node isn't identified as Node.js on your machine. If it's<br>
+the latter, this might be caused by installing Node.js via the distro package<br>
+manager and not nvm, so entering <code>sudo ln -s /usr/bin/nodejs /usr/bin/node</code> into<br>
+your terminal may fix the issue. On some variants (mostly Debian based distros)<br>
+you can use <code>update-alternatives</code> too:</p>
+
+<pre class="command-line">
+<span class="command">sudo update-alternatives --install /usr/bin/node node /usr/bin/nodejs 1 --slave /usr/bin/js js /usr/bin/nodejs</span>
+</pre>
+
+<h6>
+<a id="attributeerror-module-object-has-no-attribute-script_main" class="anchor" href="#attributeerror-module-object-has-no-attribute-script_main" aria-hidden="true"><span class="octicon octicon-link"></span></a>AttributeError: 'module' object has no attribute 'script_main'</h6>
+
+<p>If you get following error with a big traceback while building Atom:</p>
+
+<pre><code>sys.exit(gyp.script_main()) AttributeError: 'module' object has no attribute 'script_main' gyp ERR!
+</code></pre>
+
+<p>you need to uninstall the system version of gyp.</p>
+
+<p>On Fedora you would do the following:</p>
+
+<pre class="command-line">
+<span class="command">sudo yum remove gyp</span>
+</pre>
+
+<h6>
+<a id="linux-build-error-reports" class="anchor" href="#linux-build-error-reports" aria-hidden="true"><span class="octicon octicon-link"></span></a>Linux build error reports</h6>
+
+<p>Use <a href="https://github.com/atom/atom/search?q=label%3Abuild-error+label%3Alinux&amp;type=Issues">this search</a><br>
+to get a list of reports about build errors on Linux.</p>
+
+</div>
+        </div>
+      </div>
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+        <li><a href="https://github.com/atom/flight-manual.atom.io/blob/master/CONTRIBUTING.md">Contribute!</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
