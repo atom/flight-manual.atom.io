@@ -299,7 +299,7 @@ There are a couple benefits of running Atom in Dev Mode:
 
 #### Running Atom Core Tests Locally
 
-In order to run Atom Core tests from the terminal:
+In order to run Atom Core tests from the terminal, first be certain to set the `ATOM_DEV_RESOURCE_PATH` environment variable as mentioned above and then:
 
 ``` command-line
 $ cd <em>path-to-your-local-atom-repo</em>
