@@ -294,7 +294,7 @@ $ atom --dev <em>path-to-open</em>
 
 There are a couple benefits of running Atom in Dev Mode:
 
-1. When the `ATOM_DEV_RESOURCE_PATH` environment variable is set correctly, Atom is run using the source code from your local `atom/atom` repository. This means that you don't have to run `script/build` every time you change code. Just restart Atom 👍
+1. When the `ATOM_DEV_RESOURCE_PATH` environment variable is set correctly, Atom is run using the source code from your local `atom/atom` repository. This means that you don't have to run <span class="platform-mac platform-linux">`script/build`</span><span class="platform-windows">`script\build`</span> every time you change code. Just restart Atom 👍
 1. Packages that exist in <span class="platform-mac platform-linux">`~/.atom/dev/packages`</span><span class="platform-windows">`%USERPROFILE%\.atom\dev\packages`</span> are loaded instead of packages of the same name normally loaded from other locations. This means that you can have development versions of packages you use loaded but easily go back to the stable versions by launching without Dev Mode.
 
 #### Running Atom Core Tests Locally
