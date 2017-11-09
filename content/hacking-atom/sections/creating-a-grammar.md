@@ -18,7 +18,7 @@ Grammar files are written in the [CSON](https://github.com/bevry/cson#what-is-cs
 #### Create the Package
 
 <!-- TODO: This functionality doesn't exist yet... -->
-To get started, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and start typing "Generate Grammar Package" to generate a new grammar package. Select "Generate Grammar Package," and you'll be asked for the path where your grammar package will be created. Let's call ours `language-flight-manual`.
+To get started, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and start typing "Generate Package" to generate a new grammar package. Select "Package Generator: Generate Package," and you'll be asked for the path where your package will be created. Let's call ours `language-flight-manual`.
 
 {{#tip}}
 
@@ -26,13 +26,13 @@ To get started, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="pla
 
 {{/tip}}
 
-Open the `flight-manual.cson` file present in the `grammars` folder. This is the main file that we will be working with. Let's go over what each key means.
+The default package template creates a lot of folders that aren't needed for grammar packages. Go ahead and delete the `keymaps`, `lib`, `menus`, and `styles` folders. Furthermore, in `package.json`, remove the `activationCommands` section. Now create a new folder called `grammars`, and inside that a file called `flight-manual.cson`. This is the main file that we will be working with - start by populating it with a [boilerplate template](https://gist.github.com/DamnedScholar/622926bcd222eb1ddc483d12103fd315). Let's go over what each key means.
 
-`scopeName` is the root _scope_ of your package. This should generally describe what language your grammar package is highlighting; for example, `language-javascript`'s `scopeName` is `source.js` and `language-html`'s is `text.html.basic`. You can leave this as `scope.flight-manual` for now.
+`scopeName` is the root _scope_ of your package. This should generally describe what language your grammar package is highlighting; for example, `language-javascript`'s `scopeName` is `source.js` and `language-html`'s is `text.html.basic`. Name it `source.flight-manual` for now.
 
 `name` is the user-friendly name that is displayed in places like the status bar or the grammar selector. Again, this name should describe what the grammar package is highlighting. Rename it to `Flight Manual`.
 
-`fileTypes` is an array of filetypes that `language-flight-manual` should highlight. We're interested in highlighting the Flight Manual's Markdown files, so add the `md` extension to the list.
+`fileTypes` is an array of filetypes that `language-flight-manual` should highlight. We're interested in highlighting the Flight Manual's Markdown files, so add the `md` extension to the list and remove the others.
 
 `patterns` contains the array of regex patterns that will determine how the file is tokenized.
 
