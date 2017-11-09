@@ -9,7 +9,7 @@ If you're hitting a bug in Atom or just want to experiment with adding a feature
 
 Follow the [GitHub Help instructions on how to fork a repo](https://help.github.com/articles/fork-a-repo/).
 
-#### Cloning
+#### Cloning and bootstrapping
 
 Once you've set up your fork of the atom/atom repository, you can clone it to your local machine:
 
@@ -17,9 +17,38 @@ Once you've set up your fork of the atom/atom repository, you can clone it to yo
 $ git clone git@github.com:<em>your-username</em>/atom.git
 ```
 
-From there, you can navigate into the directory where you've cloned the Atom source code and follow the build instructions.
+From there, you can navigate into the directory where you've cloned the Atom source code and run the bootstrap script to install all the required dependencies:
+
+``` command-line
+$ cd <em>where-you-cloned-atom</em>
+$ script/bootstrap
+```
+
+#### Running in Development Mode
+
+Once you have a local copy of Atom cloned and bootstrapped, you can then run Atom in Development Mode. But first, you have to set the `ATOM_DEV_RESOURCE_PATH` environment variable. It defaults to <span class="platform-mac platform-linux">`~/github`</span><span class="platform-windows">`%USERPROFILE%\github`</span> which then expects the `atom/atom` repository to be cloned into <span class="platform-mac platform-linux">`$ATOM_DEV_RESOURCE_PATH/atom`</span><span class="platform-windows">`%ATOM_DEV_RESOURCE_PATH%\atom`</span>. To run Atom in Dev Mode, use the `--dev` parameter from the terminal:
+
+``` command-line
+$ atom --dev <em>path-to-open</em>
+```
+
+There are a couple benefits of running Atom in Dev Mode:
+
+1. When the `ATOM_DEV_RESOURCE_PATH` environment variable is set correctly, Atom is run using the source code from your local `atom/atom` repository. This means that you don't have to run <span class="platform-mac platform-linux">`script/build`</span><span class="platform-windows">`script\build`</span> every time you change code. Just restart Atom 👍
+1. Packages that exist in <span class="platform-mac platform-linux">`~/.atom/dev/packages`</span><span class="platform-windows">`%USERPROFILE%\.atom\dev\packages`</span> are loaded instead of packages of the same name normally loaded from other locations. This means that you can have development versions of packages you use loaded but easily go back to the stable versions by launching without Dev Mode.
+
+#### Running Atom Core Tests Locally
+
+In order to run Atom Core tests from the terminal, first be certain to set the `ATOM_DEV_RESOURCE_PATH` environment variable as mentioned above and then:
+
+``` command-line
+$ cd <em>path-to-your-local-atom-repo</em>
+$ atom --test spec
+```
 
 #### Building
+
+In order to build Atom from source, you need to have a number of other requirements and take additional steps.
 
 {{#mac}}
 
@@ -283,25 +312,3 @@ Use [this search](https://github.com/atom/atom/search?q=label%3Abuild-error+labe
 to get a list of reports about build errors on Linux.
 
 {{/linux}}
-
-#### Running in Development Mode
-
-Once you have a local copy of Atom cloned and built, you can then run Atom in Development Mode. But first, you have to set the `ATOM_DEV_RESOURCE_PATH` environment variable. It defaults to <span class="platform-mac platform-linux">`~/github`</span><span class="platform-windows">`%USERPROFILE%\github`</span> which then expects the `atom/atom` repository to be cloned into <span class="platform-mac platform-linux">`$ATOM_DEV_RESOURCE_PATH/atom`</span><span class="platform-windows">`%ATOM_DEV_RESOURCE_PATH%\atom`</span>. To run Atom in Dev Mode, use the `--dev` parameter from the terminal:
-
-``` command-line
-$ atom --dev <em>path-to-open</em>
-```
-
-There are a couple benefits of running Atom in Dev Mode:
-
-1. When the `ATOM_DEV_RESOURCE_PATH` environment variable is set correctly, Atom is run using the source code from your local `atom/atom` repository. This means that you don't have to run <span class="platform-mac platform-linux">`script/build`</span><span class="platform-windows">`script\build`</span> every time you change code. Just restart Atom 👍
-1. Packages that exist in <span class="platform-mac platform-linux">`~/.atom/dev/packages`</span><span class="platform-windows">`%USERPROFILE%\.atom\dev\packages`</span> are loaded instead of packages of the same name normally loaded from other locations. This means that you can have development versions of packages you use loaded but easily go back to the stable versions by launching without Dev Mode.
-
-#### Running Atom Core Tests Locally
-
-In order to run Atom Core tests from the terminal, first be certain to set the `ATOM_DEV_RESOURCE_PATH` environment variable as mentioned above and then:
-
-``` command-line
-$ cd <em>path-to-your-local-atom-repo</em>
-$ atom --test spec
-```
