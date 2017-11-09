@@ -5,6 +5,12 @@ title: Creating a Grammar
 
 Grammars power Atom's syntax highlighting. Each grammar provides a set of _regex_ (regular expression) patterns which are assigned _scopes_. These scopes are then turned into the CSS classes that you can target in syntax themes!
 
+{{#note}}
+
+**Note:** This tutorial is a work in progress.
+
+{{/note}}
+
 #### Getting Started
 
 Grammars depend heavily on regexes, and you should be comfortable with interpreting and writing regexes before continuing. Note that Atom uses the Oniguruma engine, which is very similar to the PCRE or Perl regex engines. Here are some resources to help you out:
