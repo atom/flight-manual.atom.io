@@ -23,7 +23,6 @@ Grammar files are written in the [CSON](https://github.com/bevry/cson#what-is-cs
 
 #### Create the Package
 
-<!-- TODO: This functionality doesn't exist yet... -->
 To get started, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and start typing "Generate Package" to generate a new grammar package. Select "Package Generator: Generate Package," and you'll be asked for the path where your package will be created. Let's call ours `language-flight-manual`.
 
 {{#tip}}
@@ -45,7 +44,7 @@ The default package template creates a lot of folders that aren't needed for gra
 #### Adding Patterns
 
 To start, let's add a basic pattern to tokenize the words `Flight Manual` whenever they show up. Your regex should look like `\bFlight Manual\b`. Here's what your `patterns` block should look like:
-```cson
+```coffee
 'patterns': [
   {
     'match': '\\bFlight Manual\\b'
@@ -69,7 +68,7 @@ To start, let's add a basic pattern to tokenize the words `Flight Manual` whenev
 {{/note}}
 
 But what if we wanted to apply different scopes to `Flight` and `Manual`? This is possible by adding capture groups to the regex and then referencing those capture groups in a new `capture` property. For example:
-```cson
+```coffee
 'match': '\\b(Flight) (Manual)\\b'
 'name': 'entity.other.flight-manual'
 'captures':
@@ -84,7 +83,7 @@ This will assign the scope `keyword.other.flight.flight-manual` to `Flight`, `ke
 #### Begin/End Patterns
 
 Now let's say we want to tokenize the `{{#note}}` blocks that occur in Flight Manual files. Our previous two examples used `match`, but one limit of `match` is that it can only match single lines. `{{#note}}` blocks, on the other hand, can span multiple lines. For these cases, you can use the `begin`/`end` keys. Once the regex in the `begin` key is matched, tokenization will continue until the `end` pattern is reached.
-```cson
+```coffee
 'begin': '({{)(#note)(}})'
 'beginCaptures':
   '0': # The 0 capture contains the entire match
@@ -115,7 +114,7 @@ Now let's say we want to tokenize the `{{#note}}` blocks that occur in Flight Ma
 {{/tip}}
 
 Awesome, we have our first multiline pattern! However, if you've been following along and playing around in your own `.md` file, you may have noticed that `Flight Manual` doesn't receive any scopes inside a note block. A begin/end block is essentially a subgrammar of its own: once it starts matching, it will only match its own subpatterns until the end pattern is reached. Since we haven't defined any subpatterns, then clearly nothing will be matched inside of a note block. Let's fix that!
-```cson
+```coffee
 'begin': '({{)(#note)(}})'
 'beginCaptures':
   '0': # The 0 capture contains the entire match
@@ -155,7 +154,7 @@ There. With the patterns block, `Flight Manual` should now receive the proper sc
 #### Repositories and the Include keyword, or how to avoid duplication
 
 At this point, note blocks are looking pretty nice, as is the `Flight Manual` keyword, but the rest of the file is noticeably lacking any form of Markdown syntax highlighting. Is there a way to include the GitHub-Flavored Markdown grammar without copying and pasting everything over? This is where the `include` keyword comes in. `include` allows you to _include_ other patterns, even from other grammars! `language-gfm`'s `scopeName` is `source.gfm`, so let's include that. Our `patterns` block should now look like the following:
-```cson
+```coffee
 'patterns': [
   {
     'include': 'source.gfm'
@@ -170,7 +169,7 @@ At this point, note blocks are looking pretty nice, as is the `Flight Manual` ke
 ```
 
 However, including `source.gfm` has led to another problem: note blocks still don't have any Markdown highlighting! The quick fix would be to add the include pattern to the note's pattern block as well, but now we're duplicating two patterns. You can imagine that as this grammar grows it'll quickly become inefficient to keep copying each new global pattern over to the `note` pattern as well. Therefore, `include` helpfully recognizes the special `$self` scope. `$self` automatically includes all the top-level patterns of the current grammar. The `note` block can then be simplified to the following:
-```cson
+```coffee
 'begin': '({{)(#note)(}})'
 # beginCaptures
 'end': '({{)(/note)(}})'
