@@ -3,7 +3,7 @@ title: Creating a Grammar
 ---
 ### Creating a Grammar
 
-Grammars power Atom's syntax highlighting. Each grammar provides a set of _regex_ patterns which are assigned _scopes_. These scopes are then turned into the CSS classes that you can target in syntax themes!
+Grammars power Atom's syntax highlighting. Each grammar provides a set of _regex_ (regular expression) patterns which are assigned _scopes_. These scopes are then turned into the CSS classes that you can target in syntax themes!
 
 #### Getting Started
 
