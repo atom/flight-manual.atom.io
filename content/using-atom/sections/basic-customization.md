@@ -57,7 +57,7 @@ If you want to apply quick-and-dirty personal styling changes without creating a
 
 {{#mac}}
 
-![Open your stylesheet](https://files.slack.com/files-pri/T042V1RTV-F8009271U/screenshot_2017-11-13_at_2.41.22_pm.png?pub_secret=1461304c9b "Stylesheet...")
+![Open your stylesheet](https://files.slack.com/files-pri/T042V1RTV-F7Z8208QM/screenshot_2017-11-13_at_2.52.34_pm.png?pub_secret=36977001a0 "Stylesheet...")
 
 {{/mac}}
 
