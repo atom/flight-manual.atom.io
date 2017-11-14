@@ -57,7 +57,7 @@ If you want to apply quick-and-dirty personal styling changes without creating a
 
 {{#mac}}
 
-![Open your stylesheet](../../images/menubar.png "Open your stylesheet")
+![Stylesheet](../../images/menubar.png "Stylesheet...")
 
 {{/mac}}
 
