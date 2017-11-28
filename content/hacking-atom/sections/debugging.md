@@ -295,3 +295,15 @@ You can then include the startup profile in any Issue you report.
 If you are having issues installing a package using `apm install`, this could be because the package has dependencies on libraries that contain native code. This means you will need to have a C++ compiler and Python installed to be able to install it. You can run `apm install --check` to see if the Atom package manager can build native code on your machine.
 
 Check out the pre-requisites in the [build instructions](https://github.com/atom/atom/tree/master/docs/build-instructions) for your platform for more details.
+
+#### Check if your GPU is causing the problem
+
+You can try to disable your Graphics Processing Unit (GPU) by the following Chromium command: `--disable-gpu` and see if the fault lies within your GPU. This command is mostly applicable for flicker and rendering issues.
+
+Be sure to use Chromium commands at the end of the terminal call if you want to have other atom-directed commands as they will not be executed after the chromium command.
+
+Another command that is helpful when debugging is:
+``` command-line
+$ atom --safe --enable-gpu-rasterization --force-gpu-rasterization
+```
+The enable command will allow other commands to determine how a layer tile (graphics) should be drawn and the force command determines that Skia GPU backend should be used for drawing layer tiles (Only valid with GPU accelerated compositiing).
