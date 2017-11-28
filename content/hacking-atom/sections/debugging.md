@@ -306,4 +306,4 @@ Another command that is helpful when debugging is:
 ``` command-line
 $ atom --safe --enable-gpu-rasterization --force-gpu-rasterization
 ```
-The enable command will allow other commands to determine how a layer tile (graphics) should be drawn and the force command determines that Skia GPU backend should be used for drawing layer tiles (Only valid with GPU accelerated compositiing).
+The enable command will allow other commands to determine how a layer tile (graphics) should be drawn and the force command determines that Skia GPU backend should be used for drawing layer tiles (Only valid with GPU accelerated compositing).
