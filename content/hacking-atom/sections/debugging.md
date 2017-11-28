@@ -295,5 +295,3 @@ You can then include the startup profile in any Issue you report.
 If you are having issues installing a package using `apm install`, this could be because the package has dependencies on libraries that contain native code. This means you will need to have a C++ compiler and Python installed to be able to install it. You can run `apm install --check` to see if the Atom package manager can build native code on your machine.
 
 Check out the pre-requisites in the [build instructions](https://github.com/atom/atom/tree/master/docs/build-instructions) for your platform for more details.
-
-
