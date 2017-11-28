@@ -53,7 +53,7 @@ $ atom --safe
 
 This starts Atom, but does not load packages from `~/.atom/packages` or `~/.atom/dev/packages` and disables loading of your init script. If you can no longer reproduce the problem in safe mode, it's likely it was caused by one of the packages or the init script.
 
-If removing or commenting out all content from the init script and starting Atom normally still produces the error, then try figuring out which package is causing trouble. Start Atom normally again and open the Settings View with <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd>. Since the Settings View allows you to disable each installed package, you can disable packages one by one until you can no longer reproduce the issue. Restart Atom or reload Atom with <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+f5</kbd> after you disable each package to make sure it's completely gone.
+If removing or commenting out all content from the init script and starting Atom normally still produces the error, then try figuring out which package is causing trouble. Start Atom normally again and open the Settings View with <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd>. Since the Settings View allows you to disable each installed package, you can disable packages one by one until you can no longer reproduce the issue. Restart Atom or reload Atom with <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd> after you disable each package to make sure it's completely gone.
 
 When you find the problematic package, you can disable or uninstall the package. We strongly recommend creating an issue on the package's GitHub repository. The [Atom FAQ](https://discuss.atom.io/c/faq) has information on [how to contact the maintainers of any Atom community package or theme](https://discuss.atom.io/t/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it/25581).
 
@@ -213,6 +213,16 @@ If you can reproduce the error, use this approach to get the full stack trace an
 **Note:** When running in Dev Mode, the developer tools are automatically shown with the error logged in the Console tab.
 
 ![DevTools Error](../../images/devtools-error.png)
+
+{{/note}}
+
+However, there are errors that are shown only in the console in the developer tools. You can open developer tools with <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+I</kbd> and navigate to the tab named console and see if there are any errors.
+
+{{#note}}
+
+**Note:** An error is represented by a red background while a warning is represented by a yellow background.
+
+![DevTools Error](../../images/devtools-difference.png)
 
 {{/note}}
 
