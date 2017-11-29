@@ -202,27 +202,21 @@ You can determine which fonts are being used to render a specific piece of text 
 
 #### Check for Errors in the Developer Tools
 
-When an unexpected error occurs Atom, you will normally see a red notification which provides details about the error and allows you to create an issue on the right repository:
+When an unexpected error occurs in Atom, you will normally see a red notification which provides details about the error and allows you to create an issue on the right repository:
 
 ![Exception Notification](../../images/exception-notification.png)
 
 If you can reproduce the error, use this approach to get the full stack trace and [report the issue](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues).
 
-{{#note}}
-
-**Note:** When running in Dev Mode, the developer tools are automatically shown with the error logged in the Console tab.
+Not all errors are logged with a notification so if you suspect you're experiencing an error but there's no notification, you can also look for errors in the developer tools Console tab.  To access the Console tab, press <kbd class="platform-mac">Alt-Cmd-I</kbd><kbd class="platform-windows platform-linux">Ctrl-Shift-I</kbd> to open developer tools and then click the Console tab:
 
 ![DevTools Error](../../images/devtools-error.png)
 
-{{/note}}
-
-However, there are errors that are shown only in the console in the developer tools. You can open developer tools with <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+I</kbd> and navigate to the tab named console and see if there are any errors.
+If there are multiple errors, you can scroll down to the bottom of the panel to see the most recent error.  Or while reproducing an error, you can right click in the Console tab panel, select `Clear console` to remove all Console output, and then reproduce the error to see what errors are logged to the Console tab.
 
 {{#note}}
 
-**Note:** An error is represented by a red background while a warning is represented by a yellow background.
-
-![DevTools Error](../../images/devtools-difference.png)
+**Note:** When running in Dev Mode, the developer tools are automatically shown with the error logged in the Console tab.
 
 {{/note}}
 
