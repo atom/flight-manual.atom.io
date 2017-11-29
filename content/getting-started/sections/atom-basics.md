@@ -21,7 +21,7 @@ In that welcome screen, we are introduced to probably the most important command
 
 {{#note}}
 
-Throughout the book we will use shortcut keybindings like <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> to demonstrate how to run a command. These are the default keybindings for the platform that we detected you running.
+Throughout the book, we will use shortcut keybindings like <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> to demonstrate how to run a command. These are the default keybindings for the platform that we detected you running.
 
 If you want to see a different platform than the one we detected, you may choose a different one by using the platform selector near the top of the page:
 
@@ -77,7 +77,7 @@ The "Soft Wrap" option will wrap lines that are too long to fit in your current 
 
 In [Basic Customization](/using-atom/sections/basic-customization/) we will see how to set different wrap preferences for different types of files (for example, if you want to wrap Markdown files but not other files).
 
-#### Opening, Modifying and Saving Files
+#### Opening, Modifying, and Saving Files
 
 Now that your editor is looking and acting how you want, let's start opening up and editing files. This is a text editor after all, right?
 
