@@ -21,7 +21,7 @@ Web browsers are great for browsing web pages, but writing code is a specialized
 
 For this reason, we didn't build Atom as a traditional web application. Instead, Atom is a specialized variant of Chromium designed to be a text editor rather than a web browser. Every Atom window is essentially a locally-rendered web page.
 
-All the APIs available to a typical Node.js application are also available to the code running in each window's JavaScript context. This hybrid provides an unique client-side development experience.
+All the APIs available to a typical Node.js application are also available to the code running in each window's JavaScript context. This hybrid provides a unique client-side development experience.
 
 Since everything is local, you don't have to worry about asset pipelines, script concatenation, and asynchronous module definitions. If you want to load some code, just require it at the top of your file. Node's module system makes it easy to break the system down into lots of small, focused packages.
 
@@ -33,7 +33,7 @@ In addition to the Node APIs, we also expose APIs for native dialogs, adding app
 
 ##### Web Tech: The Fun Parts
 
-Another great thing about writing code for Atom is the guarantee that it's running on the newest version of Chromium. That means we can ignore issues like browser compatibility and polyfills. We can use all the web's shiny features of tomorrow, today.
+Another great benefit, that comes with writing code for Atom, is the guarantee that it's running on the newest version of Chromium. That means we can ignore issues like browser compatibility and polyfills. We can use all the web's shiny features of tomorrow, today.
 
 For example, the layout of our workspace and panes is based on flexbox. It's an emerging standard and has gone through a lot of change since we started using it, but none of that mattered as long as it worked.
 
