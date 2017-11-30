@@ -118,6 +118,7 @@ These use the same format as [Admonition blocks](#admonition-blocks), but apply 
 * **DO NOT** use Latin contractions such as "i.e.", "e.g.", "c.f.", among others
 * **DO** use the English equivalent: "i.e." &rarr; "in other words", "e.g." &rarr; "for example", "c.f." &rarr; hyperlink to the thing you're referring to
 * **DO** use [title-case](http://titlecase.com) for *all* headings
+* **DO** hyphenate the words "open" and "source" when they act as an adjective before the noun. For example, "Open-source software is great."
 
 ### Images
 
