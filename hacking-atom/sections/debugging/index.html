@@ -592,17 +592,21 @@
 <h4>
 <a id="check-for-errors-in-the-developer-tools" class="anchor" href="#check-for-errors-in-the-developer-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check for Errors in the Developer Tools</h4>
 
-<p>When an unexpected error occurs Atom, you will normally see a red notification which provides details about the error and allows you to create an issue on the right repository:</p>
+<p>When an unexpected error occurs in Atom, you will normally see a red notification which provides details about the error and allows you to create an issue on the right repository:</p>
 
 <p><img src="../../images/exception-notification.png" alt="Exception Notification"></p>
 
 <p>If you can reproduce the error, use this approach to get the full stack trace and <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues">report the issue</a>.</p>
 
+<p>Not all errors are logged with a notification so if you suspect you're experiencing an error but there's no notification, you can also look for errors in the developer tools Console tab.  To access the Console tab, press <kbd class="platform-mac">Alt-Cmd-I</kbd><kbd class="platform-windows platform-linux">Ctrl-Shift-I</kbd> to open developer tools and then click the Console tab:</p>
+
+<p><img src="../../images/devtools-error.png" alt="DevTools Error"></p>
+
+<p>If there are multiple errors, you can scroll down to the bottom of the panel to see the most recent error.  Or while reproducing an error, you can right click in the Console tab panel, select <code>Clear console</code> to remove all Console output, and then reproduce the error to see what errors are logged to the Console tab.</p>
+
 <div class="alert note">
 
 <p><strong>Note:</strong> When running in Dev Mode, the developer tools are automatically shown with the error logged in the Console tab.</p>
-
-<p><img src="../../images/devtools-error.png" alt="DevTools Error"></p>
 
 </div>
 
