@@ -9,7 +9,7 @@ If you think you know which package is causing the issue you are reporting, feel
 
 ##### Cloning
 
-The first step is creating your own clone.
+Once you have read the ![instructions for building Atom](https://github.com/atom/atom/tree/master/docs#build-documentation) and installed the necessary requirements for your platform, the first step is creating your own clone.
 
 For example, if you want to make changes to the `tree-view` package, fork the repo on your github account, then clone it:
 
