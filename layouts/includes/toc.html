@@ -1,0 +1,27 @@
+<% toc = TableOfContents.new %>
+
+<% toc.chapters.each_with_index do |chapter, index| %>
+  <<%= @heading %>>
+    <a href="/<%= chapter.name.parameterize %>">Chapter <%= 1 + index %>: <%= chapter.name %></a>
+  </<%= @heading %>>
+  <ul>
+    <% chapter.section_names.each do |name| %>
+      <li class="<%= name == @title && @item[:filename].include?(chapter.name.parameterize) ? 'selected' : 'unselected'%>">
+        <a href="/<%= chapter.name.parameterize + '/sections/' + name.parameterize %>"><%= name %></a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% toc.appendices.each_with_index do |chapter, index| %>
+  <<%= @heading %>>
+    <a href="/<%= chapter.name.parameterize %>">Appendix <%= ('A'.ord + index).chr %>: <%= chapter.name %></a>
+  </<%= @heading %>>
+  <ul>
+    <% chapter.section_names.each do |name| %>
+      <li class="<%= name == @title && @item[:filename].include?(chapter.name.parameterize) ? 'selected' : 'unselected'%>">
+        <a href="/<%= chapter.name.parameterize + '/sections/' + name.parameterize %>"><%= name %></a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

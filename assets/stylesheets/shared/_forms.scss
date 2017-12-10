@@ -1,0 +1,442 @@
+@import 'shared/mixins';
+
+/* General */
+
+input, textarea {
+  position: relative;
+  padding: 0 5px;
+  margin: 0px;
+  border: solid $border-color;
+  border-width: 1px;
+  @include rounded-corners(3px);
+  outline: none;
+  color: $brownDark;
+  font-size: 13px;
+  line-height: 24px;
+
+
+  &.one-line {
+    height: 24px;
+  }
+
+  &:focus {
+    border-color: #a8d4ff;
+    color: $brownDark;
+  }
+}
+
+label {
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  color: $brownMedium;
+  margin: 10px 0 5px;
+}
+
+select {
+  width: 328px;
+
+  &.callout {
+    height: 26px;
+    width: 80px;
+    margin-left: 5px;
+  }
+}
+
+.version-picker select {
+  width: 150px;
+}
+
+.version-picker {
+  position: absolute;
+  left: 680px;
+}
+
+// A textfield button combo where the button is joined to the right side of
+// the text field. The button contains a label.
+//
+// No styleguide reference.
+.btn-text-field {
+  display: table;
+  margin-top: 10px;
+  width: 100%;
+
+  .input, .btn {
+    height: 24px;
+    font-size: 13px;
+    line-height: 25px;
+    vertical-align: middle;
+    border: solid $border-color;
+    display: table-cell;
+    cursor: pointer;
+  }
+
+  .input {
+    border-width: 1px 0 1px 1px;
+    @include rounded-corners(3px 0 0 3px);
+    color: $lightText;
+    padding: 0 5px;
+    outline: none;
+    margin: 0px;
+  }
+
+  .btn {
+    @include horz-gradient-map(-95px);
+    @include rounded-corners(0 3px 3px 0);
+    border-width: 1px;
+    padding: 0px 5px;
+    margin: 0px;
+    box-sizing: content-box;
+    font-weight: bold;
+    color: $brownMedium;
+
+    &:hover {
+      background-position: 0 -129px;
+    }
+  }
+}
+
+// Save buttons and options.
+//
+// No styleguide reference.
+#save-actions {
+  display: block;
+  overflow: hidden;
+  margin-top: 20px;
+
+  ul {
+    float: right;
+  }
+
+  li {
+    float: right;
+    margin-left: 24px;
+  }
+
+  label {
+    float: right;
+    margin-top: 3px;
+  }
+
+  input[type='checkbox'] {
+    float: right;
+    margin-top: 8px;
+    margin-right: 8px;
+  }
+}
+
+/* Specific */
+
+form#contact {
+  #contact_comments, #contact_subject {
+    width: 648px;
+    max-width: 648px;
+  }
+
+  #contact_name {
+    margin-right: 20px;
+  }
+
+  textarea {
+    height: 400px;
+  }
+
+  dl.form {
+    clear:both;
+    float: left;
+  }
+
+  dl.form.two-col {
+    clear: none;
+    float: left;
+
+    input {
+      width: 308px;
+    }
+  }
+
+  .primary {
+    margin-top: 20px;
+  }
+}
+
+form#new_category {
+  padding-bottom: 10px;
+  margin: 15px 0 0 0;
+  border-bottom: 1px solid #ddd;
+
+  .input {
+    font: 15px helvetica, arial, freesans, clean, sans-serif;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    color: #666;
+    border: 0;
+    padding: 0;
+  }
+
+  .btn {
+    float: right;
+    margin-top: -5px;
+  }
+}
+
+div#article-form-container {
+  .errors {
+    padding: 10px;
+    border: 2px solid #D63301;
+    background-color: #FFCCBA;
+    color: #D63301;
+  }
+
+  .field {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .two-column {
+    float: left;
+  }
+
+  .one-column {
+    clear: both;
+  }
+
+  #bookmarklet, #audience {
+    margin-left: 20px;
+  }
+
+  #audience select {
+    width: 220px;
+  }
+
+  .text-field {
+    width: 648px;
+    display: block;
+    font-family: $codeFont;
+
+    &:disabled {
+      background-color: #eee;
+      color: #aaa;
+    }
+  }
+
+  .preview {
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 5px;
+  }
+  .write { margin-bottom: 5px; }
+}
+
+// Form for changing the name and placement of a category
+//
+// No styleguide reference.
+.edit_category {
+  a.button {
+    margin-left: 10px;
+  }
+}
+
+// Options that appear above the body form of an article. This includes a
+// preview mode switch and buttons for injecting custom markup.
+//
+// No styleguide reference.
+div.article-form-action-bar {
+  font-size: 12px;
+  font-weight: bold;
+  height: 30px;
+
+  h4 {
+    position: relative;
+    float: left;
+    font-weight: bold;
+    color: $lightText;
+    height: 20px;
+    line-height: 26px;
+  }
+
+  ul {
+    position: relative;
+    float: left;
+
+    li {
+      position: relative;
+      float: left;
+    }
+  }
+
+  .custom-markup-injectors {
+    float: right;
+
+    ul {
+      li {
+        a {
+          display: block;
+          margin-left: 5px;
+          padding: 0 10px;
+          @include rounded-corners(3px);
+          border: 1px solid $border-color;
+          $top: #f9f9f9;
+          $bottom: #e5e5e5;
+          background-color: $top;
+          background-image: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
+          background-image: -webkit-linear-gradient(top, $top, $bottom);
+          background-image:    -moz-linear-gradient(top, $top, $bottom);
+          background-image:     -ms-linear-gradient(top, $top, $bottom);
+          background-image:      -o-linear-gradient(top, $top, $bottom);
+          background-image:         linear-gradient(top, $top, $bottom);
+          line-height: 24px;
+          color: $lightText;
+          text-shadow: 0 1px 0px #fff;
+        }
+
+        a:hover {
+          $top: #eee;
+          $bottom: #dedede;
+          background-color: $top;
+          background-image: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
+          background-image: -webkit-linear-gradient(top, $top, $bottom);
+          background-image:    -moz-linear-gradient(top, $top, $bottom);
+          background-image:     -ms-linear-gradient(top, $top, $bottom);
+          background-image:      -o-linear-gradient(top, $top, $bottom);
+          background-image:         linear-gradient(top, $top, $bottom);
+          color: $brownMedium;
+        }
+      }
+    }
+  }
+}
+
+// Tabs used to preview article edits.
+//
+// .selected - grey with an arrow below it.
+//
+// No styleguide reference
+.preview-tabs {
+  font-size: 12px;
+  font-weight: bold;
+
+  li { display: inline-block; }
+
+  a {
+    margin-left: 0;
+    margin-right: 10px;
+    padding-bottom: 5px;
+    line-height: 21px;
+
+    &.selected {
+      color: $brownMedium;
+      cursor: default;
+      background: transparent url("#{$image-dir}/under-triangle.gif") center bottom no-repeat;
+    }
+  }
+}
+
+// Text field with a button on the right side used to search.
+//
+// .small   - appears in the content header.
+// .big     - appears on the main page.
+//
+// No styleguide reference.
+div.search-form {
+  &.small {
+    input, button {
+      height: 24px;
+      font-size: 13px;
+    }
+    button {
+      @include horz-gradient-map(-95px);
+      width: 27px;
+
+      span {
+        top: 4px;
+      }
+
+      &:hover {
+        background-position: 0 -129px;
+      }
+    }
+  }
+
+  &.big {
+    margin: 10px auto;
+    padding: 0;
+    width: 660px;
+
+    input, button {
+      height: 30px;
+      font-size: 16px;
+    }
+    button {
+      @include horz-gradient-map(-92px);
+      width: 35px;
+      span{
+        font-size: 16px;
+        top: 7px;
+      }
+      &:hover {
+        background-position: 0 -126px;
+      }
+    }
+  }
+
+  .outer, .inner {
+    position: relative;
+  }
+
+  .inner {
+    display: table;
+  }
+
+  h2 {
+    text-align: center;
+    margin: 0 0 10px;
+  }
+
+  input {
+    display: table-cell;
+    width: 100%;
+    position: relative;
+    border: solid $border-color;
+    border-width: 1px 0 1px 1px;
+    @include rounded-corners(3px 0 0 3px);
+    color: $lightText;
+    padding: 0 5px;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: #a8d4ff;
+      color: $brownDark;
+    }
+  }
+
+  button {
+    @include rounded-corners(0 3px 3px 0);
+    border: 1px solid $border-color;
+    position: relative;
+    text-indent: -9000px;
+    vertical-align: middle;
+
+    span{
+      position: absolute;
+      left: 50%;
+      margin-left: -7px;
+      display: block;
+      padding: 0;
+      text-indent: 0;
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      color: #333;
+    }
+  }
+}
+
+.search-form-btn {
+  display: table-cell;
+  width: 1%;
+  vertical-align: middle;
+}

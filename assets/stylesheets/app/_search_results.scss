@@ -1,0 +1,143 @@
+@import 'shared/mixins';
+//@import 'globals/variables';
+
+.autocomplete-results {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  @include drop-shadow();
+  clear: both;
+  z-index: 2;
+
+  .quicksearch-seemore {
+    font-size: 12px;
+    color: $brownMedium;
+    text-align: center;
+    @include rounded-corners(0 0 3px 3px);
+  }
+
+  a {
+    outline: none;
+    padding: 5px 10px;
+    display: block;
+    color: $brownDark;
+    font-weight: bold;
+    cursor: pointer;
+    border: solid $border-color;
+    border-width: 0 1px 1px 1px;
+    background-color: #fff;
+
+    &:hover,
+    &:focus,
+    &.selected {
+      background-color: $brownDark;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+.search-container {
+
+  .hidden {
+    display: none;
+  }
+
+  .search-spinner {
+    line-height: 200px; /* or whatever you want, should match height */
+    text-align: center;
+
+    & img {
+      vertical-align: middle;
+    }
+  }
+
+  .search-header {
+    margin-top: 3px;
+    margin-bottom: 2px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #999;
+    display: inline-block;
+    border: none;
+
+    em {
+      color: #66595c;
+      font-weight: bold;
+    }
+  }
+
+  .try-other-search-message {
+    color: #999;
+  }
+
+  .markdown {
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom: 0;
+    }
+
+    .anchor { display: none; }
+
+    a { color: $brownDark; }
+  }
+
+}
+
+// A top and bottom outlined list item style for a list of search results.
+// This includes a <h3> header, a <p> text sample, and a <p.category> breadcrumb.
+// Instances of the search term are highlighted with a <span>.
+//
+// No styleguide reference
+ul.search-results{
+  margin: 0;
+  border-top: 1px solid $border-color;
+
+  li {
+    border-bottom: 1px solid $border-color;
+    padding: 1em 0;
+    font-size: 1em;
+
+    span.search-term {
+      font-weight: bold;
+      color: $brownDark;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+      color: $greenDark;
+
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .label{
+      text-transform: uppercase;
+      @include rounded-corners;
+      @include gradient;
+      @include span-label;
+      font-size: 9px;
+      padding: 1px 2px;
+
+      a{
+        color: $lightText;
+      }
+    }
+
+    p {
+      margin: .5em 0;
+    }
+
+    p.category {
+      font-weight: bold;
+      font-size: 13px;
+    }
+  }
+}

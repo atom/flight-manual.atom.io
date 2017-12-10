@@ -1,0 +1,52 @@
+// These styles get only used in toc.html layouts.
+// Currently the index and search-results page
+
+.layout-toc {
+
+  .wrapper {
+    // this makses sure the overflowing autocomplete-results doesn't get cut off when there is no content
+    overflow: initial;
+  }
+
+  h1 { margin-top: 0px; }
+  h3 a {
+    color: inherit;
+  }
+
+  .markdown-body {
+    ul {
+      list-style-type: none;
+      margin: 0;
+      margin-left: 15px;
+      padding: 0;
+      li {
+        margin-top: 4px;
+        font-size: 1.2em;
+        small {
+          font-size: 0.9em;
+          color: #666;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .manual-ebooks {
+    width: 200px;
+    float: right;
+    margin-top: 10px;
+    text-align: center;
+    h3 {
+      margin: 1em 0 0 0;
+    }
+    img {
+      width: 200px;
+    }
+    .ebooks {
+      img {
+        padding: 10px 10px 0 10px;
+        width: 100px;
+      }
+    }
+  }
+}

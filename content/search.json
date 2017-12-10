@@ -1,0 +1,18 @@
+{
+  "entries": [
+    <% @items.find_all('/*/*/*.{asciidoc,md}').reject { |item| item[:exclude_from_search] }.each do |item| %>
+      <% if item[:title] %>
+        <% @clean_body = compress(safe_embed(item.compiled_content)) %>
+        {
+          "title": "<%= safe_embed(item[:title]) %>",
+          "category": "",
+          "category_url": "",
+          "url": "<%= item[:filename].sub(/^content/, '').sub(/.(asciidoc|md)$/, '/') %>",
+          "body": "<%= @clean_body %>",
+          "excerpt": "<%= @clean_body[0..140] %>…"
+        },
+      <% end %>
+    <% end %>
+    {}
+  ]
+}

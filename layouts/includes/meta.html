@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<title><%= @item[:title] %></title>
+
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+<% unless ENV['RACK_ENV'] == 'production' %>
+<link rel="stylesheet" media="all" href="/assets/stylesheets/development.css" data-proofer-ignore>
+<% end %>
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+
+      indexUrl: '/search.json',
+
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    })
+  })
+</script>

@@ -1,0 +1,59 @@
+#!/usr/bin/env ruby
+
+require 'extended-markdown-filter'
+
+compile '/index.html' do
+  filter :erb
+  layout '/toc.html'
+end
+
+compile '**/*.asciidoc' do
+  filter :html_pipeline, @config[:asciidoc_pipeline_config]
+  filter :erb
+  filter :colorize_syntax, :default_colorizer => :rouge
+  layout '/article.html'
+end
+
+compile '**/*.md' do
+  filter :html_pipeline, @config[:markdown_pipeline_config]
+  filter :erb
+  filter :colorize_syntax, :default_colorizer => :rouge
+  layout '/article.html'
+end
+
+compile '/search.html' do
+  filter :erb
+  layout '/toc.html'
+end
+
+compile '/search.json' do
+  filter :erb
+end
+
+passthrough '/**/*.png'
+passthrough '/**/*.gif'
+passthrough '/CNAME'
+
+route '/search.json' do
+  '/search.json'
+end
+
+route '**/*' do
+  if item.binary?
+    item.identifier.chop + (item[:extension] ? '.' + item[:extension] : '')
+  elsif item.identifier == '/index.html'
+    '/index.html'
+  elsif item.identifier =~ /\/404.asciidoc/
+    '/404.html'
+  elsif item.identifier =~ /\/404.md/
+    '/404.html'
+  elsif item.identifier =~ /index.asciidoc/
+    File.dirname(item.identifier) + '/index.html'
+  elsif item.identifier =~ /index.md/
+    File.dirname(item.identifier) + '/index.html'
+  else
+    item.identifier.without_ext + '/index.html'
+  end
+end
+
+layout '/**/*', :erb
