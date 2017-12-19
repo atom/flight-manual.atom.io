@@ -116,7 +116,7 @@ Atom loads configuration settings from the `config.cson` file in your <span clas
     'fontSize': 18
 ```
 
-The configuration is grouped into global settings under the `*` key and language-specific settings under scope named keys like `.python.source` or `.html.text`. Underneath that, you'll find configuration settings grouped by package name or one of the two core namespaces: `core` or `editor`.
+The configuration is grouped into global settings under the `*` key and language-specific settings under scope named keys like `.source.python` or `.text.html.basic`. Underneath that, you'll find configuration settings grouped by package name or one of the two core namespaces: `core` or `editor`.
 
 You can open this file in an editor from the <span class="platform-mac">_Atom > Config_</span><span class="platform-windows">_File > Config_</span><span class="platform-linux">_Edit > Config_</span> menu.
 
