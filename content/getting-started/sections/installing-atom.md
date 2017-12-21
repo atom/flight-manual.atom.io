@@ -103,9 +103,9 @@ $ sudo dpkg -i atom-amd64.deb
 $ sudo apt-get -f install
 ```
 
-##### RedHat and CentOS (yum) or Fedora (dnf)
+##### Red Hat and CentOS (YUM), or Fedora (DNF)
 
-To install Atom on CentOS, Oracle Linux, RedHat Enterprise Linux, Scientific Linux, Fedora or related distributions that use the yum or dnf package managers, add our official package repository to your system by running the following commands:
+To install Atom on CentOS, Oracle Linux, Red Hat Enterprise Linux, Scientific Linux, Fedora, or related distributions that use the YUM or DNF package managers, add our official package repository to your system by running the following commands:
 
 ``` command-line
 $ sudo rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey
@@ -125,10 +125,10 @@ $ sudo dnf install atom-beta
 Alternatively, you can download the [Atom .rpm package](https://atom.io/download/rpm) and install it directly:
 
 ``` command-line
-# On yum-based distributions
+# On YUM-based distributions
 $ sudo yum install -y atom.x86_64.rpm
 
-# On dnf-based distributions
+# On DNF-based distributions
 $ sudo dnf install -y atom.x86_64.rpm
 ```
 
