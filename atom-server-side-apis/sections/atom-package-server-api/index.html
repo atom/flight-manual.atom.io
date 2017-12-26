@@ -1,0 +1,737 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Atom package server API</title>
+
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+
+      indexUrl: '/search.json',
+
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    })
+  })
+</script>
+
+    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
+
+  </head>
+  <body class="layout-article">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="http://blog.atom.io">Blog</a></li>
+      <li><a href="https://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search">
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="search" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+  <h4>
+    <a href="/getting-started">Chapter 1: Getting Started</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/why-atom">Why Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/using-atom">Chapter 2: Using Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/snippets">Snippets</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/folding">Folding</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/panes">Panes</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/pending-pane-items">Pending Pane Items</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/grammar">Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/github-package">GitHub package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-active-editor-info">Package: Active Editor Info</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-grammar">Creating a Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/publishing">Publishing</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/iconography">Iconography</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/debugging">Debugging</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/handling-uris">Handling URIs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/hacking-on-atom-core">Hacking on Atom Core</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/contributing-to-official-atom-packages">Contributing to Official Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/behind-atom">Chapter 4: Behind Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/how-atom-uses-chromium-snapshots">How Atom Uses Chromium Snapshots</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+
+
+  <h4>
+    <a href="/resources">Appendix A: Resources</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/resources/sections/glossary">Glossary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/shadow-dom">Appendix B: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix C: Upgrading to 1.0 APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/atom-server-side-apis">Appendix D: Atom server-side APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="selected">
+        <a href="/atom-server-side-apis/sections/atom-package-server-api">Atom package server API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-update-server-api">Atom update server API</a>
+      </li>
+    
+  </ul>
+
+
+        </div>
+
+        
+        <h1 class="document-title">
+          <div id="platform-nav">
+  <span class="octicon octicon-device-desktop"></span>
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+  </ul>
+</div>
+
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/atom-server-side-apis/sections/atom-package-server-api.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
+        <div class="markdown-body document-content">
+          
+          <h3>
+<a id="atom-package-server-api" class="anchor" href="#atom-package-server-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom package server API</h3>
+
+<p>This guide describes the web API used by <a href="https://github.com/atom/apm">apm</a> and Atom. The vast majority of use cases are met by the <code>apm</code> command-line tool, which does other useful things like incrementing your version in <code>package.json</code> and making sure you have pushed your git tag. In fact, Atom itself shells out to <code>apm</code> rather than hitting the API directly. If you're curious about how Atom uses <code>apm</code>, see the <a href="https://github.com/atom/settings-view/blob/master/lib/package-manager.coffee">PackageManager class</a> in the <code>settings-view</code> package.</p>
+
+<div class="alert warning">
+
+<p><strong>Warning:</strong> This API should be considered pre-release and is subject to change.</p>
+
+</div>
+
+<h4>
+<a id="authorization" class="anchor" href="#authorization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authorization</h4>
+
+<p>For calls to the API that require authentication, provide a valid token from your <a href="https://atom.io/account">atom.io account page</a> in the <code>Authorization</code> header.</p>
+
+<h4>
+<a id="media-type" class="anchor" href="#media-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Media type</h4>
+
+<p>All requests that take parameters require <code>application/json</code>.</p>
+
+<h4>
+<a id="api-resources" class="anchor" href="#api-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Resources</h4>
+
+<h5>
+<a id="packages" class="anchor" href="#packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packages</h5>
+
+<h6>
+<a id="listing-packages" class="anchor" href="#listing-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Listing packages</h6>
+
+<h6>
+<a id="get-apipackages" class="anchor" href="#get-apipackages" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET /api/packages</h6>
+
+<p>Parameters:</p>
+
+<ul>
+<li>
+<strong>page</strong> (optional)</li>
+<li>
+<strong>sort</strong> (optional) - One of <code>downloads</code>, <code>created_at</code>, <code>updated_at</code>, <code>stars</code>. Defaults to <code>downloads</code>
+</li>
+<li>
+<strong>direction</strong> (optional) - <code>asc</code> or <code>desc</code>. Defaults to <code>desc</code>. <code>stars</code> can only be ordered <code>desc</code>
+</li>
+</ul>
+
+<p>Returns a list of all packages in the following format:</p>
+
+<pre class="highlight highlight-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"releases"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"latest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.6.0"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thedaniel-test-package"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+
+<p>Results are paginated 30 at a time, and links to the next and last pages are provided in the <code>Link</code> header:</p>
+
+<pre><code>Link: &lt;https://www.atom.io/api/packages?page=1&gt;; rel="self",
+      &lt;https://www.atom.io/api/packages?page=41&gt;; rel="last",
+      &lt;https://www.atom.io/api/packages?page=2&gt;; rel="next"
+</code></pre>
+
+<p>By default, results are sorted by download count, descending.</p>
+
+<h5>
+<a id="searching-packages" class="anchor" href="#searching-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Searching packages</h5>
+
+<h6>
+<a id="get-apipackagessearch" class="anchor" href="#get-apipackagessearch" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET /api/packages/search</h6>
+
+<p>Parameters:</p>
+
+<ul>
+<li>
+<strong>q</strong> (required) - Search query</li>
+<li>
+<strong>page</strong> (optional)</li>
+<li>
+<strong>sort</strong> (optional) - One of <code>downloads</code>, <code>created_at</code>, <code>updated_at</code>, <code>stars</code>. Defaults to the relevance of the search query.</li>
+<li>
+<strong>direction</strong> (optional) - <code>asc</code> or <code>desc</code>. Defaults to <code>desc</code>.</li>
+</ul>
+
+<p>Returns results in the same format as <a href="#listing-packages">listing packages</a>.</p>
+
+<h5>
+<a id="showing-package-details" class="anchor" href="#showing-package-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Showing package details</h5>
+
+<h6>
+<a id="get-apipackagespackage_name" class="anchor" href="#get-apipackagespackage_name" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET /api/packages/:package_name</h6>
+
+<p>Returns package details and versions for a single package</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li>
+<strong>engine</strong> (optional) - Only show packages with versions compatible with this Atom version. Must be valid <a href="http://semver.org">SemVer</a>.</li>
+</ul>
+
+<p>Returns:</p>
+
+<pre class="highlight highlight-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"releases"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"latest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.6.0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thedaniel-test-package"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="err">(see</span><span class="w"> </span><span class="err">single</span><span class="w"> </span><span class="err">version</span><span class="w"> </span><span class="err">output</span><span class="w"> </span><span class="err">below)</span><span class="w">
+      </span><span class="err">...</span><span class="p">,</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h5>
+<a id="creating-a-package" class="anchor" href="#creating-a-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a package</h5>
+
+<h6>
+<a id="post-apipackages" class="anchor" href="#post-apipackages" aria-hidden="true"><span class="octicon octicon-link"></span></a>POST /api/packages</h6>
+
+<p>Create a new package; requires authentication.</p>
+
+<p>The name and version will be fetched from the <code>package.json</code> file in the specified repository. The authenticating user <em>must</em> have access to the indicated repository.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li>
+<strong>repository</strong> - String. The repository containing the plugin, in the form "owner/repo"</li>
+</ul>
+
+<p>Returns:</p>
+
+<ul>
+<li>
+<strong>201</strong> - Successfully created, returns created package.</li>
+<li>
+<strong>400</strong> - Repository is inaccessible, nonexistent, not an atom package. Possible error messages include:
+
+<ul>
+<li>That repo does not exist, isn't an atom package, or atombot does not have access</li>
+<li>The package.json at owner/repo isn't valid</li>
+</ul>
+</li>
+<li>
+<strong>409</strong> - A package by that name already exists</li>
+</ul>
+
+<h5>
+<a id="deleting-a-package" class="anchor" href="#deleting-a-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deleting a package</h5>
+
+<h6>
+<a id="delete-apipackagespackage_name" class="anchor" href="#delete-apipackagespackage_name" aria-hidden="true"><span class="octicon octicon-link"></span></a>DELETE /api/packages/:package_name</h6>
+
+<p>Delete a package; requires authentication.</p>
+
+<p>Returns:</p>
+
+<ul>
+<li>
+<strong>204</strong> - Success</li>
+<li>
+<strong>400</strong> - Repository is inaccessible</li>
+<li>
+<strong>401</strong> - Unauthorized</li>
+</ul>
+
+<h5>
+<a id="renaming-a-package" class="anchor" href="#renaming-a-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Renaming a package</h5>
+
+<p>Packages are renamed by publishing a new version with the name changed in <code>package.json</code>. See <a href="#creating-a-new-package-version">Creating a new package version</a> for details.</p>
+
+<p>Requests made to the previous name will forward to the new name.</p>
+
+<h5>
+<a id="package-versions" class="anchor" href="#package-versions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package Versions</h5>
+
+<h6>
+<a id="get-apipackagespackage_nameversionsversion_name" class="anchor" href="#get-apipackagespackage_nameversionsversion_name" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET /api/packages/:package_name/versions/:version_name</h6>
+
+<p>Returns <code>package.json</code> with <code>dist</code> key added for e.g. tarball download:</p>
+
+<pre class="highlight highlight-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"bugs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package/issues"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"async"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~0.2.6"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pegjs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~0.7.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"season"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~0.13.0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Expand snippets matching the current prefix with `tab`."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dist"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"tarball"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://codeload.github.com/..."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"engines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"atom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/snippets"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thedaniel-test-package"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"publishConfig"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"registry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="p">,</span><span class="w">
+    </span><span class="err">}</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package.git"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.6.0"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h5>
+<a id="creating-a-new-package-version" class="anchor" href="#creating-a-new-package-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a new package version</h5>
+
+<h6>
+<a id="post-apipackagespackage_nameversions" class="anchor" href="#post-apipackagespackage_nameversions" aria-hidden="true"><span class="octicon octicon-link"></span></a>POST /api/packages/:package_name/versions</h6>
+
+<p>Creates a new package version from a git tag; requires authentication. If <code>rename</code> is not <code>true</code>, the <code>name</code> field in <code>package.json</code> <em>must</em> match the current package name.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li>
+<strong>tag</strong> - A git tag for the version you'd like to create. It's important to note that the version name will not be taken from the tag, but from the <code>version</code> key in the <code>package.json</code> file at that ref. The authenticating user <em>must</em> have access to the package repository.</li>
+<li>
+<strong>rename</strong> - Boolean indicating whether this version contains a new name for the package.</li>
+</ul>
+
+<p>Returns:</p>
+
+<ul>
+<li>
+<strong>201</strong> - Successfully created. Returns created version.</li>
+<li>
+<strong>400</strong> - Git tag not found / Repository inaccessible / package.json invalid</li>
+<li>
+<strong>409</strong> - Version exists</li>
+</ul>
+
+<h5>
+<a id="deleting-a-version" class="anchor" href="#deleting-a-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deleting a version</h5>
+
+<h6>
+<a id="delete-apipackagespackage_nameversionsversion_name" class="anchor" href="#delete-apipackagespackage_nameversionsversion_name" aria-hidden="true"><span class="octicon octicon-link"></span></a>DELETE /api/packages/:package_name/versions/:version_name</h6>
+
+<p>Deletes a package version; requires authentication.</p>
+
+<p>Note that a version cannot be republished with a different tag if it is deleted. If you need to delete the latest version of a package for example for security reasons, you'll need to increment the version when republishing.</p>
+
+<p>Returns 204 No Content</p>
+
+<h4>
+<a id="stars" class="anchor" href="#stars" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stars</h4>
+
+<h5>
+<a id="listing-user-stars" class="anchor" href="#listing-user-stars" aria-hidden="true"><span class="octicon octicon-link"></span></a>Listing user stars</h5>
+
+<h6>
+<a id="get-apiusersloginstars" class="anchor" href="#get-apiusersloginstars" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET /api/users/:login/stars</h6>
+
+<p>List a user's starred packages.</p>
+
+<p>Return value is similar to <code>GET /api/packages</code></p>
+
+<h6>
+<a id="get-apistars" class="anchor" href="#get-apistars" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET /api/stars</h6>
+
+<p>List the authenticated user's starred packages; requires authentication.</p>
+
+<p>Return value is similar to <code>GET /api/packages</code></p>
+
+<h5>
+<a id="starring-a-package" class="anchor" href="#starring-a-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Starring a package</h5>
+
+<h6>
+<a id="post-apipackagesnamestar" class="anchor" href="#post-apipackagesnamestar" aria-hidden="true"><span class="octicon octicon-link"></span></a>POST /api/packages/:name/star</h6>
+
+<p>Star a package; requires authentication.</p>
+
+<p>Returns a package.</p>
+
+<h5>
+<a id="unstarring-a-package" class="anchor" href="#unstarring-a-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unstarring a package</h5>
+
+<h6>
+<a id="delete-apipackagesnamestar" class="anchor" href="#delete-apipackagesnamestar" aria-hidden="true"><span class="octicon octicon-link"></span></a>DELETE /api/packages/:name/star</h6>
+
+<p>Unstar a package; requires authentication.</p>
+
+<p>Returns 204 No Content.</p>
+
+<h5>
+<a id="listing-a-packages-stargazers" class="anchor" href="#listing-a-packages-stargazers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Listing a package's stargazers</h5>
+
+<h6>
+<a id="get-apipackagesnamestargazers" class="anchor" href="#get-apipackagesnamestargazers" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET /api/packages/:name/stargazers</h6>
+
+<p>List the users that have starred a package.</p>
+
+<p>Returns a list of user objects:</p>
+
+<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="nt">"login"</span><span class="p">:</span><span class="s2">"aperson"</span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="nt">"login"</span><span class="p">:</span><span class="s2">"anotherperson"</span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+        </div>
+      </div>
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+        <li><a href="https://github.com/atom/flight-manual.atom.io/blob/master/CONTRIBUTING.md">Contribute!</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

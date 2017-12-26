@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>GitHub package</title>
+<title>Atom update server API</title>
 
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
 
@@ -159,7 +159,7 @@
         <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
       </li>
     
-      <li class="selected">
+      <li class="unselected">
         <a href="/using-atom/sections/github-package">GitHub package</a>
       </li>
     
@@ -347,7 +347,7 @@
         <a href="/atom-server-side-apis/sections/atom-package-server-api">Atom package server API</a>
       </li>
     
-      <li class="unselected">
+      <li class="selected">
         <a href="/atom-server-side-apis/sections/atom-update-server-api">Atom update server API</a>
       </li>
     
@@ -380,7 +380,7 @@
 </div>
 
           <a class="improve-link"
-              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/using-atom/sections/github-package.md" data-proofer-ignore>
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/atom-server-side-apis/sections/atom-update-server-api.md" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
           </a>
         </h1>
@@ -388,141 +388,35 @@
         <div class="markdown-body document-content">
           
           <h3>
-<a id="github-package" class="anchor" href="#github-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>GitHub package</h3>
+<a id="atom-update-server-api" class="anchor" href="#atom-update-server-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom update server API</h3>
 
-<p>The github package brings Git and GitHub integration right inside Atom.</p>
+<div class="alert warning">
 
-<ul>
-<li><a href="#initialize-repositories">Initialize</a></li>
-<li><a href="#clone-repositories">Clone</a></li>
-<li><a href="#branch">Branch</a></li>
-<li><a href="#stage">Stage</a></li>
-<li><a href="#discard-changes">Discard</a></li>
-<li><a href="#commit">Commit</a></li>
-<li><a href="#amend-previous-commit">Amend</a></li>
-<li><a href="#push">Push</a></li>
-<li><a href="#pull">Pull</a></li>
-<li><a href="#resolve-conflicts">Resolve conflicts</a></li>
-<li><a href="#view-pull-requests">View Pull Requests</a></li>
-</ul>
+<p><strong>Warning:</strong> This API should be considered pre-release and is subject to change.</p>
 
-<p>Most of the functionality lives in the Git and GitHub panel. There are different ways to access them, probably the most common way is through their keybindings:</p>
-
-<ul>
-<li>Open the <strong>Git</strong> panel: <kbd class=".platform-all">Ctrl+9</kbd>
-</li>
-<li>Open the <strong>GitHub</strong> panel: <kbd class=".platform-all">Ctrl+8</kbd>
-</li>
-</ul>
-
-<p>Or you can also toggle the Git panel from the Status Bar by clicking on the changed files icon:</p>
-
-<p><img src="../../images/github-open-git-panel.png" alt="Open Git panel" title="Open Git panel"></p>
-
-<hr>
+</div>
 
 <h4>
-<a id="initialize-repositories" class="anchor" href="#initialize-repositories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initialize repositories</h4>
+<a id="atom-updates" class="anchor" href="#atom-updates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom updates</h4>
 
-<p>In case a project doesn't have a Git repository yet, you can create one from the Git panel.</p>
+<h5>
+<a id="listing-atom-updates" class="anchor" href="#listing-atom-updates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Listing Atom updates</h5>
 
-<p><img src="../../images/github-initialize.png" alt="Initialize repositories" title="Initialize repositories"></p>
+<h6>
+<a id="get-apiupdates" class="anchor" href="#get-apiupdates" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET /api/updates</h6>
 
-<h4>
-<a id="clone-repositories" class="anchor" href="#clone-repositories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clone repositories</h4>
+<p>Atom update feed, following the format expected by <a href="https://github.com/Squirrel/">Squirrel</a>.</p>
 
-<p>To clone a repository, run the <code>GitHub: Clone</code> command. In the dialog paste a URL of a repository and click "Clone". A new project will get added to the Tree View.</p>
+<p>Returns:</p>
 
-<p><img src="../../images/github-clone.png" alt="Clone repositories" title="Clone repositories"></p>
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.96.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[HTML release notes]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pub_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-05-19T15:52:06.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.atom.io/api/updates/download"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<h4>
-<a id="branch" class="anchor" href="#branch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Branch</h4>
-
-<p>To open the branch tooltip, click the branch icon in the Status Bar. From there you can to <strong>create</strong> or <strong>switch</strong> branches.</p>
-
-<p><img src="../../images/github-branch.png" alt="Create or switch branches" title="Create or switch branches"></p>
-
-<h4>
-<a id="stage" class="anchor" href="#stage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stage</h4>
-
-<p>After making some changes, <strong>stage</strong> anything you want to be part of the next commit. Choose between staging...</p>
-
-<ul>
-<li>
-<strong>All changes</strong>: Click the "Stage All" button in the "Unstaged Changes" bar.</li>
-<li>
-<strong>Files</strong>: Double-click a file or select a file and press <kbd class=".platform-all">Enter</kbd>.</li>
-<li>
-<strong>Hunk</strong>: Click on the "Stage Hunk" button or select a hunk and press <kbd class=".platform-all">Enter</kbd>.</li>
-<li>
-<strong>Lines</strong>: Click on a line (or drag on multiple lines) to select, then click on the "Stage Selection" button. Or use the <kbd class=".platform-all">/</kbd> key to toggle from hunk mode to line mode, then press <kbd class=".platform-all">Enter</kbd> to stage just a single line.</li>
-</ul>
-
-<p>Use the <kbd class=".platform-all">Left</kbd> or <kbd class=".platform-all">Right</kbd> arrow key to switch between file list and the diff view. Unstaging can be done in the same way.</p>
-
-<p><img src="../../images/github-stage.png" alt="Stage changes" title="Stage changes"></p>
-
-<h4>
-<a id="discard-changes" class="anchor" href="#discard-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discard changes</h4>
-
-<p>If you no longer want to keep some changes, you can discard them. It's similar to staging, but accessible behind a context menu.</p>
-
-<ul>
-<li>
-<strong>All changes</strong>: Right-click the "Unstaged Changes" bar and choose "Discard All Changes".</li>
-<li>
-<strong>Files</strong>: Right-click a file (or multiple) and choose "Discard Changes".</li>
-<li>
-<strong>Hunk</strong>: Click on the trash icon in the top bar of a hunk.</li>
-<li>
-<strong>Lines</strong>: Right-click on a line (or multiple) and choose "Discard Selection".</li>
-</ul>
-
-<p><img src="../../images/github-discard.png" alt="Discard changes" title="Discard changes"></p>
-
-<h4>
-<a id="commit" class="anchor" href="#commit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commit</h4>
-
-<p>Once you've staged your changes, enter a commit <strong>message</strong>. Feel free to describe the commit in more detail after leaving an empty line. Finalize by clicking the <strong>Commit</strong> button.</p>
-
-<p><img src="../../images/github-commit.png" alt="Commit changes" title="Commit changes"></p>
-
-<p>If you need more space, click the expand icon at the bottom right. It will open a commit editor in the center.</p>
-
-<h4>
-<a id="amend-previous-commit" class="anchor" href="#amend-previous-commit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amend previous commit</h4>
-
-<p>In case you forgot to commit a change and would like to add it to your previous commit, clicking the "Amend" checkbox. Now you can stage more changes or adjust the commit message.</p>
-
-<p><img src="../../images/github-amend.png" alt="Amend previous commit" title="Amend previous commit"></p>
-
-<h4>
-<a id="push" class="anchor" href="#push" aria-hidden="true"><span class="octicon octicon-link"></span></a>Push</h4>
-
-<p>When you're ready to share your changes with your team members, click the <strong>Push</strong> button in the Status Bar tooltip. If your local branch doesn't exist on the remote repository, Atom will offer to create a remote branch for you.</p>
-
-<p><img src="../../images/github-push.png" alt="Push commits" title="Push commits"></p>
-
-<h4>
-<a id="pull" class="anchor" href="#pull" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pull</h4>
-
-<p>Click on the <strong>Fetch</strong> button to see if anyone made changes. <strong>Pull</strong> to get the changes into your local branch.</p>
-
-<p><img src="../../images/github-pull.png" alt="Pull commits" title="Pull commits"></p>
-
-<h4>
-<a id="resolve-conflicts" class="anchor" href="#resolve-conflicts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resolve conflicts</h4>
-
-<p>Sometimes there can be conflicts when trying to merge. Files that have merge conflicts will show up in the "Merge Conflicts" list. Click on a file to open the editor. There you can <strong>resolve</strong> the conflict by picking a version or make further edits. Once done, stage the file and commit.</p>
-
-<p><img src="../../images/github-resolve-conflicts.png" alt="Resolve conflicts" title="Resolve conflicts"></p>
-
-<h4>
-<a id="view-pull-requests" class="anchor" href="#view-pull-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>View Pull Requests</h4>
-
-<p>If there is a <strong>Pull Request</strong> for your current branch, you can see its status in the "GitHub" panel. Click on <strong>Conversation</strong> to see the timeline.</p>
-
-<p><img src="../../images/github-view-pull-requests.png" alt="View Pull Requests" title="View Pull Requests"></p>
         </div>
       </div>
       <div class="footer-pad"></div>
