@@ -3,7 +3,7 @@ title: Converting from TextMate
 ---
 ### Converting from TextMate
 
-It's possible that you have themes or grammars from [TextMate](http://macromates.com) that you like and use and would like to convert to Atom. If so, you're in luck because there are tools to help with the conversion.
+It's possible that you have themes or grammars from [TextMate](https://macromates.com) that you like and use and would like to convert to Atom. If so, you're in luck because there are tools to help with the conversion.
 
 #### Converting a TextMate Grammar Bundle
 
@@ -21,7 +21,7 @@ You can now change directory into `language-r` to see the converted bundle. Once
 
 #### Converting a TextMate Syntax Theme
 
-This section will go over how to convert a [TextMate](http://macromates.com) theme to an Atom
+This section will go over how to convert a [TextMate](https://macromates.com) theme to an Atom
 theme.
 
 ##### Differences

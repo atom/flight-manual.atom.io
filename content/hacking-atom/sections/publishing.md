@@ -25,7 +25,7 @@ Now let's review what the `apm publish` command does:
 
 1. Registers the package name on atom.io if it is being published for the first time.
 2. Updates the `version` field in the `package.json` file and commits it.
-3. Creates a new [Git tag](http://git-scm.com/book/en/Git-Basics-Tagging) for the version being published.
+3. Creates a new [Git tag](https://git-scm.com/book/en/Git-Basics-Tagging) for the version being published.
 4. Pushes the tag and current branch up to GitHub.
 5. Updates atom.io with the new version being published.
 
@@ -54,6 +54,6 @@ The `minor` option to the publish command tells apm to increment the second numb
 
 The `patch` option to the publish command tells apm to increment the third number of the version before publishing so the published version will be `0.0.1` and the Git tag created will be `v0.0.1`.
 
-Use `major` when you make a change that breaks backwards compatibility, like changing defaults or removing features. Use `minor` when adding new functionality or options, but without breaking backwards compatibility. Use `patch` when you've changed the implementation of existing features, but without changing the behaviour or options of your package. Check out [semantic versioning](http://semver.org) to learn more about best practices for versioning your package releases.
+Use `major` when you make a change that breaks backwards compatibility, like changing defaults or removing features. Use `minor` when adding new functionality or options, but without breaking backwards compatibility. Use `patch` when you've changed the implementation of existing features, but without changing the behaviour or options of your package. Check out [semantic versioning](https://semver.org) to learn more about best practices for versioning your package releases.
 
 You can also run `apm help publish` to see all the available options and `apm help` to see all the other available commands.

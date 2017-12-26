@@ -211,7 +211,7 @@ When the event handler observes that the cursor does not follow a valid prefix, 
 
 #### Overriding Atom's Keyboard Layout Recognition
 
-Sometimes the problem isn't mapping the command to a key combination, the problem is that Atom doesn't recognize properly what keys you're pressing. This is due to [some limitations in how Chromium reports keyboard events](http://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html). But even this can be customized now.
+Sometimes the problem isn't mapping the command to a key combination, the problem is that Atom doesn't recognize properly what keys you're pressing. This is due to [some limitations in how Chromium reports keyboard events](https://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html). But even this can be customized now.
 
 You can add the following to your `init.coffee` to send <kbd class="platform-all">Ctrl+@</kbd> when you press <kbd class="platform-all">Ctrl+Alt+G</kbd>:
 
