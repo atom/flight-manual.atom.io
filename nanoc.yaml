@@ -54,7 +54,7 @@ prune:
   # Which files and directories you want to exclude from pruning. If you version
   # your output directory, you should probably exclude VCS directories such as
   # .git, .svn etc.
-  exclude: [ '.git', '.hg', '.svn', 'CVS', 'assets' ]
+  exclude: [ '.git', '.hg', '.svn', 'CVS', 'assets', 'favicon.ico' ]
 
 # The data sources where Nanoc loads its data from. This is an array of
 # hashes; each array element represents a single data source. By default,
