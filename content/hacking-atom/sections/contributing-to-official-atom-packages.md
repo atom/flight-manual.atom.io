@@ -9,7 +9,7 @@ If you think you know which package is causing the issue you are reporting, feel
 
 ##### Cloning
 
-The first step is creating your own clone. For some packages, you may also need to install the [requirements necessary for building Atom](https://flight-manual.atom.io/hacking-atom/sections/hacking-on-atom-core/#building) in order to run `apm install`.
+The first step is creating your own clone. For some packages, you may also need to install the [requirements necessary for building Atom](/hacking-atom/sections/hacking-on-atom-core/#building) in order to run `apm install`.
 
 For example, if you want to make changes to the `tree-view` package, fork the repo on your github account, then clone it:
 
