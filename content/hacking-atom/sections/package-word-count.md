@@ -40,7 +40,7 @@ Not every package will have (or need) all of these directories and the package g
 
 ##### `package.json`
 
-Similar to [Node modules](http://en.wikipedia.org/wiki/Npm_(software)), Atom packages contain a `package.json` file in their top-level directory. This file contains metadata about the package, such as the path to its "main" module, library dependencies, and manifests specifying the order in which its resources should be loaded.
+Similar to [Node modules](https://en.wikipedia.org/wiki/Npm_(software)), Atom packages contain a `package.json` file in their top-level directory. This file contains metadata about the package, such as the path to its "main" module, library dependencies, and manifests specifying the order in which its resources should be loaded.
 
 In addition to some of the regular [Node `package.json` keys](https://docs.npmjs.com/files/package.json) available, Atom `package.json` files have their own additions.
 
@@ -110,7 +110,7 @@ Your package's top-level module is a singleton object that manages the lifecycle
 Your package's top-level module can implement the following basic methods:
 
 * `activate(state)`: This **optional** method is called when your package is activated. It is passed the state data from the last time the window was serialized if your module implements the `serialize()` method. Use this to do initialization work when your package is started (like setting up DOM elements or binding events).
-* `initialize(state)`: (Available in Atom 1.14 and above) This **optional** method is similar to `activate()` but is called earlier. Whereas activation occurs after the workspace has been deserialized (and can therefore happen after [your package's deserializers](http://flight-manual.atom.io/behind-atom/sections/serialization-in-atom/#serialization-methods) have been called), `initialize()` is guaranteed to be called before everything. Use `activate()` if you want to be sure that the workspace is ready; use `initialize()` if you need to do some setup prior to your deserializers or view providers being invoked.
+* `initialize(state)`: (Available in Atom 1.14 and above) This **optional** method is similar to `activate()` but is called earlier. Whereas activation occurs after the workspace has been deserialized (and can therefore happen after [your package's deserializers](https://flight-manual.atom.io/behind-atom/sections/serialization-in-atom/#serialization-methods) have been called), `initialize()` is guaranteed to be called before everything. Use `activate()` if you want to be sure that the workspace is ready; use `initialize()` if you need to do some setup prior to your deserializers or view providers being invoked.
 * `serialize()`: This **optional** method is called when the window is shutting down, allowing you to return JSON to represent the state of your component. When the window is later restored, the data you returned is passed to your module's `activate` method so you can restore your view to where the user left
 off.
 * `deactivate()`: This **optional** method is called when the window is shutting down. If your package is watching any files or holding external resources in any other way, release them here. If you're just subscribing to things on window, you don't need to worry because that's getting torn down anyway.

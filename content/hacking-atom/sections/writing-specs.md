@@ -5,7 +5,7 @@ title: Writing specs
 
 We've looked at and written a few specs through the examples already. Now it's time to take a closer look at the spec framework itself. How exactly do you write tests in Atom?
 
-Atom uses [Jasmine](http://jasmine.github.io/1.3/introduction.html) as its spec framework. Any new functionality should have specs to guard against regressions.
+Atom uses [Jasmine](https://jasmine.github.io/1.3/introduction.html) as its spec framework. Any new functionality should have specs to guard against regressions.
 
 #### Create a New Spec
 
@@ -43,7 +43,7 @@ describe "when a test is written", ->
 
 ##### Add One or More Expectations
 
-The best way to learn about expectations is to read the [Jasmine documentation](http://jasmine.github.io/1.3/introduction.html#section-Expectations) about them. Below is a simple example.
+The best way to learn about expectations is to read the [Jasmine documentation](https://jasmine.github.io/1.3/introduction.html#section-Expectations) about them. Below is a simple example.
 
 ```coffee
 describe "when a test is written", ->
@@ -146,7 +146,7 @@ describe "fs.readdir(path, cb)", ->
       expect(spy).toHaveBeenCalledWith(null, ['example.coffee'])
 ```
 
-For a more detailed documentation on asynchronous tests please visit the [Jasmine documentation](http://jasmine.github.io/1.3/introduction.html#section-Asynchronous_Support).
+For a more detailed documentation on asynchronous tests please visit the [Jasmine documentation](https://jasmine.github.io/1.3/introduction.html#section-Asynchronous_Support).
 
 #### Running Specs
 
@@ -163,7 +163,7 @@ describe "when a test is written", ->
 
 ##### Running on CI
 
-It is now easy to run the specs in a CI environment like Travis and AppVeyor. See the [Travis CI For Your Packages](http://blog.atom.io/2014/04/25/ci-for-your-packages.html) and [AppVeyor CI For Your Packages](http://blog.atom.io/2014/07/28/windows-ci-for-your-packages.html) posts for more details.
+It is now easy to run the specs in a CI environment like Travis and AppVeyor. See the [Travis CI For Your Packages](https://blog.atom.io/2014/04/25/ci-for-your-packages.html) and [AppVeyor CI For Your Packages](http://blog.atom.io/2014/07/28/windows-ci-for-your-packages.html) posts for more details.
 
 ##### Running via the Command Line
 

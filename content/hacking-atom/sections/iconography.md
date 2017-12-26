@@ -9,7 +9,7 @@ Atom comes bundled with the [Octicons 4.4.0](https://github.com/github/octicons/
 
 #### Overview
 
-In the [Styleguide](http://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/#atom-styleguide) under the "Icons" section you'll find all the Octicons that are available.
+In the [Styleguide](https://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/#atom-styleguide) under the "Icons" section you'll find all the Octicons that are available.
 
 ![Octicons in the Styleguide](../../images/iconography.png "Octicons in the Styleguide")
 
