@@ -4,6 +4,7 @@
     <meta charset="utf-8">
 <title>Package: Word Count</title>
 
+<link rel="icon" href="/favicon.ico">
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
 
 
@@ -26,8 +27,6 @@
   })
 </script>
 
-    <link rel="shortcut icon" href="http://flight-manual.atom.io/assets/images/favicon.ico" />
-
   </head>
   <body class="layout-article">
     <div class="footer-push">
@@ -39,7 +38,7 @@
       <li><a href="https://atom.io/packages">Packages</a></li>
       <li><a href="https://atom.io/themes">Themes</a></li>
       <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
-      <li><a href="http://blog.atom.io">Blog</a></li>
+      <li><a href="https://blog.atom.io">Blog</a></li>
       <li><a href="https://discuss.atom.io">Discuss</a></li>
     </ul>
 
@@ -429,7 +428,7 @@
 <a id="packagejson" class="anchor" href="#packagejson" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>package.json</code>
 </h5>
 
-<p>Similar to <a href="http://en.wikipedia.org/wiki/Npm_(software)">Node modules</a>, Atom packages contain a <code>package.json</code> file in their top-level directory. This file contains metadata about the package, such as the path to its "main" module, library dependencies, and manifests specifying the order in which its resources should be loaded.</p>
+<p>Similar to <a href="https://en.wikipedia.org/wiki/Npm_(software)">Node modules</a>, Atom packages contain a <code>package.json</code> file in their top-level directory. This file contains metadata about the package, such as the path to its "main" module, library dependencies, and manifests specifying the order in which its resources should be loaded.</p>
 
 <p>In addition to some of the regular <a href="https://docs.npmjs.com/files/package.json">Node <code>package.json</code> keys</a> available, Atom <code>package.json</code> files have their own additions.</p>
 
@@ -512,7 +511,7 @@ style sheets your package needs to load. If not specified, style sheets in the <
 <li>
 <code>activate(state)</code>: This <strong>optional</strong> method is called when your package is activated. It is passed the state data from the last time the window was serialized if your module implements the <code>serialize()</code> method. Use this to do initialization work when your package is started (like setting up DOM elements or binding events).</li>
 <li>
-<code>initialize(state)</code>: (Available in Atom 1.14 and above) This <strong>optional</strong> method is similar to <code>activate()</code> but is called earlier. Whereas activation occurs after the workspace has been deserialized (and can therefore happen after <a href="http://flight-manual.atom.io/behind-atom/sections/serialization-in-atom/#serialization-methods">your package's deserializers</a> have been called), <code>initialize()</code> is guaranteed to be called before everything. Use <code>activate()</code> if you want to be sure that the workspace is ready; use <code>initialize()</code> if you need to do some setup prior to your deserializers or view providers being invoked.</li>
+<code>initialize(state)</code>: (Available in Atom 1.14 and above) This <strong>optional</strong> method is similar to <code>activate()</code> but is called earlier. Whereas activation occurs after the workspace has been deserialized (and can therefore happen after <a href="/behind-atom/sections/serialization-in-atom/#serialization-methods">your package's deserializers</a> have been called), <code>initialize()</code> is guaranteed to be called before everything. Use <code>activate()</code> if you want to be sure that the workspace is ready; use <code>initialize()</code> if you need to do some setup prior to your deserializers or view providers being invoked.</li>
 <li>
 <code>serialize()</code>: This <strong>optional</strong> method is called when the window is shutting down, allowing you to return JSON to represent the state of your component. When the window is later restored, the data you returned is passed to your module's <code>activate</code> method so you can restore your view to where the user left
 off.</li>
@@ -912,7 +911,7 @@ off.</li>
       <ul class="footer-left">
         <li><a href="https://atom.io/terms">Terms of Use</a></li>
         <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
-        <li><a href="http://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
         <li><a href="https://atom.io/releases">Releases</a></li>
         <li><a href="https://atom.io/faq">FAQ</a></li>
         <li><a href="https://atom.io/contact">Contact</a></li>
