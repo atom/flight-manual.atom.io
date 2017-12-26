@@ -64,3 +64,7 @@ Appendices:
     - Upgrading Your Package
     - Upgrading Your UI Theme Or Package Selectors
     - Upgrading Your Syntax Theme
+
+  Atom server-side APIs:
+    - Atom package server API
+    - Atom update server API
