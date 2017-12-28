@@ -3,15 +3,15 @@ var gulp   = require("gulp"),
     sass   = require("gulp-sass"),
     minifyCss = require("gulp-minify-css"),
     replace = require("gulp-replace"),
-    babel = require('gulp-babel'),
+    babel = require("gulp-babel"),
     concat = require("gulp-concat"),
     uglify = require("gulp-uglify"),
     yaml   = require("js-yaml"),
     connect = require("gulp-connect"),
 
-    exec = require('child_process').exec,
+    exec = require("child_process").exec,
 
-    fs   = require('fs'),
+    fs   = require("fs"),
     path = require("path");
 
 CONFIG = yaml.safeLoad(fs.readFileSync("nanoc.yaml", "utf8"));
@@ -46,7 +46,7 @@ gulp.task("javascript_babel", function () {
     "assets/javascripts/*.js",
     ])
     .pipe(babel({
-      presets: ['es2015']
+      presets: ["es2015"]
     }))
     .pipe(concat("babel.js"))
     .pipe(gulp.dest("tmp/"));
@@ -60,11 +60,11 @@ gulp.task("javascript_workers", function () {
     .pipe(gulp.dest("output/assets/javascripts/"));
 });
 
-gulp.task('javascript', ['javascript_vendor', 'javascript_babel', 'javascript_workers'], function () {
-  return gulp.src(['./tmp/vendor.js', './tmp/babel.js'])
-    .pipe(concat('application.js'))
+gulp.task("javascript", ["javascript_vendor", "javascript_babel", "javascript_workers"], function () {
+  return gulp.src(["./tmp/vendor.js", "./tmp/babel.js"])
+    .pipe(concat("application.js"))
     .pipe(gulpif(IS_PRODUCTION, uglify()))
-    .pipe(gulp.dest('output/assets/javascripts/'))
+    .pipe(gulp.dest("output/assets/javascripts/"))
 })
 
 
@@ -117,6 +117,6 @@ gulp.task("watch:assets", function() {
 });
 
 gulp.task("serve", [ "server", "watch:nanoc", "watch:assets" ]);
-gulp.task("assets", [ "css", "sass", 'javascript', "octicons", "images", "favicon" ]);
+gulp.task("assets", [ "css", "sass", "javascript", "octicons", "images", "favicon" ]);
 gulp.task("build", [ "nanoc:compile", "assets" ]);
 gulp.task("default", [ "nanoc:compile", "assets", "serve" ]);

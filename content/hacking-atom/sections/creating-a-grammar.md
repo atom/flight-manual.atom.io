@@ -15,11 +15,11 @@ Grammars power Atom's syntax highlighting. Each grammar provides a set of _regex
 
 Grammars depend heavily on regexes, and you should be comfortable with interpreting and writing regexes before continuing. Note that Atom uses the Oniguruma engine, which is very similar to the PCRE or Perl regex engines. Here are some resources to help you out:
 
-* http://www.regular-expressions.info/tutorial.html provides a comprehensive regex tutorial
-* http://www.rexegg.com/regex-quickstart.html contains a cheat sheet for various regex expressions
+* https://www.regular-expressions.info/tutorial.html provides a comprehensive regex tutorial
+* https://www.rexegg.com/regex-quickstart.html contains a cheat sheet for various regex expressions
 * https://regex101.com/ or https://regexr.com/ allows live prototyping
 
-Grammar files are written in the [CSON](https://github.com/bevry/cson#what-is-cson) or [JSON](http://www.json.org/) format. Whichever one you decide to use is up to you, but this tutorial will be written in CSON.
+Grammar files are written in the [CSON](https://github.com/bevry/cson#what-is-cson) or [JSON](https://www.json.org/) format. Whichever one you decide to use is up to you, but this tutorial will be written in CSON.
 
 #### Create the Package
 
@@ -53,7 +53,7 @@ To start, let's add a basic pattern to tokenize the words `Flight Manual` whenev
 ]
 ```
 
-`match` is where your regex is contained, and `name` is the scope name that is to be applied to the entirety of the match. More information about scope names can be found in [Section 12.4 of the TextMate Manual](http://manual.macromates.com/en/language_grammars).
+`match` is where your regex is contained, and `name` is the scope name that is to be applied to the entirety of the match. More information about scope names can be found in [Section 12.4 of the TextMate Manual](https://manual.macromates.com/en/language_grammars).
 
 {{#tip}}
 

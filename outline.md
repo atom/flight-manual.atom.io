@@ -54,7 +54,7 @@ Here is the remaining outline:
     * aggregating subscriptions
     * view best practices
     * don't make a slow package
-    * CI for packages (http://blog.atom.io/2014/04/25/ci-for-your-packages.html)
+    * CI for packages (https://blog.atom.io/2014/04/25/ci-for-your-packages.html)
 
 ### Include in Chapter 3 or 4
 * Make sure we include (in Ch 3 or Ch4 or both)
@@ -63,11 +63,11 @@ Here is the remaining outline:
   * settings (how to enable the settings button on the package installer)
   * notifications package
   * config api
-    - http://blog.atom.io/2014/10/02/config-api-has-schema.html
-    - http://blog.atom.io/2014/10/31/language-scoped-config.html
+    - https://blog.atom.io/2014/10/02/config-api-has-schema.html
+    - https://blog.atom.io/2014/10/31/language-scoped-config.html
     - https://atom.io/docs/latest/advanced/scopes-and-scope-descriptors
   * subscriptions
-    - http://blog.atom.io/2014/09/16/new-event-subscription-api.html
+    - https://blog.atom.io/2014/09/16/new-event-subscription-api.html
     * subscribing to events
     * subscribing to commands
   * creating dom elements
@@ -83,7 +83,7 @@ Here is the remaining outline:
   * advanced keymaps (in Guides)
   * serialization
   * converting textmate bundles
-  * decoration (http://blog.atom.io/2014/07/24/decorations.html)
+  * decoration (https://blog.atom.io/2014/07/24/decorations.html)
   * modal panel
   * modal decorations
   * notifications
@@ -99,7 +99,7 @@ Here is the remaining outline:
 * To core
   * Opening issues
   * Roadmaps
-    - http://blog.atom.io/2014/10/23/public-roadmap.html
+    - https://blog.atom.io/2014/10/23/public-roadmap.html
   * Where is the code?
   * Forum
   * Building Atom
