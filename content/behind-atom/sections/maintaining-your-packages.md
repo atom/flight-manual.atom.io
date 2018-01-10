@@ -5,16 +5,6 @@ title: Maintaining Your Packages
 
 While publishing is, by far, the most common action you will perform when working with the packages you provide, there are other things you may need to do.
 
-#### Unpublish a Version
-
-If you mistakenly published a version of your package or perhaps you find a glaring bug or security hole, you may want to unpublish just that version of your package. For example, if your package is named `package-name` and the bad version of your package is v1.2.3 then the command you would execute is:
-
-``` command-line
-$ apm unpublish <em>package-name@1.2.3</em>
-```
-
-This will remove just this particular version from the https://atom.io package registry. Anyone who has already downloaded this version will still have it, but it will no longer be available for installation by others.
-
 #### Adding a Collaborator
 
 Some packages get too big for one person. Sometimes priorities change and someone else wants to help out. You can let others help or create co-owners by [adding them as a collaborator](https://help.github.com/articles/adding-collaborators-to-a-personal-repository/) on the GitHub repository for your package. *Note:* Anyone that has push access to your repository will have the ability to publish new versions of the package that belongs to that repository.
@@ -40,6 +30,16 @@ $ apm unpublish <em>package-name</em>
 ```
 
 This will remove your package from the https://atom.io package registry. Anyone who has already downloaded a copy of your package will still have it and be able to use it, but it will no longer be available for installation by others.
+
+##### Unpublish a Specific Version
+
+If you mistakenly published a version of your package or perhaps you find a glaring bug or security hole, you may want to unpublish just that version of your package. For example, if your package is named `package-name` and the bad version of your package is v1.2.3 then the command you would execute is:
+
+``` command-line
+$ apm unpublish <em>package-name@1.2.3</em>
+```
+
+This will remove just this particular version from the https://atom.io package registry.
 
 #### Rename Your Package
 
