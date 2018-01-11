@@ -44,6 +44,7 @@ You can also move directly to a specific line (and column) number with <kbd clas
 #### Additional Movement and Selection Commands
 
 Atom also has a few movement commands that aren't binded to any keyboard shortcut.   You can access these commands from the [Command Palatte](http://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette), but if you find yourself using a commands that doesn't have a keyboard shortcut often, have no fear!  You can easily add a entry to your `keymaps.cson` to create a keyboard shortcut.  For example,  the command `editor:move-to-beginning-of-screen-line` is available in the command palette, but not binded to any keyboard shortcut.  If you would like this to have a keyboard shortcut, you can add a entry in your `keymaps.cson` file.   For `editor:select-to-previous-word-boundary`, you can add the following to your `keymaps.cson`:
+
 {{#mac}}
 ```coffee
 'atom-text-editor':
