@@ -40,6 +40,108 @@ You can also move directly to a specific line (and column) number with <kbd clas
 
 ![Go directly to a line](../../images/goto.png "Go directly to a line")
 
+
+#### Additional Movement and Selection Commands
+
+Atom also has a few movement commands that aren't binded to any keyboard shortcut.   You can access these commands from the [Command Palatte](http://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette), but if you find yourself using a commands that doesn't have a keyboard shortcut often, have no fear!  You can easily add a entry to your `keymaps.cson` to create a keyboard shortcut.  For example,  the command `editor:move-to-beginning-of-screen-line` is available in the command palette, but not binded to any keyboard shortcut.  If you would like this to have a keyboard shortcut, you can add a entry in your `keymaps.cson` file.   For `editor:select-to-previous-word-boundary`, you can add the following to your `keymaps.cson`:
+{{#mac}}
+```coffee
+'atom-text-editor':
+  'cmd-shift-e': 'editor:select-to-previous-word-boundary'
+```
+{{/mac}}
+
+{{#windows}}
+```coffee
+'atom-text-editor':
+  'ctrl-shift-e': 'editor:select-to-previous-word-boundary'
+```
+{{/windows}}
+
+{{#linux}}
+```coffee
+'atom-text-editor':
+  'ctrl-shift-e': 'editor:select-to-previous-word-boundary'
+```
+{{/linux}}
+
+This will bind the command `editor:select-to-previous-word-boundary` to <kbd class="platform-mac">Cmd+Shift+E</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+E</kbd>.  For more information on customizing keyboard shortcuts, see [Customizing Keybindings](http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings).
+
+Here's a list of Movement and Selection Commands that have a keyboard shortcut by default:
+
+{{#mac}}
+
+```
+
+editor:move-to-beginning-of-next-paragraph
+editor:move-to-beginning-of-previous-paragraph
+editor:move-to-beginning-of-screen-line
+editor:move-to-beginning-of-line
+editor:move-to-beginning-of-next-word
+editor:move-to-previous-word-boundary
+editor:move-to-next-word-boundary
+editor:move-to-previous-subword-boundary
+editor:select-to-beginning-of-previous-paragraph
+editor:select-to-end-of-line
+editor:select-to-beginning-of-line
+editor:select-to-beginning-of-word
+editor:select-to-beginning-of-next-word
+editor:select-to-next-word-boundary
+editor:select-to-previous-word-boundary
+
+```
+
+{{/mac}}
+{{#windows}}
+```
+
+editor:move-to-beginning-of-next-paragraph
+editor:move-to-beginning-of-previous-paragraph
+editor:move-to-beginning-of-screen-line
+editor:move-to-beginning-of-line
+editor:move-to-end-of-line
+editor:move-to-first-character-of-line
+editor:move-to-beginning-of-next-word
+editor:move-to-previous-word-boundary
+editor:move-to-next-word-boundary
+editor:select-to-beginning-of-next-paragraph
+editor:select-to-beginning-of-previous-paragraph
+editor:select-to-end-of-line
+editor:select-to-beginning-of-line
+editor:select-to-beginning-of-word
+editor:select-to-beginning-of-next-word
+editor:select-to-next-word-boundary
+editor:select-to-previous-word-boundary
+
+```
+
+{{/windows}}
+{{#linux}}
+```
+
+editor:move-to-beginning-of-next-paragraph
+editor:move-to-beginning-of-previous-paragraph
+editor:move-to-beginning-of-screen-line
+editor:move-to-beginning-of-line
+editor:move-to-end-of-line
+editor:move-to-first-character-of-line
+editor:move-to-beginning-of-next-word
+editor:move-to-previous-word-boundary
+editor:move-to-next-word-boundary
+editor:select-to-beginning-of-next-paragraph
+editor:select-to-beginning-of-previous-paragraph
+editor:select-to-end-of-line
+editor:select-to-beginning-of-line
+editor:select-to-beginning-of-word
+editor:select-to-beginning-of-next-word
+editor:select-to-next-word-boundary
+editor:select-to-previous-word-boundary
+
+```
+
+{{/linux}}
+
+
 #### Navigating by Symbols
 
 You can also jump around a little more informatively with the Symbols View. To jump to a symbol such as a method definition, press <kbd class="platform-mac">Cmd+R</kbd><kbd class="platform-windows platform-linux">Ctrl+R</kbd>. This opens a list of all symbols in the current file, which you can fuzzy filter similarly to <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd>. You can also search for symbols across your project but it requires a `tags` file.
