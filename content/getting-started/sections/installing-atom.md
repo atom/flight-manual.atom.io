@@ -221,6 +221,13 @@ If you are behind a firewall and seeing SSL errors when installing packages you 
 $ apm config set strict-ssl false
 ```
 
+That is not working in the right way. It will create the .apmrc file in C:/users/user/.atom/, but will write in it:
+```
+strict-sl=false
+```
+Workaround: So you have to manual open the file an add the second "s" --> strict-ssl=false
+
+
 ##### Using a Proxy?
 
 If you are using a HTTP(S) proxy you can configure `apm` to use it by running:
