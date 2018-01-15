@@ -499,22 +499,20 @@
 
 <p>The <code>::shadow</code> pseudo-element allows you to bypass a single shadow root. For example, say you want to update a highlight decoration for a linter package. Initially, the style looks as follows:</p>
 
-<pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">Without</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
+<div class="highlight highlight-css"><pre class="highlight"><code><span class="o">//</span> <span class="nt">Without</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
 <span class="nt">atom-text-editor</span> <span class="nc">.highlight.my-linter</span> <span class="p">{</span>
   <span class="nl">background</span><span class="p">:</span> <span class="no">hotpink</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>In order for this style to apply with the shadow DOM enabled, you will need to add a second selector with the <code>::shadow</code> pseudo-element. You should leave the original selector in place so your theme continues to work with the shadow DOM disabled during the transition period.</p>
 
-<pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">With</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
+<div class="highlight highlight-css"><pre class="highlight"><code><span class="o">//</span> <span class="nt">With</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
 <span class="nt">atom-text-editor</span> <span class="nc">.highlight.my-linter</span><span class="o">,</span>
 <span class="nt">atom-text-editor</span><span class="nd">::shadow</span> <span class="nc">.highlight.my-linter</span> <span class="p">{</span>
   <span class="nl">background</span><span class="p">:</span> <span class="no">hotpink</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>Check out the <a href="https://github.com/atom/find-and-replace/blob/95351f261bc384960a69b66bf12eae8002da63f9/stylesheets/find-and-replace.less#L9-L29">find-and-replace</a> package for another example of using <code>::shadow</code> to pierce the shadow DOM.</p>
 
@@ -524,7 +522,7 @@
 
 <p>The <code>/deep/</code> combinator overrides <em>all</em> shadow boundaries, making it useful for rules you want to apply globally such as scrollbar styling. Here's a snippet containing scrollbar styling for the Atom Dark UI theme before shadow DOM support:</p>
 
-<pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">Without</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
+<div class="highlight highlight-css"><pre class="highlight"><code><span class="o">//</span> <span class="nt">Without</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span>
 <span class="nc">.scrollbars-visible-always</span> <span class="p">{</span>
   <span class="err">::-webkit-scrollbar</span> <span class="err">{</span>
     <span class="nl">width</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
@@ -542,12 +540,11 @@
     <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1px</span> <span class="no">black</span> <span class="nb">inset</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="err">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>To style scrollbars even inside of the shadow DOM, each rule needs to be prefixed with <code>/deep/</code>. We use <code>/deep/</code> instead of <code>::shadow</code> because we don't care about the selector of the host element in this case. We just want our styling to apply everywhere.</p>
 
-<pre class="highlight highlight-css"><code><span class="o">//</span> <span class="nt">With</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span> <span class="nt">using</span> <span class="o">/</span><span class="nt">deep</span><span class="o">/</span>
+<div class="highlight highlight-css"><pre class="highlight"><code><span class="o">//</span> <span class="nt">With</span> <span class="nt">shadow</span> <span class="nt">DOM</span> <span class="nt">support</span> <span class="nt">using</span> <span class="o">/</span><span class="nt">deep</span><span class="o">/</span>
 <span class="nc">.scrollbars-visible-always</span> <span class="p">{</span>
   <span class="err">/deep/</span> <span class="err">::-webkit-scrollbar</span> <span class="err">{</span>
     <span class="nl">width</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
@@ -565,8 +562,7 @@
     <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1px</span> <span class="no">black</span> <span class="nb">inset</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="err">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <h5>
 <a id="context-targeted-style-sheets" class="anchor" href="#context-targeted-style-sheets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context-Targeted Style Sheets</h5>

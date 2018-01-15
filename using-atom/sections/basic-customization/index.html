@@ -396,12 +396,11 @@
 
 <p>All of Atom's config files (with the exception of your <a href="#style-tweaks">style sheet</a> and your <a href="/hacking-atom/sections/the-init-file">Init Script</a>) are written in CSON, short for <a href="https://github.com/bevry/cson#what-is-cson">CoffeeScript Object Notation</a>. Just like its namesake JSON, <a href="https://json.org/">JavaScript Object Notation</a>, CSON is a text format for storing structured data in the form of simple objects made up of key-value pairs.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="na">key</span><span class="o">:</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">key</span><span class="o">:</span>
   <span class="na">key</span><span class="o">:</span> <span class="nx">value</span>
   <span class="na">key</span><span class="o">:</span> <span class="nx">value</span>
   <span class="na">key</span><span class="o">:</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">]</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>Objects are the backbone of any CSON file, and are delineated by indentation (as in the above example). A key's value can either be a String, a Number, an Object, a Boolean, <code>null</code>, or an Array of any of these data types.</p>
 
@@ -411,8 +410,8 @@
 
 <p><strong>Don't do this:</strong></p>
 
-<pre class="highlight highlight-coffee"><code><span class="c1"># Only the second snippet will be loaded
-</span><span class="s">'.source.js'</span><span class="o">:</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="c1"># Only the second snippet will be loaded</span>
+<span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'console.log'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'log'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.log(${1:"crash"});$2'</span>
@@ -420,21 +419,19 @@
   <span class="s">'console.error'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'error'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.error(${1:"crash"});$2'</span>
-</code></pre>
-
+</code></pre></div>
 
 <p><strong>Use this instead:</strong></p>
 
-<pre class="highlight highlight-coffee"><code><span class="c1"># Both snippets will be loaded
-</span><span class="s">'.source.js'</span><span class="o">:</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="c1"># Both snippets will be loaded</span>
+<span class="s">'.source.js'</span><span class="o">:</span>
   <span class="s">'console.log'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'log'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.log(${1:"crash"});$2'</span>
   <span class="s">'console.error'</span><span class="o">:</span>
     <span class="s">'prefix'</span><span class="o">:</span> <span class="s">'error'</span>
     <span class="s">'body'</span><span class="o">:</span> <span class="s">'console.error(${1:"crash"});$2'</span>
-</code></pre>
-
+</code></pre></div>
 
 </div>
 
@@ -451,12 +448,11 @@
 
 <p>For example, to change the colors of the Status Bar, you could add the following rule to your <code>styles.less</code> file:</p>
 
-<pre class="highlight highlight-css"><code><span class="nc">.status-bar</span> <span class="p">{</span>
+<div class="highlight highlight-css"><pre class="highlight"><code><span class="nc">.status-bar</span> <span class="p">{</span>
   <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
   <span class="nl">background-color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>The easiest way to see what classes are available to style is to inspect the DOM manually via the Developer Tools. We'll go over the Developer Tools in great detail in the next chapter, but for now let's take a simple look. You can open the Developer Tools by pressing <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+I</kbd>, which will bring up the Chromium Developer Tools panel.</p>
 
@@ -477,13 +473,12 @@
 
 <p>Atom keymaps work similarly to stylesheets. Just as stylesheets use selectors to apply styles to elements, Atom keymaps use selectors to associate key combinations with events in specific contexts. Here's a small example, excerpted from Atom's built-in keymap:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
   <span class="s">'enter'</span><span class="o">:</span> <span class="s">'editor:newline'</span>
 
 <span class="s">'atom-text-editor[mini] input'</span><span class="o">:</span>
   <span class="s">'enter'</span><span class="o">:</span> <span class="s">'core:confirm'</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>This keymap defines the meaning of <kbd class="platform-all">Enter</kbd> in two different contexts. In a normal editor, pressing <kbd class="platform-all">Enter</kbd> triggers the <code>editor:newline</code> command, which causes the editor to insert a newline. But if the same keystroke occurs inside a select list's mini-editor, it instead triggers the <code>core:confirm</code> command based on the binding in the more-specific selector.</p>
 
@@ -498,13 +493,12 @@
 
 <p>Atom loads configuration settings from the <code>config.cson</code> file in your <span class="platform-mac platform-linux"><code>~/.atom</code></span><span class="platform-windows"><code>%USERPROFILE%\.atom</code></span> directory.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'*'</span><span class="o">:</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'*'</span><span class="o">:</span>
   <span class="s">'core'</span><span class="o">:</span>
     <span class="s">'excludeVcsIgnoredPaths'</span><span class="o">:</span> <span class="no">true</span>
   <span class="s">'editor'</span><span class="o">:</span>
     <span class="s">'fontSize'</span><span class="o">:</span> <span class="mi">18</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>The configuration is grouped into global settings under the <code>*</code> key and language-specific settings under scope named keys like <code>.python.source</code> or <code>.html.text</code>. Underneath that, you'll find configuration settings grouped by package name or one of the two core namespaces: <code>core</code> or <code>editor</code>.</p>
 
@@ -641,24 +635,23 @@ editor.tabLength
 
 <p>Global settings are under the <code>*</code> key, and each language can have its own top-level key. This key is the language's scope. Language-specific settings take precedence over anything set in the global section for that language only.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'*'</span><span class="o">:</span> <span class="c1"># all languages unless overridden
-</span>  <span class="s">'editor'</span><span class="o">:</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'*'</span><span class="o">:</span> <span class="c1"># all languages unless overridden</span>
+  <span class="s">'editor'</span><span class="o">:</span>
     <span class="s">'softWrap'</span><span class="o">:</span> <span class="no">false</span>
     <span class="s">'tabLength'</span><span class="o">:</span> <span class="mi">8</span>
 
-<span class="s">'.source.gfm'</span><span class="o">:</span> <span class="c1"># markdown overrides
-</span>  <span class="s">'editor'</span><span class="o">:</span>
+<span class="s">'.source.gfm'</span><span class="o">:</span> <span class="c1"># markdown overrides</span>
+  <span class="s">'editor'</span><span class="o">:</span>
     <span class="s">'softWrap'</span><span class="o">:</span> <span class="no">true</span>
 
-<span class="s">'.source.ruby'</span><span class="o">:</span> <span class="c1"># ruby overrides
-</span>  <span class="s">'editor'</span><span class="o">:</span>
+<span class="s">'.source.ruby'</span><span class="o">:</span> <span class="c1"># ruby overrides</span>
+  <span class="s">'editor'</span><span class="o">:</span>
     <span class="s">'tabLength'</span><span class="o">:</span> <span class="mi">2</span>
 
-<span class="s">'.source.python'</span><span class="o">:</span> <span class="c1"># python overrides
-</span>  <span class="s">'editor'</span><span class="o">:</span>
+<span class="s">'.source.python'</span><span class="o">:</span> <span class="c1"># python overrides</span>
+  <span class="s">'editor'</span><span class="o">:</span>
     <span class="s">'tabLength'</span><span class="o">:</span> <span class="mi">4</span>
-</code></pre>
-
+</code></pre></div>
 
 <h5>
 <a id="finding-a-languages-scope-name" class="anchor" href="#finding-a-languages-scope-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finding a Language's Scope Name</h5>
@@ -680,14 +673,13 @@ editor.tabLength
 
 <p>If you want Atom to always recognize certain file types as a specific grammar, you'll need to manually edit your <code>config.cson</code> file. You can open it using the <em>Application: Open Your Config</em> command from the Command Palette. For example, if you wanted to add the <code>foo</code> extension to the CoffeeScript language, you could add this to your configuration file under the <code>*.core</code> section:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'*'</span><span class="o">:</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'*'</span><span class="o">:</span>
   <span class="na">core</span><span class="o">:</span>
     <span class="na">customFileTypes</span><span class="o">:</span>
       <span class="s">'source.coffee'</span><span class="o">:</span> <span class="p">[</span>
         <span class="s">'foo'</span>
       <span class="p">]</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>In the example above, <code>source.coffee</code> is the language's scope name (see <a href="#finding-a-languages-scope-name">Finding a Language's Scope Name</a> for more information) and <code>foo</code> is the file extension to match without the period. Adding a period to the beginning of either of these will not work.</p>
 

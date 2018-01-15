@@ -439,14 +439,13 @@
 
 <p>To start, let's add a basic pattern to tokenize the words <code>Flight Manual</code> whenever they show up. Your regex should look like <code>\bFlight Manual\b</code>. Here's what your <code>patterns</code> block should look like:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="s">'match'</span><span class="o">:</span> <span class="s">'</span><span class="se">\\</span><span class="s">bFlight Manual</span><span class="se">\\</span><span class="s">b'</span>
     <span class="s">'name'</span><span class="o">:</span> <span class="s">'entity.other.flight-manual'</span>
   <span class="p">}</span>
 <span class="p">]</span>
-</code></pre>
-
+</code></pre></div>
 
 <p><code>match</code> is where your regex is contained, and <code>name</code> is the scope name that is to be applied to the entirety of the match. More information about scope names can be found in <a href="https://manual.macromates.com/en/language_grammars">Section 12.4 of the TextMate Manual</a>.</p>
 
@@ -464,15 +463,14 @@
 
 <p>But what if we wanted to apply different scopes to <code>Flight</code> and <code>Manual</code>? This is possible by adding capture groups to the regex and then referencing those capture groups in a new <code>capture</code> property. For example:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'match'</span><span class="o">:</span> <span class="s">'</span><span class="se">\\</span><span class="s">b(Flight) (Manual)</span><span class="se">\\</span><span class="s">b'</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'match'</span><span class="o">:</span> <span class="s">'</span><span class="se">\\</span><span class="s">b(Flight) (Manual)</span><span class="se">\\</span><span class="s">b'</span>
 <span class="s">'name'</span><span class="o">:</span> <span class="s">'entity.other.flight-manual'</span>
 <span class="s">'captures'</span><span class="o">:</span>
   <span class="s">'1'</span><span class="o">:</span>
     <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.flight.flight-manual'</span>
   <span class="s">'2'</span><span class="o">:</span>
     <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.manual.flight-manual'</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>This will assign the scope <code>keyword.other.flight.flight-manual</code> to <code>Flight</code>, <code>keyword.other.manual.flight-manual</code> to <code>Manual</code>, and <code>entity.other.flight-manual</code> to the overarching <code>Flight Manual</code>.</p>
 
@@ -481,10 +479,10 @@
 
 <p>Now let's say we want to tokenize the <code>{{#note}}</code> blocks that occur in Flight Manual files. Our previous two examples used <code>match</code>, but one limit of <code>match</code> is that it can only match single lines. <code>{{#note}}</code> blocks, on the other hand, can span multiple lines. For these cases, you can use the <code>begin</code>/<code>end</code> keys. Once the regex in the <code>begin</code> key is matched, tokenization will continue until the <code>end</code> pattern is reached.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
 <span class="s">'beginCaptures'</span><span class="o">:</span>
-  <span class="s">'0'</span><span class="o">:</span> <span class="c1"># The 0 capture contains the entire match
-</span>    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.start.flight-manual'</span>
+  <span class="s">'0'</span><span class="o">:</span> <span class="c1"># The 0 capture contains the entire match</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.start.flight-manual'</span>
   <span class="s">'1'</span><span class="o">:</span>
     <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
   <span class="s">'2'</span><span class="o">:</span>
@@ -502,8 +500,7 @@
   <span class="s">'3'</span><span class="o">:</span>
     <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
 <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.note.flight-manual'</span>
-</code></pre>
-
+</code></pre></div>
 
 <div class="alert tip">
 
@@ -513,10 +510,10 @@
 
 <p>Awesome, we have our first multiline pattern! However, if you've been following along and playing around in your own <code>.md</code> file, you may have noticed that <code>Flight Manual</code> doesn't receive any scopes inside a note block. A begin/end block is essentially a subgrammar of its own: once it starts matching, it will only match its own subpatterns until the end pattern is reached. Since we haven't defined any subpatterns, then clearly nothing will be matched inside of a note block. Let's fix that!</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
 <span class="s">'beginCaptures'</span><span class="o">:</span>
-  <span class="s">'0'</span><span class="o">:</span> <span class="c1"># The 0 capture contains the entire match
-</span>    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.start.flight-manual'</span>
+  <span class="s">'0'</span><span class="o">:</span> <span class="c1"># The 0 capture contains the entire match</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.start.flight-manual'</span>
   <span class="s">'1'</span><span class="o">:</span>
     <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
   <span class="s">'2'</span><span class="o">:</span>
@@ -545,8 +542,7 @@
         <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.manual.flight-manual'</span>
   <span class="p">}</span>
 <span class="p">]</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>There. With the patterns block, <code>Flight Manual</code> should now receive the proper scopes.</p>
 
@@ -555,34 +551,32 @@
 
 <p>At this point, note blocks are looking pretty nice, as is the <code>Flight Manual</code> keyword, but the rest of the file is noticeably lacking any form of Markdown syntax highlighting. Is there a way to include the GitHub-Flavored Markdown grammar without copying and pasting everything over? This is where the <code>include</code> keyword comes in. <code>include</code> allows you to <em>include</em> other patterns, even from other grammars! <code>language-gfm</code>'s <code>scopeName</code> is <code>source.gfm</code>, so let's include that. Our <code>patterns</code> block should now look like the following:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="s">'include'</span><span class="o">:</span> <span class="s">'source.gfm'</span>
   <span class="p">}</span>
   <span class="p">{</span>
-    <span class="c1"># Flight Manual pattern
-</span>  <span class="p">}</span>
+    <span class="c1"># Flight Manual pattern</span>
+  <span class="p">}</span>
   <span class="p">{</span>
-    <span class="c1"># Note begin/end pattern
-</span>  <span class="p">}</span>
+    <span class="c1"># Note begin/end pattern</span>
+  <span class="p">}</span>
 <span class="p">]</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>However, including <code>source.gfm</code> has led to another problem: note blocks still don't have any Markdown highlighting! The quick fix would be to add the include pattern to the note's pattern block as well, but now we're duplicating two patterns. You can imagine that as this grammar grows it'll quickly become inefficient to keep copying each new global pattern over to the <code>note</code> pattern as well. Therefore, <code>include</code> helpfully recognizes the special <code>$self</code> scope. <code>$self</code> automatically includes all the top-level patterns of the current grammar. The <code>note</code> block can then be simplified to the following:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
-<span class="c1"># beginCaptures
-</span><span class="s">'end'</span><span class="o">:</span> <span class="s">'({{)(/note)(}})'</span>
-<span class="c1"># endCaptures
-</span><span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.note.flight-manual'</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
+<span class="c1"># beginCaptures</span>
+<span class="s">'end'</span><span class="o">:</span> <span class="s">'({{)(/note)(}})'</span>
+<span class="c1"># endCaptures</span>
+<span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.note.flight-manual'</span>
 <span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="s">'include'</span><span class="o">:</span> <span class="s">'$self'</span>
   <span class="p">}</span>
 <span class="p">]</span>
-</code></pre>
-
+</code></pre></div>
 
 <!--
 TODO:

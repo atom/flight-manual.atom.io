@@ -445,19 +445,17 @@
 
 <p>Before:</p>
 
-<pre class="highlight highlight-less"><code>atom-text-editor::shadow .cursor {
+<div class="highlight highlight-less"><pre class="highlight"><code>atom-text-editor::shadow .cursor {
   border-color: hotpink;
 }
-</code></pre>
-
+</code></pre></div>
 
 <p>After:</p>
 
-<pre class="highlight highlight-less"><code>atom-text-editor .cursor {
+<div class="highlight highlight-less"><pre class="highlight"><code>atom-text-editor .cursor {
   border-color: hotpink;
 }
-</code></pre>
-
+</code></pre></div>
 
 <h5>
 <a id="deep" class="anchor" href="#deep" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>/deep/</code>
@@ -467,21 +465,19 @@
 
 <p>Before:</p>
 
-<pre class="highlight highlight-less"><code>.scrollbars-visible-always /deep/ ::-webkit-scrollbar {
+<div class="highlight highlight-less"><pre class="highlight"><code>.scrollbars-visible-always /deep/ ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-</code></pre>
-
+</code></pre></div>
 
 <p>After:</p>
 
-<pre class="highlight highlight-less"><code>.scrollbars-visible-always ::-webkit-scrollbar {
+<div class="highlight highlight-less"><pre class="highlight"><code>.scrollbars-visible-always ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-</code></pre>
-
+</code></pre></div>
 
 <h4>
 <a id="syntax-themes" class="anchor" href="#syntax-themes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Syntax themes</h4>
@@ -494,23 +490,21 @@
 
 <p>Before:</p>
 
-<pre class="highlight highlight-less"><code>atom-text-editor, :host {
+<div class="highlight highlight-less"><pre class="highlight"><code>atom-text-editor, :host {
   .cursor {
     border-color: hotpink;
   }
 }
-</code></pre>
-
+</code></pre></div>
 
 <p>After:</p>
 
-<pre class="highlight highlight-less"><code>atom-text-editor {
+<div class="highlight highlight-less"><pre class="highlight"><code>atom-text-editor {
   .cursor {
     border-color: hotpink;
   }
 }
-</code></pre>
-
+</code></pre></div>
 
 <h5>
 <a id="syntax--" class="anchor" href="#syntax--" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>syntax--</code>
@@ -520,7 +514,7 @@
 
 <p>Before:</p>
 
-<pre class="highlight highlight-less"><code>.comment {
+<div class="highlight highlight-less"><pre class="highlight"><code>.comment {
   color: @mono-3;
   font-style: italic;
 
@@ -528,12 +522,11 @@
     color: @mono-3;
   }
 }
-</code></pre>
-
+</code></pre></div>
 
 <p>After:</p>
 
-<pre class="highlight highlight-less"><code>.syntax--comment {
+<div class="highlight highlight-less"><pre class="highlight"><code>.syntax--comment {
   color: @mono-3;
   font-style: italic;
 
@@ -541,8 +534,7 @@
     color: @mono-3;
   }
 }
-</code></pre>
-
+</code></pre></div>
 
 <p><strong>Note</strong>: Selectors like the <code>.gutter</code>, <code>.indent-guide</code>, <code>.cursor</code> among others, that are also part of Syntax themes, don't need a prefix. <strong>Only</strong> grammar selectors that get used by language packages. For example <code>.syntax--keyword</code>, <code>.syntax--keyword.syntax--operator.syntax--js</code>.</p>
 
@@ -572,19 +564,17 @@
 
 <p>Before:</p>
 
-<pre class="highlight highlight-less"><code>atom-text-editor::shadow .my-class {
+<div class="highlight highlight-less"><pre class="highlight"><code>atom-text-editor::shadow .my-class {
   color: hotpink;
 }
-</code></pre>
-
+</code></pre></div>
 
 <p>After:</p>
 
-<pre class="highlight highlight-less"><code>atom-text-editor .my-class.my-class {
+<div class="highlight highlight-less"><pre class="highlight"><code>atom-text-editor .my-class.my-class {
   color: hotpink;
 }
-</code></pre>
-
+</code></pre></div>
 
 <h4>
 <a id="when-should-i-migrate-my-themepackage" class="anchor" href="#when-should-i-migrate-my-themepackage" aria-hidden="true"><span class="octicon octicon-link"></span></a>When should I migrate my theme/package?</h4>

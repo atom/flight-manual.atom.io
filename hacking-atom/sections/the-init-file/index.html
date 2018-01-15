@@ -395,21 +395,19 @@
 
 <p>For example, if you have the Audio Beep configuration setting enabled, you could add the following code to your <code>init.coffee</code> file to have Atom greet you with an audio beep every time it loads:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">beep</span><span class="p">()</span>
-</code></pre>
-
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">beep</span><span class="p">()</span>
+</code></pre></div>
 
 <p>Because <code>init.coffee</code> provides access to Atom's API, you can use it to implement useful commands without creating a new package or extending an existing one. Here's a command which uses the <a href="https://atom.io/docs/api/latest/Selection">Selection API</a> and <a href="https://atom.io/docs/api/latest/Clipboard">Clipboard API</a> to construct a Markdown link from the selected text and the clipboard contents as the URL:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-text-editor'</span><span class="p">,</span> <span class="s">'markdown:paste-as-link'</span><span class="p">,</span> <span class="o">-&gt;</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-text-editor'</span><span class="p">,</span> <span class="s">'markdown:paste-as-link'</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="k">return</span> <span class="nx">unless</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
 
   <span class="nx">selection</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getLastSelection</span><span class="p">()</span>
   <span class="nx">clipboardText</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">clipboard</span><span class="p">.</span><span class="na">read</span><span class="p">()</span>
 
   <span class="nx">selection</span><span class="p">.</span><span class="na">insertText</span><span class="p">(</span><span class="s">"[</span><span class="si">#{</span><span class="nx">selection</span><span class="p">.</span><span class="na">getText</span><span class="p">()</span><span class="si">}</span><span class="s">](</span><span class="si">#{</span><span class="nx">clipboardText</span><span class="si">}</span><span class="s">)"</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>Now, reload Atom and use the <a href="/getting-started/sections/atom-basics/#command-palette">Command Palette</a> to execute the new command, "Markdown: Paste As Link", by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a <a href="/using-atom/sections/basic-customization/#customizing-keybindings">keybinding for the command</a>.</p>
         </div>

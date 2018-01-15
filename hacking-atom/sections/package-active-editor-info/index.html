@@ -405,12 +405,12 @@
 
 <p>Let's open <code>lib/active-editor-info.js</code> and edit our <code>activate()</code> method to register an opener:</p>
 
-<pre class="highlight highlight-js"><code><span class="s1">'use babel'</span><span class="p">;</span>
+<div class="highlight highlight-js"><pre class="highlight"><code><span class="s1">'use babel'</span><span class="p">;</span>
 
-<span class="kr">import</span> <span class="nx">ActiveEditorInfoView</span> <span class="nx">from</span> <span class="s1">'./active-editor-info-view'</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">,</span> <span class="nx">Disposable</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'atom'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ActiveEditorInfoView</span> <span class="k">from</span> <span class="s1">'./active-editor-info-view'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">,</span> <span class="nx">Disposable</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'atom'</span><span class="p">;</span>
 
-<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
 
   <span class="na">subscriptions</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
 
@@ -448,25 +448,23 @@
   <span class="p">}</span>
 
 <span class="p">};</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>You'll notice we also removed the <code>activeEditorInfoView</code> property and the <code>serialize()</code> method. That's because, with workspace items, it's possible to have more than one instance of a given view. Since each instance can have its own state, each should do its own serialization instead of relying on a package-level <code>serialize()</code> method. We'll come back to that later.</p>
 
 <p>You probably also noticed that our <code>toggle()</code> implementation just logs the text "Toggle it!" to the console. Let's make it actually toggle our view:</p>
 
-<pre class="highlight highlight-js"><code>  <span class="nx">toggle</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre class="highlight"><code>  <span class="nx">toggle</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">'atom://active-editor-info'</span><span class="p">);</span>
   <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <h4>
 <a id="updating-the-view" class="anchor" href="#updating-the-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updating the View</h4>
 
 <p>Atom uses the same view abstractions everywhere, so we can almost use the generated ActiveEditorInfoView class as-is. We just need to add two small methods:</p>
 
-<pre class="highlight highlight-js"><code>  <span class="nx">getTitle</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre class="highlight"><code>  <span class="nx">getTitle</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Used by Atom for tab text</span>
     <span class="k">return</span> <span class="s1">'Active Editor Info'</span><span class="p">;</span>
   <span class="p">}</span>
@@ -475,8 +473,7 @@
     <span class="c1">// Used by Atom to identify the view when toggling.</span>
     <span class="k">return</span> <span class="s1">'atom://active-editor-info'</span><span class="p">;</span>
   <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>Now reload the window and run the "Active Editor Info: Toggle" command from the command palette! Our view will appear in a new tab in the center of the workspace. If you want, you can drag it into one of the docks. Toggling it again will then hide that dock. If you close the tab and run the toggle command again, it will appear in the last place you had it.</p>
 
@@ -491,7 +488,7 @@
 
 <p>The purpose of our view is to show information about the active text editor, so it doesn't really make sense to show our item in the center of the workspace (where the text editor will be). Let's add some methods to our view class to influence where its opened:</p>
 
-<pre class="highlight highlight-js"><code>  <span class="nx">getDefaultLocation</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre class="highlight"><code>  <span class="nx">getDefaultLocation</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// This location will be used if the user hasn't overridden it by dragging the item elsewhere.</span>
     <span class="c1">// Valid values are "left", "right", "bottom", and "center" (the default).</span>
     <span class="k">return</span> <span class="s1">'right'</span><span class="p">;</span>
@@ -501,8 +498,7 @@
     <span class="c1">// The locations into which the item can be moved.</span>
     <span class="k">return</span> <span class="p">[</span><span class="s1">'left'</span><span class="p">,</span> <span class="s1">'right'</span><span class="p">,</span> <span class="s1">'bottom'</span><span class="p">];</span>
   <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>Now our item will appear in the right dock intially and users will only be able to drag it to one of the other docks.</p>
 
@@ -511,23 +507,22 @@
 
 <p>Now that we have our view all wired up, let's update it to show some information about the active text editor. Add this to the constructor:</p>
 
-<pre class="highlight highlight-js"><code><span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getCenter</span><span class="p">().</span><span class="nx">observeActivePaneItem</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getCenter</span><span class="p">().</span><span class="nx">observeActivePaneItem</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">isTextEditor</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span> <span class="p">{</span>
     <span class="nx">message</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s1">'Open a file to see important information about it.'</span><span class="p">;</span>
     <span class="k">return</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="nx">message</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="err">`</span>
-    <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">$</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">getFileName</span><span class="p">()</span> <span class="o">||</span> <span class="s1">'untitled'</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="nx">Soft</span> <span class="nx">Wrap</span><span class="err">:</span><span class="o">&lt;</span><span class="sr">/b&gt; ${item.softWrapped}&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="nx">Tab</span> <span class="nx">Length</span><span class="err">:</span><span class="o">&lt;</span><span class="sr">/b&gt; ${item.getTabLength</span><span class="se">()</span><span class="sr">}&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="nx">Encoding</span><span class="err">:</span><span class="o">&lt;</span><span class="sr">/b&gt; ${item.getEncoding</span><span class="se">()</span><span class="sr">}&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="nx">Line</span> <span class="nx">Count</span><span class="err">:</span><span class="o">&lt;</span><span class="sr">/b&gt; ${item.getLineCount</span><span class="se">()</span><span class="sr">}&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
-</span>  <span class="err">`</span><span class="p">;</span>
+  <span class="nx">message</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">`
+    &lt;h2&gt;</span><span class="p">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">getFileName</span><span class="p">()</span> <span class="o">||</span> <span class="s1">'untitled'</span><span class="p">}</span><span class="s2">&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;b&gt;Soft Wrap:&lt;/b&gt; </span><span class="p">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">softWrapped</span><span class="p">}</span><span class="s2">&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;Tab Length:&lt;/b&gt; </span><span class="p">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">getTabLength</span><span class="p">()}</span><span class="s2">&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;Encoding:&lt;/b&gt; </span><span class="p">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">getEncoding</span><span class="p">()}</span><span class="s2">&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;Line Count:&lt;/b&gt; </span><span class="p">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">getLineCount</span><span class="p">()}</span><span class="s2">&lt;/li&gt;
+    &lt;/ul&gt;
+  `</span><span class="p">;</span>
 <span class="p">});</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>Now whenever you open a text editor in the center, the view will update with some information about it.</p>
 
@@ -539,12 +534,11 @@
 
 <p>Also, don't forget to clean up the subscription in the <code>destroy()</code> method:</p>
 
-<pre class="highlight highlight-js"><code><span class="nx">destroy</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre class="highlight"><code><span class="nx">destroy</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <h4>
 <a id="serialization" class="anchor" href="#serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization</h4>
@@ -553,15 +547,14 @@
 
 <p>The first step is to implement a <code>serialize()</code> method on our ActiveEditorInfoView class. Atom will call the <code>serialize()</code> method on every item in the workspace periodically to save its state.</p>
 
-<pre class="highlight highlight-js"><code>  <span class="nx">serialize</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre class="highlight"><code>  <span class="nx">serialize</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span>
       <span class="c1">// This is used to look up the deserializer function. It can be any string, but it needs to be</span>
       <span class="c1">// unique across all packages!</span>
       <span class="na">deserializer</span><span class="p">:</span> <span class="s1">'active-editor-info/ActiveEditorInfoView'</span>
     <span class="p">};</span>
   <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <div class="alert note">
 
@@ -571,23 +564,21 @@
 
 <p>Next we need to register a deserializer function that Atom can use to recreate the real object when it starts up. The best way to do that is to add a "deserializers" object to our <code>package.json</code> file:</p>
 
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active-editor-info"</span><span class="p">,</span><span class="w">
+<div class="highlight highlight-json"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active-editor-info"</span><span class="p">,</span><span class="w">
   </span><span class="err">...</span><span class="w">
-  </span><span class="nt">"deserializers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"active-editor-info/ActiveEditorInfoView"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deserializeActiveEditorInfoView"</span><span class="w">
+  </span><span class="s2">"deserializers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"active-editor-info/ActiveEditorInfoView"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deserializeActiveEditorInfoView"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 
 <p>Notice that the key (<code>"active-editor-info/ActiveEditorInfoView"</code>) matches the string we used in our <code>serialize()</code> method above. The value (<code>"deserializeActiveEditorInfoView"</code>) refers to a function in our main module, which we still need to add. Go back to <code>active-editor-info.js</code> and do that now:</p>
 
-<pre class="highlight highlight-js"><code>  <span class="nx">deserializeActiveEditorInfoView</span><span class="p">(</span><span class="nx">serialized</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre class="highlight"><code>  <span class="nx">deserializeActiveEditorInfoView</span><span class="p">(</span><span class="nx">serialized</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nx">ActiveEditorInfoView</span><span class="p">();</span>
   <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>The value returned from our <code>serialize()</code> method will be passed to this function. Since our serialized object didn't include any state, we can just return a new ActiveEditorInfoView instance.</p>
 

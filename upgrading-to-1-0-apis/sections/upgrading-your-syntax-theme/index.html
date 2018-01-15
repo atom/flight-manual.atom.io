@@ -403,7 +403,7 @@
 
 <p>Here's an example from Atom's light syntax theme. Note that the <code>atom-text-editor</code> selector intended to target the editor from the outside has been retained to allow the theme to keep working during the transition phase when it is possible to disable the shadow DOM.</p>
 
-<pre class="highlight highlight-less"><code>atom-text-editor, :host { /* :host added */
+<div class="highlight highlight-less"><pre class="highlight"><code>atom-text-editor, :host { /* :host added */
   background-color: @syntax-background-color;
   color: @syntax-text-color;
 
@@ -412,8 +412,7 @@
   }
   /* more nested selectors... */
 }
-</code></pre>
-
+</code></pre></div>
         </div>
       </div>
       <div class="footer-pad"></div>

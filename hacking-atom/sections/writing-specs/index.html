@@ -408,40 +408,36 @@
 
 <p>The <code>describe</code> method takes two arguments, a description and a function. If the description explains a behavior it typically begins with <code>when</code>; if it is more like a unit test it begins with the method name.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
-  <span class="c1"># contents
-</span></code></pre>
-
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="c1"># contents</span>
+</code></pre></div>
 
 <p>or</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"Editor::moveUp"</span><span class="p">,</span> <span class="o">-&gt;</span>
-  <span class="c1"># contents
-</span></code></pre>
-
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">describe</span> <span class="s">"Editor::moveUp"</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="c1"># contents</span>
+</code></pre></div>
 
 <h5>
 <a id="add-one-or-more-it-methods" class="anchor" href="#add-one-or-more-it-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add One or More <code>it</code> Methods</h5>
 
 <p>The <code>it</code> method also takes two arguments, a description and a function. Try and make the description flow with the <code>it</code> method. For example, a description of "this should work" doesn't read well as "it this should work". But a description of "should work" sounds great as "it should work".</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">it</span> <span class="s">"has some expectations that should pass"</span><span class="p">,</span> <span class="o">-&gt;</span>
-    <span class="c1"># Expectations
-</span></code></pre>
-
+    <span class="c1"># Expectations</span>
+</code></pre></div>
 
 <h5>
 <a id="add-one-or-more-expectations" class="anchor" href="#add-one-or-more-expectations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add One or More Expectations</h5>
 
 <p>The best way to learn about expectations is to read the <a href="https://jasmine.github.io/1.3/introduction.html#section-Expectations">Jasmine documentation</a> about them. Below is a simple example.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">it</span> <span class="s">"has some expectations that should pass"</span><span class="p">,</span> <span class="o">-&gt;</span>
     <span class="nx">expect</span><span class="p">(</span><span class="s">"apples"</span><span class="p">).</span><span class="na">toEqual</span><span class="p">(</span><span class="s">"apples"</span><span class="p">)</span>
     <span class="nx">expect</span><span class="p">(</span><span class="s">"oranges"</span><span class="p">).</span><span class="na">not</span><span class="p">.</span><span class="na">toEqual</span><span class="p">(</span><span class="s">"apples"</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 
 <h6>
 <a id="custom-matchers" class="anchor" href="#custom-matchers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Matchers</h6>
@@ -469,17 +465,16 @@
 
 <p>Working with promises is rather easy in Atom. You can use our <code>waitsForPromise</code> function.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when we open a file"</span><span class="p">,</span> <span class="o">-&gt;</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">describe</span> <span class="s">"when we open a file"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">it</span> <span class="s">"should be opened in an editor"</span><span class="p">,</span> <span class="o">-&gt;</span>
     <span class="nx">waitsForPromise</span> <span class="o">-&gt;</span>
       <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="s">'c.coffee'</span><span class="p">).</span><span class="na">then</span> <span class="p">(</span><span class="nx">editor</span><span class="p">)</span> <span class="o">-&gt;</span>
         <span class="nx">expect</span><span class="p">(</span><span class="nx">editor</span><span class="p">.</span><span class="na">getPath</span><span class="p">()).</span><span class="na">toContain</span> <span class="s">'c.coffee'</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>This method can be used in the <code>describe</code>, <code>it</code>, <code>beforeEach</code> and <code>afterEach</code> functions.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when we open a file"</span><span class="p">,</span> <span class="o">-&gt;</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">describe</span> <span class="s">"when we open a file"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">beforeEach</span> <span class="o">-&gt;</span>
     <span class="nx">waitsForPromise</span> <span class="o">-&gt;</span>
       <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">open</span> <span class="s">'c.coffee'</span>
@@ -487,12 +482,11 @@
   <span class="nx">it</span> <span class="s">"should be opened in an editor"</span><span class="p">,</span> <span class="o">-&gt;</span>
     <span class="nx">expect</span><span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">().</span><span class="na">getPath</span><span class="p">()).</span><span class="na">toContain</span> <span class="s">'c.coffee'</span>
 
-</code></pre>
-
+</code></pre></div>
 
 <p>If you need to wait for multiple promises use a new <code>waitsForPromise</code> function for each promise. (Caution: Without <code>beforeEach</code> this example will fail!)</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"waiting for the packages to load"</span><span class="p">,</span> <span class="o">-&gt;</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">describe</span> <span class="s">"waiting for the packages to load"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">beforeEach</span> <span class="o">-&gt;</span>
     <span class="nx">waitsForPromise</span> <span class="o">-&gt;</span>
       <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="s">'sample.js'</span><span class="p">)</span>
@@ -506,8 +500,7 @@
   <span class="nx">it</span> <span class="s">'should have waited long enough'</span><span class="p">,</span> <span class="o">-&gt;</span>
     <span class="nx">expect</span><span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="na">packages</span><span class="p">.</span><span class="na">isPackageActive</span><span class="p">(</span><span class="s">'tabs'</span><span class="p">)).</span><span class="na">toBe</span> <span class="no">true</span>
     <span class="nx">expect</span><span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="na">packages</span><span class="p">.</span><span class="na">isPackageActive</span><span class="p">(</span><span class="s">'tree-view'</span><span class="p">)).</span><span class="na">toBe</span> <span class="no">true</span>
-</code></pre>
-
+</code></pre></div>
 
 <p><code>waitsForPromise</code> can take an additional object argument before the function. The object can have the following properties:</p>
 
@@ -520,20 +513,19 @@
 <code>label</code> The label to display if promise times out (default: <code>'promise to be resolved or rejected'</code>)</li>
 </ul>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when we open a file"</span><span class="p">,</span> <span class="o">-&gt;</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">describe</span> <span class="s">"when we open a file"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">it</span> <span class="s">"should be opened in an editor"</span><span class="p">,</span> <span class="o">-&gt;</span>
     <span class="nx">waitsForPromise</span> <span class="p">{</span> <span class="na">shouldReject</span><span class="o">:</span> <span class="no">false</span><span class="p">,</span> <span class="na">timeout</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="na">label</span><span class="o">:</span> <span class="s">'promise to be resolved or rejected'</span> <span class="p">},</span> <span class="o">-&gt;</span>
       <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="s">'c.coffee'</span><span class="p">).</span><span class="na">then</span> <span class="p">(</span><span class="nx">editor</span><span class="p">)</span> <span class="o">-&gt;</span>
         <span class="nx">expect</span><span class="p">(</span><span class="nx">editor</span><span class="p">.</span><span class="na">getPath</span><span class="p">()).</span><span class="na">toContain</span> <span class="s">'c.coffee'</span>
-</code></pre>
-
+</code></pre></div>
 
 <h5>
 <a id="asynchronous-functions-with-callbacks" class="anchor" href="#asynchronous-functions-with-callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous Functions with Callbacks</h5>
 
 <p>Specs for asynchronous functions can be done using the <code>waitsFor</code> and <code>runs</code> functions. A simple example.</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"fs.readdir(path, cb)"</span><span class="p">,</span> <span class="o">-&gt;</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">describe</span> <span class="s">"fs.readdir(path, cb)"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">it</span> <span class="s">"is async"</span><span class="p">,</span> <span class="o">-&gt;</span>
     <span class="nx">spy</span> <span class="o">=</span> <span class="nx">jasmine</span><span class="p">.</span><span class="na">createSpy</span><span class="p">(</span><span class="s">'fs.readdirSpy'</span><span class="p">)</span>
     <span class="nx">fs</span><span class="p">.</span><span class="na">readdir</span><span class="p">(</span><span class="s">'/tmp/example'</span><span class="p">,</span> <span class="nx">spy</span><span class="p">)</span>
@@ -545,8 +537,7 @@
       <span class="nx">exp</span> <span class="o">=</span> <span class="p">[</span><span class="no">null</span><span class="p">,</span> <span class="p">[</span><span class="s">'example.coffee'</span><span class="p">]]</span>
       <span class="nx">expect</span><span class="p">(</span><span class="nx">spy</span><span class="p">.</span><span class="na">mostRecentCall</span><span class="p">.</span><span class="na">args</span><span class="p">).</span><span class="na">toEqual</span> <span class="nx">exp</span>
       <span class="nx">expect</span><span class="p">(</span><span class="nx">spy</span><span class="p">).</span><span class="na">toHaveBeenCalledWith</span><span class="p">(</span><span class="no">null</span><span class="p">,</span> <span class="p">[</span><span class="s">'example.coffee'</span><span class="p">])</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>For a more detailed documentation on asynchronous tests please visit the <a href="https://jasmine.github.io/1.3/introduction.html#section-Asynchronous_Support">Jasmine documentation</a>.</p>
 
@@ -557,12 +548,11 @@
 
 <p>To run a limited subset of specs use the <code>fdescribe</code> or <code>fit</code> methods. You can use those to focus a single spec or several specs. Modified from the example above, focusing an individual spec looks like this:</p>
 
-<pre class="highlight highlight-coffee"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">describe</span> <span class="s">"when a test is written"</span><span class="p">,</span> <span class="o">-&gt;</span>
   <span class="nx">fit</span> <span class="s">"has some expectations that should pass"</span><span class="p">,</span> <span class="o">-&gt;</span>
     <span class="nx">expect</span><span class="p">(</span><span class="s">"apples"</span><span class="p">).</span><span class="na">toEqual</span><span class="p">(</span><span class="s">"apples"</span><span class="p">)</span>
     <span class="nx">expect</span><span class="p">(</span><span class="s">"oranges"</span><span class="p">).</span><span class="na">not</span><span class="p">.</span><span class="na">toEqual</span><span class="p">(</span><span class="s">"apples"</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 
 <h5>
 <a id="running-on-ci" class="anchor" href="#running-on-ci" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running on CI</h5>

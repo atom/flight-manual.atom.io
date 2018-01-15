@@ -412,7 +412,7 @@
 
 <p>Next, open up <code>lib/ascii-art.js</code> and remove all view code, so it looks like this:</p>
 
-<pre class="highlight highlight-javascript"><code><span class="kr">const</span> <span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'atom'</span><span class="p">)</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span><span class="nx">CompositeDisposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'atom'</span><span class="p">)</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">subscriptions</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -432,8 +432,7 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Convert text!'</span><span class="p">)</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <h5>
 <a id="create-a-command" class="anchor" href="#create-a-command" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a Command</h5>
@@ -442,14 +441,13 @@
 
 <p>So far, that will simply log to the console. Let's start by making it insert something into the text buffer.</p>
 
-<pre class="highlight highlight-javascript"><code><span class="nx">convert</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveTextEditor</span><span class="p">()</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="nx">convert</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveTextEditor</span><span class="p">()</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">editor</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">editor</span><span class="p">.</span><span class="nx">insertText</span><span class="p">(</span><span class="s1">'Hello, World!'</span><span class="p">)</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>As in <a href="/hacking-atom/sections/package-word-count/#counting-the-words">Counting Words</a>, we're using <code>atom.workspace.getActiveTextEditor()</code> to get the object that represents the active text editor. If this <code>convert()</code> method is called when not focused on a text editor, nothing will happen.</p>
 
@@ -465,11 +463,10 @@
 
 <p>Now open the Command Palette and search for the "Ascii Art: Convert" command. But it's not there! To fix this, open <code>package.json</code> and find the property called <code>activationCommands</code>. Activation commands make Atom launch faster by allowing Atom to delay a package's activation until it's needed. So remove the existing command and use <code>ascii-art:convert</code> in <code>activationCommands</code>:</p>
 
-<pre class="highlight highlight-json"><code><span class="s2">"activationCommands"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"atom-workspace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ascii-art:convert"</span><span class="w">
+<div class="highlight highlight-json"><pre class="highlight"><code><span class="s2">"activationCommands"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"atom-workspace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ascii-art:convert"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 
 <p>First, reload the window by running the command "Window: Reload" from the command palette. Now when you run the "Ascii Art: Convert" command it will insert "Hello, World!" into the active editor, if any.</p>
 
@@ -480,14 +477,13 @@
 
 <p>When finished, the file should look like this:</p>
 
-<pre class="highlight highlight-javascript"><code><span class="p">{</span>
-  <span class="s2">"atom-text-editor"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"ctrl-alt-a"</span><span class="err">:</span> <span class="s2">"ascii-art:convert"</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="p">{</span>
+  <span class="s2">"atom-text-editor"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"ctrl-alt-a"</span><span class="p">:</span> <span class="s2">"ascii-art:convert"</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre>
-
+</code></pre></div>
 
 <p>Now reload the window and verify that the key binding works.</p>
 
@@ -504,11 +500,10 @@
 
 <p>Now we need to convert the selected text to ASCII art. To do this we will use the <a href="https://npmjs.org/package/figlet">figlet</a> Node module from <a href="https://npmjs.org/">npm</a>. Open <code>package.json</code> and add the latest version of figlet to the dependencies:</p>
 
-<pre class="highlight highlight-json"><code><span class="s2">"dependencies"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"figlet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.8"</span><span class="w">
+<div class="highlight highlight-json"><pre class="highlight"><code><span class="s2">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"figlet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.8"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 
 <p>After saving the file, run the command "Update Package Dependencies: Update" from the Command Palette. This will install the package's node module dependencies, only figlet in this case. You will need to run "Update Package Dependencies: Update" whenever you update the dependencies field in your <code>package.json</code> file.</p>
 
@@ -516,24 +511,23 @@
 
 <p>Now require the figlet node module in <code>lib/ascii-art.js</code> and instead of inserting "Hello, World!", convert the selected text to ASCII art.</p>
 
-<pre class="highlight highlight-javascript"><code><span class="nx">convert</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveTextEditor</span><span class="p">()</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="nx">convert</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveTextEditor</span><span class="p">()</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">editor</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">selection</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getSelectedText</span><span class="p">()</span>
+    <span class="kd">const</span> <span class="nx">selection</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getSelectedText</span><span class="p">()</span>
 
-    <span class="kr">const</span> <span class="nx">figlet</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'figlet'</span><span class="p">)</span>
-    <span class="kr">const</span> <span class="nx">font</span> <span class="o">=</span> <span class="s1">'o8'</span>
+    <span class="kd">const</span> <span class="nx">figlet</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'figlet'</span><span class="p">)</span>
+    <span class="kd">const</span> <span class="nx">font</span> <span class="o">=</span> <span class="s1">'o8'</span>
     <span class="nx">figlet</span><span class="p">(</span><span class="nx">selection</span><span class="p">,</span> <span class="p">{</span><span class="nx">font</span><span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">art</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
       <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">editor</span><span class="p">.</span><span class="nx">insertText</span><span class="p">(</span><span class="err">`\</span><span class="nx">n$</span><span class="p">{</span><span class="nx">art</span><span class="p">}</span><span class="err">\</span><span class="nx">n</span><span class="err">`</span><span class="p">)</span>
+        <span class="nx">editor</span><span class="p">.</span><span class="nx">insertText</span><span class="p">(</span><span class="s2">`\n</span><span class="p">${</span><span class="nx">art</span><span class="p">}</span><span class="s2">\n`</span><span class="p">)</span>
       <span class="p">}</span>
     <span class="p">})</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>Now reload the editor, select some text in an editor window and press <kbd class="platform-all">Alt+Ctrl+A</kbd>. It should be replaced with a ridiculous ASCII art version instead.</p>
 

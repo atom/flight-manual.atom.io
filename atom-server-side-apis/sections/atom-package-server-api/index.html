@@ -434,21 +434,20 @@
 
 <p>Returns a list of all packages in the following format:</p>
 
-<pre class="highlight highlight-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+<div class="highlight highlight-json"><pre class="highlight"><code><span class="w">  </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"releases"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"latest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.6.0"</span><span class="w">
+      </span><span class="s2">"releases"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"latest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.6.0"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thedaniel-test-package"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package"</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thedaniel-test-package"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"repository"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 
 <p>Results are paginated 30 at a time, and links to the next and last pages are provided in the <code>Link</code> header:</p>
 
@@ -497,22 +496,21 @@
 
 <p>Returns:</p>
 
-<pre class="highlight highlight-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"releases"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"latest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.6.0"</span><span class="w">
+<div class="highlight highlight-json"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"releases"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"latest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.6.0"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thedaniel-test-package"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package"</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thedaniel-test-package"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"repository"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="err">(see</span><span class="w"> </span><span class="err">single</span><span class="w"> </span><span class="err">version</span><span class="w"> </span><span class="err">output</span><span class="w"> </span><span class="err">below)</span><span class="w">
       </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 
 <h5>
 <a id="creating-a-package" class="anchor" href="#creating-a-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a package</h5>
@@ -582,35 +580,34 @@
 
 <p>Returns <code>package.json</code> with <code>dist</code> key added for e.g. tarball download:</p>
 
-<pre class="highlight highlight-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"bugs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package/issues"</span><span class="w">
+<div class="highlight highlight-json"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bugs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package/issues"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"async"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~0.2.6"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"pegjs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~0.7.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"season"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~0.13.0"</span><span class="w">
+    </span><span class="s2">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"async"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~0.2.6"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pegjs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~0.7.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"season"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~0.13.0"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Expand snippets matching the current prefix with `tab`."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dist"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"tarball"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://codeload.github.com/..."</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Expand snippets matching the current prefix with `tab`."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dist"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tarball"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://codeload.github.com/..."</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"engines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"atom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
+    </span><span class="s2">"engines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"atom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/snippets"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thedaniel-test-package"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"publishConfig"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"registry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="p">,</span><span class="w">
-    </span><span class="err">}</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package.git"</span><span class="w">
+    </span><span class="s2">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/snippets"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thedaniel-test-package"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"publishConfig"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"registry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="p">,</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.6.0"</span><span class="w">
+    </span><span class="s2">"repository"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/thedaniel/test-package.git"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.6.0"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 
 <h5>
 <a id="creating-a-new-package-version" class="anchor" href="#creating-a-new-package-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a new package version</h5>
@@ -702,12 +699,11 @@
 
 <p>Returns a list of user objects:</p>
 
-<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="nt">"login"</span><span class="p">:</span><span class="s2">"aperson"</span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="nt">"login"</span><span class="p">:</span><span class="s2">"anotherperson"</span><span class="p">},</span><span class="w">
+<div class="highlight highlight-json"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="s2">"login"</span><span class="p">:</span><span class="s2">"aperson"</span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="s2">"login"</span><span class="p">:</span><span class="s2">"anotherperson"</span><span class="p">},</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
         </div>
       </div>
       <div class="footer-pad"></div>

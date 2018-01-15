@@ -409,11 +409,10 @@
 
 <p>For example, if we want our package <code>my-package</code> to handle URIs with a method on our package's main module called <code>handleURI</code>, we could add the following to our <code>package.json</code>:</p>
 
-<pre class="highlight highlight-json"><code><span class="s2">"uriHandler"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"handleURI"</span><span class="w">
+<div class="highlight highlight-json"><pre class="highlight"><code><span class="s2">"uriHandler"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"handleURI"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 
 <h4>
 <a id="modifying-your-main-module" class="anchor" href="#modifying-your-main-module" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modifying your Main Module</h4>
@@ -422,7 +421,7 @@
 
 <p>Here's a sample package, written in JavaScript, that handles URIs with the <code>package.json</code> configuration we saw above.</p>
 
-<pre class="highlight highlight-js"><code><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
   <span class="nx">activate</span> <span class="p">()</span> <span class="p">{</span>
     <span class="c1">// normal activation code here</span>
   <span class="p">},</span>
@@ -431,27 +430,25 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parsedUri</span><span class="p">)</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>When Atom handles, for example, the URI <code>atom://my-package/my/test/url?value=42&amp;other=false</code>, the package would log out something like the following:</p>
 
-<pre class="highlight highlight-js"><code><span class="p">{</span>
+<div class="highlight highlight-js"><pre class="highlight"><code><span class="p">{</span>
   <span class="nl">protocol</span><span class="p">:</span> <span class="s1">'atom:'</span><span class="p">,</span>
-  <span class="nx">slashes</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">auth</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nx">host</span><span class="err">:</span> <span class="s1">'my-package'</span><span class="p">,</span>
-  <span class="nx">port</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nx">hostname</span><span class="err">:</span> <span class="s1">'my-package'</span><span class="p">,</span>
-  <span class="nx">hash</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nx">search</span><span class="err">:</span> <span class="s1">'?value=true&amp;other=false'</span><span class="p">,</span>
-  <span class="nx">query</span><span class="err">:</span> <span class="p">{</span> <span class="nl">value</span><span class="p">:</span> <span class="s1">'42'</span><span class="p">,</span> <span class="nx">other</span><span class="err">:</span> <span class="s1">'false'</span> <span class="p">},</span>
-  <span class="nx">pathname</span><span class="err">:</span> <span class="s1">'/my/test/url'</span><span class="p">,</span>
-  <span class="nx">path</span><span class="err">:</span> <span class="s1">'/my/test/url?value=true&amp;other=false'</span><span class="p">,</span>
-  <span class="nx">href</span><span class="err">:</span> <span class="s1">'atom://my-package/my/test/url?value=true&amp;other=false'</span>
+  <span class="nx">slashes</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">auth</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">host</span><span class="p">:</span> <span class="s1">'my-package'</span><span class="p">,</span>
+  <span class="nx">port</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">hostname</span><span class="p">:</span> <span class="s1">'my-package'</span><span class="p">,</span>
+  <span class="nx">hash</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">search</span><span class="p">:</span> <span class="s1">'?value=true&amp;other=false'</span><span class="p">,</span>
+  <span class="nx">query</span><span class="p">:</span> <span class="p">{</span> <span class="nl">value</span><span class="p">:</span> <span class="s1">'42'</span><span class="p">,</span> <span class="nx">other</span><span class="p">:</span> <span class="s1">'false'</span> <span class="p">},</span>
+  <span class="nx">pathname</span><span class="p">:</span> <span class="s1">'/my/test/url'</span><span class="p">,</span>
+  <span class="nx">path</span><span class="p">:</span> <span class="s1">'/my/test/url?value=true&amp;other=false'</span><span class="p">,</span>
+  <span class="nx">href</span><span class="p">:</span> <span class="s1">'atom://my-package/my/test/url?value=true&amp;other=false'</span>
 <span class="p">}</span>
-</code></pre>
-
+</code></pre></div>
 
 <p>Notice that the query string arguments are available in the <code>query</code> property, but are strings — you'll have to convert to other native types yourself.</p>
 
@@ -460,12 +457,11 @@
 
 <p>For performance reasons, adding a <code>uriHandler</code> entry to your package's <code>package.json</code> will enable <em>deferred activation</em>. This means that Atom will not activate your package until it has a URI for it to handle — it will then activate your package and then immediately call the URI handler method. If you want to disable the deferred activation, ensuring your package is activated upon startup, you can add <code>"deferActivation": false</code> to the URI handler config. For example,</p>
 
-<pre class="highlight highlight-json"><code><span class="s2">"uriHandler"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"handleURI"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"deferActivation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+<div class="highlight highlight-json"><pre class="highlight"><code><span class="s2">"uriHandler"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"handleURI"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deferActivation"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 
 <p>Before doing this, make sure your package actually needs to be activated immediately — disabling deferred activation means Atom takes longer to start since it has to activate all packages without deferred activation.</p>
 
