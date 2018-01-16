@@ -209,7 +209,7 @@ Then create a `.atom` directory alongside the directory that contains the Atom b
 
 #### Building Atom from Source
 
-If you just want to build Atom from source, you can also do that. The Atom GitHub repository has detailed [build instructions for Mac, Windows, Linux and FreeBSD](https://github.com/atom/atom/tree/master/docs/build-instructions).
+The [Hacking on Atom Core](/hacking-atom/sections/hacking-on-atom-core/) section of the flight manual covers instructions on how to clone and build the source code if you prefer that option.
 
 #### Proxy and Firewall Settings
 
