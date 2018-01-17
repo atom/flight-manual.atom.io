@@ -40,6 +40,108 @@ You can also move directly to a specific line (and column) number with <kbd clas
 
 ![Go directly to a line](../../images/goto.png "Go directly to a line")
 
+
+#### Additional Movement and Selection Commands
+
+Atom also has a few movement and selection commands that don't have keybindings by default. You can access these commands from the [Command Palette](/getting-started/sections/atom-basics/#command-palette), but if you find yourself using commands that don't have a keybinding often, have no fear! You can easily add an entry to your `keymap.cson` to create a key combination. You can open `keymap.cson` file in an editor from the <span class="platform-mac">_Atom > Keymap_</span><span class="platform-windows">_File > Keymap_</span><span class="platform-linux">_Edit > Keymap_</span> menu.
+
+For example, the command `editor:move-to-beginning-of-screen-line` is available in the command palette, but it's not bound to any key combination. To create a key combination you need to add an entry in your `keymap.cson` file. For `editor:select-to-previous-word-boundary`, you can add the following to your `keymap.cson`:
+
+
+{{#mac}}
+```coffee
+'atom-text-editor':
+  'cmd-shift-e': 'editor:select-to-previous-word-boundary'
+```
+{{/mac}}
+
+{{#windows}}
+```coffee
+'atom-text-editor':
+  'ctrl-shift-e': 'editor:select-to-previous-word-boundary'
+```
+{{/windows}}
+
+{{#linux}}
+```coffee
+'atom-text-editor':
+  'ctrl-shift-e': 'editor:select-to-previous-word-boundary'
+```
+{{/linux}}
+
+This will bind the command `editor:select-to-previous-word-boundary` to <kbd class="platform-mac">Cmd+Shift+E</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+E</kbd>.  For more information on customizing your keybindings, see [Customizing Keybindings](/using-atom/sections/basic-customization/#customizing-keybindings).
+
+Here's a list of Movement and Selection Commands that have a keyboard shortcut by default:
+
+{{#mac}}
+
+```
+editor:move-to-beginning-of-next-paragraph
+editor:move-to-beginning-of-previous-paragraph
+editor:move-to-beginning-of-screen-line
+editor:move-to-beginning-of-line
+editor:move-to-beginning-of-next-word
+editor:move-to-previous-word-boundary
+editor:move-to-next-word-boundary
+editor:move-to-previous-subword-boundary
+editor:select-to-beginning-of-previous-paragraph
+editor:select-to-end-of-line
+editor:select-to-beginning-of-line
+editor:select-to-beginning-of-word
+editor:select-to-beginning-of-next-word
+editor:select-to-next-word-boundary
+editor:select-to-previous-word-boundary
+```
+
+{{/mac}}
+
+{{#windows}}
+```
+editor:move-to-beginning-of-next-paragraph
+editor:move-to-beginning-of-previous-paragraph
+editor:move-to-beginning-of-screen-line
+editor:move-to-beginning-of-line
+editor:move-to-end-of-line
+editor:move-to-first-character-of-line
+editor:move-to-beginning-of-next-word
+editor:move-to-previous-word-boundary
+editor:move-to-next-word-boundary
+editor:select-to-beginning-of-next-paragraph
+editor:select-to-beginning-of-previous-paragraph
+editor:select-to-end-of-line
+editor:select-to-beginning-of-line
+editor:select-to-beginning-of-word
+editor:select-to-beginning-of-next-word
+editor:select-to-next-word-boundary
+editor:select-to-previous-word-boundary
+```
+
+{{/windows}}
+
+{{#linux}}
+```
+editor:move-to-beginning-of-next-paragraph
+editor:move-to-beginning-of-previous-paragraph
+editor:move-to-beginning-of-screen-line
+editor:move-to-beginning-of-line
+editor:move-to-end-of-line
+editor:move-to-first-character-of-line
+editor:move-to-beginning-of-next-word
+editor:move-to-previous-word-boundary
+editor:move-to-next-word-boundary
+editor:select-to-beginning-of-next-paragraph
+editor:select-to-beginning-of-previous-paragraph
+editor:select-to-end-of-line
+editor:select-to-beginning-of-line
+editor:select-to-beginning-of-word
+editor:select-to-beginning-of-next-word
+editor:select-to-next-word-boundary
+editor:select-to-previous-word-boundary
+```
+
+{{/linux}}
+
+
 #### Navigating by Symbols
 
 You can also jump around a little more informatively with the Symbols View. To jump to a symbol such as a method definition, press <kbd class="platform-mac">Cmd+R</kbd><kbd class="platform-windows platform-linux">Ctrl+R</kbd>. This opens a list of all symbols in the current file, which you can fuzzy filter similarly to <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd>. You can also search for symbols across your project but it requires a `tags` file.
