@@ -31,7 +31,7 @@ The button or buttons should be specific to your platform and the download packa
 
 #### Installing Atom on Mac
 
-Atom follows the standard Mac zip installation process. You can either press the download button from the https://atom.io site or you can go to the [Atom releases page][releases] to download the `atom-mac.zip` file explicitly. Once you have that file, you can click on it to extract the application and then drag the new `Atom` application into your "Applications" folder.
+Atom follows the standard Mac zip installation process. You can either press the download button from the https://atom.io site or you can go to the [Atom releases page](https://github.com/atom/atom/releases/latest) to download the `atom-mac.zip` file explicitly. Once you have that file, you can click on it to extract the application and then drag the new `Atom` application into your "Applications" folder.
 
 When you first open Atom, it will try to install the `atom` and `apm` commands for use in the terminal. In some cases, Atom might not be able to install these commands because it needs an administrator password. To check if Atom was able to install the `atom` command, for example, open a terminal window and type `which atom`. If the `atom` command has been installed, you'll see something like this:
 
@@ -56,7 +56,7 @@ To install the `atom` and `apm` commands, run "Window: Install Shell Commands" f
 
 #### Installing Atom on Windows
 
-Atom is available with a Windows installer that can be downloaded from https://atom.io or from [Atom Releases][releases] named `AtomSetup.exe`. This setup program will install Atom, add the `atom` and `apm` commands to your `PATH`, and create shortcuts on the desktop and in the start menu.
+Atom is available with a Windows installer that can be downloaded from https://atom.io or from the [Atom releases page](https://github.com/atom/atom/releases/latest) named `AtomSetup.exe`. This setup program will install Atom, add the `atom` and `apm` commands to your `PATH`, and create shortcuts on the desktop and in the start menu.
 
 ![Atom on Windows](../../images/windows-system-settings.png)
 
