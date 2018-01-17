@@ -43,9 +43,10 @@ You can also move directly to a specific line (and column) number with <kbd clas
 
 #### Additional Movement and Selection Commands
 
-Atom also has a few movement and selection commands that don't have keybindings by default.   You can access these commands from the [Command Palette](http://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette), but if you find yourself using commands that don't have a keybinding often, have no fear!  You can easily add an entry to your `keymaps.cson` to create a key combination.  
+Atom also has a few movement and selection commands that don't have keybindings by default.   You can access these commands from the [Command Palette](/getting-started/sections/atom-basics/#command-palette), but if you find yourself using commands that don't have a keybinding often, have no fear!  You can easily add an entry to your `keymap.cson` to create a key combination.  You can open `keymap.cson` file in an editor from the Atom > Keymap menu.
 
-For example,  the command `editor:move-to-beginning-of-screen-line` is available in the command palette, but it's not bound to any keyboard shortcut.  To create a keyboard shortcut you need to add a entry in your `keymaps.cson` file.   For `editor:select-to-previous-word-boundary`, you can add the following to your `keymaps.cson`:
+For example,  the command `editor:move-to-beginning-of-screen-line` is available in the command palette, but it's not bound to any key combination.  To create a key combination you need to add an entry in your `keymap.cson` file.    For `editor:select-to-previous-word-boundary`, you can add the following to your `keymap.cson`:
+
 
 {{#mac}}
 ```coffee
@@ -68,7 +69,7 @@ For example,  the command `editor:move-to-beginning-of-screen-line` is available
 ```
 {{/linux}}
 
-This will bind the command `editor:select-to-previous-word-boundary` to <kbd class="platform-mac">Cmd+Shift+E</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+E</kbd>.  For more information on customizing your keybindings, see [Customizing Keybindings](http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings).
+This will bind the command `editor:select-to-previous-word-boundary` to <kbd class="platform-mac">Cmd+Shift+E</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+E</kbd>.  For more information on customizing your keybindings, see [Customizing Keybindings](/using-atom/sections/basic-customization/#customizing-keybindings).
 
 Here's a list of Movement and Selection Commands that have a keyboard shortcut by default:
 
