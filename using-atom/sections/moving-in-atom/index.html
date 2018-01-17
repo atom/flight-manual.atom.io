@@ -435,6 +435,108 @@
 <p><img src="../../images/goto.png" alt="Go directly to a line" title="Go directly to a line"></p>
 
 <h4>
+<a id="additional-movement-and-selection-commands" class="anchor" href="#additional-movement-and-selection-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Movement and Selection Commands</h4>
+
+<p>Atom also has a few movement and selection commands that don't have keybindings by default. You can access these commands from the <a href="/getting-started/sections/atom-basics/#command-palette">Command Palette</a>, but if you find yourself using commands that don't have a keybinding often, have no fear! You can easily add an entry to your <code>keymap.cson</code> to create a key combination. You can open <code>keymap.cson</code> file in an editor from the <span class="platform-mac"><em>Atom &gt; Keymap</em></span><span class="platform-windows"><em>File &gt; Keymap</em></span><span class="platform-linux"><em>Edit &gt; Keymap</em></span> menu.</p>
+
+<p>For example, the command <code>editor:move-to-beginning-of-screen-line</code> is available in the command palette, but it's not bound to any key combination. To create a key combination you need to add an entry in your <code>keymap.cson</code> file. For <code>editor:select-to-previous-word-boundary</code>, you can add the following to your <code>keymap.cson</code>:</p>
+
+<div class="platform-mac">
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+  <span class="s">'cmd-shift-e'</span><span class="o">:</span> <span class="s">'editor:select-to-previous-word-boundary'</span>
+</code></pre></div>
+
+</div>
+
+<div class="platform-windows">
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+  <span class="s">'ctrl-shift-e'</span><span class="o">:</span> <span class="s">'editor:select-to-previous-word-boundary'</span>
+</code></pre></div>
+
+</div>
+
+<div class="platform-linux">
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'atom-text-editor'</span><span class="o">:</span>
+  <span class="s">'ctrl-shift-e'</span><span class="o">:</span> <span class="s">'editor:select-to-previous-word-boundary'</span>
+</code></pre></div>
+
+</div>
+
+<p>This will bind the command <code>editor:select-to-previous-word-boundary</code> to <kbd class="platform-mac">Cmd+Shift+E</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+E</kbd>.  For more information on customizing your keybindings, see <a href="/using-atom/sections/basic-customization/#customizing-keybindings">Customizing Keybindings</a>.</p>
+
+<p>Here's a list of Movement and Selection Commands that have a keyboard shortcut by default:</p>
+
+<div class="platform-mac">
+
+<pre><code>editor:move-to-beginning-of-next-paragraph
+editor:move-to-beginning-of-previous-paragraph
+editor:move-to-beginning-of-screen-line
+editor:move-to-beginning-of-line
+editor:move-to-beginning-of-next-word
+editor:move-to-previous-word-boundary
+editor:move-to-next-word-boundary
+editor:move-to-previous-subword-boundary
+editor:select-to-beginning-of-previous-paragraph
+editor:select-to-end-of-line
+editor:select-to-beginning-of-line
+editor:select-to-beginning-of-word
+editor:select-to-beginning-of-next-word
+editor:select-to-next-word-boundary
+editor:select-to-previous-word-boundary
+</code></pre>
+
+</div>
+
+<div class="platform-windows">
+
+<pre><code>editor:move-to-beginning-of-next-paragraph
+editor:move-to-beginning-of-previous-paragraph
+editor:move-to-beginning-of-screen-line
+editor:move-to-beginning-of-line
+editor:move-to-end-of-line
+editor:move-to-first-character-of-line
+editor:move-to-beginning-of-next-word
+editor:move-to-previous-word-boundary
+editor:move-to-next-word-boundary
+editor:select-to-beginning-of-next-paragraph
+editor:select-to-beginning-of-previous-paragraph
+editor:select-to-end-of-line
+editor:select-to-beginning-of-line
+editor:select-to-beginning-of-word
+editor:select-to-beginning-of-next-word
+editor:select-to-next-word-boundary
+editor:select-to-previous-word-boundary
+</code></pre>
+
+</div>
+
+<div class="platform-linux">
+
+<pre><code>editor:move-to-beginning-of-next-paragraph
+editor:move-to-beginning-of-previous-paragraph
+editor:move-to-beginning-of-screen-line
+editor:move-to-beginning-of-line
+editor:move-to-end-of-line
+editor:move-to-first-character-of-line
+editor:move-to-beginning-of-next-word
+editor:move-to-previous-word-boundary
+editor:move-to-next-word-boundary
+editor:select-to-beginning-of-next-paragraph
+editor:select-to-beginning-of-previous-paragraph
+editor:select-to-end-of-line
+editor:select-to-beginning-of-line
+editor:select-to-beginning-of-word
+editor:select-to-beginning-of-next-word
+editor:select-to-next-word-boundary
+editor:select-to-previous-word-boundary
+</code></pre>
+
+</div>
+
+<h4>
 <a id="navigating-by-symbols" class="anchor" href="#navigating-by-symbols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Navigating by Symbols</h4>
 
 <p>You can also jump around a little more informatively with the Symbols View. To jump to a symbol such as a method definition, press <kbd class="platform-mac">Cmd+R</kbd><kbd class="platform-windows platform-linux">Ctrl+R</kbd>. This opens a list of all symbols in the current file, which you can fuzzy filter similarly to <kbd class="platform-mac">Cmd+T</kbd><kbd class="platform-windows platform-linux">Ctrl+T</kbd>. You can also search for symbols across your project but it requires a <code>tags</code> file.</p>
