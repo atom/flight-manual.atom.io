@@ -43,9 +43,9 @@ You can also move directly to a specific line (and column) number with <kbd clas
 
 #### Additional Movement and Selection Commands
 
-Atom also has a few movement and selection commands that don't have keybindings by default.   You can access these commands from the [Command Palette](/getting-started/sections/atom-basics/#command-palette), but if you find yourself using commands that don't have a keybinding often, have no fear!  You can easily add an entry to your `keymap.cson` to create a key combination.  You can open `keymap.cson` file in an editor from the Atom > Keymap menu.
+Atom also has a few movement and selection commands that don't have keybindings by default. You can access these commands from the [Command Palette](/getting-started/sections/atom-basics/#command-palette), but if you find yourself using commands that don't have a keybinding often, have no fear! You can easily add an entry to your `keymap.cson` to create a key combination. You can open `keymap.cson` file in an editor from the Atom > Keymap menu.
 
-For example,  the command `editor:move-to-beginning-of-screen-line` is available in the command palette, but it's not bound to any key combination.  To create a key combination you need to add an entry in your `keymap.cson` file.    For `editor:select-to-previous-word-boundary`, you can add the following to your `keymap.cson`:
+For example, the command `editor:move-to-beginning-of-screen-line` is available in the command palette, but it's not bound to any key combination. To create a key combination you need to add an entry in your `keymap.cson` file. For `editor:select-to-previous-word-boundary`, you can add the following to your `keymap.cson`:
 
 
 {{#mac}}
