@@ -183,7 +183,7 @@ However, including `source.gfm` has led to another problem: note blocks still do
 ]
 ```
 
-#### Where to go from here
+#### Where to Go from Here
 
 There are several good resources out there that help when writing a grammar. The following is a list of some particularly useful ones (some have been linked to in the sections above as well).
 
