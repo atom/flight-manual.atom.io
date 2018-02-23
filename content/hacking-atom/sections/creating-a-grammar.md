@@ -18,6 +18,7 @@ Grammars depend heavily on regexes, and you should be comfortable with interpret
 * https://www.regular-expressions.info/tutorial.html provides a comprehensive regex tutorial
 * https://www.rexegg.com/regex-quickstart.html contains a cheat sheet for various regex expressions
 * https://regex101.com/ or https://regexr.com/ allows live prototyping
+* https://github.com/kkos/oniguruma/blob/master/doc/RE the docs for the Oniguruma regex engine
 
 Grammar files are written in the [CSON](https://github.com/bevry/cson#what-is-cson) or [JSON](https://www.json.org/) format. Whichever one you decide to use is up to you, but this tutorial will be written in CSON.
 
@@ -181,6 +182,19 @@ However, including `source.gfm` has led to another problem: note blocks still do
   }
 ]
 ```
+
+#### Where to Go from Here
+
+There are several good resources out there that help when writing a grammar. The following is a list of some particularly useful ones (some have been linked to in the sections above as well).
+
+- [DamnedScholar's Gist](https://gist.github.com/DamnedScholar/622926bcd222eb1ddc483d12103fd315). Provides a template of most keys, each with a short comment explaining their function.
+- [Aerijo's Gist](https://gist.github.com/Aerijo/b8c82d647db783187804e86fa0a604a1). [Work in Progress] Another guide that attempts to fully explain making a grammar package for users of all levels.
+- http://www.apeth.com/nonblog/stories/textmatebundle.html. A blog of a programmer's experience writing a grammar package for TextMate.
+- [Oniguruma docs](https://github.com/kkos/oniguruma/blob/master/doc/RE). The documentation for the regex engine Atom uses.
+- [TextMate Section 12](http://manual.macromates.com/en/language_grammars.html). Atom uses the same principles as laid out here, including the list of acceptable scopes.
+- [`first-mate`](https://github.com/atom/first-mate). Not necessary to write a grammar, but a good technical reference for what Atom is doing behind the scenes.
+- Look at any existing packages, such as the ones for [Python](https://github.com/atom/language-python), [JavaScript](https://github.com/atom/language-javascript), [HTML](https://github.com/atom/language-html), [and more](https://github.com/atom?utf8=%E2%9C%93&q=language&type=source&language=).
+
 
 <!--
 TODO:
