@@ -86,7 +86,7 @@ In order to build Atom from source, you need to have a number of other requireme
 
 {{#linux}}
 
-Ubuntu LTS 12.04 64-bit is the recommended platform.
+Ubuntu LTS 16.04 64-bit is the recommended platform.
 
 ##### Requirements
 
