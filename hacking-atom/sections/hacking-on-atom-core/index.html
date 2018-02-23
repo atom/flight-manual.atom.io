@@ -415,7 +415,7 @@
 <h4>
 <a id="running-in-development-mode" class="anchor" href="#running-in-development-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running in Development Mode</h4>
 
-<p>Once you have a local copy of Atom cloned and bootstrapped, you can then run Atom in Development Mode. But first, you have to set the <code>ATOM_DEV_RESOURCE_PATH</code> environment variable. It defaults to <span class="platform-mac platform-linux"><code>~/github/atom</code></span><span class="platform-windows"><code>%USERPROFILE%\github\atom</code></span> which then expects the <code>atom/atom</code> repository to be cloned into <span class="platform-mac platform-linux"><code>$ATOM_DEV_RESOURCE_PATH</code></span><span class="platform-windows"><code>%ATOM_DEV_RESOURCE_PATH%</code></span>. To run Atom in Dev Mode, use the <code>--dev</code> parameter from the terminal:</p>
+<p>Once you have a local copy of Atom cloned and bootstrapped, you can then run Atom in Development Mode. But first, if you cloned Atom to somewhere other than <span class="platform-mac platform-linux"><code>~/github/atom</code></span><span class="platform-windows"><code>%USERPROFILE%\github\atom</code></span> you will need to set the <code>ATOM_DEV_RESOURCE_PATH</code> environment variable to point to the folder in which you cloned Atom. To run Atom in Dev Mode, use the <code>--dev</code> parameter from the terminal:</p>
 
 <pre class="command-line">
 <span class="command">atom --dev <em>path-to-open</em></span>
