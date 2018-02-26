@@ -31,6 +31,11 @@ Once you have a local copy of Atom cloned and bootstrapped, you can then run Ato
 ``` command-line
 $ atom --dev <em>path-to-open</em>
 ```
+{{#note}}
+
+**Note:** If the atom command does not respond in the terminal, then try atom-dev or atom-beta. The suffix depends upon the particular source code that was cloned.
+
+{{/note}}
 
 There are a couple benefits of running Atom in Dev Mode:
 
