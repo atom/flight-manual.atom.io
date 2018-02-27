@@ -57,6 +57,7 @@ In order to build Atom from source, you need to have a number of other requireme
 * macOS 10.9 or later
 * Node.js 6.x or later (we recommend installing it via [nvm](https://github.com/creationix/nvm))
 * npm 3.10.x or later (run `npm install -g npm`)
+* Python v2.7.x
 * Command Line Tools for [Xcode](https://developer.apple.com/xcode/downloads/) (run `xcode-select --install` to install)
 
 {{/mac}}
