@@ -206,8 +206,6 @@ When an unexpected error occurs in Atom, you will normally see a red notificatio
 
 ![Exception Notification](../../images/exception-notification.png)
 
-If you can reproduce the error, use this approach to get the full stack trace and [report the issue](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues).
-
 Not all errors are logged with a notification so if you suspect you're experiencing an error but there's no notification, you can also look for errors in the developer tools Console tab.  To access the Console tab, press <kbd class="platform-mac">Alt-Cmd-I</kbd><kbd class="platform-windows platform-linux">Ctrl-Shift-I</kbd> to open developer tools and then click the Console tab:
 
 ![DevTools Error](../../images/devtools-error.png)
