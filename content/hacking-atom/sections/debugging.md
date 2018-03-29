@@ -300,14 +300,23 @@ Check out the pre-requisites in the [build instructions](https://github.com/atom
 
 #### Check if your GPU is causing the problem
 
-You can try to disable your Graphics Processing Unit (GPU) by the following Chromium command: `--disable-gpu` and see if the fault lies within your GPU. This command is mostly applicable for flicker and rendering issues.
+If you encounter flickering or other rendering issues, you can disable your Graphics Processing Unit (GPU) with the `--disable-gpu` Chromium flag to see if the fault lies with your GPU:
 
-Be sure to use Chromium commands at the end of the terminal call if you want to have other atom-directed commands as they will not be executed after the chromium command.
+```command-line
+$ atom --disable-gpu
+```
 
-Another command that is helpful when debugging is:
+Two other Chromium flags that are useful for debugging are `--enable-gpu-rasterization` and `--force-gpu-rasterization`:
+
+``` command-line
+$ atom --enable-gpu-rasterization --force-gpu-rasterization
+```
+
+`--enable-gpu-rasterization` allows other commands to determine how a layer tile (graphics) should be drawn and `--force-gpu-rasterization` determines that the Skia GPU backend should be used for drawing layer tiles (only valid with GPU accelerated compositing).
+
+Be sure to use Chromium flags at the end of the terminal call if you want to use other Atom flags as they will not be executed after the Chromium flags e.g.:
 
 ``` command-line
 $ atom --safe --enable-gpu-rasterization --force-gpu-rasterization
 ```
 
-The enable command will allow other commands to determine how a layer tile (graphics) should be drawn and the force command determines that Skia GPU backend should be used for drawing layer tiles (Only valid with GPU accelerated compositing).
