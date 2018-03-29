@@ -306,6 +306,8 @@ If you encounter flickering or other rendering issues, you can disable your Grap
 $ atom --disable-gpu
 ```
 
+Chromium (and thus Atom) normally uses the GPU to accelerate drawing parts of the interface. `--disable-gpu` tells Atom to not even attempt to do this, and just use the CPU for rendering everything. This means that the parts of the interface that would normally be accelerated using the GPU will instead take slightly longer and render on the CPU. This likely won't make a noticeable difference, but does slightly increase the battery usage as the CPU has to work harder to do the things the GPU is optimized for.
+
 Two other Chromium flags that are useful for debugging are `--enable-gpu-rasterization` and `--force-gpu-rasterization`:
 
 ``` command-line
