@@ -302,7 +302,7 @@ Check out the pre-requisites in the [build instructions](https://github.com/atom
 
 If you encounter flickering or other rendering issues, you can stop Atom from using your Graphics Processing Unit (GPU) with the `--disable-gpu` Chromium flag to see if the fault lies with your GPU:
 
-```command-line
+``` command-line
 $ atom --disable-gpu
 ```
 
