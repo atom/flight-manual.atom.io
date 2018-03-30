@@ -297,3 +297,28 @@ You can then include the startup profile in any Issue you report.
 If you are having issues installing a package using `apm install`, this could be because the package has dependencies on libraries that contain native code. This means you will need to have a C++ compiler and Python installed to be able to install it. You can run `apm install --check` to see if the Atom package manager can build native code on your machine.
 
 Check out the pre-requisites in the [build instructions](https://github.com/atom/atom/tree/master/docs/build-instructions) for your platform for more details.
+
+#### Check if your GPU is causing the problem
+
+If you encounter flickering or other rendering issues, you can stop Atom from using your Graphics Processing Unit (GPU) with the `--disable-gpu` Chromium flag to see if the fault lies with your GPU:
+
+``` command-line
+$ atom --disable-gpu
+```
+
+Chromium (and thus Atom) normally uses the GPU to accelerate drawing parts of the interface. `--disable-gpu` tells Atom to not even attempt to do this, and just use the CPU for rendering everything. This means that the parts of the interface that would normally be accelerated using the GPU will instead take slightly longer and render on the CPU. This likely won't make a noticeable difference, but does slightly increase the battery usage as the CPU has to work harder to do the things the GPU is optimized for.
+
+Two other Chromium flags that are useful for debugging are `--enable-gpu-rasterization` and `--force-gpu-rasterization`:
+
+``` command-line
+$ atom --enable-gpu-rasterization --force-gpu-rasterization
+```
+
+`--enable-gpu-rasterization` allows other commands to determine how a layer tile (graphics) should be drawn and `--force-gpu-rasterization` determines that the Skia GPU backend should be used for drawing layer tiles (only valid with GPU accelerated compositing).
+
+Be sure to use Chromium flags at the end of the terminal call if you want to use other Atom flags as they will not be executed after the Chromium flags e.g.:
+
+``` command-line
+$ atom --safe --enable-gpu-rasterization --force-gpu-rasterization
+```
+
