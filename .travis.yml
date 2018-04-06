@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.2.3
+  - 2.5.1
 cache:
   directories:
     - vendor/bundle
@@ -9,6 +9,7 @@ sudo: false
 git:
   depth: 10
 before_install:
+  - gem install bundler --no-doc
   - nvm install 7
   - nvm use 7
 script:
