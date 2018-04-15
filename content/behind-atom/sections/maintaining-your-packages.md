@@ -15,6 +15,12 @@ While publishing is, by far, the most common action you will perform when workin
 
 Some people prefer to control every aspect of the package publishing process. Normally, the apm tool manages certain details during publishing to keep things consistent and make everything work smoothly. If you're one of those people that prefers to do things manually, there are certain steps you'll have to take in order to make things work just as smoothly as if apm has taken care of things for you.
 
+{{#note}}
+
+**Note:** The apm tool will only publish and https://atom.io will only list packages that are hosted on [GitHub](https://github.com), regardless of what process is used to publish them.
+
+{{/note}}
+
 When you have completed the changes that you want to publish and are ready to start the publishing process, you must perform the following steps on the `master` branch:
 
 1. Update the version number in your packages `package.json`. The version number **must** match the regular expression: `^\d+\.\d+\.\d+`
