@@ -75,8 +75,8 @@ In order to build Atom from source, you need to have a number of other requireme
 * 7zip (7z.exe available from the command line) - for creating distribution zip files
 * C++ build tools, either:
   * [Visual C++ Build Tools 2015](https://landinghub.visualstudio.com/visual-cpp-build-tools)
-  * [Visual Studio 2013 Update 5](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs) (Express Edition or better)
-  * [Visual Studio 2015](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs) (Community Edition or better)
+  * [Visual Studio 2013 Update 5](https://www.visualstudio.com/downloads/) (Express Edition or better)
+  * [Visual Studio 2015](https://www.visualstudio.com/downloads/) (Community Edition or better)
   * **Unsupported** but more convenient for some who know Node: [windows-build-tools](https://www.npmjs.com/package/windows-build-tools)
 
 
