@@ -5,6 +5,25 @@ title: Maintaining Your Packages
 
 While publishing is, by far, the most common action you will perform when working with the packages you provide, there are other things you may need to do.
 
+#### Publishing a Package Manually
+
+{{#danger}}
+
+**Danger:** :rotating_light: Publishing a package manually is not a recommended practice and is only for the advanced user who has published packages before. If you perform the steps wrong, you may be unable to publish the new version of your package and may have to completely unpublish your package in order to correct the faulty state. You have been warned.
+
+{{/danger}}
+
+Some people prefer to control every aspect of the package publishing process. Normally, the apm tool manages certain details during publishing to keep things consistent and make everything work smoothly. If you're one of those people that prefers to do things manually, there are certain steps you'll have to take in order to make things work just as smoothly as if apm has taken care of things for you.
+
+When you have completed the changes that you want to publish and are ready to start the publishing process, you must perform the following steps on the `master` branch:
+
+1. Update the version number in your packages `package.json`. The version number **must** match the regular expression: `^\d+\.\d+\.\d+`
+1. Commit the version number change
+1. Create a Git tag referencing the above commit. The tag **must** match the regular expression `^v\d+\.\d+\.\d+` and the part after the `v` **must** match the full text of the version number in the `package.json`
+1. Execute `git push`
+1. Execute `git push --tags`
+1. Execute `apm publish --tag tagname` where `tagname` **must** match the name of the tag created in the above step
+
 #### Adding a Collaborator
 
 Some packages get too big for one person. Sometimes priorities change and someone else wants to help out. You can let others help or create co-owners by [adding them as a collaborator](https://help.github.com/articles/adding-collaborators-to-a-personal-repository/) on the GitHub repository for your package. *Note:* Anyone that has push access to your repository will have the ability to publish new versions of the package that belongs to that repository.
