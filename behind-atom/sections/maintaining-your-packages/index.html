@@ -392,6 +392,36 @@
 <p>While publishing is, by far, the most common action you will perform when working with the packages you provide, there are other things you may need to do.</p>
 
 <h4>
+<a id="publishing-a-package-manually" class="anchor" href="#publishing-a-package-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publishing a Package Manually</h4>
+
+<div class="alert danger">
+
+<p><strong>Danger:</strong> <img class="emoji" title=":rotating_light:" alt=":rotating_light:" src="https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f6a8.png" height="20" width="20" align="absmiddle"> Publishing a package manually is not a recommended practice and is only for the advanced user who has published packages before. If you perform the steps wrong, you may be unable to publish the new version of your package and may have to completely unpublish your package in order to correct the faulty state. You have been warned.</p>
+
+</div>
+
+<p>Some people prefer to control every aspect of the package publishing process. Normally, the apm tool manages certain details during publishing to keep things consistent and make everything work smoothly. If you're one of those people that prefers to do things manually, there are certain steps you'll have to take in order to make things work just as smoothly as if apm has taken care of things for you.</p>
+
+<div class="alert note">
+
+<p><strong>Note:</strong> The apm tool will only publish and <a href="https://atom.io">https://atom.io</a> will only list packages that are hosted on <a href="https://github.com">GitHub</a>, regardless of what process is used to publish them.</p>
+
+</div>
+
+<p>When you have completed the changes that you want to publish and are ready to start the publishing process, you must perform the following steps on the <code>master</code> branch:</p>
+
+<ol>
+<li>Update the version number in your package's <code>package.json</code>. The version number <strong>must</strong> match the regular expression: <code>^\d+\.\d+\.\d+</code>
+</li>
+<li>Commit the version number change</li>
+<li>Create a Git tag referencing the above commit. The tag <strong>must</strong> match the regular expression <code>^v\d+\.\d+\.\d+</code> and the part after the <code>v</code> <strong>must</strong> match the full text of the version number in the <code>package.json</code>
+</li>
+<li>Execute <code>git push --follow-tags</code>
+</li>
+<li>Execute <code>apm publish --tag tagname</code> where <code>tagname</code> <strong>must</strong> match the name of the tag created in the above step</li>
+</ol>
+
+<h4>
 <a id="adding-a-collaborator" class="anchor" href="#adding-a-collaborator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding a Collaborator</h4>
 
 <p>Some packages get too big for one person. Sometimes priorities change and someone else wants to help out. You can let others help or create co-owners by <a href="https://help.github.com/articles/adding-collaborators-to-a-personal-repository/">adding them as a collaborator</a> on the GitHub repository for your package. <em>Note:</em> Anyone that has push access to your repository will have the ability to publish new versions of the package that belongs to that repository.</p>
