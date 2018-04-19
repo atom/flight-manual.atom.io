@@ -32,6 +32,8 @@ You can limit a search to a subset of the files in your project by entering a [g
 
 When you have multiple project folders open, this feature can also be used to search in only one of those folders. For example, if you had the folders `/path1/folder1` and `/path2/folder2` open, you could enter a pattern starting with `folder1` to search only in the first folder.
 
+You can enter multiple glob patterns separated by commas, which is useful for searching in multiple file types or subdirectories.
+
 Press <kbd class="platform-all">Esc</kbd> while focused on the Find and Replace panel to clear the pane from your workspace.
 
 The Find and Replace functionality is implemented in the [find-and-replace](https://github.com/atom/find-and-replace) package and uses the [scandal](https://github.com/atom/scandal) Node module to do the actual searching.
