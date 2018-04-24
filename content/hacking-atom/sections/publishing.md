@@ -36,7 +36,7 @@ $ cd path-to-your-package
 $ apm publish minor
 ```
 
-If this is the first package you are publishing, the `apm publish` command may prompt you for your GitHub username and password. This is required to publish and you only need to enter this information the first time you publish. The credentials are stored securely in your [keychain](https://en.wikipedia.org/wiki/Keychain_(Apple)) once you login.
+If this is the first package you are publishing, the `apm publish` command may prompt you for your GitHub username and password. (If Two-factor authentication is on, use a Personal Access Token in lieu of a password.) This is required to publish and you only need to enter this information the first time you publish. The credentials are stored securely in your [keychain](https://en.wikipedia.org/wiki/Keychain_(Apple)) once you login.
 
 Your package is now published and available on atom.io. Head on over to `https://atom.io/packages/your-package-name` to see your package's page.
 
