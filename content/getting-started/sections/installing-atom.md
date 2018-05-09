@@ -72,6 +72,15 @@ With Atom open, click on `File > Settings`, and then the `System` tab on the lef
 
 You can install Atom on Linux using your distribution's package manager by configuring it to use one of our official package repositories. This will also enable you to update Atom when new releases are published.
 
+
+##### Snap
+
+You can now install Atom using `snap`:
+
+``` command-line
+$ sudo snap install --classic atom
+```
+
 ##### Debian and Ubuntu (deb/apt)
 
 To install Atom on Debian, Ubuntu, or related distributions, add our official
