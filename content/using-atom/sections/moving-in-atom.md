@@ -71,10 +71,9 @@ For example, the command `editor:move-to-beginning-of-screen-line` is available 
 
 This will bind the command `editor:select-to-previous-word-boundary` to <kbd class="platform-mac">Cmd+Shift+E</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+E</kbd>.  For more information on customizing your keybindings, see [Customizing Keybindings](/using-atom/sections/basic-customization/#customizing-keybindings).
 
-Here's a list of Movement and Selection Commands that have a keyboard shortcut by default:
+Here's a list of Movement and Selection Commands that do not have a keyboard shortcut by default:
 
 {{#mac}}
-
 ```
 editor:move-to-beginning-of-next-paragraph
 editor:move-to-beginning-of-previous-paragraph
@@ -83,11 +82,9 @@ editor:move-to-beginning-of-line
 editor:move-to-beginning-of-next-word
 editor:move-to-previous-word-boundary
 editor:move-to-next-word-boundary
-editor:move-to-previous-subword-boundary
+editor:select-to-beginning-of-next-paragraph
 editor:select-to-beginning-of-previous-paragraph
-editor:select-to-end-of-line
 editor:select-to-beginning-of-line
-editor:select-to-beginning-of-word
 editor:select-to-beginning-of-next-word
 editor:select-to-next-word-boundary
 editor:select-to-previous-word-boundary
@@ -110,7 +107,6 @@ editor:select-to-beginning-of-next-paragraph
 editor:select-to-beginning-of-previous-paragraph
 editor:select-to-end-of-line
 editor:select-to-beginning-of-line
-editor:select-to-beginning-of-word
 editor:select-to-beginning-of-next-word
 editor:select-to-next-word-boundary
 editor:select-to-previous-word-boundary
@@ -133,7 +129,6 @@ editor:select-to-beginning-of-next-paragraph
 editor:select-to-beginning-of-previous-paragraph
 editor:select-to-end-of-line
 editor:select-to-beginning-of-line
-editor:select-to-beginning-of-word
 editor:select-to-beginning-of-next-word
 editor:select-to-next-word-boundary
 editor:select-to-previous-word-boundary
