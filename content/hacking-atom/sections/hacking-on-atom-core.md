@@ -24,6 +24,13 @@ $ cd <em>where-you-cloned-atom</em>
 $ script/bootstrap
 ```
 
+###### Ubuntu / Debian
+If the bootstrap script fails, install GNOME headers and other basic prerequisites:
+
+  ``` command-line
+  $ sudo apt-get install build-essential git libsecret-1-dev fakeroot rpm libx11-dev libxkbfile-dev
+  ```
+
 #### Running in Development Mode
 
 Once you have a local copy of Atom cloned and bootstrapped, you can then run Atom in Development Mode. But first, if you cloned Atom to somewhere other than <span class="platform-mac platform-linux">`~/github/atom`</span><span class="platform-windows">`%USERPROFILE%\github\atom`</span> you will need to set the `ATOM_DEV_RESOURCE_PATH` environment variable to point to the folder in which you cloned Atom. To run Atom in Dev Mode, use the `--dev` parameter from the terminal:
