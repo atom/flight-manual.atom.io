@@ -507,7 +507,7 @@ style sheets your package needs to load. If not specified, style sheets in the <
 
 <ul>
 <li>
-<code>activate(state)</code>: This <strong>optional</strong> method is called when your package is activated. It is passed the state data from the last time the window was serialized if your module implements the <code>serialize()</code> method. Use this to do initialization work when your package is started (like setting up DOM elements or binding events).</li>
+<code>activate(state)</code>: This <strong>optional</strong> method is called when your package is activated. It is passed the state data from the last time the window was serialized if your module implements the <code>serialize()</code> method. Use this to do initialization work when your package is started (like setting up DOM elements or binding events). If this method returns a promise the package will be considered loading until the promise resolves (or rejects).</li>
 <li>
 <code>initialize(state)</code>: (Available in Atom 1.14 and above) This <strong>optional</strong> method is similar to <code>activate()</code> but is called earlier. Whereas activation occurs after the workspace has been deserialized (and can therefore happen after <a href="/behind-atom/sections/serialization-in-atom/#serialization-methods">your package's deserializers</a> have been called), <code>initialize()</code> is guaranteed to be called before everything. Use <code>activate()</code> if you want to be sure that the workspace is ready; use <code>initialize()</code> if you need to do some setup prior to your deserializers or view providers being invoked.</li>
 <li>
