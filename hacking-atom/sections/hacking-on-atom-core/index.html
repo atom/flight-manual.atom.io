@@ -432,6 +432,7 @@
 <ol>
 <li>When the <code>ATOM_DEV_RESOURCE_PATH</code> environment variable is set correctly, Atom is run using the source code from your local <code>atom/atom</code> repository. This means that you don't have to run <span class="platform-mac platform-linux"><code>script/build</code></span><span class="platform-windows"><code>script\build</code></span> every time you change code. Just restart Atom 👍</li>
 <li>Packages that exist in <span class="platform-mac platform-linux"><code>~/.atom/dev/packages</code></span><span class="platform-windows"><code>%USERPROFILE%\.atom\dev\packages</code></span> are loaded instead of packages of the same name normally loaded from other locations. This means that you can have development versions of packages you use loaded but easily go back to the stable versions by launching without Dev Mode.</li>
+<li>Packages that contain stylesheets, such as syntax themes, will have those stylesheets automatically reloaded by the <a href="https://github.com/atom/dev-live-reload">dev-live-reload</a> package. This does not live reload JavaScript or CoffeeScript files — you'll need to reload the window (<code>window:reload</code>) to see changes to those.</li>
 </ol>
 
 <h4>
