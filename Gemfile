@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.4.2'
 
 # essential
 # Until https://github.com/gjtorikian/nanoc-conref-fs/issues/5 is fixed, can't update to v4.2
