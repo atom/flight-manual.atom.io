@@ -1,9 +1,11 @@
 ---
-title: Creating a Grammar
+title: Creating a TextMate Grammar
 ---
-### Creating a Grammar
+### Creating a TextMate Grammar
 
-Grammars power Atom's syntax highlighting. Each grammar provides a set of _regex_ (regular expression) patterns which are assigned _scopes_. These scopes are then turned into the CSS classes that you can target in syntax themes!
+Atom's syntax highlighting can be powered by two types of grammars. This section describes the most well-known type: TextMate grammars.
+
+TextMate grammars are supported by several popular text editors. They provide a set of _regex_ (regular expression) patterns which are assigned _scopes_. These scopes are then turned into the CSS classes that you can target in syntax themes.
 
 {{#note}}
 
@@ -13,7 +15,7 @@ Grammars power Atom's syntax highlighting. Each grammar provides a set of _regex
 
 #### Getting Started
 
-Grammars depend heavily on regexes, and you should be comfortable with interpreting and writing regexes before continuing. Note that Atom uses the Oniguruma engine, which is very similar to the PCRE or Perl regex engines. Here are some resources to help you out:
+TextMate Grammars depend heavily on regexes, and you should be comfortable with interpreting and writing regexes before continuing. Note that Atom uses the Oniguruma engine, which is very similar to the PCRE or Perl regex engines. Here are some resources to help you out:
 
 * https://www.regular-expressions.info/tutorial.html provides a comprehensive regex tutorial
 * https://www.rexegg.com/regex-quickstart.html contains a cheat sheet for various regex expressions
