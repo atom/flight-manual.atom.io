@@ -11,7 +11,7 @@ There are two components required for syntax highlighting a language with Tree-s
 
 #### The Parser
 
-Tree-sitter generates parsers based on [context-free grammars](https://en.wikipedia.org/wiki/Context-free_grammar) that are typically written in JavaScript. The parsers are C libraries that can be used in applications other than Atom. Tree-sitter has [its own documentation page](http://tree-sitter.github.io/tree-sitter/creating-parsers) on how to create these parsers. The [Tree-sitter GitHub organization](https://github.com/tree-sitter) also contains a lot of example parsers that you can learn from, each in its own repository.
+Tree-sitter generates parsers based on [context-free grammars](https://en.wikipedia.org/wiki/Context-free_grammar) that are typically written in JavaScript. The parsers are C libraries that can be used in other applications as well as Atom. They can also be developed and tested at the command line, separately from Atom. Tree-sitter has [its own documentation page](http://tree-sitter.github.io/tree-sitter/creating-parsers) on how to create these parsers. The [Tree-sitter GitHub organization](https://github.com/tree-sitter) also contains a lot of example parsers that you can learn from, each in its own repository.
 
 Once you have created a parser, you need to publish it to [the NPM registry](https://npmjs.com) to use it in Atom. To do this, make sure you have a `name` and `version` in your parser's `package.json`:
 
@@ -81,7 +81,7 @@ This entry means that, in the syntax tree, any `identifier` node whose parent is
 
 Note that in this selector, we're using the [immediate child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors) (`>`). Arbitrary descendant selectors without this combinator (for example `'call_expression identifier'`, which would match any `identifier` occurring anywhere within a `call_expression`) are currently not supported.
 
-#### Advanced Selectors
+##### Advanced Selectors
 
 The keys of the `scopes` object can also contain _multiple_ CSS selectors, separated by commas, similar to CSS files. The triple-quote syntax in CSON makes it convenient to write keys like this on multiple lines:
 
@@ -112,3 +112,83 @@ scopes:
     "-"
   ''': 'keyword.operator'
 ```
+
+##### Text-based Mappings
+
+You can also apply different classes to a node based on its text. For example, the following `scopes` entry would apply one set of classes to identifiers named `require`, a second set of classes to identifiers starting with capital letters, and a third set of classes to all other identifiers:
+
+```coffee
+scopes:
+  identifier: [
+    {exact: 'require', scopes: 'builtin.variable'},
+    {match: /^[A-Z]/, scopes: 'constructor'},
+    'regular.variable'
+  ]
+```
+
+In total there are four types of values that can be associated with selectors in `scopes`:
+
+* Strings - Each class name in the dot-separated string will be prefixed with `syntax--` and applied to the selected node.
+* Objects with the keys `exact` and `scopes` - If the node's text equals the `exact` string, the `scopes` string will be used as described above.
+* Objects with the keys `match` and `scopes` - If the node's text matches the `match` regex pattern, the `scopes` string will be used as described above.
+* Arrays - The elements of the array will be processed from beginning to end. The first element that matches the selected node will be used as describe above.
+
+##### Specificity
+
+If multiple selectors in the `scopes` object match a node, the node's classes will be decided based on the [most specific](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) selector. Note that the `exact` and `match` rules do *not* affect specificity, so you may need to supply the same `exact` or `match` rules for multiple selectors to ensure that they take precedence over other selectors. You can use the same selector multiple times in a scope mapping, within different comma-separated keys:
+
+```coffee
+scopes:
+  'call_expression > identifier': 'entity.name.function'
+
+  # If we did not include the second selector here, then this rule
+  # would not apply to identifiers inside of call_expressions,
+  # because the selector `call_expression > identifier` is more
+  # specific than the selector `identifier`.
+  'identifier, call_expression > identifier': [
+    {exact: 'require', scopes: 'builtin.variable'},
+    {match: /^[A-Z]/, scopes: 'constructor'},
+  ]
+```
+
+#### Code Folding
+
+The next field in the grammar file, `folds`, controls code folding. Its value is an array of *fold pattern* objects. Fold patterns are used to decide whether or not a syntax node can be folded, and if so, where the fold should start and end. Here are some example fold patterns:
+
+```coffee
+folds: [
+
+  # All `comment` nodes are foldable. By default, the fold starts at
+  # the end of the node's first line, and ends at the beginning
+  # of the node's last line.
+  {
+    type: 'comment'
+  }
+
+  # `if_statement` nodes are foldable if they contain an anonymous
+  # "then" token and either an `elif_clause` or `else_clause` node.
+  # The fold starts at the end of the "then" token and ends at the
+  # `elif_clause` or `else_clause`.
+  {
+    type: 'if_statement',
+    start: {type: '"then"'}
+    end: {type: ['elif_clause', 'else_clause']}
+  }
+
+  # Any node that starts with an anonymous "(" token and ends with
+  # an anonymous ")" token is foldable. The fold starts after the
+  # "(" and ends before the ")".
+  {
+    start: {type: '"("', index: 0},
+    end: {type: '")"', index: -1}
+  }
+]
+```
+
+Fold patterns can have one or more of the following fields:
+
+* `type` - A string or array of strings. In order to be foldable according to this pattern, a syntax node's type must match one of these strings.
+* `start` - An object that is used to identify a *child* node after which the fold should start. The object can have one or both of the following fields:
+  * `type` - A string or array of strings. To start a fold, a child node's type must match one of these strings.
+  * `index` - a number that's used to select a specific child according to its index. Negative values are interpreted as indices relative the last child, so that `-1` means the last child.
+* `end` - An object that is used to identify a *child* node before which the fold should end. It has the same structure as the `start` object.
