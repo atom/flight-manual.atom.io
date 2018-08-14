@@ -42,7 +42,7 @@ language-mylanguage
 
 The `mylanguage.cson` file specifies how Atom should use the parser you created.
 
-##### Basic Fields
+#### Basic Fields
 
 It starts with some required fields:
 
@@ -58,7 +58,7 @@ parser: 'tree-sitter-mylanguage'
 * `parser` - The name of the parser node module that will be used for parsing.
 * `type` - This should have the value `tree-sitter` to indicate to Atom that this is a Tree-sitter grammar and not a [TextMate grammar](../creating-a-textmate-grammar).
 
-##### Language Recognition
+#### Language Recognition
 
 Next, the file should contain some fields that indicate to Atom *when* this language should be used. These fields are all optional.
 
@@ -66,9 +66,9 @@ Next, the file should contain some fields that indicate to Atom *when* this lang
 * `firstLineRegex` - A regex pattern that will be tested against the first line of the file. The grammar will be used if this regex matches.
 * `contentRegex` - A regex pattern that will be tested against the contents of the file in order to break ties in cases where *multiple* grammars matched the file using the above two criteria. If the `contentRegex` matches, this grammar will be preferred over another grammar with no `contentRegex`. If the `contentRegex` does *not* match, a grammar with no `contentRegex` will be preferred over this one.
 
-##### Syntax Highlighting
+#### Syntax Highlighting
 
-The `scopes` object controls syntax highlighting. Its keys are CSS selectors that select nodes in the syntax tree. The values for these keys can be of several different types.
+The HTML classes that Atom applies for syntax highlighting do not correspond directly to nodes in the syntax tree. Instead, Tree-sitter grammar files specify *scope mappings* that specify which classes should be applied to which syntax nodes. The `scopes` object controls the scope mappings. Its keys are CSS selectors that select nodes in the syntax tree. The values for these keys can be of several different types.
 
 Here is a simple example:
 
@@ -77,9 +77,11 @@ scopes:
   'call_expression > identifier': 'entity.name.function'
 ```
 
-This line means that, in the syntax tree, any `identifier` node whose parent is a `call_expression` should be highlighted using three classes: `entity`, `name`, and `function`.
+This line means that, in the syntax tree, any `identifier` node whose parent is a `call_expression` should be highlighted using three classes: `syntax--entity`, `syntax--name`, and `syntax--function`.
 
-##### Selectors
+Note that in this selector, we're using the [immediate child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors) (`>`). Arbitrary descendant selectors without this combinator (e.g. `'call_expression identifier'`, which would mean any `identifier` that occurs anywhere within a `call_expression`) are currently not supported.
+
+#### Advanced Selectors
 
 The keys of the `scopes` object can also contain _multiple_ CSS selectors, separated by commas, similar to CSS files. The triple-quote syntax in CSON makes it convenient to write keys like this on multiple lines:
 
@@ -88,11 +90,9 @@ scopes:
   '''
   function_declaration > identifier,
   call_expression > identifier,
-  call_expression > field_expression > field_identifier,
+  call_expression > field_expression > field_identifier
   ''': 'entity.name.function'
 ```
-
-Note that in these selectors, we're using the [immediate child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors) (`>`). Arbitrary descendant selectors without this combinator (e.g. `'function_declaration identifier'`) are not supported.
 
 You can use the [`:nth-child` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child) to select nodes based on their order within their parent. For example, this example selects `identifier` nodes which are the fourth (zero-indexed) child of a `singleton_method` node.
 
@@ -101,4 +101,14 @@ scopes:
   'singleton_method > identifier:nth-child(3)': 'entity.name.function'
 ```
 
-Finally, you can use double-quoted strings in the selectors to 
+Finally, you can use double-quoted strings in the selectors to select *anonymous* tokens in the syntax tree, like `(` and `:`. See [the Tree-sitter documentation](http://tree-sitter.github.io/tree-sitter/using-parsers#named-vs-anonymous-nodes) for more information about named vs anonymous tokens.
+
+```coffee
+scopes:
+  '''
+    "*",
+    "/",
+    "+",
+    "-"
+  ''': 'keyword.operator'
+```
