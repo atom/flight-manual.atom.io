@@ -29,7 +29,7 @@ then run the command `npm publish`.
 
 Once you have a Tree-sitter parser that is available on npm, you can use it in your Atom package. Packages with grammars are usually named starting with _language_. You'll need a folder with a `package.json`, a `grammars` subdirectory, and a single `json` or `cson` file in the `grammars` directory, which can be named anything.
 
-```sh
+```
 language-mylanguage
 ├── LICENSE
 ├── README.md
@@ -151,6 +151,59 @@ scopes:
   ]
 ```
 
+#### Language Injection
+
+Sometimes, a source file can contain code written in several different languages. Tree-sitter grammars support this situation using a two-part process called *language injection*. First, an 'outer' language must define an *injection point* - a set of syntax nodes whose text can be parsed using a different language, along with some logic for guessing the *name* of the other language that should be used. Second, an 'inner' language must define an `injectionRegex` - a regex pattern that will be tested against the language name provided by the injection point.
+
+For example, in JavaScript, [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) sometimes contain code written in a different language, and the name of the language is often used in the 'tag' function, as shown in this example:
+
+```js
+// HTML in a template literal
+const htmlContent = html `<div>Hello ${name}</div>`
+```
+
+The `tree-sitter-javascript` parser parses this tagged template literal as a `call_expression` with two children: an `identifier` and a `template_literal`:
+
+```
+(call_expression
+  (identifier)
+  (template_literal
+    (interpolation
+      (identifier))))
+```
+
+Here is an injection point that would allow syntax highlighting inside of template literals:
+
+```js
+atom.grammars.addInjectionPoint('javascript', {
+  type: 'call_expression',
+
+  language (callExpression) {
+    const {firstChild} = callExpression
+    if (firstChild.type === 'identifier') {
+      return firstChild.text
+    }
+  },
+
+  content (callExpression) {
+    const {lastChild} = callExpression
+    if (lastChild.type === 'template_string') {
+      return lastChild
+    }
+  }
+})
+```
+
+The `language` callback would then be called with every `call_expression` node in the syntax tree. In the example above, it would retrieve the first child of the `call_expression`, which is an `identifier` with the name "html". The callback would then return the string "html".
+
+The `content` callback would then be called with the same `call_expression` node and return the  `template_string` node within the `call_expression` node.
+
+In order to parse the HTML within the template string, the HTML grammar file would need to specify an `injectionRegex`:
+
+```coffee
+injectionRegex: 'html|HTML'
+```
+
 #### Code Folding
 
 The next field in the grammar file, `folds`, controls code folding. Its value is an array of *fold pattern* objects. Fold patterns are used to decide whether or not a syntax node can be folded, and if so, where the fold should start and end. Here are some example fold patterns:
@@ -192,3 +245,37 @@ Fold patterns can have one or more of the following fields:
   * `type` - A string or array of strings. To start a fold, a child node's type must match one of these strings.
   * `index` - a number that's used to select a specific child according to its index. Negative values are interpreted as indices relative the last child, so that `-1` means the last child.
 * `end` - An object that is used to identify a *child* node before which the fold should end. It has the same structure as the `start` object.
+
+#### Comments
+
+The last field in the grammar file, `comments`, controls the behavior of Atom's `Editor: Toggle Line Comments` command. Its value is an object with a `start` field and an optional `end` field. The start field is a string that should be prepended to or removed from lines in order to comment or un-comment them.
+
+In JavaScript, it looks like this:
+
+```coffee
+comments:
+  start: '// '
+```
+
+The `end` field should be used for languages that only support block comments, not line comments. If present, it will be appended to or removed from the end of the last selected line in order to comment or un-comment the selection.
+
+In CSS, it would look like this:
+
+```coffee
+comments:
+  start: '/* '
+  end: ' */'
+```
+
+#### Example Packages
+
+More examples of all of these features can be found in the Tree-sitter grammars bundled with Atom:
+
+* [Bash](https://github.com/atom/language-shellscript)
+* [C](https://github.com/atom/language-c)
+* [Go](https://github.com/atom/language-go)
+* [HTML](https://github.com/atom/language-html)
+* [JavaScript](https://github.com/atom/language-javascript)
+* [Python](https://github.com/atom/language-python)
+* [Ruby](https://github.com/atom/language-ruby)
+* [TypeScript](https://github.com/atom/language-typescript)
