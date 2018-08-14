@@ -55,7 +55,7 @@ parser: 'tree-sitter-mylanguage'
 
 * `id` - A unique, stable identifier for the language. Atom users will use this in configuration files if they want to specify custom configuration based on the language.
 * `name` - A human readable name for the language.
-* `parser` - The name of the parser node module that will be used for parsing.
+* `parser` - The name of the parser node module that will be used for parsing. This string will be passed directly to [`require()`](https://nodejs.org/api/modules.html#modules_require) in order to load the parser.
 * `type` - This should have the value `tree-sitter` to indicate to Atom that this is a Tree-sitter grammar and not a [TextMate grammar](../creating-a-textmate-grammar).
 
 #### Language Recognition
@@ -68,7 +68,7 @@ Next, the file should contain some fields that indicate to Atom *when* this lang
 
 #### Syntax Highlighting
 
-The HTML classes that Atom applies for syntax highlighting do not correspond directly to nodes in the syntax tree. Instead, Tree-sitter grammar files specify *scope mappings* that specify which classes should be applied to which syntax nodes. The `scopes` object controls the scope mappings. Its keys are CSS selectors that select nodes in the syntax tree. The values for these keys can be of several different types.
+The HTML classes that Atom uses for syntax highlighting do not correspond directly to nodes in the syntax tree. Instead, Tree-sitter grammar files specify *scope mappings* that specify which classes should be applied to which syntax nodes. The `scopes` object controls these scope mappings. Its keys are CSS selectors that select nodes in the syntax tree. Its values can be of several different types.
 
 Here is a simple example:
 
@@ -77,9 +77,9 @@ scopes:
   'call_expression > identifier': 'entity.name.function'
 ```
 
-This line means that, in the syntax tree, any `identifier` node whose parent is a `call_expression` should be highlighted using three classes: `syntax--entity`, `syntax--name`, and `syntax--function`.
+This entry means that, in the syntax tree, any `identifier` node whose parent is a `call_expression` should be highlighted using three classes: `syntax--entity`, `syntax--name`, and `syntax--function`.
 
-Note that in this selector, we're using the [immediate child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors) (`>`). Arbitrary descendant selectors without this combinator (e.g. `'call_expression identifier'`, which would mean any `identifier` that occurs anywhere within a `call_expression`) are currently not supported.
+Note that in this selector, we're using the [immediate child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors) (`>`). Arbitrary descendant selectors without this combinator (for example `'call_expression identifier'`, which would match any `identifier` occurring anywhere within a `call_expression`) are currently not supported.
 
 #### Advanced Selectors
 
