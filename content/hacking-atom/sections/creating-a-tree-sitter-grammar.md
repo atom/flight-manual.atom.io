@@ -3,11 +3,16 @@ title: Creating a Tree-sitter Grammar
 ---
 ### Creating a Tree-sitter Grammar
 
-[Tree-sitter](http://tree-sitter.github.io/tree-sitter) is a new parsing system that Atom can use for syntax highlighting and code folding. Unlike TextMate grammars, Tree-sitter creates and maintains a full [_syntax tree_](https://en.wikipedia.org/wiki/Abstract_syntax_tree) representing your code. This syntax tree provides Atom with detailed information about the code that can be used for other types of analysis beyond syntax highlighting.
+[Tree-sitter](http://tree-sitter.github.io/tree-sitter) is a new parsing system that Atom can use for syntax highlighting and code folding. Unlike a TextMate grammar, a Tree-sitter parser creates and maintains a full [_syntax tree_](https://en.wikipedia.org/wiki/Abstract_syntax_tree) representing your code. This syntax tree allows Atom to understand your code more accurately, which has several benefits:
+
+1. Syntax highlighting will not break because of formatting changes.
+2. Code folding will work regardless of how your code is indented.
+3. The new `Select Larger Syntax Node` and `Select Smaller Syntax Node` commands allow you to navigate your code more efficiently.
+4. Community packages can use the syntax tree to manipulate code intelligently.
 
 #### Getting Started
 
-There are two components required for syntax highlighting a language with Tree-sitter: a _parser_ and a _grammar_ file.
+There are two components required to use Tree-sitter in Atom: a _parser_ and a _grammar_ file.
 
 #### The Parser
 
