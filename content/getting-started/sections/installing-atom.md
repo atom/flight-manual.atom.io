@@ -126,10 +126,10 @@ Alternatively, you can download the [Atom .rpm package](https://atom.io/download
 
 ``` command-line
 # On YUM-based distributions
-$ sudo yum install -y atom.x86_64.rpm
+$ sudo yum install -y atom
 
 # On DNF-based distributions
-$ sudo dnf install -y atom.x86_64.rpm
+$ sudo dnf install -y atom
 ```
 
 ##### SUSE (zypp)
