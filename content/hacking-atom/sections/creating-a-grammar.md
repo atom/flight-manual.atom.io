@@ -1,7 +1,7 @@
 ---
 title: Creating a Grammar
 ---
-### Creating a Tree-sitter Grammar
+### Creating a Grammar
 
 Atom's syntax highlighting and code folding system is powered by [Tree-sitter](http://tree-sitter.github.io/tree-sitter). Tree-sitter parsers create and maintain full [_syntax trees_](https://en.wikipedia.org/wiki/Abstract_syntax_tree) representing your code.
 
