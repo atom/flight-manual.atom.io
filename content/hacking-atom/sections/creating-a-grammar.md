@@ -40,7 +40,7 @@ then run the command `npm publish`.
 
 #### The Package
 
-Once you have a Tree-sitter parser that is available on npm, you can use it in your Atom package. Packages with grammars are usually named starting with _language_. You'll need a folder with a `package.json`, a `grammars` subdirectory, and a single `json` or `cson` file in the `grammars` directory, which can be named anything.
+Once you have a Tree-sitter parser that is available on npm, you can use it in your Atom package. Packages with grammars are, by convention, always named starting with _language_. You'll need a folder with a `package.json`, a `grammars` subdirectory, and a single `json` or `cson` file in the `grammars` directory, which can be named anything.
 
 ```
 language-mylanguage
@@ -61,7 +61,7 @@ It starts with some required fields:
 
 ```coffee
 id: 'mylanguage'
-name: 'MyLanguage'
+name: 'My Language'
 type: 'tree-sitter'
 parser: 'tree-sitter-mylanguage'
 ```
