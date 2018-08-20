@@ -1,9 +1,11 @@
 ---
-title: Creating a TextMate Grammar
+title: Creating a Legacy TextMate Grammar
 ---
-### Creating a TextMate Grammar
+### Creating a Legacy TextMate Grammar
 
-Atom's syntax highlighting can be powered by two types of grammars. This section describes the most well-known type: TextMate grammars.
+Atom's syntax highlighting can be powered by two types of grammars. If you're adding support for a new language, the preferred way is to [create a Tree-sitter grammar](../creating-a-grammar). Tree-sitter grammars have better performance and provide support for more editor features, such as the `Select Larger Syntax Node` command.
+
+This section describes the Atom's legacy support for TextMate grammars.
 
 TextMate grammars are supported by several popular text editors. They provide a set of _regex_ (regular expression) patterns which are assigned _scopes_. These scopes are then turned into the CSS classes that you can target in syntax themes.
 

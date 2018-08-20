@@ -30,8 +30,8 @@ Chapters:
     - "Package: Modifying Text"
     - "Package: Active Editor Info"
     - Creating a Theme
-    - Creating a TextMate Grammar
-    - Creating a Tree-sitter Grammar
+    - Creating a Grammar
+    - Creating a Legacy TextMate Grammar
     - Publishing
     - Iconography
     - Debugging

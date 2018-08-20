@@ -1,14 +1,20 @@
 ---
-title: Creating a Tree-sitter Grammar
+title: Creating a Grammar
 ---
 ### Creating a Tree-sitter Grammar
 
-[Tree-sitter](http://tree-sitter.github.io/tree-sitter) is a new parsing system that Atom can use for syntax highlighting and code folding. Unlike a TextMate grammar, a Tree-sitter parser creates and maintains a full [_syntax tree_](https://en.wikipedia.org/wiki/Abstract_syntax_tree) representing your code. This syntax tree allows Atom to understand your code more accurately, which has several benefits:
+Atom's syntax highlighting and code folding system is powered by [Tree-sitter](http://tree-sitter.github.io/tree-sitter). Tree-sitter parsers create and maintain full [_syntax trees_](https://en.wikipedia.org/wiki/Abstract_syntax_tree) representing your code.
+
+This syntax tree gives Atom a comprehensive understanding of the structure of your code, which has several benefits:
 
 1. Syntax highlighting will not break because of formatting changes.
 2. Code folding will work regardless of how your code is indented.
-3. The new `Select Larger Syntax Node` and `Select Smaller Syntax Node` commands allow you to navigate your code more efficiently.
+3. Editor features can operate on the syntax tree. For instance, the `Select Larger Syntax Node` and `Select Smaller Syntax Node` allow you to select conceptually larger and smaller chunks of your code.
 4. Community packages can use the syntax tree to manipulate code intelligently.
+
+Tree-sitter grammars are relatively new. Many languages in Atom are still supported by [TextMate grammars](../creating-a-legacy-textmate-grammar), though we intend to phase these out over time.
+
+If you're adding support for a new language, you're in the right place!
 
 #### Getting Started
 
@@ -16,7 +22,9 @@ There are two components required to use Tree-sitter in Atom: a _parser_ and a _
 
 #### The Parser
 
-Tree-sitter generates parsers based on [context-free grammars](https://en.wikipedia.org/wiki/Context-free_grammar) that are typically written in JavaScript. The parsers are C libraries that can be used in other applications as well as Atom. They can also be developed and tested at the command line, separately from Atom. Tree-sitter has [its own documentation page](http://tree-sitter.github.io/tree-sitter/creating-parsers) on how to create these parsers. The [Tree-sitter GitHub organization](https://github.com/tree-sitter) also contains a lot of example parsers that you can learn from, each in its own repository.
+Tree-sitter generates parsers based on [context-free grammars](https://en.wikipedia.org/wiki/Context-free_grammar) that are typically written in JavaScript. The generated parsers are C libraries that can be used in other applications as well as Atom.
+
+They can also be developed and tested at the command line, separately from Atom. Tree-sitter has [its own documentation page](http://tree-sitter.github.io/tree-sitter/creating-parsers) on how to create these parsers. The [Tree-sitter GitHub organization](https://github.com/tree-sitter) also contains a lot of example parsers that you can learn from, each in its own repository.
 
 Once you have created a parser, you need to publish it to [the NPM registry](https://npmjs.com) to use it in Atom. To do this, make sure you have a `name` and `version` in your parser's `package.json`:
 
