@@ -60,13 +60,13 @@ The `mylanguage.cson` file specifies how Atom should use the parser you created.
 It starts with some required fields:
 
 ```coffee
-id: 'mylanguage'
 name: 'My Language'
+scopeName: 'mylanguage'
 type: 'tree-sitter'
 parser: 'tree-sitter-mylanguage'
 ```
 
-* `id` - A unique, stable identifier for the language. Atom users will use this in configuration files if they want to specify custom configuration based on the language.
+* `scopeName` - A unique, stable identifier for the language. Atom users will use this in configuration files if they want to specify custom configuration based on the language.
 * `name` - A human readable name for the language.
 * `parser` - The name of the parser node module that will be used for parsing. This string will be passed directly to [`require()`](https://nodejs.org/api/modules.html#modules_require) in order to load the parser.
 * `type` - This should have the value `tree-sitter` to indicate to Atom that this is a Tree-sitter grammar and not a [TextMate grammar](../creating-a-legacy-textmate-grammar).
