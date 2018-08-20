@@ -128,14 +128,26 @@ scopes:
 
 ##### Text-based Mappings
 
-You can also apply different classes to a node based on its text. For example, the following `scopes` entry would apply one set of classes to identifiers named `require`, a second set of classes to identifiers starting with capital letters, and a third set of classes to all other identifiers:
+You can also apply different classes to a syntax node based on its text. Here are some examples:
 
 ```coffee
 scopes:
-  identifier: [
-    {exact: 'require', scopes: 'builtin.variable'},
-    {match: /^[A-Z]/, scopes: 'constructor'},
-    'regular.variable'
+
+  # Apply the classes `syntax--builtin` and `syntax--variable` to all
+  # `identifier` nodes whose text is `require`.
+  'identifier': {exact: 'require', scopes: 'builtin.variable'},
+
+  # Apply the classes `syntax--type` and `syntax--integer` to all
+  # `primitive_type` nodes whose text starts with `int` or `uint`.
+  'primitive_type': {match: /^u?int/, scopes: 'type.integer'},
+
+  # Apply the classes `syntax--builtin`, `syntax--class`, and
+  # `syntax--name` to `constant` nodes with the text `Array`,
+  # `Hash` and `String`. For all other `constant` nodes, just
+  # apply the classes `syntax--class` and `syntax--name`.
+  'constant': [
+    {match: /^(Array|Hash|String)$/, scopes: 'builtin.class.name'},
+    'class.name'
   ]
 ```
 
