@@ -1,0 +1,644 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Creating a Legacy TextMate Grammar</title>
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+
+      indexUrl: '/search.json',
+
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    })
+  })
+</script>
+
+  </head>
+  <body class="layout-article">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="https://blog.atom.io">Blog</a></li>
+      <li><a href="https://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search">
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="search" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+  <h4>
+    <a href="/getting-started">Chapter 1: Getting Started</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/why-atom">Why Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/using-atom">Chapter 2: Using Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/snippets">Snippets</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/folding">Folding</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/panes">Panes</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/pending-pane-items">Pending Pane Items</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/grammar">Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/github-package">GitHub package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-active-editor-info">Package: Active Editor Info</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-grammar">Creating a Grammar</a>
+      </li>
+    
+      <li class="selected">
+        <a href="/hacking-atom/sections/creating-a-legacy-textmate-grammar">Creating a Legacy TextMate Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/publishing">Publishing</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/iconography">Iconography</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/debugging">Debugging</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/handling-uris">Handling URIs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/hacking-on-atom-core">Hacking on Atom Core</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/contributing-to-official-atom-packages">Contributing to Official Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/behind-atom">Chapter 4: Behind Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/how-atom-uses-chromium-snapshots">How Atom Uses Chromium Snapshots</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+
+
+  <h4>
+    <a href="/resources">Appendix A: Resources</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/resources/sections/glossary">Glossary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/shadow-dom">Appendix B: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix C: Upgrading to 1.0 APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/atom-server-side-apis">Appendix D: Atom server-side APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-package-server-api">Atom package server API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-update-server-api">Atom update server API</a>
+      </li>
+    
+  </ul>
+
+
+        </div>
+
+        
+        <h1 class="document-title">
+          <div id="platform-nav">
+  <span class="octicon octicon-device-desktop"></span>
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+  </ul>
+</div>
+
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/creating-a-legacy-textmate-grammar.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
+        <div class="markdown-body document-content">
+          
+          <h3>
+<a id="creating-a-legacy-textmate-grammar" class="anchor" href="#creating-a-legacy-textmate-grammar" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a Legacy TextMate Grammar</h3>
+
+<p>Atom's syntax highlighting can be powered by two types of grammars. If you're adding support for a new language, the preferred way is to <a href="../creating-a-grammar">create a Tree-sitter grammar</a>. Tree-sitter grammars have better performance and provide support for more editor features, such as the <code>Select Larger Syntax Node</code> command.</p>
+
+<p>This section describes the Atom's legacy support for TextMate grammars.</p>
+
+<p>TextMate grammars are supported by several popular text editors. They provide a set of <em>regex</em> (regular expression) patterns which are assigned <em>scopes</em>. These scopes are then turned into the CSS classes that you can target in syntax themes.</p>
+
+<div class="alert note">
+
+<p><strong>Note:</strong> This tutorial is a work in progress.</p>
+
+</div>
+
+<h4>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h4>
+
+<p>TextMate Grammars depend heavily on regexes, and you should be comfortable with interpreting and writing regexes before continuing. Note that Atom uses the Oniguruma engine, which is very similar to the PCRE or Perl regex engines. Here are some resources to help you out:</p>
+
+<ul>
+<li>
+<a href="https://www.regular-expressions.info/tutorial.html">https://www.regular-expressions.info/tutorial.html</a> provides a comprehensive regex tutorial</li>
+<li>
+<a href="https://www.rexegg.com/regex-quickstart.html">https://www.rexegg.com/regex-quickstart.html</a> contains a cheat sheet for various regex expressions</li>
+<li>
+<a href="https://regex101.com/">https://regex101.com/</a> or <a href="https://regexr.com/">https://regexr.com/</a> allows live prototyping</li>
+<li>
+<a href="https://github.com/kkos/oniguruma/blob/master/doc/RE">https://github.com/kkos/oniguruma/blob/master/doc/RE</a> the docs for the Oniguruma regex engine</li>
+</ul>
+
+<p>Grammar files are written in the <a href="https://github.com/bevry/cson#what-is-cson">CSON</a> or <a href="https://www.json.org/">JSON</a> format. Whichever one you decide to use is up to you, but this tutorial will be written in CSON.</p>
+
+<h4>
+<a id="create-the-package" class="anchor" href="#create-the-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create the Package</h4>
+
+<p>To get started, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and start typing "Generate Package" to generate a new grammar package. Select "Package Generator: Generate Package," and you'll be asked for the path where your package will be created. Let's call ours <code>language-flight-manual</code>.</p>
+
+<div class="alert tip">
+
+<p><strong>Tip:</strong> Grammar packages should start with <em>language-</em>.</p>
+
+</div>
+
+<p>The default package template creates a lot of folders that aren't needed for grammar packages. Go ahead and delete the <code>keymaps</code>, <code>lib</code>, <code>menus</code>, and <code>styles</code> folders. Furthermore, in <code>package.json</code>, remove the <code>activationCommands</code> section. Now create a new folder called <code>grammars</code>, and inside that a file called <code>flight-manual.cson</code>. This is the main file that we will be working with - start by populating it with a <a href="https://gist.github.com/DamnedScholar/622926bcd222eb1ddc483d12103fd315">boilerplate template</a>. Now let's go over what each key means.</p>
+
+<p><code>scopeName</code> is the root <em>scope</em> of your package. This should generally describe what language your grammar package is highlighting; for example, <code>language-javascript</code>'s <code>scopeName</code> is <code>source.js</code> and <code>language-html</code>'s is <code>text.html.basic</code>. Name it <code>source.flight-manual</code> for now.</p>
+
+<p><code>name</code> is the user-friendly name that is displayed in places like the status bar or the grammar selector. Again, this name should describe what the grammar package is highlighting. Rename it to <code>Flight Manual</code>.</p>
+
+<p><code>fileTypes</code> is an array of filetypes that <code>language-flight-manual</code> should highlight. We're interested in highlighting the Flight Manual's Markdown files, so add the <code>md</code> extension to the list and remove the others.</p>
+
+<p><code>patterns</code> contains the array of regex patterns that will determine how the file is tokenized.</p>
+
+<h4>
+<a id="adding-patterns" class="anchor" href="#adding-patterns" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding Patterns</h4>
+
+<p>To start, let's add a basic pattern to tokenize the words <code>Flight Manual</code> whenever they show up. Your regex should look like <code>\bFlight Manual\b</code>. Here's what your <code>patterns</code> block should look like:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s">'match'</span><span class="o">:</span> <span class="s">'</span><span class="se">\\</span><span class="s">bFlight Manual</span><span class="se">\\</span><span class="s">b'</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'entity.other.flight-manual'</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p><code>match</code> is where your regex is contained, and <code>name</code> is the scope name that is to be applied to the entirety of the match. More information about scope names can be found in <a href="https://manual.macromates.com/en/language_grammars">Section 12.4 of the TextMate Manual</a>.</p>
+
+<div class="alert tip">
+
+<p><strong>Tip:</strong> All scopes should end with the portion of the root <code>scopeName</code> after the leading <code>source</code> or <code>text</code>. In our case, all scopes should end with <code>flight-manual</code>.</p>
+
+</div>
+
+<div class="alert note">
+
+<p><strong>Note:</strong> Astute readers may have noticed that the <code>\b</code> was changed to <code>\\b</code> with two backslashes and not one. This is because CSON processes the regex string before handing it to Oniguruma, so all backslashes need to be escaped twice.</p>
+
+</div>
+
+<p>But what if we wanted to apply different scopes to <code>Flight</code> and <code>Manual</code>? This is possible by adding capture groups to the regex and then referencing those capture groups in a new <code>capture</code> property. For example:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'match'</span><span class="o">:</span> <span class="s">'</span><span class="se">\\</span><span class="s">b(Flight) (Manual)</span><span class="se">\\</span><span class="s">b'</span>
+<span class="s">'name'</span><span class="o">:</span> <span class="s">'entity.other.flight-manual'</span>
+<span class="s">'captures'</span><span class="o">:</span>
+  <span class="s">'1'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.flight.flight-manual'</span>
+  <span class="s">'2'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.manual.flight-manual'</span>
+</code></pre></div>
+
+<p>This will assign the scope <code>keyword.other.flight.flight-manual</code> to <code>Flight</code>, <code>keyword.other.manual.flight-manual</code> to <code>Manual</code>, and <code>entity.other.flight-manual</code> to the overarching <code>Flight Manual</code>.</p>
+
+<h4>
+<a id="beginend-patterns" class="anchor" href="#beginend-patterns" aria-hidden="true"><span class="octicon octicon-link"></span></a>Begin/End Patterns</h4>
+
+<p>Now let's say we want to tokenize the <code>{{#note}}</code> blocks that occur in Flight Manual files. Our previous two examples used <code>match</code>, but one limit of <code>match</code> is that it can only match single lines. <code>{{#note}}</code> blocks, on the other hand, can span multiple lines. For these cases, you can use the <code>begin</code>/<code>end</code> keys. Once the regex in the <code>begin</code> key is matched, tokenization will continue until the <code>end</code> pattern is reached.</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
+<span class="s">'beginCaptures'</span><span class="o">:</span>
+  <span class="s">'0'</span><span class="o">:</span> <span class="c1"># The 0 capture contains the entire match</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.start.flight-manual'</span>
+  <span class="s">'1'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
+  <span class="s">'2'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.note.flight-manual'</span>
+  <span class="s">'3'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
+<span class="s">'end'</span><span class="o">:</span> <span class="s">'({{)(/note)(}})'</span>
+<span class="s">'endCaptures'</span><span class="o">:</span>
+  <span class="s">'0'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.end.flight-manual'</span>
+  <span class="s">'1'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
+  <span class="s">'2'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.note.flight-manual'</span>
+  <span class="s">'3'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
+<span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.note.flight-manual'</span>
+</code></pre></div>
+
+<div class="alert tip">
+
+<p><strong>Tip:</strong> Get into the habit of providing punctuation scopes early on. It's much less effort than having to go back and rewriting all your patterns to support punctuation scopes when your grammar starts to get a bit longer!</p>
+
+</div>
+
+<p>Awesome, we have our first multiline pattern! However, if you've been following along and playing around in your own <code>.md</code> file, you may have noticed that <code>Flight Manual</code> doesn't receive any scopes inside a note block. A begin/end block is essentially a subgrammar of its own: once it starts matching, it will only match its own subpatterns until the end pattern is reached. Since we haven't defined any subpatterns, then clearly nothing will be matched inside of a note block. Let's fix that!</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
+<span class="s">'beginCaptures'</span><span class="o">:</span>
+  <span class="s">'0'</span><span class="o">:</span> <span class="c1"># The 0 capture contains the entire match</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.start.flight-manual'</span>
+  <span class="s">'1'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
+  <span class="s">'2'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.note.flight-manual'</span>
+  <span class="s">'3'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
+<span class="s">'end'</span><span class="o">:</span> <span class="s">'({{)(/note)(}})'</span>
+<span class="s">'endCaptures'</span><span class="o">:</span>
+  <span class="s">'0'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.end.flight-manual'</span>
+  <span class="s">'1'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
+  <span class="s">'2'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.note.flight-manual'</span>
+  <span class="s">'3'</span><span class="o">:</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
+<span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.note.flight-manual'</span>
+<span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s">'match'</span><span class="o">:</span> <span class="s">'</span><span class="se">\\</span><span class="s">b(Flight) (Manual)</span><span class="se">\\</span><span class="s">b'</span>
+    <span class="s">'name'</span><span class="o">:</span> <span class="s">'entity.other.flight-manual'</span>
+    <span class="s">'captures'</span><span class="o">:</span>
+      <span class="s">'1'</span><span class="o">:</span>
+        <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.flight.flight-manual'</span>
+      <span class="s">'2'</span><span class="o">:</span>
+        <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.manual.flight-manual'</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>There. With the patterns block, <code>Flight Manual</code> should now receive the proper scopes.</p>
+
+<h4>
+<a id="repositories-and-the-include-keyword-or-how-to-avoid-duplication" class="anchor" href="#repositories-and-the-include-keyword-or-how-to-avoid-duplication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repositories and the Include keyword, or how to avoid duplication</h4>
+
+<p>At this point, note blocks are looking pretty nice, as is the <code>Flight Manual</code> keyword, but the rest of the file is noticeably lacking any form of Markdown syntax highlighting. Is there a way to include the GitHub-Flavored Markdown grammar without copying and pasting everything over? This is where the <code>include</code> keyword comes in. <code>include</code> allows you to <em>include</em> other patterns, even from other grammars! <code>language-gfm</code>'s <code>scopeName</code> is <code>source.gfm</code>, so let's include that. Our <code>patterns</code> block should now look like the following:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s">'include'</span><span class="o">:</span> <span class="s">'source.gfm'</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="c1"># Flight Manual pattern</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="c1"># Note begin/end pattern</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>However, including <code>source.gfm</code> has led to another problem: note blocks still don't have any Markdown highlighting! The quick fix would be to add the include pattern to the note's pattern block as well, but now we're duplicating two patterns. You can imagine that as this grammar grows it'll quickly become inefficient to keep copying each new global pattern over to the <code>note</code> pattern as well. Therefore, <code>include</code> helpfully recognizes the special <code>$self</code> scope. <code>$self</code> automatically includes all the top-level patterns of the current grammar. The <code>note</code> block can then be simplified to the following:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
+<span class="c1"># beginCaptures</span>
+<span class="s">'end'</span><span class="o">:</span> <span class="s">'({{)(/note)(}})'</span>
+<span class="c1"># endCaptures</span>
+<span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.note.flight-manual'</span>
+<span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s">'include'</span><span class="o">:</span> <span class="s">'$self'</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<h4>
+<a id="where-to-go-from-here" class="anchor" href="#where-to-go-from-here" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where to Go from Here</h4>
+
+<p>There are several good resources out there that help when writing a grammar. The following is a list of some particularly useful ones (some have been linked to in the sections above as well).</p>
+
+<ul>
+<li>
+<a href="https://gist.github.com/DamnedScholar/622926bcd222eb1ddc483d12103fd315">DamnedScholar's Gist</a>. Provides a template of most keys, each with a short comment explaining their function.</li>
+<li>
+<a href="https://gist.github.com/Aerijo/b8c82d647db783187804e86fa0a604a1">Aerijo's Gist</a>. [Work in Progress] Another guide that attempts to fully explain making a grammar package for users of all levels.</li>
+<li>
+<a href="http://www.apeth.com/nonblog/stories/textmatebundle.html">http://www.apeth.com/nonblog/stories/textmatebundle.html</a>. A blog of a programmer's experience writing a grammar package for TextMate.</li>
+<li>
+<a href="https://github.com/kkos/oniguruma/blob/master/doc/RE">Oniguruma docs</a>. The documentation for the regex engine Atom uses.</li>
+<li>
+<a href="http://manual.macromates.com/en/language_grammars.html">TextMate Section 12</a>. Atom uses the same principles as laid out here, including the list of acceptable scopes.</li>
+<li>
+<a href="https://github.com/atom/first-mate"><code>first-mate</code></a>. Not necessary to write a grammar, but a good technical reference for what Atom is doing behind the scenes.</li>
+<li>Look at any existing packages, such as the ones for <a href="https://github.com/atom/language-python">Python</a>, <a href="https://github.com/atom/language-javascript">JavaScript</a>, <a href="https://github.com/atom/language-html">HTML</a>, <a href="https://github.com/atom?utf8=%E2%9C%93&amp;q=language&amp;type=source&amp;language=">and more</a>.</li>
+</ul>
+
+<!--
+TODO:
+* `repository` and including from repository patterns
+* Wrap-up
+* Implement Package Generator functionality to generate a grammar
+* Intermediate + advanced grammar tutorials
+-->
+        </div>
+      </div>
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+        <li><a href="https://github.com/atom/flight-manual.atom.io/blob/master/CONTRIBUTING.md">Contribute!</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

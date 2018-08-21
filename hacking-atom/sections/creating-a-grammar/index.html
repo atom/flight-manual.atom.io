@@ -210,6 +210,10 @@
       </li>
     
       <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-legacy-textmate-grammar">Creating a Legacy TextMate Grammar</a>
+      </li>
+    
+      <li class="unselected">
         <a href="/hacking-atom/sections/publishing">Publishing</a>
       </li>
     
@@ -389,225 +393,333 @@
           <h3>
 <a id="creating-a-grammar" class="anchor" href="#creating-a-grammar" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a Grammar</h3>
 
-<p>Grammars power Atom's syntax highlighting. Each grammar provides a set of <em>regex</em> (regular expression) patterns which are assigned <em>scopes</em>. These scopes are then turned into the CSS classes that you can target in syntax themes!</p>
+<p>Atom's syntax highlighting and code folding system is powered by <a href="http://tree-sitter.github.io/tree-sitter">Tree-sitter</a>. Tree-sitter parsers create and maintain full <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree"><em>syntax trees</em></a> representing your code.</p>
 
-<div class="alert note">
+<p>This syntax tree gives Atom a comprehensive understanding of the structure of your code, which has several benefits:</p>
 
-<p><strong>Note:</strong> This tutorial is a work in progress.</p>
+<ol>
+<li>Syntax highlighting will not break because of formatting changes.</li>
+<li>Code folding will work regardless of how your code is indented.</li>
+<li>Editor features can operate on the syntax tree. For instance, the <code>Select Larger Syntax Node</code> and <code>Select Smaller Syntax Node</code> allow you to select conceptually larger and smaller chunks of your code.</li>
+<li>Community packages can use the syntax tree to manipulate code intelligently.</li>
+</ol>
 
-</div>
+<p>Tree-sitter grammars are relatively new. Many languages in Atom are still supported by <a href="../creating-a-legacy-textmate-grammar">TextMate grammars</a>, though we intend to phase these out over time.</p>
+
+<p>If you're adding support for a new language, you're in the right place!</p>
 
 <h4>
 <a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h4>
 
-<p>Grammars depend heavily on regexes, and you should be comfortable with interpreting and writing regexes before continuing. Note that Atom uses the Oniguruma engine, which is very similar to the PCRE or Perl regex engines. Here are some resources to help you out:</p>
+<p>There are two components required to use Tree-sitter in Atom: a <em>parser</em> and a <em>grammar</em> file.</p>
+
+<h4>
+<a id="the-parser" class="anchor" href="#the-parser" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Parser</h4>
+
+<p>Tree-sitter generates parsers based on <a href="https://en.wikipedia.org/wiki/Context-free_grammar">context-free grammars</a> that are typically written in JavaScript. The generated parsers are C libraries that can be used in other applications as well as Atom.</p>
+
+<p>They can also be developed and tested at the command line, separately from Atom. Tree-sitter has <a href="http://tree-sitter.github.io/tree-sitter/creating-parsers">its own documentation page</a> on how to create these parsers. The <a href="https://github.com/tree-sitter">Tree-sitter GitHub organization</a> also contains a lot of example parsers that you can learn from, each in its own repository.</p>
+
+<p>Once you have created a parser, you need to publish it to <a href="https://npmjs.com">the NPM registry</a> to use it in Atom. To do this, make sure you have a <code>name</code> and <code>version</code> in your parser's <code>package.json</code>:</p>
+
+<div class="highlight highlight-js"><pre class="highlight"><code><span class="p">{</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"tree-sitter-mylanguage"</span><span class="p">,</span>
+  <span class="s2">"version"</span><span class="p">:</span> <span class="s2">"0.0.1"</span><span class="p">,</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>then run the command <code>npm publish</code>.</p>
+
+<h4>
+<a id="the-package" class="anchor" href="#the-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Package</h4>
+
+<p>Once you have a Tree-sitter parser that is available on npm, you can use it in your Atom package. Packages with grammars are, by convention, always named starting with <em>language</em>. You'll need a folder with a <code>package.json</code>, a <code>grammars</code> subdirectory, and a single <code>json</code> or <code>cson</code> file in the <code>grammars</code> directory, which can be named anything.</p>
+
+<pre><code>language-mylanguage
+├── LICENSE
+├── README.md
+├── grammars
+│   └── mylanguage.cson
+└── package.json
+</code></pre>
+
+<h4>
+<a id="the-grammar-file" class="anchor" href="#the-grammar-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Grammar File</h4>
+
+<p>The <code>mylanguage.cson</code> file specifies how Atom should use the parser you created.</p>
+
+<h4>
+<a id="basic-fields" class="anchor" href="#basic-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Fields</h4>
+
+<p>It starts with some required fields:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">name</span><span class="o">:</span> <span class="s">'My Language'</span>
+<span class="na">scopeName</span><span class="o">:</span> <span class="s">'mylanguage'</span>
+<span class="na">type</span><span class="o">:</span> <span class="s">'tree-sitter'</span>
+<span class="na">parser</span><span class="o">:</span> <span class="s">'tree-sitter-mylanguage'</span>
+</code></pre></div>
 
 <ul>
 <li>
-<a href="https://www.regular-expressions.info/tutorial.html">https://www.regular-expressions.info/tutorial.html</a> provides a comprehensive regex tutorial</li>
+<code>scopeName</code> - A unique, stable identifier for the language. Atom users will use this in configuration files if they want to specify custom configuration based on the language.</li>
 <li>
-<a href="https://www.rexegg.com/regex-quickstart.html">https://www.rexegg.com/regex-quickstart.html</a> contains a cheat sheet for various regex expressions</li>
+<code>name</code> - A human readable name for the language.</li>
 <li>
-<a href="https://regex101.com/">https://regex101.com/</a> or <a href="https://regexr.com/">https://regexr.com/</a> allows live prototyping</li>
+<code>parser</code> - The name of the parser node module that will be used for parsing. This string will be passed directly to <a href="https://nodejs.org/api/modules.html#modules_require"><code>require()</code></a> in order to load the parser.</li>
 <li>
-<a href="https://github.com/kkos/oniguruma/blob/master/doc/RE">https://github.com/kkos/oniguruma/blob/master/doc/RE</a> the docs for the Oniguruma regex engine</li>
+<code>type</code> - This should have the value <code>tree-sitter</code> to indicate to Atom that this is a Tree-sitter grammar and not a <a href="../creating-a-legacy-textmate-grammar">TextMate grammar</a>.</li>
 </ul>
 
-<p>Grammar files are written in the <a href="https://github.com/bevry/cson#what-is-cson">CSON</a> or <a href="https://www.json.org/">JSON</a> format. Whichever one you decide to use is up to you, but this tutorial will be written in CSON.</p>
-
 <h4>
-<a id="create-the-package" class="anchor" href="#create-the-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create the Package</h4>
+<a id="language-recognition" class="anchor" href="#language-recognition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language Recognition</h4>
 
-<p>To get started, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> and start typing "Generate Package" to generate a new grammar package. Select "Package Generator: Generate Package," and you'll be asked for the path where your package will be created. Let's call ours <code>language-flight-manual</code>.</p>
-
-<div class="alert tip">
-
-<p><strong>Tip:</strong> Grammar packages should start with <em>language-</em>.</p>
-
-</div>
-
-<p>The default package template creates a lot of folders that aren't needed for grammar packages. Go ahead and delete the <code>keymaps</code>, <code>lib</code>, <code>menus</code>, and <code>styles</code> folders. Furthermore, in <code>package.json</code>, remove the <code>activationCommands</code> section. Now create a new folder called <code>grammars</code>, and inside that a file called <code>flight-manual.cson</code>. This is the main file that we will be working with - start by populating it with a <a href="https://gist.github.com/DamnedScholar/622926bcd222eb1ddc483d12103fd315">boilerplate template</a>. Now let's go over what each key means.</p>
-
-<p><code>scopeName</code> is the root <em>scope</em> of your package. This should generally describe what language your grammar package is highlighting; for example, <code>language-javascript</code>'s <code>scopeName</code> is <code>source.js</code> and <code>language-html</code>'s is <code>text.html.basic</code>. Name it <code>source.flight-manual</code> for now.</p>
-
-<p><code>name</code> is the user-friendly name that is displayed in places like the status bar or the grammar selector. Again, this name should describe what the grammar package is highlighting. Rename it to <code>Flight Manual</code>.</p>
-
-<p><code>fileTypes</code> is an array of filetypes that <code>language-flight-manual</code> should highlight. We're interested in highlighting the Flight Manual's Markdown files, so add the <code>md</code> extension to the list and remove the others.</p>
-
-<p><code>patterns</code> contains the array of regex patterns that will determine how the file is tokenized.</p>
-
-<h4>
-<a id="adding-patterns" class="anchor" href="#adding-patterns" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding Patterns</h4>
-
-<p>To start, let's add a basic pattern to tokenize the words <code>Flight Manual</code> whenever they show up. Your regex should look like <code>\bFlight Manual\b</code>. Here's what your <code>patterns</code> block should look like:</p>
-
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="s">'match'</span><span class="o">:</span> <span class="s">'</span><span class="se">\\</span><span class="s">bFlight Manual</span><span class="se">\\</span><span class="s">b'</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'entity.other.flight-manual'</span>
-  <span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
-
-<p><code>match</code> is where your regex is contained, and <code>name</code> is the scope name that is to be applied to the entirety of the match. More information about scope names can be found in <a href="https://manual.macromates.com/en/language_grammars">Section 12.4 of the TextMate Manual</a>.</p>
-
-<div class="alert tip">
-
-<p><strong>Tip:</strong> All scopes should end with the portion of the root <code>scopeName</code> after the leading <code>source</code> or <code>text</code>. In our case, all scopes should end with <code>flight-manual</code>.</p>
-
-</div>
-
-<div class="alert note">
-
-<p><strong>Note:</strong> Astute readers may have noticed that the <code>\b</code> was changed to <code>\\b</code> with two backslashes and not one. This is because CSON processes the regex string before handing it to Oniguruma, so all backslashes need to be escaped twice.</p>
-
-</div>
-
-<p>But what if we wanted to apply different scopes to <code>Flight</code> and <code>Manual</code>? This is possible by adding capture groups to the regex and then referencing those capture groups in a new <code>capture</code> property. For example:</p>
-
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'match'</span><span class="o">:</span> <span class="s">'</span><span class="se">\\</span><span class="s">b(Flight) (Manual)</span><span class="se">\\</span><span class="s">b'</span>
-<span class="s">'name'</span><span class="o">:</span> <span class="s">'entity.other.flight-manual'</span>
-<span class="s">'captures'</span><span class="o">:</span>
-  <span class="s">'1'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.flight.flight-manual'</span>
-  <span class="s">'2'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.manual.flight-manual'</span>
-</code></pre></div>
-
-<p>This will assign the scope <code>keyword.other.flight.flight-manual</code> to <code>Flight</code>, <code>keyword.other.manual.flight-manual</code> to <code>Manual</code>, and <code>entity.other.flight-manual</code> to the overarching <code>Flight Manual</code>.</p>
-
-<h4>
-<a id="beginend-patterns" class="anchor" href="#beginend-patterns" aria-hidden="true"><span class="octicon octicon-link"></span></a>Begin/End Patterns</h4>
-
-<p>Now let's say we want to tokenize the <code>{{#note}}</code> blocks that occur in Flight Manual files. Our previous two examples used <code>match</code>, but one limit of <code>match</code> is that it can only match single lines. <code>{{#note}}</code> blocks, on the other hand, can span multiple lines. For these cases, you can use the <code>begin</code>/<code>end</code> keys. Once the regex in the <code>begin</code> key is matched, tokenization will continue until the <code>end</code> pattern is reached.</p>
-
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
-<span class="s">'beginCaptures'</span><span class="o">:</span>
-  <span class="s">'0'</span><span class="o">:</span> <span class="c1"># The 0 capture contains the entire match</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.start.flight-manual'</span>
-  <span class="s">'1'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
-  <span class="s">'2'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.note.flight-manual'</span>
-  <span class="s">'3'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
-<span class="s">'end'</span><span class="o">:</span> <span class="s">'({{)(/note)(}})'</span>
-<span class="s">'endCaptures'</span><span class="o">:</span>
-  <span class="s">'0'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.end.flight-manual'</span>
-  <span class="s">'1'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
-  <span class="s">'2'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.note.flight-manual'</span>
-  <span class="s">'3'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
-<span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.note.flight-manual'</span>
-</code></pre></div>
-
-<div class="alert tip">
-
-<p><strong>Tip:</strong> Get into the habit of providing punctuation scopes early on. It's much less effort than having to go back and rewriting all your patterns to support punctuation scopes when your grammar starts to get a bit longer!</p>
-
-</div>
-
-<p>Awesome, we have our first multiline pattern! However, if you've been following along and playing around in your own <code>.md</code> file, you may have noticed that <code>Flight Manual</code> doesn't receive any scopes inside a note block. A begin/end block is essentially a subgrammar of its own: once it starts matching, it will only match its own subpatterns until the end pattern is reached. Since we haven't defined any subpatterns, then clearly nothing will be matched inside of a note block. Let's fix that!</p>
-
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
-<span class="s">'beginCaptures'</span><span class="o">:</span>
-  <span class="s">'0'</span><span class="o">:</span> <span class="c1"># The 0 capture contains the entire match</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.start.flight-manual'</span>
-  <span class="s">'1'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
-  <span class="s">'2'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.note.flight-manual'</span>
-  <span class="s">'3'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
-<span class="s">'end'</span><span class="o">:</span> <span class="s">'({{)(/note)(}})'</span>
-<span class="s">'endCaptures'</span><span class="o">:</span>
-  <span class="s">'0'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.end.flight-manual'</span>
-  <span class="s">'1'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
-  <span class="s">'2'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.note.flight-manual'</span>
-  <span class="s">'3'</span><span class="o">:</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'punctuation.definition.block.flight-manual'</span>
-<span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.note.flight-manual'</span>
-<span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="s">'match'</span><span class="o">:</span> <span class="s">'</span><span class="se">\\</span><span class="s">b(Flight) (Manual)</span><span class="se">\\</span><span class="s">b'</span>
-    <span class="s">'name'</span><span class="o">:</span> <span class="s">'entity.other.flight-manual'</span>
-    <span class="s">'captures'</span><span class="o">:</span>
-      <span class="s">'1'</span><span class="o">:</span>
-        <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.flight.flight-manual'</span>
-      <span class="s">'2'</span><span class="o">:</span>
-        <span class="s">'name'</span><span class="o">:</span> <span class="s">'keyword.other.manual.flight-manual'</span>
-  <span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
-
-<p>There. With the patterns block, <code>Flight Manual</code> should now receive the proper scopes.</p>
-
-<h4>
-<a id="repositories-and-the-include-keyword-or-how-to-avoid-duplication" class="anchor" href="#repositories-and-the-include-keyword-or-how-to-avoid-duplication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repositories and the Include keyword, or how to avoid duplication</h4>
-
-<p>At this point, note blocks are looking pretty nice, as is the <code>Flight Manual</code> keyword, but the rest of the file is noticeably lacking any form of Markdown syntax highlighting. Is there a way to include the GitHub-Flavored Markdown grammar without copying and pasting everything over? This is where the <code>include</code> keyword comes in. <code>include</code> allows you to <em>include</em> other patterns, even from other grammars! <code>language-gfm</code>'s <code>scopeName</code> is <code>source.gfm</code>, so let's include that. Our <code>patterns</code> block should now look like the following:</p>
-
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="s">'include'</span><span class="o">:</span> <span class="s">'source.gfm'</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="c1"># Flight Manual pattern</span>
-  <span class="p">}</span>
-  <span class="p">{</span>
-    <span class="c1"># Note begin/end pattern</span>
-  <span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
-
-<p>However, including <code>source.gfm</code> has led to another problem: note blocks still don't have any Markdown highlighting! The quick fix would be to add the include pattern to the note's pattern block as well, but now we're duplicating two patterns. You can imagine that as this grammar grows it'll quickly become inefficient to keep copying each new global pattern over to the <code>note</code> pattern as well. Therefore, <code>include</code> helpfully recognizes the special <code>$self</code> scope. <code>$self</code> automatically includes all the top-level patterns of the current grammar. The <code>note</code> block can then be simplified to the following:</p>
-
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'begin'</span><span class="o">:</span> <span class="s">'({{)(#note)(}})'</span>
-<span class="c1"># beginCaptures</span>
-<span class="s">'end'</span><span class="o">:</span> <span class="s">'({{)(/note)(}})'</span>
-<span class="c1"># endCaptures</span>
-<span class="s">'name'</span><span class="o">:</span> <span class="s">'meta.block.note.flight-manual'</span>
-<span class="s">'patterns'</span><span class="o">:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="s">'include'</span><span class="o">:</span> <span class="s">'$self'</span>
-  <span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
-
-<h4>
-<a id="where-to-go-from-here" class="anchor" href="#where-to-go-from-here" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where to Go from Here</h4>
-
-<p>There are several good resources out there that help when writing a grammar. The following is a list of some particularly useful ones (some have been linked to in the sections above as well).</p>
+<p>Next, the file should contain some fields that indicate to Atom <em>when</em> this language should be used. These fields are all optional.</p>
 
 <ul>
 <li>
-<a href="https://gist.github.com/DamnedScholar/622926bcd222eb1ddc483d12103fd315">DamnedScholar's Gist</a>. Provides a template of most keys, each with a short comment explaining their function.</li>
+<code>fileTypes</code> - An array of filename <em>suffixes</em>. The grammar will be used for files whose names end with one of these suffixes. Note that the suffix may be an entire filename.</li>
 <li>
-<a href="https://gist.github.com/Aerijo/b8c82d647db783187804e86fa0a604a1">Aerijo's Gist</a>. [Work in Progress] Another guide that attempts to fully explain making a grammar package for users of all levels.</li>
+<code>firstLineRegex</code> - A regex pattern that will be tested against the first line of the file. The grammar will be used if this regex matches.</li>
 <li>
-<a href="http://www.apeth.com/nonblog/stories/textmatebundle.html">http://www.apeth.com/nonblog/stories/textmatebundle.html</a>. A blog of a programmer's experience writing a grammar package for TextMate.</li>
-<li>
-<a href="https://github.com/kkos/oniguruma/blob/master/doc/RE">Oniguruma docs</a>. The documentation for the regex engine Atom uses.</li>
-<li>
-<a href="http://manual.macromates.com/en/language_grammars.html">TextMate Section 12</a>. Atom uses the same principles as laid out here, including the list of acceptable scopes.</li>
-<li>
-<a href="https://github.com/atom/first-mate"><code>first-mate</code></a>. Not necessary to write a grammar, but a good technical reference for what Atom is doing behind the scenes.</li>
-<li>Look at any existing packages, such as the ones for <a href="https://github.com/atom/language-python">Python</a>, <a href="https://github.com/atom/language-javascript">JavaScript</a>, <a href="https://github.com/atom/language-html">HTML</a>, <a href="https://github.com/atom?utf8=%E2%9C%93&amp;q=language&amp;type=source&amp;language=">and more</a>.</li>
+<code>contentRegex</code> - A regex pattern that will be tested against the contents of the file in order to break ties in cases where <em>multiple</em> grammars matched the file using the above two criteria. If the <code>contentRegex</code> matches, this grammar will be preferred over another grammar with no <code>contentRegex</code>. If the <code>contentRegex</code> does <em>not</em> match, a grammar with no <code>contentRegex</code> will be preferred over this one.</li>
 </ul>
 
-<!--
-TODO:
-* `repository` and including from repository patterns
-* Wrap-up
-* Implement Package Generator functionality to generate a grammar
-* Intermediate + advanced grammar tutorials
--->
+<h4>
+<a id="syntax-highlighting" class="anchor" href="#syntax-highlighting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Syntax Highlighting</h4>
+
+<p>The HTML classes that Atom uses for syntax highlighting do not correspond directly to nodes in the syntax tree. Instead, Tree-sitter grammar files specify <em>scope mappings</em> that specify which classes should be applied to which syntax nodes. The <code>scopes</code> object controls these scope mappings. Its keys are CSS selectors that select nodes in the syntax tree. Its values can be of several different types.</p>
+
+<p>Here is a simple example:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">scopes</span><span class="o">:</span>
+  <span class="s">'call_expression &gt; identifier'</span><span class="o">:</span> <span class="s">'entity.name.function'</span>
+</code></pre></div>
+
+<p>This entry means that, in the syntax tree, any <code>identifier</code> node whose parent is a <code>call_expression</code> should be highlighted using three classes: <code>syntax--entity</code>, <code>syntax--name</code>, and <code>syntax--function</code>.</p>
+
+<p>Note that in this selector, we're using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors">immediate child combinator</a> (<code>&gt;</code>). Arbitrary descendant selectors without this combinator (for example <code>'call_expression identifier'</code>, which would match any <code>identifier</code> occurring anywhere within a <code>call_expression</code>) are currently not supported.</p>
+
+<h5>
+<a id="advanced-selectors" class="anchor" href="#advanced-selectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced Selectors</h5>
+
+<p>The keys of the <code>scopes</code> object can also contain <em>multiple</em> CSS selectors, separated by commas, similar to CSS files. The triple-quote syntax in CSON makes it convenient to write keys like this on multiple lines:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">scopes</span><span class="o">:</span>
+  <span class="s">'''
+  function_declaration &gt; identifier,
+  call_expression &gt; identifier,
+  call_expression &gt; field_expression &gt; field_identifier
+  '''</span><span class="o">:</span> <span class="s">'entity.name.function'</span>
+</code></pre></div>
+
+<p>You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child"><code>:nth-child</code> pseudo-class</a> to select nodes based on their order within their parent. For example, this example selects <code>identifier</code> nodes which are the fourth (zero-indexed) child of a <code>singleton_method</code> node.</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">scopes</span><span class="o">:</span>
+  <span class="s">'singleton_method &gt; identifier:nth-child(3)'</span><span class="o">:</span> <span class="s">'entity.name.function'</span>
+</code></pre></div>
+
+<p>Finally, you can use double-quoted strings in the selectors to select <em>anonymous</em> tokens in the syntax tree, like <code>(</code> and <code>:</code>. See <a href="http://tree-sitter.github.io/tree-sitter/using-parsers#named-vs-anonymous-nodes">the Tree-sitter documentation</a> for more information about named vs anonymous tokens.</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">scopes</span><span class="o">:</span>
+  <span class="s">'''
+    "*",
+    "/",
+    "+",
+    "-"
+  '''</span><span class="o">:</span> <span class="s">'keyword.operator'</span>
+</code></pre></div>
+
+<h5>
+<a id="text-based-mappings" class="anchor" href="#text-based-mappings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Text-based Mappings</h5>
+
+<p>You can also apply different classes to a syntax node based on its text. Here are some examples:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">scopes</span><span class="o">:</span>
+
+  <span class="c1"># Apply the classes `syntax--builtin` and `syntax--variable` to all</span>
+  <span class="c1"># `identifier` nodes whose text is `require`.</span>
+  <span class="s">'identifier'</span><span class="o">:</span> <span class="p">{</span><span class="na">exact</span><span class="o">:</span> <span class="s">'require'</span><span class="p">,</span> <span class="na">scopes</span><span class="o">:</span> <span class="s">'builtin.variable'</span><span class="p">},</span>
+
+  <span class="c1"># Apply the classes `syntax--type` and `syntax--integer` to all</span>
+  <span class="c1"># `primitive_type` nodes whose text starts with `int` or `uint`.</span>
+  <span class="s">'primitive_type'</span><span class="o">:</span> <span class="p">{</span><span class="na">match</span><span class="o">:</span> <span class="sr">/^u?int/</span><span class="p">,</span> <span class="na">scopes</span><span class="o">:</span> <span class="s">'type.integer'</span><span class="p">},</span>
+
+  <span class="c1"># Apply the classes `syntax--builtin`, `syntax--class`, and</span>
+  <span class="c1"># `syntax--name` to `constant` nodes with the text `Array`,</span>
+  <span class="c1"># `Hash` and `String`. For all other `constant` nodes, just</span>
+  <span class="c1"># apply the classes `syntax--class` and `syntax--name`.</span>
+  <span class="s">'constant'</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="na">match</span><span class="o">:</span> <span class="sr">/^(Array|Hash|String)$/</span><span class="p">,</span> <span class="na">scopes</span><span class="o">:</span> <span class="s">'builtin.class.name'</span><span class="p">},</span>
+    <span class="s">'class.name'</span>
+  <span class="p">]</span>
+</code></pre></div>
+
+<p>In total there are four types of values that can be associated with selectors in <code>scopes</code>:</p>
+
+<ul>
+<li>Strings - Each class name in the dot-separated string will be prefixed with <code>syntax--</code> and applied to the selected node.</li>
+<li>Objects with the keys <code>exact</code> and <code>scopes</code> - If the node's text equals the <code>exact</code> string, the <code>scopes</code> string will be used as described above.</li>
+<li>Objects with the keys <code>match</code> and <code>scopes</code> - If the node's text matches the <code>match</code> regex pattern, the <code>scopes</code> string will be used as described above.</li>
+<li>Arrays - The elements of the array will be processed from beginning to end. The first element that matches the selected node will be used as describe above.</li>
+</ul>
+
+<h5>
+<a id="specificity" class="anchor" href="#specificity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Specificity</h5>
+
+<p>If multiple selectors in the <code>scopes</code> object match a node, the node's classes will be decided based on the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">most specific</a> selector. Note that the <code>exact</code> and <code>match</code> rules do <em>not</em> affect specificity, so you may need to supply the same <code>exact</code> or <code>match</code> rules for multiple selectors to ensure that they take precedence over other selectors. You can use the same selector multiple times in a scope mapping, within different comma-separated keys:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">scopes</span><span class="o">:</span>
+  <span class="s">'call_expression &gt; identifier'</span><span class="o">:</span> <span class="s">'entity.name.function'</span>
+
+  <span class="c1"># If we did not include the second selector here, then this rule</span>
+  <span class="c1"># would not apply to identifiers inside of call_expressions,</span>
+  <span class="c1"># because the selector `call_expression &gt; identifier` is more</span>
+  <span class="c1"># specific than the selector `identifier`.</span>
+  <span class="s">'identifier, call_expression &gt; identifier'</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="na">exact</span><span class="o">:</span> <span class="s">'require'</span><span class="p">,</span> <span class="na">scopes</span><span class="o">:</span> <span class="s">'builtin.variable'</span><span class="p">},</span>
+    <span class="p">{</span><span class="na">match</span><span class="o">:</span> <span class="sr">/^[A-Z]/</span><span class="p">,</span> <span class="na">scopes</span><span class="o">:</span> <span class="s">'constructor'</span><span class="p">},</span>
+  <span class="p">]</span>
+</code></pre></div>
+
+<h4>
+<a id="language-injection" class="anchor" href="#language-injection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language Injection</h4>
+
+<p>Sometimes, a source file can contain code written in several different languages. Tree-sitter grammars support this situation using a two-part process called <em>language injection</em>. First, an 'outer' language must define an <em>injection point</em> - a set of syntax nodes whose text can be parsed using a different language, along with some logic for guessing the <em>name</em> of the other language that should be used. Second, an 'inner' language must define an <code>injectionRegex</code> - a regex pattern that will be tested against the language name provided by the injection point.</p>
+
+<p>For example, in JavaScript, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates">tagged template literals</a> sometimes contain code written in a different language, and the name of the language is often used in the 'tag' function, as shown in this example:</p>
+
+<div class="highlight highlight-js"><pre class="highlight"><code><span class="c1">// HTML in a template literal</span>
+<span class="kd">const</span> <span class="nx">htmlContent</span> <span class="o">=</span> <span class="nx">html</span> <span class="s2">`&lt;div&gt;Hello </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">&lt;/div&gt;`</span>
+</code></pre></div>
+
+<p>The <code>tree-sitter-javascript</code> parser parses this tagged template literal as a <code>call_expression</code> with two children: an <code>identifier</code> and a <code>template_literal</code>:</p>
+
+<pre><code>(call_expression
+  (identifier)
+  (template_literal
+    (interpolation
+      (identifier))))
+</code></pre>
+
+<p>Here is an injection point that would allow syntax highlighting inside of template literals:</p>
+
+<div class="highlight highlight-js"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="nx">grammars</span><span class="p">.</span><span class="nx">addInjectionPoint</span><span class="p">(</span><span class="s1">'javascript'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">type</span><span class="p">:</span> <span class="s1">'call_expression'</span><span class="p">,</span>
+
+  <span class="nx">language</span> <span class="p">(</span><span class="nx">callExpression</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span><span class="nx">firstChild</span><span class="p">}</span> <span class="o">=</span> <span class="nx">callExpression</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">'identifier'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">firstChild</span><span class="p">.</span><span class="nx">text</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="nx">content</span> <span class="p">(</span><span class="nx">callExpression</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span><span class="nx">lastChild</span><span class="p">}</span> <span class="o">=</span> <span class="nx">callExpression</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">lastChild</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">'template_string'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">lastChild</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<p>The <code>language</code> callback would then be called with every <code>call_expression</code> node in the syntax tree. In the example above, it would retrieve the first child of the <code>call_expression</code>, which is an <code>identifier</code> with the name "html". The callback would then return the string "html".</p>
+
+<p>The <code>content</code> callback would then be called with the same <code>call_expression</code> node and return the  <code>template_string</code> node within the <code>call_expression</code> node.</p>
+
+<p>In order to parse the HTML within the template string, the HTML grammar file would need to specify an <code>injectionRegex</code>:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">injectionRegex</span><span class="o">:</span> <span class="s">'html|HTML'</span>
+</code></pre></div>
+
+<h4>
+<a id="code-folding" class="anchor" href="#code-folding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Folding</h4>
+
+<p>The next field in the grammar file, <code>folds</code>, controls code folding. Its value is an array of <em>fold pattern</em> objects. Fold patterns are used to decide whether or not a syntax node can be folded, and if so, where the fold should start and end. Here are some example fold patterns:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">folds</span><span class="o">:</span> <span class="p">[</span>
+
+  <span class="c1"># All `comment` nodes are foldable. By default, the fold starts at</span>
+  <span class="c1"># the end of the node's first line, and ends at the beginning</span>
+  <span class="c1"># of the node's last line.</span>
+  <span class="p">{</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'comment'</span>
+  <span class="p">}</span>
+
+  <span class="c1"># `if_statement` nodes are foldable if they contain an anonymous</span>
+  <span class="c1"># "then" token and either an `elif_clause` or `else_clause` node.</span>
+  <span class="c1"># The fold starts at the end of the "then" token and ends at the</span>
+  <span class="c1"># `elif_clause` or `else_clause`.</span>
+  <span class="p">{</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'if_statement'</span><span class="p">,</span>
+    <span class="na">start</span><span class="o">:</span> <span class="p">{</span><span class="na">type</span><span class="o">:</span> <span class="s">'"then"'</span><span class="p">}</span>
+    <span class="na">end</span><span class="o">:</span> <span class="p">{</span><span class="na">type</span><span class="o">:</span> <span class="p">[</span><span class="s">'elif_clause'</span><span class="p">,</span> <span class="s">'else_clause'</span><span class="p">]}</span>
+  <span class="p">}</span>
+
+  <span class="c1"># Any node that starts with an anonymous "(" token and ends with</span>
+  <span class="c1"># an anonymous ")" token is foldable. The fold starts after the</span>
+  <span class="c1"># "(" and ends before the ")".</span>
+  <span class="p">{</span>
+    <span class="na">start</span><span class="o">:</span> <span class="p">{</span><span class="na">type</span><span class="o">:</span> <span class="s">'"("'</span><span class="p">,</span> <span class="na">index</span><span class="o">:</span> <span class="mi">0</span><span class="p">},</span>
+    <span class="na">end</span><span class="o">:</span> <span class="p">{</span><span class="na">type</span><span class="o">:</span> <span class="s">'")"'</span><span class="p">,</span> <span class="na">index</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>Fold patterns can have one or more of the following fields:</p>
+
+<ul>
+<li>
+<code>type</code> - A string or array of strings. In order to be foldable according to this pattern, a syntax node's type must match one of these strings.</li>
+<li>
+<code>start</code> - An object that is used to identify a <em>child</em> node after which the fold should start. The object can have one or both of the following fields:
+
+<ul>
+<li>
+<code>type</code> - A string or array of strings. To start a fold, a child node's type must match one of these strings.</li>
+<li>
+<code>index</code> - a number that's used to select a specific child according to its index. Negative values are interpreted as indices relative the last child, so that <code>-1</code> means the last child.</li>
+</ul>
+</li>
+<li>
+<code>end</code> - An object that is used to identify a <em>child</em> node before which the fold should end. It has the same structure as the <code>start</code> object.</li>
+</ul>
+
+<h4>
+<a id="comments" class="anchor" href="#comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Comments</h4>
+
+<p>The last field in the grammar file, <code>comments</code>, controls the behavior of Atom's <code>Editor: Toggle Line Comments</code> command. Its value is an object with a <code>start</code> field and an optional <code>end</code> field. The start field is a string that should be prepended to or removed from lines in order to comment or un-comment them.</p>
+
+<p>In JavaScript, it looks like this:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">comments</span><span class="o">:</span>
+  <span class="na">start</span><span class="o">:</span> <span class="s">'// '</span>
+</code></pre></div>
+
+<p>The <code>end</code> field should be used for languages that only support block comments, not line comments. If present, it will be appended to or removed from the end of the last selected line in order to comment or un-comment the selection.</p>
+
+<p>In CSS, it would look like this:</p>
+
+<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="na">comments</span><span class="o">:</span>
+  <span class="na">start</span><span class="o">:</span> <span class="s">'/* '</span>
+  <span class="na">end</span><span class="o">:</span> <span class="s">' */'</span>
+</code></pre></div>
+
+<h4>
+<a id="example-packages" class="anchor" href="#example-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example Packages</h4>
+
+<p>More examples of all of these features can be found in the Tree-sitter grammars bundled with Atom:</p>
+
+<ul>
+<li><a href="https://github.com/atom/language-shellscript">Bash</a></li>
+<li><a href="https://github.com/atom/language-c">C</a></li>
+<li><a href="https://github.com/atom/language-go">Go</a></li>
+<li><a href="https://github.com/atom/language-html">HTML</a></li>
+<li><a href="https://github.com/atom/language-javascript">JavaScript</a></li>
+<li><a href="https://github.com/atom/language-python">Python</a></li>
+<li><a href="https://github.com/atom/language-ruby">Ruby</a></li>
+<li><a href="https://github.com/atom/language-typescript">TypeScript</a></li>
+</ul>
         </div>
       </div>
       <div class="footer-pad"></div>
