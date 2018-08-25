@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.3.4
+  - 2.4.2
 cache:
   directories:
     - vendor/bundle
@@ -8,6 +8,13 @@ cache:
 sudo: false
 git:
   depth: 10
+before_install:
+  - nvm install 7
+  - nvm use 7
 script:
   - npm install
   - script/cibuild
+addons:
+  apt:
+    packages:
+      - libcurl3-dev

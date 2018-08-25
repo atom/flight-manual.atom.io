@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.4'
+ruby '2.4.2'
 
 # essential
 gem 'nanoc', '~> 4.7'
@@ -19,5 +19,5 @@ gem 'pry'
 
 group :test do
   gem 'colorize', '~> 0.8.1'
-  gem 'html-proofer', '~> 3.0'
+  gem 'html-proofer', '~> 3.7'
 end

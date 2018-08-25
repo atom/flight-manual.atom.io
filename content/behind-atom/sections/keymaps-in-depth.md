@@ -170,7 +170,13 @@ But if you click inside the Tree View and press <kbd class='platform-mac'>Cmd+O<
 
 #### Forcing Chromium's Native Keystroke Handling
 
-If you want to force the native browser behavior for a given keystroke, use the `native!` directive as the command of a binding. This can be useful to enable the correct behavior in native input elements, for example. If you apply the `.native-key-bindings` class to an element, all the keystrokes typically handled by the browser will be assigned the `native!` directive.
+If you want to force the native browser behavior for a given keystroke, use the `native!` directive as the command of a binding. This can be useful to enable the correct behavior in native input elements.  If you apply the `.native-key-bindings` class to an element, all the keystrokes typically handled by the browser will be assigned the `native!` directive.
+
+{{#tip}}
+
+**Tip:** Components and input elements may not correctly handle backspace and arrow keys without forcing this behavior.  If your backspace isn't working correctly inside of a component, add either the directive or the `.native-key-bindings` class.
+
+{{/tip}}
 
 #### Overloading Key Bindings
 
@@ -205,7 +211,7 @@ When the event handler observes that the cursor does not follow a valid prefix, 
 
 #### Overriding Atom's Keyboard Layout Recognition
 
-Sometimes the problem isn't mapping the command to a key combination, the problem is that Atom doesn't recognize properly what keys you're pressing. This is due to [some limitations in how Chromium reports keyboard events](http://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html). But even this can be customized now.
+Sometimes the problem isn't mapping the command to a key combination, the problem is that Atom doesn't recognize properly what keys you're pressing. This is due to [some limitations in how Chromium reports keyboard events](https://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html). But even this can be customized now.
 
 You can add the following to your `init.coffee` to send <kbd class="platform-all">Ctrl+@</kbd> when you press <kbd class="platform-all">Ctrl+Alt+G</kbd>:
 

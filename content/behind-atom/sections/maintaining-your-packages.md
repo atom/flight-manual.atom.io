@@ -5,15 +5,29 @@ title: Maintaining Your Packages
 
 While publishing is, by far, the most common action you will perform when working with the packages you provide, there are other things you may need to do.
 
-#### Unpublish a Version
+#### Publishing a Package Manually
 
-If you mistakenly published a version of your package or perhaps you find a glaring bug or security hole, you may want to unpublish just that version of your package. For example, if your package is named `package-name` and the bad version of your package is v1.2.3 then the command you would execute is:
+{{#danger}}
 
-``` command-line
-$ apm unpublish <em>package-name@1.2.3</em>
-```
+**Danger:** :rotating_light: Publishing a package manually is not a recommended practice and is only for the advanced user who has published packages before. If you perform the steps wrong, you may be unable to publish the new version of your package and may have to completely unpublish your package in order to correct the faulty state. You have been warned.
 
-This will remove just this particular version from the https://atom.io package registry. Anyone who has already downloaded this version will still have it, but it will no longer be available for installation by others.
+{{/danger}}
+
+Some people prefer to control every aspect of the package publishing process. Normally, the apm tool manages certain details during publishing to keep things consistent and make everything work smoothly. If you're one of those people that prefers to do things manually, there are certain steps you'll have to take in order to make things work just as smoothly as if apm has taken care of things for you.
+
+{{#note}}
+
+**Note:** The apm tool will only publish and https://atom.io will only list packages that are hosted on [GitHub](https://github.com), regardless of what process is used to publish them.
+
+{{/note}}
+
+When you have completed the changes that you want to publish and are ready to start the publishing process, you must perform the following steps on the `master` branch:
+
+1. Update the version number in your package's `package.json`. The version number **must** match the regular expression: `^\d+\.\d+\.\d+`
+1. Commit the version number change
+1. Create a Git tag referencing the above commit. The tag **must** match the regular expression `^v\d+\.\d+\.\d+` and the part after the `v` **must** match the full text of the version number in the `package.json`
+1. Execute `git push --follow-tags`
+1. Execute `apm publish --tag tagname` where `tagname` **must** match the name of the tag created in the above step
 
 #### Adding a Collaborator
 
@@ -40,6 +54,16 @@ $ apm unpublish <em>package-name</em>
 ```
 
 This will remove your package from the https://atom.io package registry. Anyone who has already downloaded a copy of your package will still have it and be able to use it, but it will no longer be available for installation by others.
+
+##### Unpublish a Specific Version
+
+If you mistakenly published a version of your package or perhaps you find a glaring bug or security hole, you may want to unpublish just that version of your package. For example, if your package is named `package-name` and the bad version of your package is v1.2.3 then the command you would execute is:
+
+``` command-line
+$ apm unpublish <em>package-name@1.2.3</em>
+```
+
+This will remove just this particular version from the https://atom.io package registry.
 
 #### Rename Your Package
 

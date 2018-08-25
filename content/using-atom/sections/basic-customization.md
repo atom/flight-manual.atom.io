@@ -7,7 +7,7 @@ Now that we are feeling comfortable with just about everything built into Atom, 
 
 #### Configuring with CSON
 
-All of Atom's config files (with the exception of your [style sheet](#style-tweaks) and your [Init Script](/hacking-atom/sections/the-init-file)) are written in CSON, short for [CoffeeScript Object Notation](https://github.com/bevry/cson#what-is-cson). Just like its namesake JSON, [JavaScript Object Notation](http://json.org/), CSON is a text format for storing structured data in the form of simple objects made up of key-value pairs.
+All of Atom's config files (with the exception of your [style sheet](#style-tweaks) and your [Init Script](/hacking-atom/sections/the-init-file)) are written in CSON, short for [CoffeeScript Object Notation](https://github.com/bevry/cson#what-is-cson). Just like its namesake JSON, [JavaScript Object Notation](https://json.org/), CSON is a text format for storing structured data in the form of simple objects made up of key-value pairs.
 
 ```coffee
 key:
@@ -57,7 +57,7 @@ If you want to apply quick-and-dirty personal styling changes without creating a
 
 {{#mac}}
 
-![Open your stylesheet](../../images/menubar.png "Open your stylesheet")
+![Stylesheet](../../images/menubar.png "Stylesheet...")
 
 {{/mac}}
 

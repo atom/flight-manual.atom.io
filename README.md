@@ -2,7 +2,7 @@
 
 This is the Atom book. Everything you need to know in order to use and hack Atom is in this Flight Manual.
 
-You can find this book online at: http://flight-manual.atom.io
+You can find this book online at: https://flight-manual.atom.io
 
 This book is open source under a Creative Commons license.
 

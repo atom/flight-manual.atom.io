@@ -30,12 +30,16 @@ Chapters:
     - "Package: Modifying Text"
     - "Package: Active Editor Info"
     - Creating a Theme
+    - Creating a Grammar
+    - Creating a Legacy TextMate Grammar
     - Publishing
     - Iconography
     - Debugging
     - Writing specs
+    - Handling URIs
     - Cross-Platform Compatibility
     - Converting from TextMate
+    - Hacking on Atom Core
     - Contributing to Official Atom Packages
     - Summary
 
@@ -61,3 +65,7 @@ Appendices:
     - Upgrading Your Package
     - Upgrading Your UI Theme Or Package Selectors
     - Upgrading Your Syntax Theme
+
+  Atom server-side APIs:
+    - Atom package server API
+    - Atom update server API
