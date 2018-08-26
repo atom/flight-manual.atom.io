@@ -60,13 +60,14 @@ gulp.task("javascript_workers", function () {
     .pipe(gulp.dest("output/assets/javascripts/"));
 });
 
-gulp.task("javascript", function () {
-  gulp.series("javascript_vendor", "javascript_babel", "javascript_workers");
+gulp.task("javascript_concat", function () {
   return gulp.src(["./tmp/vendor.js", "./tmp/babel.js"])
     .pipe(concat("application.js"))
     .pipe(gulpif(IS_PRODUCTION, uglify()))
     .pipe(gulp.dest("output/assets/javascripts/"))
-})
+});
+
+gulp.task("javascript", gulp.series("javascript_vendor", "javascript_babel", "javascript_workers", "javascript_concat"));
 
 gulp.task("octicons", function() {
   return gulp.src("assets/vendor/octicons/octicons/**/*")
