@@ -60,7 +60,8 @@ gulp.task("javascript_workers", function () {
     .pipe(gulp.dest("output/assets/javascripts/"));
 });
 
-gulp.task("javascript", gulp.series("javascript_vendor", "javascript_babel", "javascript_workers"), function () {
+gulp.task("javascript", function () {
+  gulp.series("javascript_vendor", "javascript_babel", "javascript_workers");
   return gulp.src(["./tmp/vendor.js", "./tmp/babel.js"])
     .pipe(concat("application.js"))
     .pipe(gulpif(IS_PRODUCTION, uglify()))
