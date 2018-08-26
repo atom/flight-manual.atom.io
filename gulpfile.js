@@ -106,13 +106,13 @@ gulp.task("watch:nanoc", function() {
     "content/**/*",
     "layouts/**/*",
     "lib/**/*"
-  ], ["nanoc:compile"]);
+  ], gulp.series("nanoc:compile"));
 });
 
 gulp.task("watch:assets", function() {
   gulp.watch([
     "assets/**/*"
-  ], ["assets"]);
+  ], gulp.series("assets"));
 });
 
 gulp.task("serve", gulp.parallel("server", "watch:nanoc", "watch:assets"));
