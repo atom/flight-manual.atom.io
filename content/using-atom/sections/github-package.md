@@ -129,12 +129,22 @@ Sometimes there can be conflicts when trying to merge. Files that have merge con
 ![Resolve conflicts](../../images/github-resolve-conflicts.png "Resolve conflicts")
 
 
+#### Create a Pull Request
+
+When your changes are ready to be reviewed by your team members, open the "GitHub" panel <kbd>Ctrl+8</kbd> and click on **Open new pull request**. It will open the browser where you can continue creating a pull request. If commits haven't been pushed or the branch isn't published yet, the GitHub package will do that automatically for you.
+
+![Create a Pull Request](../../images/github-create-a-pull-request.png "Create a Pull Request")
+
+
 #### View Pull Requests
 
-Open the "GitHub" panel <kbd>Ctrl+8</kbd> to see the **current pull request** at the top. Underneath is a list of **open pull requests**. It lets you quickly find a pull request by avatar, title or PR number. It also lets you keep an eye on the CI status. Clicking on a pull request in the list opens a center pane with more details, the timeline and conversations.
+Once the pull request is created, it will appear under **Current pull request** at the top of the panel. Underneath is a list of **Open pull requests**. It lets you quickly find a pull request by avatar, title or PR number. It also lets you keep an eye on the CI status. Clicking on a pull request in the list opens a center pane with more details, the timeline and conversations.
 
 ![View Pull Requests](../../images/github-view-pull-requests.png "View Pull Requests")
 
-To test a pull request locally, click on the **Checkout** button. It will automatically create a local branch and pull all the changes. If you would like to contribute, make changes, commit and push. Your contribution is now part of that pull request.
+
+#### Checkout a Pull Request
+
+To test a pull request locally, click on the **Checkout** button. It will automatically create a local branch and pull all the changes. If you would like to contribute to that pull request, start making changes, commit and push. Your contribution is now part of that pull request.
 
 ![Checkout a pull request](../../images/github-checkout.png "Checkout a pull request")
