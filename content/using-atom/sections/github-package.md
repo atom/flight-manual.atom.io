@@ -100,9 +100,13 @@ In case you want to edit the commit message of your last commit, or add/remove c
 ![Undo previous commit](../../images/github-undo.png "Undo previous commit")
 
 
-#### Push
+#### Publish and push
 
-When you're ready to share your changes with your team members, click the **Push** button in the Status Bar tooltip. If your local branch doesn't exist on the remote repository, Atom will offer to create a remote branch for you.
+When you're ready to share your changes with your team members, click the **Publish** button in the Status Bar. It will push your local branch to the remote repository.
+
+![Publish branch](../../images/github-publish.png "Publish branch")
+
+After making more commits, you can **Push** them as well from the Status Bar.
 
 ![Push commits](../../images/github-push.png "Push commits")
 
