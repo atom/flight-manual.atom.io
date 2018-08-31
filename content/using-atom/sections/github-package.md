@@ -89,11 +89,15 @@ Once you've staged your changes, enter a commit **message**. Feel free to descri
 If you need more space, click the expand icon at the bottom right. It will open a commit editor in the center.
 
 
-#### Amend previous commit
+#### Amend and undo
 
-In case you forgot to commit a change and would like to add it to your previous commit, clicking the "Amend" checkbox. Now you can stage more changes or adjust the commit message.
+In case you forgot to commit a change and would like to add it to your previous commit, right-click on the last commit, then choose "Amend" from the context menu.
 
 ![Amend previous commit](../../images/github-amend.png "Amend previous commit")
+
+In case you want to edit the commit message of your last commit, or add/remove changes, click on the "Undo" button. It will roll back to the state just before you clicked on the commit button.
+
+![Undo previous commit](../../images/github-undo.png "Undo previous commit")
 
 
 #### Push
