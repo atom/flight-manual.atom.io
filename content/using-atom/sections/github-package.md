@@ -111,9 +111,13 @@ After making more commits, you can **Push** them as well from the Status Bar.
 ![Push commits](../../images/github-push.png "Push commits")
 
 
-#### Pull
+#### Fetch and pull
 
-Click on the **Fetch** button to see if anyone made changes. **Pull** to get the changes into your local branch.
+From time to time it's a good idea to click on the **Fetch** button to see if any other team member pushed changes.
+
+![Fetch](../../images/github-fetch.png "Fetch")
+
+Click on **Pull** to add the changes also to your local branch.
 
 ![Pull commits](../../images/github-pull.png "Pull commits")
 
