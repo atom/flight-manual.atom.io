@@ -148,3 +148,10 @@ Once the pull request is created, it will appear under **Current pull request** 
 To test a pull request locally, click on the **Checkout** button. It will automatically create a local branch and pull all the changes. If you would like to contribute to that pull request, start making changes, commit and push. Your contribution is now part of that pull request.
 
 ![Checkout a pull request](../../images/github-checkout.png "Checkout a pull request")
+
+
+#### Open any Issue or Pull Request
+
+You can open issues or pull requests from any repo on GitHub. To do so, run the `GitHub: Open Issue Or Pull Request` command and paste the URL from an issue or pull request. Then press the **Open Issue or Pull Request** button and it will open a center pane. This lets you keep an issue or pull request as a reference, when working in another repo.
+
+![Open Issue or Pull Request](../../images/github-open-issue-or-pull-request.png "Open Issue or Pull Request")
