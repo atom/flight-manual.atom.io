@@ -17,7 +17,11 @@ The github package brings Git and GitHub integration right inside Atom.
 - [Resolve conflicts](#resolve-conflicts)
 - [View Pull Requests](#view-pull-requests)
 
-Most of the functionality lives in the Git and GitHub panel. There are different ways to access them, probably the most common way is through their keybindings:
+Most of the functionality lives in the Git and GitHub panel.
+
+![The Git and GitHub panels](../../images/github-panels.png "The Git and GitHub panels")
+
+There are different ways to access them, probably the most common way is through their keybindings:
 
 - Open the **Git** panel: <kbd class=".platform-all">Ctrl+9</kbd>
 - Open the **GitHub** panel: <kbd class=".platform-all">Ctrl+8</kbd>
