@@ -11,11 +11,14 @@ The github package brings Git and GitHub integration right inside Atom.
 - [Stage](#stage)
 - [Discard](#discard-changes)
 - [Commit](#commit)
-- [Amend](#amend-previous-commit)
-- [Push](#push)
-- [Pull](#pull)
+- [Amend and undo](#amend-and-undo)
+- [Publish and push](#publish-and-push)
+- [Fetch and pull](#fetch-and-pull)
 - [Resolve conflicts](#resolve-conflicts)
+- [Create a Pull Request](#create-a-pull-request)
 - [View Pull Requests](#view-pull-requests)
+- [Checkout a Pull Request](#checkout-a-pull-request)
+- [Open any Issue or Pull Request](#open-any-issue-or-pull-request)
 
 Most of the functionality lives in the Git and GitHub panel.
 
