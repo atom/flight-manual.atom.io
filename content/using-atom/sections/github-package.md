@@ -131,6 +131,10 @@ Sometimes there can be conflicts when trying to merge. Files that have merge con
 
 #### View Pull Requests
 
-If there is a **Pull Request** for your current branch, you can see its status in the "GitHub" panel. Click on **Conversation** to see the timeline.
+Open the "GitHub" panel <kbd>Ctrl+8</kbd> to see the **current pull request** at the top. Underneath is a list of **open pull requests**. It lets you quickly find a pull request by avatar, title or PR number. It also lets you keep an eye on the CI status. Clicking on a pull request in the list opens a center pane with more details, the timeline and conversations.
 
 ![View Pull Requests](../../images/github-view-pull-requests.png "View Pull Requests")
+
+To test a pull request locally, click on the **Checkout** button. It will automatically create a local branch and pull all the changes. If you would like to contribute, make changes, commit and push. Your contribution is now part of that pull request.
+
+![Checkout a pull request](../../images/github-checkout.png "Checkout a pull request")
