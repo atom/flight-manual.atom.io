@@ -105,24 +105,16 @@ In case you want to edit the commit message of your last commit, or add/remove c
 
 #### Publish and push
 
-When you're ready to share your changes with your team members, click the **Publish** button in the Status Bar. It will push your local branch to the remote repository.
+When you're ready to share your changes with your team members, click the **Publish** button in the Status Bar. It will push your local branch to the remote repository. After making more commits, you can **Push** them as well from the Status Bar.
 
-![Publish branch](../../images/github-publish.png "Publish branch")
-
-After making more commits, you can **Push** them as well from the Status Bar.
-
-![Push commits](../../images/github-push.png "Push commits")
+![Publish and push commits](../../images/github-publish-push.png "Publish and push commits")
 
 
 #### Fetch and pull
 
-From time to time it's a good idea to click on the **Fetch** button to see if any other team member pushed changes.
+From time to time it's a good idea to click on the **Fetch** button to see if any other team member pushed changes. If so, click on **Pull** to add the changes also to your local branch.
 
-![Fetch](../../images/github-fetch.png "Fetch")
-
-Click on **Pull** to add the changes also to your local branch.
-
-![Pull commits](../../images/github-pull.png "Pull commits")
+![Fetch and pull commits](../../images/github-fetch-pull.png "Fetch and pull commits")
 
 
 #### Resolve conflicts
