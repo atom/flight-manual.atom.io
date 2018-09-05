@@ -20,7 +20,7 @@ The github package brings Git and GitHub integration right inside Atom.
 - [Checkout a Pull Request](#checkout-a-pull-request)
 - [Open any Issue or Pull Request](#open-any-issue-or-pull-request)
 
-Most of the functionality lives in the Git and GitHub panel.
+Most of the functionality lives within the Git and GitHub dock items.
 
 ![The Git and GitHub panels](../../images/github-panels.png "The Git and GitHub panels")
 
@@ -28,6 +28,8 @@ There are different ways to access them, probably the most common way is through
 
 - Open the **Git** panel: <kbd class=".platform-all">Ctrl+9</kbd>
 - Open the **GitHub** panel: <kbd class=".platform-all">Ctrl+8</kbd>
+
+Another way is from the menu: `Packages -> GitHub -> Toggle Git Tab and Toggle GitHub Tab`
 
 Or you can also toggle the Git panel from the Status Bar by clicking on the changed files icon:
 
@@ -98,7 +100,7 @@ In case you forgot to commit a change and would like to add it to your previous 
 
 ![Amend previous commit](../../images/github-amend.png "Amend previous commit")
 
-In case you want to edit the commit message of your last commit, or add/remove changes, click on the "Undo" button. It will roll back to the state just before you clicked on the commit button.
+If you want to edit the commit message of your last commit, or add/remove changes, click on the "Undo" button. It will roll back to the state just before you clicked on the commit button.
 
 ![Undo previous commit](../../images/github-undo.png "Undo previous commit")
 
@@ -112,10 +114,17 @@ When you're ready to share your changes with your team members, click the **Publ
 
 #### Fetch and pull
 
-From time to time it's a good idea to click on the **Fetch** button to see if any other team member pushed changes. If so, click on **Pull** to add the changes also to your local branch.
+From time to time it's a good idea to click on the **Fetch** button to see if any other team member pushed changes. If so, click on **Pull** to merge the changes into your local branch.
 
 ![Fetch and pull commits](../../images/github-fetch-pull.png "Fetch and pull commits")
 
+If you prefer to **rebase** when pulling, you can configure Git to make it the default behavior:
+
+```
+git config --global --bool pull.rebase true
+```
+
+Learn more about [merge vs. rebase](https://mislav.net/2013/02/merge-vs-rebase/).
 
 #### Resolve conflicts
 
@@ -138,15 +147,15 @@ Once the pull request is created, it will appear under **Current pull request** 
 ![View Pull Requests](../../images/github-view-pull-requests.png "View Pull Requests")
 
 
-#### Checkout a Pull Request
-
-To test a pull request locally, click on the **Checkout** button. It will automatically create a local branch and pull all the changes. If you would like to contribute to that pull request, start making changes, commit and push. Your contribution is now part of that pull request.
-
-![Checkout a pull request](../../images/github-checkout.png "Checkout a pull request")
-
-
 #### Open any Issue or Pull Request
 
 You can open issues or pull requests from any repo on GitHub. To do so, run the `GitHub: Open Issue Or Pull Request` command and paste the URL from an issue or pull request. Then press the **Open Issue or Pull Request** button and it will open a center pane. This lets you keep an issue or pull request as a reference, when working in another repo.
 
 ![Open Issue or Pull Request](../../images/github-open-issue-or-pull-request.png "Open Issue or Pull Request")
+
+
+#### Checkout a Pull Request
+
+To test a pull request locally, open it in the workspace center by clicking on the pull request in the "open pull requests" list from the GitHub tab, then click on the **Checkout** button. It will automatically create a local branch and pull all the changes. If you would like to contribute to that pull request, start making changes, commit and push. Your contribution is now part of that pull request.
+
+![Checkout a pull request](../../images/github-checkout.png "Checkout a pull request")
