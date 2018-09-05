@@ -69,3 +69,7 @@ Appendices:
   Atom server-side APIs:
     - Atom package server API
     - Atom update server API
+
+  Forking a Core Package:
+    - Creating a Fork of a Core Package in atom/atom
+    - Maintaining a Fork of a Core Package in atom/atom
