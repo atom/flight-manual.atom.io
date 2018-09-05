@@ -87,11 +87,13 @@ If you no longer want to keep some changes, you can discard them. It's similar t
 
 #### Commit
 
-Once you've staged your changes, enter a commit **message**. Feel free to describe the commit in more detail after leaving an empty line. Finalize by clicking the **Commit** button.
+Once you've staged your changes, enter a commit **message**. Feel free to describe the commit in more detail after leaving an empty line. Finalize by clicking the **Commit** button. If you need more space, click the expand icon at the bottom right. It will open a commit editor in the center.
 
 ![Commit changes](../../images/github-commit.png "Commit changes")
 
-If you need more space, click the expand icon at the bottom right. It will open a commit editor in the center.
+To add multiple **co-authors** to a commit, click the "👤➕" icon in the bottom left corner of the commit message editor. Now you can search by name, email or GitHub username to give credit to a co-author.
+
+![Commit with co-authors](../../images/github-commit-with-co-authors.png "Commit with co-authors")
 
 
 #### Amend and undo
