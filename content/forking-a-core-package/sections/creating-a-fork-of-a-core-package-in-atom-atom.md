@@ -9,7 +9,7 @@ Several of Atom's core packages are maintained in the [`packages` directory of t
 
 For the sake of this guide, let's assume that you want to start with the current code in the [one-light-ui](https://github.com/atom/atom/tree/master/packages/one-light-ui) package, make some customizations to it, and publish your new package under the name "one-light-ui-plus".
 
-1. Download the [current contents of the atom/atom repository as a gzipped tarball](https://github.com/atom/atom/archive/master.tar.gz)
+1. Download the [current contents of the atom/atom repository as a zip file](https://github.com/atom/atom/archive/master.zip)
 
 2. Unzip the file to a temporary location (for example `/tmp/atom`)
 
