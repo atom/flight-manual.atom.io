@@ -41,8 +41,8 @@ Chapters:
     - Converting from TextMate
     - Hacking on Atom Core
     - Contributing to Official Atom Packages
-    - Creating a Fork of a Core Package
-    - Maintaining a Fork of a Core Package
+    - Creating a Fork of a Core Package in atom/atom
+    - Maintaining a Fork of a Core Package in atom/atom
     - Summary
 
   Behind Atom:
