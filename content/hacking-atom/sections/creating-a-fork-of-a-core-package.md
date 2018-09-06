@@ -1,5 +1,5 @@
 ---
-title: Creating a Fork of a Core Package in atom/atom
+title: Creating a Fork of a Core Package
 ---
 ### Creating a Fork of a Core Package in atom/atom
 
