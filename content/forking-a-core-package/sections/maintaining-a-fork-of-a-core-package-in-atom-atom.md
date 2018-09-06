@@ -29,7 +29,7 @@ $ git remote add upstream https://github.com/atom/atom.git
 
 {{#tip}}
 
-**Tip:** Follow theses steps each time you want to merge upstream changes into your fork.
+**Tip:** Follow these steps each time you want to merge upstream changes into your fork.
 
 {{/tip}}
 
