@@ -55,7 +55,8 @@ style sheets your package needs to load. If not specified, style sheets in the `
   *  `core:loaded-shell-environment`,
   *  `language-package-name:grammar-used` (e.g., `language-javascript:grammar-used`), and  
   * `language-scope:root-scope-used` (e.g., `source.js:root-scope-used`).  
-  Using the `root-scope` hook allows your package to be provider agnostic; it will activate when any file using that root scope is opened, regardless of what package is providing the scope. In contrast, the `grammar-used` hook will activate it when any grammar from a particular language package is activated. The `root-scope` hook should be preferred, as it allows users to use different language packages without you needing to add each one to the activation hooks. Language package authors are encouraged to keep scope names consistent with each other to aid in this.
+  Using the `root-scope` hook allows your package to be provider agnostic; it will activate when any file using that root scope is opened, regardless of what package is providing the scope. In contrast, the `grammar-used` hook will activate it when any grammar from a particular language package is activated. The `root-scope` hook should be preferred, as it allows users to use different language packages without you needing to add each one to the activation hooks. Language package authors are encouraged to keep scope names consistent with each other to aid in this.  
+  If using the `root-scope` hook, you should also declare your Atom engine compatibility as `>= 1.30.0 < 2.0.0`.
 
 The `package.json` in the package we've just generated looks like this currently:
 
