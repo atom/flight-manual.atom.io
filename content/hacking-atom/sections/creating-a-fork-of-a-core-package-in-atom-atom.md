@@ -41,7 +41,7 @@ For the sake of this guide, let's assume that you want to start with the current
 
 9. Follow the instructions in the github.com UI to push your code to your new online repository
 
-10. Follow the steps in the [Publishing guide](/hacking-atom/sections/publishing/) to publish your new package
+10. Follow the steps in the [Publishing guide](../publishing/) to publish your new package
 
 #### Merging Upstream Changes into Your Package
 
