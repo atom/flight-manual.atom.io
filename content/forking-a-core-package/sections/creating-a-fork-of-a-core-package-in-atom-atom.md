@@ -11,7 +11,7 @@ For the sake of this guide, let's assume that you want to start with the current
 
 1. Download the [current contents of the atom/atom repository as a zip file](https://github.com/atom/atom/archive/master.zip)
 
-2. Unzip the file to a temporary location (for example `/tmp/atom`)
+2. Unzip the file to a temporary location (for example <span class='platform-mac platform-linux'>`/tmp/atom`</span><span class='platform-windows'>`C:\TEMP\atom`</span>)
 
 3. Copy the contents of the desired package into a working directory for your fork
 
