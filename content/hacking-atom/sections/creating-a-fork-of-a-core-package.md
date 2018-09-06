@@ -5,6 +5,12 @@ title: Creating a Fork of a Core Package
 
 Several of Atom's core packages are maintained in the [`packages` directory of the atom/atom repository](https://github.com/atom/atom/tree/master/packages). If you would like to use one of these packages as a starting point for your own package, please follow the steps below.
 
+{{#tip}}
+
+**Tip:** In most cases, we recommend [generating a brand new package](../package-word-count/#package-generator) or a [brand new theme](../creating-a-theme/#creating-a-syntax-theme) as the starting point for your creation. The guide below applies only to situations where you want to create a package that closely resembles a core Atom package.
+
+{{/tip}}
+
 #### Creating Your New Package
 
 For the sake of this guide, let's assume that you want to start with the current code in the [one-light-ui](https://github.com/atom/atom/tree/master/packages/one-light-ui) package, make some customizations to it, and publish your new package under the name "one-light-ui-plus".
