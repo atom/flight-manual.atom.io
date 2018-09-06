@@ -16,7 +16,7 @@ For the sake of this guide, let's assume that you want to start with the current
 3. Copy the contents of the desired package into a working directory for your fork
 
     ``` command-line
-    $ cp -R /tmp/atom/packages/one-light-ui ~/src/one-light-ui-plus
+    $ <span class='platform-mac platform-linux'>cp -R /tmp/atom/packages/one-light-ui ~/src/one-light-ui-plus</span><span class='platform-windows'>xcopy C:\TEMP\atom\packages\one-light-ui C:\src\one-light-ui-plus /E /H /K</span>
     ```
 
 4. Create a local repository and commit the initial contents
