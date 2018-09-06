@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Publishing</title>
+<title>Maintaining a Fork of a Core Package in atom/atom</title>
 
 <link rel="icon" href="/favicon.ico">
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
@@ -213,7 +213,7 @@
         <a href="/hacking-atom/sections/creating-a-legacy-textmate-grammar">Creating a Legacy TextMate Grammar</a>
       </li>
     
-      <li class="selected">
+      <li class="unselected">
         <a href="/hacking-atom/sections/publishing">Publishing</a>
       </li>
     
@@ -253,7 +253,7 @@
         <a href="/hacking-atom/sections/creating-a-fork-of-a-core-package-in-atom-atom">Creating a Fork of a Core Package in atom/atom</a>
       </li>
     
-      <li class="unselected">
+      <li class="selected">
         <a href="/hacking-atom/sections/maintaining-a-fork-of-a-core-package-in-atom-atom">Maintaining a Fork of a Core Package in atom/atom</a>
       </li>
     
@@ -391,7 +391,7 @@
 </div>
 
           <a class="improve-link"
-              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/publishing.md" data-proofer-ignore>
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/hacking-atom/sections/maintaining-a-fork-of-a-core-package-in-atom-atom.md" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
           </a>
         </h1>
@@ -399,67 +399,69 @@
         <div class="markdown-body document-content">
           
           <h3>
-<a id="publishing" class="anchor" href="#publishing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publishing</h3>
+<a id="maintaining-a-fork-of-a-core-package-in-atomatom" class="anchor" href="#maintaining-a-fork-of-a-core-package-in-atomatom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maintaining a Fork of a Core Package in atom/atom</h3>
 
-<p>Atom bundles a command line utility called <code>apm</code> which we first used back in <a href="/using-atom/sections/atom-packages/#command-line">Command Line</a> to search for and install packages via the command line. The <code>apm</code> command can also be used to publish Atom packages to the public registry and update them.</p>
+<p>Originally, each of Atom's core packages resided in a separate repository. In 2018, in an effort to streamline the development of Atom by reducing overhead, the Atom team <a href="https://github.com/atom/atom/blob/master/docs/rfcs/003-consolidate-core-packages.md">consolidated many core Atom packages</a> into the <a href="https://github.com/atom/atom">atom/atom repository</a>. For example, the one-light-ui package was originally maintained in the <a href="https://github.com/atom/one-light-ui">atom/one-light-ui</a> repository, but it is now maintained in the <a href="https://github.com/atom/atom/tree/master/packages/one-light-ui"><code>packages/one-light-ui</code> directory in the atom/atom repository</a>.</p>
 
-<h4>
-<a id="prepare-your-package" class="anchor" href="#prepare-your-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prepare Your Package</h4>
-
-<p>There are a few things you should double check before publishing:</p>
-
-<ul>
-<li>Your <code>package.json</code> file has <code>name</code>, <code>description</code>, and <code>repository</code> fields.</li>
-<li>Your <code>package.json</code> file has a <code>version</code> field with a value of <code>"0.0.0"</code>.</li>
-<li>Your <code>package.json</code> file has an <code>engines</code> field that contains an entry for Atom such as: <code>"engines": {"atom": "&gt;=1.0.0 &lt;2.0.0"}</code>.</li>
-<li>Your package has a <code>README.md</code> file at the root.</li>
-<li>Your <code>repository</code> URL in the <code>package.json</code> file is the same as the URL of your repository.</li>
-<li>Your package is in a Git repository that has been pushed to <a href="https://github.com">GitHub</a>. Follow <a href="https://help.github.com/articles/importing-a-git-repository-using-the-command-line/">this guide</a> if your package isn't already on GitHub.</li>
-</ul>
+<p>If you forked one of the core packages before it was moved into the atom/atom repository, and you want to continue merging upstream changes into your fork, please follow the steps below.</p>
 
 <h4>
-<a id="publish-your-package" class="anchor" href="#publish-your-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publish Your Package</h4>
+<a id="step-by-step-guide" class="anchor" href="#step-by-step-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step-by-step guide</h4>
 
-<p>Before you publish a package it is a good idea to check ahead of time if a package with the same name has already been published to <a href="https://atom.io/packages">the atom.io package registry</a>. You can do that by visiting <code>https://atom.io/packages/your-package-name</code> to see if the package already exists. If it does, update your package's name to something that is available before proceeding.</p>
+<p>For the sake of this guide, let's assume that you forked the <a href="https://github.com/atom/one-light-ui">atom/one-light-ui</a> repository, renamed your fork to <code>one-light-ui-plus</code>, and made some customizations.</p>
 
-<p>Now let's review what the <code>apm publish</code> command does:</p>
+<h5>
+<a id="add-atomatom-as-a-remote" class="anchor" href="#add-atomatom-as-a-remote" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add atom/atom as a Remote</h5>
 
-<ol>
-<li>Registers the package name on atom.io if it is being published for the first time.</li>
-<li>Updates the <code>version</code> field in the <code>package.json</code> file and commits it.</li>
-<li>Creates a new <a href="https://git-scm.com/book/en/Git-Basics-Tagging">Git tag</a> for the version being published.</li>
-<li>Pushes the tag and current branch up to GitHub.</li>
-<li>Updates atom.io with the new version being published.</li>
-</ol>
-
-<p>Now run the following commands to publish your package:</p>
+<p>Navigate to your local clone of your fork:</p>
 
 <pre class="command-line">
-<span class="command">cd path-to-your-package</span>
-<span class="command">apm publish minor</span>
+<span class="command">cd path/to/your/fork</span>
 </pre>
 
-<p>If this is the first package you are publishing, the <code>apm publish</code> command may prompt you for your GitHub username and password. If you have two-factor authentication enabled, use a <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">personal access token</a> in lieu of a password. This is required to publish and you only need to enter this information the first time you publish. The credentials are stored securely in your <a href="https://en.wikipedia.org/wiki/Keychain_(Apple)">keychain</a> once you login.</p>
-
-<p>Your package is now published and available on atom.io. Head on over to <code>https://atom.io/packages/your-package-name</code> to see your package's page.</p>
-
-<p>With <code>apm publish</code>, you can bump the version and publish by using</p>
+<p>Add the <a href="https://github.com/atom/atom">atom/atom repository</a> as a git remote:</p>
 
 <pre class="command-line">
-<span class="command">apm publish <em>version-type</em></span>
+<span class="command">git remote add upstream https://github.com/atom/atom.git</span>
 </pre>
 
-<p>where <code>version-type</code> can be <code>major</code>, <code>minor</code> and <code>patch</code>.</p>
+<h5>
+<a id="get-the-latest-changes-for-the-core-package" class="anchor" href="#get-the-latest-changes-for-the-core-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get the Latest Changes for the Core Package</h5>
 
-<p>The <code>major</code> option to the publish command tells apm to increment the first number of the version before publishing so the published version will be <code>1.0.0</code> and the Git tag created will be <code>v1.0.0</code>.</p>
+<div class="alert tip">
 
-<p>The <code>minor</code> option to the publish command tells apm to increment the second number of the version before publishing so the published version will be <code>0.1.0</code> and the Git tag created will be <code>v0.1.0</code>.</p>
+<p><strong>Tip:</strong> Follow these steps each time you want to merge upstream changes into your fork.</p>
 
-<p>The <code>patch</code> option to the publish command tells apm to increment the third number of the version before publishing so the published version will be <code>0.0.1</code> and the Git tag created will be <code>v0.0.1</code>.</p>
+</div>
 
-<p>Use <code>major</code> when you make a change that breaks backwards compatibility, like changing defaults or removing features. Use <code>minor</code> when adding new functionality or options, but without breaking backwards compatibility. Use <code>patch</code> when you've changed the implementation of existing features, but without changing the behaviour or options of your package. Check out <a href="https://semver.org">semantic versioning</a> to learn more about best practices for versioning your package releases.</p>
+<p>Fetch the latest changes from the atom/atom repository:</p>
 
-<p>You can also run <code>apm help publish</code> to see all the available options and <code>apm help</code> to see all the other available commands.</p>
+<pre class="command-line">
+<span class="command">git fetch upstream</span>
+</pre>
+
+<p>Identify recent changes to the core package. For example, if you're maintaining a fork of the one-light-ui package, then you'll want to identify recent changes in the <code>packages/one-light-ui</code> directory:</p>
+
+<pre class="command-line">
+<span class="command">git log upstream/master -- packages/one-light-ui</span>
+8ac9919a0 Bump up border size (Hugh Baht, 17 minutes ago)
+3bf4d226e Remove obsolete build status link in one-light-ui README (Jason Rudolph, 3 days ago)
+3edf64ad0 Merge pull request #42 from atom/sm-select-list (simurai, 2 weeks ago)
+...
+</pre>
+
+<p>Look through the log and identify the commits that you want to merge into your fork.</p>
+
+<h5>
+<a id="merge-upstream-changes-into-your-fork" class="anchor" href="#merge-upstream-changes-into-your-fork" aria-hidden="true"><span class="octicon octicon-link"></span></a>Merge Upstream Changes into Your Fork</h5>
+
+<p>For each commit that you want to bring into your fork, use <a href="https://git-scm.com/docs/git-format-patch"><code>git format-patch</code></a> in conjunction with <a href="https://git-scm.com/docs/git-am"><code>git am</code></a>. For example, to merge commit <code>8ac9919a0</code> into your fork:</p>
+
+<pre class="command-line">
+<span class="command">git format-patch -1 --stdout 8ac9919a0 | git am -p3</span>
+</pre>
+
+<p>Repeat this step for each commit that you want to merge into your fork.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
