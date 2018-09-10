@@ -410,14 +410,21 @@
 <li><a href="#stage">Stage</a></li>
 <li><a href="#discard-changes">Discard</a></li>
 <li><a href="#commit">Commit</a></li>
-<li><a href="#amend-previous-commit">Amend</a></li>
-<li><a href="#push">Push</a></li>
-<li><a href="#pull">Pull</a></li>
+<li><a href="#amend-and-undo">Amend and undo</a></li>
+<li><a href="#publish-and-push">Publish and push</a></li>
+<li><a href="#fetch-and-pull">Fetch and pull</a></li>
 <li><a href="#resolve-conflicts">Resolve conflicts</a></li>
+<li><a href="#create-a-pull-request">Create a Pull Request</a></li>
 <li><a href="#view-pull-requests">View Pull Requests</a></li>
+<li><a href="#checkout-a-pull-request">Checkout a Pull Request</a></li>
+<li><a href="#open-any-issue-or-pull-request">Open any Issue or Pull Request</a></li>
 </ul>
 
-<p>Most of the functionality lives in the Git and GitHub panel. There are different ways to access them, probably the most common way is through their keybindings:</p>
+<p>Most of the functionality lives within the Git and GitHub dock items.</p>
+
+<p><img src="../../images/github-panels.png" alt="The Git and GitHub panels" title="The Git and GitHub panels"></p>
+
+<p>There are different ways to access them, probably the most common way is through their keybindings:</p>
 
 <ul>
 <li>Open the <strong>Git</strong> panel: <kbd class=".platform-all">Ctrl+9</kbd>
@@ -425,6 +432,8 @@
 <li>Open the <strong>GitHub</strong> panel: <kbd class=".platform-all">Ctrl+8</kbd>
 </li>
 </ul>
+
+<p>Another way is from the menu: <code>Packages -&gt; GitHub -&gt; Toggle Git Tab and Toggle GitHub Tab</code></p>
 
 <p>Or you can also toggle the Git panel from the Status Bar by clicking on the changed files icon:</p>
 
@@ -494,32 +503,45 @@
 <h4>
 <a id="commit" class="anchor" href="#commit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commit</h4>
 
-<p>Once you've staged your changes, enter a commit <strong>message</strong>. Feel free to describe the commit in more detail after leaving an empty line. Finalize by clicking the <strong>Commit</strong> button.</p>
+<p>Once you've staged your changes, enter a commit <strong>message</strong>. Feel free to describe the commit in more detail after leaving an empty line. Finalize by clicking the <strong>Commit</strong> button. If you need more space, click the expand icon at the bottom right. It will open a commit editor in the center.</p>
 
 <p><img src="../../images/github-commit.png" alt="Commit changes" title="Commit changes"></p>
 
-<p>If you need more space, click the expand icon at the bottom right. It will open a commit editor in the center.</p>
+<p>To add multiple <strong>co-authors</strong> to a commit, click the "👤➕" icon in the bottom left corner of the commit message editor. Now you can search by name, email or GitHub username to give credit to a co-author.</p>
+
+<p><img src="../../images/github-commit-with-co-authors.png" alt="Commit with co-authors" title="Commit with co-authors"></p>
 
 <h4>
-<a id="amend-previous-commit" class="anchor" href="#amend-previous-commit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amend previous commit</h4>
+<a id="amend-and-undo" class="anchor" href="#amend-and-undo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amend and undo</h4>
 
-<p>In case you forgot to commit a change and would like to add it to your previous commit, clicking the "Amend" checkbox. Now you can stage more changes or adjust the commit message.</p>
+<p>In case you forgot to commit a change and would like to add it to your previous commit, right-click on the last commit, then choose "Amend" from the context menu.</p>
 
 <p><img src="../../images/github-amend.png" alt="Amend previous commit" title="Amend previous commit"></p>
 
-<h4>
-<a id="push" class="anchor" href="#push" aria-hidden="true"><span class="octicon octicon-link"></span></a>Push</h4>
+<p>If you want to edit the commit message of your last commit, or add/remove changes, click on the "Undo" button. It will roll back to the state just before you clicked on the commit button.</p>
 
-<p>When you're ready to share your changes with your team members, click the <strong>Push</strong> button in the Status Bar tooltip. If your local branch doesn't exist on the remote repository, Atom will offer to create a remote branch for you.</p>
-
-<p><img src="../../images/github-push.png" alt="Push commits" title="Push commits"></p>
+<p><img src="../../images/github-undo.png" alt="Undo previous commit" title="Undo previous commit"></p>
 
 <h4>
-<a id="pull" class="anchor" href="#pull" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pull</h4>
+<a id="publish-and-push" class="anchor" href="#publish-and-push" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publish and push</h4>
 
-<p>Click on the <strong>Fetch</strong> button to see if anyone made changes. <strong>Pull</strong> to get the changes into your local branch.</p>
+<p>When you're ready to share your changes with your team members, click the <strong>Publish</strong> button in the Status Bar. It will push your local branch to the remote repository. After making more commits, you can <strong>Push</strong> them as well from the Status Bar.</p>
 
-<p><img src="../../images/github-pull.png" alt="Pull commits" title="Pull commits"></p>
+<p><img src="../../images/github-publish-push.png" alt="Publish and push commits" title="Publish and push commits"></p>
+
+<h4>
+<a id="fetch-and-pull" class="anchor" href="#fetch-and-pull" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fetch and pull</h4>
+
+<p>From time to time it's a good idea to click on the <strong>Fetch</strong> button to see if any other team member pushed changes. If so, click on <strong>Pull</strong> to merge the changes into your local branch.</p>
+
+<p><img src="../../images/github-fetch-pull.png" alt="Fetch and pull commits" title="Fetch and pull commits"></p>
+
+<p>If you prefer to <strong>rebase</strong> when pulling, you can configure Git to make it the default behavior:</p>
+
+<pre><code>git config --global --bool pull.rebase true
+</code></pre>
+
+<p>Learn more about <a href="https://mislav.net/2013/02/merge-vs-rebase/">merge vs. rebase</a>.</p>
 
 <h4>
 <a id="resolve-conflicts" class="anchor" href="#resolve-conflicts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resolve conflicts</h4>
@@ -529,11 +551,32 @@
 <p><img src="../../images/github-resolve-conflicts.png" alt="Resolve conflicts" title="Resolve conflicts"></p>
 
 <h4>
+<a id="create-a-pull-request" class="anchor" href="#create-a-pull-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a Pull Request</h4>
+
+<p>When your changes are ready to be reviewed by your team members, open the "GitHub" panel <kbd>Ctrl+8</kbd> and click on <strong>Open new pull request</strong>. It will open the browser where you can continue creating a pull request. If commits haven't been pushed or the branch isn't published yet, the GitHub package will do that automatically for you.</p>
+
+<p><img src="../../images/github-create-a-pull-request.png" alt="Create a Pull Request" title="Create a Pull Request"></p>
+
+<h4>
 <a id="view-pull-requests" class="anchor" href="#view-pull-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>View Pull Requests</h4>
 
-<p>If there is a <strong>Pull Request</strong> for your current branch, you can see its status in the "GitHub" panel. Click on <strong>Conversation</strong> to see the timeline.</p>
+<p>Once the pull request is created, it will appear under <strong>Current pull request</strong> at the top of the panel. Underneath is a list of <strong>Open pull requests</strong>. It lets you quickly find a pull request by avatar, title or PR number. It also lets you keep an eye on the CI status. Clicking on a pull request in the list opens a center pane with more details, the timeline and conversations.</p>
 
 <p><img src="../../images/github-view-pull-requests.png" alt="View Pull Requests" title="View Pull Requests"></p>
+
+<h4>
+<a id="open-any-issue-or-pull-request" class="anchor" href="#open-any-issue-or-pull-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open any Issue or Pull Request</h4>
+
+<p>You can open issues or pull requests from any repo on GitHub. To do so, run the <code>GitHub: Open Issue Or Pull Request</code> command and paste the URL from an issue or pull request. Then press the <strong>Open Issue or Pull Request</strong> button and it will open a center pane. This lets you keep an issue or pull request as a reference, when working in another repo.</p>
+
+<p><img src="../../images/github-open-issue-or-pull-request.png" alt="Open Issue or Pull Request" title="Open Issue or Pull Request"></p>
+
+<h4>
+<a id="checkout-a-pull-request" class="anchor" href="#checkout-a-pull-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checkout a Pull Request</h4>
+
+<p>To test a pull request locally, open it in the workspace center by clicking on the pull request in the "open pull requests" list from the GitHub tab, then click on the <strong>Checkout</strong> button. It will automatically create a local branch and pull all the changes. If you would like to contribute to that pull request, start making changes, commit and push. Your contribution is now part of that pull request.</p>
+
+<p><img src="../../images/github-checkout.png" alt="Checkout a pull request" title="Checkout a pull request"></p>
         </div>
       </div>
       <div class="footer-pad"></div>
