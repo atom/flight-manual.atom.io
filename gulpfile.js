@@ -60,13 +60,14 @@ gulp.task("javascript_workers", function () {
     .pipe(gulp.dest("output/assets/javascripts/"));
 });
 
-gulp.task("javascript", ["javascript_vendor", "javascript_babel", "javascript_workers"], function () {
+gulp.task("javascript_concat", function () {
   return gulp.src(["./tmp/vendor.js", "./tmp/babel.js"])
     .pipe(concat("application.js"))
     .pipe(gulpif(IS_PRODUCTION, uglify()))
     .pipe(gulp.dest("output/assets/javascripts/"))
-})
+});
 
+gulp.task("javascript", gulp.series("javascript_vendor", "javascript_babel", "javascript_workers", "javascript_concat"));
 
 gulp.task("octicons", function() {
   return gulp.src("assets/vendor/octicons/octicons/**/*")
@@ -107,16 +108,16 @@ gulp.task("watch:nanoc", function() {
     "content/**/*",
     "layouts/**/*",
     "lib/**/*"
-  ], ["nanoc:compile"]);
+  ], gulp.series("nanoc:compile"));
 });
 
 gulp.task("watch:assets", function() {
   gulp.watch([
     "assets/**/*"
-  ], ["assets"]);
+  ], gulp.series("assets"));
 });
 
-gulp.task("serve", [ "server", "watch:nanoc", "watch:assets" ]);
-gulp.task("assets", [ "css", "sass", "javascript", "octicons", "images", "favicon" ]);
-gulp.task("build", [ "nanoc:compile", "assets" ]);
-gulp.task("default", [ "nanoc:compile", "assets", "serve" ]);
+gulp.task("serve", gulp.parallel("server", "watch:nanoc", "watch:assets"));
+gulp.task("assets", gulp.parallel("css", "sass", "javascript", "octicons", "images", "favicon"));
+gulp.task("build", gulp.parallel("nanoc:compile", "assets"));
+gulp.task("default", gulp.series("build", "serve"));
