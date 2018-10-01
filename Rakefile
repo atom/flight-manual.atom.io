@@ -80,6 +80,8 @@ end
 
 desc 'Publish to https://flight-manual.atom.io'
 task :publish, [:no_commit_msg] => [:remove_tmp_dir, :remove_output_dir, :build] do |_, args|
+  require "shellwords"
+
   message = commit_message(args[:no_commit_msg])
 
   system "git add -f output/"
