@@ -108,6 +108,18 @@ $ atom --help
 ```
 
 This is a great tool if you're used to the terminal or you work from the terminal a lot. Just fire off `atom [files]` and you're ready to start editing.
+You can even open a file at a certain line (and optionally column) so the cursor will be positioned exactly where you want. For example, you may search some keyword in a repository to find the line you want to edit:
+
+```command-line
+$ git grep -n 'Opening a File$'
+content/getting-started/sections/atom-basics.md:84:##### Opening a File
+```
+
+and then jump to that line by appending a colon and the line number to the file path:
+
+```command-line
+$ atom content/getting-started/sections/atom-basics.md:84
+```
 
 ##### Editing and Saving a File
 
