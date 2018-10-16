@@ -84,6 +84,7 @@ If you no longer want to keep some changes, you can discard them. It's similar t
 
 ![Discard changes](../../images/github-discard.png "Discard changes")
 
+If you want to cancel discarding some changes, you can restore them, using the same context menu. It's similar to cherry-picking, where "their" changes are the ones you previously discarded.
 
 #### Commit
 
