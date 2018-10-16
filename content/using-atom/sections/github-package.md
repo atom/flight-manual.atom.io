@@ -82,9 +82,9 @@ If you no longer want to keep some changes, you can discard them. It's similar t
 - **Hunk**: Click on the trash icon in the top bar of a hunk.
 - **Lines**: Right-click on a line (or multiple) and choose "Discard Selection".
 
-![Discard changes](../../images/github-discard.png "Discard changes")
-
 If you want to cancel discarding some changes, you can restore them, using the same context menu. It's similar to cherry-picking, where "their" changes are the ones you previously discarded.
+
+![Discard changes](../../images/github-discard.png "Discard changes")
 
 #### Commit
 
