@@ -512,7 +512,27 @@
 <span class="output">...</span>
 </pre>
 
-<p>This is a great tool if you're used to the terminal or you work from the terminal a lot. Just fire off <code>atom [files]</code> and you're ready to start editing.</p>
+<p>This is a great tool if you're used to the terminal or you work from the terminal a lot. Just fire off <code>atom [files]</code> and you're ready to start editing.<br>
+You can even open a file at a certain line (and optionally column) so the cursor will be positioned exactly where you want. For example, you may search some keyword in a repository to find the line you want to edit:</p>
+
+<pre class="command-line">
+<span class="command">git grep -n 'Opening a File$'</span>
+content/getting-started/sections/atom-basics.md:84:##### Opening a File
+</pre>
+
+<p>and then jump to the beginning of that line by appending a colon and the line number to the file path:</p>
+
+<pre class="command-line">
+<span class="command">atom content/getting-started/sections/atom-basics.md:84</span>
+</pre>
+
+<p>Sometimes you may want the cursor to jump to the exact column position of the searched keyword. Just append another colon plus the column number:</p>
+
+<pre class="command-line">
+<span class="command">git grep -n --column 'Windows Explorer'</span>
+content/getting-started/sections/atom-basics.md:150:722
+<span class="command">atom content/getting-started/sections/atom-basics.md:150:722</span>
+</pre>
 
 <h5>
 <a id="editing-and-saving-a-file" class="anchor" href="#editing-and-saving-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Editing and Saving a File</h5>
