@@ -115,10 +115,18 @@ $ git grep -n 'Opening a File$'
 content/getting-started/sections/atom-basics.md:84:##### Opening a File
 ```
 
-and then jump to that line by appending a colon and the line number to the file path:
+and then jump to the beginning of that line by appending a colon and the line number to the file path:
 
 ```command-line
 $ atom content/getting-started/sections/atom-basics.md:84
+```
+
+Sometimes you may want the cursor to jump to the exact column position of the searched keyword. Just append another colon plus the column number:
+
+```command-line
+$ git grep -n --column 'Windows Explorer'
+content/getting-started/sections/atom-basics.md:150:722
+$ atom content/getting-started/sections/atom-basics.md:150:722
 ```
 
 ##### Editing and Saving a File
