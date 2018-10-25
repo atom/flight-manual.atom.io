@@ -10,6 +10,7 @@ The github package brings Git and GitHub integration right inside Atom.
 - [Branch](#branch)
 - [Stage](#stage)
 - [Discard](#discard-changes)
+- [Undo discard](#undo-discard)
 - [Commit](#commit)
 - [Amend and undo](#amend-and-undo)
 - [Publish and push](#publish-and-push)
@@ -83,6 +84,21 @@ If you no longer want to keep some changes, you can discard them. It's similar t
 - **Lines**: Right-click on a line (or multiple) and choose "Discard Selection".
 
 ![Discard changes](../../images/github-discard.png "Discard changes")
+
+
+#### Undo discard
+
+If you want cancel discarding some changes, you can restore them.
+
+Click the <kbd>...</kbd> menu in the "Unstaged Changes" header and choose "Undo Last Discard".  
+If there are any conflicts when undoing the last discard, you will be notified that "Undoing will result in conflicts".
+
+- **Merge with conflict markers**: The discarded changes are merged back into their original file.  
+The conflict resolution works similarly to cherry-picking, where "their" changes are the ones you previously discarded.
+- **Open in new file**: The discarded changed are merged with the existing contents into a new temporary file.
+- **Cancel**: The "Undo Last Discard" action is cancelled.
+
+![Handle conflicts with undo discard](../../images/github-undo-discard-conflicts.png "Handle conflicts with undo discard")
 
 
 #### Commit
