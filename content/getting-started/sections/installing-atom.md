@@ -168,11 +168,11 @@ To setup Atom in portable mode download the [zip/tar.gz package for your system]
 
 {{#windows}}
 
-Then create a `.atom` directory alongside the directory that contains atom.exe, for example:
+Then create a `.atom` directory inside the directory that contains atom.exe, for example:
 
 ```
 e:\atom-1.14\atom.exe
-e:\.atom
+e:\atom-1.14\.atom
 ```
 
 {{/windows}}
