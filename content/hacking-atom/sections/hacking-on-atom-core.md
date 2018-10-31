@@ -21,7 +21,7 @@ From there, you can navigate into the directory where you've cloned the Atom sou
 
 ``` command-line
 $ cd <em>where-you-cloned-atom</em>
-$ script/bootstrap
+$ script\bootstrap
 ```
 
 #### Running in Development Mode
