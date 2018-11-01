@@ -19,10 +19,18 @@ $ git clone git@github.com:<em>your-username</em>/atom.git
 
 From there, you can navigate into the directory where you've cloned the Atom source code and run the bootstrap script to install all the required dependencies:
 
+<span class="platform-mac platform-linux">
+``` command-line
+$ cd <em>where-you-cloned-atom</em>
+$ script/bootstrap
+```
+</span>
+<span class="platform-windows">
 ``` command-line
 $ cd <em>where-you-cloned-atom</em>
 $ script\bootstrap
 ```
+</span>
 
 #### Running in Development Mode
 
