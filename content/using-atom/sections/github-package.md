@@ -77,7 +77,7 @@ Use the <kbd class=".platform-all">Left</kbd> or <kbd class=".platform-all">Righ
 
 If you no longer want to keep some changes, you can discard them. It's similar to staging, but accessible behind a context menu.
 
-- **All changes**: Right-click the "Unstaged Changes" bar and choose "Discard All Changes".
+- **All changes**: Click the <kbd>...</kbd> menu in the "Unstaged Changes" header and choose "Discard All Changes".
 - **Files**: Right-click a file (or multiple) and choose "Discard Changes".
 - **Hunk**: Click on the trash icon in the top bar of a hunk.
 - **Lines**: Right-click on a line (or multiple) and choose "Discard Selection".
