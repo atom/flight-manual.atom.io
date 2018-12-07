@@ -106,6 +106,11 @@ If you want to edit the commit message of your last commit, or add/remove change
 
 ![Undo previous commit](../../images/github-undo.png "Undo previous commit")
 
+#### View commits
+
+Once you've made some commits, click on a commit message in the recent commit list to see the full diff and commit message associated with each:
+
+<!-- ![View commit detail]() -->
 
 #### Publish and push
 
