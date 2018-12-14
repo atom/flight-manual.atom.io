@@ -25,6 +25,6 @@ In addition to the cursor movement selection commands, there are also a few comm
 
 {{#mac}}
 
-* <kbd class="platform-mac">Ctrl+Shift+W</kbd> - Select the current word
+* <kbd class="platform-mac">Cmd+D</kbd> or <kbd class="platform-mac">Ctrl+Shift+W</kbd> - Select the current word
 
 {{/mac}}
