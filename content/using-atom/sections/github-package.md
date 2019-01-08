@@ -85,6 +85,13 @@ If you no longer want to keep some changes, you can discard them. It's similar t
 ![Discard changes](../../images/github-discard.png "Discard changes")
 
 
+#### Commit Preview
+
+To double check **all changes** that are going into your next commit, click the "**See All Staged Changes**" button above the commit message box. It lets you see all of your staged changes in a single pane. This "commit preview" can also serve as an inspiration for writing the commit message.
+
+![Commit Preview](../../images/github-commit-preview.png "Commit Preview")
+
+
 #### Commit
 
 Once you've staged your changes, enter a commit **message**. Feel free to describe the commit in more detail after leaving an empty line. Finalize by clicking the **Commit** button. If you need more space, click the expand icon at the bottom right. It will open a commit editor in the center.
