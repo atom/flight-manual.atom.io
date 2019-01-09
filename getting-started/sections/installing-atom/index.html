@@ -480,7 +480,7 @@ $
 package repository to your system by running the following commands:</p>
 
 <pre class="command-line">
-<span class="command">curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -</span>
+<span class="command">wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -</span>
 <span class="command">sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" &gt; /etc/apt/sources.list.d/atom.list'</span>
 <span class="command">sudo apt-get update</span>
 </pre>
