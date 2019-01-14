@@ -95,14 +95,23 @@ You can run the `atom` command with one or more file paths to open up those file
 
 ``` command-line
 $ atom --help
-> Atom Editor v1.8.0
+> Atom Editor v1.36.0
 
-> Usage: atom [options] [path ...]
+> Usage:
+>  atom
+>  atom [options] [path ...]
+>  atom file[:line[:column]]
 
-> One or more paths to files or folders may be specified. If there is an
-> existing Atom window that contains all of the given folders, the paths
-> will be opened in that window. Otherwise, they will be opened in a new
-> window.
+> If no arguments are given and no Atom windows are already open, restore all windows
+> from the previous editing session. Use "atom --new-window" to open a single empty
+> Atom window instead.
+
+> If no arguments are given and at least one Atom window is open, open a new, empty
+> Atom window.
+
+> One or more paths to files or folders may be specified. All paths will be opened
+> in a new Atom window. Each file may be opened at the desired line (and optionally
+> column) by appending the numbers after the file name, e.g. `atom file:5:8`.
 
 > ...
 ```
@@ -129,6 +138,12 @@ content/getting-started/sections/atom-basics.md:150:722
 $ atom content/getting-started/sections/atom-basics.md:150:722
 ```
 
+Each of these commands will open the path you provide in its own, fresh Atom window. If you'd rather open a file in an already-open Atom window instead, use the `--add` command-line option, or `-a` if you're into that whole brevity thing:
+
+```command-line
+$ atom --add content/getting-started/sections/summary.md
+```
+
 ##### Editing and Saving a File
 
 Editing a file is pretty straightforward. You can click around and scroll with your mouse and type to change the content. There is no special editing mode or key commands. If you prefer editors with modes or more complex key commands, you should take a look at the [Atom package list](https://atom.io/packages). There are a lot of packages that emulate popular styles.
@@ -139,7 +154,7 @@ To save a file you can choose *File > Save* from the menu bar or <kbd class="pla
 
 Atom doesn't just work with single files though; you will most likely spend most of your time working on projects with multiple files. To open a directory, choose the menu item <span class="platform-mac">*File > Open*</span><span class="platform-windows platform-linux">*File > Open Folder*</span> and select a directory from the dialog. You can also add more than one directory to your current Atom window, by choosing *File > Add Project Folder* from the menu bar or pressing <kbd class="platform-mac">Cmd+Shift+O</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+A</kbd>.
 
-You can open any number of directories from the command line by passing their paths to the `atom` command line tool. For example, you could run the command `atom ./hopes ./dreams` to open both the `hopes` and the `dreams` directories at the same time.
+You can open any number of directories from the command line by passing their paths to the `atom` command line tool. For example, you could run the command `atom ./hopes ./dreams` to open both the `hopes` and the `dreams` directories at the same time in a new Atom window. Just as with files, you can use `--add` to add directories to an already-open Atom window instead: `atom --add ./fears`.
 
 When you open Atom with one or more directories, you will automatically get a Tree View on the side of your window.
 
