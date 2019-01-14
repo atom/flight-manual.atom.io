@@ -87,62 +87,7 @@ There are several ways to open a file in Atom. You can do it by choosing *File >
 
 ![Open file by dialog](../../images/open-file.png "Open file by dialog")
 
-This is useful for opening a file that is not contained in the project you're currently in (more on that next), or if you're starting from a new window for some reason.
-
-Another way to open a file in Atom is from the command line using the `atom` command. <span class="platform-mac">The Atom menu bar has a command named "Install Shell Commands" which installs the `atom` and `apm` commands [if Atom wasn't able to install them itself](/getting-started/sections/installing-atom/#installing-atom-on-mac).</span><span class="platform-windows platform-linux">The `atom` and `apm` commands are installed automatically as a part of Atom's [installation process](/getting-started/sections/installing-atom/).</span>
-
-You can run the `atom` command with one or more file paths to open up those files in Atom.
-
-``` command-line
-$ atom --help
-> Atom Editor v1.36.0
-
-> Usage:
->  atom
->  atom [options] [path ...]
->  atom file[:line[:column]]
-
-> If no arguments are given and no Atom windows are already open, restore all windows
-> from the previous editing session. Use "atom --new-window" to open a single empty
-> Atom window instead.
-
-> If no arguments are given and at least one Atom window is open, open a new, empty
-> Atom window.
-
-> One or more paths to files or folders may be specified. All paths will be opened
-> in a new Atom window. Each file may be opened at the desired line (and optionally
-> column) by appending the numbers after the file name, e.g. `atom file:5:8`.
-
-> ...
-```
-
-This is a great tool if you're used to the terminal or you work from the terminal a lot. Just fire off `atom [files]` and you're ready to start editing.
-You can even open a file at a certain line (and optionally column) so the cursor will be positioned exactly where you want. For example, you may search some keyword in a repository to find the line you want to edit:
-
-```command-line
-$ git grep -n 'Opening a File$'
-content/getting-started/sections/atom-basics.md:84:##### Opening a File
-```
-
-and then jump to the beginning of that line by appending a colon and the line number to the file path:
-
-```command-line
-$ atom content/getting-started/sections/atom-basics.md:84
-```
-
-Sometimes you may want the cursor to jump to the exact column position of the searched keyword. Just append another colon plus the column number:
-
-```command-line
-$ git grep -n --column 'Windows Explorer'
-content/getting-started/sections/atom-basics.md:150:722
-$ atom content/getting-started/sections/atom-basics.md:150:722
-```
-
-Each of these commands will open the path you provide in its own, fresh Atom window. If you'd rather open a file in an already-open Atom window instead, use the `--add` command-line option, or `-a` if you're into that whole brevity thing:
-
-```command-line
-$ atom --add content/getting-started/sections/summary.md
-```
+This is useful for opening a file that is not contained in the project you're currently in (more on that next) or if you're starting from a new window.
 
 ##### Editing and Saving a File
 
@@ -153,8 +98,6 @@ To save a file you can choose *File > Save* from the menu bar or <kbd class="pla
 #### Opening Directories
 
 Atom doesn't just work with single files though; you will most likely spend most of your time working on projects with multiple files. To open a directory, choose the menu item <span class="platform-mac">*File > Open*</span><span class="platform-windows platform-linux">*File > Open Folder*</span> and select a directory from the dialog. You can also add more than one directory to your current Atom window, by choosing *File > Add Project Folder* from the menu bar or pressing <kbd class="platform-mac">Cmd+Shift+O</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+A</kbd>.
-
-You can open any number of directories from the command line by passing their paths to the `atom` command line tool. For example, you could run the command `atom ./hopes ./dreams` to open both the `hopes` and the `dreams` directories at the same time in a new Atom window. Just as with files, you can use `--add` to add directories to an already-open Atom window instead: `atom --add ./fears`.
 
 When you open Atom with one or more directories, you will automatically get a Tree View on the side of your window.
 
@@ -205,3 +148,83 @@ If you have a phrase you want to camel-case, follow these steps:
 So "Ignored Names" becomes "ignoredNames".
 
 {{/tip}}
+
+#### Using the Command Line
+
+Another way to open a file in Atom is from the command line using the `atom` command. <span class="platform-mac">The Atom menu bar has a command named "Install Shell Commands" which installs the `atom` and `apm` commands [if Atom wasn't able to install them itself](/getting-started/sections/installing-atom/#installing-atom-on-mac).</span><span class="platform-windows platform-linux">The `atom` and `apm` commands are installed automatically as a part of Atom's [installation process](/getting-started/sections/installing-atom/).</span> This is a great tool if you're used to the terminal or you work from the terminal a lot. Just fire off `atom [files]` and you're ready to start editing.
+
+``` command-line
+$ atom --help
+> Atom Editor v1.36.0
+
+> Usage:
+>  atom
+>  atom [options] [path ...]
+>  atom file[:line[:column]]
+
+> If no arguments are given and no Atom windows are already open, restore all windows
+> from the previous editing session. Use "atom --new-window" to open a single empty
+> Atom window instead.
+
+> If no arguments are given and at least one Atom window is open, open a new, empty
+> Atom window.
+
+> One or more paths to files or folders may be specified. All paths will be opened
+> in a new Atom window. Each file may be opened at the desired line (and optionally
+> column) by appending the numbers after the file name, e.g. `atom file:5:8`.
+
+> ...
+```
+
+##### Restoring Your Last Session
+
+By default, if you run the `atom` command with no arguments and have no Atom windows open yet, Atom attempts to restore all windows from your last editing session. The same project folders will be restored into each. This also happens if you open Atom from the <span class="platform-mac">dock</span><span class="platform-windows">start menu</span><span class="platform-linux">Window manager launch menu</span>.
+
+{{#note}}
+The core setting "Restore Previous Windows on Start" controls how aggressively Atom loads previous windows:
+
+* When set to _yes_, the default, `atom` behaves as described above: previous windows are restored if no Atom windows are open, but an empty Atom session is created if one or more Atom windows are already open.
+* When set to _always_, `atom` always re-opens the previously opened windows.
+* When set to _no_, `atom` always opens a new Atom session.
+{{/note}}
+
+##### Opening a New, Empty Atom Window
+
+If you add the `--new-window` argument, or if you already have one or more Atom windows open, a new, empty Atom window is opened instead.
+
+{{#note}}
+The core setting "Open Empty Editor On Start" controls what happens when a new Atom session is started. When checked, an "Untitled" editor is opened by default in new Atom sessions; when unchecked, the workspace is left empty instead.
+{{/note}}
+
+##### Opening Files and Directories in a New Atom Window
+
+You can run the `atom` command with one or more file paths to open those files in a new Atom window. You can even open a file at a certain line (and optionally column) so the cursor will be positioned exactly where you want. For example, you may search some keyword in a repository to find the line you want to edit:
+
+```command-line
+$ git grep -n 'Opening a File$'
+content/getting-started/sections/atom-basics.md:84:##### Opening a File
+```
+
+and then jump to the beginning of that line by appending a colon and the line number to the file path:
+
+```command-line
+$ atom content/getting-started/sections/atom-basics.md:84
+```
+
+Sometimes you may want the cursor to jump to the exact column position of the searched keyword. Just append another colon plus the column number:
+
+```command-line
+$ git grep -n --column 'Windows Explorer'
+content/getting-started/sections/atom-basics.md:150:722
+$ atom content/getting-started/sections/atom-basics.md:150:722
+```
+
+You can open any number of directories from the command line by passing their paths to the `atom` command line tool. For example, you could run the command `atom ./hopes ./dreams` to open both the `hopes` and the `dreams` directories at the same time in a new Atom window.
+
+##### Opening Files and Directories in an Existing Atom Window
+
+Each of the commands described above will open the paths you provide in a new, fresh Atom window. If you'd rather open a file or a folder in an already-open Atom window, use the `--add` command-line option, or `-a` if you're into that whole brevity thing:
+
+```command-line
+$ atom --add content/getting-started/sections/summary.md ./goals/
+```
