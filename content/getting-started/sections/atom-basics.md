@@ -184,9 +184,9 @@ By default, if you run the `atom` command with no arguments and have no Atom win
 
 The core setting "Restore Previous Windows on Start" controls how aggressively Atom loads previous windows:
 
-* When set to _yes_, the default, `atom` behaves as described above: previous windows are restored if no Atom windows are open, but an empty Atom session is created if one or more Atom windows are already open.
-* When set to _always_, `atom` always re-opens the previously opened windows.
-* When set to _no_, `atom` always opens a new Atom session.
+* When set to **yes**, the default, `atom` behaves as described above: previous windows are restored if no Atom windows are open, but an empty Atom session is created if one or more Atom windows are already open.
+* When set to **always**, `atom` always re-opens the previously opened windows.
+* When set to **no**, `atom` always opens a new Atom session.
 
 {{/note}}
 
