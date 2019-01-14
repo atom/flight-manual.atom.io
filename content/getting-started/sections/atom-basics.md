@@ -181,11 +181,13 @@ $ atom --help
 By default, if you run the `atom` command with no arguments and have no Atom windows open yet, Atom attempts to restore all windows from your last editing session. The same project folders will be restored into each. This also happens if you open Atom from the <span class="platform-mac">dock</span><span class="platform-windows">start menu</span><span class="platform-linux">Window manager launch menu</span>.
 
 {{#note}}
+
 The core setting "Restore Previous Windows on Start" controls how aggressively Atom loads previous windows:
 
 * When set to _yes_, the default, `atom` behaves as described above: previous windows are restored if no Atom windows are open, but an empty Atom session is created if one or more Atom windows are already open.
 * When set to _always_, `atom` always re-opens the previously opened windows.
 * When set to _no_, `atom` always opens a new Atom session.
+
 {{/note}}
 
 ##### Opening a New, Empty Atom Window
@@ -193,7 +195,9 @@ The core setting "Restore Previous Windows on Start" controls how aggressively A
 If you add the `--new-window` argument, or if you already have one or more Atom windows open, a new, empty Atom window is opened instead.
 
 {{#note}}
+
 The core setting "Open Empty Editor On Start" controls what happens when a new Atom session is started. When checked, an "Untitled" editor is opened by default in new Atom sessions; when unchecked, the workspace is left empty instead.
+
 {{/note}}
 
 ##### Opening Files and Directories in a New Atom Window
