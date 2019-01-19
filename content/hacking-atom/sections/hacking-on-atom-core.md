@@ -14,7 +14,7 @@ Follow the [GitHub Help instructions on how to fork a repo](https://help.github.
 Once you've set up your fork of the atom/atom repository, you can clone it to your local machine:
 
 ``` command-line
-$ git clone git@github.com:<em>your-username</em>/atom.git
+$ git clone "git@github.com:$(git config --get github.user)"/atom.git
 ```
 
 From there, you can navigate into the directory where you've cloned the Atom source code and run the bootstrap script to install all the required dependencies:

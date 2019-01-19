@@ -14,7 +14,7 @@ The first step is creating your own clone. For some packages, you may also need 
 For example, if you want to make changes to the `tree-view` package, fork the repo on your github account, then clone it:
 
 ``` command-line
-$ git clone git@github.com:<em>your-username</em>/tree-view.git
+$ git clone "git@github.com:$(git config --get github.user)"/tree-view.git
 ```
 
 Next install all the dependencies:
