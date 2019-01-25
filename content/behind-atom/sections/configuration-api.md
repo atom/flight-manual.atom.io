@@ -7,24 +7,30 @@ title: Configuration API
 
 If you are writing a package that you want to make configurable, you'll need to read config settings via the `atom.config` global. You can read the current value of a namespaced config key with `atom.config.get`:
 
-```coffeescript
-# read a value with `config.get`
-@showInvisibles() if atom.config.get "editor.showInvisibles"
+```javascript
+// read a value with `config.get`
+if (atom.config.get("editor.showInvisibles")) {
+  this.showInvisibles()
+}
 ```
 
 Or you can subscribe via `atom.config.observe` to track changes from any view object.
 
-```coffeescript
-{View} = require 'space-pen'
+```javascript
+const {View} = require('space-pen')
 
-class MyView extends View
-  attached: ->
-    @fontSizeObserveSubscription =
-      atom.config.observe 'editor.fontSize', (newValue, {previous}) =>
-        @adjustFontSize(newValue)
+class MyView extends View {
+  function attached() {
+    this.fontSizeObserveSubscription =
+      atom.config.observe('editor.fontSize', (newValue, {previous}) => {
+        this.adjustFontSize(newValue)
+      })
+  }
 
-  detached: ->
-    @fontSizeObserveSubscription.dispose()
+  function detached() {
+    this.fontSizeObserveSubscription.dispose()
+  }
+}
 ```
 
 The `atom.config.observe` method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use `atom.config.onDidChange` instead.
@@ -35,8 +41,8 @@ Subscription methods return [`Disposable`](https://atom.io/docs/api/latest/Dispo
 
 The `atom.config` database is populated on startup from <span class="platform-mac platform-linux">`~/.atom/config.cson`</span><span class="platform-windows">`%USERPROFILE%\.atom\config.cson`</span>, but you can programmatically write to it with `atom.config.set`:
 
-```coffeescript
-# basic key update
+```javascript
+// basic key update
 atom.config.set("core.showInvisibles", true)
 ```
 
