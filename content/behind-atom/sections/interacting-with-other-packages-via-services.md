@@ -21,15 +21,20 @@ Atom packages can interact with each other through versioned APIs called _servic
 
 In your package's main module, implement the methods named above. These methods will be called any time a package is activated that consumes their corresponding service. They should return a value that implements the service's API.
 
-```coffee
-module.exports =
-  activate: -> # ...
+```javascript
+module.exports = {
+  activate() {
+    // ...
+  },
 
-  provideMyServiceV1: ->
-    adaptToLegacyAPI(myService)
+  provideMyServiceV1() {
+    return adaptToLegacyAPI(myService)
+  },
 
-  provideMyServiceV2: ->
-    myService
+  provideMyServiceV2() {
+    return myService
+  }
+}
 ```
 
 Similarly, to consume a service, specify one or more [version _ranges_](https://docs.npmjs.com/misc/semver#ranges), each paired with the name of a method on the package's main module:
@@ -49,17 +54,22 @@ Similarly, to consume a service, specify one or more [version _ranges_](https://
 
 These methods will be called any time a package is activated that *provides* their corresponding service. They will receive the service object as an argument. You will usually need to perform some kind of cleanup in the event that the package providing the service is deactivated. To do this, return a `Disposable` from your service-consuming method:
 
-```coffee
-{Disposable} = require 'atom'
+```javascript
+const {Disposable} = require('atom');
 
-module.exports =
-  activate: -> # ...
+module.exports = {
+  activate() {
+    // ...
+  },
 
-  consumeAnotherServiceV1: (service) ->
-    useService(adaptServiceFromLegacyAPI(service))
-    new Disposable -> stopUsingService(service)
+  consumeAnotherServiceV1(service) {
+    useService(adaptServiceFromLegacyAPI(service));
+    return new Disposable(function() { return stopUsingService(service) })
+  },
 
-  consumeAnotherServiceV2: (service) ->
+  consumeAnotherServiceV2(service) {
     useService(service)
-    new Disposable -> stopUsingService(service)
+    return new Disposable(function() { return stopUsingService(service) })
+  }
+}
 ```
