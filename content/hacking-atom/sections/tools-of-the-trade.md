@@ -1,11 +1,12 @@
 ---
 title: Tools of the Trade
 ---
+
 ### Tools of the Trade
 
-To begin, there are a few things we'll assume you know, at least to some degree. Since all of Atom is implemented using web technologies, we have to assume you know web technologies such as JavaScript and CSS. Specifically, we'll be implementing everything in CoffeeScript and Less, which are preprocessors for Javascript and CSS respectively.
+To begin, there are a few things we'll assume you know, at least to some degree. Since all of Atom is implemented using web technologies, we have to assume you know web technologies such as JavaScript and CSS. Specifically, we'll be using Less, which is a preprocessors for CSS.
 
-If you don't know CoffeeScript, but you are familiar with JavaScript, you shouldn't have too much trouble. Here is an example of some simple CoffeeScript code:
+While much of Atom has been converted to JavaScript, a lot of older code has been left implemented in CoffeeScript because changing it would have been too risky. Additionally, Atom's default configuration language is CSON, which is based on CoffeeScript. If you don't know CoffeeScript, but you are familiar with JavaScript, you shouldn't have too much trouble. Here is an example of some simple CoffeeScript code:
 
 ```coffee
 MyPackageView = require './my-package-view'
