@@ -49,7 +49,7 @@ A scope descriptor is an [Object](https://atom.io/docs/api/latest/ScopeDescripto
 
 In our JavaScript example above, a scope descriptor for the function name token would be:
 
-```coffee
+```javascript
 ['source.js', 'meta.function.js', 'entity.name.function.js']
 ```
 
