@@ -96,7 +96,7 @@ When you are looking to bind new keys, it is often useful to use the Command Pal
 A common question is, "How do I make a single keybinding execute two or more commands?" There isn't any direct support for this in Atom, but it can be achieved by creating a custom command that performs the multiple actions you desire and then creating a keybinding for that command. For example, let's say I want to create a "composed" command that performs a Select Line followed by Cut. You could add the following to your `init.coffee`:
 
 ```javascript
-atom.commands.add('atom-text-editor', 'custom:cut-line', function() {
+atom.commands.add('atom-text-editor', 'custom:cut-line', () => {
   const editor = atom.workspace.getActiveTextEditor()
   editor.selectLinesContainingCursors()
   editor.cutSelectedText()
