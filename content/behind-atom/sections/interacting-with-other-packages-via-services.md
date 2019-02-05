@@ -64,12 +64,12 @@ module.exports = {
 
   consumeAnotherServiceV1(service) {
     useService(adaptServiceFromLegacyAPI(service));
-    return new Disposable(function() { return stopUsingService(service) })
+    return new Disposable(() => stopUsingService(service))
   },
 
   consumeAnotherServiceV2(service) {
     useService(service)
-    return new Disposable(function() { return stopUsingService(service) })
+    return new Disposable(() => stopUsingService(service))
   }
 }
 ```
