@@ -499,10 +499,12 @@
 
 <p>Commands are custom DOM events that are triggered when a key combination or sequence matches a binding. This allows user interface code to listen for named commands without specifying the specific keybinding that triggers it. For example, the following code creates a command to insert the current date in an editor:</p>
 
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-text-editor'</span><span class="p">,</span>
-  <span class="s">'user:insert-date'</span><span class="o">:</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">-&gt;</span>
-    <span class="nx">editor</span> <span class="o">=</span> <span class="vi">@</span><span class="na">getModel</span><span class="p">()</span>
-    <span class="nx">editor</span><span class="p">.</span><span class="na">insertText</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="na">toLocaleString</span><span class="p">())</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'atom-text-editor'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="s1">'user:insert-date'</span><span class="p">:</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getModel</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">insertText</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toLocaleString</span><span class="p">())</span>
+  <span class="p">}</span>
+<span class="p">})</span>
 </code></pre></div>
 
 <p><code>atom.commands</code> refers to the global <code>CommandRegistry</code> instance where all commands are set and consequently picked up by the command palette.</p>
@@ -514,10 +516,11 @@
 
 <p>A common question is, "How do I make a single keybinding execute two or more commands?" There isn't any direct support for this in Atom, but it can be achieved by creating a custom command that performs the multiple actions you desire and then creating a keybinding for that command. For example, let's say I want to create a "composed" command that performs a Select Line followed by Cut. You could add the following to your <code>init.coffee</code>:</p>
 
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">commands</span><span class="p">.</span><span class="na">add</span> <span class="s">'atom-text-editor'</span><span class="p">,</span> <span class="s">'custom:cut-line'</span><span class="p">,</span> <span class="o">-&gt;</span>
-  <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
-  <span class="nx">editor</span><span class="p">.</span><span class="na">selectLinesContainingCursors</span><span class="p">()</span>
-  <span class="nx">editor</span><span class="p">.</span><span class="na">cutSelectedText</span><span class="p">()</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'atom-text-editor'</span><span class="p">,</span> <span class="s1">'custom:cut-line'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveTextEditor</span><span class="p">()</span>
+  <span class="nx">editor</span><span class="p">.</span><span class="nx">selectLinesContainingCursors</span><span class="p">()</span>
+  <span class="nx">editor</span><span class="p">.</span><span class="nx">cutSelectedText</span><span class="p">()</span>
+<span class="p">})</span>
 </code></pre></div>
 
 <p>Then let's say we want to map this custom command to <code>alt-ctrl-z</code>, you could add the following to your keymap:</p>
@@ -603,12 +606,14 @@
 
 <p>To achieve this, the snippets package makes use of the <code>.abortKeyBinding()</code> method on the event object representing the <code>snippets:expand</code> command.</p>
 
-<div class="highlight highlight-coffee-script"><pre class="highlight"><code><span class="c1"># pseudo-code</span>
-<span class="nx">editor</span><span class="p">.</span><span class="na">command</span> <span class="s">'snippets:expand'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span>
-  <span class="k">if</span> <span class="vi">@</span><span class="na">cursorFollowsValidPrefix</span><span class="p">()</span>
-    <span class="vi">@</span><span class="na">expandSnippet</span><span class="p">()</span>
-  <span class="k">else</span>
-    <span class="nx">e</span><span class="p">.</span><span class="na">abortKeyBinding</span><span class="p">()</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="c1">// pseudo-code</span>
+<span class="nx">editor</span><span class="p">.</span><span class="nx">command</span><span class="p">(</span><span class="s1">'snippets:expand'</span><span class="p">,</span> <span class="nx">e</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">cursorFollowsValidPrefix</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">expandSnippet</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">abortKeyBinding</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">})</span>
 </code></pre></div>
 
 <p>When the event handler observes that the cursor does not follow a valid prefix, it calls <code>e.abortKeyBinding()</code>, telling the keymap system to continue searching for another matching binding.</p>

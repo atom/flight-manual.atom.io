@@ -437,7 +437,7 @@
 
 <p><a href="https://atom.io/docs/api/latest/Config#instance-set"><code>Config::set</code></a> accepts a <code>scopeSelector</code>. If you'd like to set a setting for JavaScript function names, you can give it the JavaScript function name <code>scopeSelector</code>:</p>
 
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="s">'special value'</span><span class="p">,</span> <span class="na">scopeSelector</span><span class="o">:</span> <span class="s">'.source.js .function.name'</span><span class="p">)</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'my-package.my-setting'</span><span class="p">,</span> <span class="s1">'special value'</span><span class="p">,</span> <span class="p">{</span><span class="na">scopeSelector</span><span class="p">:</span> <span class="s1">'.source.js .function.name'</span><span class="p">})</span>
 </code></pre></div>
 
 <h4>
@@ -447,13 +447,13 @@
 
 <p>In our JavaScript example above, a scope descriptor for the function name token would be:</p>
 
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="p">[</span><span class="s">'source.js'</span><span class="p">,</span> <span class="s">'meta.function.js'</span><span class="p">,</span> <span class="s">'entity.name.function.js'</span><span class="p">]</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="p">[</span><span class="s1">'source.js'</span><span class="p">,</span> <span class="s1">'meta.function.js'</span><span class="p">,</span> <span class="s1">'entity.name.function.js'</span><span class="p">]</span>
 </code></pre></div>
 
 <p><a href="https://atom.io/docs/api/latest/Config#instance-get"><code>Config::get</code></a> accepts a <code>scopeDescriptor</code>. You can get the value for your setting scoped to JavaScript function names via:</p>
 
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">scopeDescriptor</span> <span class="o">=</span> <span class="p">[</span><span class="s">'source.js'</span><span class="p">,</span> <span class="s">'meta.function.js'</span><span class="p">,</span> <span class="s">'entity.name.function.js'</span><span class="p">]</span>
-<span class="nx">value</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">scopeDescriptor</span><span class="p">)</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">scopeDescriptor</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'source.js'</span><span class="p">,</span> <span class="s1">'meta.function.js'</span><span class="p">,</span> <span class="s1">'entity.name.function.js'</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'my-package.my-setting'</span><span class="p">,</span> <span class="p">{</span><span class="na">scope</span><span class="p">:</span> <span class="nx">scopeDescriptor</span><span class="p">})</span>
 </code></pre></div>
 
 <p>But, you do not need to generate scope descriptors by hand. There are a couple methods available to get the scope descriptor from the editor:</p>
@@ -471,10 +471,10 @@
 
 <p>Let's revisit our example using these methods:</p>
 
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">workspace</span><span class="p">.</span><span class="na">getActiveTextEditor</span><span class="p">()</span>
-<span class="nx">cursor</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getLastCursor</span><span class="p">()</span>
-<span class="nx">valueAtCursor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">cursor</span><span class="p">.</span><span class="na">getScopeDescriptor</span><span class="p">())</span>
-<span class="nx">valueForLanguage</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.my-setting'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">editor</span><span class="p">.</span><span class="na">getRootScopeDescriptor</span><span class="p">())</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveTextEditor</span><span class="p">()</span>
+<span class="kd">const</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getLastCursor</span><span class="p">()</span>
+<span class="kd">const</span> <span class="nx">valueAtCursor</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'my-package.my-setting'</span><span class="p">,</span> <span class="p">{</span><span class="na">scope</span><span class="p">:</span> <span class="nx">cursor</span><span class="p">.</span><span class="nx">getScopeDescriptor</span><span class="p">()})</span>
+<span class="kd">const</span> <span class="nx">valueForLanguage</span> <span class="o">=</span> <span class="nx">atom</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'my-package.my-setting'</span><span class="p">,</span> <span class="p">{</span><span class="na">scope</span><span class="p">:</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getRootScopeDescriptor</span><span class="p">()})</span>
 </code></pre></div>
         </div>
       </div>

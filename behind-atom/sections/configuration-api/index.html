@@ -406,22 +406,28 @@
 
 <p>If you are writing a package that you want to make configurable, you'll need to read config settings via the <code>atom.config</code> global. You can read the current value of a namespaced config key with <code>atom.config.get</code>:</p>
 
-<div class="highlight highlight-coffeescript"><pre class="highlight"><code><span class="c1"># read a value with `config.get`</span>
-<span class="vi">@</span><span class="na">showInvisibles</span><span class="p">()</span> <span class="k">if</span> <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span> <span class="s">"editor.showInvisibles"</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="c1">// read a value with `config.get`</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">atom</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"editor.showInvisibles"</span><span class="p">))</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">showInvisibles</span><span class="p">()</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>Or you can subscribe via <code>atom.config.observe</code> to track changes from any view object.</p>
 
-<div class="highlight highlight-coffeescript"><pre class="highlight"><code><span class="p">{</span><span class="nx">View</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'space-pen'</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span><span class="nx">View</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'space-pen'</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nx">MyView</span> <span class="k">extends</span> <span class="nx">View</span>
-  <span class="na">attached</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">fontSizeObserveSubscription</span> <span class="o">=</span>
-      <span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">observe</span> <span class="s">'editor.fontSize'</span><span class="p">,</span> <span class="p">(</span><span class="nx">newValue</span><span class="p">,</span> <span class="p">{</span><span class="nx">previous</span><span class="p">})</span> <span class="o">=&gt;</span>
-        <span class="vi">@</span><span class="na">adjustFontSize</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span>
+<span class="kd">class</span> <span class="nx">MyView</span> <span class="kd">extends</span> <span class="nx">View</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">attached</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">fontSizeObserveSubscription</span> <span class="o">=</span>
+      <span class="nx">atom</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="s1">'editor.fontSize'</span><span class="p">,</span> <span class="p">(</span><span class="nx">newValue</span><span class="p">,</span> <span class="p">{</span><span class="nx">previous</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">adjustFontSize</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span>
+      <span class="p">})</span>
+  <span class="p">}</span>
 
-  <span class="na">detached</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="vi">@</span><span class="na">fontSizeObserveSubscription</span><span class="p">.</span><span class="na">dispose</span><span class="p">()</span>
+  <span class="kd">function</span> <span class="nx">detached</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">fontSizeObserveSubscription</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>The <code>atom.config.observe</code> method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use <code>atom.config.onDidChange</code> instead.</p>
@@ -433,8 +439,8 @@
 
 <p>The <code>atom.config</code> database is populated on startup from <span class="platform-mac platform-linux"><code>~/.atom/config.cson</code></span><span class="platform-windows"><code>%USERPROFILE%\.atom\config.cson</code></span>, but you can programmatically write to it with <code>atom.config.set</code>:</p>
 
-<div class="highlight highlight-coffeescript"><pre class="highlight"><code><span class="c1"># basic key update</span>
-<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">"core.showInvisibles"</span><span class="p">,</span> <span class="no">true</span><span class="p">)</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="c1">// basic key update</span>
+<span class="nx">atom</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"core.showInvisibles"</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
 </code></pre></div>
 
 <p>If you're exposing package configuration via specific key paths, you'll want to associate them with a schema in your package's main module. Read more about schemas in the <a href="https://atom.io/docs/api/latest/Config">Config API documentation</a>.</p>

@@ -418,14 +418,19 @@
 
 <p>In your package's main module, implement the methods named above. These methods will be called any time a package is activated that consumes their corresponding service. They should return a value that implements the service's API.</p>
 
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
-  <span class="na">activate</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="c1"># ...</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">activate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">},</span>
 
-  <span class="na">provideMyServiceV1</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="nx">adaptToLegacyAPI</span><span class="p">(</span><span class="nx">myService</span><span class="p">)</span>
+  <span class="nx">provideMyServiceV1</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">adaptToLegacyAPI</span><span class="p">(</span><span class="nx">myService</span><span class="p">)</span>
+  <span class="p">},</span>
 
-  <span class="na">provideMyServiceV2</span><span class="o">:</span> <span class="o">-&gt;</span>
-    <span class="nx">myService</span>
+  <span class="nx">provideMyServiceV2</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">myService</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>Similarly, to consume a service, specify one or more <a href="https://docs.npmjs.com/misc/semver#ranges">version <em>ranges</em></a>, each paired with the name of a method on the package's main module:</p>
@@ -444,18 +449,23 @@
 
 <p>These methods will be called any time a package is activated that <em>provides</em> their corresponding service. They will receive the service object as an argument. You will usually need to perform some kind of cleanup in the event that the package providing the service is deactivated. To do this, return a <code>Disposable</code> from your service-consuming method:</p>
 
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="p">{</span><span class="nx">Disposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">'atom'</span>
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span><span class="nx">Disposable</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'atom'</span><span class="p">);</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
-  <span class="na">activate</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="c1"># ...</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">activate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">},</span>
 
-  <span class="na">consumeAnotherServiceV1</span><span class="o">:</span> <span class="p">(</span><span class="nx">service</span><span class="p">)</span> <span class="o">-&gt;</span>
-    <span class="nx">useService</span><span class="p">(</span><span class="nx">adaptServiceFromLegacyAPI</span><span class="p">(</span><span class="nx">service</span><span class="p">))</span>
-    <span class="k">new</span> <span class="nx">Disposable</span> <span class="o">-&gt;</span> <span class="nx">stopUsingService</span><span class="p">(</span><span class="nx">service</span><span class="p">)</span>
+  <span class="nx">consumeAnotherServiceV1</span><span class="p">(</span><span class="nx">service</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">useService</span><span class="p">(</span><span class="nx">adaptServiceFromLegacyAPI</span><span class="p">(</span><span class="nx">service</span><span class="p">));</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Disposable</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">stopUsingService</span><span class="p">(</span><span class="nx">service</span><span class="p">))</span>
+  <span class="p">},</span>
 
-  <span class="na">consumeAnotherServiceV2</span><span class="o">:</span> <span class="p">(</span><span class="nx">service</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="nx">consumeAnotherServiceV2</span><span class="p">(</span><span class="nx">service</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">useService</span><span class="p">(</span><span class="nx">service</span><span class="p">)</span>
-    <span class="k">new</span> <span class="nx">Disposable</span> <span class="o">-&gt;</span> <span class="nx">stopUsingService</span><span class="p">(</span><span class="nx">service</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Disposable</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">stopUsingService</span><span class="p">(</span><span class="nx">service</span><span class="p">))</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
         </div>
       </div>
