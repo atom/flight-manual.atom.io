@@ -23,5 +23,5 @@ Atom will check for updates automatically every 4 to 6 hours, but you can also u
 
 #### Updating Atom in Linux
 
-In order to update Atom in Linux you will need to update manually by downloading the latest release from https://atom.io if you are not using Atom's official package repositories. For additional information see https://flight-manual.atom.io/getting-started/sections/installing-atom/#installing-atom-on-linux.
+Atom must be downloaded manually in Linux. You will need to download the latest version of Atom from https://atom.io if you are not using Atom's official package repositories. For additional information see https://flight-manual.atom.io/getting-started/sections/installing-atom/#installing-atom-on-linux.
 
