@@ -9,17 +9,17 @@ You will need to update Atom periodically for the latest improvements to the sof
 
 Atom will check for updates automatically every 4 to 6 hours, but you can also update manually. To perform a manual update:
 
-1. Click on "Help"
-2. Click on "Check for Update"
-3. Atom will begin to update if there are any updates available. Otherwise you will see a small window confirming no updates are available.
+1. Click on "Help" at the top of the Atom window.
+2. Click on "Check for Update".
+3. Atom will begin to update if there are any updates available.
 
 #### Updating Atom in macOS
 
 Atom will check for updates automatically every 4 to 6 hours, but you can also update manually. To perform a manual update:
 
-1. Click on "Atom (Beta)"
-2. Click on "Check for Updates"
-3. 
+1. Click on "Atom" in the top-left section of the Atom application.
+2. Click on "Check for Update".
+3. Atom will begin to update if there are any updates available.
 
 #### Updating Atom in Linux
 
