@@ -17,7 +17,7 @@ Atom will check for updates automatically every 4 to 6 hours, but you can also u
 
 Atom will check for updates automatically every 4 to 6 hours, but you can also update manually. To perform a manual update:
 
-1. Click on "Atom" in the top-left section of the Atom application.
+1. Click on "Atom" at the top-left section of the Atom application.
 2. Click on "Check for Update".
 3. Atom will begin to update if there are any updates available.
 
