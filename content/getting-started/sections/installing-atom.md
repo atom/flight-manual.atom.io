@@ -159,6 +159,47 @@ $ sudo zypper in -y atom.x86_64.rpm
 
 {{/linux}}
 
+### Updating Atom
+
+When Atom receives hotfixes for security vulnerabilities you will want to update your version of Atom as soon as possible. This section will explain how to update Atom on your system.
+
+{{#mac}}
+
+#### Updating Atom on Mac
+
+Atom's default setting under the `Atom > Settings` menu will check for updates automatically, but if you don't have "Automatically Update" enabled, you can also update Atom manually.
+
+To perform a manual update:
+
+* Click on the `Atom > Check for Update` menu item in the menu bar.
+* Search for `Application: About` in the [Command Palette](https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette) and click the `Check now` button.
+
+Atom will begin to update if an update is available.
+
+{{/mac}}
+
+{{#windows}}
+
+#### Updating Atom in Windows
+
+Atom's default setting under the `File > Settings` menu will check for updates automatically, but if you don't have "Automatically Update" enabled, you can also update Atom manually.
+
+To perform a manual update:
+
+* Click on the `Help > Check for Update` menu item in the menu bar.
+* Search for `Application: About` in the [Command Palette](https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette) and click the `Check now` button.
+
+Atom will begin to update if an update is available.
+
+{{/windows}}
+
+{{#linux}}
+
+#### Updating Atom in Linux
+
+If you are not using Atom's official package repositories, Atom must be updated manually in Linux. You must download the latest version of Atom from https://atom.io  
+
+{{/linux}}
 
 #### Portable Mode
 
