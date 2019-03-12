@@ -197,7 +197,7 @@ Atom will begin to update if an update is available.
 
 #### Updating Atom in Linux
 
-If you are not using Atom's official package repositories, Atom must be updated manually in Linux. You must download the latest version of Atom from https://atom.io  
+If you are not using Atom's official package repositories, Atom must be updated manually in Linux. You can download the latest version of Atom from https://atom.io  
 
 {{/linux}}
 
