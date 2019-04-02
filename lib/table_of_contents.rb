@@ -25,6 +25,18 @@ class TableOfContents
     nil
   end
 
+  def chapter_index(title)
+    @chapters.each do |chapter|
+      return chapter if title == chapter.name
+    end
+
+    @appendices.each do |chapter|
+      return chapter if title == chapter.name
+    end
+
+    nil
+  end
+
   private
 
   def load_chapters(chapters)

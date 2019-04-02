@@ -60,6 +60,9 @@ Appendices:
   Resources:
     - Glossary
 
+  FAQ:
+    - "Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?"
+
   Shadow DOM:
     - Removing Shadow DOM styles
 

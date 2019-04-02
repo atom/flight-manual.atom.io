@@ -16,6 +16,7 @@ gem 'github-markdown', '~> 0.6.9'
 gem 'activesupport', '~> 4.2'
 gem 'rake'
 gem 'pry'
+gem 'pry-coolline'
 
 group :test do
   gem 'colorize', '~> 0.8.1'
