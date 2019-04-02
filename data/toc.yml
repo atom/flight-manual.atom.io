@@ -62,6 +62,7 @@ Appendices:
 
   FAQ:
     - "Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?"
+    - macOS Mojave font rendering change
 
   Shadow DOM:
     - Removing Shadow DOM styles
