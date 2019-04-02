@@ -64,6 +64,7 @@ Appendices:
     - "Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?"
     - macOS Mojave font rendering change
     - How do I uninstall Atom on macOS?
+    - How do I build or execute code I've written in Atom?
 
   Shadow DOM:
     - Removing Shadow DOM styles
