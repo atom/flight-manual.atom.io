@@ -37,6 +37,8 @@ compile '/search.json' do
   filter :erb
 end
 
+passthrough '/**/*.jpg'
+passthrough '/**/*.jpeg'
 passthrough '/**/*.png'
 passthrough '/**/*.gif'
 passthrough '/CNAME'
