@@ -23,17 +23,7 @@
 
         <div class="markdown-body document-content">
           <%= yield %>
-          <% chapter = lookup_chapter('toc', @item[:title]) %>
-          <% if @item[:title] != 'FAQ' %>
-            <h2>Sections</h2>
-          <% end %>
-          <ul>
-            <% chapter.section_names.each do |name| %>
-              <li class="<%= name == @title && @item[:filename].include?(chapter.name.parameterize) ? 'selected' : 'unselected'%>">
-                <a href="/<%= chapter.name.parameterize + '/sections/' + name.parameterize %>"><%= name %></a>
-              </li>
-            <% end %>
-          </ul>
+          <%= renderp '/includes/section_toc.html', :title => @item[:title] %>
         </div>
       </div>
       <div class="footer-pad"></div>

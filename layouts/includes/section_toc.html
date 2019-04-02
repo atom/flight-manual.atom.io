@@ -1,0 +1,11 @@
+<% chapter = lookup_chapter('toc', @title) %>
+<% if @title != 'FAQ' %>
+  <h2>Sections</h2>
+<% end %>
+<ul>
+  <% chapter.section_names.each do |name| %>
+    <li class="<%= name == @title && @item[:filename].include?(chapter.name.parameterize) ? 'selected' : 'unselected'%>">
+      <a href="/<%= chapter.name.parameterize + '/sections/' + name.parameterize %>"><%= name %></a>
+    </li>
+  <% end %>
+</ul>
