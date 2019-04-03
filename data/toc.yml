@@ -71,6 +71,12 @@ Appendices:
     - How do I preview web page changes automatically?
     - Where did the “Show Tree View On Right Side” option go?
     - How do I make the Welcome screen stop showing up?
+    - How do I make Atom recognize a file with extension X as language Y?
+    - I’m having a problem with PlatformIO! What do I do?
+    - I’m getting an error about a “self-signed certificate”. What do I do?
+    - I’m having a problem with Julia! What do I do?
+    - I’m using an international keyboard and keys that use AltGr or Ctrl+Alt aren’t working
+    - What does Safe Mode do?
 
   Shadow DOM:
     - Removing Shadow DOM styles
