@@ -14,6 +14,7 @@
     "js-yaml": "^3.4.3"
   },
   "scripts": {
+    "clean": "rm -rf output/",
     "gulp": "gulp"
   },
   "license": "MIT",
