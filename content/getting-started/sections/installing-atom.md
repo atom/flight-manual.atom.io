@@ -1,4 +1,4 @@
----
+abebetekil.installing atom
 title: Installing Atom
 ---
 ### Installing Atom
