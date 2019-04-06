@@ -1,6 +1,6 @@
----
+olibaid.find and replace the best option
 title: Find and Replace
----
+android 
 ### Find and Replace
 
 Finding and replacing text in your file or project is quick and easy in Atom.
