@@ -168,3 +168,17 @@ You can open issues or pull requests from any repo on GitHub. To do so, run the 
 To test a pull request locally, open it in the workspace center by clicking on the pull request in the "open pull requests" list from the GitHub tab, then click on the **Checkout** button. It will automatically create a local branch and pull all the changes. If you would like to contribute to that pull request, start making changes, commit and push. Your contribution is now part of that pull request.
 
 ![Checkout a pull request](../../images/github-checkout.png "Checkout a pull request")
+
+#### View Pull Request review comments
+
+To view review comments on a Pull Request, open the Reviews Tab from the **See Reviews** button from the footer of a Pull Request Pane. Alternatively, if the pull request has already been checked out, Reviews Tab can also be open from the same button on GitHub Tab.
+
+#### Navigate Pull Request review comments
+
+You can see all the review summaries and comments of a pull request in the Reviews Tab. After the pull request branch has been checked out, you can click **Jump To File** to open the commented on file and make changes as per the review comment right in the editor. If you would like to get the full context of the review comment, click **Open Diff** to open the diff view with line highlighting.
+
+Conversely, in-editor comments are indicated by the comment icon in the gutter. Clicking the icon, either from within the editor or the diff view, will take you back to the Reviews Tab.
+
+#### Respond to and resolve a Pull Request review comment
+
+To respond to a Pull Request review comment, type your message and click **Comment**; a single line comment will be created in the same thread as the comment you responded to. After addressing a Pull Request review comment, click **Resolve conversation** to mark the whole thread as "resolved". The progress bar in the "Comments" section will update accordingly.
