@@ -180,7 +180,7 @@ To view review comments on a Pull Request, open the Reviews Tab from the **See R
 
 #### Navigate Pull Request review comments
 
-You can see all the review summaries and comments of a pull request in the Reviews Tab.
+You can see all the review summaries and comments of a pull request in the Reviews Tab. The comment section has a progress bar to help you keep track of how close are you to finish addressing the Pull Request comments (i.e. marking all comment threads on a Pull Request as "resolved"). Comment threads are greyed out after they have been resolved.
 
 ![Review tab](../../images/github-review-tab.png "Review tab")
 
@@ -192,6 +192,8 @@ Conversely, in-editor comments are indicated by the comment icon in the gutter. 
 
 ![Open review tab from diff](../../images/github-open-review-from-diff.png "Open review tab from diff")
 
-#### Respond to and resolve a Pull Request review comment
+#### Respond to a Pull Request review comment
 
 To respond to a Pull Request review comment, type your message and click **Comment**; a single line comment will be created in the same thread as the comment you responded to. After addressing a Pull Request review comment, click **Resolve conversation** to mark the whole thread as "resolved". The progress bar in the "Comments" section will update accordingly.
+
+![Respond to a Pull Request review comment](../../images/github-review-reply.png "Respond to a Pull Request review comment")
