@@ -176,11 +176,21 @@ To test a pull request locally, open it in the workspace center by clicking on t
 
 To view review comments on a Pull Request, open the Reviews Tab from the **See Reviews** button from the footer of a Pull Request Pane. Alternatively, if the pull request has already been checked out, Reviews Tab can also be open from the same button on GitHub Tab.
 
+![Open review tab from footer](../../images/github-see-review-footer.png "Open review tab from footer")
+
 #### Navigate Pull Request review comments
 
-You can see all the review summaries and comments of a pull request in the Reviews Tab. After the pull request branch has been checked out, you can click **Jump To File** to open the commented on file and make changes as per the review comment right in the editor. If you would like to get the full context of the review comment, click **Open Diff** to open the diff view with line highlighting.
+You can see all the review summaries and comments of a pull request in the Reviews Tab.
+
+![Review tab](../../images/github-review-tab.png "Review tab")
+
+After the pull request branch has been checked out, you can click **Jump To File** to open the commented on file and make changes as per the review comment right in the editor. If you would like to get the full context of the review comment, click **Open Diff** to open the diff view with line highlighting.
+
+![Jump to file from review tab](../../images/github-review-jump-to-file.png "Jump to file from review tab")
 
 Conversely, in-editor comments are indicated by the comment icon in the gutter. Clicking the icon, either from within the editor or the diff view, will take you back to the Reviews Tab.
+
+![Open review tab from diff](../../images/github-open-review-from-diff.png "Open review tab from diff")
 
 #### Respond to and resolve a Pull Request review comment
 
