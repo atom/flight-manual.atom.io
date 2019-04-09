@@ -1,0 +1,586 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?</title>
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+
+      indexUrl: '/search.json',
+
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    })
+  })
+</script>
+
+  </head>
+  <body class="layout-article">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="https://blog.atom.io">Blog</a></li>
+      <li><a href="https://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search">
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="search" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+  <h4>
+    <a href="/getting-started">Chapter 1: Getting Started</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/why-atom">Why Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/using-atom">Chapter 2: Using Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/snippets">Snippets</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/folding">Folding</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/panes">Panes</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/pending-pane-items">Pending Pane Items</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/grammar">Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/github-package">GitHub package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-active-editor-info">Package: Active Editor Info</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-grammar">Creating a Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-legacy-textmate-grammar">Creating a Legacy TextMate Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/publishing">Publishing</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/iconography">Iconography</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/debugging">Debugging</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/handling-uris">Handling URIs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/hacking-on-atom-core">Hacking on Atom Core</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/contributing-to-official-atom-packages">Contributing to Official Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-fork-of-a-core-package-in-atom-atom">Creating a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/maintaining-a-fork-of-a-core-package-in-atom-atom">Maintaining a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/behind-atom">Chapter 4: Behind Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/how-atom-uses-chromium-snapshots">How Atom Uses Chromium Snapshots</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+
+
+  <h4>
+    <a href="/resources">Appendix A: Resources</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/resources/sections/glossary">Glossary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/faq">Appendix B: FAQ</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/faq/sections/is-atom-open-source">Is Atom open source?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-atom-cost">What does Atom cost?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/atom-in-the-cloud">Atom in the cloud?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-s-the-difference-between-an-ide-and-an-editor">What's the difference between an IDE and an editor?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-tell-if-subpixel-antialiasing-is-working">How can I tell if subpixel antialiasing is working?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-is-atom-deleting-trailing-whitespace-why-is-there-a-newline-at-the-end-of-the-file">Why is Atom deleting trailing whitespace? Why is there a newline at the end of the file?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-safe-mode-do">What does Safe Mode do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-using-an-international-keyboard-and-keys-that-use-altgr-or-ctrl-alt-aren-t-working">I’m using an international keyboard and keys that use AltGr or Ctrl+Alt aren’t working</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-julia-what-do-i-do">I’m having a problem with Julia! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-getting-an-error-about-a-self-signed-certificate-what-do-i-do">I’m getting an error about a “self-signed certificate”. What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-platformio-what-do-i-do">I’m having a problem with PlatformIO! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-atom-recognize-a-file-with-extension-x-as-language-y">How do I make Atom recognize a file with extension X as language Y?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-the-welcome-screen-stop-showing-up">How do I make the Welcome screen stop showing up?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/where-did-the-show-tree-view-on-right-side-option-go">Where did the “Show Tree View On Right Side” option go?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-preview-web-page-changes-automatically">How do I preview web page changes automatically?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-am-unable-to-update-to-the-latest-version-of-atom-on-macos-how-do-i-fix-this">I am unable to update to the latest version of Atom on macOS. How do I fix this?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-trying-to-change-my-syntax-colors-from-styles-less-but-it-isn-t-working">I’m trying to change my syntax colors from styles.less, but it isn’t working!</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-want-ctrl-tab-to-work-like-it-used-to-how-do-i-do-that">I want Ctrl-Tab to work like it used to. How do I do that?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-build-or-execute-code-i-ve-written-in-atom">How do I build or execute code I've written in Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-uninstall-atom-on-macos">How do I uninstall Atom on macOS?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/macos-mojave-font-rendering-change">macOS Mojave font rendering change</a>
+      </li>
+    
+      <li class="selected">
+        <a href="/faq/sections/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc">Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/shadow-dom">Appendix C: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix D: Upgrading to 1.0 APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/atom-server-side-apis">Appendix E: Atom server-side APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-package-server-api">Atom package server API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-update-server-api">Atom update server API</a>
+      </li>
+    
+  </ul>
+
+
+        </div>
+
+        
+        <h1 class="document-title">
+          <div id="platform-nav">
+  <span class="octicon octicon-device-desktop"></span>
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+  </ul>
+</div>
+
+          <a class="improve-link"
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/faq/sections/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc.md" data-proofer-ignore>
+            <span class="octicon octicon-pencil"></span> Improve this page
+          </a>
+        </h1>
+
+        <div class="markdown-body document-content">
+          
+          <h3>
+<a id="why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc" class="anchor" href="#why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?</h3>
+
+<p>With macOS 10.14 Mojave, Apple introduced new privacy protections similar to the existing protections found in iOS. Whenever an application attempts to access the files inside certain newly-protected directories, macOS asks the user whether they want to allow the application to access the content in those directories. These new privacy protections apply to the directories that contain your calendars, contacts, photos, mail, messages, and Time Machine backups.</p>
+
+<p>Applications trigger these new macOS prompts when attempting to access these directories in any way. Simply attempting to <em>list</em> the files in one of these directories is enough to trigger these prompts. These protections even apply to Apple's own applications. For example, if you open <code>Terminal.app</code> and try to list the files in <code>~/Library/Calendars</code>, macOS shows a prompt saying, '"Terminal" would like access to your calendar.'</p>
+
+<p><img width="602" alt="screen shot 2018-10-03 at 14 04 40 pm" src="https://user-images.githubusercontent.com/2988/46432184-9bfe9f80-c71b-11e8-8916-e844b7f4110e.png"></p>
+
+<h4>
+<a id="why-does-atom-need-access-to-my-calendar-contacts-photos-etc" class="anchor" href="#why-does-atom-need-access-to-my-calendar-contacts-photos-etc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why does Atom need access to my calendar, contacts, photos, etc.?</h4>
+
+<p>Atom doesn't need access to these items, but you might unintentionally cause Atom to try to access these items. This commonly occurs when you open your home directory (<code>~</code>) inside Atom and run a command that examines all files and directories beneath your home directory. For example, when you open the <a href="https://flight-manual.atom.io/getting-started/sections/atom-basics/#opening-a-file-in-a-project">fuzzy-finder</a>, it indexes the currently-open directory so that it can show you the available files:</p>
+
+<p><img width="1030" alt="fuzzy-finder can trigger prompt" src="https://user-images.githubusercontent.com/2988/46432185-9bfe9f80-c71b-11e8-83f7-758c3212d16c.png"></p>
+
+<p>Similarly, using <a href="https://flight-manual.atom.io/using-atom/sections/find-and-replace/">find-and-replace</a> across the entire home directory will cause Atom to scan all files under your home directory.</p>
+
+<p>In addition to containing the files you're <em>intending</em> to edit inside Atom, your home directory also contains your files that have new OS-level protections in Mojave:</p>
+
+<ul>
+<li>Calendar files (<code>~/Library/Calendars</code>)</li>
+<li>Contacts files (<code>~/Library/Application\ Support/AddressBook</code>
+</li>
+<li>Mail files (<code>~/Library/Mail</code>)</li>
+<li>Photos files (<code>~/Pictures/Photos\ Library.photoslibrary</code>)</li>
+</ul>
+
+<p>Before letting Atom read these files, Mojave is understandably asking whether you want Atom to be able to access this personal data.</p>
+
+<h4>
+<a id="what-should-i-do-when-i-see-these-prompts" class="anchor" href="#what-should-i-do-when-i-see-these-prompts" aria-hidden="true"><span class="octicon octicon-link"></span></a>What should I do when I see these prompts?</h4>
+
+<p>Most people don't use Atom to view or edit their calendar files, contact files, photo library, etc. If you don't intend to use Atom to view/edit these files, then Atom doesn't need access to them. If you see a prompt from macOS saying that Atom would like to access these items, simply click <strong>Don't Allow</strong>.</p>
+
+<h4>
+<a id="what-happens-if-i-allow-atom-to-access-my-calendar-contacts-photos-etc" class="anchor" href="#what-happens-if-i-allow-atom-to-access-my-calendar-contacts-photos-etc" aria-hidden="true"><span class="octicon octicon-link"></span></a>What happens if I <em>allow</em> Atom to access my calendar, contacts, photos, etc.?</h4>
+
+<p>To Atom, these items are just files on disk. Atom treats them exactly like any other file you would view in Atom. Therefore, if you allow Atom to access these items, you'll be able to use Atom to browse the directories that contain these items, and you'll be able to view the files in those directories. That's it. Nothing more.</p>
+
+<h4>
+<a id="youll-only-be-prompted-once" class="anchor" href="#youll-only-be-prompted-once" aria-hidden="true"><span class="octicon octicon-link"></span></a>You'll only be prompted once</h4>
+
+<p>Fortunately, macOS will only prompt you once for each type of personal data. In other words, you might see a prompt asking you whether Atom can access your calendar, and you might see a prompt asking you whether Atom can access your contacts, but once you make those decisions, you won't see those prompts again.</p>
+
+<h4>
+<a id="what-if-i-change-my-mind" class="anchor" href="#what-if-i-change-my-mind" aria-hidden="true"><span class="octicon octicon-link"></span></a>What if I change my mind?</h4>
+
+<p>At any time, you can change your choices via System Preferences. Inside System Preferences, go to <code>Security and Privacy</code>, click the <code>Privacy</code> tab, and then click on <code>Calendars</code> to manage which apps can access your <code>Calendars</code>. The same goes for <code>Contacts</code>, <code>Photos</code>, etc.:</p>
+
+<p><img width="780" alt="manage access in system preferences" src="https://user-images.githubusercontent.com/2988/46432459-51315780-c71c-11e8-96b5-83edea8b4be2.png"></p>
+
+<h4>
+<a id="what-if-i-never-want-to-see-these-prompts" class="anchor" href="#what-if-i-never-want-to-see-these-prompts" aria-hidden="true"><span class="octicon octicon-link"></span></a>What if I never want to see these prompts?</h4>
+
+<p>Many people understandably expect their text editor to be able to open any file on disk. And that's exactly how things worked prior to macOS Mojave. If you would like to restore that behavior, you can proactively instruct macOS to allow you to access all files with Atom. To do so:</p>
+
+<ol>
+<li>Open your <code>Applications</code> folder in the Finder</li>
+<li>Open System Preferences, click the <code>Security and Privacy</code> icon, click the <code>Privacy</code> tab, and then click on <code>Full Disk Access</code> in the left-hand sidebar</li>
+<li>Click the lock icon to unlock System Preferences</li>
+<li>Drag Atom into <code>Full Disk Access</code> as shown below</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/2988/46491820-cf9fff00-c7d9-11e8-8b92-44fea5d3c437.gif" alt="restore pre-mojave security via full-disk access"></p>
+        </div>
+      </div>
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+        <li><a href="https://github.com/atom/flight-manual.atom.io/blob/master/CONTRIBUTING.md">Contribute!</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
