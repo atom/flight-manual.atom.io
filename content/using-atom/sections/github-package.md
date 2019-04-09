@@ -21,7 +21,7 @@ The github package brings Git and GitHub integration right inside Atom.
 - [Open any Issue or Pull Request](#open-any-issue-or-pull-request)
 - [View Pull Request review comments](#view-pull-request-review-comments)
 - [Navigate Pull Request review comments](#navigate-pull-request-review-comments)
-- [Respond to and resolve a Pull Request review comment](#respond-to-and-resolve-a-pull-request-review-comment)
+- [Respond to a Pull Request review comment](#respond-to-a-pull-request-review-comment)
 
 Most of the functionality lives within the Git and GitHub dock items.
 
