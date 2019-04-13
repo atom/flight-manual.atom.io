@@ -56,7 +56,7 @@ To install the `atom` and `apm` commands, run "Window: Install Shell Commands" f
 
 #### Installing Atom on Windows
 
-Atom is available with a Windows installer that can be downloaded from https://atom.io or from the [Atom releases page](https://github.com/atom/atom/releases/latest) named `AtomSetup.exe`. This setup program will install Atom, add the `atom` and `apm` commands to your `PATH`, and create shortcuts on the desktop and in the start menu.
+Atom is available with Windows installers that can be downloaded from https://atom.io or from the [Atom releases page](https://github.com/atom/atom/releases/latest).  Use `AtomSetup.exe` for 32-bit systems and `AtomSetup-x64.exe` for 64-bit systems. This setup program will install Atom, add the `atom` and `apm` commands to your `PATH`, and create shortcuts on the desktop and in the start menu.
 
 ![Atom on Windows](../../images/windows-system-settings.png)
 
