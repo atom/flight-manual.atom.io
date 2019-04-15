@@ -5,7 +5,7 @@ title: Installing Atom
 
 To get started with Atom, we'll need to get it on your system. This section will go over installing Atom on your system as well as the basics of how to build it from source.
 
-Installing Atom should be fairly simple. Generally, you can go to https://atom.io and at the top of the page you should see a download button as shown here:
+Installing Atom should be fairly simple. Generally, you can go to https://atom.io and you should see a download button as shown here:
 
 {{#mac}}
 
