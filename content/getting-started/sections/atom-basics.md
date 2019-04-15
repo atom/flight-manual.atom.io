@@ -57,7 +57,7 @@ To open the Settings View, you can:
 
 ##### Changing the Theme
 
-The Settings View also lets you change the themes for Atom. Atom ships with 4 different UI themes, dark and light variants of the Atom and One theme, as well as 8 different syntax themes. You can modify the active theme or install new themes by clicking on the Themes tab in the sidebar of the Settings View.
+The Settings View also lets you change the themes for Atom. Atom ships with 4 different UI themes, dark and light variants of the Atom and One theme, as well as 8 different syntax themes. You can modify the active theme by clicking on the Themes tab in the sidebar of the Settings View, or you can install new themes by clicking the Install tab.
 
 ![Changing the theme from the Settings View](../../images/theme.png "Changing the theme from the Settings View")
 
