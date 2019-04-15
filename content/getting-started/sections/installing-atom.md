@@ -161,7 +161,7 @@ $ sudo zypper in -y atom.x86_64.rpm
 
 #### Updating Atom
 
-When Atom receives hotfixes for security vulnerabilities you will want to update your version of Atom as soon as possible. It is a good idea to update Atom periodically for the latest improvements to the software. This section will explain how to update Atom on your system.
+You should consider updating Atom periodically for the latest improvements to the software. When Atom receives hotfixes for security vulnerabilities you will want to update your version of Atom as soon as possible. This section will explain how to update Atom on your system.
 
 {{#mac}}
 
