@@ -191,7 +191,7 @@ Atom will begin to update if an update is available.
 
 {{#linux}}
 
-If you are not using Atom's official package repositories, you will need to manually download and install the latest .rpm or .deb package from https://atom.io. For more details, see [Installing Atom on Linux.](https://flight-manual.atom.io/getting-started/sections/installing-atom/#installing-atom-on-linux)
+If you are not using Atom's official package repositories, you will need to manually download and install the latest `.rpm` or `.deb` package from https://atom.io. For more details, see [Installing Atom on Linux.](https://flight-manual.atom.io/getting-started/sections/installing-atom/#installing-atom-on-linux)
 
 {{/linux}}
 
