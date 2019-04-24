@@ -161,11 +161,11 @@ $ sudo zypper in -y atom.x86_64.rpm
 
 #### Updating Atom
 
-You should consider updating Atom periodically for the latest improvements to the software. When Atom receives hotfixes for security vulnerabilities you will want to update your version of Atom as soon as possible. This section will explain how to update Atom on your system.
+You should consider updating Atom periodically for the latest improvements to the software. Additionally, when Atom receives hotfixes for security vulnerabilities you will want to update your version of Atom as soon as possible. This section will explain how to update Atom on your system.
 
 {{#mac}}
 
-Atom's default setting under the `Atom > Settings` menu will check for updates automatically, but if you don't have "Automatically Update" enabled, you can also update Atom manually.
+"Automatically Update" is enabled by default in Core Settings of the [Settings View](https://flight-manual.atom.io/getting-started/sections/atom-basics/#settings-and-preferences), which will allow Atom of check for updates automatically. If you disable this setting you can update Atom manually.
 
 To perform a manual update:
 
@@ -178,7 +178,7 @@ Atom will begin to update if an update is available.
 
 {{#windows}}
 
-Atom's default setting under the `File > Settings` menu will check for updates automatically, but if you don't have "Automatically Update" enabled, you can also update Atom manually.
+"Automatically Update" is enabled by default in Core Settings of the [Settings View](https://flight-manual.atom.io/getting-started/sections/atom-basics/#settings-and-preferences), which will allow Atom of check for updates automatically. If you disable this setting you can update Atom manually.
 
 To perform a manual update:
 
