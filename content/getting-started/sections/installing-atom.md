@@ -165,7 +165,7 @@ You should consider updating Atom periodically for the latest improvements to th
 
 {{#mac}}
 
-"Automatically Update" is enabled by default in Core Settings of the [Settings View](https://flight-manual.atom.io/getting-started/sections/atom-basics/#settings-and-preferences), which will allow Atom of check for updates automatically. If you disable this setting you can update Atom manually.
+"Automatically Update" is enabled by default in Core Settings of the [Settings View](https://flight-manual.atom.io/getting-started/sections/atom-basics/#settings-and-preferences), which will allow Atom to check for updates automatically. If you disable this setting you can update Atom manually.
 
 To perform a manual update:
 
@@ -178,7 +178,7 @@ Atom will begin to update if an update is available.
 
 {{#windows}}
 
-"Automatically Update" is enabled by default in Core Settings of the [Settings View](https://flight-manual.atom.io/getting-started/sections/atom-basics/#settings-and-preferences), which will allow Atom of check for updates automatically. If you disable this setting you can update Atom manually.
+"Automatically Update" is enabled by default in Core Settings of the [Settings View](https://flight-manual.atom.io/getting-started/sections/atom-basics/#settings-and-preferences), which will allow Atom to check for updates automatically. If you disable this setting you can update Atom manually.
 
 To perform a manual update:
 
