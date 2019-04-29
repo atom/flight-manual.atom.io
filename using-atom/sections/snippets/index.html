@@ -502,8 +502,10 @@
 
 <p>Many Core and Community packages come bundled with their own snippets that are specific to it. For example, the <code>language-html</code> package that provides support for HTML syntax highlighting and grammar comes with dozens of snippets to create many of the various HTML tags you might want to use. If you create a new HTML file in Atom, you can type <code>html</code> and then press <kbd class="platform-all">Tab</kbd> and it will expand to:</p>
 
-<div class="highlight highlight-html"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+<div class="highlight highlight-html"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span> <span class="na">dir=</span><span class="s">"ltr"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
   <span class="nt">&lt;/head&gt;</span>
   <span class="nt">&lt;body&gt;</span>
@@ -512,7 +514,7 @@
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
-<p>It will also position the cursor in the middle of the <code>title</code> tag so you can immediately start filling out the tag. Many snippets have multiple focus points that you can move through with the <kbd class="platform-all">Tab</kbd> key as well - for instance, in the case of this HTML snippet, once you've filled out the title tag you can press <kbd class="platform-all">Tab</kbd> and the cursor will move to the middle of the <code>body</code> tag.</p>
+<p>It will also position the cursor in the <code>lang</code> attribute value so you can edit it if necessary. Many snippets have multiple focus points that you can move through with the <kbd class="platform-all">Tab</kbd> key as well - for instance, in the case of this HTML snippet, after the cursor is placed in the <code>lang</code> attribute value, you can continue pressing <kbd class="platform-all">Tab</kbd> and the cursor will move to the <code>dir</code> attribute value, then to the middle of the <code>title</code> tag, then finally to the middle of the <code>body</code> tag.</p>
 
 <p>To see all the available snippets for the file type that you currently have open, choose "Snippets: Available" in the Command Palette.</p>
 
