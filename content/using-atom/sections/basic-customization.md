@@ -242,7 +242,7 @@ The CSON configuration files for Atom are stored on disk on your machine. The lo
 
 ##### Custom home location with an environment variable
 
-An environment variable can be used, though to make Atom use a different location. This can be useful for several reasons. One of these may be that multiple user accounts on a machine want to use the same Atom Home. The environment variable used to specify and alternate location is called `ATOM_HOME`. If this environment variable exists, the location specified will be used to load and store Atom settings.
+An environment variable can be used to make Atom use a different location. This can be useful for several reasons. One of these may be that multiple user accounts on a machine want to use the same Atom Home. The environment variable used to specify an alternate location is called `ATOM_HOME`. If this environment variable exists, the location specified will be used to load and store Atom settings.
 
 ##### Taking your customization with you with Portable Mode
 
