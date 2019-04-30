@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'extended-markdown-filter'
+require_relative 'lib/filters/api_json_filter'
 
 compile '/index.html' do
   filter :erb
@@ -26,6 +27,13 @@ compile '**/*.md' do
   filter :erb
   filter :colorize_syntax, :default_colorizer => :rouge
   layout '/article.html'
+end
+
+compile '/api/**/*.json' do
+  filter :api_json
+  filter :erb
+  filter :colorize_syntax, :default_colorizer => :rouge
+  layout '/api-class.html'
 end
 
 compile '/search.html' do

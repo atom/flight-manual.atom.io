@@ -19,8 +19,8 @@ end
 task :download_latest_api_json do
   tag_name = get_latest_release
 
-  FileUtils.mkdir_p("data/api/#{tag_name}")
-  File.open("data/api/#{tag_name}/atom-api.json", 'w') do |output_file|
+  FileUtils.mkdir_p("content/api/#{tag_name}")
+  File.open("content/api/#{tag_name}/atom-api.json", 'w') do |output_file|
     json = "https://github.com/atom/atom/releases/download/#{tag_name}/atom-api.json"
     open(json, 'r') do |read_file|
       output_file.write(read_file.read)
@@ -29,7 +29,7 @@ task :download_latest_api_json do
 end
 
 task :split_api_json do
-  json_files = Dir.glob('data/api/**/atom-api.json')
+  json_files = Dir.glob('content/api/**/atom-api.json')
 
   json_files.each do |file|
     classes = JSON.parse(IO.read(file))
@@ -46,7 +46,7 @@ end
 task :download_api => [:download_latest_api_json, :split_api_json]
 
 task :clean_api do
-  FileUtils.rm_rf('data/api')
+  FileUtils.rm_rf('content/api')
 end
 
 desc "Remove the tmp dir"
