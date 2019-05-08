@@ -161,7 +161,7 @@ $ sudo zypper in -y atom.x86_64.rpm
 
 #### Updating Atom
 
-You should consider updating Atom periodically for the latest improvements to the software.  Additionally, When Atom receives hotfixes for security vulnerabilities you will want to update your version of Atom as soon as possible. 
+You should consider updating Atom periodically for the latest improvements to the software.  Additionally, When Atom receives hotfixes for security vulnerabilities you will want to update your version of Atom as soon as possible.
 
 {{#mac}}
 
@@ -191,7 +191,7 @@ Atom will begin to update if an update is available.
 
 {{#linux}}
 
-If you are not using Atom's official package repositories, you will need to manually download and install the latest `.rpm` or `.deb` package from https://atom.io. For more details, see [Installing Atom on Linux.](https://flight-manual.atom.io/getting-started/sections/installing-atom/#installing-atom-on-linux)
+If you are using Atom's official package repositories, use your distribution's package manager to update Atom.  Otherwise, you will need to manually download and install the latest `.rpm` or `.deb` package from https://atom.io. For more details, see [Installing Atom on Linux.](https://flight-manual.atom.io/getting-started/sections/installing-atom/#installing-atom-on-linux)
 
 {{/linux}}
 
