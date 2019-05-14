@@ -19,6 +19,9 @@ The github package brings Git and GitHub integration right inside Atom.
 - [View Pull Requests](#view-pull-requests)
 - [Checkout a Pull Request](#checkout-a-pull-request)
 - [Open any Issue or Pull Request](#open-any-issue-or-pull-request)
+- [View Pull Request review comments](#view-pull-request-review-comments)
+- [Navigate Pull Request review comments](#navigate-pull-request-review-comments)
+- [Respond to a Pull Request review comment](#respond-to-a-pull-request-review-comment)
 
 Most of the functionality lives within the Git and GitHub dock items.
 
@@ -173,3 +176,29 @@ You can open issues or pull requests from any repo on GitHub. To do so, run the 
 To test a pull request locally, open it in the workspace center by clicking on the pull request in the "open pull requests" list from the GitHub tab, then click on the **Checkout** button. It will automatically create a local branch and pull all the changes. If you would like to contribute to that pull request, start making changes, commit and push. Your contribution is now part of that pull request.
 
 ![Checkout a pull request](../../images/github-checkout.png "Checkout a pull request")
+
+#### View Pull Request review comments
+
+To view review comments on a Pull Request, open the Reviews Tab from the **See Reviews** button from the footer of a Pull Request Pane. Alternatively, if the pull request has already been checked out, Reviews Tab can also be open from the same button on GitHub Tab.
+
+![Open review tab from footer](../../images/github-see-review-footer.png "Open review tab from footer")
+
+#### Navigate Pull Request review comments
+
+You can see all the review summaries and comments of a pull request in the Reviews Tab. The comment section has a progress bar to help you keep track of how close are you to finish addressing the Pull Request comments (i.e. marking all comment threads on a Pull Request as "resolved"). Comment threads are greyed out after they have been resolved.
+
+![Review tab](../../images/github-review-tab.png "Review tab")
+
+After the pull request branch has been checked out, you can click **Jump To File** to open the commented on file and make changes as per the review comment right in the editor. If you would like to get the full context of the review comment, click **Open Diff** to open the diff view with line highlighting.
+
+![Jump to file from review tab](../../images/github-review-jump-to-file.png "Jump to file from review tab")
+
+Conversely, in-editor comments are indicated by the comment icon in the gutter. Clicking the icon, either from within the editor or the diff view, will take you back to the Reviews Tab.
+
+![Open review tab from diff](../../images/github-open-review-from-diff.png "Open review tab from diff")
+
+#### Respond to a Pull Request review comment
+
+To respond to a Pull Request review comment, type your message and click **Comment**; a single line comment will be created in the same thread as the comment you responded to. After addressing a Pull Request review comment, click **Resolve conversation** to mark the whole thread as "resolved". The progress bar in the "Comments" section will update accordingly.
+
+![Respond to a Pull Request review comment](../../images/github-review-reply.png "Respond to a Pull Request review comment")
