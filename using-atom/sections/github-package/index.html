@@ -513,6 +513,9 @@
 <li><a href="#view-pull-requests">View Pull Requests</a></li>
 <li><a href="#checkout-a-pull-request">Checkout a Pull Request</a></li>
 <li><a href="#open-any-issue-or-pull-request">Open any Issue or Pull Request</a></li>
+<li><a href="#view-pull-request-review-comments">View Pull Request review comments</a></li>
+<li><a href="#navigate-pull-request-review-comments">Navigate Pull Request review comments</a></li>
+<li><a href="#respond-to-a-pull-request-review-comment">Respond to a Pull Request review comment</a></li>
 </ul>
 
 <p>Most of the functionality lives within the Git and GitHub dock items.</p>
@@ -686,6 +689,35 @@
 <p>To test a pull request locally, open it in the workspace center by clicking on the pull request in the "open pull requests" list from the GitHub tab, then click on the <strong>Checkout</strong> button. It will automatically create a local branch and pull all the changes. If you would like to contribute to that pull request, start making changes, commit and push. Your contribution is now part of that pull request.</p>
 
 <p><img src="../../images/github-checkout.png" alt="Checkout a pull request" title="Checkout a pull request"></p>
+
+<h4>
+<a id="view-pull-request-review-comments" class="anchor" href="#view-pull-request-review-comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>View Pull Request review comments</h4>
+
+<p>To view review comments on a Pull Request, open the Reviews Tab from the <strong>See Reviews</strong> button from the footer of a Pull Request Pane. Alternatively, if the pull request has already been checked out, Reviews Tab can also be open from the same button on GitHub Tab.</p>
+
+<p><img src="../../images/github-see-review-footer.png" alt="Open review tab from footer" title="Open review tab from footer"></p>
+
+<h4>
+<a id="navigate-pull-request-review-comments" class="anchor" href="#navigate-pull-request-review-comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Navigate Pull Request review comments</h4>
+
+<p>You can see all the review summaries and comments of a pull request in the Reviews Tab. The comment section has a progress bar to help you keep track of how close are you to finish addressing the Pull Request comments (i.e. marking all comment threads on a Pull Request as "resolved"). Comment threads are greyed out after they have been resolved.</p>
+
+<p><img src="../../images/github-review-tab.png" alt="Review tab" title="Review tab"></p>
+
+<p>After the pull request branch has been checked out, you can click <strong>Jump To File</strong> to open the commented on file and make changes as per the review comment right in the editor. If you would like to get the full context of the review comment, click <strong>Open Diff</strong> to open the diff view with line highlighting.</p>
+
+<p><img src="../../images/github-review-jump-to-file.png" alt="Jump to file from review tab" title="Jump to file from review tab"></p>
+
+<p>Conversely, in-editor comments are indicated by the comment icon in the gutter. Clicking the icon, either from within the editor or the diff view, will take you back to the Reviews Tab.</p>
+
+<p><img src="../../images/github-open-review-from-diff.png" alt="Open review tab from diff" title="Open review tab from diff"></p>
+
+<h4>
+<a id="respond-to-a-pull-request-review-comment" class="anchor" href="#respond-to-a-pull-request-review-comment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Respond to a Pull Request review comment</h4>
+
+<p>To respond to a Pull Request review comment, type your message and click <strong>Comment</strong>; a single line comment will be created in the same thread as the comment you responded to. After addressing a Pull Request review comment, click <strong>Resolve conversation</strong> to mark the whole thread as "resolved". The progress bar in the "Comments" section will update accordingly.</p>
+
+<p><img src="../../images/github-review-reply.png" alt="Respond to a Pull Request review comment" title="Respond to a Pull Request review comment"></p>
         </div>
       </div>
       <div class="footer-pad"></div>
