@@ -19,10 +19,32 @@ $ git clone git@github.com:<em>your-username</em>/atom.git
 
 From there, you can navigate into the directory where you've cloned the Atom source code and run the bootstrap script to install all the required dependencies:
 
+{{#mac}}
+
 ``` command-line
 $ cd <em>where-you-cloned-atom</em>
 $ script/bootstrap
 ```
+
+{{/mac}}
+
+{{#linux}}
+
+``` command-line
+$ cd <em>where-you-cloned-atom</em>
+$ script/bootstrap
+```
+
+{{/linux}}
+ 
+{{#windows}}
+
+``` command-line
+$ cd <em>where-you-cloned-atom</em>
+$ script\bootstrap
+```
+
+{{/windows}}
 
 #### Running in Development Mode
 
@@ -161,11 +183,11 @@ $ sudo zypper install nodejs nodejs-devel make gcc gcc-c++ glibc-devel git-core 
 
 ##### Instructions
 
+{{#mac}}
+
 ``` command-line
 $ script/build
 ```
-
-{{#mac}}
 
 To also install the newly built application, use `script/build --install`.
 
@@ -173,19 +195,27 @@ To also install the newly built application, use `script/build --install`.
 
 {{#windows}}
 
+``` command-line
+$ script\build
+```
+
 To also install the newly built application, use `script\build --create-windows-installer` and launch one of the generated installers.
 
 {{/windows}}
 
 {{#linux}}
 
+``` command-line
+$ script/build
+```
+
 To also install the newly built application, use the `--create-debian-package` or `--create-rpm-package` option and then install the generated package via the system package manager.
 
 {{/linux}}
 
-##### `script/build` Options
-
 {{#mac}}
+
+##### `script/build` Options
 
 * `--code-sign`: signs the application with the GitHub certificate specified in `$ATOM_MAC_CODE_SIGNING_CERT_DOWNLOAD_URL`.
 * `--compress-artifacts`: zips the generated application as `out/atom-mac.zip`.
@@ -195,6 +225,8 @@ To also install the newly built application, use the `--create-debian-package` o
 
 {{#windows}}
 
+##### `script\build` Options
+
 * `--code-sign`: signs the application with the GitHub certificate specified in `$WIN_P12KEY_URL`.
 * `--compress-artifacts`: zips the generated application as `out\atom-windows.zip` (requires [7-Zip](http://www.7-zip.org)).
 * `--create-windows-installer`: creates an `.exe` and two `.nupkg` packages in the `out` directory.
@@ -203,6 +235,8 @@ To also install the newly built application, use the `--create-debian-package` o
 {{/windows}}
 
 {{#linux}}
+
+##### `script/build` Options
 
 * `--compress-artifacts`: zips the generated application as `out/atom-{arch}.tar.gz`.
 * `--create-debian-package`: creates a .deb package as `out/atom-{arch}.deb`
