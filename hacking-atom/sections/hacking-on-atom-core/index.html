@@ -514,10 +514,32 @@
 
 <p>From there, you can navigate into the directory where you've cloned the Atom source code and run the bootstrap script to install all the required dependencies:</p>
 
+<div class="platform-mac">
+
 <pre class="command-line">
 <span class="command">cd <em>where-you-cloned-atom</em></span>
 <span class="command">script/bootstrap</span>
 </pre>
+
+</div>
+
+<div class="platform-linux">
+
+<pre class="command-line">
+<span class="command">cd <em>where-you-cloned-atom</em></span>
+<span class="command">script/bootstrap</span>
+</pre>
+
+</div>
+
+<div class="platform-windows">
+
+<pre class="command-line">
+<span class="command">cd <em>where-you-cloned-atom</em></span>
+<span class="command">script\bootstrap</span>
+</pre>
+
+</div>
 
 <h4>
 <a id="running-in-development-mode" class="anchor" href="#running-in-development-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running in Development Mode</h4>
@@ -697,11 +719,11 @@ sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python2 libx11
 <h5>
 <a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructions</h5>
 
+<div class="platform-mac">
+
 <pre class="command-line">
 <span class="command">script/build</span>
 </pre>
-
-<div class="platform-mac">
 
 <p>To also install the newly built application, use <code>script/build --install</code>.</p>
 
@@ -709,20 +731,28 @@ sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python2 libx11
 
 <div class="platform-windows">
 
+<pre class="command-line">
+<span class="command">script\build</span>
+</pre>
+
 <p>To also install the newly built application, use <code>script\build --create-windows-installer</code> and launch one of the generated installers.</p>
 
 </div>
 
 <div class="platform-linux">
 
+<pre class="command-line">
+<span class="command">script/build</span>
+</pre>
+
 <p>To also install the newly built application, use the <code>--create-debian-package</code> or <code>--create-rpm-package</code> option and then install the generated package via the system package manager.</p>
 
 </div>
 
+<div class="platform-mac">
+
 <h5>
 <a id="scriptbuild-options" class="anchor" href="#scriptbuild-options" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>script/build</code> Options</h5>
-
-<div class="platform-mac">
 
 <ul>
 <li>
@@ -736,6 +766,9 @@ sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python2 libx11
 </div>
 
 <div class="platform-windows">
+
+<h5>
+<a id="scriptbuild-options-1" class="anchor" href="#scriptbuild-options-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>script\build</code> Options</h5>
 
 <ul>
 <li>
@@ -751,6 +784,9 @@ sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python2 libx11
 </div>
 
 <div class="platform-linux">
+
+<h5>
+<a id="scriptbuild-options-2" class="anchor" href="#scriptbuild-options-2" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>script/build</code> Options</h5>
 
 <ul>
 <li>
