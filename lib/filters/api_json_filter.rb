@@ -6,11 +6,11 @@ class ApiJsonFilter < Nanoc::Filter
 
   # ----- Helpers -----
 
-  def class_source_link(data, params)
+  def class_source_link(data)
     source_link(data, "class")
   end
 
-  def property_source_link(data, params)
+  def property_source_link(data)
     source_link(data, "property")
   end
 
@@ -45,7 +45,7 @@ class ApiJsonFilter < Nanoc::Filter
     HTML
   end
 
-  def method(func, scope, params = {})
+  def method(func, scope)
     <<~HTML
       <div
         class="api-entry js-api-entry #{visibility_class(func["visibility"])}"
@@ -55,22 +55,44 @@ class ApiJsonFilter < Nanoc::Filter
           #{source_link(func)}
         </h3>
       </div>
+      <div class="method-summary-wrapper js-method-summary-wrapper">
+        #{summary(func)}
+        #{description(func)}
+      </div>
     HTML
   end
 
-  def property(prop, scope, params = {})
+  def summary(obj)
+    <<~HTML
+      <div class="summary markdown-body">
+        #{markdown(obj["summary"])}
+      </div>
+    HTML
+  end
+
+  def description(obj)
+    text = obj["description"].tap { |s| s.slice!(obj["summary"]) }
+
+    <<~HTML
+      <div class="body markdown-body">
+        <div class="description">
+          #{markdown(text)}
+        </div>
+      </div>
+    HTML
+  end
+
+  def property(prop, scope)
     <<~HTML
       <div
         class="api-entry js-api-entry #{visibility_class(prop["visibility"])}"
         id="#{scope}-#{prop["name"]}">
         <h3 class="name">
           #{prop["name"]}
-          #{property_source_link(prop, params)}
+          #{property_source_link(prop)}
         </h3>
         <div>
-          <div class="summary markdown-body">
-            #{markdown(prop["summary"])}
-          </div>
+          #{summary(prop)}
         </div>
       </div>
     HTML
@@ -87,7 +109,7 @@ class ApiJsonFilter < Nanoc::Filter
     visibility(viz).downcase
   end
 
-  def visibility_label(data, params)
+  def visibility_label(data)
     <<~HTML
       <span
         class="label label-#{visibility_class(data["visibility"])}"
@@ -99,29 +121,29 @@ class ApiJsonFilter < Nanoc::Filter
 
   # ----- Page Sections -----
 
-  def description(data, params)
+  def class_description(data)
     markdown(data["description"])
   end
 
-  def page_title(data, params = {})
+  def page_title(data)
     <<~HTML
       <h2 class="page-title">
         #{data["name"]}
-        #{visibility_label(data, params)}
-        #{class_source_link(data, params)}
+        #{visibility_label(data)}
+        #{class_source_link(data)}
       </h2>
     HTML
   end
 
-  def sections(data, params = {})
+  def sections(data)
     section_text = data["sections"].map do |section|
       props = data["instanceProperties"].select { |prop| prop["sectionName"] == section["name"] }
       methods = data["instanceMethods"].select { |func| func["sectionName"] == section["name"] }
 
       <<~HTML
         <h2 class="detail-section">#{section["name"]}</h2>
-        #{props.map { |prop| property(prop, "instance", params) }.join}
-        #{methods.map { |func| method(func, "instance", params) }.join}
+        #{props.map { |prop| property(prop, "instance") }.join}
+        #{methods.map { |func| method(func, "instance") }.join}
       HTML
     end
 
@@ -131,8 +153,8 @@ class ApiJsonFilter < Nanoc::Filter
   def run(content, params = {})
     data = JSON.parse(content)
 
-    page_title(data, params) +
-      description(data, params) +
-      sections(data, params)
+    page_title(data) +
+      class_description(data) +
+      sections(data)
   end
 end
