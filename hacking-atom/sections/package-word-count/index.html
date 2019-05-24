@@ -621,7 +621,7 @@ style sheets your package needs to load. If not specified, style sheets in the <
 <code>serialize()</code>: This <strong>optional</strong> method is called when the window is shutting down, allowing you to return JSON to represent the state of your component. When the window is later restored, the data you returned is passed to your module's <code>activate</code> method so you can restore your view to where the user left
 off.</li>
 <li>
-<code>deactivate()</code>: This <strong>optional</strong> method is called when the window is shutting down. If your package is watching any files or holding external resources in any other way, release them here. If you're just subscribing to things on window, you don't need to worry because that's getting torn down anyway.</li>
+<code>deactivate()</code>: This <strong>optional</strong> method is called when the window is shutting down and when the package is disabled. If your package is watching any files or holding external resources in any other way, release them here. You should also dispose of all subscriptions you're holding on to.</li>
 </ul>
 
 <h5>
