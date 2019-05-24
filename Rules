@@ -30,7 +30,10 @@ compile '**/*.md' do
 end
 
 compile '/api/**/*.json' do
-  filter :api_json
+  class_name = File.basename(item.identifier.without_ext)
+  version = File.basename(File.dirname(item.identifier))
+
+  filter :api_json, class_name: class_name, version: version
   filter :erb
   filter :colorize_syntax, :default_colorizer => :rouge
   layout '/api-class.html'

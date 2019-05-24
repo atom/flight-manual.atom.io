@@ -4,6 +4,13 @@ require 'json'
 class ApiJsonFilter < Nanoc::Filter
   identifier :api_json
 
+  def initialize(foo)
+    @class_names = {}
+    @class_name = nil
+    @version = nil
+    @mdn_base_url = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects'
+  end
+
   # ----- Helpers -----
 
   def class_source_link(data)
@@ -26,7 +33,36 @@ class ApiJsonFilter < Nanoc::Filter
   end
 
   def markdown(text)
+    text = link_references(text)
+
     GitHub::Markdown.render(text)
+  end
+
+  def link_references(text)
+    braces_link_pattern = /\{(?<cname>\w+)?(::(?<fname>\w+))?\}/
+
+    text.gsub(braces_link_pattern) do |match|
+      cname = Regexp.last_match.named_captures['cname']
+      fname = Regexp.last_match.named_captures['fname']
+
+      if cname && @class_names[cname] && fname
+        "[#{cname}::#{fname}](../#{cname}/#instance-#{fname})"
+      elsif cname && fname
+        link = File.join(@mdn_base_url, cname, fname)
+
+        "[#{cname}::#{fname}](#{link})"
+      elsif cname && @class_names[cname]
+        "[#{cname}](../#{cname}/)"
+      elsif cname
+        link = File.join(@mdn_base_url, cname)
+
+        "[#{cname}](#{link})"
+      elsif fname
+        "[::#{fname}](#instance-#{fname})"
+      else
+        match.to_s
+      end
+    end
   end
 
   def octicon(name)
@@ -58,7 +94,78 @@ class ApiJsonFilter < Nanoc::Filter
       <div class="method-summary-wrapper js-method-summary-wrapper">
         #{summary(func)}
         #{description(func)}
+        #{arguments_table(func) if func["arguments"]}
+        #{return_values_table(func) if func["returnValues"]}
       </div>
+    HTML
+  end
+
+  def return_values_table(func)
+    <<~HTML
+      <table class="return-values">
+        <thead>
+          <tr>
+            <th>Return values</th>
+          </tr>
+        </thead>
+        <tbody>
+          #{return_value_rows(func["returnValues"])}
+        </tbody>
+      </table>
+    HTML
+  end
+
+  def return_value_rows(retvals)
+    retvals.map do |retval|
+      return_value_row(retval)
+    end.join
+  end
+
+  def return_value_row(retval)
+    <<~HTML
+      <tr>
+        <td class="markdown-body">
+          #{markdown(retval["description"])}
+        </td>
+      </tr>
+    HTML
+  end
+
+  def arguments_table(func)
+    <<~HTML
+      <table class="arguments">
+        <thead>
+          <tr>
+            <th>Argument</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          #{argument_rows(func["arguments"])}
+        </tbody>
+      </table>
+    HTML
+  end
+
+  def argument_rows(args, level = 0)
+    args.map do |arg|
+      argument_row(arg, level)
+    end.join
+  end
+
+  def argument_row(arg, level)
+    children = arg["children"]
+
+    <<~HTML
+      <tr class="markdown-body argument-depth-#{level}">
+        <td>
+          #{markdown("`#{arg["name"]}`")}
+        </td>
+        <td>
+          #{markdown(arg["description"])}
+        </td>
+      </tr>
+      #{argument_rows(children, level + 1) if children}
     HTML
   end
 
@@ -151,6 +258,14 @@ class ApiJsonFilter < Nanoc::Filter
   end
 
   def run(content, params = {})
+    @class_name = params[:class_name]
+    @version = params[:version]
+
+    api_dir = "#{Dir.pwd}/content/api/#{@version}"
+    Dir.glob("#{api_dir}/*.json") do |entry|
+      @class_names[File.basename(entry, '.json')] = true
+    end
+
     data = JSON.parse(content)
 
     page_title(data) +
