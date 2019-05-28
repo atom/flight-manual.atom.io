@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>I want Ctrl-Tab to work like it used to. How do I do that?</title>
+<title>How can I contribute to Atom?</title>
 
 <link rel="icon" href="/favicon.ico">
 <link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
@@ -333,6 +333,18 @@
       </li>
     
       <li class="unselected">
+        <a href="/faq/sections/what-platforms-does-atom-run-on">What platforms does Atom run on?</a>
+      </li>
+    
+      <li class="selected">
+        <a href="/faq/sections/how-can-i-contribute-to-atom">How can I contribute to Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-atom-collect-usage-data">Why does Atom collect usage data?</a>
+      </li>
+    
+      <li class="unselected">
         <a href="/faq/sections/atom-in-the-cloud">Atom in the cloud?</a>
       </li>
     
@@ -350,6 +362,10 @@
     
       <li class="unselected">
         <a href="/faq/sections/what-does-safe-mode-do">What does Safe Mode do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it">I have a question about a specific Atom community package. Where is the best place to ask it?</a>
       </li>
     
       <li class="unselected">
@@ -377,11 +393,11 @@
       </li>
     
       <li class="unselected">
-        <a href="/faq/sections/where-did-the-show-tree-view-on-right-side-option-go">Where did the “Show Tree View On Right Side” option go?</a>
+        <a href="/faq/sections/how-do-i-preview-web-page-changes-automatically">How do I preview web page changes automatically?</a>
       </li>
     
       <li class="unselected">
-        <a href="/faq/sections/how-do-i-preview-web-page-changes-automatically">How do I preview web page changes automatically?</a>
+        <a href="/faq/sections/how-do-i-accept-input-from-my-program-or-script-when-using-the-script-package">How do I accept input from my program or script when using the script package?</a>
       </li>
     
       <li class="unselected">
@@ -390,10 +406,6 @@
     
       <li class="unselected">
         <a href="/faq/sections/i-m-trying-to-change-my-syntax-colors-from-styles-less-but-it-isn-t-working">I’m trying to change my syntax colors from styles.less, but it isn’t working!</a>
-      </li>
-    
-      <li class="selected">
-        <a href="/faq/sections/i-want-ctrl-tab-to-work-like-it-used-to-how-do-i-do-that">I want Ctrl-Tab to work like it used to. How do I do that?</a>
       </li>
     
       <li class="unselected">
@@ -486,7 +498,7 @@
 </div>
 
           <a class="improve-link"
-              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/faq/sections/i-want-ctrl-tab-to-work-like-it-used-to-how-do-i-do-that.md" data-proofer-ignore>
+              href="https://github.com/atom/flight-manual.atom.io/edit/master/content/faq/sections/how-can-i-contribute-to-atom.md" data-proofer-ignore>
             <span class="octicon octicon-pencil"></span> Improve this page
           </a>
         </h1>
@@ -494,36 +506,13 @@
         <div class="markdown-body document-content">
           
           <h3>
-<a id="i-want-ctrl-tab-to-work-like-it-used-to-how-do-i-do-that" class="anchor" href="#i-want-ctrl-tab-to-work-like-it-used-to-how-do-i-do-that" aria-hidden="true"><span class="octicon octicon-link"></span></a>I want Ctrl-Tab to work like it used to. How do I do that?</h3>
+<a id="how-can-i-contribute-to-atom" class="anchor" href="#how-can-i-contribute-to-atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I contribute to Atom?</h3>
 
-<h4>
-<a id="in-atom-114-or-later" class="anchor" href="#in-atom-114-or-later" aria-hidden="true"><span class="octicon octicon-link"></span></a>In Atom 1.14 or later</h4>
+<p>You can contribute by <a href="https://flight-manual.atom.io/hacking-atom/sections/tools-of-the-trade/">creating a package</a> that adds something awesome to Atom!</p>
 
-<p>An option was added to the <a href="https://github.com/atom/tabs">tabs package</a> in Atom 1.14 to restore the original behavior:</p>
+<p>Also, if you’d like to contribute to the core editor, one of the bundled packages, or one of the libraries that power Atom, just go to <a href="https://github.com/atom">github.com/atom</a>.</p>
 
-<ol>
-<li>Launch Atom</li>
-<li>Open the Settings View using <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-linux platform-windows">Ctrl+,</kbd>
-</li>
-<li>Click the Packages tab</li>
-<li>Search for "tabs"</li>
-<li>Click the Settings button on the tabs package card</li>
-<li>Uncheck "Enable MRU Tab Switching"</li>
-</ol>
-
-<hr>
-
-<h4>
-<a id="in-earlier-versions" class="anchor" href="#in-earlier-versions" aria-hidden="true"><span class="octicon octicon-link"></span></a>In earlier versions</h4>
-
-<p>Add the following to your <code>keymap.cson</code>:</p>
-
-<div class="highlight highlight-coffee"><pre class="highlight"><code><span class="s">'body'</span><span class="o">:</span>
-  <span class="s">'ctrl-tab ^ctrl'</span><span class="o">:</span> <span class="s">'unset!'</span>
-  <span class="s">'ctrl-tab'</span><span class="o">:</span> <span class="s">'pane:show-next-item'</span>
-  <span class="s">'ctrl-shift-tab ^ctrl'</span><span class="o">:</span> <span class="s">'unset!'</span>
-  <span class="s">'ctrl-shift-tab'</span><span class="o">:</span> <span class="s">'pane:show-previous-item'</span>
-</code></pre></div>
+<p>You should also read the <a href="https://github.com/atom/atom/blob/master/CONTRIBUTING.md">contributing guide</a> before getting started.</p>
         </div>
       </div>
       <div class="footer-pad"></div>
