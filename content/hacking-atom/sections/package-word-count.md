@@ -50,8 +50,11 @@ style sheets your package needs to load. If not specified, style sheets in the `
 * `keymaps`: an Array of Strings identifying the order of the key mappings your package needs to load. If not specified, mappings in the `keymaps` directory are added alphabetically.
 * `menus`: an Array of Strings identifying the order of the menu mappings your package needs to load. If not specified, mappings in the `menus` directory are added alphabetically.
 * `snippets`: an Array of Strings identifying the order of the snippets your package needs to load. If not specified, snippets in the `snippets` directory are added alphabetically.
-* `activationCommands`: an Object identifying commands that trigger your package's activation. The keys are CSS selectors, the values are Arrays of Strings identifying the command. The loading of your package is delayed until one of these events is triggered within the associated scope defined by the CSS selector.  If not specified, the `activate()` method of your main export will be called when your package is loaded.
-* `activationHooks`: an Array of Strings identifying hooks that trigger your package's activation. The loading of your package is delayed until one of these hooks are triggered. Currently, there are two activation hooks: `language-package-name:grammar-used` (e.g., `language-javascript:grammar-used`) and `core:loaded-shell-environment`.
+* `activationCommands`: an Object identifying commands that trigger your package's activation. The keys are CSS selectors, the values are Arrays of Strings identifying the command. The loading of your package is delayed until one of these events is triggered within the associated scope defined by the CSS selector. If not specified, the `activate()` method of your main export will be called when your package is loaded.
+* `activationHooks`: an Array of Strings identifying hooks that trigger your package's activation. The loading of your package is delayed until one of these hooks are triggered. Currently, there are three activation hooks:
+  * `core:loaded-shell-environment` for when Atom has finished loading the shell environment variables
+  * `scope.name:root-scope-used` for when a file is opened from the specified language (e.g. `source.ruby:root-scope-used`)
+  * `language-package-name:grammar-used` for when a specific language package is used (e.g., `my-special-language-javascript:grammar-used`)
 
 The `package.json` in the package we've just generated looks like this currently:
 
