@@ -39,8 +39,8 @@ Scope selectors allow you to target specific tokens just like a CSS selector tar
 
 [`Config::set`](https://atom.io/docs/api/latest/Config#instance-set) accepts a `scopeSelector`. If you'd like to set a setting for JavaScript function names, you can give it the JavaScript function name `scopeSelector`:
 
-```coffee
-atom.config.set('my-package.my-setting', 'special value', scopeSelector: '.source.js .function.name')
+```javascript
+atom.config.set('my-package.my-setting', 'special value', {scopeSelector: '.source.js .function.name'})
 ```
 
 #### Scope Descriptors
@@ -49,15 +49,15 @@ A scope descriptor is an [Object](https://atom.io/docs/api/latest/ScopeDescripto
 
 In our JavaScript example above, a scope descriptor for the function name token would be:
 
-```coffee
+```javascript
 ['source.js', 'meta.function.js', 'entity.name.function.js']
 ```
 
 [`Config::get`](https://atom.io/docs/api/latest/Config#instance-get) accepts a `scopeDescriptor`. You can get the value for your setting scoped to JavaScript function names via:
 
-```coffee
-scopeDescriptor = ['source.js', 'meta.function.js', 'entity.name.function.js']
-value = atom.config.get('my-package.my-setting', scope: scopeDescriptor)
+```javascript
+const scopeDescriptor = ['source.js', 'meta.function.js', 'entity.name.function.js']
+const value = atom.config.get('my-package.my-setting', {scope: scopeDescriptor})
 ```
 
 But, you do not need to generate scope descriptors by hand. There are a couple methods available to get the scope descriptor from the editor:
@@ -68,9 +68,9 @@ But, you do not need to generate scope descriptors by hand. There are a couple m
 
 Let's revisit our example using these methods:
 
-```coffee
-editor = atom.workspace.getActiveTextEditor()
-cursor = editor.getLastCursor()
-valueAtCursor = atom.config.get('my-package.my-setting', scope: cursor.getScopeDescriptor())
-valueForLanguage = atom.config.get('my-package.my-setting', scope: editor.getRootScopeDescriptor())
+```javascript
+const editor = atom.workspace.getActiveTextEditor()
+const cursor = editor.getLastCursor()
+const valueAtCursor = atom.config.get('my-package.my-setting', {scope: cursor.getScopeDescriptor()})
+const valueForLanguage = atom.config.get('my-package.my-setting', {scope: editor.getRootScopeDescriptor()})
 ```

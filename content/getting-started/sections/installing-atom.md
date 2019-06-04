@@ -5,7 +5,7 @@ title: Installing Atom
 
 To get started with Atom, we'll need to get it on your system. This section will go over installing Atom on your system as well as the basics of how to build it from source.
 
-Installing Atom should be fairly simple. Generally, you can go to https://atom.io and at the top of the page you should see a download button as shown here:
+Installing Atom should be fairly simple. Generally, you can go to https://atom.io and you should see a download button as shown here:
 
 {{#mac}}
 
@@ -56,7 +56,7 @@ To install the `atom` and `apm` commands, run "Window: Install Shell Commands" f
 
 #### Installing Atom on Windows
 
-Atom is available with a Windows installer that can be downloaded from https://atom.io or from the [Atom releases page](https://github.com/atom/atom/releases/latest) named `AtomSetup.exe`. This setup program will install Atom, add the `atom` and `apm` commands to your `PATH`, and create shortcuts on the desktop and in the start menu.
+Atom is available with Windows installers that can be downloaded from https://atom.io or from the [Atom releases page](https://github.com/atom/atom/releases/latest).  Use `AtomSetup.exe` for 32-bit systems and `AtomSetup-x64.exe` for 64-bit systems. This setup program will install Atom, add the `atom` and `apm` commands to your `PATH`, and create shortcuts on the desktop and in the start menu.
 
 ![Atom on Windows](../../images/windows-system-settings.png)
 
@@ -78,7 +78,7 @@ To install Atom on Debian, Ubuntu, or related distributions, add our official
 package repository to your system by running the following commands:
 
 ``` command-line
-$ curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+$ wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 $ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
 $ sudo apt-get update
 ```
@@ -159,6 +159,41 @@ $ sudo zypper in -y atom.x86_64.rpm
 
 {{/linux}}
 
+#### Updating Atom
+
+You should consider updating Atom periodically for the latest improvements to the software.  Additionally, When Atom receives hotfixes for security vulnerabilities you will want to update your version of Atom as soon as possible.
+
+{{#mac}}
+
+"Automatically Update" is enabled by default in Core Settings of the [Settings View](https://flight-manual.atom.io/getting-started/sections/atom-basics/#settings-and-preferences), which will allow Atom to check for updates automatically. If you disable this setting you can update Atom manually.
+
+To perform a manual update:
+
+* Click on the `Atom > Check for Update` menu item in the menu bar.
+* Search for `Application: About` in the [Command Palette](https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette) and click the `Check now` button.
+
+Atom will begin to update if an update is available.
+
+{{/mac}}
+
+{{#windows}}
+
+"Automatically Update" is enabled by default in Core Settings of the [Settings View](https://flight-manual.atom.io/getting-started/sections/atom-basics/#settings-and-preferences), which will allow Atom to check for updates automatically. If you disable this setting you can update Atom manually.
+
+To perform a manual update:
+
+* Click on the `Help > Check for Update` menu item in the menu bar.
+* Search for `Application: About` in the [Command Palette](https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette) and click the `Check now` button.
+
+Atom will begin to update if an update is available.
+
+{{/windows}}
+
+{{#linux}}
+
+If you are using Atom's official package repositories, use your distribution's package manager to update Atom.  Otherwise, you will need to manually download and install the latest `.rpm` or `.deb` package from https://atom.io. For more details, see [Installing Atom on Linux.](https://flight-manual.atom.io/getting-started/sections/installing-atom/#installing-atom-on-linux)
+
+{{/linux}}
 
 #### Portable Mode
 

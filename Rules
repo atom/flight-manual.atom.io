@@ -14,6 +14,13 @@ compile '**/*.asciidoc' do
   layout '/article.html'
 end
 
+compile '**/index.md' do
+  filter :html_pipeline, @config[:markdown_pipeline_config]
+  filter :erb
+  filter :colorize_syntax, :default_colorizer => :rouge
+  layout '/section.html'
+end
+
 compile '**/*.md' do
   filter :html_pipeline, @config[:markdown_pipeline_config]
   filter :erb
@@ -30,6 +37,8 @@ compile '/search.json' do
   filter :erb
 end
 
+passthrough '/**/*.jpg'
+passthrough '/**/*.jpeg'
 passthrough '/**/*.png'
 passthrough '/**/*.gif'
 passthrough '/CNAME'

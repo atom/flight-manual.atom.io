@@ -200,7 +200,7 @@ The `tree-sitter-javascript` parser parses this tagged template literal as a `ca
 Here is an injection point that would allow syntax highlighting inside of template literals:
 
 ```js
-atom.grammars.addInjectionPoint('javascript', {
+atom.grammars.addInjectionPoint('source.js', {
   type: 'call_expression',
 
   language (callExpression) {

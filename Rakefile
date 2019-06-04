@@ -1,4 +1,5 @@
 require "find"
+require 'open3'
 
 task :default => [:test]
 
@@ -14,16 +15,12 @@ end
 
 desc 'Builds the site'
 task :build do
-  if ENV['RACK_ENV'] == 'test'
-    begin
-      sh 'node_modules/gulp/bin/gulp.js build > build.txt'
-    rescue StandardError => e
-      puts 'uh oh'
-      $stderr.puts `cat build.txt`
-      raise e
+  Bundler.with_clean_env do
+    Open3.popen3('npm run gulp build') do |_, stdout, stderr, wait_thr|
+      puts stdout.read
+      status = wait_thr.value
+      abort stderr.read unless status.success?
     end
-  else
-    sh 'node_modules/gulp/bin/gulp.js build'
   end
 end
 
@@ -83,6 +80,8 @@ end
 
 desc 'Publish to https://flight-manual.atom.io'
 task :publish, [:no_commit_msg] => [:remove_tmp_dir, :remove_output_dir, :build] do |_, args|
+  require "shellwords"
+
   message = commit_message(args[:no_commit_msg])
 
   system "git add -f output/"

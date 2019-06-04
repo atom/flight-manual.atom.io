@@ -7,7 +7,7 @@ asciidoc_pipeline_config:
     - :HTTPSFilter
   http_url: https://github.com
   base_url: /
-  asset_root: https://a248.e.akamai.net/assets.github.com/images/icons
+  asset_root: https://github.githubassets.com/images/icons
 
 markdown_pipeline_config:
   pipeline:
@@ -18,7 +18,7 @@ markdown_pipeline_config:
     - :HTTPSFilter
   http_url: https://github.com
   base_url: /
-  asset_root: https://a248.e.akamai.net/assets.github.com/images/icons
+  asset_root: https://github.githubassets.com/images/icons
 
 # The syntax to use for patterns in the Rules file. Can be either `"glob"`
 # (default) or `"legacy"`. The former will enable glob patterns, which behave

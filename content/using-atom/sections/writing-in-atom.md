@@ -17,7 +17,7 @@ Any misspelled words will be highlighted (by default with a dashed red line bene
 
 To add more types of files to the list of what Atom will try to spell check, go to the Spell Check package settings in your Settings view and add any grammars you want to spell check.
 
-The default grammars to spell check are `text.plain`, `source.gfm`, and `text.git-commit` but you can add something like `source.asciidoc` if you wish to check those types of files too.
+The default grammars to spell check are `text.plain`, `source.gfm`, `text.git-commit`, `source.asciidoc`, `source.rst`, and `text.restructuredtext` but you can add other grammars if you wish to check those types of files too.
 
 The spell checking is implemented in the [spell-check](https://github.com/atom/spell-check) package.
 
@@ -31,7 +31,7 @@ When writing prose in a markup language, it's often very useful to get an idea o
 
 As you edit the text, the preview will also update automatically. This makes it fairly easy to check your syntax as you type.
 
-You can also copy the rendered HTML from the preview pane into your system clipboard. There is no keybinding for it, but you can find it in the Command Palette by searching for "Markdown Preview Copy HTML".
+You can also copy the rendered HTML from the preview pane into your system clipboard when the preview is focused and you press <kbd class="platform-mac">Cmd+C</kbd><kbd class="platform-windows">Ctrl+C</kbd><kbd class="platform-linux">Ctrl+Ins</kbd> or if you right-click in the preview pane and choose "Copy as HTML".
 
 Markdown preview is implemented in the [markdown-preview](https://github.com/atom/markdown-preview) package.
 
