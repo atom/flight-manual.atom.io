@@ -564,9 +564,19 @@ style sheets your package needs to load. If not specified, style sheets in the <
 <li>
 <code>snippets</code>: an Array of Strings identifying the order of the snippets your package needs to load. If not specified, snippets in the <code>snippets</code> directory are added alphabetically.</li>
 <li>
-<code>activationCommands</code>: an Object identifying commands that trigger your package's activation. The keys are CSS selectors, the values are Arrays of Strings identifying the command. The loading of your package is delayed until one of these events is triggered within the associated scope defined by the CSS selector.  If not specified, the <code>activate()</code> method of your main export will be called when your package is loaded.</li>
+<code>activationCommands</code>: an Object identifying commands that trigger your package's activation. The keys are CSS selectors, the values are Arrays of Strings identifying the command. The loading of your package is delayed until one of these events is triggered within the associated scope defined by the CSS selector. If not specified, the <code>activate()</code> method of your main export will be called when your package is loaded.</li>
 <li>
-<code>activationHooks</code>: an Array of Strings identifying hooks that trigger your package's activation. The loading of your package is delayed until one of these hooks are triggered. Currently, there are two activation hooks: <code>language-package-name:grammar-used</code> (e.g., <code>language-javascript:grammar-used</code>) and <code>core:loaded-shell-environment</code>.</li>
+<code>activationHooks</code>: an Array of Strings identifying hooks that trigger your package's activation. The loading of your package is delayed until one of these hooks are triggered. Currently, there are three activation hooks:
+
+<ul>
+<li>
+<code>core:loaded-shell-environment</code> for when Atom has finished loading the shell environment variables</li>
+<li>
+<code>scope.name:root-scope-used</code> for when a file is opened from the specified language (e.g. <code>source.ruby:root-scope-used</code>)</li>
+<li>
+<code>language-package-name:grammar-used</code> for when a specific language package is used (e.g., <code>my-special-language-javascript:grammar-used</code>)</li>
+</ul>
+</li>
 </ul>
 
 <p>The <code>package.json</code> in the package we've just generated looks like this currently:</p>
