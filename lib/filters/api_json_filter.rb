@@ -91,7 +91,7 @@ class ApiJsonFilter < Nanoc::Filter
           #{source_link(func)}
         </h3>
       </div>
-      <div class="method-summary-wrapper js-method-summary-wrapper">
+      <div class="api-entry method-summary-wrapper js-method-summary-wrapper">
         #{summary(func)}
         #{description(func)}
         #{arguments_table(func) if func["arguments"]}
