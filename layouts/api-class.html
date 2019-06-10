@@ -13,20 +13,24 @@
           <%= renderp '/includes/toc.html', :heading => 'h4', :title => @item[:title] %>
         </div>
 
-        <% section = lookup_section('toc', @item[:title]) %>
-        <h1 class="document-title">
-          <%= renderp '/includes/platform-nav.html' %>
-          <!-- <a class="improve-link"
-              href="<%= "https://github.com/atom/flight-manual.atom.io/edit/master/content#{@item.identifier}" %>" data-proofer-ignore>
-            <span class="octicon octicon-pencil"></span> Improve this page
-          </a> -->
-        </h1>
-
-        <div class="document-content">
+        <div class="content-column">
           <% section = lookup_section('toc', @item[:title]) %>
-          <%= yield %>
+          <h1 class="document-title">
+            <%= renderp '/includes/platform-nav.html' %>
+            <!-- <a class="improve-link"
+                href="<%= "https://github.com/atom/flight-manual.atom.io/edit/master/content#{@item.identifier}" %>" data-proofer-ignore>
+              <span class="octicon octicon-pencil"></span> Improve this page
+            </a> -->
+          </h1>
+
+          <div class="document-content">
+            <% section = lookup_section('toc', @item[:title]) %>
+            <%= yield %>
+          </div>
         </div>
+
       </div>
+
       <div class="footer-pad"></div>
     </div>
     <%= renderp '/includes/bottom_bar.html' %>
