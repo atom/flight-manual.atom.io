@@ -235,3 +235,10 @@ atom.keymaps.addKeystrokeResolver(({event}) => {
   }
 })
 ```
+
+If you want to know the `event` for the keystroke you pressed you can paste the following script to your [developer tools console](https://flight-manual.atom.io/hacking-atom/sections/debugging/#check-for-errors-in-the-developer-tools)
+```javascript
+document.addEventListener('keydown', e => console.log(e), true);
+```
+
+This will print every keypress event in Atom to the console so you can inspect `KeyboardEvent.key` and `KeyboardEvent.code`.
