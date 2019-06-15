@@ -146,7 +146,7 @@ scopes:
   # `Hash` and `String`. For all other `constant` nodes, just
   # apply the classes `syntax--class` and `syntax--name`.
   'constant': [
-    {match: /^(Array|Hash|String)$/, scopes: 'builtin.class.name'},
+    {match: '^(Array|Hash|String)$', scopes: 'builtin.class.name'},
     'class.name'
   ]
 ```
@@ -172,7 +172,7 @@ scopes:
   # specific than the selector `identifier`.
   'identifier, call_expression > identifier': [
     {exact: 'require', scopes: 'builtin.variable'},
-    {match: /^[A-Z]/, scopes: 'constructor'},
+    {match: '^[A-Z]', scopes: 'constructor'},
   ]
 ```
 
