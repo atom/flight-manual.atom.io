@@ -531,6 +531,8 @@
 
 <p>Here are the steps to run a local version of a Node module within Atom. We're using <code>atom-keymap</code> as an example:</p>
 
+<div class="platform-windows">
+
 <pre class="command-line">
 <span class="command">git clone https://github.com/atom/atom-keymap.git</span>
 <span class="command">cd atom-keymap</span>
@@ -540,12 +542,54 @@
 <span class="command">npm link atom-keymap</span>
 <span class="comment"># This is the special step, it makes the Node module work with Atom's version of Node</span>
 <span class="command">apm rebuild</span>
-<span class="comment"># If you have cloned Atom in a different location than <span class='"platform-mac' platform-linux>~/github/atom</span><span class='"platform-windows"'>%USERPROFILE%\github\atom</span></span>
+<span class="comment"># If you have cloned Atom in a different location than %USERPROFILE%\github\atom</span>
 <span class="comment"># you need to set the following environment variable</span>
-<span class="command"><span class='"platform-mac' platform-linux>export</span><span class='"platform-windows"'>setx</span> ATOM_DEV_RESOURCE_PATH=<em>WHERE YOU CLONED ATOM</em></span>
+<span class="command">setx ATOM_DEV_RESOURCE_PATH=<em>WHERE YOU CLONED ATOM</em></span>
 <span class="comment"># Should work!</span>
 <span class="command">atom --dev .</span>
 </pre>
+
+</div>
+
+<div class="platform-mac">
+
+<pre class="command-line">
+<span class="command">git clone https://github.com/atom/atom-keymap.git</span>
+<span class="command">cd atom-keymap</span>
+<span class="command">npm install</span>
+<span class="command">npm link</span>
+<span class="command">cd <em>WHERE YOU CLONED ATOM</em></span>
+<span class="command">npm link atom-keymap</span>
+<span class="comment"># This is the special step, it makes the Node module work with Atom's version of Node</span>
+<span class="command">apm rebuild</span>
+<span class="comment"># If you have cloned Atom in a different location than ~/github/atom</span>
+<span class="comment"># you need to set the following environment variable</span>
+<span class="command">export ATOM_DEV_RESOURCE_PATH=<em>WHERE YOU CLONED ATOM</em></span>
+<span class="comment"># Should work!</span>
+<span class="command">atom --dev .</span>
+</pre>
+
+</div>
+
+<div class="platform-linux">
+
+<pre class="command-line">
+<span class="command">git clone https://github.com/atom/atom-keymap.git</span>
+<span class="command">cd atom-keymap</span>
+<span class="command">npm install</span>
+<span class="command">npm link</span>
+<span class="command">cd <em>WHERE YOU CLONED ATOM</em></span>
+<span class="command">npm link atom-keymap</span>
+<span class="comment"># This is the special step, it makes the Node module work with Atom's version of Node</span>
+<span class="command">apm rebuild</span>
+<span class="comment"># If you have cloned Atom in a different location than ~/github/atom</span>
+<span class="comment"># you need to set the following environment variable</span>
+<span class="command">export ATOM_DEV_RESOURCE_PATH=<em>WHERE YOU CLONED ATOM</em></span>
+<span class="comment"># Should work!</span>
+<span class="command">atom --dev .</span>
+</pre>
+
+</div>
 
 <p>After you get the Node module linked and working, every time you make a change to the Node module's code, you will have to exit Atom and do the following:</p>
 

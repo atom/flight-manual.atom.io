@@ -778,6 +778,13 @@ the same element or continuing upward to parent elements.</li>
   <span class="p">}</span>
 <span class="p">})</span>
 </code></pre></div>
+
+<p>If you want to know the <code>event</code> for the keystroke you pressed you can paste the following script to your <a href="https://flight-manual.atom.io/hacking-atom/sections/debugging/#check-for-errors-in-the-developer-tools">developer tools console</a></p>
+
+<div class="highlight highlight-javascript"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'keydown'</span><span class="p">,</span> <span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">),</span> <span class="kc">true</span><span class="p">);</span>
+</code></pre></div>
+
+<p>This will print every keypress event in Atom to the console so you can inspect <code>KeyboardEvent.key</code> and <code>KeyboardEvent.code</code>.</p>
         </div>
       </div>
       <div class="footer-pad"></div>

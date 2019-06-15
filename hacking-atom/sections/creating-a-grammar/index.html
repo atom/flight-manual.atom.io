@@ -681,7 +681,7 @@
   <span class="c1"># `Hash` and `String`. For all other `constant` nodes, just</span>
   <span class="c1"># apply the classes `syntax--class` and `syntax--name`.</span>
   <span class="s">'constant'</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span><span class="na">match</span><span class="o">:</span> <span class="sr">/^(Array|Hash|String)$/</span><span class="p">,</span> <span class="na">scopes</span><span class="o">:</span> <span class="s">'builtin.class.name'</span><span class="p">},</span>
+    <span class="p">{</span><span class="na">match</span><span class="o">:</span> <span class="s">'^(Array|Hash|String)$'</span><span class="p">,</span> <span class="na">scopes</span><span class="o">:</span> <span class="s">'builtin.class.name'</span><span class="p">},</span>
     <span class="s">'class.name'</span>
   <span class="p">]</span>
 </code></pre></div>
@@ -709,7 +709,7 @@
   <span class="c1"># specific than the selector `identifier`.</span>
   <span class="s">'identifier, call_expression &gt; identifier'</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span><span class="na">exact</span><span class="o">:</span> <span class="s">'require'</span><span class="p">,</span> <span class="na">scopes</span><span class="o">:</span> <span class="s">'builtin.variable'</span><span class="p">},</span>
-    <span class="p">{</span><span class="na">match</span><span class="o">:</span> <span class="sr">/^[A-Z]/</span><span class="p">,</span> <span class="na">scopes</span><span class="o">:</span> <span class="s">'constructor'</span><span class="p">},</span>
+    <span class="p">{</span><span class="na">match</span><span class="o">:</span> <span class="s">'^[A-Z]'</span><span class="p">,</span> <span class="na">scopes</span><span class="o">:</span> <span class="s">'constructor'</span><span class="p">},</span>
   <span class="p">]</span>
 </code></pre></div>
 
