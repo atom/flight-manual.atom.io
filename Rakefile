@@ -6,24 +6,18 @@ require 'open-uri'
 
 task :default => [:test]
 
-def get_latest_release
-  data = ''
+task :download_api_json_files do
+  FileUtils.mkdir_p('data/apis-by-version')
 
-  open('https://api.github.com/repos/atom/atom/releases/latest', 'r') do |read_file|
-    data = JSON.parse(read_file.read)
-  end
+  tags = %w[v1.0.0 v1.0.1 v1.0.2 v1.0.3 v1.0.4 v1.0.5 v1.0.6 v1.0.7 v1.0.8 v1.0.9 v1.0.10 v1.0.11 v1.0.12 v1.0.13 v1.0.14 v1.0.15 v1.0.16 v1.0.17 v1.0.18 v1.0.19 v1.1.0 v1.2.0 v1.2.1 v1.2.2 v1.2.3 v1.2.4 v1.3.0 v1.3.1 v1.3.2 v1.3.3 v1.4.0 v1.4.1 v1.4.2 v1.4.3 v1.5.0 v1.5.1 v1.5.2 v1.5.3 v1.5.4 v1.6.0 v1.6.1 v1.6.2 v1.7.0 v1.7.1 v1.7.2 v1.7.3 v1.7.4 v1.8.0 v1.9.0 v1.9.1 v1.9.2 v1.9.3 v1.9.4 v1.9.5 v1.9.6 v1.9.7 v1.9.8 v1.9.9 v1.10.0 v1.10.1 v1.10.2 v1.11.0 v1.11.1 v1.11.2 v1.12.0 v1.12.1 v1.12.2 v1.12.3 v1.12.4 v1.12.5 v1.12.6 v1.12.7 v1.12.8 v1.12.9 v1.13.0 v1.13.1 v1.14.0 v1.14.1 v1.14.2 v1.14.3 v1.14.4 v1.15.0 v1.16.0 v1.17.0 v1.17.1 v1.17.2 v1.18.0 v1.19.0 v1.19.1 v1.19.2 v1.19.3 v1.19.4 v1.19.5 v1.19.6 v1.19.7 v1.20.0 v1.20.1 v1.21.0 v1.21.1 v1.21.2 v1.22.0 v1.22.1 v1.23.0 v1.23.1 v1.23.2 v1.23.3 v1.24.0 v1.24.1 v1.25.0 v1.25.1 v1.26.0 v1.26.1 v1.27.0 v1.27.1 v1.27.2 v1.28.0 v1.28.1 v1.28.2 v1.29.0 v1.30.0 v1.31.0 v1.31.1 v1.31.2 v1.32.0 v1.32.1 v1.32.2 v1.33.0 v1.33.1 v1.34.0 v1.35.0 v1.35.1 v1.36.0 v1.36.1 v1.37.0 v1.38.0 v1.38.1 v1.38.2]
 
-  data['tag_name']
-end
-
-task :download_latest_api_json do
-  tag_name = get_latest_release
-
-  FileUtils.mkdir_p("content/api/#{tag_name}")
-  File.open("content/api/#{tag_name}/atom-api.json", 'w') do |output_file|
-    json = "https://github.com/atom/atom/releases/download/#{tag_name}/atom-api.json"
-    open(json, 'r') do |read_file|
-      output_file.write(read_file.read)
+  tags.each do |tag_name|
+    puts "Downloading #{tag_name}"
+    File.open("data/apis-by-version/#{tag_name}.json", 'w') do |output_file|
+      json = "https://github.com/atom/atom/releases/download/#{tag_name}/atom-api.json"
+      open(json, 'r') do |read_file|
+        output_file.write(read_file.read)
+      end
     end
   end
 end
@@ -42,8 +36,6 @@ task :split_api_json do
     File.unlink(file)
   end
 end
-
-task :download_api => [:download_latest_api_json, :split_api_json]
 
 task :clean_api do
   FileUtils.rm_rf('content/api')
