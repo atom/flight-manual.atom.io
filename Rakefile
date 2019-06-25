@@ -7,17 +7,17 @@ require 'open-uri'
 task :default => [:test]
 
 task :split_api_json do
-  json_files = Dir.glob('content/api/**/atom-api.json')
+  json_files = Dir.glob('data/apis-by-version/*.json')
 
   json_files.each do |file|
+    version = File.basename(file, '.json')
+    directory = File.join('content', 'api', version)
+    FileUtils.mkdir_p(directory)
+
     classes = JSON.parse(IO.read(file))
-    dir = File.dirname(file)
-
     classes['classes'].each do |key, value|
-      File.write(File.join(dir, "#{key}.json"), JSON.pretty_generate(value))
+      File.write(File.join(directory, "#{key}.json"), JSON.pretty_generate(value))
     end
-
-    File.unlink(file)
   end
 end
 
