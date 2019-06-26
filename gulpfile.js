@@ -8,9 +8,6 @@ var gulp   = require("gulp"),
     uglify = require("gulp-uglify"),
     yaml   = require("js-yaml"),
     connect = require("gulp-connect"),
-
-    exec = require("child_process").exec,
-
     fs   = require("fs"),
     path = require("path");
 
@@ -105,11 +102,12 @@ gulp.task("extract_api_docs_data", function () {
 });
 
 gulp.task("nanoc:compile", function (cb) {
-  exec("bundle exec nanoc compile", function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
-  });
+  const { spawn } = require('child_process');
+  const compile = spawn('bundle', ['exec', 'nanoc', 'compile'], { stdio: 'inherit' });
+  compile.on('close', (code) => {
+    console.log(`'bundle exec nanoc compile' exited with code ${code}`);
+    cb();
+  })
 });
 
 gulp.task("server", function() {
