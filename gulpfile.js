@@ -87,6 +87,7 @@ gulp.task("extract_api_docs_data", function () {
 
   const srcDir = 'data/apis-by-version';
   fs.readdirSync(srcDir).forEach((file) => {
+    if (path.extname(file) != '.json') return;
     const version = path.basename(file, '.json');
     const versionDestDir = `${destDir}/${version}`;
     if (!fs.existsSync(versionDestDir)) fs.mkdirSync(versionDestDir);
