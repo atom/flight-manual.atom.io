@@ -81,7 +81,7 @@ gulp.task("favicon", function() {
     .pipe(gulp.dest("output/"));
 });
 
-gulp.task("extract_api_docs_data", function () {
+gulp.task("extract_api_docs_data", function (cb) {
   const destDir = 'content/api';
   if (!fs.existsSync(destDir)) fs.mkdirSync(destDir);
 
@@ -100,6 +100,8 @@ gulp.task("extract_api_docs_data", function () {
       fs.writeFileSync(destPath, docsForClass);
     }
   })
+
+  cb();
 });
 
 gulp.task("nanoc:compile", function (cb) {
