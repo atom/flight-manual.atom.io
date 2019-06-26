@@ -84,7 +84,7 @@ gulp.task("favicon", function() {
     .pipe(gulp.dest("output/"));
 });
 
-gulp.task("extract_api_docs_data", function (cb) {
+gulp.task("extract_api_docs_data", function () {
   const destDir = 'content/api';
   if (!fs.existsSync(destDir)) fs.mkdirSync(destDir);
 
