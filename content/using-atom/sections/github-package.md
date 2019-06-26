@@ -57,7 +57,7 @@ To clone a repository, run the `GitHub: Clone` command. In the dialog paste a UR
 
 #### Branch
 
-To open the branch tooltip, click the branch icon in the Status Bar. From there you can to **create** or **switch** branches.
+To open the branch tooltip, click the branch icon in the Status Bar. From there you can **create** or **switch** branches.
 
 ![Create or switch branches](../../images/github-branch.png "Create or switch branches")
 
