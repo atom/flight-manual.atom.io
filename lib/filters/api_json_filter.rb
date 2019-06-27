@@ -201,7 +201,7 @@ class ApiJsonFilter < Nanoc::Filter
           </a>
           #{property_source_link(prop)}
         </h3>
-        <div>
+        <div class="method-summary-wrapper">
           #{summary(prop)}
         </div>
       </div>
