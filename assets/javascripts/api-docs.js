@@ -5,6 +5,16 @@
     return false;
   });
 
+  $(document).ready(function() {
+    if (window.location.hash) {
+      toggleApiEntry(window.location.hash);
+    }
+  });
+
+  $(window).on("hashchange", function() {
+    toggleApiEntry(window.location.hash);
+  });
+
   function toggleApiEntry(apiEntryId) {
     const entry = $(apiEntryId);
     const extendedContainer = entry.parents(".extended-methods-container");
