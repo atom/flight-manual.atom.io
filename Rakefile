@@ -6,45 +6,6 @@ require 'open-uri'
 
 task :default => [:test]
 
-def get_latest_release
-  data = ''
-
-  open('https://api.github.com/repos/atom/atom/releases/latest', 'r') do |read_file|
-    data = JSON.parse(read_file.read)
-  end
-
-  data['tag_name']
-end
-
-task :download_latest_api_json do
-  tag_name = get_latest_release
-
-  FileUtils.mkdir_p("content/api/#{tag_name}")
-  File.open("content/api/#{tag_name}/atom-api.json", 'w') do |output_file|
-    json = "https://github.com/atom/atom/releases/download/#{tag_name}/atom-api.json"
-    open(json, 'r') do |read_file|
-      output_file.write(read_file.read)
-    end
-  end
-end
-
-task :split_api_json do
-  json_files = Dir.glob('content/api/**/atom-api.json')
-
-  json_files.each do |file|
-    classes = JSON.parse(IO.read(file))
-    dir = File.dirname(file)
-
-    classes['classes'].each do |key, value|
-      File.write(File.join(dir, "#{key}.json"), JSON.pretty_generate(value))
-    end
-
-    File.unlink(file)
-  end
-end
-
-task :download_api => [:download_latest_api_json, :split_api_json]
-
 task :clean_api do
   FileUtils.rm_rf('content/api')
 end
@@ -74,12 +35,17 @@ desc "Run the HTML-Proofer"
 task :run_proofer do
   require 'html-proofer'
 
-  # Ignore platform switcher hash URLs
-  platform_hash_urls = ['#platform-mac', '#platform-windows', '#platform-linux', '#platform-all']
-  HTMLProofer.check_directory("./output", {
-    :url_ignore => platform_hash_urls,
-    :typhoeus => { :ssl_verifypeer => false }
-  }).run
+  paths_to_proof = Dir.glob('./output/*') - ['./output/api']
+  paths_to_proof.each do |path|
+    puts "Running HTML-Proofer on #{path}"
+
+    platform_hash_urls = ['#platform-mac', '#platform-windows', '#platform-linux', '#platform-all']
+    HTMLProofer.check_directory(path, {
+      :url_ignore => platform_hash_urls,
+      :typhoeus => { :ssl_verifypeer => false },
+      :verbose => true,
+    }).run
+  end
 end
 
 # Detects instances of Issue #204
