@@ -82,20 +82,24 @@ class ApiJsonFilter < Nanoc::Filter
   end
 
   def method(func, scope)
+    id = "#{scope}-#{func["name"]}"
+
     <<~HTML
       <div
         class="api-entry js-api-entry #{visibility_class(func["visibility"])}"
-        id="#{scope}-#{func["name"]}">
+        id="#{id}">
         <h3 class="name">
-          #{func["name"]}#{argument_list(func)}
+          <a href="##{id}" class="js-api-name method-signature" name="#{id}">
+            #{func["name"]}#{argument_list(func)}
+          </a>
           #{source_link(func)}
         </h3>
-      </div>
-      <div class="api-entry method-summary-wrapper js-method-summary-wrapper">
-        #{summary(func)}
-        #{description(func)}
-        #{arguments_table(func) if func["arguments"]}
-        #{return_values_table(func) if func["returnValues"]}
+        <div class="method-summary-wrapper">
+          #{summary(func)}
+          #{description(func)}
+          #{arguments_table(func) if func["arguments"]}
+          #{return_values_table(func) if func["returnValues"]}
+        </div>
       </div>
     HTML
   end
