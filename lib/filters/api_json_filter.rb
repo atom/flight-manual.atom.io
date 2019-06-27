@@ -239,6 +239,36 @@ class ApiJsonFilter < Nanoc::Filter
     markdown(data["description"])
   end
 
+  def class_examples(data)
+    examples = Array(data["examples"])
+    return '' if examples.empty?
+
+    entries = examples.map do |example|
+      description = ''
+      unless example['description'].empty?
+        description = <<~HTML
+          <div class="description markdown-body">
+            #{markdown(example['description'])}
+          </div>
+        HTML
+      end
+
+      <<~HTML
+        <div class="example">
+          #{description}
+          #{markdown(example['raw'])}
+        </div>
+      HTML
+    end.join("\n")
+
+    <<~HTML
+      <h2 class="section">Examples</h2>
+      <div class="document-examples markdown-body">
+        #{entries}
+      </div>
+    HTML
+  end
+
   def page_title(data)
     <<~HTML
       <h2 class="page-title">
@@ -277,6 +307,7 @@ class ApiJsonFilter < Nanoc::Filter
 
     page_title(data) +
       class_description(data) +
+      class_examples(data) +
       sections(data)
   end
 end
