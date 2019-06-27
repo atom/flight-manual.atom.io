@@ -190,12 +190,16 @@ class ApiJsonFilter < Nanoc::Filter
   end
 
   def property(prop, scope)
+    id = "#{scope}-#{prop["name"]}"
     <<~HTML
       <div
         class="api-entry js-api-entry #{visibility_class(prop["visibility"])}"
         id="#{scope}-#{prop["name"]}">
         <h3 class="name">
-          <span class="operator operator-instance">::</span>#{prop["name"].strip}#{property_source_link(prop)}
+          <a href="##{id}" class="js-api-name" name="#{id}">
+            <span class="operator operator-instance">::</span>#{prop["name"].strip}
+          </a>
+          #{property_source_link(prop)}
         </h3>
         <div>
           #{summary(prop)}
