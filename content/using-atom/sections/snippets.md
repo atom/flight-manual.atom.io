@@ -9,8 +9,10 @@ The idea is that you can type something like `habtm` and then press the <kbd cla
 Many Core and Community packages come bundled with their own snippets that are specific to it. For example, the `language-html` package that provides support for HTML syntax highlighting and grammar comes with dozens of snippets to create many of the various HTML tags you might want to use. If you create a new HTML file in Atom, you can type `html` and then press <kbd class="platform-all">Tab</kbd> and it will expand to:
 
 ```html
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
+    <meta charset="utf-8">
     <title></title>
   </head>
   <body>
@@ -19,7 +21,7 @@ Many Core and Community packages come bundled with their own snippets that are s
 </html>
 ```
 
-It will also position the cursor in the middle of the `title` tag so you can immediately start filling out the tag. Many snippets have multiple focus points that you can move through with the <kbd class="platform-all">Tab</kbd> key as well - for instance, in the case of this HTML snippet, once you've filled out the title tag you can press <kbd class="platform-all">Tab</kbd> and the cursor will move to the middle of the `body` tag.
+It will also position the cursor in the `lang` attribute value so you can edit it if necessary. Many snippets have multiple focus points that you can move through with the <kbd class="platform-all">Tab</kbd> key as well - for instance, in the case of this HTML snippet, after the cursor is placed in the `lang` attribute value, you can continue pressing <kbd class="platform-all">Tab</kbd> and the cursor will move to the `dir` attribute value, then to the middle of the `title` tag, then finally to the middle of the `body` tag.
 
 To see all the available snippets for the file type that you currently have open, choose "Snippets: Available" in the Command Palette.
 

@@ -114,7 +114,7 @@ The purpose of our view is to show information about the active text editor, so 
   }
 ```
 
-Now our item will appear in the right dock intially and users will only be able to drag it to one of the other docks.
+Now our item will appear in the right dock initially and users will only be able to drag it to one of the other docks.
 
 #### Show Active Editor Info
 

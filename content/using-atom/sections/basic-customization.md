@@ -215,7 +215,7 @@ The scope name is shown in the settings view for each language. Click on "Packag
 
 ![Finding a language grammar](../../images/python-grammar.png "Finding a grammar's scope name")
 
-Another way to find the scope for a specific language is to open a file of its kind and press <kbd class="platform-mac">Alt+Cmd+P</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Shift+P</kbd> to show all scopes for the current position of the cursor. The scope mentioned top most is always the language for this kind of file, the scopes following are specific to the cursor position:
+Another way to find the scope for a specific language is to open a file of its kind and <span class="platform-mac">press <kbd class="platform-mac">Alt+Cmd+P</kbd></span><span class="platform-windows platform-linux">choose "Editor: Log Cursor Scope" in the Command Palette</span> to show all scopes for the current position of the cursor. The scope mentioned top most is always the language for this kind of file, the scopes following are specific to the cursor position:
 
 ![Finding a language grammar with cursor scope](../../images/cursor-scope.png "Finding a language grammar with cursor scope")
 
@@ -242,7 +242,7 @@ The CSON configuration files for Atom are stored on disk on your machine. The lo
 
 ##### Custom home location with an environment variable
 
-An environment variable can be used, though to make Atom use a different location. This can be useful for several reasons. One of these may be that multiple user accounts on a machine want to use the same Atom Home. The environment variable used to specify and alternate location is called `ATOM_HOME`. If this environment variable exists, the location specified will be used to load and store Atom settings.
+An environment variable can be used to make Atom use a different location. This can be useful for several reasons. One of these may be that multiple user accounts on a machine want to use the same Atom Home. The environment variable used to specify an alternate location is called `ATOM_HOME`. If this environment variable exists, the location specified will be used to load and store Atom settings.
 
 ##### Taking your customization with you with Portable Mode
 
