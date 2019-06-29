@@ -200,6 +200,12 @@ You can determine which fonts are being used to render a specific piece of text 
 
 ![Fonts In Use](../../images/fonts-in-use.png "Fonts In Use")
 
+#### Check Color Rendering Issues
+
+If you've calibrated your monitor using a custom color profile, Atom will honor that profile when rendering colors. If you want to go back to Atom's previous color rendering, go to: _Atom settings > Core > Color Profile_. Change this setting to: _Use sRGB color profile_, and then restart Atom.
+
+![Color Profile Settings](../../images/color_profile_settings.png)
+
 #### Check for Errors in the Developer Tools
 
 When an unexpected error occurs in Atom, you will normally see a red notification which provides details about the error and allows you to create an issue on the right repository:
@@ -321,4 +327,3 @@ Be sure to use Chromium flags at the end of the terminal call if you want to use
 ``` command-line
 $ atom --safe --enable-gpu-rasterization --force-gpu-rasterization
 ```
-
