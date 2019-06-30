@@ -1,4 +1,5 @@
----
+Shago7932/Master
+Jose Santiago Silva Ramirez---
 title: Upgrading to 1.0 APIs
 ---
 ## Upgrading to 1.0 APIs
