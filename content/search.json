@@ -16,11 +16,13 @@
 
     <% latest_atom_version_apis.each do |klass| %>
       <% body = compress(safe_embed(klass['description'])) %>
+      <% root_url = "/api/v#{latest_atom_version_number}/#{klass['name']}" %>
+
       {
         "title": "<%= klass['name'] %>",
         "category": "",
         "category_url": "",
-        "url": "/api/v<%= latest_atom_version_number %>/<%= klass['name'] %>",
+        "url": "<%= root_url %>",
         "body": "<%= body %>",
         "excerpt": "<%= body[0..140] %>..."
       },
@@ -31,31 +33,20 @@
           "title": "<%= klass['name'] %>::<%= class_method['name'] %>",
           "category": "",
           "category_url": "",
-          "url": "/api/v<%= latest_atom_version_number %>/<%= klass['name'] %>/#<%= class_method['name'] %>",
+          "url": "<%= root_url %>/#<%= class_method['name'] %>",
           "body": "<%= body %>",
           "excerpt": "<%= body[0..140] %>..."
         },
       <% end %>
 
-      <% klass.fetch('instanceProperties', []).each do |instance_property| %>
-        <% body = compress(safe_embed(instance_property['description'])) %>
+      <% instance_members = klass.fetch('instanceProperties', []) + klass.fetch('instanceMethods', []) %>
+      <% instance_members.each do |member| %>
+        <% body = compress(safe_embed(member['description'])) %>
         {
-          "title": "<%= klass['name'] %>::<%= instance_property['name'] %>",
+          "title": "<%= klass['name'] %>::<%= member['name'] %>",
           "category": "",
           "category_url": "",
-          "url": "/api/v<%= latest_atom_version_number %>/<%= klass['name'] %>/#instance-<%= instance_property['name'] %>",
-          "body": "<%= body %>",
-          "excerpt": "<%= body[0..140] %>..."
-        },
-      <% end %>
-
-      <% klass.fetch('instanceMethods', []).each do |instance_method| %>
-        <% body = compress(safe_embed(instance_method['description'])) %>
-        {
-          "title": "<%= klass['name'] %>::<%= instance_method['name'] %>",
-          "category": "",
-          "category_url": "",
-          "url": "/api/v<%= latest_atom_version_number %>/<%= klass['name'] %>/#instance-<%= instance_method['name'] %>",
+          "url": "<%= root_url %>/#instance-<%= member['name'] %>",
           "body": "<%= body %>",
           "excerpt": "<%= body[0..140] %>..."
         },
