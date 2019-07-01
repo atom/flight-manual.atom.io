@@ -15,6 +15,16 @@
     <% end %>
 
     <% latest_atom_version_apis.each do |klass| %>
+      <% body = compress(safe_embed(klass['description'])) %>
+      {
+        "title": "<%= klass['name'] %>",
+        "category": "",
+        "category_url": "",
+        "url": "/api/v<%= latest_atom_version_number %>/<%= klass['name'] %>",
+        "body": "<%= body %>",
+        "excerpt": "<%= body[0..140] %>..."
+      },
+
       <% klass.fetch('classMethods', []).each do |class_method| %>
         <% body = compress(safe_embed(class_method['description'])) %>
         {
