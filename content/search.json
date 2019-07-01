@@ -23,7 +23,7 @@
           "category_url": "",
           "url": "/api/v<%= latest_atom_version_number %>/<%= klass['name'] %>/#instance-<%= instance_method['name'] %>",
           "body": "<%= body %>",
-          "excerpt": "<%= body[0..140] %>…"
+          "excerpt": "<%= body[0..140] %>..."
         },
       <% end %>
     <% end %>
