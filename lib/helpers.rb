@@ -5,6 +5,7 @@ require 'html/pipeline/rouge_filter'
 require 'active_support/core_ext/string'
 
 require_relative 'chapters'
+require_relative 'search'
 require_relative 'sections'
 require_relative 'strings'
 

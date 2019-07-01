@@ -13,6 +13,21 @@
         },
       <% end %>
     <% end %>
+
+    <% latest_atom_version_apis.each do |klass| %>
+      <% klass.fetch('instanceMethods', []).each do |instance_method| %>
+        <% body = compress(safe_embed(instance_method['description'])) %>
+        {
+          "title": "<%= klass['name'] %>::<%= instance_method['name'] %>",
+          "category": "",
+          "category_url": "",
+          "url": "/api/<%= latest_atom_version_number %>/<%= klass['name'] %>/#instance-<%= instance_method['name'] %>",
+          "body": "<%= body %>",
+          "excerpt": "<%= body[0..140] %>…"
+        },
+      <% end %>
+    <% end %>
+
     {}
   ]
 }
