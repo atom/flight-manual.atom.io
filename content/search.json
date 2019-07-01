@@ -21,7 +21,7 @@
           "title": "<%= klass['name'] %>::<%= instance_method['name'] %>",
           "category": "",
           "category_url": "",
-          "url": "/api/<%= latest_atom_version_number %>/<%= klass['name'] %>/#instance-<%= instance_method['name'] %>",
+          "url": "/api/v<%= latest_atom_version_number %>/<%= klass['name'] %>/#instance-<%= instance_method['name'] %>",
           "body": "<%= body %>",
           "excerpt": "<%= body[0..140] %>…"
         },
