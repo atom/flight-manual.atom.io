@@ -20,7 +20,11 @@ def temp_memoize(key)
 end
 
 def temp_read(name)
-  File.readlines(temp_join(name))
+  lines =
+    File.readlines(temp_join(name))
+    .map { |line| line.strip }
+
+  lines.length > 1 ? lines : lines.first
 end
 
 def temp_write(name, value)
