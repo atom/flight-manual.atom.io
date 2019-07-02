@@ -24,7 +24,7 @@ preprocess do
   @items.create(content, attributes, identifier)
 
   content = ''
-  attributes = { redirect_to: "/api/v#{latest_atom_version_number}/AtomEnvironment" } # TODO: Don't hardcode the class name
+  attributes = { redirect_to: "/api/v#{latest_atom_version_number}" }
   identifier = '/api/latest.md'
   @items.create(content, attributes, identifier)
 end
