@@ -1,5 +1,3 @@
-# TODO: Rename this file to reflect the fact that it's more about APIs and Atom versions than it is about search
-
 require('json')
 
 def latest_atom_version_apis
