@@ -29,14 +29,7 @@ preprocess do
   @items.create(content, attributes, identifier)
 end
 
-# TODO: Can we combine these rules in some way to reduce duplication?
-compile '/api/latest.md' do
-  filter :redirect_to, { :redirect_to => @item[:redirect_to] }
-end
-compile '/api/index.md' do
-  filter :redirect_to, { :redirect_to => @item[:redirect_to] }
-end
-compile '/api/*/index.md' do
+compile '/api/**/*.md' do
   filter :redirect_to, { :redirect_to => @item[:redirect_to] }
 end
 
