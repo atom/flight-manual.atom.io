@@ -4,6 +4,7 @@ ruby '2.4.2'
 # essential
 gem 'nanoc', '~> 4.7'
 gem 'nanoc-conref-fs', '~> 0.7'
+gem 'nanoc-redirector', '~> 0.2'
 
 # rendering
 gem 'nanoc-html-pipeline', '~> 0.3'

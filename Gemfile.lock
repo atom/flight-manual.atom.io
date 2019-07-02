@@ -75,6 +75,8 @@ GEM
     nanoc-html-pipeline (0.3.5)
       html-pipeline (~> 2.0)
       nanoc (>= 3.1, < 5.0)
+    nanoc-redirector (0.3.0)
+      nanoc (~> 4.9.0)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     parallel (1.12.1)
@@ -112,6 +114,7 @@ DEPENDENCIES
   nanoc (~> 4.7)
   nanoc-conref-fs (~> 0.7)
   nanoc-html-pipeline (~> 0.3)
+  nanoc-redirector (~> 0.2)
   pry
   pry-coolline
   rake
@@ -120,4 +123,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.3
+   2.0.1

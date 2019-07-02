@@ -1,7 +1,44 @@
 #!/usr/bin/env ruby
 
 require 'extended-markdown-filter'
+require 'nanoc-redirector'
 require_relative 'lib/filters/api_json_filter'
+
+preprocess do
+  versions = @items.find_all('/api/*/*.json').map { |item| item.identifier.to_s.split('/')[2] }.uniq
+
+  versions.each do |version|
+    json_items_for_version = @items.find_all("/api/#{version}/*.json")
+    class_names_for_version = json_items_for_version.map { |item| File.basename(item.identifier, '.json') }
+    first_class_name_for_version = class_names_for_version.sort.first
+
+    content = ''
+    attributes = { redirect_to: "/api/#{version}/#{first_class_name_for_version}" }
+    identifier = "/api/#{version}/index.md"
+    @items.create(content, attributes, identifier)
+  end
+
+  content = ''
+  attributes = { redirect_to: '/api/latest' }
+  identifier = '/api/index.md'
+  @items.create(content, attributes, identifier)
+
+  content = ''
+  attributes = { redirect_to: "/api/v#{latest_atom_version_number}/AtomEnvironment" } # TODO: Don't hardcode the class name
+  identifier = '/api/latest.md'
+  @items.create(content, attributes, identifier)
+end
+
+# TODO: Can we combine these rules in some way to reduce duplication?
+compile '/api/latest.md' do
+  filter :redirect_to, { :redirect_to => @item[:redirect_to] }
+end
+compile '/api/index.md' do
+  filter :redirect_to, { :redirect_to => @item[:redirect_to] }
+end
+compile '/api/*/index.md' do
+  filter :redirect_to, { :redirect_to => @item[:redirect_to] }
+end
 
 compile '/index.html' do
   filter :erb

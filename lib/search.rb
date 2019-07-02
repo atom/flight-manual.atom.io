@@ -1,3 +1,5 @@
+# TODO: Rename this file to reflect the fact that it's more about APIs and Atom versions than it is about search
+
 require('json')
 
 def latest_atom_version_apis
@@ -18,7 +20,7 @@ def latest_atom_version_number
   temp_memoize('latest_atom_version_number') do
     @items
       .find_all('/api/*/*.json')
-      .map { |item| File.basename(File.dirname(item.path)) }
+      .map { |item| File.basename(File.dirname(item.identifier)) }
       .uniq
       .map { |item| Gem::Version.new(item.tr('v', '')) }
       .sort
