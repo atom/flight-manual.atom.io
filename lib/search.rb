@@ -16,13 +16,13 @@ end
 
 def latest_atom_version_number
   temp_memoize('latest_atom_version_number') do
-    versions = @items.find_all('/api/*/*.json').map { |item| item.path.split('/')[2] }.uniq
-
-    exploded_version_numbers = versions.map { |version|
-      version_without_prefix = version[1..-1]
-      version_without_prefix.split('.')
-    }
-
-    exploded_version_numbers.sort.last.join('.')
+    @items
+      .find_all('/api/*/*.json')
+      .map { |item| File.basename(File.dirname(item.path)) }
+      .uniq
+      .map { |item| Gem::Version.new(item.tr('v', '')) }
+      .sort
+      .last
+      .to_s
   end
 end
