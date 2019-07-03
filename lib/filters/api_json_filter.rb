@@ -300,13 +300,15 @@ class ApiJsonFilter < Nanoc::Filter
   def sections(data)
     section_names = data["sections"].map { |section| section["name"] }.uniq
     section_text = section_names.map do |section_name|
-      props = data["instanceProperties"].select { |prop| prop["sectionName"] == section_name }
-      methods = data["instanceMethods"].select { |func| func["sectionName"] == section_name }
+      class_methods = data["classMethods"].select { |func| func["sectionName"] == section_name }
+      instance_properties = data["instanceProperties"].select { |prop| prop["sectionName"] == section_name }
+      instance_methods = data["instanceMethods"].select { |func| func["sectionName"] == section_name }
 
       <<~HTML
         <h2 class="detail-section">#{section_name}</h2>
-        #{props.map { |prop| property(prop, "instance") }.join}
-        #{methods.map { |func| method(func, "instance") }.join}
+        #{class_methods.map { |func| method(func, "class") }.join}
+        #{instance_properties.map { |prop| property(prop, "instance") }.join}
+        #{instance_methods.map { |func| method(func, "instance") }.join}
       HTML
     end
 
