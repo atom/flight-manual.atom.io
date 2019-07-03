@@ -83,6 +83,11 @@ class ApiJsonFilter < Nanoc::Filter
 
   def method(func, scope)
     id = "#{scope}-#{func["name"]}"
+    prefix = case scope
+             when 'instance' then '::'
+             when 'class' then '.'
+             else ''
+             end
 
     <<~HTML
       <div
@@ -90,7 +95,7 @@ class ApiJsonFilter < Nanoc::Filter
         id="#{id}">
         <h3 class="name">
           <a href="##{id}" class="js-api-name method-signature" name="#{id}">
-            #{func["name"]}#{argument_list(func)}
+            #{prefix}#{func["name"]}#{argument_list(func)}
           </a>
           #{source_link(func)}
         </h3>
@@ -279,6 +284,19 @@ class ApiJsonFilter < Nanoc::Filter
     HTML
   end
 
+  def uncategorized_methods(data)
+    uncategorized_class_methods = data["classMethods"].select { |func| func["sectionName"].nil? }
+    uncategorized_instance_methods = data["instanceMethods"].select { |func| func["sectionName"].nil? }
+
+    return '' if (uncategorized_class_methods + uncategorized_instance_methods).empty?
+
+    <<~HTML
+      <h2 class="detail-section">Methods</h2>
+      #{uncategorized_class_methods.map { |func| method(func, "class") }.join}
+      #{uncategorized_instance_methods.map { |func| method(func, "instance") }.join}
+    HTML
+  end
+
   def sections(data)
     section_text = data["sections"].map do |section|
       props = data["instanceProperties"].select { |prop| prop["sectionName"] == section["name"] }
@@ -308,6 +326,7 @@ class ApiJsonFilter < Nanoc::Filter
     page_title(data) +
       class_description(data) +
       class_examples(data) +
+      uncategorized_methods(data) +
       sections(data)
   end
 end
