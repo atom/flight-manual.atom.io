@@ -18,7 +18,7 @@ preprocess do
   create_item_with_redirect source: '/api/latest.md', destination: "/api/v#{latest_atom_version_number}"
 end
 
-compile '/**/*.md' do
+compile '/api/**/*.md' do
   filter :redirect_to, { :redirect_to => @item[:redirect_to] }
 end
 
