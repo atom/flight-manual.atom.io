@@ -14,12 +14,12 @@
       <% end %>
     <% end %>
 
-    <% latest_atom_version_apis.each do |klass| %>
-      <% body = compress(safe_embed(klass['description'])) %>
-      <% root_url = "/api/v#{latest_atom_version_number}/#{klass['name']}" %>
+    <% atom_version_apis(@item[:api_version]).each do |api| %>
+      <% body = compress(safe_embed(api['description'])) %>
+      <% root_url = "/api/v#{@item[:api_version]}/#{api['name']}" %>
 
       {
-        "title": "<%= klass['name'] %>",
+        "title": "<%= api['name'] %>",
         "category": "",
         "category_url": "",
         "url": "<%= root_url %>",
@@ -27,10 +27,10 @@
         "excerpt": "<%= body[0..140] %>..."
       },
 
-      <% klass.fetch('classMethods', []).each do |class_method| %>
+      <% api.fetch('classMethods', []).each do |class_method| %>
         <% body = compress(safe_embed(class_method['description'])) %>
         {
-          "title": "<%= klass['name'] %>::<%= class_method['name'] %>",
+          "title": "<%= api['name'] %>::<%= class_method['name'] %>",
           "category": "",
           "category_url": "",
           "url": "<%= root_url %>/#<%= class_method['name'] %>",
@@ -39,11 +39,11 @@
         },
       <% end %>
 
-      <% instance_members = klass.fetch('instanceProperties', []) + klass.fetch('instanceMethods', []) %>
+      <% instance_members = api.fetch('instanceProperties', []) + api.fetch('instanceMethods', []) %>
       <% instance_members.each do |member| %>
         <% body = compress(safe_embed(member['description'])) %>
         {
-          "title": "<%= klass['name'] %>::<%= member['name'] %>",
+          "title": "<%= api['name'] %>::<%= member['name'] %>",
           "category": "",
           "category_url": "",
           "url": "<%= root_url %>/#instance-<%= member['name'] %>",

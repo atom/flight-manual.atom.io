@@ -7,7 +7,7 @@
     <div class="footer-push">
       <%= renderp '/includes/top_bar.html' %>
       <div class="wrapper documents content-push wide">
-        <%= renderp '/includes/search.html' %>
+        <%= renderp '/includes/search.html', :version => version %>
 
         <div class="toc">
           <%= renderp '/includes/toc.html', :heading => 'h4', :title => @item[:title] %>

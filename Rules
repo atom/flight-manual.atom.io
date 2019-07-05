@@ -12,6 +12,8 @@ preprocess do
     class_names_for_version = json_items_for_version.map { |item| File.basename(item.identifier, '.json') }
     first_class_name_for_version = class_names_for_version.sort.first
     create_item_with_redirect source: "/api/#{version}/index.md", destination: "/api/#{version}/#{first_class_name_for_version}"
+
+    @items.create('', {:api_version => version.tr('v', '')}, "/search/#{version}.json")
   end
 
   create_item_with_redirect source: '/api/index.md', destination: '/api/latest'
@@ -55,7 +57,7 @@ compile '/api/**/*.json' do
   filter :api_json, class_name: class_name, version: version
   filter :erb
   filter :colorize_syntax, :default_colorizer => :rouge
-  layout '/api-class.html'
+  layout '/api-class.html', :locals => { :version => version.tr('v', '') }
 end
 
 compile '/search.html' do
@@ -63,8 +65,10 @@ compile '/search.html' do
   layout '/toc.html'
 end
 
-compile '/search.json' do
+compile '/search/*.json' do
   filter :erb
+  layout '/search.json'
+  write item.identifier
 end
 
 passthrough '/**/*.jpg'
@@ -72,10 +76,6 @@ passthrough '/**/*.jpeg'
 passthrough '/**/*.png'
 passthrough '/**/*.gif'
 passthrough '/CNAME'
-
-route '/search.json' do
-  '/search.json'
-end
 
 route '**/*' do
   if item.binary?
