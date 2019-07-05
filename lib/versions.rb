@@ -5,10 +5,10 @@ def atom_version_apis(version)
   items.map { |item| JSON.parse(File.read(item.raw_filename)) }
 end
 
-def latest_atom_version_class_names
-  temp_memoize('latest_atom_version_class_names') do
+def atom_version_class_names(version)
+  temp_memoize("atom_#{version}_class_names") do
     @items
-      .find_all("/api/v#{latest_atom_version_number}/*.json")
+      .find_all("/api/v#{version}/*.json")
       .map { |item| File.basename(item.raw_filename, ".json") }
       .sort
   end

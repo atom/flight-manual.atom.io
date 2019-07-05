@@ -13,16 +13,16 @@
   </ul>
 <% end %>
 
-<% klasses = latest_atom_version_class_names() %>
-<% latest = latest_atom_version_number() %>
+<% @version ||= latest_atom_version_number %>
+<% klasses = atom_version_class_names(version) %>
 
 <<%= @heading %>>
-  <a href="/api/v<%= latest %>/">Reference: API</a>
+  <a href="/api/v<%= @version %>/">Reference: API</a>
 </<%= @heading %>>
 <ul>
   <% klasses.each do |name| %>
     <li>
-      <a href="/api/v<%= latest %>/<%= name %>/"><%= name %></a>
+      <a href="/api/v<%= @version %>/<%= name %>/"><%= name %></a>
     </li>
   <% end %>
 </ul>
