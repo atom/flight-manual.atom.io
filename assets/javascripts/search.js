@@ -25,9 +25,9 @@ $(document).ready(function() {
   versionsDropdown.change(function() {
     const version = versionsDropdown.children(":selected").val();
     search.reindex(version, "/search/v" + version + ".json");
-    if (params.has('v')) {
-      params.set('v', version)
-      window.history.pushState(null, null, '?' + params.toString())
+    if (params.has("v")) {
+      params.set("v", version);
+      window.history.pushState(null, null, "?" + params.toString());
     }
   });
 });
@@ -109,13 +109,10 @@ class LunrSearch {
   }
 
   bindQuicksearchKeypress() {
-    let oldValue = this.search_elem.val();
     this.search_elem.bind(
       "keyup",
       debounce(() => {
-        const newValue = this.search_elem.val();
-        this.search(newValue);
-        oldValue = newValue;
+        this.search(this.search_elem.val());
       })
     );
   }
