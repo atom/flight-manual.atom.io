@@ -24,11 +24,20 @@ $(document).ready(function() {
 
   versionsDropdown.change(function() {
     const version = versionsDropdown.children(":selected").val();
-    search.reindex(version, "/search/v" + version + ".json");
-    if (params.has("v")) {
+    if (isSearchPage()) {
       params.set("v", version);
       window.history.pushState(null, null, "?" + params.toString());
+    } else if (isApiDocsPage()) {
+      const components = window.location.pathname.split('/')
+      if (!components[components.length - 1]) {
+        // Pop trailing slash off
+        components.pop()
+      }
+      const page = components.pop()
+      window.location.replace(`/api/v${version}/${page}`)
     }
+
+    search.reindex(version, "/search/v" + version + ".json");
   });
 });
 
@@ -150,8 +159,8 @@ class LunrSearch {
     this.query = query;
     this.searchWorker.postMessage({
       query: query,
-      quicksearch: !this.isSearchPage(),
-      isSearchPage: this.isSearchPage(),
+      quicksearch: !isSearchPage(),
+      isSearchPage: isSearchPage(),
       type: {
         search: true
       }
@@ -210,8 +219,12 @@ class LunrSearch {
       this.search(" ");
     }
   }
+}
 
-  isSearchPage() {
-    return window.location.pathname.match(/\/search(?:\/|$)/);
-  }
+function isSearchPage() {
+  return window.location.pathname.match(/\/search(?:\/|$)/);
+}
+
+function isApiDocsPage() {
+  return window.location.pathname.startsWith('/api/')
 }
