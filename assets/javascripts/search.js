@@ -25,6 +25,10 @@ $(document).ready(function() {
   versionsDropdown.change(function() {
     const version = versionsDropdown.children(":selected").val();
     search.reindex(version, "/search/v" + version + ".json");
+    if (params.has('v')) {
+      params.set('v', version)
+      window.history.pushState(null, null, '?' + params.toString())
+    }
   });
 });
 
