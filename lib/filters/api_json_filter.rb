@@ -233,7 +233,7 @@ class ApiJsonFilter < Nanoc::Filter
       <span
         class="label label-#{visibility_class(data["visibility"])}"
         title="This class is in the #{visibility_class(data["visibility"])} API">
-        #{data["visibility"]}
+        #{visibility(data["visibility"])}
       </span>
     HTML
   end
