@@ -171,6 +171,7 @@ class ApiJsonFilter < Nanoc::Filter
           #{markdown("`#{arg["name"]}`")}
         </td>
         <td>
+          #{arg["isOptional"] ? '<span class="optional">optional</span>' : ''}
           #{markdown(arg["description"])}
         </td>
       </tr>
