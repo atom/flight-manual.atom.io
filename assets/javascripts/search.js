@@ -27,14 +27,6 @@ $(document).ready(function() {
     if (isSearchPage()) {
       params.set("v", version);
       window.history.pushState(null, null, "?" + params.toString());
-    } else if (isApiDocsPage()) {
-      const components = window.location.pathname.split('/')
-      if (!components[components.length - 1]) {
-        // Pop trailing slash off
-        components.pop()
-      }
-      const page = components.pop()
-      window.location.replace(`/api/v${version}/${page}`)
     }
 
     search.reindex(version, "/search/v" + version + ".json");
@@ -223,8 +215,4 @@ class LunrSearch {
 
 function isSearchPage() {
   return window.location.pathname.match(/\/search(?:\/|$)/);
-}
-
-function isApiDocsPage() {
-  return window.location.pathname.startsWith('/api/')
 }
