@@ -23,7 +23,7 @@
   <select id="documents-search-versions" style="display: inline; margin-right: 20px; height: 40px;">
     <% atom_versions.reverse_each do |available_version| %>
       <option <%= available_version == @version ? "selected" : "" %> value="<%= available_version %>">
-        <%= available_version %>
+        v<%= available_version %>
       </option>
     <% end %>
   </select>
