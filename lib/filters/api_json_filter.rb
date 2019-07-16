@@ -328,7 +328,7 @@ class ApiJsonFilter < Nanoc::Filter
       if essential.empty?
         html << '<p class="no-methods-message">This section only has Extended methods.</p>'
       end
-      html << "<h3>Extended</h3>"
+      html << "<h4>Extended Methods</h4>"
       html << extended.map { |func| method(func, "instance") }.join
     end
 
