@@ -304,19 +304,35 @@ class ApiJsonFilter < Nanoc::Filter
   def sections(data)
     section_names = data["sections"].map { |section| section["name"] }.uniq
     section_text = section_names.map do |section_name|
-      class_methods = data["classMethods"].select { |func| func["sectionName"] == section_name }
-      instance_properties = data["instanceProperties"].select { |prop| prop["sectionName"] == section_name }
-      instance_methods = data["instanceMethods"].select { |func| func["sectionName"] == section_name }
+      _class_methods = data["classMethods"].select { |func| func["sectionName"] == section_name }
+      _instance_properties = data["instanceProperties"].select { |prop| prop["sectionName"] == section_name }
+      _instance_methods = data["instanceMethods"].select { |func| func["sectionName"] == section_name }
 
       <<~HTML
         <h2 class="detail-section">#{section_name}</h2>
-        #{class_methods.map { |func| method(func, "class") }.join}
-        #{instance_properties.map { |prop| property(prop, "instance") }.join}
-        #{instance_methods.map { |func| method(func, "instance") }.join}
+        #{_class_methods.map { |func| method(func, "class") }.join}
+        #{_instance_properties.map { |prop| property(prop, "instance") }.join}
+        #{instance_methods(_instance_methods)}
       HTML
     end
 
     section_text.join("\n")
+  end
+
+  def instance_methods(methods)
+    extended, essential = methods.partition { |func| func["visibility"] == "Extended" }
+
+    html = ""
+    html << essential.map { |func| method(func, "instance") }.join
+    if extended.any?
+      if essential.empty?
+        html << "This section only has Extended methods"
+      end
+      html << "<h3>Extended</h3>"
+      html << extended.map { |func| method(func, "instance") }.join
+    end
+
+    html
   end
 
   def run(content, params = {})
