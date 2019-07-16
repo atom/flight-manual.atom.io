@@ -1,5 +1,5 @@
-require 'github/markdown'
 require 'json'
+require 'kramdown'
 
 class ApiJsonFilter < Nanoc::Filter
   identifier :api_json
@@ -34,8 +34,7 @@ class ApiJsonFilter < Nanoc::Filter
 
   def markdown(text)
     text = link_references(text)
-
-    GitHub::Markdown.render(text)
+    Kramdown::Document.new(text, {input: 'GFM'}).to_html
   end
 
   def link_references(text)
@@ -242,7 +241,11 @@ class ApiJsonFilter < Nanoc::Filter
   # ----- Page Sections -----
 
   def class_description(data)
-    markdown(data["description"])
+    <<~HTML
+      <div class="markdown-body">
+        #{markdown(data["description"])}
+      </div>
+    HTML
   end
 
   def class_examples(data)

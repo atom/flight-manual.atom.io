@@ -13,6 +13,8 @@ gem 'html-pipeline-rouge_filter', '~> 1.0'
 gem 'extended-markdown-filter', '~> 0.4'
 gem 'html-pipeline-asciidoc_filter', '~> 1.5'
 gem 'github-markdown', '~> 0.6.9'
+gem 'kramdown'
+gem 'kramdown-parser-gfm'
 
 gem 'activesupport', '~> 4.2'
 gem 'rake'

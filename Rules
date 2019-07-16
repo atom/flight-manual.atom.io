@@ -56,7 +56,6 @@ compile '/api/**/*.json' do
 
   filter :api_json, class_name: class_name, version: version
   filter :erb
-  filter :colorize_syntax, :default_colorizer => :rouge
   layout '/api-class.html', :locals => { :version => version.tr('v', '') }
 end
 
