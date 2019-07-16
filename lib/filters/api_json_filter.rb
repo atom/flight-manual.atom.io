@@ -301,6 +301,22 @@ class ApiJsonFilter < Nanoc::Filter
     HTML
   end
 
+  def instance_methods(methods)
+    extended, essential = methods.partition { |func| func["visibility"] == "Extended" }
+
+    html = ""
+    html << essential.map { |func| method(func, "instance") }.join
+    if extended.any?
+      if essential.empty?
+        html << '<p class="no-methods-message">This section only has Extended methods.</p>'
+      end
+      html << "<h4>Extended Methods</h4>"
+      html << extended.map { |func| method(func, "instance") }.join
+    end
+
+    html
+  end
+
   def sections(data)
     section_names = data["sections"].map { |section| section["name"] }.uniq
     section_text = section_names.map do |section_name|
@@ -317,22 +333,6 @@ class ApiJsonFilter < Nanoc::Filter
     end
 
     section_text.join("\n")
-  end
-
-  def instance_methods(methods)
-    extended, essential = methods.partition { |func| func["visibility"] == "Extended" }
-
-    html = ""
-    html << essential.map { |func| method(func, "instance") }.join
-    if extended.any?
-      if essential.empty?
-        html << '<p class="no-methods-message">This section only has Extended methods.</p>'
-      end
-      html << "<h4>Extended Methods</h4>"
-      html << extended.map { |func| method(func, "instance") }.join
-    end
-
-    html
   end
 
   def run(content, params = {})
