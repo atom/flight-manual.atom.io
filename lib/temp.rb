@@ -1,34 +1,16 @@
 
-def temp_exists?(name)
-  File.exists?(temp_join(name))
-end
-
-def temp_join(name)
-  File.join(Dir.pwd, "tmp", name)
-end
-
 def temp_memoize(key)
-  if temp_exists?(key)
-    temp_read(key)
+  path = File.join(Dir.pwd, "tmp", key)
+
+  if File.exists?(path)
+    File.readlines(path).map(&:strip)
   else
     value = yield
 
-    temp_write(key, value)
+    File.open(path, "w") do |f|
+      f.puts(value)
+    end
 
     value
-  end
-end
-
-def temp_read(name)
-  lines =
-    File.readlines(temp_join(name))
-    .map { |line| line.strip }
-
-  lines.length > 1 ? lines : lines.first
-end
-
-def temp_write(name, value)
-  File.open(temp_join(name), "w") do |f|
-    f.puts(value)
   end
 end
