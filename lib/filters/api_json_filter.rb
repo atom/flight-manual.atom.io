@@ -34,7 +34,7 @@ class ApiJsonFilter < Nanoc::Filter
 
   def markdown(text)
     text = link_references(text)
-    Kramdown::Document.new(text, {input: 'GFM'}).to_html
+    Kramdown::Document.new(text, {input: 'GFM', hard_wrap: false}).to_html
   end
 
   def link_references(text)
