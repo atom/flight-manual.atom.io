@@ -593,6 +593,8 @@ style sheets your package needs to load. If not specified, style sheets in the <
 <code>language-package-name:grammar-used</code> for when a specific language package is used (e.g., <code>my-special-language-javascript:grammar-used</code>)</li>
 </ul>
 </li>
+<li>
+<code>workspaceOpeners</code>: An Array of Strings identifying URIs that trigger your package's activation. For example, say your package registers a custom opener for <code>atom://my-custom-panel</code>. By including that string in <code>workspaceOpeners</code>, your package will defer its activation until that URI is opened.</li>
 </ul>
 
 <p>The <code>package.json</code> in the package we've just generated looks like this currently:</p>
