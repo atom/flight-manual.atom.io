@@ -55,6 +55,7 @@ style sheets your package needs to load. If not specified, style sheets in the `
   * `core:loaded-shell-environment` for when Atom has finished loading the shell environment variables
   * `scope.name:root-scope-used` for when a file is opened from the specified language (e.g. `source.ruby:root-scope-used`)
   * `language-package-name:grammar-used` for when a specific language package is used (e.g., `my-special-language-javascript:grammar-used`)
+* `workspaceOpeners`: An Array of Strings identifying URIs that trigger your package's activation. For example, say your package registers a custom opener for `atom://my-custom-panel`. By including that string in `workspaceOpeners`, your package will defer its activation until that URI is opened.
 
 The `package.json` in the package we've just generated looks like this currently:
 
