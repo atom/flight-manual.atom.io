@@ -54,6 +54,8 @@ One of the cool things that Atom can do out of the box is support multiple curso
 
 {{/mac}}
 
+* <kbd class="platform-mac">Esc</kbd><kbd class="platform-windows">Esc</kbd><kbd class="platform-linux">Esc</kbd> will clear your multiple cursors, and leave you with just the one.
+
 Using these commands you can place cursors in multiple places in your document and effectively execute the same commands in multiple places at once.
 
 ![Using multiple cursors](../../images/multiple-cursors.gif)
