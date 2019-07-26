@@ -8,9 +8,6 @@ var gulp   = require("gulp"),
     uglify = require("gulp-uglify"),
     yaml   = require("js-yaml"),
     connect = require("gulp-connect"),
-
-    exec = require("child_process").exec,
-
     fs   = require("fs"),
     path = require("path");
 
@@ -84,12 +81,36 @@ gulp.task("favicon", function() {
     .pipe(gulp.dest("output/"));
 });
 
+gulp.task("extract_api_docs_data", function (cb) {
+  const destDir = 'content/api';
+  if (!fs.existsSync(destDir)) fs.mkdirSync(destDir);
+
+  const srcDir = 'data/apis-by-version';
+  fs.readdirSync(srcDir).forEach((file) => {
+    if (path.extname(file) != '.json') return;
+    const version = path.basename(file, '.json');
+    const versionDestDir = `${destDir}/${version}`;
+    if (!fs.existsSync(versionDestDir)) fs.mkdirSync(versionDestDir);
+
+    const srcPath = `${srcDir}/${file}`;
+    const docs = JSON.parse(fs.readFileSync(srcPath));
+    for (klass in docs['classes']) {
+      const destPath = `${versionDestDir}/${klass}.json`;
+      const docsForClass = JSON.stringify(docs['classes'][klass]);
+      fs.writeFileSync(destPath, docsForClass);
+    }
+  })
+
+  cb();
+});
+
 gulp.task("nanoc:compile", function (cb) {
-  exec("bundle exec nanoc compile", function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
-  });
+  const { spawn } = require('child_process');
+  const compile = spawn('bundle', ['exec', 'nanoc', 'compile'], { stdio: 'inherit' });
+  compile.on('close', (code) => {
+    console.log(`'bundle exec nanoc compile' exited with code ${code}`);
+    cb();
+  })
 });
 
 gulp.task("server", function() {
@@ -119,5 +140,5 @@ gulp.task("watch:assets", function() {
 
 gulp.task("serve", gulp.parallel("server", "watch:nanoc", "watch:assets"));
 gulp.task("assets", gulp.parallel("css", "sass", "javascript", "octicons", "images", "favicon"));
-gulp.task("build", gulp.parallel("nanoc:compile", "assets"));
+gulp.task("build", gulp.parallel("extract_api_docs_data", "nanoc:compile", "assets"));
 gulp.task("default", gulp.series("build", "serve"));

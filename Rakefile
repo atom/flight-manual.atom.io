@@ -1,7 +1,14 @@
 require "find"
+require 'fileutils'
+require 'json'
 require 'open3'
+require 'open-uri'
 
 task :default => [:test]
+
+task :clean_api do
+  FileUtils.rm_rf('content/api')
+end
 
 desc "Remove the tmp dir"
 task :remove_tmp_dir do
@@ -31,8 +38,9 @@ task :run_proofer do
   # Ignore platform switcher hash URLs
   platform_hash_urls = ['#platform-mac', '#platform-windows', '#platform-linux', '#platform-all']
   HTMLProofer.check_directory("./output", {
+    :file_ignore => [%r(/output/api/)],
     :url_ignore => platform_hash_urls,
-    :typhoeus => { :ssl_verifypeer => false }
+    :typhoeus => { :ssl_verifypeer => false },
   }).run
 end
 
