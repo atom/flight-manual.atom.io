@@ -1,0 +1,2549 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title></title>
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+  </head>
+  <body class="layout-api-class">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="https://blog.atom.io">Blog</a></li>
+      <li><a href="https://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search" style="display: flex; align-items: center;">
+  <select id="documents-search-versions" style="display: inline; margin-right: 20px; height: 40px;">
+    
+      <option  value="1.39.1">
+        v1.39.1
+      </option>
+    
+      <option  value="1.39.0">
+        v1.39.0
+      </option>
+    
+      <option  value="1.38.2">
+        v1.38.2
+      </option>
+    
+      <option  value="1.38.1">
+        v1.38.1
+      </option>
+    
+      <option  value="1.38.0">
+        v1.38.0
+      </option>
+    
+      <option  value="1.37.0">
+        v1.37.0
+      </option>
+    
+      <option  value="1.36.1">
+        v1.36.1
+      </option>
+    
+      <option  value="1.36.0">
+        v1.36.0
+      </option>
+    
+      <option  value="1.35.1">
+        v1.35.1
+      </option>
+    
+      <option  value="1.35.0">
+        v1.35.0
+      </option>
+    
+      <option  value="1.34.0">
+        v1.34.0
+      </option>
+    
+      <option  value="1.33.1">
+        v1.33.1
+      </option>
+    
+      <option  value="1.33.0">
+        v1.33.0
+      </option>
+    
+      <option  value="1.32.2">
+        v1.32.2
+      </option>
+    
+      <option  value="1.32.1">
+        v1.32.1
+      </option>
+    
+      <option  value="1.32.0">
+        v1.32.0
+      </option>
+    
+      <option  value="1.31.2">
+        v1.31.2
+      </option>
+    
+      <option  value="1.31.1">
+        v1.31.1
+      </option>
+    
+      <option  value="1.31.0">
+        v1.31.0
+      </option>
+    
+      <option  value="1.30.0">
+        v1.30.0
+      </option>
+    
+      <option  value="1.29.0">
+        v1.29.0
+      </option>
+    
+      <option  value="1.28.2">
+        v1.28.2
+      </option>
+    
+      <option  value="1.28.1">
+        v1.28.1
+      </option>
+    
+      <option  value="1.28.0">
+        v1.28.0
+      </option>
+    
+      <option  value="1.27.2">
+        v1.27.2
+      </option>
+    
+      <option  value="1.27.1">
+        v1.27.1
+      </option>
+    
+      <option  value="1.27.0">
+        v1.27.0
+      </option>
+    
+      <option  value="1.26.1">
+        v1.26.1
+      </option>
+    
+      <option  value="1.26.0">
+        v1.26.0
+      </option>
+    
+      <option  value="1.25.1">
+        v1.25.1
+      </option>
+    
+      <option  value="1.25.0">
+        v1.25.0
+      </option>
+    
+      <option  value="1.24.1">
+        v1.24.1
+      </option>
+    
+      <option  value="1.24.0">
+        v1.24.0
+      </option>
+    
+      <option  value="1.23.3">
+        v1.23.3
+      </option>
+    
+      <option  value="1.23.2">
+        v1.23.2
+      </option>
+    
+      <option  value="1.23.1">
+        v1.23.1
+      </option>
+    
+      <option  value="1.23.0">
+        v1.23.0
+      </option>
+    
+      <option  value="1.22.1">
+        v1.22.1
+      </option>
+    
+      <option  value="1.22.0">
+        v1.22.0
+      </option>
+    
+      <option  value="1.21.2">
+        v1.21.2
+      </option>
+    
+      <option  value="1.21.1">
+        v1.21.1
+      </option>
+    
+      <option  value="1.21.0">
+        v1.21.0
+      </option>
+    
+      <option  value="1.20.1">
+        v1.20.1
+      </option>
+    
+      <option  value="1.20.0">
+        v1.20.0
+      </option>
+    
+      <option  value="1.19.7">
+        v1.19.7
+      </option>
+    
+      <option  value="1.19.6">
+        v1.19.6
+      </option>
+    
+      <option  value="1.19.5">
+        v1.19.5
+      </option>
+    
+      <option  value="1.19.4">
+        v1.19.4
+      </option>
+    
+      <option  value="1.19.3">
+        v1.19.3
+      </option>
+    
+      <option  value="1.19.2">
+        v1.19.2
+      </option>
+    
+      <option  value="1.19.1">
+        v1.19.1
+      </option>
+    
+      <option  value="1.19.0">
+        v1.19.0
+      </option>
+    
+      <option  value="1.18.0">
+        v1.18.0
+      </option>
+    
+      <option  value="1.17.2">
+        v1.17.2
+      </option>
+    
+      <option  value="1.17.1">
+        v1.17.1
+      </option>
+    
+      <option  value="1.17.0">
+        v1.17.0
+      </option>
+    
+      <option  value="1.16.0">
+        v1.16.0
+      </option>
+    
+      <option  value="1.15.0">
+        v1.15.0
+      </option>
+    
+      <option  value="1.14.4">
+        v1.14.4
+      </option>
+    
+      <option  value="1.14.3">
+        v1.14.3
+      </option>
+    
+      <option  value="1.14.2">
+        v1.14.2
+      </option>
+    
+      <option  value="1.14.1">
+        v1.14.1
+      </option>
+    
+      <option  value="1.14.0">
+        v1.14.0
+      </option>
+    
+      <option  value="1.13.1">
+        v1.13.1
+      </option>
+    
+      <option  value="1.13.0">
+        v1.13.0
+      </option>
+    
+      <option  value="1.12.9">
+        v1.12.9
+      </option>
+    
+      <option  value="1.12.8">
+        v1.12.8
+      </option>
+    
+      <option  value="1.12.7">
+        v1.12.7
+      </option>
+    
+      <option  value="1.12.6">
+        v1.12.6
+      </option>
+    
+      <option  value="1.12.5">
+        v1.12.5
+      </option>
+    
+      <option  value="1.12.4">
+        v1.12.4
+      </option>
+    
+      <option  value="1.12.3">
+        v1.12.3
+      </option>
+    
+      <option  value="1.12.2">
+        v1.12.2
+      </option>
+    
+      <option  value="1.12.1">
+        v1.12.1
+      </option>
+    
+      <option  value="1.12.0">
+        v1.12.0
+      </option>
+    
+      <option  value="1.11.2">
+        v1.11.2
+      </option>
+    
+      <option  value="1.11.1">
+        v1.11.1
+      </option>
+    
+      <option  value="1.11.0">
+        v1.11.0
+      </option>
+    
+      <option  value="1.10.2">
+        v1.10.2
+      </option>
+    
+      <option  value="1.10.1">
+        v1.10.1
+      </option>
+    
+      <option  value="1.10.0">
+        v1.10.0
+      </option>
+    
+      <option  value="1.9.9">
+        v1.9.9
+      </option>
+    
+      <option  value="1.9.8">
+        v1.9.8
+      </option>
+    
+      <option  value="1.9.7">
+        v1.9.7
+      </option>
+    
+      <option  value="1.9.6">
+        v1.9.6
+      </option>
+    
+      <option  value="1.9.5">
+        v1.9.5
+      </option>
+    
+      <option  value="1.9.4">
+        v1.9.4
+      </option>
+    
+      <option  value="1.9.3">
+        v1.9.3
+      </option>
+    
+      <option  value="1.9.2">
+        v1.9.2
+      </option>
+    
+      <option  value="1.9.1">
+        v1.9.1
+      </option>
+    
+      <option  value="1.9.0">
+        v1.9.0
+      </option>
+    
+      <option  value="1.8.0">
+        v1.8.0
+      </option>
+    
+      <option  value="1.7.4">
+        v1.7.4
+      </option>
+    
+      <option  value="1.7.3">
+        v1.7.3
+      </option>
+    
+      <option  value="1.7.2">
+        v1.7.2
+      </option>
+    
+      <option  value="1.7.1">
+        v1.7.1
+      </option>
+    
+      <option  value="1.7.0">
+        v1.7.0
+      </option>
+    
+      <option  value="1.6.2">
+        v1.6.2
+      </option>
+    
+      <option  value="1.6.1">
+        v1.6.1
+      </option>
+    
+      <option  value="1.6.0">
+        v1.6.0
+      </option>
+    
+      <option  value="1.5.4">
+        v1.5.4
+      </option>
+    
+      <option  value="1.5.3">
+        v1.5.3
+      </option>
+    
+      <option  value="1.5.2">
+        v1.5.2
+      </option>
+    
+      <option  value="1.5.1">
+        v1.5.1
+      </option>
+    
+      <option  value="1.5.0">
+        v1.5.0
+      </option>
+    
+      <option  value="1.4.3">
+        v1.4.3
+      </option>
+    
+      <option  value="1.4.2">
+        v1.4.2
+      </option>
+    
+      <option selected value="1.4.1">
+        v1.4.1
+      </option>
+    
+      <option  value="1.4.0">
+        v1.4.0
+      </option>
+    
+      <option  value="1.3.3">
+        v1.3.3
+      </option>
+    
+      <option  value="1.3.2">
+        v1.3.2
+      </option>
+    
+      <option  value="1.3.1">
+        v1.3.1
+      </option>
+    
+      <option  value="1.3.0">
+        v1.3.0
+      </option>
+    
+      <option  value="1.2.4">
+        v1.2.4
+      </option>
+    
+      <option  value="1.2.3">
+        v1.2.3
+      </option>
+    
+      <option  value="1.2.2">
+        v1.2.2
+      </option>
+    
+      <option  value="1.2.1">
+        v1.2.1
+      </option>
+    
+      <option  value="1.2.0">
+        v1.2.0
+      </option>
+    
+      <option  value="1.1.0">
+        v1.1.0
+      </option>
+    
+      <option  value="1.0.19">
+        v1.0.19
+      </option>
+    
+      <option  value="1.0.18">
+        v1.0.18
+      </option>
+    
+      <option  value="1.0.17">
+        v1.0.17
+      </option>
+    
+      <option  value="1.0.16">
+        v1.0.16
+      </option>
+    
+      <option  value="1.0.15">
+        v1.0.15
+      </option>
+    
+      <option  value="1.0.14">
+        v1.0.14
+      </option>
+    
+      <option  value="1.0.13">
+        v1.0.13
+      </option>
+    
+      <option  value="1.0.12">
+        v1.0.12
+      </option>
+    
+      <option  value="1.0.11">
+        v1.0.11
+      </option>
+    
+      <option  value="1.0.10">
+        v1.0.10
+      </option>
+    
+      <option  value="1.0.9">
+        v1.0.9
+      </option>
+    
+      <option  value="1.0.8">
+        v1.0.8
+      </option>
+    
+      <option  value="1.0.7">
+        v1.0.7
+      </option>
+    
+      <option  value="1.0.6">
+        v1.0.6
+      </option>
+    
+      <option  value="1.0.5">
+        v1.0.5
+      </option>
+    
+      <option  value="1.0.4">
+        v1.0.4
+      </option>
+    
+      <option  value="1.0.3">
+        v1.0.3
+      </option>
+    
+      <option  value="1.0.2">
+        v1.0.2
+      </option>
+    
+      <option  value="1.0.1">
+        v1.0.1
+      </option>
+    
+      <option  value="1.0.0">
+        v1.0.0
+      </option>
+    
+  </select>
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get" style="width: 100%"><div style="margin:0;padding:0;display:inline;"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="text" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+  <h4>
+    <a href="/getting-started">Chapter 1: Getting Started</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/why-atom">Why Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/using-atom">Chapter 2: Using Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/snippets">Snippets</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/folding">Folding</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/panes">Panes</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/pending-pane-items">Pending Pane Items</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/grammar">Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/github-package">GitHub package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-active-editor-info">Package: Active Editor Info</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-grammar">Creating a Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-legacy-textmate-grammar">Creating a Legacy TextMate Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/publishing">Publishing</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/iconography">Iconography</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/debugging">Debugging</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/handling-uris">Handling URIs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/hacking-on-atom-core">Hacking on Atom Core</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/contributing-to-official-atom-packages">Contributing to Official Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-fork-of-a-core-package-in-atom-atom">Creating a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/maintaining-a-fork-of-a-core-package-in-atom-atom">Maintaining a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/behind-atom">Chapter 4: Behind Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/how-atom-uses-chromium-snapshots">How Atom Uses Chromium Snapshots</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+
+
+
+
+<h4>
+  <a href="/api/v1.4.1/">Reference: API</a>
+</h4>
+<ul>
+  
+    <li>
+      <a href="/api/v1.4.1/AtomEnvironment/">AtomEnvironment</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/BufferedNodeProcess/">BufferedNodeProcess</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/BufferedProcess/">BufferedProcess</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Clipboard/">Clipboard</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Color/">Color</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/CommandRegistry/">CommandRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/CompositeDisposable/">CompositeDisposable</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Config/">Config</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/ContextMenuManager/">ContextMenuManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Cursor/">Cursor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Decoration/">Decoration</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/DeserializerManager/">DeserializerManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Directory/">Directory</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Disposable/">Disposable</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Emitter/">Emitter</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/File/">File</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/GitRepository/">GitRepository</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Grammar/">Grammar</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/GrammarRegistry/">GrammarRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Gutter/">Gutter</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/KeymapManager/">KeymapManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/LayerDecoration/">LayerDecoration</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/MarkerLayer/">MarkerLayer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/MenuManager/">MenuManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Notification/">Notification</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/NotificationManager/">NotificationManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Package/">Package</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/PackageManager/">PackageManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Pane/">Pane</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Panel/">Panel</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Point/">Point</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Project/">Project</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Range/">Range</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/ScopeDescriptor/">ScopeDescriptor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Selection/">Selection</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/StyleManager/">StyleManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Task/">Task</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/TextBuffer/">TextBuffer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/TextEditor/">TextEditor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/TextEditorMarker/">TextEditorMarker</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/TextEditorMarkerLayer/">TextEditorMarkerLayer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/ThemeManager/">ThemeManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/TooltipManager/">TooltipManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/ViewRegistry/">ViewRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.4.1/Workspace/">Workspace</a>
+    </li>
+  
+</ul>
+
+
+  <h4>
+    <a href="/resources">Appendix A: Resources</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/resources/sections/glossary">Glossary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/faq">Appendix B: FAQ</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/faq/sections/is-atom-open-source">Is Atom open source?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-atom-cost">What does Atom cost?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-platforms-does-atom-run-on">What platforms does Atom run on?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-contribute-to-atom">How can I contribute to Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-atom-collect-usage-data">Why does Atom collect usage data?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/atom-in-the-cloud">Atom in the cloud?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-s-the-difference-between-an-ide-and-an-editor">What's the difference between an IDE and an editor?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-tell-if-subpixel-antialiasing-is-working">How can I tell if subpixel antialiasing is working?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-is-atom-deleting-trailing-whitespace-why-is-there-a-newline-at-the-end-of-the-file">Why is Atom deleting trailing whitespace? Why is there a newline at the end of the file?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-safe-mode-do">What does Safe Mode do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it">I have a question about a specific Atom community package. Where is the best place to ask it?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-using-an-international-keyboard-and-keys-that-use-altgr-or-ctrl-alt-aren-t-working">I’m using an international keyboard and keys that use AltGr or Ctrl+Alt aren’t working</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-julia-what-do-i-do">I’m having a problem with Julia! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-getting-an-error-about-a-self-signed-certificate-what-do-i-do">I’m getting an error about a “self-signed certificate”. What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-platformio-what-do-i-do">I’m having a problem with PlatformIO! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-atom-recognize-a-file-with-extension-x-as-language-y">How do I make Atom recognize a file with extension X as language Y?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-the-welcome-screen-stop-showing-up">How do I make the Welcome screen stop showing up?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-preview-web-page-changes-automatically">How do I preview web page changes automatically?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-accept-input-from-my-program-or-script-when-using-the-script-package">How do I accept input from my program or script when using the script package?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-am-unable-to-update-to-the-latest-version-of-atom-on-macos-how-do-i-fix-this">I am unable to update to the latest version of Atom on macOS. How do I fix this?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-trying-to-change-my-syntax-colors-from-styles-less-but-it-isn-t-working">I’m trying to change my syntax colors from styles.less, but it isn’t working!</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-build-or-execute-code-i-ve-written-in-atom">How do I build or execute code I've written in Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-uninstall-atom-on-macos">How do I uninstall Atom on macOS?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/macos-mojave-font-rendering-change">macOS Mojave font rendering change</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc">Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-turn-on-line-wrap">How do I turn on line wrap?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/the-menu-bar-disappeared-how-do-i-get-it-back">The menu bar disappeared, how do I get it back?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-use-a-newline-in-the-result-of-find-and-replace">How do I use a newline in the result of find and replace?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-is-this-line-on-the-right-in-the-editor-view">What is this line on the right in the editor view?</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/shadow-dom">Appendix C: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix D: Upgrading to 1.0 APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/atom-server-side-apis">Appendix E: Atom server-side APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-package-server-api">Atom package server API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-update-server-api">Atom update server API</a>
+      </li>
+    
+  </ul>
+
+
+        </div>
+
+        <div class="content-column">
+          
+          <h1 class="document-title">
+            <div id="platform-nav">
+  <span class="octicon octicon-device-desktop"></span>
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+  </ul>
+</div>
+
+          </h1>
+
+          <div class="document-content">
+            
+            <h2 class="page-title">
+  Config
+  <span
+  class="label label-essential"
+  title="This class is in the essential API">
+  Essential
+</span>
+
+  <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L305"
+   title="View class source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+</h2>
+<div class="markdown-body">
+  <p>Used to access all of Atom’s configuration details.</p>
+
+<p>An instance of this class is always available as the <code>atom.config</code> global.</p>
+
+<h2 id="getting-and-setting-config-settings">Getting and setting config settings.</h2>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Note that with no value set, ::get returns the setting's default value.</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.myKey'</span><span class="p">)</span> <span class="c1"># -&gt; 'defaultValue'</span>
+
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.myKey'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.myKey'</span><span class="p">)</span> <span class="c1"># -&gt; 'value'</span>
+</code></pre></div></div>
+
+<p>You may want to watch for changes. Use <a href="#instance-observe">::observe</a> to catch changes to the setting.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.myKey'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">observe</span> <span class="s">'my-package.myKey'</span><span class="p">,</span> <span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="c1"># `observe` calls immediately and every time the value is changed</span>
+  <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">'My configuration changed:'</span><span class="p">,</span> <span class="nx">newValue</span>
+</code></pre></div></div>
+
+<p>If you want a notification only when the value changes, use <a href="#instance-onDidChange">::onDidChange</a>.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">onDidChange</span> <span class="s">'my-package.myKey'</span><span class="p">,</span> <span class="p">({</span><span class="nx">newValue</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">})</span> <span class="o">-&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">'My configuration changed:'</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">,</span> <span class="nx">oldValue</span>
+</code></pre></div></div>
+
+<h3 id="value-coercion">Value Coercion</h3>
+
+<p>Config settings each have a type specified by way of a
+<a href="json-schema.org">schema</a>. For example we might an integer setting that only
+allows integers greater than <code>0</code>:</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># When no value has been set, `::get` returns the setting's default value</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.anInt'</span><span class="p">)</span> <span class="c1"># -&gt; 12</span>
+
+<span class="c1"># The string will be coerced to the integer 123</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.anInt'</span><span class="p">,</span> <span class="s">'123'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.anInt'</span><span class="p">)</span> <span class="c1"># -&gt; 123</span>
+
+<span class="c1"># The string will be coerced to an integer, but it must be greater than 0, so is set to 1</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.anInt'</span><span class="p">,</span> <span class="s">'-20'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.anInt'</span><span class="p">)</span> <span class="c1"># -&gt; 1</span>
+</code></pre></div></div>
+
+<h2 id="defining-settings-for-your-package">Defining settings for your package</h2>
+
+<p>Define a schema under a <code>config</code> key in your package main.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="na">exports</span> <span class="o">=</span>
+  <span class="c1"># Your config schema</span>
+  <span class="na">config</span><span class="o">:</span>
+    <span class="na">someInt</span><span class="o">:</span>
+      <span class="na">type</span><span class="o">:</span> <span class="s">'integer'</span>
+      <span class="na">default</span><span class="o">:</span> <span class="mi">23</span>
+      <span class="na">minimum</span><span class="o">:</span> <span class="mi">1</span>
+
+  <span class="na">activate</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+</code></pre></div></div>
+
+<p>See <a href="https://atom.io/docs/latest/hacking-atom-package-word-count">package docs</a> for
+more info.</p>
+
+<h2 id="config-schemas">Config Schemas</h2>
+
+<p>We use <a href="http://json-schema.org">json schema</a> which allows you to define your value’s
+default, the type it should be, etc. A simple example:</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># We want to provide an `enableThing`, and a `thingVolume`</span>
+<span class="na">config</span><span class="o">:</span>
+  <span class="na">enableThing</span><span class="o">:</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'boolean'</span>
+    <span class="na">default</span><span class="o">:</span> <span class="no">false</span>
+  <span class="na">thingVolume</span><span class="o">:</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'integer'</span>
+    <span class="na">default</span><span class="o">:</span> <span class="mi">5</span>
+    <span class="na">minimum</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="na">maximum</span><span class="o">:</span> <span class="mi">11</span>
+</code></pre></div></div>
+
+<p>The type keyword allows for type coercion and validation. If a <code>thingVolume</code> is
+set to a string <code>'10'</code>, it will be coerced into an integer.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.thingVolume'</span><span class="p">,</span> <span class="s">'10'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.thingVolume'</span><span class="p">)</span> <span class="c1"># -&gt; 10</span>
+
+<span class="c1"># It respects the min / max</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.thingVolume'</span><span class="p">,</span> <span class="s">'400'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.thingVolume'</span><span class="p">)</span> <span class="c1"># -&gt; 11</span>
+
+<span class="c1"># If it cannot be coerced, the value will not be set</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.thingVolume'</span><span class="p">,</span> <span class="s">'cats'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.thingVolume'</span><span class="p">)</span> <span class="c1"># -&gt; 11</span>
+</code></pre></div></div>
+
+<h3 id="supported-types">Supported Types</h3>
+
+<p>The <code>type</code> keyword can be a string with any one of the following. You can also
+chain them by specifying multiple in an an array. For example</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="o">:</span>
+  <span class="na">someSetting</span><span class="o">:</span>
+    <span class="na">type</span><span class="o">:</span> <span class="p">[</span><span class="s">'boolean'</span><span class="p">,</span> <span class="s">'integer'</span><span class="p">]</span>
+    <span class="na">default</span><span class="o">:</span> <span class="mi">5</span>
+
+<span class="c1"># Then</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.someSetting'</span><span class="p">,</span> <span class="s">'true'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.someSetting'</span><span class="p">)</span> <span class="c1"># -&gt; true</span>
+
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.someSetting'</span><span class="p">,</span> <span class="s">'12'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.someSetting'</span><span class="p">)</span> <span class="c1"># -&gt; 12</span>
+</code></pre></div></div>
+
+<h4 id="string">string</h4>
+
+<p>Values must be a string.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="o">:</span>
+  <span class="na">someSetting</span><span class="o">:</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'string'</span>
+    <span class="na">default</span><span class="o">:</span> <span class="s">'hello'</span>
+</code></pre></div></div>
+
+<h4 id="integer">integer</h4>
+
+<p>Values will be coerced into integer. Supports the (optional) <code>minimum</code> and
+<code>maximum</code> keys.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">config</span><span class="o">:</span>
+    <span class="na">someSetting</span><span class="o">:</span>
+      <span class="na">type</span><span class="o">:</span> <span class="s">'integer'</span>
+      <span class="na">default</span><span class="o">:</span> <span class="mi">5</span>
+      <span class="na">minimum</span><span class="o">:</span> <span class="mi">1</span>
+      <span class="na">maximum</span><span class="o">:</span> <span class="mi">11</span>
+</code></pre></div></div>
+
+<h4 id="number">number</h4>
+
+<p>Values will be coerced into a number, including real numbers. Supports the
+(optional) <code>minimum</code> and <code>maximum</code> keys.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="o">:</span>
+  <span class="na">someSetting</span><span class="o">:</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'number'</span>
+    <span class="na">default</span><span class="o">:</span> <span class="mf">5.3</span>
+    <span class="na">minimum</span><span class="o">:</span> <span class="mf">1.5</span>
+    <span class="na">maximum</span><span class="o">:</span> <span class="mf">11.5</span>
+</code></pre></div></div>
+
+<h4 id="boolean">boolean</h4>
+
+<p>Values will be coerced into a Boolean. <code>'true'</code> and <code>'false'</code> will be coerced into
+a boolean. Numbers, arrays, objects, and anything else will not be coerced.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="o">:</span>
+  <span class="na">someSetting</span><span class="o">:</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'boolean'</span>
+    <span class="na">default</span><span class="o">:</span> <span class="no">false</span>
+</code></pre></div></div>
+
+<h4 id="array">array</h4>
+
+<p>Value must be an Array. The types of the values can be specified by a
+subschema in the <code>items</code> key.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="o">:</span>
+  <span class="na">someSetting</span><span class="o">:</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'array'</span>
+    <span class="na">default</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="na">items</span><span class="o">:</span>
+      <span class="na">type</span><span class="o">:</span> <span class="s">'integer'</span>
+      <span class="na">minimum</span><span class="o">:</span> <span class="mf">1.5</span>
+      <span class="na">maximum</span><span class="o">:</span> <span class="mf">11.5</span>
+</code></pre></div></div>
+
+<h4 id="object">object</h4>
+
+<p>Value must be an object. This allows you to nest config options. Sub options
+must be under a <code>properties key</code></p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="o">:</span>
+  <span class="na">someSetting</span><span class="o">:</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'object'</span>
+    <span class="na">properties</span><span class="o">:</span>
+      <span class="na">myChildIntOption</span><span class="o">:</span>
+        <span class="na">type</span><span class="o">:</span> <span class="s">'integer'</span>
+        <span class="na">minimum</span><span class="o">:</span> <span class="mf">1.5</span>
+        <span class="na">maximum</span><span class="o">:</span> <span class="mf">11.5</span>
+</code></pre></div></div>
+
+<h4 id="color">color</h4>
+
+<p>Values will be coerced into a <a href="../Color/">Color</a> with <code>red</code>, <code>green</code>, <code>blue</code>, and <code>alpha</code>
+properties that all have numeric values. <code>red</code>, <code>green</code>, <code>blue</code> will be in
+the range 0 to 255 and <code>value</code> will be in the range 0 to 1. Values can be any
+valid CSS color format such as <code>#abc</code>, <code>#abcdef</code>, <code>white</code>,
+<code>rgb(50, 100, 150)</code>, and <code>rgba(25, 75, 125, .75)</code>.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="o">:</span>
+  <span class="na">someSetting</span><span class="o">:</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'color'</span>
+    <span class="na">default</span><span class="o">:</span> <span class="s">'white'</span>
+</code></pre></div></div>
+
+<h3 id="other-supported-keys">Other Supported Keys</h3>
+
+<h4 id="enum">enum</h4>
+
+<p>All types support an <code>enum</code> key. The enum key lets you specify all values
+that the config setting can possibly be. <code>enum</code> <em>must</em> be an array of values
+of your specified type. Schema:</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="o">:</span>
+  <span class="na">someSetting</span><span class="o">:</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'integer'</span>
+    <span class="na">default</span><span class="o">:</span> <span class="mi">4</span>
+    <span class="na">enum</span><span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Usage:</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.someSetting'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.someSetting'</span><span class="p">)</span> <span class="c1"># -&gt; 2</span>
+
+<span class="c1"># will not set values outside of the enum values</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.someSetting'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.someSetting'</span><span class="p">)</span> <span class="c1"># -&gt; 2</span>
+
+<span class="c1"># If it cannot be coerced, the value will not be set</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'my-package.someSetting'</span><span class="p">,</span> <span class="s">'4'</span><span class="p">)</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'my-package.someSetting'</span><span class="p">)</span> <span class="c1"># -&gt; 4</span>
+</code></pre></div></div>
+
+<h4 id="title-and-description">title and description</h4>
+
+<p>The settings view will use the <code>title</code> and <code>description</code> keys to display your
+config setting in a readable way. By default the settings view humanizes your
+config key, so <code>someSetting</code> becomes <code>Some Setting</code>. In some cases, this is
+confusing for users, and a more descriptive title is useful.</p>
+
+<p>Descriptions will be displayed below the title in the settings view.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="o">:</span>
+  <span class="na">someSetting</span><span class="o">:</span>
+    <span class="na">title</span><span class="o">:</span> <span class="s">'Setting Magnitude'</span>
+    <span class="na">description</span><span class="o">:</span> <span class="s">'This will affect the blah and the other blah'</span>
+    <span class="na">type</span><span class="o">:</span> <span class="s">'integer'</span>
+    <span class="na">default</span><span class="o">:</span> <span class="mi">4</span>
+</code></pre></div></div>
+
+<p><strong>Note</strong>: You should strive to be so clear in your naming of the setting that
+you do not need to specify a title or description!</p>
+
+<p>Descriptions allow a subset of
+<a href="https://help.github.com/articles/github-flavored-markdown/">Markdown formatting</a>.
+Specifically, you may use the following in configuration setting descriptions:</p>
+
+<ul>
+  <li><strong>bold</strong> - <code>**bold**</code></li>
+  <li><em>italics</em> - <code>*italics*</code></li>
+  <li><a href="https://atom.io">links</a> - <code>[links](https://atom.io)</code></li>
+  <li><code>code spans</code> - <code>\</code>code spans``</li>
+  <li>line breaks - <code>line breaks&lt;br/&gt;</code></li>
+  <li><del>strikethrough</del> - <code>~~strikethrough~~</code></li>
+</ul>
+
+<h2 id="best-practices">Best practices</h2>
+
+<ul>
+  <li>Don’t depend on (or write to) configuration keys outside of your keypath.</li>
+</ul>
+
+</div>
+<h2 class="detail-section">Config Subscription</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-observe">
+  <h3 class="name">
+    <a href="#instance-observe" class="js-api-name method-signature" name="instance-observe">
+      ::observe<span class="argument-list">(<span class="argument">keyPath</span>, <span class="argument">options</span>, <span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L395"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Add a listener for changes to a given key path. This is different
+than <a href="#instance-onDidChange">::onDidChange</a> in that it will immediately call your callback with the
+current value of the config entry.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<h3 id="examples">Examples</h3>
+
+<p>You might want to be notified when the themes change. We’ll watch
+<code>core.themes</code> for changes</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">observe</span> <span class="s">'core.themes'</span><span class="p">,</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="c1"># do stuff with value</span>
+</code></pre></div></div>
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>keyPath</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> name of the key to observe</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>scope</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="../ScopeDescriptor/">ScopeDescriptor</a> describing a path from the root of the syntax tree to a token. Get one by calling {editor.getLastCursor().getScopeDescriptor()}. See <a href="#instance-get">::get</a> for examples. See <a href="https://atom.io/docs/latest/behind-atom-scoped-settings-scopes-and-scope-descriptors">the scopes docs</a> for more information.</p>
+
+  </td>
+</tr>
+
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to call when the value of the key changes.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>value</code></p>
+
+  </td>
+  <td>
+    
+    <p>the new value of the key</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> with the following keys on which you can call
+<code>.dispose()</code> to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-onDidChange">
+  <h3 class="name">
+    <a href="#instance-onDidChange" class="js-api-name method-signature" name="instance-onDidChange">
+      ::onDidChange<span class="argument-list">(<span class="argument">keyPath</span>, <span class="argument">options</span>, <span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L428"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Add a listener for changes to a given key path. If <code>keyPath</code> is
+not specified, your callback will be called on changes to any key.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>keyPath</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> name of the key to observe. Must be specified if <code>scopeDescriptor</code> is specified.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>scope</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="../ScopeDescriptor/">ScopeDescriptor</a> describing a path from the root of the syntax tree to a token. Get one by calling {editor.getLastCursor().getScopeDescriptor()}. See <a href="#instance-get">::get</a> for examples. See <a href="https://atom.io/docs/latest/behind-atom-scoped-settings-scopes-and-scope-descriptors">the scopes docs</a> for more information.</p>
+
+  </td>
+</tr>
+
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to call when the value of the key changes.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>newValue</code></p>
+
+  </td>
+  <td>
+    
+    <p>the new value of the key</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>oldValue</code></p>
+
+  </td>
+  <td>
+    
+    <p>the prior value of the key.</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> with the following keys on which you can call
+<code>.dispose()</code> to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Managing Settings</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-get">
+  <h3 class="name">
+    <a href="#instance-get" class="js-api-name method-signature" name="instance-get">
+      ::get<span class="argument-list">(<span class="argument">keyPath</span>, <span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L501"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Retrieves the setting for the given key.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<h3 id="examples">Examples</h3>
+
+<p>You might want to know what themes are enabled, so check <code>core.themes</code></p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'core.themes'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>With scope descriptors you can get settings within a specific editor
+scope. For example, you might want to know <code>editor.tabLength</code> for ruby
+files.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="p">[</span><span class="s">'source.ruby'</span><span class="p">])</span> <span class="c1"># =&gt; 2</span>
+</code></pre></div></div>
+
+<p>This setting in ruby files might be different than the global tabLength setting</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">)</span> <span class="c1"># =&gt; 4</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="p">[</span><span class="s">'source.ruby'</span><span class="p">])</span> <span class="c1"># =&gt; 2</span>
+</code></pre></div></div>
+
+<p>You can get the language scope descriptor via
+<a href="../TextEditor/#instance-getRootScopeDescriptor">TextEditor::getRootScopeDescriptor</a>. This will get the setting specifically
+for the editor’s language.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="vi">@</span><span class="na">editor</span><span class="p">.</span><span class="na">getRootScopeDescriptor</span><span class="p">())</span> <span class="c1"># =&gt; 2</span>
+</code></pre></div></div>
+
+<p>Additionally, you can get the setting at the specific cursor position.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">scopeDescriptor</span> <span class="o">=</span> <span class="vi">@</span><span class="na">editor</span><span class="p">.</span><span class="na">getLastCursor</span><span class="p">().</span><span class="na">getScopeDescriptor</span><span class="p">()</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="nx">scopeDescriptor</span><span class="p">)</span> <span class="c1"># =&gt; 2</span>
+</code></pre></div></div>
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>keyPath</code></p>
+
+  </td>
+  <td>
+    
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> name of the key to retrieve.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>sources</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> source names. If provided, only values that were associated with these sources during <a href="#instance-set">::set</a> will be used.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>excludeSources</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> source names. If provided, values that  were associated with these sources during <a href="#instance-set">::set</a> will not be used.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>scope</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="../ScopeDescriptor/">ScopeDescriptor</a> describing a path from the root of the syntax tree to a token. Get one by calling {editor.getLastCursor().getScopeDescriptor()} See <a href="https://atom.io/docs/latest/behind-atom-scoped-settings-scopes-and-scope-descriptors">the scopes docs</a> for more information.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the value from Atom’s default settings, the user’s configuration
+file in the type specified by the configuration schema.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-set">
+  <h3 class="name">
+    <a href="#instance-set" class="js-api-name method-signature" name="instance-set">
+      ::set<span class="argument-list">(<span class="argument">keyPath</span>, <span class="argument">value</span>, <span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L579"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Sets the value for a configuration setting.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>This value is stored in Atom’s internal configuration file.</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>You might want to change the themes programmatically:</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'core.themes'</span><span class="p">,</span> <span class="p">[</span><span class="s">'atom-light-ui'</span><span class="p">,</span> <span class="s">'atom-light-syntax'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>You can also set scoped settings. For example, you might want change the
+<code>editor.tabLength</code> only for ruby files.</p>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">)</span> <span class="c1"># =&gt; 4</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="p">[</span><span class="s">'source.ruby'</span><span class="p">])</span> <span class="c1"># =&gt; 4</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="p">[</span><span class="s">'source.js'</span><span class="p">])</span> <span class="c1"># =&gt; 4</span>
+
+<span class="c1"># Set ruby to 2</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="na">scopeSelector</span><span class="o">:</span> <span class="s">'.source.ruby'</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
+
+<span class="c1"># Notice it's only set to 2 in the case of ruby</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">)</span> <span class="c1"># =&gt; 4</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="p">[</span><span class="s">'source.ruby'</span><span class="p">])</span> <span class="c1"># =&gt; 2</span>
+<span class="nx">atom</span><span class="p">.</span><span class="na">config</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">'editor.tabLength'</span><span class="p">,</span> <span class="na">scope</span><span class="o">:</span> <span class="p">[</span><span class="s">'source.js'</span><span class="p">])</span> <span class="c1"># =&gt; 4</span>
+</code></pre></div></div>
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>keyPath</code></p>
+
+  </td>
+  <td>
+    
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> name of the key.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>value</code></p>
+
+  </td>
+  <td>
+    
+    <p>The value of the setting. Passing <code>undefined</code> will revert the setting to the default value.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>scopeSelector</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>. eg. ‘.source.ruby’ See <a href="https://atom.io/docs/latest/behind-atom-scoped-settings-scopes-and-scope-descriptors">the scopes docs</a> for more information.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>source</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> The name of a file with which the setting is associated. Defaults to the user’s config file.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></p>
+
+<ul>
+  <li><code>true</code> if the value was set.</li>
+  <li><code>false</code> if the value was not able to be coerced to the type specified in the setting’s schema.</li>
+</ul>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-unset">
+  <h3 class="name">
+    <a href="#instance-unset" class="js-api-name method-signature" name="instance-unset">
+      ::unset<span class="argument-list">(<span class="argument">keyPath</span>, <span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L610"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Restore the setting at <code>keyPath</code> to its default value.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>keyPath</code></p>
+
+  </td>
+  <td>
+    
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> name of the key.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>scopeSelector</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>. See <a href="#instance-set">::set</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>source</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>. See <a href="#instance-set">::set</a></p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<h4>Extended Methods</h4><div
+  class="api-entry js-api-entry extended"
+  id="instance-getAll">
+  <h3 class="name">
+    <a href="#instance-getAll" class="js-api-name method-signature" name="instance-getAll">
+      ::getAll<span class="argument-list">(<span class="argument">keyPath</span>, <span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L524"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get all of the values for the given key-path, along with their
+associated scope selector.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>keyPath</code></p>
+
+  </td>
+  <td>
+    
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> name of the key to retrieve</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> see the <code>options</code> argument to <a href="#instance-get">::get</a></p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>s with the following keys:</p>
+
+<ul>
+  <li><code>scopeDescriptor</code> The <a href="../ScopeDescriptor/">ScopeDescriptor</a> with which the value is associated</li>
+  <li><code>value</code> The value for the key-path</li>
+</ul>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-getSources">
+  <h3 class="name">
+    <a href="#instance-getSources" class="js-api-name method-signature" name="instance-getSources">
+      ::getSources<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L634"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of all of the <code>source</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>s with which
+settings have been added via <a href="#instance-set">::set</a>.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-getSchema">
+  <h3 class="name">
+    <a href="#instance-getSchema" class="js-api-name method-signature" name="instance-getSchema">
+      ::getSchema<span class="argument-list">(<span class="argument">keyPath</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L646"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Retrieve the schema for a specific key path. The schema will tell
+you what type the keyPath expects, and other metadata about the config
+option.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>keyPath</code></p>
+
+  </td>
+  <td>
+    
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> name of the key.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> eg. <code>{type: 'integer', default: 23, minimum: 1}</code>.</p>
+
+  </td>
+</tr>
+<tr>
+  <td class="markdown-body">
+    <p>Returns <code>null</code> when the keyPath has no schema specified, but is accessible
+from the root schema.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-getUserConfigPath">
+  <h3 class="name">
+    <a href="#instance-getUserConfigPath" class="js-api-name method-signature" name="instance-getUserConfigPath">
+      ::getUserConfigPath<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L665"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> path to the config file being used.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-transact">
+  <h3 class="name">
+    <a href="#instance-transact" class="js-api-name method-signature" name="instance-transact">
+      ::transact<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.4.1/src/config.coffee#L673"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Suppress calls to handler functions registered with <a href="#instance-onDidChange">::onDidChange</a>
+and <a href="#instance-observe">::observe</a> for the duration of <code>callback</code>. After <code>callback</code> executes,
+handlers will be called once if the value for their key-path has changed.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to execute while suppressing calls to handlers.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+        <li><a href="https://github.com/atom/flight-manual.atom.io/blob/master/CONTRIBUTING.md">Contribute!</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

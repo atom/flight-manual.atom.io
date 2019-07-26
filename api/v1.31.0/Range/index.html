@@ -1,0 +1,2938 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title></title>
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+  </head>
+  <body class="layout-api-class">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="https://blog.atom.io">Blog</a></li>
+      <li><a href="https://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search" style="display: flex; align-items: center;">
+  <select id="documents-search-versions" style="display: inline; margin-right: 20px; height: 40px;">
+    
+      <option  value="1.39.1">
+        v1.39.1
+      </option>
+    
+      <option  value="1.39.0">
+        v1.39.0
+      </option>
+    
+      <option  value="1.38.2">
+        v1.38.2
+      </option>
+    
+      <option  value="1.38.1">
+        v1.38.1
+      </option>
+    
+      <option  value="1.38.0">
+        v1.38.0
+      </option>
+    
+      <option  value="1.37.0">
+        v1.37.0
+      </option>
+    
+      <option  value="1.36.1">
+        v1.36.1
+      </option>
+    
+      <option  value="1.36.0">
+        v1.36.0
+      </option>
+    
+      <option  value="1.35.1">
+        v1.35.1
+      </option>
+    
+      <option  value="1.35.0">
+        v1.35.0
+      </option>
+    
+      <option  value="1.34.0">
+        v1.34.0
+      </option>
+    
+      <option  value="1.33.1">
+        v1.33.1
+      </option>
+    
+      <option  value="1.33.0">
+        v1.33.0
+      </option>
+    
+      <option  value="1.32.2">
+        v1.32.2
+      </option>
+    
+      <option  value="1.32.1">
+        v1.32.1
+      </option>
+    
+      <option  value="1.32.0">
+        v1.32.0
+      </option>
+    
+      <option  value="1.31.2">
+        v1.31.2
+      </option>
+    
+      <option  value="1.31.1">
+        v1.31.1
+      </option>
+    
+      <option selected value="1.31.0">
+        v1.31.0
+      </option>
+    
+      <option  value="1.30.0">
+        v1.30.0
+      </option>
+    
+      <option  value="1.29.0">
+        v1.29.0
+      </option>
+    
+      <option  value="1.28.2">
+        v1.28.2
+      </option>
+    
+      <option  value="1.28.1">
+        v1.28.1
+      </option>
+    
+      <option  value="1.28.0">
+        v1.28.0
+      </option>
+    
+      <option  value="1.27.2">
+        v1.27.2
+      </option>
+    
+      <option  value="1.27.1">
+        v1.27.1
+      </option>
+    
+      <option  value="1.27.0">
+        v1.27.0
+      </option>
+    
+      <option  value="1.26.1">
+        v1.26.1
+      </option>
+    
+      <option  value="1.26.0">
+        v1.26.0
+      </option>
+    
+      <option  value="1.25.1">
+        v1.25.1
+      </option>
+    
+      <option  value="1.25.0">
+        v1.25.0
+      </option>
+    
+      <option  value="1.24.1">
+        v1.24.1
+      </option>
+    
+      <option  value="1.24.0">
+        v1.24.0
+      </option>
+    
+      <option  value="1.23.3">
+        v1.23.3
+      </option>
+    
+      <option  value="1.23.2">
+        v1.23.2
+      </option>
+    
+      <option  value="1.23.1">
+        v1.23.1
+      </option>
+    
+      <option  value="1.23.0">
+        v1.23.0
+      </option>
+    
+      <option  value="1.22.1">
+        v1.22.1
+      </option>
+    
+      <option  value="1.22.0">
+        v1.22.0
+      </option>
+    
+      <option  value="1.21.2">
+        v1.21.2
+      </option>
+    
+      <option  value="1.21.1">
+        v1.21.1
+      </option>
+    
+      <option  value="1.21.0">
+        v1.21.0
+      </option>
+    
+      <option  value="1.20.1">
+        v1.20.1
+      </option>
+    
+      <option  value="1.20.0">
+        v1.20.0
+      </option>
+    
+      <option  value="1.19.7">
+        v1.19.7
+      </option>
+    
+      <option  value="1.19.6">
+        v1.19.6
+      </option>
+    
+      <option  value="1.19.5">
+        v1.19.5
+      </option>
+    
+      <option  value="1.19.4">
+        v1.19.4
+      </option>
+    
+      <option  value="1.19.3">
+        v1.19.3
+      </option>
+    
+      <option  value="1.19.2">
+        v1.19.2
+      </option>
+    
+      <option  value="1.19.1">
+        v1.19.1
+      </option>
+    
+      <option  value="1.19.0">
+        v1.19.0
+      </option>
+    
+      <option  value="1.18.0">
+        v1.18.0
+      </option>
+    
+      <option  value="1.17.2">
+        v1.17.2
+      </option>
+    
+      <option  value="1.17.1">
+        v1.17.1
+      </option>
+    
+      <option  value="1.17.0">
+        v1.17.0
+      </option>
+    
+      <option  value="1.16.0">
+        v1.16.0
+      </option>
+    
+      <option  value="1.15.0">
+        v1.15.0
+      </option>
+    
+      <option  value="1.14.4">
+        v1.14.4
+      </option>
+    
+      <option  value="1.14.3">
+        v1.14.3
+      </option>
+    
+      <option  value="1.14.2">
+        v1.14.2
+      </option>
+    
+      <option  value="1.14.1">
+        v1.14.1
+      </option>
+    
+      <option  value="1.14.0">
+        v1.14.0
+      </option>
+    
+      <option  value="1.13.1">
+        v1.13.1
+      </option>
+    
+      <option  value="1.13.0">
+        v1.13.0
+      </option>
+    
+      <option  value="1.12.9">
+        v1.12.9
+      </option>
+    
+      <option  value="1.12.8">
+        v1.12.8
+      </option>
+    
+      <option  value="1.12.7">
+        v1.12.7
+      </option>
+    
+      <option  value="1.12.6">
+        v1.12.6
+      </option>
+    
+      <option  value="1.12.5">
+        v1.12.5
+      </option>
+    
+      <option  value="1.12.4">
+        v1.12.4
+      </option>
+    
+      <option  value="1.12.3">
+        v1.12.3
+      </option>
+    
+      <option  value="1.12.2">
+        v1.12.2
+      </option>
+    
+      <option  value="1.12.1">
+        v1.12.1
+      </option>
+    
+      <option  value="1.12.0">
+        v1.12.0
+      </option>
+    
+      <option  value="1.11.2">
+        v1.11.2
+      </option>
+    
+      <option  value="1.11.1">
+        v1.11.1
+      </option>
+    
+      <option  value="1.11.0">
+        v1.11.0
+      </option>
+    
+      <option  value="1.10.2">
+        v1.10.2
+      </option>
+    
+      <option  value="1.10.1">
+        v1.10.1
+      </option>
+    
+      <option  value="1.10.0">
+        v1.10.0
+      </option>
+    
+      <option  value="1.9.9">
+        v1.9.9
+      </option>
+    
+      <option  value="1.9.8">
+        v1.9.8
+      </option>
+    
+      <option  value="1.9.7">
+        v1.9.7
+      </option>
+    
+      <option  value="1.9.6">
+        v1.9.6
+      </option>
+    
+      <option  value="1.9.5">
+        v1.9.5
+      </option>
+    
+      <option  value="1.9.4">
+        v1.9.4
+      </option>
+    
+      <option  value="1.9.3">
+        v1.9.3
+      </option>
+    
+      <option  value="1.9.2">
+        v1.9.2
+      </option>
+    
+      <option  value="1.9.1">
+        v1.9.1
+      </option>
+    
+      <option  value="1.9.0">
+        v1.9.0
+      </option>
+    
+      <option  value="1.8.0">
+        v1.8.0
+      </option>
+    
+      <option  value="1.7.4">
+        v1.7.4
+      </option>
+    
+      <option  value="1.7.3">
+        v1.7.3
+      </option>
+    
+      <option  value="1.7.2">
+        v1.7.2
+      </option>
+    
+      <option  value="1.7.1">
+        v1.7.1
+      </option>
+    
+      <option  value="1.7.0">
+        v1.7.0
+      </option>
+    
+      <option  value="1.6.2">
+        v1.6.2
+      </option>
+    
+      <option  value="1.6.1">
+        v1.6.1
+      </option>
+    
+      <option  value="1.6.0">
+        v1.6.0
+      </option>
+    
+      <option  value="1.5.4">
+        v1.5.4
+      </option>
+    
+      <option  value="1.5.3">
+        v1.5.3
+      </option>
+    
+      <option  value="1.5.2">
+        v1.5.2
+      </option>
+    
+      <option  value="1.5.1">
+        v1.5.1
+      </option>
+    
+      <option  value="1.5.0">
+        v1.5.0
+      </option>
+    
+      <option  value="1.4.3">
+        v1.4.3
+      </option>
+    
+      <option  value="1.4.2">
+        v1.4.2
+      </option>
+    
+      <option  value="1.4.1">
+        v1.4.1
+      </option>
+    
+      <option  value="1.4.0">
+        v1.4.0
+      </option>
+    
+      <option  value="1.3.3">
+        v1.3.3
+      </option>
+    
+      <option  value="1.3.2">
+        v1.3.2
+      </option>
+    
+      <option  value="1.3.1">
+        v1.3.1
+      </option>
+    
+      <option  value="1.3.0">
+        v1.3.0
+      </option>
+    
+      <option  value="1.2.4">
+        v1.2.4
+      </option>
+    
+      <option  value="1.2.3">
+        v1.2.3
+      </option>
+    
+      <option  value="1.2.2">
+        v1.2.2
+      </option>
+    
+      <option  value="1.2.1">
+        v1.2.1
+      </option>
+    
+      <option  value="1.2.0">
+        v1.2.0
+      </option>
+    
+      <option  value="1.1.0">
+        v1.1.0
+      </option>
+    
+      <option  value="1.0.19">
+        v1.0.19
+      </option>
+    
+      <option  value="1.0.18">
+        v1.0.18
+      </option>
+    
+      <option  value="1.0.17">
+        v1.0.17
+      </option>
+    
+      <option  value="1.0.16">
+        v1.0.16
+      </option>
+    
+      <option  value="1.0.15">
+        v1.0.15
+      </option>
+    
+      <option  value="1.0.14">
+        v1.0.14
+      </option>
+    
+      <option  value="1.0.13">
+        v1.0.13
+      </option>
+    
+      <option  value="1.0.12">
+        v1.0.12
+      </option>
+    
+      <option  value="1.0.11">
+        v1.0.11
+      </option>
+    
+      <option  value="1.0.10">
+        v1.0.10
+      </option>
+    
+      <option  value="1.0.9">
+        v1.0.9
+      </option>
+    
+      <option  value="1.0.8">
+        v1.0.8
+      </option>
+    
+      <option  value="1.0.7">
+        v1.0.7
+      </option>
+    
+      <option  value="1.0.6">
+        v1.0.6
+      </option>
+    
+      <option  value="1.0.5">
+        v1.0.5
+      </option>
+    
+      <option  value="1.0.4">
+        v1.0.4
+      </option>
+    
+      <option  value="1.0.3">
+        v1.0.3
+      </option>
+    
+      <option  value="1.0.2">
+        v1.0.2
+      </option>
+    
+      <option  value="1.0.1">
+        v1.0.1
+      </option>
+    
+      <option  value="1.0.0">
+        v1.0.0
+      </option>
+    
+  </select>
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get" style="width: 100%"><div style="margin:0;padding:0;display:inline;"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="text" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+  <h4>
+    <a href="/getting-started">Chapter 1: Getting Started</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/why-atom">Why Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/using-atom">Chapter 2: Using Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/snippets">Snippets</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/folding">Folding</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/panes">Panes</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/pending-pane-items">Pending Pane Items</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/grammar">Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/github-package">GitHub package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-active-editor-info">Package: Active Editor Info</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-grammar">Creating a Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-legacy-textmate-grammar">Creating a Legacy TextMate Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/publishing">Publishing</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/iconography">Iconography</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/debugging">Debugging</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/handling-uris">Handling URIs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/hacking-on-atom-core">Hacking on Atom Core</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/contributing-to-official-atom-packages">Contributing to Official Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-fork-of-a-core-package-in-atom-atom">Creating a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/maintaining-a-fork-of-a-core-package-in-atom-atom">Maintaining a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/behind-atom">Chapter 4: Behind Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/how-atom-uses-chromium-snapshots">How Atom Uses Chromium Snapshots</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+
+
+
+
+<h4>
+  <a href="/api/v1.31.0/">Reference: API</a>
+</h4>
+<ul>
+  
+    <li>
+      <a href="/api/v1.31.0/AtomEnvironment/">AtomEnvironment</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/BufferedNodeProcess/">BufferedNodeProcess</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/BufferedProcess/">BufferedProcess</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Clipboard/">Clipboard</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Color/">Color</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/CommandRegistry/">CommandRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/CompositeDisposable/">CompositeDisposable</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Config/">Config</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/ContextMenuManager/">ContextMenuManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Cursor/">Cursor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Decoration/">Decoration</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/DeserializerManager/">DeserializerManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Directory/">Directory</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/DisplayMarker/">DisplayMarker</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/DisplayMarkerLayer/">DisplayMarkerLayer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Disposable/">Disposable</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Dock/">Dock</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Emitter/">Emitter</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/File/">File</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/GitRepository/">GitRepository</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Grammar/">Grammar</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/GrammarRegistry/">GrammarRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Gutter/">Gutter</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/HistoryManager/">HistoryManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/KeymapManager/">KeymapManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/LayerDecoration/">LayerDecoration</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/MarkerLayer/">MarkerLayer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/MenuManager/">MenuManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Notification/">Notification</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/NotificationManager/">NotificationManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Package/">Package</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/PackageManager/">PackageManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Pane/">Pane</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Panel/">Panel</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/PathWatcher/">PathWatcher</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Point/">Point</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Project/">Project</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Range/">Range</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/ScopeDescriptor/">ScopeDescriptor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Selection/">Selection</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/StyleManager/">StyleManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Task/">Task</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/TextBuffer/">TextBuffer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/TextEditor/">TextEditor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/ThemeManager/">ThemeManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/TooltipManager/">TooltipManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/ViewRegistry/">ViewRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/Workspace/">Workspace</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.31.0/WorkspaceCenter/">WorkspaceCenter</a>
+    </li>
+  
+</ul>
+
+
+  <h4>
+    <a href="/resources">Appendix A: Resources</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/resources/sections/glossary">Glossary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/faq">Appendix B: FAQ</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/faq/sections/is-atom-open-source">Is Atom open source?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-atom-cost">What does Atom cost?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-platforms-does-atom-run-on">What platforms does Atom run on?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-contribute-to-atom">How can I contribute to Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-atom-collect-usage-data">Why does Atom collect usage data?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/atom-in-the-cloud">Atom in the cloud?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-s-the-difference-between-an-ide-and-an-editor">What's the difference between an IDE and an editor?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-tell-if-subpixel-antialiasing-is-working">How can I tell if subpixel antialiasing is working?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-is-atom-deleting-trailing-whitespace-why-is-there-a-newline-at-the-end-of-the-file">Why is Atom deleting trailing whitespace? Why is there a newline at the end of the file?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-safe-mode-do">What does Safe Mode do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it">I have a question about a specific Atom community package. Where is the best place to ask it?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-using-an-international-keyboard-and-keys-that-use-altgr-or-ctrl-alt-aren-t-working">I’m using an international keyboard and keys that use AltGr or Ctrl+Alt aren’t working</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-julia-what-do-i-do">I’m having a problem with Julia! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-getting-an-error-about-a-self-signed-certificate-what-do-i-do">I’m getting an error about a “self-signed certificate”. What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-platformio-what-do-i-do">I’m having a problem with PlatformIO! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-atom-recognize-a-file-with-extension-x-as-language-y">How do I make Atom recognize a file with extension X as language Y?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-the-welcome-screen-stop-showing-up">How do I make the Welcome screen stop showing up?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-preview-web-page-changes-automatically">How do I preview web page changes automatically?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-accept-input-from-my-program-or-script-when-using-the-script-package">How do I accept input from my program or script when using the script package?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-am-unable-to-update-to-the-latest-version-of-atom-on-macos-how-do-i-fix-this">I am unable to update to the latest version of Atom on macOS. How do I fix this?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-trying-to-change-my-syntax-colors-from-styles-less-but-it-isn-t-working">I’m trying to change my syntax colors from styles.less, but it isn’t working!</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-build-or-execute-code-i-ve-written-in-atom">How do I build or execute code I've written in Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-uninstall-atom-on-macos">How do I uninstall Atom on macOS?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/macos-mojave-font-rendering-change">macOS Mojave font rendering change</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc">Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-turn-on-line-wrap">How do I turn on line wrap?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/the-menu-bar-disappeared-how-do-i-get-it-back">The menu bar disappeared, how do I get it back?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-use-a-newline-in-the-result-of-find-and-replace">How do I use a newline in the result of find and replace?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-is-this-line-on-the-right-in-the-editor-view">What is this line on the right in the editor view?</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/shadow-dom">Appendix C: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix D: Upgrading to 1.0 APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/atom-server-side-apis">Appendix E: Atom server-side APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-package-server-api">Atom package server API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-update-server-api">Atom update server API</a>
+      </li>
+    
+  </ul>
+
+
+        </div>
+
+        <div class="content-column">
+          
+          <h1 class="document-title">
+            <div id="platform-nav">
+  <span class="octicon octicon-device-desktop"></span>
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+  </ul>
+</div>
+
+          </h1>
+
+          <div class="document-content">
+            
+            <h2 class="page-title">
+  Range
+  <span
+  class="label label-essential"
+  title="This class is in the essential API">
+  Essential
+</span>
+
+  <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L18"
+   title="View class source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+</h2>
+<div class="markdown-body">
+  <p>Represents a region in a buffer in row/column coordinates.</p>
+
+<p>Every public method that takes a range also accepts a <em>range-compatible</em>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>. This means a 2-element array containing <a href="../Point/">Point</a>s or point-compatible
+arrays. So the following are equivalent:</p>
+
+</div>
+<h2 class="section">Examples</h2>
+<div class="document-examples markdown-body">
+  <div class="example">
+  
+  <div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nx">Range</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">new</span> <span class="nx">Range</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="c1"># Range compatible array</span>
+</code></pre></div></div>
+
+</div>
+
+</div>
+<h2 class="detail-section">Properties</h2>
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-start">
+  <h3 class="name">
+    <a href="#instance-start" class="js-api-name" name="instance-start">
+      <span class="operator operator-instance">::</span>start
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L24"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../Point/">Point</a> representing the start of the <a href="../Range/">Range</a>.</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-end">
+  <h3 class="name">
+    <a href="#instance-end" class="js-api-name" name="instance-end">
+      <span class="operator operator-instance">::</span>end
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L27"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../Point/">Point</a> representing the end of the <a href="../Range/">Range</a>.</p>
+
+</div>
+
+  </div>
+</div>
+
+
+
+<h2 class="detail-section">Construction</h2>
+<div
+  class="api-entry js-api-entry essential"
+  id="class-fromObject">
+  <h3 class="name">
+    <a href="#class-fromObject" class="js-api-name method-signature" name="class-fromObject">
+      .fromObject<span class="argument-list">(<span class="argument">object</span>, <span class="argument">copy</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L42"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Convert any range-compatible object to a <a href="../Range/">Range</a>.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>object</code></p>
+
+  </td>
+  <td>
+    
+    <p>This can be an object that’s already a <a href="../Range/">Range</a>, in which case it’s simply returned, or an array containing two <a href="../Point/">Point</a>s or point-compatible arrays.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>copy</code></p>
+
+  </td>
+  <td>
+    
+    <p>An optional boolean indicating whether to force the copying of objects that are already ranges.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns: A <a href="../Range/">Range</a> based on the given object.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-constructor">
+  <h3 class="name">
+    <a href="#instance-constructor" class="js-api-name method-signature" name="instance-constructor">
+      ::constructor<span class="argument-list">(<span class="argument">pointA</span>, <span class="argument">pointB</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L116"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Construct a <a href="../Range/">Range</a> object</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>pointA</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Point/">Point</a> or Point compatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> (default: [0,0])</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>pointB</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Point/">Point</a> or Point compatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> (default: [0,0])</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-copy">
+  <h3 class="name">
+    <a href="#instance-copy" class="js-api-name method-signature" name="instance-copy">
+      ::copy<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L131"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a new range with the same start and end positions.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-negate">
+  <h3 class="name">
+    <a href="#instance-negate" class="js-api-name method-signature" name="instance-negate">
+      ::negate<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L135"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a new range with the start and end positions negated.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Serialization and Deserialization</h2>
+<div
+  class="api-entry js-api-entry essential"
+  id="class-deserialize">
+  <h3 class="name">
+    <a href="#class-deserialize" class="js-api-name method-signature" name="class-deserialize">
+      .deserialize<span class="argument-list">(<span class="argument">array</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L102"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Call this with the result of <a href="../Range/#instance-serialize">Range::serialize</a> to construct a new Range.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>array</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of params to pass to the <a href="#instance-constructor">::constructor</a></p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-serialize">
+  <h3 class="name">
+    <a href="#instance-serialize" class="js-api-name method-signature" name="instance-serialize">
+      ::serialize<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L143"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a plain javascript object representation of the range.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Range Details</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-isEmpty">
+  <h3 class="name">
+    <a href="#instance-isEmpty" class="js-api-name method-signature" name="instance-isEmpty">
+      ::isEmpty<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L153"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Is the start position of this range equal to the end position?</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-isSingleLine">
+  <h3 class="name">
+    <a href="#instance-isSingleLine" class="js-api-name method-signature" name="instance-isSingleLine">
+      ::isSingleLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L158"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether this range starts and ends on
+the same row.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getRowCount">
+  <h3 class="name">
+    <a href="#instance-getRowCount" class="js-api-name method-signature" name="instance-getRowCount">
+      ::getRowCount<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L164"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the number of rows in this range.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getRows">
+  <h3 class="name">
+    <a href="#instance-getRows" class="js-api-name method-signature" name="instance-getRows">
+      ::getRows<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L168"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an array of all rows in the range.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Operations</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-freeze">
+  <h3 class="name">
+    <a href="#instance-freeze" class="js-api-name method-signature" name="instance-freeze">
+      ::freeze<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L179"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Freezes the range and its start and end point so it becomes
+immutable and returns itself.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an immutable version of this <a href="../Range/">Range</a></p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-union">
+  <h3 class="name">
+    <a href="#instance-union" class="js-api-name method-signature" name="instance-union">
+      ::union<span class="argument-list">(<span class="argument">otherRange</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L187"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>otherRange</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Range/">Range</a> or range-compatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a new range that contains this range and the given range.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-translate">
+  <h3 class="name">
+    <a href="#instance-translate" class="js-api-name method-signature" name="instance-translate">
+      ::translate<span class="argument-list">(<span class="argument">startDelta</span>, <span class="argument">endDelta</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L200"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Build and return a new range by translating this range’s start and
+end points by the given delta(s).</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>startDelta</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Point/">Point</a> by which to translate the start of this range.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>endDelta</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p>A <a href="../Point/">Point</a> to by which to translate the end of this range. If omitted, the <code>startDelta</code> will be used instead.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Range/">Range</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-traverse">
+  <h3 class="name">
+    <a href="#instance-traverse" class="js-api-name method-signature" name="instance-traverse">
+      ::traverse<span class="argument-list">(<span class="argument">delta</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L212"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Build and return a new range by traversing this range’s start and
+end points by the given delta.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>See <a href="../Point/#instance-traverse">Point::traverse</a> for details of how traversal differs from translation.</p>
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>delta</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Point/">Point</a> containing the rows and columns to traverse to derive the new range.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Range/">Range</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Comparison</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-compare">
+  <h3 class="name">
+    <a href="#instance-compare" class="js-api-name method-signature" name="instance-compare">
+      ::compare<span class="argument-list">(<span class="argument">otherRange</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L226"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Compare two Ranges</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>otherRange</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Range/">Range</a> or range-compatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns <code>-1</code> if this range starts before the argument or contains it.</p>
+
+  </td>
+</tr>
+<tr>
+  <td class="markdown-body">
+    <p>Returns <code>0</code> if this range is equivalent to the argument.</p>
+
+  </td>
+</tr>
+<tr>
+  <td class="markdown-body">
+    <p>Returns <code>1</code> if this range starts after the argument or is contained by it.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-isEqual">
+  <h3 class="name">
+    <a href="#instance-isEqual" class="js-api-name method-signature" name="instance-isEqual">
+      ::isEqual<span class="argument-list">(<span class="argument">otherRange</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L237"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>otherRange</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Range/">Range</a> or range-compatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether this range has the same start
+and end points as the given <a href="../Range/">Range</a> or range-compatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-coversSameRows">
+  <h3 class="name">
+    <a href="#instance-coversSameRows" class="js-api-name method-signature" name="instance-coversSameRows">
+      ::coversSameRows<span class="argument-list">(<span class="argument">otherRange</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L246"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>otherRange</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Range/">Range</a> or range-compatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether this range starts and ends on
+the same row as the argument.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-intersectsWith">
+  <h3 class="name">
+    <a href="#instance-intersectsWith" class="js-api-name method-signature" name="instance-intersectsWith">
+      ::intersectsWith<span class="argument-list">(<span class="argument">otherRange</span>, <span class="argument">exclusive</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L256"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Determines whether this range intersects with the argument.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>otherRange</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Range/">Range</a> or range-compatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>exclusive</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether to exclude endpoints   when testing for intersection. Defaults to <code>false</code>.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-containsRange">
+  <h3 class="name">
+    <a href="#instance-containsRange" class="js-api-name method-signature" name="instance-containsRange">
+      ::containsRange<span class="argument-list">(<span class="argument">otherRange</span>, <span class="argument">exclusive</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L268"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>otherRange</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Range/">Range</a> or range-compatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>exclusive</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> including that the containment should be exclusive of endpoints. Defaults to false.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether this range contains the given
+range.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-containsPoint">
+  <h3 class="name">
+    <a href="#instance-containsPoint" class="js-api-name method-signature" name="instance-containsPoint">
+      ::containsPoint<span class="argument-list">(<span class="argument">point</span>, <span class="argument">exclusive</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L278"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>point</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Point/">Point</a> or point-compatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>exclusive</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> including that the containment should be exclusive of endpoints. Defaults to false.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether this range contains the given
+point.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-intersectsRow">
+  <h3 class="name">
+    <a href="#instance-intersectsRow" class="js-api-name method-signature" name="instance-intersectsRow">
+      ::intersectsRow<span class="argument-list">(<span class="argument">row</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L289"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>row</code></p>
+
+  </td>
+  <td>
+    
+    <p>Row <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether this range intersects the
+given row <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-intersectsRowRange">
+  <h3 class="name">
+    <a href="#instance-intersectsRowRange" class="js-api-name method-signature" name="instance-intersectsRowRange">
+      ::intersectsRowRange<span class="argument-list">(<span class="argument">startRow</span>, <span class="argument">endRow</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L297"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>startRow</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> start row</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>endRow</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> end row</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether this range intersects the
+row range indicated by the given startRow and endRow <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>s.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Conversion</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-toString">
+  <h3 class="name">
+    <a href="#instance-toString" class="js-api-name method-signature" name="instance-toString">
+      ::toString<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/text-buffer/blob/v13.14.6/src/range.coffee#L317"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a string representation of the range.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+        <li><a href="https://github.com/atom/flight-manual.atom.io/blob/master/CONTRIBUTING.md">Contribute!</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

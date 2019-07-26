@@ -1,0 +1,4449 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title></title>
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+  </head>
+  <body class="layout-api-class">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="https://blog.atom.io">Blog</a></li>
+      <li><a href="https://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search" style="display: flex; align-items: center;">
+  <select id="documents-search-versions" style="display: inline; margin-right: 20px; height: 40px;">
+    
+      <option  value="1.39.1">
+        v1.39.1
+      </option>
+    
+      <option  value="1.39.0">
+        v1.39.0
+      </option>
+    
+      <option  value="1.38.2">
+        v1.38.2
+      </option>
+    
+      <option  value="1.38.1">
+        v1.38.1
+      </option>
+    
+      <option  value="1.38.0">
+        v1.38.0
+      </option>
+    
+      <option  value="1.37.0">
+        v1.37.0
+      </option>
+    
+      <option  value="1.36.1">
+        v1.36.1
+      </option>
+    
+      <option  value="1.36.0">
+        v1.36.0
+      </option>
+    
+      <option  value="1.35.1">
+        v1.35.1
+      </option>
+    
+      <option  value="1.35.0">
+        v1.35.0
+      </option>
+    
+      <option  value="1.34.0">
+        v1.34.0
+      </option>
+    
+      <option  value="1.33.1">
+        v1.33.1
+      </option>
+    
+      <option  value="1.33.0">
+        v1.33.0
+      </option>
+    
+      <option  value="1.32.2">
+        v1.32.2
+      </option>
+    
+      <option  value="1.32.1">
+        v1.32.1
+      </option>
+    
+      <option  value="1.32.0">
+        v1.32.0
+      </option>
+    
+      <option  value="1.31.2">
+        v1.31.2
+      </option>
+    
+      <option  value="1.31.1">
+        v1.31.1
+      </option>
+    
+      <option  value="1.31.0">
+        v1.31.0
+      </option>
+    
+      <option  value="1.30.0">
+        v1.30.0
+      </option>
+    
+      <option  value="1.29.0">
+        v1.29.0
+      </option>
+    
+      <option  value="1.28.2">
+        v1.28.2
+      </option>
+    
+      <option  value="1.28.1">
+        v1.28.1
+      </option>
+    
+      <option  value="1.28.0">
+        v1.28.0
+      </option>
+    
+      <option  value="1.27.2">
+        v1.27.2
+      </option>
+    
+      <option  value="1.27.1">
+        v1.27.1
+      </option>
+    
+      <option  value="1.27.0">
+        v1.27.0
+      </option>
+    
+      <option  value="1.26.1">
+        v1.26.1
+      </option>
+    
+      <option  value="1.26.0">
+        v1.26.0
+      </option>
+    
+      <option  value="1.25.1">
+        v1.25.1
+      </option>
+    
+      <option  value="1.25.0">
+        v1.25.0
+      </option>
+    
+      <option  value="1.24.1">
+        v1.24.1
+      </option>
+    
+      <option  value="1.24.0">
+        v1.24.0
+      </option>
+    
+      <option  value="1.23.3">
+        v1.23.3
+      </option>
+    
+      <option  value="1.23.2">
+        v1.23.2
+      </option>
+    
+      <option  value="1.23.1">
+        v1.23.1
+      </option>
+    
+      <option  value="1.23.0">
+        v1.23.0
+      </option>
+    
+      <option  value="1.22.1">
+        v1.22.1
+      </option>
+    
+      <option  value="1.22.0">
+        v1.22.0
+      </option>
+    
+      <option  value="1.21.2">
+        v1.21.2
+      </option>
+    
+      <option  value="1.21.1">
+        v1.21.1
+      </option>
+    
+      <option  value="1.21.0">
+        v1.21.0
+      </option>
+    
+      <option  value="1.20.1">
+        v1.20.1
+      </option>
+    
+      <option  value="1.20.0">
+        v1.20.0
+      </option>
+    
+      <option  value="1.19.7">
+        v1.19.7
+      </option>
+    
+      <option  value="1.19.6">
+        v1.19.6
+      </option>
+    
+      <option  value="1.19.5">
+        v1.19.5
+      </option>
+    
+      <option  value="1.19.4">
+        v1.19.4
+      </option>
+    
+      <option  value="1.19.3">
+        v1.19.3
+      </option>
+    
+      <option  value="1.19.2">
+        v1.19.2
+      </option>
+    
+      <option  value="1.19.1">
+        v1.19.1
+      </option>
+    
+      <option  value="1.19.0">
+        v1.19.0
+      </option>
+    
+      <option  value="1.18.0">
+        v1.18.0
+      </option>
+    
+      <option  value="1.17.2">
+        v1.17.2
+      </option>
+    
+      <option  value="1.17.1">
+        v1.17.1
+      </option>
+    
+      <option  value="1.17.0">
+        v1.17.0
+      </option>
+    
+      <option  value="1.16.0">
+        v1.16.0
+      </option>
+    
+      <option  value="1.15.0">
+        v1.15.0
+      </option>
+    
+      <option  value="1.14.4">
+        v1.14.4
+      </option>
+    
+      <option  value="1.14.3">
+        v1.14.3
+      </option>
+    
+      <option  value="1.14.2">
+        v1.14.2
+      </option>
+    
+      <option  value="1.14.1">
+        v1.14.1
+      </option>
+    
+      <option  value="1.14.0">
+        v1.14.0
+      </option>
+    
+      <option  value="1.13.1">
+        v1.13.1
+      </option>
+    
+      <option  value="1.13.0">
+        v1.13.0
+      </option>
+    
+      <option  value="1.12.9">
+        v1.12.9
+      </option>
+    
+      <option  value="1.12.8">
+        v1.12.8
+      </option>
+    
+      <option  value="1.12.7">
+        v1.12.7
+      </option>
+    
+      <option  value="1.12.6">
+        v1.12.6
+      </option>
+    
+      <option selected value="1.12.5">
+        v1.12.5
+      </option>
+    
+      <option  value="1.12.4">
+        v1.12.4
+      </option>
+    
+      <option  value="1.12.3">
+        v1.12.3
+      </option>
+    
+      <option  value="1.12.2">
+        v1.12.2
+      </option>
+    
+      <option  value="1.12.1">
+        v1.12.1
+      </option>
+    
+      <option  value="1.12.0">
+        v1.12.0
+      </option>
+    
+      <option  value="1.11.2">
+        v1.11.2
+      </option>
+    
+      <option  value="1.11.1">
+        v1.11.1
+      </option>
+    
+      <option  value="1.11.0">
+        v1.11.0
+      </option>
+    
+      <option  value="1.10.2">
+        v1.10.2
+      </option>
+    
+      <option  value="1.10.1">
+        v1.10.1
+      </option>
+    
+      <option  value="1.10.0">
+        v1.10.0
+      </option>
+    
+      <option  value="1.9.9">
+        v1.9.9
+      </option>
+    
+      <option  value="1.9.8">
+        v1.9.8
+      </option>
+    
+      <option  value="1.9.7">
+        v1.9.7
+      </option>
+    
+      <option  value="1.9.6">
+        v1.9.6
+      </option>
+    
+      <option  value="1.9.5">
+        v1.9.5
+      </option>
+    
+      <option  value="1.9.4">
+        v1.9.4
+      </option>
+    
+      <option  value="1.9.3">
+        v1.9.3
+      </option>
+    
+      <option  value="1.9.2">
+        v1.9.2
+      </option>
+    
+      <option  value="1.9.1">
+        v1.9.1
+      </option>
+    
+      <option  value="1.9.0">
+        v1.9.0
+      </option>
+    
+      <option  value="1.8.0">
+        v1.8.0
+      </option>
+    
+      <option  value="1.7.4">
+        v1.7.4
+      </option>
+    
+      <option  value="1.7.3">
+        v1.7.3
+      </option>
+    
+      <option  value="1.7.2">
+        v1.7.2
+      </option>
+    
+      <option  value="1.7.1">
+        v1.7.1
+      </option>
+    
+      <option  value="1.7.0">
+        v1.7.0
+      </option>
+    
+      <option  value="1.6.2">
+        v1.6.2
+      </option>
+    
+      <option  value="1.6.1">
+        v1.6.1
+      </option>
+    
+      <option  value="1.6.0">
+        v1.6.0
+      </option>
+    
+      <option  value="1.5.4">
+        v1.5.4
+      </option>
+    
+      <option  value="1.5.3">
+        v1.5.3
+      </option>
+    
+      <option  value="1.5.2">
+        v1.5.2
+      </option>
+    
+      <option  value="1.5.1">
+        v1.5.1
+      </option>
+    
+      <option  value="1.5.0">
+        v1.5.0
+      </option>
+    
+      <option  value="1.4.3">
+        v1.4.3
+      </option>
+    
+      <option  value="1.4.2">
+        v1.4.2
+      </option>
+    
+      <option  value="1.4.1">
+        v1.4.1
+      </option>
+    
+      <option  value="1.4.0">
+        v1.4.0
+      </option>
+    
+      <option  value="1.3.3">
+        v1.3.3
+      </option>
+    
+      <option  value="1.3.2">
+        v1.3.2
+      </option>
+    
+      <option  value="1.3.1">
+        v1.3.1
+      </option>
+    
+      <option  value="1.3.0">
+        v1.3.0
+      </option>
+    
+      <option  value="1.2.4">
+        v1.2.4
+      </option>
+    
+      <option  value="1.2.3">
+        v1.2.3
+      </option>
+    
+      <option  value="1.2.2">
+        v1.2.2
+      </option>
+    
+      <option  value="1.2.1">
+        v1.2.1
+      </option>
+    
+      <option  value="1.2.0">
+        v1.2.0
+      </option>
+    
+      <option  value="1.1.0">
+        v1.1.0
+      </option>
+    
+      <option  value="1.0.19">
+        v1.0.19
+      </option>
+    
+      <option  value="1.0.18">
+        v1.0.18
+      </option>
+    
+      <option  value="1.0.17">
+        v1.0.17
+      </option>
+    
+      <option  value="1.0.16">
+        v1.0.16
+      </option>
+    
+      <option  value="1.0.15">
+        v1.0.15
+      </option>
+    
+      <option  value="1.0.14">
+        v1.0.14
+      </option>
+    
+      <option  value="1.0.13">
+        v1.0.13
+      </option>
+    
+      <option  value="1.0.12">
+        v1.0.12
+      </option>
+    
+      <option  value="1.0.11">
+        v1.0.11
+      </option>
+    
+      <option  value="1.0.10">
+        v1.0.10
+      </option>
+    
+      <option  value="1.0.9">
+        v1.0.9
+      </option>
+    
+      <option  value="1.0.8">
+        v1.0.8
+      </option>
+    
+      <option  value="1.0.7">
+        v1.0.7
+      </option>
+    
+      <option  value="1.0.6">
+        v1.0.6
+      </option>
+    
+      <option  value="1.0.5">
+        v1.0.5
+      </option>
+    
+      <option  value="1.0.4">
+        v1.0.4
+      </option>
+    
+      <option  value="1.0.3">
+        v1.0.3
+      </option>
+    
+      <option  value="1.0.2">
+        v1.0.2
+      </option>
+    
+      <option  value="1.0.1">
+        v1.0.1
+      </option>
+    
+      <option  value="1.0.0">
+        v1.0.0
+      </option>
+    
+  </select>
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get" style="width: 100%"><div style="margin:0;padding:0;display:inline;"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="text" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+  <h4>
+    <a href="/getting-started">Chapter 1: Getting Started</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/why-atom">Why Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/using-atom">Chapter 2: Using Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/snippets">Snippets</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/folding">Folding</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/panes">Panes</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/pending-pane-items">Pending Pane Items</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/grammar">Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/github-package">GitHub package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-active-editor-info">Package: Active Editor Info</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-grammar">Creating a Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-legacy-textmate-grammar">Creating a Legacy TextMate Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/publishing">Publishing</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/iconography">Iconography</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/debugging">Debugging</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/handling-uris">Handling URIs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/hacking-on-atom-core">Hacking on Atom Core</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/contributing-to-official-atom-packages">Contributing to Official Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-fork-of-a-core-package-in-atom-atom">Creating a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/maintaining-a-fork-of-a-core-package-in-atom-atom">Maintaining a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/behind-atom">Chapter 4: Behind Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/how-atom-uses-chromium-snapshots">How Atom Uses Chromium Snapshots</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+
+
+
+
+<h4>
+  <a href="/api/v1.12.5/">Reference: API</a>
+</h4>
+<ul>
+  
+    <li>
+      <a href="/api/v1.12.5/AtomEnvironment/">AtomEnvironment</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/BufferedNodeProcess/">BufferedNodeProcess</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/BufferedProcess/">BufferedProcess</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Clipboard/">Clipboard</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Color/">Color</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/CommandRegistry/">CommandRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/CompositeDisposable/">CompositeDisposable</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Config/">Config</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/ContextMenuManager/">ContextMenuManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Cursor/">Cursor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Decoration/">Decoration</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/DeserializerManager/">DeserializerManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Directory/">Directory</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/DisplayMarker/">DisplayMarker</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/DisplayMarkerLayer/">DisplayMarkerLayer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Disposable/">Disposable</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Emitter/">Emitter</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/File/">File</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/GitRepository/">GitRepository</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Grammar/">Grammar</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/GrammarRegistry/">GrammarRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Gutter/">Gutter</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/KeymapManager/">KeymapManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/LayerDecoration/">LayerDecoration</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/MarkerLayer/">MarkerLayer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/MenuManager/">MenuManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Notification/">Notification</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/NotificationManager/">NotificationManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Package/">Package</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/PackageManager/">PackageManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Pane/">Pane</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Panel/">Panel</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Point/">Point</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Project/">Project</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Range/">Range</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/ScopeDescriptor/">ScopeDescriptor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Selection/">Selection</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/StyleManager/">StyleManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Task/">Task</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/TextBuffer/">TextBuffer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/TextEditor/">TextEditor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/ThemeManager/">ThemeManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/TooltipManager/">TooltipManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/View/">View</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/ViewRegistry/">ViewRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.12.5/Workspace/">Workspace</a>
+    </li>
+  
+</ul>
+
+
+  <h4>
+    <a href="/resources">Appendix A: Resources</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/resources/sections/glossary">Glossary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/faq">Appendix B: FAQ</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/faq/sections/is-atom-open-source">Is Atom open source?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-atom-cost">What does Atom cost?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-platforms-does-atom-run-on">What platforms does Atom run on?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-contribute-to-atom">How can I contribute to Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-atom-collect-usage-data">Why does Atom collect usage data?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/atom-in-the-cloud">Atom in the cloud?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-s-the-difference-between-an-ide-and-an-editor">What's the difference between an IDE and an editor?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-tell-if-subpixel-antialiasing-is-working">How can I tell if subpixel antialiasing is working?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-is-atom-deleting-trailing-whitespace-why-is-there-a-newline-at-the-end-of-the-file">Why is Atom deleting trailing whitespace? Why is there a newline at the end of the file?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-safe-mode-do">What does Safe Mode do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it">I have a question about a specific Atom community package. Where is the best place to ask it?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-using-an-international-keyboard-and-keys-that-use-altgr-or-ctrl-alt-aren-t-working">I’m using an international keyboard and keys that use AltGr or Ctrl+Alt aren’t working</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-julia-what-do-i-do">I’m having a problem with Julia! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-getting-an-error-about-a-self-signed-certificate-what-do-i-do">I’m getting an error about a “self-signed certificate”. What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-platformio-what-do-i-do">I’m having a problem with PlatformIO! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-atom-recognize-a-file-with-extension-x-as-language-y">How do I make Atom recognize a file with extension X as language Y?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-the-welcome-screen-stop-showing-up">How do I make the Welcome screen stop showing up?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-preview-web-page-changes-automatically">How do I preview web page changes automatically?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-accept-input-from-my-program-or-script-when-using-the-script-package">How do I accept input from my program or script when using the script package?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-am-unable-to-update-to-the-latest-version-of-atom-on-macos-how-do-i-fix-this">I am unable to update to the latest version of Atom on macOS. How do I fix this?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-trying-to-change-my-syntax-colors-from-styles-less-but-it-isn-t-working">I’m trying to change my syntax colors from styles.less, but it isn’t working!</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-build-or-execute-code-i-ve-written-in-atom">How do I build or execute code I've written in Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-uninstall-atom-on-macos">How do I uninstall Atom on macOS?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/macos-mojave-font-rendering-change">macOS Mojave font rendering change</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc">Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-turn-on-line-wrap">How do I turn on line wrap?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/the-menu-bar-disappeared-how-do-i-get-it-back">The menu bar disappeared, how do I get it back?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-use-a-newline-in-the-result-of-find-and-replace">How do I use a newline in the result of find and replace?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-is-this-line-on-the-right-in-the-editor-view">What is this line on the right in the editor view?</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/shadow-dom">Appendix C: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix D: Upgrading to 1.0 APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/atom-server-side-apis">Appendix E: Atom server-side APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-package-server-api">Atom package server API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-update-server-api">Atom update server API</a>
+      </li>
+    
+  </ul>
+
+
+        </div>
+
+        <div class="content-column">
+          
+          <h1 class="document-title">
+            <div id="platform-nav">
+  <span class="octicon octicon-device-desktop"></span>
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+  </ul>
+</div>
+
+          </h1>
+
+          <div class="document-content">
+            
+            <h2 class="page-title">
+  Selection
+  <span
+  class="label label-extended"
+  title="This class is in the extended API">
+  Extended
+</span>
+
+  <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L10"
+   title="View class source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+</h2>
+<div class="markdown-body">
+  <p>Represents a selection in the <a href="../TextEditor/">TextEditor</a>.</p>
+
+</div>
+<h2 class="detail-section">Event Subscription</h2>
+
+
+<p class="no-methods-message">This section only has Extended methods.</p><h4>Extended Methods</h4><div
+  class="api-entry js-api-entry extended"
+  id="instance-onDidChangeRange">
+  <h3 class="name">
+    <a href="#instance-onDidChangeRange" class="js-api-name method-signature" name="instance-onDidChangeRange">
+      ::onDidChangeRange<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L48"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Calls your <code>callback</code> when the selection was moved.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>oldBufferRange</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Range/">Range</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>oldScreenRange</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Range/">Range</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>newBufferRange</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Range/">Range</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>newScreenRange</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Range/">Range</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>selection</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Selection/">Selection</a> that triggered the event</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-onDidDestroy">
+  <h3 class="name">
+    <a href="#instance-onDidDestroy" class="js-api-name method-signature" name="instance-onDidDestroy">
+      ::onDidDestroy<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L56"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Calls your <code>callback</code> when the selection was destroyed</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Managing the selection range</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getScreenRange">
+  <h3 class="name">
+    <a href="#instance-getScreenRange" class="js-api-name method-signature" name="instance-getScreenRange">
+      ::getScreenRange<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L64"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the screen <a href="../Range/">Range</a> for the selection.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-setScreenRange">
+  <h3 class="name">
+    <a href="#instance-setScreenRange" class="js-api-name method-signature" name="instance-setScreenRange">
+      ::setScreenRange<span class="argument-list">(<span class="argument">screenRange</span>, <span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L71"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Modifies the screen range for the selection.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>screenRange</code></p>
+
+  </td>
+  <td>
+    
+    <p>The new <a href="../Range/">Range</a> to use.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> options matching those found in <a href="#instance-setBufferRange">::setBufferRange</a>.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getBufferRange">
+  <h3 class="name">
+    <a href="#instance-getBufferRange" class="js-api-name method-signature" name="instance-getBufferRange">
+      ::getBufferRange<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L75"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the buffer <a href="../Range/">Range</a> for the selection.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-setBufferRange">
+  <h3 class="name">
+    <a href="#instance-setBufferRange" class="js-api-name method-signature" name="instance-setBufferRange">
+      ::setBufferRange<span class="argument-list">(<span class="argument">bufferRange</span>, <span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L87"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Modifies the buffer <a href="../Range/">Range</a> for the selection.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>bufferRange</code></p>
+
+  </td>
+  <td>
+    
+    <p>The new <a href="../Range/">Range</a> to select.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>preserveFolds</code></p>
+
+  </td>
+  <td>
+    
+    <p>if <code>true</code>, the fold settings are preserved after the selection moves.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>autoscroll</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether to autoscroll to the new range. Defaults to <code>true</code> if this is the most recently added selection, <code>false</code> otherwise.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getBufferRowRange">
+  <h3 class="name">
+    <a href="#instance-getBufferRowRange" class="js-api-name method-signature" name="instance-getBufferRowRange">
+      ::getBufferRowRange<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L102"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the starting and ending buffer rows the selection is
+highlighting.</p>
+
+  </td>
+</tr>
+<tr>
+  <td class="markdown-body">
+    <p>Returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of two <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>s: the starting row, and the ending row.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Info about the selection</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-isEmpty">
+  <h3 class="name">
+    <a href="#instance-isEmpty" class="js-api-name method-signature" name="instance-isEmpty">
+      ::isEmpty<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L126"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Determines if the selection contains anything.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-isReversed">
+  <h3 class="name">
+    <a href="#instance-isReversed" class="js-api-name method-signature" name="instance-isReversed">
+      ::isReversed<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L133"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Determines if the ending position of a marker is greater than the
+starting position.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>This can happen when, for example, you highlight text “up” in a <a href="../TextBuffer/">TextBuffer</a>.</p>
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-isSingleScreenLine">
+  <h3 class="name">
+    <a href="#instance-isSingleScreenLine" class="js-api-name method-signature" name="instance-isSingleScreenLine">
+      ::isSingleScreenLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L137"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns whether the selection is a single line or not.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getText">
+  <h3 class="name">
+    <a href="#instance-getText" class="js-api-name method-signature" name="instance-getText">
+      ::getText<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L141"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the text in the selection.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-intersectsBufferRange">
+  <h3 class="name">
+    <a href="#instance-intersectsBufferRange" class="js-api-name method-signature" name="instance-intersectsBufferRange">
+      ::intersectsBufferRange<span class="argument-list">(<span class="argument">bufferRange</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L149"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Identifies if a selection intersects with a given buffer range.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>bufferRange</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Range/">Range</a> to check against.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-intersectsWith">
+  <h3 class="name">
+    <a href="#instance-intersectsWith" class="js-api-name method-signature" name="instance-intersectsWith">
+      ::intersectsWith<span class="argument-list">(<span class="argument">otherSelection</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L163"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Identifies if a selection intersects with another selection.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>otherSelection</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Selection/">Selection</a> to check against.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Modifying the selected range</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-clear">
+  <h3 class="name">
+    <a href="#instance-clear" class="js-api-name method-signature" name="instance-clear">
+      ::clear<span class="argument-list">(<span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L176"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Clears the selection, moving the marker to the head.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the following keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>autoscroll</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether to autoscroll to the new range. Defaults to <code>true</code> if this is the most recently added selection, <code>false</code> otherwise.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToScreenPosition">
+  <h3 class="name">
+    <a href="#instance-selectToScreenPosition" class="js-api-name method-signature" name="instance-selectToScreenPosition">
+      ::selectToScreenPosition<span class="argument-list">(<span class="argument">position</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L186"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects the text from the current cursor position to a given screen
+position.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>position</code></p>
+
+  </td>
+  <td>
+    
+    <p>An instance of <a href="../Point/">Point</a>, with a given <code>row</code> and <code>column</code>.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToBufferPosition">
+  <h3 class="name">
+    <a href="#instance-selectToBufferPosition" class="js-api-name method-signature" name="instance-selectToBufferPosition">
+      ::selectToBufferPosition<span class="argument-list">(<span class="argument">position</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L207"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects the text from the current cursor position to a given buffer
+position.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>position</code></p>
+
+  </td>
+  <td>
+    
+    <p>An instance of <a href="../Point/">Point</a>, with a given <code>row</code> and <code>column</code>.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectRight">
+  <h3 class="name">
+    <a href="#instance-selectRight" class="js-api-name method-signature" name="instance-selectRight">
+      ::selectRight<span class="argument-list">(<span class="argument">columnCount</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L213"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects the text one position right of the cursor.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>columnCount</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> number of columns to select (default: 1)</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectLeft">
+  <h3 class="name">
+    <a href="#instance-selectLeft" class="js-api-name method-signature" name="instance-selectLeft">
+      ::selectLeft<span class="argument-list">(<span class="argument">columnCount</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L219"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects the text one position left of the cursor.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>columnCount</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> number of columns to select (default: 1)</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectUp">
+  <h3 class="name">
+    <a href="#instance-selectUp" class="js-api-name method-signature" name="instance-selectUp">
+      ::selectUp<span class="argument-list">(<span class="argument">rowCount</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L225"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text one position above the cursor.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>rowCount</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> number of rows to select (default: 1)</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectDown">
+  <h3 class="name">
+    <a href="#instance-selectDown" class="js-api-name method-signature" name="instance-selectDown">
+      ::selectDown<span class="argument-list">(<span class="argument">rowCount</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L231"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text one position below the cursor.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>rowCount</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> number of rows to select (default: 1)</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToTop">
+  <h3 class="name">
+    <a href="#instance-selectToTop" class="js-api-name method-signature" name="instance-selectToTop">
+      ::selectToTop<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L236"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the top of
+the buffer.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToBottom">
+  <h3 class="name">
+    <a href="#instance-selectToBottom" class="js-api-name method-signature" name="instance-selectToBottom">
+      ::selectToBottom<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L241"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the bottom
+of the buffer.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectAll">
+  <h3 class="name">
+    <a href="#instance-selectAll" class="js-api-name method-signature" name="instance-selectAll">
+      ::selectAll<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L245"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text in the buffer.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToBeginningOfLine">
+  <h3 class="name">
+    <a href="#instance-selectToBeginningOfLine" class="js-api-name method-signature" name="instance-selectToBeginningOfLine">
+      ::selectToBeginningOfLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L250"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the
+beginning of the line.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToFirstCharacterOfLine">
+  <h3 class="name">
+    <a href="#instance-selectToFirstCharacterOfLine" class="js-api-name method-signature" name="instance-selectToFirstCharacterOfLine">
+      ::selectToFirstCharacterOfLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L255"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the first
+character of the line.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToEndOfLine">
+  <h3 class="name">
+    <a href="#instance-selectToEndOfLine" class="js-api-name method-signature" name="instance-selectToEndOfLine">
+      ::selectToEndOfLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L260"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the end of
+the screen line.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToEndOfBufferLine">
+  <h3 class="name">
+    <a href="#instance-selectToEndOfBufferLine" class="js-api-name method-signature" name="instance-selectToEndOfBufferLine">
+      ::selectToEndOfBufferLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L265"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the end of
+the buffer line.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToBeginningOfWord">
+  <h3 class="name">
+    <a href="#instance-selectToBeginningOfWord" class="js-api-name method-signature" name="instance-selectToBeginningOfWord">
+      ::selectToBeginningOfWord<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L270"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the
+beginning of the word.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToEndOfWord">
+  <h3 class="name">
+    <a href="#instance-selectToEndOfWord" class="js-api-name method-signature" name="instance-selectToEndOfWord">
+      ::selectToEndOfWord<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L275"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the end of
+the word.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToBeginningOfNextWord">
+  <h3 class="name">
+    <a href="#instance-selectToBeginningOfNextWord" class="js-api-name method-signature" name="instance-selectToBeginningOfNextWord">
+      ::selectToBeginningOfNextWord<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L280"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the
+beginning of the next word.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToPreviousWordBoundary">
+  <h3 class="name">
+    <a href="#instance-selectToPreviousWordBoundary" class="js-api-name method-signature" name="instance-selectToPreviousWordBoundary">
+      ::selectToPreviousWordBoundary<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L284"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects text to the previous word boundary.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToNextWordBoundary">
+  <h3 class="name">
+    <a href="#instance-selectToNextWordBoundary" class="js-api-name method-signature" name="instance-selectToNextWordBoundary">
+      ::selectToNextWordBoundary<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L288"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects text to the next word boundary.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToPreviousSubwordBoundary">
+  <h3 class="name">
+    <a href="#instance-selectToPreviousSubwordBoundary" class="js-api-name method-signature" name="instance-selectToPreviousSubwordBoundary">
+      ::selectToPreviousSubwordBoundary<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L292"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects text to the previous subword boundary.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToNextSubwordBoundary">
+  <h3 class="name">
+    <a href="#instance-selectToNextSubwordBoundary" class="js-api-name method-signature" name="instance-selectToNextSubwordBoundary">
+      ::selectToNextSubwordBoundary<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L296"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects text to the next subword boundary.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToBeginningOfNextParagraph">
+  <h3 class="name">
+    <a href="#instance-selectToBeginningOfNextParagraph" class="js-api-name method-signature" name="instance-selectToBeginningOfNextParagraph">
+      ::selectToBeginningOfNextParagraph<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L301"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the
+beginning of the next paragraph.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectToBeginningOfPreviousParagraph">
+  <h3 class="name">
+    <a href="#instance-selectToBeginningOfPreviousParagraph" class="js-api-name method-signature" name="instance-selectToBeginningOfPreviousParagraph">
+      ::selectToBeginningOfPreviousParagraph<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L306"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects all the text from the current cursor position to the
+beginning of the previous paragraph.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectWord">
+  <h3 class="name">
+    <a href="#instance-selectWord" class="js-api-name method-signature" name="instance-selectWord">
+      ::selectWord<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L312"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Modifies the selection to encompass the current word.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Range/">Range</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-expandOverWord">
+  <h3 class="name">
+    <a href="#instance-expandOverWord" class="js-api-name method-signature" name="instance-expandOverWord">
+      ::expandOverWord<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L323"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Expands the newest selection to include the entire word on which
+the cursors rests.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-selectLine">
+  <h3 class="name">
+    <a href="#instance-selectLine" class="js-api-name method-signature" name="instance-selectLine">
+      ::selectLine<span class="argument-list">(<span class="argument">row</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L330"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Selects an entire line in the buffer.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>row</code></p>
+
+  </td>
+  <td>
+    
+    <p>The line <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> to select (default: the row of the cursor).</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-expandOverLine">
+  <h3 class="name">
+    <a href="#instance-expandOverLine" class="js-api-name method-signature" name="instance-expandOverLine">
+      ::expandOverLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L346"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Expands the newest selection to include the entire line on which
+the cursor currently rests.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>It also includes the newline character.</p>
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+
+
+<h2 class="detail-section">Modifying the selected text</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-insertText">
+  <h3 class="name">
+    <a href="#instance-insertText" class="js-api-name method-signature" name="instance-insertText">
+      ::insertText<span class="argument-list">(<span class="argument">text</span>, <span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L366"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Replaces text at the current selection.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>text</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> representing the text to add</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>select</code></p>
+
+  </td>
+  <td>
+    
+    <p>if <code>true</code>, selects the newly added text.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>autoIndent</code></p>
+
+  </td>
+  <td>
+    
+    <p>if <code>true</code>, indents all inserted text appropriately.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>autoIndentNewline</code></p>
+
+  </td>
+  <td>
+    
+    <p>if <code>true</code>, indent newline appropriately.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>autoDecreaseIndent</code></p>
+
+  </td>
+  <td>
+    
+    <p>if <code>true</code>, decreases indent level appropriately (for example, when a closing bracket is inserted).</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>normalizeLineEndings</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> (default: true)</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>undo</code></p>
+
+  </td>
+  <td>
+    
+    <p>if <code>skip</code>, skips the undo stack for this operation.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-backspace">
+  <h3 class="name">
+    <a href="#instance-backspace" class="js-api-name method-signature" name="instance-backspace">
+      ::backspace<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L412"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes the first character before the selection if the selection
+is empty otherwise it deletes the selection.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deleteToPreviousWordBoundary">
+  <h3 class="name">
+    <a href="#instance-deleteToPreviousWordBoundary" class="js-api-name method-signature" name="instance-deleteToPreviousWordBoundary">
+      ::deleteToPreviousWordBoundary<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L419"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes the selection or, if nothing is selected, then all
+characters from the start of the selection back to the previous word
+boundary.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deleteToNextWordBoundary">
+  <h3 class="name">
+    <a href="#instance-deleteToNextWordBoundary" class="js-api-name method-signature" name="instance-deleteToNextWordBoundary">
+      ::deleteToNextWordBoundary<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L426"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes the selection or, if nothing is selected, then all
+characters from the start of the selection up to the next word
+boundary.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deleteToBeginningOfWord">
+  <h3 class="name">
+    <a href="#instance-deleteToBeginningOfWord" class="js-api-name method-signature" name="instance-deleteToBeginningOfWord">
+      ::deleteToBeginningOfWord<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L432"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes from the start of the selection to the beginning of the
+current word if the selection is empty otherwise it deletes the selection.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deleteToBeginningOfLine">
+  <h3 class="name">
+    <a href="#instance-deleteToBeginningOfLine" class="js-api-name method-signature" name="instance-deleteToBeginningOfLine">
+      ::deleteToBeginningOfLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L438"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes from the beginning of the line which the selection begins on
+all the way through to the end of the selection.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-delete">
+  <h3 class="name">
+    <a href="#instance-delete" class="js-api-name method-signature" name="instance-delete">
+      ::delete<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L447"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes the selection or the next character after the start of the
+selection if the selection is empty.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deleteToEndOfLine">
+  <h3 class="name">
+    <a href="#instance-deleteToEndOfLine" class="js-api-name method-signature" name="instance-deleteToEndOfLine">
+      ::deleteToEndOfLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L455"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>If the selection is empty, removes all text from the cursor to the
+end of the line. If the cursor is already at the end of the line, it
+removes the following newline. If the selection isn’t empty, only deletes
+the contents of the selection.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deleteToEndOfWord">
+  <h3 class="name">
+    <a href="#instance-deleteToEndOfWord" class="js-api-name method-signature" name="instance-deleteToEndOfWord">
+      ::deleteToEndOfWord<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L462"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes the selection or all characters from the start of the
+selection to the end of the current word if nothing is selected.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deleteToBeginningOfSubword">
+  <h3 class="name">
+    <a href="#instance-deleteToBeginningOfSubword" class="js-api-name method-signature" name="instance-deleteToBeginningOfSubword">
+      ::deleteToBeginningOfSubword<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L468"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes the selection or all characters from the start of the
+selection to the end of the current word if nothing is selected.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deleteToEndOfSubword">
+  <h3 class="name">
+    <a href="#instance-deleteToEndOfSubword" class="js-api-name method-signature" name="instance-deleteToEndOfSubword">
+      ::deleteToEndOfSubword<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L474"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes the selection or all characters from the start of the
+selection to the end of the current word if nothing is selected.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deleteSelectedText">
+  <h3 class="name">
+    <a href="#instance-deleteSelectedText" class="js-api-name method-signature" name="instance-deleteSelectedText">
+      ::deleteSelectedText<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L479"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes only the selected text.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deleteLine">
+  <h3 class="name">
+    <a href="#instance-deleteLine" class="js-api-name method-signature" name="instance-deleteLine">
+      ::deleteLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L487"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes the line at the beginning of the selection if the selection
+is empty unless the selection spans multiple lines in which case all lines
+are removed.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-joinLines">
+  <h3 class="name">
+    <a href="#instance-joinLines" class="js-api-name method-signature" name="instance-joinLines">
+      ::joinLines<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L507"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Joins the current line with the one below it. Lines will
+be separated by a single space.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>If there selection spans more than one line, all the lines are joined together.</p>
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-outdentSelectedRows">
+  <h3 class="name">
+    <a href="#instance-outdentSelectedRows" class="js-api-name method-signature" name="instance-outdentSelectedRows">
+      ::outdentSelectedRows<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L551"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Removes one level of indent from the currently selected rows.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-autoIndentSelectedRows">
+  <h3 class="name">
+    <a href="#instance-autoIndentSelectedRows" class="js-api-name method-signature" name="instance-autoIndentSelectedRows">
+      ::autoIndentSelectedRows<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L562"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Sets the indentation level of all selected rows to values suggested
+by the relevant grammars.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-toggleLineComments">
+  <h3 class="name">
+    <a href="#instance-toggleLineComments" class="js-api-name method-signature" name="instance-toggleLineComments">
+      ::toggleLineComments<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L570"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Wraps the selected lines in comments if they aren’t currently part
+of a comment.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>Removes the comment if they are currently wrapped in a comment.</p>
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-cutToEndOfLine">
+  <h3 class="name">
+    <a href="#instance-cutToEndOfLine" class="js-api-name method-signature" name="instance-cutToEndOfLine">
+      ::cutToEndOfLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L574"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Cuts the selection until the end of the screen line.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-cutToEndOfBufferLine">
+  <h3 class="name">
+    <a href="#instance-cutToEndOfBufferLine" class="js-api-name method-signature" name="instance-cutToEndOfBufferLine">
+      ::cutToEndOfBufferLine<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L579"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Cuts the selection until the end of the buffer line.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-cut">
+  <h3 class="name">
+    <a href="#instance-cut" class="js-api-name method-signature" name="instance-cut">
+      ::cut<span class="argument-list">(<span class="argument">maintainClipboard</span>, <span class="argument">fullLine</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L587"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Copies the selection to the clipboard and then deletes it.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>maintainClipboard</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> (default: false) See <a href="#instance-copy">::copy</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>fullLine</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> (default: false) See <a href="#instance-copy">::copy</a></p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-copy">
+  <h3 class="name">
+    <a href="#instance-copy" class="js-api-name method-signature" name="instance-copy">
+      ::copy<span class="argument-list">(<span class="argument">maintainClipboard</span>, <span class="argument">fullLine</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L600"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Copies the current selection to the clipboard.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>maintainClipboard</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> if <code>true</code>, a specific metadata property is created to store each content copied to the clipboard. The clipboard <code>text</code> still contains the concatenation of the clipboard with the current selection. (default: false)</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>fullLine</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> if <code>true</code>, the copied text will always be pasted at the beginning of the line containing the cursor, regardless of the cursor’s horizontal position. (default: false)</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-fold">
+  <h3 class="name">
+    <a href="#instance-fold" class="js-api-name method-signature" name="instance-fold">
+      ::fold<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L629"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Creates a fold containing the current selection.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-indentSelectedRows">
+  <h3 class="name">
+    <a href="#instance-indentSelectedRows" class="js-api-name method-signature" name="instance-indentSelectedRows">
+      ::indentSelectedRows<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L675"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>If the selection spans multiple rows, indent all of them.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+
+
+<h2 class="detail-section">Managing multiple selections</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-addSelectionBelow">
+  <h3 class="name">
+    <a href="#instance-addSelectionBelow" class="js-api-name method-signature" name="instance-addSelectionBelow">
+      ::addSelectionBelow<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L686"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Moves the selection down one row.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-addSelectionAbove">
+  <h3 class="name">
+    <a href="#instance-addSelectionAbove" class="js-api-name method-signature" name="instance-addSelectionAbove">
+      ::addSelectionAbove<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L707"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Moves the selection up one row.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-merge">
+  <h3 class="name">
+    <a href="#instance-merge" class="js-api-name method-signature" name="instance-merge">
+      ::merge<span class="argument-list">(<span class="argument">otherSelection</span>, <span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L732"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Combines the given selection into this selection and then destroys
+the given selection.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>otherSelection</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Selection/">Selection</a> to merge with.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> options matching those found in <a href="#instance-setBufferRange">::setBufferRange</a>.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+
+
+<h2 class="detail-section">Comparing to other selections</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-compare">
+  <h3 class="name">
+    <a href="#instance-compare" class="js-api-name method-signature" name="instance-compare">
+      ::compare<span class="argument-list">(<span class="argument">otherSelection</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.12.5/src/selection.coffee#L754"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Compare this selection’s buffer range to another selection’s buffer
+range.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>See <a href="../Range/#instance-compare">Range::compare</a> for more details.</p>
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>otherSelection</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Selection/">Selection</a> to compare against</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+        <li><a href="https://github.com/atom/flight-manual.atom.io/blob/master/CONTRIBUTING.md">Contribute!</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

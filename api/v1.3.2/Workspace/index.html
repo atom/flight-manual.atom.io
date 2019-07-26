@@ -1,0 +1,4805 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title></title>
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+  </head>
+  <body class="layout-api-class">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="https://blog.atom.io">Blog</a></li>
+      <li><a href="https://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search" style="display: flex; align-items: center;">
+  <select id="documents-search-versions" style="display: inline; margin-right: 20px; height: 40px;">
+    
+      <option  value="1.39.1">
+        v1.39.1
+      </option>
+    
+      <option  value="1.39.0">
+        v1.39.0
+      </option>
+    
+      <option  value="1.38.2">
+        v1.38.2
+      </option>
+    
+      <option  value="1.38.1">
+        v1.38.1
+      </option>
+    
+      <option  value="1.38.0">
+        v1.38.0
+      </option>
+    
+      <option  value="1.37.0">
+        v1.37.0
+      </option>
+    
+      <option  value="1.36.1">
+        v1.36.1
+      </option>
+    
+      <option  value="1.36.0">
+        v1.36.0
+      </option>
+    
+      <option  value="1.35.1">
+        v1.35.1
+      </option>
+    
+      <option  value="1.35.0">
+        v1.35.0
+      </option>
+    
+      <option  value="1.34.0">
+        v1.34.0
+      </option>
+    
+      <option  value="1.33.1">
+        v1.33.1
+      </option>
+    
+      <option  value="1.33.0">
+        v1.33.0
+      </option>
+    
+      <option  value="1.32.2">
+        v1.32.2
+      </option>
+    
+      <option  value="1.32.1">
+        v1.32.1
+      </option>
+    
+      <option  value="1.32.0">
+        v1.32.0
+      </option>
+    
+      <option  value="1.31.2">
+        v1.31.2
+      </option>
+    
+      <option  value="1.31.1">
+        v1.31.1
+      </option>
+    
+      <option  value="1.31.0">
+        v1.31.0
+      </option>
+    
+      <option  value="1.30.0">
+        v1.30.0
+      </option>
+    
+      <option  value="1.29.0">
+        v1.29.0
+      </option>
+    
+      <option  value="1.28.2">
+        v1.28.2
+      </option>
+    
+      <option  value="1.28.1">
+        v1.28.1
+      </option>
+    
+      <option  value="1.28.0">
+        v1.28.0
+      </option>
+    
+      <option  value="1.27.2">
+        v1.27.2
+      </option>
+    
+      <option  value="1.27.1">
+        v1.27.1
+      </option>
+    
+      <option  value="1.27.0">
+        v1.27.0
+      </option>
+    
+      <option  value="1.26.1">
+        v1.26.1
+      </option>
+    
+      <option  value="1.26.0">
+        v1.26.0
+      </option>
+    
+      <option  value="1.25.1">
+        v1.25.1
+      </option>
+    
+      <option  value="1.25.0">
+        v1.25.0
+      </option>
+    
+      <option  value="1.24.1">
+        v1.24.1
+      </option>
+    
+      <option  value="1.24.0">
+        v1.24.0
+      </option>
+    
+      <option  value="1.23.3">
+        v1.23.3
+      </option>
+    
+      <option  value="1.23.2">
+        v1.23.2
+      </option>
+    
+      <option  value="1.23.1">
+        v1.23.1
+      </option>
+    
+      <option  value="1.23.0">
+        v1.23.0
+      </option>
+    
+      <option  value="1.22.1">
+        v1.22.1
+      </option>
+    
+      <option  value="1.22.0">
+        v1.22.0
+      </option>
+    
+      <option  value="1.21.2">
+        v1.21.2
+      </option>
+    
+      <option  value="1.21.1">
+        v1.21.1
+      </option>
+    
+      <option  value="1.21.0">
+        v1.21.0
+      </option>
+    
+      <option  value="1.20.1">
+        v1.20.1
+      </option>
+    
+      <option  value="1.20.0">
+        v1.20.0
+      </option>
+    
+      <option  value="1.19.7">
+        v1.19.7
+      </option>
+    
+      <option  value="1.19.6">
+        v1.19.6
+      </option>
+    
+      <option  value="1.19.5">
+        v1.19.5
+      </option>
+    
+      <option  value="1.19.4">
+        v1.19.4
+      </option>
+    
+      <option  value="1.19.3">
+        v1.19.3
+      </option>
+    
+      <option  value="1.19.2">
+        v1.19.2
+      </option>
+    
+      <option  value="1.19.1">
+        v1.19.1
+      </option>
+    
+      <option  value="1.19.0">
+        v1.19.0
+      </option>
+    
+      <option  value="1.18.0">
+        v1.18.0
+      </option>
+    
+      <option  value="1.17.2">
+        v1.17.2
+      </option>
+    
+      <option  value="1.17.1">
+        v1.17.1
+      </option>
+    
+      <option  value="1.17.0">
+        v1.17.0
+      </option>
+    
+      <option  value="1.16.0">
+        v1.16.0
+      </option>
+    
+      <option  value="1.15.0">
+        v1.15.0
+      </option>
+    
+      <option  value="1.14.4">
+        v1.14.4
+      </option>
+    
+      <option  value="1.14.3">
+        v1.14.3
+      </option>
+    
+      <option  value="1.14.2">
+        v1.14.2
+      </option>
+    
+      <option  value="1.14.1">
+        v1.14.1
+      </option>
+    
+      <option  value="1.14.0">
+        v1.14.0
+      </option>
+    
+      <option  value="1.13.1">
+        v1.13.1
+      </option>
+    
+      <option  value="1.13.0">
+        v1.13.0
+      </option>
+    
+      <option  value="1.12.9">
+        v1.12.9
+      </option>
+    
+      <option  value="1.12.8">
+        v1.12.8
+      </option>
+    
+      <option  value="1.12.7">
+        v1.12.7
+      </option>
+    
+      <option  value="1.12.6">
+        v1.12.6
+      </option>
+    
+      <option  value="1.12.5">
+        v1.12.5
+      </option>
+    
+      <option  value="1.12.4">
+        v1.12.4
+      </option>
+    
+      <option  value="1.12.3">
+        v1.12.3
+      </option>
+    
+      <option  value="1.12.2">
+        v1.12.2
+      </option>
+    
+      <option  value="1.12.1">
+        v1.12.1
+      </option>
+    
+      <option  value="1.12.0">
+        v1.12.0
+      </option>
+    
+      <option  value="1.11.2">
+        v1.11.2
+      </option>
+    
+      <option  value="1.11.1">
+        v1.11.1
+      </option>
+    
+      <option  value="1.11.0">
+        v1.11.0
+      </option>
+    
+      <option  value="1.10.2">
+        v1.10.2
+      </option>
+    
+      <option  value="1.10.1">
+        v1.10.1
+      </option>
+    
+      <option  value="1.10.0">
+        v1.10.0
+      </option>
+    
+      <option  value="1.9.9">
+        v1.9.9
+      </option>
+    
+      <option  value="1.9.8">
+        v1.9.8
+      </option>
+    
+      <option  value="1.9.7">
+        v1.9.7
+      </option>
+    
+      <option  value="1.9.6">
+        v1.9.6
+      </option>
+    
+      <option  value="1.9.5">
+        v1.9.5
+      </option>
+    
+      <option  value="1.9.4">
+        v1.9.4
+      </option>
+    
+      <option  value="1.9.3">
+        v1.9.3
+      </option>
+    
+      <option  value="1.9.2">
+        v1.9.2
+      </option>
+    
+      <option  value="1.9.1">
+        v1.9.1
+      </option>
+    
+      <option  value="1.9.0">
+        v1.9.0
+      </option>
+    
+      <option  value="1.8.0">
+        v1.8.0
+      </option>
+    
+      <option  value="1.7.4">
+        v1.7.4
+      </option>
+    
+      <option  value="1.7.3">
+        v1.7.3
+      </option>
+    
+      <option  value="1.7.2">
+        v1.7.2
+      </option>
+    
+      <option  value="1.7.1">
+        v1.7.1
+      </option>
+    
+      <option  value="1.7.0">
+        v1.7.0
+      </option>
+    
+      <option  value="1.6.2">
+        v1.6.2
+      </option>
+    
+      <option  value="1.6.1">
+        v1.6.1
+      </option>
+    
+      <option  value="1.6.0">
+        v1.6.0
+      </option>
+    
+      <option  value="1.5.4">
+        v1.5.4
+      </option>
+    
+      <option  value="1.5.3">
+        v1.5.3
+      </option>
+    
+      <option  value="1.5.2">
+        v1.5.2
+      </option>
+    
+      <option  value="1.5.1">
+        v1.5.1
+      </option>
+    
+      <option  value="1.5.0">
+        v1.5.0
+      </option>
+    
+      <option  value="1.4.3">
+        v1.4.3
+      </option>
+    
+      <option  value="1.4.2">
+        v1.4.2
+      </option>
+    
+      <option  value="1.4.1">
+        v1.4.1
+      </option>
+    
+      <option  value="1.4.0">
+        v1.4.0
+      </option>
+    
+      <option  value="1.3.3">
+        v1.3.3
+      </option>
+    
+      <option selected value="1.3.2">
+        v1.3.2
+      </option>
+    
+      <option  value="1.3.1">
+        v1.3.1
+      </option>
+    
+      <option  value="1.3.0">
+        v1.3.0
+      </option>
+    
+      <option  value="1.2.4">
+        v1.2.4
+      </option>
+    
+      <option  value="1.2.3">
+        v1.2.3
+      </option>
+    
+      <option  value="1.2.2">
+        v1.2.2
+      </option>
+    
+      <option  value="1.2.1">
+        v1.2.1
+      </option>
+    
+      <option  value="1.2.0">
+        v1.2.0
+      </option>
+    
+      <option  value="1.1.0">
+        v1.1.0
+      </option>
+    
+      <option  value="1.0.19">
+        v1.0.19
+      </option>
+    
+      <option  value="1.0.18">
+        v1.0.18
+      </option>
+    
+      <option  value="1.0.17">
+        v1.0.17
+      </option>
+    
+      <option  value="1.0.16">
+        v1.0.16
+      </option>
+    
+      <option  value="1.0.15">
+        v1.0.15
+      </option>
+    
+      <option  value="1.0.14">
+        v1.0.14
+      </option>
+    
+      <option  value="1.0.13">
+        v1.0.13
+      </option>
+    
+      <option  value="1.0.12">
+        v1.0.12
+      </option>
+    
+      <option  value="1.0.11">
+        v1.0.11
+      </option>
+    
+      <option  value="1.0.10">
+        v1.0.10
+      </option>
+    
+      <option  value="1.0.9">
+        v1.0.9
+      </option>
+    
+      <option  value="1.0.8">
+        v1.0.8
+      </option>
+    
+      <option  value="1.0.7">
+        v1.0.7
+      </option>
+    
+      <option  value="1.0.6">
+        v1.0.6
+      </option>
+    
+      <option  value="1.0.5">
+        v1.0.5
+      </option>
+    
+      <option  value="1.0.4">
+        v1.0.4
+      </option>
+    
+      <option  value="1.0.3">
+        v1.0.3
+      </option>
+    
+      <option  value="1.0.2">
+        v1.0.2
+      </option>
+    
+      <option  value="1.0.1">
+        v1.0.1
+      </option>
+    
+      <option  value="1.0.0">
+        v1.0.0
+      </option>
+    
+  </select>
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get" style="width: 100%"><div style="margin:0;padding:0;display:inline;"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="text" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+  <h4>
+    <a href="/getting-started">Chapter 1: Getting Started</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/why-atom">Why Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/using-atom">Chapter 2: Using Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/snippets">Snippets</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/folding">Folding</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/panes">Panes</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/pending-pane-items">Pending Pane Items</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/grammar">Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/github-package">GitHub package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-active-editor-info">Package: Active Editor Info</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-grammar">Creating a Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-legacy-textmate-grammar">Creating a Legacy TextMate Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/publishing">Publishing</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/iconography">Iconography</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/debugging">Debugging</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/handling-uris">Handling URIs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/hacking-on-atom-core">Hacking on Atom Core</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/contributing-to-official-atom-packages">Contributing to Official Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-fork-of-a-core-package-in-atom-atom">Creating a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/maintaining-a-fork-of-a-core-package-in-atom-atom">Maintaining a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/behind-atom">Chapter 4: Behind Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/how-atom-uses-chromium-snapshots">How Atom Uses Chromium Snapshots</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+
+
+
+
+<h4>
+  <a href="/api/v1.3.2/">Reference: API</a>
+</h4>
+<ul>
+  
+    <li>
+      <a href="/api/v1.3.2/AtomEnvironment/">AtomEnvironment</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/BufferedNodeProcess/">BufferedNodeProcess</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/BufferedProcess/">BufferedProcess</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Clipboard/">Clipboard</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Color/">Color</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/CommandRegistry/">CommandRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/CompositeDisposable/">CompositeDisposable</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Config/">Config</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/ContextMenuManager/">ContextMenuManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Cursor/">Cursor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Decoration/">Decoration</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/DeserializerManager/">DeserializerManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Directory/">Directory</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/DirectorySearch/">DirectorySearch</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Disposable/">Disposable</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Emitter/">Emitter</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/File/">File</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/GitRepository/">GitRepository</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Grammar/">Grammar</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/GrammarRegistry/">GrammarRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Gutter/">Gutter</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/KeymapManager/">KeymapManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/LayerDecoration/">LayerDecoration</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/MarkerLayer/">MarkerLayer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/MenuManager/">MenuManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Notification/">Notification</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/NotificationManager/">NotificationManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Package/">Package</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/PackageManager/">PackageManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Pane/">Pane</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Panel/">Panel</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Point/">Point</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Project/">Project</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Range/">Range</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/ScopeDescriptor/">ScopeDescriptor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Selection/">Selection</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/StyleManager/">StyleManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Task/">Task</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/TextBuffer/">TextBuffer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/TextEditor/">TextEditor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/TextEditorMarker/">TextEditorMarker</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/TextEditorMarkerLayer/">TextEditorMarkerLayer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/ThemeManager/">ThemeManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/TooltipManager/">TooltipManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/ViewRegistry/">ViewRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.3.2/Workspace/">Workspace</a>
+    </li>
+  
+</ul>
+
+
+  <h4>
+    <a href="/resources">Appendix A: Resources</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/resources/sections/glossary">Glossary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/faq">Appendix B: FAQ</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/faq/sections/is-atom-open-source">Is Atom open source?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-atom-cost">What does Atom cost?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-platforms-does-atom-run-on">What platforms does Atom run on?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-contribute-to-atom">How can I contribute to Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-atom-collect-usage-data">Why does Atom collect usage data?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/atom-in-the-cloud">Atom in the cloud?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-s-the-difference-between-an-ide-and-an-editor">What's the difference between an IDE and an editor?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-tell-if-subpixel-antialiasing-is-working">How can I tell if subpixel antialiasing is working?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-is-atom-deleting-trailing-whitespace-why-is-there-a-newline-at-the-end-of-the-file">Why is Atom deleting trailing whitespace? Why is there a newline at the end of the file?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-safe-mode-do">What does Safe Mode do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it">I have a question about a specific Atom community package. Where is the best place to ask it?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-using-an-international-keyboard-and-keys-that-use-altgr-or-ctrl-alt-aren-t-working">I’m using an international keyboard and keys that use AltGr or Ctrl+Alt aren’t working</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-julia-what-do-i-do">I’m having a problem with Julia! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-getting-an-error-about-a-self-signed-certificate-what-do-i-do">I’m getting an error about a “self-signed certificate”. What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-platformio-what-do-i-do">I’m having a problem with PlatformIO! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-atom-recognize-a-file-with-extension-x-as-language-y">How do I make Atom recognize a file with extension X as language Y?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-the-welcome-screen-stop-showing-up">How do I make the Welcome screen stop showing up?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-preview-web-page-changes-automatically">How do I preview web page changes automatically?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-accept-input-from-my-program-or-script-when-using-the-script-package">How do I accept input from my program or script when using the script package?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-am-unable-to-update-to-the-latest-version-of-atom-on-macos-how-do-i-fix-this">I am unable to update to the latest version of Atom on macOS. How do I fix this?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-trying-to-change-my-syntax-colors-from-styles-less-but-it-isn-t-working">I’m trying to change my syntax colors from styles.less, but it isn’t working!</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-build-or-execute-code-i-ve-written-in-atom">How do I build or execute code I've written in Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-uninstall-atom-on-macos">How do I uninstall Atom on macOS?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/macos-mojave-font-rendering-change">macOS Mojave font rendering change</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc">Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-turn-on-line-wrap">How do I turn on line wrap?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/the-menu-bar-disappeared-how-do-i-get-it-back">The menu bar disappeared, how do I get it back?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-use-a-newline-in-the-result-of-find-and-replace">How do I use a newline in the result of find and replace?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-is-this-line-on-the-right-in-the-editor-view">What is this line on the right in the editor view?</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/shadow-dom">Appendix C: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix D: Upgrading to 1.0 APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/atom-server-side-apis">Appendix E: Atom server-side APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-package-server-api">Atom package server API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-update-server-api">Atom update server API</a>
+      </li>
+    
+  </ul>
+
+
+        </div>
+
+        <div class="content-column">
+          
+          <h1 class="document-title">
+            <div id="platform-nav">
+  <span class="octicon octicon-device-desktop"></span>
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+  </ul>
+</div>
+
+          </h1>
+
+          <div class="document-content">
+            
+            <h2 class="page-title">
+  Workspace
+  <span
+  class="label label-essential"
+  title="This class is in the essential API">
+  Essential
+</span>
+
+  <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L25"
+   title="View class source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+</h2>
+<div class="markdown-body">
+  <p>Represents the state of the user interface for the entire window.
+An instance of this class is available via the <code>atom.workspace</code> global.</p>
+
+<p>Interact with this object to open files, be notified of current and future
+editors, and manipulate panes. To add panels, use <a href="../Workspace/#instance-addTopPanel">Workspace::addTopPanel</a>
+and friends.</p>
+
+</div>
+<h2 class="detail-section">Event Subscription</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-observeTextEditors">
+  <h3 class="name">
+    <a href="#instance-observeTextEditors" class="js-api-name method-signature" name="instance-observeTextEditors">
+      ::observeTextEditors<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L192"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback with all current and future text
+editors in the workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called with current and future text editors.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>editor</code></p>
+
+  </td>
+  <td>
+    
+    <p>An <a href="../TextEditor/">TextEditor</a> that is present in <a href="#instance-getTextEditors">::getTextEditors</a> at the time of subscription or that is added at some later time.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-observePaneItems">
+  <h3 class="name">
+    <a href="#instance-observePaneItems" class="js-api-name method-signature" name="instance-observePaneItems">
+      ::observePaneItems<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L204"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback with all current and future panes items
+in the workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called with current and future pane items.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>An item that is present in <a href="#instance-getPaneItems">::getPaneItems</a> at the time of  subscription or that is added at some later time.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-onDidChangeActivePaneItem">
+  <h3 class="name">
+    <a href="#instance-onDidChangeActivePaneItem" class="js-api-name method-signature" name="instance-onDidChangeActivePaneItem">
+      ::onDidChangeActivePaneItem<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L217"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback when the active pane item changes.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>Because observers are invoked synchronously, it’s important not to perform
+any expensive operations via this method. Consider
+<a href="#instance-onDidStopChangingActivePaneItem">::onDidStopChangingActivePaneItem</a> to delay operations until after changes
+stop occurring.</p>
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called when the active pane item changes.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>The active pane item.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-onDidStopChangingActivePaneItem">
+  <h3 class="name">
+    <a href="#instance-onDidStopChangingActivePaneItem" class="js-api-name method-signature" name="instance-onDidStopChangingActivePaneItem">
+      ::onDidStopChangingActivePaneItem<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L234"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback when the active pane item stops
+changing.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>Observers are called asynchronously 100ms after the last active pane item
+change. Handling changes here rather than in the synchronous
+<a href="#instance-onDidChangeActivePaneItem">::onDidChangeActivePaneItem</a> prevents unneeded work if the user is quickly
+changing or closing tabs and ensures critical UI feedback, like changing the
+highlighted tab, gets priority over work that can be done asynchronously.</p>
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called when the active pane item stopts changing.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>The active pane item.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-observeActivePaneItem">
+  <h3 class="name">
+    <a href="#instance-observeActivePaneItem" class="js-api-name method-signature" name="instance-observeActivePaneItem">
+      ::observeActivePaneItem<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L244"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback with the current active pane item and
+with all future active pane items in the workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called when the active pane item changes.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>The current active pane item.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-onDidOpen">
+  <h3 class="name">
+    <a href="#instance-onDidOpen" class="js-api-name method-signature" name="instance-onDidOpen">
+      ::onDidOpen<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L258"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback whenever an item is opened. Unlike
+<a href="#instance-onDidAddPaneItem">::onDidAddPaneItem</a>, observers will be notified for items that are already
+present in the workspace when they are reopened.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called whenever an item is opened.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the following keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>uri</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> representing the opened URI. Could be <code>undefined</code>.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>The opened item.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p>The pane in which the item was opened.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>index</code></p>
+
+  </td>
+  <td>
+    
+    <p>The index of the opened item on its pane.</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<h4>Extended Methods</h4><div
+  class="api-entry js-api-entry extended"
+  id="instance-onDidAddPane">
+  <h3 class="name">
+    <a href="#instance-onDidAddPane" class="js-api-name method-signature" name="instance-onDidAddPane">
+      ::onDidAddPane<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L268"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback when a pane is added to the workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called panes are added.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the following keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p>The added pane.</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-onWillDestroyPane">
+  <h3 class="name">
+    <a href="#instance-onWillDestroyPane" class="js-api-name method-signature" name="instance-onWillDestroyPane">
+      ::onWillDestroyPane<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L278"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback before a pane is destroyed in the
+workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called before panes are destroyed.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the following keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p>The pane to be destroyed.</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-onDidDestroyPane">
+  <h3 class="name">
+    <a href="#instance-onDidDestroyPane" class="js-api-name method-signature" name="instance-onDidDestroyPane">
+      ::onDidDestroyPane<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L288"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback when a pane is destroyed in the
+workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called panes are destroyed.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the following keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p>The destroyed pane.</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-observePanes">
+  <h3 class="name">
+    <a href="#instance-observePanes" class="js-api-name method-signature" name="instance-observePanes">
+      ::observePanes<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L298"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback with all current and future panes in the
+workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called with current and future panes.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Pane/">Pane</a> that is present in <a href="#instance-getPanes">::getPanes</a> at the time of  subscription or that is added at some later time.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-onDidChangeActivePane">
+  <h3 class="name">
+    <a href="#instance-onDidChangeActivePane" class="js-api-name method-signature" name="instance-onDidChangeActivePane">
+      ::onDidChangeActivePane<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L306"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback when the active pane changes.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called when the active pane changes.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Pane/">Pane</a> that is the current return value of <a href="#instance-getActivePane">::getActivePane</a>.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-observeActivePane">
+  <h3 class="name">
+    <a href="#instance-observeActivePane" class="js-api-name method-signature" name="instance-observeActivePane">
+      ::observeActivePane<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L316"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback with the current active pane and when
+the active pane changes.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called with the current and future active# panes.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="../Pane/">Pane</a> that is the current return value of <a href="#instance-getActivePane">::getActivePane</a>.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-onDidAddPaneItem">
+  <h3 class="name">
+    <a href="#instance-onDidAddPaneItem" class="js-api-name method-signature" name="instance-onDidAddPaneItem">
+      ::onDidAddPaneItem<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L328"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback when a pane item is added to the
+workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called when pane items are added.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the following keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>The added pane item.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Pane/">Pane</a> containing the added item.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>index</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> indicating the index of the added item in its pane.</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-onWillDestroyPaneItem">
+  <h3 class="name">
+    <a href="#instance-onWillDestroyPaneItem" class="js-api-name method-signature" name="instance-onWillDestroyPaneItem">
+      ::onWillDestroyPaneItem<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L341"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback when a pane item is about to be
+destroyed, before the user is prompted to save it.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called before pane items are destroyed.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the following keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>The item to be destroyed.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Pane/">Pane</a> containing the item to be destroyed.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>index</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> indicating the index of the item to be destroyed in its pane.</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-onDidDestroyPaneItem">
+  <h3 class="name">
+    <a href="#instance-onDidDestroyPaneItem" class="js-api-name method-signature" name="instance-onDidDestroyPaneItem">
+      ::onDidDestroyPaneItem<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L353"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback when a pane item is destroyed.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called when pane items are destroyed.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the following keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>The destroyed item.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Pane/">Pane</a> containing the destroyed item.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>index</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> indicating the index of the destroyed item in its pane.</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-onDidAddTextEditor">
+  <h3 class="name">
+    <a href="#instance-onDidAddTextEditor" class="js-api-name method-signature" name="instance-onDidAddTextEditor">
+      ::onDidAddTextEditor<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L366"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback when a text editor is added to the
+workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called panes are added.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the following keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>textEditor</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../TextEditor/">TextEditor</a> that was added.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>pane</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="../Pane/">Pane</a> containing the added text editor.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>index</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> indicating the index of the added text editor in its  pane.</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Opening</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-open">
+  <h3 class="name">
+    <a href="#instance-open" class="js-api-name method-signature" name="instance-open">
+      ::open<span class="argument-list">(<span class="argument">uri</span>, <span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L400"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Opens the given URI in Atom asynchronously.
+If the URI is already open, the existing item for that URI will be
+activated. If no URI is given, or no registered opener can open
+the URI, a new empty <a href="../TextEditor/">TextEditor</a> will be created.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>uri</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> containing a URI.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>initialLine</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> indicating which row to move the cursor to initially. Defaults to <code>0</code>.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>initialColumn</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> indicating which column to move the cursor to initially. Defaults to <code>0</code>.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>split</code></p>
+
+  </td>
+  <td>
+    
+    <p>Either ‘left’, ‘right’, ‘top’ or ‘bottom’. If ‘left’, the item will be opened in leftmost pane of the current active pane’s row. If ‘right’, the item will be opened in the rightmost pane of the current active pane’s row. If ‘up’, the item will be opened in topmost pane of the current active pane’s row. If ‘down’, the item will be opened in the bottommost pane of the current active pane’s row.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>activatePane</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether to call <a href="../Pane/#instance-activate">Pane::activate</a> on containing pane. Defaults to <code>true</code>.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>activateItem</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> indicating whether to call <a href="../Pane/#instance-activateItem">Pane::activateItem</a> on containing pane. Defaults to <code>true</code>.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>searchAllPanes</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>. If <code>true</code>, the workspace will attempt to activate an existing item for the given URI on any pane. If <code>false</code>, only the active pane will be searched for an existing item for the same URI. Defaults to <code>false</code>.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a promise that resolves to the <a href="../TextEditor/">TextEditor</a> for the file URI.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-reopenItem">
+  <h3 class="name">
+    <a href="#instance-reopenItem" class="js-api-name method-signature" name="instance-reopenItem">
+      ::reopenItem<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L535"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Asynchronously reopens the last-closed item’s URI if it hasn’t already been
+reopened.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a promise that is resolved when the item is opened</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-addOpener">
+  <h3 class="name">
+    <a href="#instance-addOpener" class="js-api-name method-signature" name="instance-addOpener">
+      ::addOpener<span class="argument-list">(<span class="argument">opener</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L566"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Register an opener for a uri.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>An <a href="../TextEditor/">TextEditor</a> will be used if no openers return a value.</p>
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>opener</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called when a path is being opened.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to remove the
+opener.</p>
+
+<p>Note that the opener will be called if and only if the URI is not already open
+in the current pane. The searchAllPanes flag expands the search from the
+current pane to all panes. If you wish to open a view of a different type for
+a file that is already open, consider changing the protocol of the URI. For
+example, perhaps you wish to preview a rendered version of the file <code>/foo/bar/baz.quux</code>
+that is already open in a text editor view. You could signal this by calling
+<a href="../Workspace/#instance-open">Workspace::open</a> on the URI <code>quux-preview://foo/bar/baz.quux</code>. Then your opener
+can check the protocol for quux-preview and only handle those URIs that match.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<h4>Extended Methods</h4><div
+  class="api-entry js-api-entry extended"
+  id="instance-buildTextEditor">
+  <h3 class="name">
+    <a href="#instance-buildTextEditor" class="js-api-name method-signature" name="instance-buildTextEditor">
+      ::buildTextEditor<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L524"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Create a new text editor.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../TextEditor/">TextEditor</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Pane Items</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getPaneItems">
+  <h3 class="name">
+    <a href="#instance-getPaneItems" class="js-api-name method-signature" name="instance-getPaneItems">
+      ::getPaneItems<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L580"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get all pane items in the workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of items.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getActivePaneItem">
+  <h3 class="name">
+    <a href="#instance-getActivePaneItem" class="js-api-name method-signature" name="instance-getActivePaneItem">
+      ::getActivePaneItem<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L586"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the active <a href="../Pane/">Pane</a>’s active item.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an pane item <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getTextEditors">
+  <h3 class="name">
+    <a href="#instance-getTextEditors" class="js-api-name method-signature" name="instance-getTextEditors">
+      ::getTextEditors<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L592"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get all text editors in the workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of <a href="../TextEditor/">TextEditor</a>s.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getActiveTextEditor">
+  <h3 class="name">
+    <a href="#instance-getActiveTextEditor" class="js-api-name method-signature" name="instance-getActiveTextEditor">
+      ::getActiveTextEditor<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L599"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the active item if it is an <a href="../TextEditor/">TextEditor</a>.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an <a href="../TextEditor/">TextEditor</a> or `` if the current active item is not an
+<a href="../TextEditor/">TextEditor</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Panes</h2>
+
+
+<p class="no-methods-message">This section only has Extended methods.</p><h4>Extended Methods</h4><div
+  class="api-entry js-api-entry extended"
+  id="instance-getPanes">
+  <h3 class="name">
+    <a href="#instance-getPanes" class="js-api-name method-signature" name="instance-getPanes">
+      ::getPanes<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L641"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get all panes in the workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of <a href="../Pane/">Pane</a>s.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-getActivePane">
+  <h3 class="name">
+    <a href="#instance-getActivePane" class="js-api-name method-signature" name="instance-getActivePane">
+      ::getActivePane<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L647"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the active <a href="../Pane/">Pane</a>.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Pane/">Pane</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-activateNextPane">
+  <h3 class="name">
+    <a href="#instance-activateNextPane" class="js-api-name method-signature" name="instance-activateNextPane">
+      ::activateNextPane<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L651"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Make the next pane active.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-activatePreviousPane">
+  <h3 class="name">
+    <a href="#instance-activatePreviousPane" class="js-api-name method-signature" name="instance-activatePreviousPane">
+      ::activatePreviousPane<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L655"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Make the previous pane active.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-paneForURI">
+  <h3 class="name">
+    <a href="#instance-paneForURI" class="js-api-name method-signature" name="instance-paneForURI">
+      ::paneForURI<span class="argument-list">(<span class="argument">uri</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L663"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the first <a href="../Pane/">Pane</a> with an item for the given URI.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>uri</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> uri</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Pane/">Pane</a> or `` if no pane exists for the given URI.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-paneForItem">
+  <h3 class="name">
+    <a href="#instance-paneForItem" class="js-api-name method-signature" name="instance-paneForItem">
+      ::paneForItem<span class="argument-list">(<span class="argument">item</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L671"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the <a href="../Pane/">Pane</a> containing the given item.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>Item the returned pane contains.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Pane/">Pane</a> or `` if no pane exists for the given item.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Panels</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getBottomPanels">
+  <h3 class="name">
+    <a href="#instance-getBottomPanels" class="js-api-name method-signature" name="instance-getBottomPanels">
+      ::getBottomPanels<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L741"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of all the panel items at the bottom of the editor window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-addBottomPanel">
+  <h3 class="name">
+    <a href="#instance-addBottomPanel" class="js-api-name method-signature" name="instance-addBottomPanel">
+      ::addBottomPanel<span class="argument-list">(<span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L756"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Adds a panel item to the bottom of the editor window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>Your panel content. It can be DOM element, a jQuery element, or a model with a view registered via <a href="../ViewRegistry/#instance-addViewProvider">ViewRegistry::addViewProvider</a>. We recommend the latter. See <a href="../ViewRegistry/#instance-addViewProvider">ViewRegistry::addViewProvider</a> for more information.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>visible</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> false if you want the panel to initially be hidden (default: true)</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>priority</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> Determines stacking order. Lower priority items are forced closer to the edges of the window. (default: 100)</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Panel/">Panel</a></p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getLeftPanels">
+  <h3 class="name">
+    <a href="#instance-getLeftPanels" class="js-api-name method-signature" name="instance-getLeftPanels">
+      ::getLeftPanels<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L760"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of all the panel items to the left of the editor window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-addLeftPanel">
+  <h3 class="name">
+    <a href="#instance-addLeftPanel" class="js-api-name method-signature" name="instance-addLeftPanel">
+      ::addLeftPanel<span class="argument-list">(<span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L775"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Adds a panel item to the left of the editor window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>Your panel content. It can be DOM element, a jQuery element, or a model with a view registered via <a href="../ViewRegistry/#instance-addViewProvider">ViewRegistry::addViewProvider</a>. We recommend the latter. See <a href="../ViewRegistry/#instance-addViewProvider">ViewRegistry::addViewProvider</a> for more information.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>visible</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> false if you want the panel to initially be hidden (default: true)</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>priority</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> Determines stacking order. Lower priority items are forced closer to the edges of the window. (default: 100)</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Panel/">Panel</a></p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getRightPanels">
+  <h3 class="name">
+    <a href="#instance-getRightPanels" class="js-api-name method-signature" name="instance-getRightPanels">
+      ::getRightPanels<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L779"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of all the panel items to the right of the editor window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-addRightPanel">
+  <h3 class="name">
+    <a href="#instance-addRightPanel" class="js-api-name method-signature" name="instance-addRightPanel">
+      ::addRightPanel<span class="argument-list">(<span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L794"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Adds a panel item to the right of the editor window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>Your panel content. It can be DOM element, a jQuery element, or a model with a view registered via <a href="../ViewRegistry/#instance-addViewProvider">ViewRegistry::addViewProvider</a>. We recommend the latter. See <a href="../ViewRegistry/#instance-addViewProvider">ViewRegistry::addViewProvider</a> for more information.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>visible</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> false if you want the panel to initially be hidden (default: true)</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>priority</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> Determines stacking order. Lower priority items are forced closer to the edges of the window. (default: 100)</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Panel/">Panel</a></p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getTopPanels">
+  <h3 class="name">
+    <a href="#instance-getTopPanels" class="js-api-name method-signature" name="instance-getTopPanels">
+      ::getTopPanels<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L798"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of all the panel items at the top of the editor window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-addTopPanel">
+  <h3 class="name">
+    <a href="#instance-addTopPanel" class="js-api-name method-signature" name="instance-addTopPanel">
+      ::addTopPanel<span class="argument-list">(<span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L813"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Adds a panel item to the top of the editor window above the tabs.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>Your panel content. It can be DOM element, a jQuery element, or a model with a view registered via <a href="../ViewRegistry/#instance-addViewProvider">ViewRegistry::addViewProvider</a>. We recommend the latter. See <a href="../ViewRegistry/#instance-addViewProvider">ViewRegistry::addViewProvider</a> for more information.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>visible</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> false if you want the panel to initially be hidden (default: true)</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>priority</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> Determines stacking order. Lower priority items are forced closer to the edges of the window. (default: 100)</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Panel/">Panel</a></p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getModalPanels">
+  <h3 class="name">
+    <a href="#instance-getModalPanels" class="js-api-name method-signature" name="instance-getModalPanels">
+      ::getModalPanels<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L817"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of all the modal panel items</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-addModalPanel">
+  <h3 class="name">
+    <a href="#instance-addModalPanel" class="js-api-name method-signature" name="instance-addModalPanel">
+      ::addModalPanel<span class="argument-list">(<span class="argument">options</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L832"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Adds a panel item as a modal dialog.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>Your panel content. It can be a DOM element, a jQuery element, or a model with a view registered via <a href="../ViewRegistry/#instance-addViewProvider">ViewRegistry::addViewProvider</a>. We recommend the model option. See <a href="../ViewRegistry/#instance-addViewProvider">ViewRegistry::addViewProvider</a> for more information.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>visible</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> false if you want the panel to initially be hidden (default: true)</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>priority</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> Determines stacking order. Lower priority items are forced closer to the edges of the window. (default: 100)</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Panel/">Panel</a></p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-panelForItem">
+  <h3 class="name">
+    <a href="#instance-panelForItem" class="js-api-name method-signature" name="instance-panelForItem">
+      ::panelForItem<span class="argument-list">(<span class="argument">item</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L839"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>item</code></p>
+
+  </td>
+  <td>
+    
+    <p>Item the panel contains</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the <a href="../Panel/">Panel</a> associated with the given item.</p>
+
+  </td>
+</tr>
+<tr>
+  <td class="markdown-body">
+    <p>Returns
+<code>null</code> when the item has no panel.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Searching and Replacing</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-scan">
+  <h3 class="name">
+    <a href="#instance-scan" class="js-api-name method-signature" name="instance-scan">
+      ::scan<span class="argument-list">(<span class="argument">regex</span>, <span class="argument">options</span>, <span class="argument">iterator</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L867"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Performs a search across all files in the workspace.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>regex</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a> to search with.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>paths</code></p>
+
+  </td>
+  <td>
+    
+    <p>An <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of glob patterns to search within.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>onPathsSearched</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be periodically called with number of paths searched.</p>
+
+  </td>
+</tr>
+
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>iterator</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> callback on each file found.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <code>Promise</code> with a <code>cancel()</code> method that will cancel all
+of the underlying searches that were started as part of this scan.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-replace">
+  <h3 class="name">
+    <a href="#instance-replace" class="js-api-name method-signature" name="instance-replace">
+      ::replace<span class="argument-list">(<span class="argument">regex</span>, <span class="argument">replacementText</span>, <span class="argument">filePaths</span>, <span class="argument">iterator</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.3.2/src/workspace.coffee#L969"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Performs a replace across all the specified files in the project.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>regex</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a> to search with.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>replacementText</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> to replace all matches of regex with.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>filePaths</code></p>
+
+  </td>
+  <td>
+    
+    <p>An <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of file path strings to run the replace on.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>iterator</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> callback on each file with replacements:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with keys <code>filePath</code> and <code>replacements</code>.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <code>Promise</code>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+        <li><a href="https://github.com/atom/flight-manual.atom.io/blob/master/CONTRIBUTING.md">Contribute!</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
