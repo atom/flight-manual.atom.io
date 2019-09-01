@@ -4,6 +4,7 @@ title: Atom update server API
 
 ### Atom update server API
 
+
 {{#warning}}
 
 **Warning:** This API should be considered pre-release and is subject to change.
