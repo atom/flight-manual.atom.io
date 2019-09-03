@@ -80,11 +80,11 @@ Commands are custom DOM events that are triggered when a key combination or sequ
 
 ```javascript
 atom.commands.add('atom-text-editor', {
-  'user:insert-date': (event) => {
-    const editor = this.getModel()
-    return editor.insertText(new Date().toLocaleString())
+  'user:insert-date': function (event) {
+    const editor = this.getModel();
+    return editor.insertText(new Date().toLocaleString());
   }
-})
+});
 ```
 
 `atom.commands` refers to the global `CommandRegistry` instance where all commands are set and consequently picked up by the command palette.
@@ -96,11 +96,11 @@ When you are looking to bind new keys, it is often useful to use the Command Pal
 A common question is, "How do I make a single keybinding execute two or more commands?" There isn't any direct support for this in Atom, but it can be achieved by creating a custom command that performs the multiple actions you desire and then creating a keybinding for that command. For example, let's say I want to create a "composed" command that performs a Select Line followed by Cut. You could add the following to your `init.coffee`:
 
 ```javascript
-atom.commands.add('atom-text-editor', 'custom:cut-line', () => {
-  const editor = atom.workspace.getActiveTextEditor()
-  editor.selectLinesContainingCursors()
-  editor.cutSelectedText()
-})
+atom.commands.add('atom-text-editor', 'custom:cut-line', function () {
+  const editor = this.getModel();
+  editor.selectLinesContainingCursors();
+  editor.cutSelectedText();
+});
 ```
 
 Then let's say we want to map this custom command to `alt-ctrl-z`, you could add the following to your keymap:
@@ -191,11 +191,11 @@ To achieve this, the snippets package makes use of the `.abortKeyBinding()` meth
 // pseudo-code
 editor.command('snippets:expand', e => {
   if (this.cursorFollowsValidPrefix()) {
-    this.expandSnippet()
+    this.expandSnippet();
   } else {
-    e.abortKeyBinding()
+    e.abortKeyBinding();
   }
-})
+});
 ```
 
 When the event handler observes that the cursor does not follow a valid prefix, it calls `e.abortKeyBinding()`, telling the keymap system to continue searching for another matching binding.
@@ -231,9 +231,9 @@ Or if you've converted your init script to JavaScript:
 ```javascript
 atom.keymaps.addKeystrokeResolver(({event}) => {
   if (event.code === 'KeyG' && event.altKey && event.ctrlKey && event.type !== 'keyup') {
-    return 'ctrl-@'
+    return 'ctrl-@';
   }
-})
+});
 ```
 
 If you want to know the `event` for the keystroke you pressed you can paste the following script to your [developer tools console](https://flight-manual.atom.io/hacking-atom/sections/debugging/#check-for-errors-in-the-developer-tools)
