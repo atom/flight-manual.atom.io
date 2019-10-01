@@ -1,6 +1,6 @@
 # Contributing to the Atom Flight Manual
 
-Contributing is easy!
+Contributing is easy!44
 
 1. [Fork this repository](https://github.com/atom/flight-manual.atom.io#fork-destination-box).
 2. Download your fork. Refer to [the GitHub Help site](https://help.github.com/articles/fork-a-repo/#keep-your-fork-synced) if you need more information.
