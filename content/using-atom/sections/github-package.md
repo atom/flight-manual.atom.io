@@ -50,10 +50,13 @@ In case a project doesn't have a Git repository yet, you can create one from the
 
 #### Clone repositories
 
-To clone a repository, run the `GitHub: Clone` command. In the dialog paste a URL of a repository and click "Clone". A new project will get added to the Tree View.
+To clone a repository, open the GitHub panel while you have no project folders open in Atom and click "Clone an existing GitHub repository". In the dialog, paste the URL of a repository and click "Clone". The new project will be added to the Tree View.
 
-![Clone repositories](../../images/github-clone.png "Clone repositories")
+![GitHub panel](../../images/github-without-projects.png "GitHub panel without projects")
 
+![Clone dialog](../../images/github-clone.png "Clone repositories")
+
+Alternately, run the `GitHub: Clone` command to open the Clone dialog any time.
 
 #### Branch
 
