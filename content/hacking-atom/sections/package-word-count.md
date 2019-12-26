@@ -61,12 +61,12 @@ The `package.json` in the package we've just generated looks like this currently
 
 ```json
 {
-  "name": "wordcount",
-  "main": "./lib/wordcount",
+  "name": "your-name-word-count",
+  "main": "./lib/your-name-word-count",
   "version": "0.0.0",
   "description": "A short description of your package",
   "activationCommands": {
-    "atom-workspace": "wordcount:toggle"
+    "atom-workspace": "your-name-word-count:toggle"
   },
   "repository": "https://github.com/atom/your-name-word-count",
   "license": "MIT",
@@ -82,8 +82,8 @@ If you wanted to use activationHooks, you might have:
 
 ```json
 {
-  "name": "wordcount",
-  "main": "./lib/wordcount",
+  "name": "your-name-word-count",
+  "main": "./lib/your-name-word-count",
   "version": "0.0.0",
   "description": "A short description of your package",
   "activationHooks": ["language-javascript:grammar-used", "language-coffee-script:grammar-used"],
@@ -107,7 +107,7 @@ One of the first things you should do is ensure that this information is filled 
 
 ##### Source Code
 
-If you want to extend Atom's behavior, your package should contain a single top-level module, which you export from whichever file is indicated by the `main` key in your `package.json` file. In the package we just generated, the main package file is `lib/wordcount.js`. The remainder of your code should be placed in the `lib` directory, and required from your top-level file. If the `main` key is not in your `package.json` file, it will look for `index.js` or `index.coffee` as the main entry point.
+If you want to extend Atom's behavior, your package should contain a single top-level module, which you export from whichever file is indicated by the `main` key in your `package.json` file. In the package we just generated, the main package file is `lib/your-name-word-count.js`. The remainder of your code should be placed in the `lib` directory, and required from your top-level file. If the `main` key is not in your `package.json` file, it will look for `index.js` or `index.coffee` as the main entry point.
 
 Your package's top-level module is a singleton object that manages the lifecycle of your extensions to Atom. Even if your package creates ten different views and appends them to different parts of the DOM, it's all managed from your top-level object.
 
@@ -131,7 +131,7 @@ An optional `styleSheets` array in your `package.json` can list the style sheets
 
 ##### Keymaps
 
-You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the `keymaps/wordcount.json` file:
+You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the `keymaps/your-name-word-count.json` file:
 
 ```javascript
 {
@@ -247,7 +247,7 @@ You can also add separators and submenus to your context menus. To add a submenu
 
 #### Developing Our Package
 
-Currently with the generated package we have, if we run that `your-name-word-count:toggle` command through the menu or the command palette, we'll get a dialog that says "The Wordcount package is Alive! It's ALIVE!".
+Currently with the generated package we have, if we run that `your-name-word-count:toggle` command through the menu or the command palette, we'll get a dialog that says "The YourNameWordCount package is Alive! It's ALIVE!".
 
 ![Wordcount Package is Alive Dialog](../../images/toggle.png)
 
