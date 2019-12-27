@@ -1364,12 +1364,12 @@ style sheets your package needs to load. If not specified, style sheets in the <
 <p>The <code>package.json</code> in the package we've just generated looks like this currently:</p>
 
 <div class="highlight highlight-json"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordcount"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your-name-word-count"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/your-name-word-count"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A short description of your package"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"activationCommands"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"atom-workspace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordcount:toggle"</span><span class="w">
+    </span><span class="s2">"atom-workspace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your-name-word-count:toggle"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"repository"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/atom/your-name-word-count"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIT"</span><span class="p">,</span><span class="w">
@@ -1384,8 +1384,8 @@ style sheets your package needs to load. If not specified, style sheets in the <
 <p>If you wanted to use activationHooks, you might have:</p>
 
 <div class="highlight highlight-json"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordcount"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/wordcount"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your-name-word-count"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./lib/your-name-word-count"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A short description of your package"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"activationHooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"language-javascript:grammar-used"</span><span class="p">,</span><span class="w"> </span><span class="s2">"language-coffee-script:grammar-used"</span><span class="p">],</span><span class="w">
@@ -1410,7 +1410,7 @@ style sheets your package needs to load. If not specified, style sheets in the <
 <h5>
 <a id="source-code" class="anchor" href="#source-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Source Code</h5>
 
-<p>If you want to extend Atom's behavior, your package should contain a single top-level module, which you export from whichever file is indicated by the <code>main</code> key in your <code>package.json</code> file. In the package we just generated, the main package file is <code>lib/wordcount.js</code>. The remainder of your code should be placed in the <code>lib</code> directory, and required from your top-level file. If the <code>main</code> key is not in your <code>package.json</code> file, it will look for <code>index.js</code> or <code>index.coffee</code> as the main entry point.</p>
+<p>If you want to extend Atom's behavior, your package should contain a single top-level module, which you export from whichever file is indicated by the <code>main</code> key in your <code>package.json</code> file. In the package we just generated, the main package file is <code>lib/your-name-word-count.js</code>. The remainder of your code should be placed in the <code>lib</code> directory, and required from your top-level file. If the <code>main</code> key is not in your <code>package.json</code> file, it will look for <code>index.js</code> or <code>index.coffee</code> as the main entry point.</p>
 
 <p>Your package's top-level module is a singleton object that manages the lifecycle of your extensions to Atom. Even if your package creates ten different views and appends them to different parts of the DOM, it's all managed from your top-level object.</p>
 
@@ -1442,7 +1442,7 @@ off.</li>
 <h5>
 <a id="keymaps" class="anchor" href="#keymaps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keymaps</h5>
 
-<p>You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the <code>keymaps/wordcount.json</code> file:</p>
+<p>You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the <code>keymaps/your-name-word-count.json</code> file:</p>
 
 <div class="highlight highlight-javascript"><pre class="highlight"><code><span class="p">{</span>
   <span class="s2">"atom-workspace"</span><span class="p">:</span> <span class="p">{</span>
@@ -1558,7 +1558,7 @@ off.</li>
 <h4>
 <a id="developing-our-package" class="anchor" href="#developing-our-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developing Our Package</h4>
 
-<p>Currently with the generated package we have, if we run that <code>your-name-word-count:toggle</code> command through the menu or the command palette, we'll get a dialog that says "The Wordcount package is Alive! It's ALIVE!".</p>
+<p>Currently with the generated package we have, if we run that <code>your-name-word-count:toggle</code> command through the menu or the command palette, we'll get a dialog that says "The YourNameWordCount package is Alive! It's ALIVE!".</p>
 
 <p><img src="../../images/toggle.png" alt="Wordcount Package is Alive Dialog"></p>
 
