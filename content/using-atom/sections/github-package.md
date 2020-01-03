@@ -38,7 +38,8 @@ Or you can also toggle the Git panel from the Status Bar by clicking on the chan
 
 ![Open Git panel](../../images/github-open-git-panel.png "Open Git panel")
 
-
+https://twitter.com/MGWVc
+@MGWVc @TwitterSafety @jack should @twitter Repeat cycle full-server-side conduct multiple times device Violating Rules microsoft-Twitter-Certainly @TwitterSafety @twitter 
 ---
 
 #### Initialize repositories
