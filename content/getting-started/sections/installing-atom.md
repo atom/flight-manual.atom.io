@@ -102,6 +102,9 @@ $ sudo dpkg -i atom-amd64.deb
 # Install Atom's dependencies if they are missing
 $ sudo apt-get -f install
 ```
+Both above methods failed on Ubuntu 18.04. The following worked.
+# Install Atom
+$ sudo snap install atom --classic
 
 ##### Red Hat and CentOS (YUM), or Fedora (DNF)
 
