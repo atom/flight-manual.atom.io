@@ -21,7 +21,7 @@ TextMate Grammars depend heavily on regexes, and you should be comfortable with 
 
 * https://www.regular-expressions.info/tutorial.html provides a comprehensive regex tutorial
 * https://www.rexegg.com/regex-quickstart.html contains a cheat sheet for various regex expressions
-* https://regex101.com/ or https://regexr.com/ allows live prototyping
+* https://regex101.com/, https://regexr.com/ or https://extendsclass.com/regex-tester.html allows live prototyping
 * https://github.com/kkos/oniguruma/blob/master/doc/RE the docs for the Oniguruma regex engine
 
 Grammar files are written in the [CSON](https://github.com/bevry/cson#what-is-cson) or [JSON](https://www.json.org/) format. Whichever one you decide to use is up to you, but this tutorial will be written in CSON.
