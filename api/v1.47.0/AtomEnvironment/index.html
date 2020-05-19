@@ -1,0 +1,3861 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title></title>
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" media="all" href="/assets/stylesheets/application.css" data-proofer-ignore>
+
+
+<script type="text/javascript" src="/assets/javascripts/application.js"></script>
+
+  </head>
+  <body class="layout-api-class">
+    <div class="footer-push">
+      <div class="top-bar">
+  <div class="wrapper no-pad">
+
+    <ul class="navigation">
+      <li><h1 title="Atom: A hackable text editor for the 21st Century"><a href="https://atom.io/" class="logo-small"></a></h1></li>
+      <li><a href="https://atom.io/packages">Packages</a></li>
+      <li><a href="https://atom.io/themes">Themes</a></li>
+      <li><a href="https://atom.io/docs" class="is-selected">Documentation</a></li>
+      <li><a href="https://blog.atom.io">Blog</a></li>
+      <li><a href="https://discuss.atom.io">Discuss</a></li>
+    </ul>
+
+  </div>
+</div>
+
+      <div class="wrapper documents content-push wide">
+        <script id="quicksearch-results-template" type="text/mustache">
+  [[#entries]]
+    <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+  [[/entries]]
+  <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+</script>
+
+<script id="search-results-template" type="text/mustache">
+  [[#entries]]
+    <li>
+      <h3>
+        <a href="[[url]]">[[title]]</a>
+        <div class="label"><a href="[[category_url]]">[[category]]</a></div>
+      </h3>
+      <p>
+      [[excerpt]]
+      </p>
+    </li>
+  [[/entries]]
+</script>
+
+<div class="documents-search" style="display: flex; align-items: center;">
+  <select id="documents-search-versions" style="display: inline; margin-right: 20px; height: 40px;">
+    
+      <option selected value="1.47.0">
+        v1.47.0
+      </option>
+    
+      <option  value="1.46.0">
+        v1.46.0
+      </option>
+    
+      <option  value="1.45.0">
+        v1.45.0
+      </option>
+    
+      <option  value="1.44.0">
+        v1.44.0
+      </option>
+    
+      <option  value="1.43.0">
+        v1.43.0
+      </option>
+    
+      <option  value="1.42.0">
+        v1.42.0
+      </option>
+    
+      <option  value="1.41.0">
+        v1.41.0
+      </option>
+    
+      <option  value="1.40.1">
+        v1.40.1
+      </option>
+    
+      <option  value="1.40.0">
+        v1.40.0
+      </option>
+    
+      <option  value="1.39.1">
+        v1.39.1
+      </option>
+    
+      <option  value="1.39.0">
+        v1.39.0
+      </option>
+    
+      <option  value="1.38.2">
+        v1.38.2
+      </option>
+    
+      <option  value="1.38.1">
+        v1.38.1
+      </option>
+    
+      <option  value="1.38.0">
+        v1.38.0
+      </option>
+    
+      <option  value="1.37.0">
+        v1.37.0
+      </option>
+    
+      <option  value="1.36.1">
+        v1.36.1
+      </option>
+    
+      <option  value="1.36.0">
+        v1.36.0
+      </option>
+    
+      <option  value="1.35.1">
+        v1.35.1
+      </option>
+    
+      <option  value="1.35.0">
+        v1.35.0
+      </option>
+    
+      <option  value="1.34.0">
+        v1.34.0
+      </option>
+    
+      <option  value="1.33.1">
+        v1.33.1
+      </option>
+    
+      <option  value="1.33.0">
+        v1.33.0
+      </option>
+    
+      <option  value="1.32.2">
+        v1.32.2
+      </option>
+    
+      <option  value="1.32.1">
+        v1.32.1
+      </option>
+    
+      <option  value="1.32.0">
+        v1.32.0
+      </option>
+    
+      <option  value="1.31.2">
+        v1.31.2
+      </option>
+    
+      <option  value="1.31.1">
+        v1.31.1
+      </option>
+    
+      <option  value="1.31.0">
+        v1.31.0
+      </option>
+    
+      <option  value="1.30.0">
+        v1.30.0
+      </option>
+    
+      <option  value="1.29.0">
+        v1.29.0
+      </option>
+    
+      <option  value="1.28.2">
+        v1.28.2
+      </option>
+    
+      <option  value="1.28.1">
+        v1.28.1
+      </option>
+    
+      <option  value="1.28.0">
+        v1.28.0
+      </option>
+    
+      <option  value="1.27.2">
+        v1.27.2
+      </option>
+    
+      <option  value="1.27.1">
+        v1.27.1
+      </option>
+    
+      <option  value="1.27.0">
+        v1.27.0
+      </option>
+    
+      <option  value="1.26.1">
+        v1.26.1
+      </option>
+    
+      <option  value="1.26.0">
+        v1.26.0
+      </option>
+    
+      <option  value="1.25.1">
+        v1.25.1
+      </option>
+    
+      <option  value="1.25.0">
+        v1.25.0
+      </option>
+    
+      <option  value="1.24.1">
+        v1.24.1
+      </option>
+    
+      <option  value="1.24.0">
+        v1.24.0
+      </option>
+    
+      <option  value="1.23.3">
+        v1.23.3
+      </option>
+    
+      <option  value="1.23.2">
+        v1.23.2
+      </option>
+    
+      <option  value="1.23.1">
+        v1.23.1
+      </option>
+    
+      <option  value="1.23.0">
+        v1.23.0
+      </option>
+    
+      <option  value="1.22.1">
+        v1.22.1
+      </option>
+    
+      <option  value="1.22.0">
+        v1.22.0
+      </option>
+    
+      <option  value="1.21.2">
+        v1.21.2
+      </option>
+    
+      <option  value="1.21.1">
+        v1.21.1
+      </option>
+    
+      <option  value="1.21.0">
+        v1.21.0
+      </option>
+    
+      <option  value="1.20.1">
+        v1.20.1
+      </option>
+    
+      <option  value="1.20.0">
+        v1.20.0
+      </option>
+    
+      <option  value="1.19.7">
+        v1.19.7
+      </option>
+    
+      <option  value="1.19.6">
+        v1.19.6
+      </option>
+    
+      <option  value="1.19.5">
+        v1.19.5
+      </option>
+    
+      <option  value="1.19.4">
+        v1.19.4
+      </option>
+    
+      <option  value="1.19.3">
+        v1.19.3
+      </option>
+    
+      <option  value="1.19.2">
+        v1.19.2
+      </option>
+    
+      <option  value="1.19.1">
+        v1.19.1
+      </option>
+    
+      <option  value="1.19.0">
+        v1.19.0
+      </option>
+    
+      <option  value="1.18.0">
+        v1.18.0
+      </option>
+    
+      <option  value="1.17.2">
+        v1.17.2
+      </option>
+    
+      <option  value="1.17.1">
+        v1.17.1
+      </option>
+    
+      <option  value="1.17.0">
+        v1.17.0
+      </option>
+    
+      <option  value="1.16.0">
+        v1.16.0
+      </option>
+    
+      <option  value="1.15.0">
+        v1.15.0
+      </option>
+    
+      <option  value="1.14.4">
+        v1.14.4
+      </option>
+    
+      <option  value="1.14.3">
+        v1.14.3
+      </option>
+    
+      <option  value="1.14.2">
+        v1.14.2
+      </option>
+    
+      <option  value="1.14.1">
+        v1.14.1
+      </option>
+    
+      <option  value="1.14.0">
+        v1.14.0
+      </option>
+    
+      <option  value="1.13.1">
+        v1.13.1
+      </option>
+    
+      <option  value="1.13.0">
+        v1.13.0
+      </option>
+    
+      <option  value="1.12.9">
+        v1.12.9
+      </option>
+    
+      <option  value="1.12.8">
+        v1.12.8
+      </option>
+    
+      <option  value="1.12.7">
+        v1.12.7
+      </option>
+    
+      <option  value="1.12.6">
+        v1.12.6
+      </option>
+    
+      <option  value="1.12.5">
+        v1.12.5
+      </option>
+    
+      <option  value="1.12.4">
+        v1.12.4
+      </option>
+    
+      <option  value="1.12.3">
+        v1.12.3
+      </option>
+    
+      <option  value="1.12.2">
+        v1.12.2
+      </option>
+    
+      <option  value="1.12.1">
+        v1.12.1
+      </option>
+    
+      <option  value="1.12.0">
+        v1.12.0
+      </option>
+    
+      <option  value="1.11.2">
+        v1.11.2
+      </option>
+    
+      <option  value="1.11.1">
+        v1.11.1
+      </option>
+    
+      <option  value="1.11.0">
+        v1.11.0
+      </option>
+    
+      <option  value="1.10.2">
+        v1.10.2
+      </option>
+    
+      <option  value="1.10.1">
+        v1.10.1
+      </option>
+    
+      <option  value="1.10.0">
+        v1.10.0
+      </option>
+    
+      <option  value="1.9.9">
+        v1.9.9
+      </option>
+    
+      <option  value="1.9.8">
+        v1.9.8
+      </option>
+    
+      <option  value="1.9.7">
+        v1.9.7
+      </option>
+    
+      <option  value="1.9.6">
+        v1.9.6
+      </option>
+    
+      <option  value="1.9.5">
+        v1.9.5
+      </option>
+    
+      <option  value="1.9.4">
+        v1.9.4
+      </option>
+    
+      <option  value="1.9.3">
+        v1.9.3
+      </option>
+    
+      <option  value="1.9.2">
+        v1.9.2
+      </option>
+    
+      <option  value="1.9.1">
+        v1.9.1
+      </option>
+    
+      <option  value="1.9.0">
+        v1.9.0
+      </option>
+    
+      <option  value="1.8.0">
+        v1.8.0
+      </option>
+    
+      <option  value="1.7.4">
+        v1.7.4
+      </option>
+    
+      <option  value="1.7.3">
+        v1.7.3
+      </option>
+    
+      <option  value="1.7.2">
+        v1.7.2
+      </option>
+    
+      <option  value="1.7.1">
+        v1.7.1
+      </option>
+    
+      <option  value="1.7.0">
+        v1.7.0
+      </option>
+    
+      <option  value="1.6.2">
+        v1.6.2
+      </option>
+    
+      <option  value="1.6.1">
+        v1.6.1
+      </option>
+    
+      <option  value="1.6.0">
+        v1.6.0
+      </option>
+    
+      <option  value="1.5.4">
+        v1.5.4
+      </option>
+    
+      <option  value="1.5.3">
+        v1.5.3
+      </option>
+    
+      <option  value="1.5.2">
+        v1.5.2
+      </option>
+    
+      <option  value="1.5.1">
+        v1.5.1
+      </option>
+    
+      <option  value="1.5.0">
+        v1.5.0
+      </option>
+    
+      <option  value="1.4.3">
+        v1.4.3
+      </option>
+    
+      <option  value="1.4.2">
+        v1.4.2
+      </option>
+    
+      <option  value="1.4.1">
+        v1.4.1
+      </option>
+    
+      <option  value="1.4.0">
+        v1.4.0
+      </option>
+    
+      <option  value="1.3.3">
+        v1.3.3
+      </option>
+    
+      <option  value="1.3.2">
+        v1.3.2
+      </option>
+    
+      <option  value="1.3.1">
+        v1.3.1
+      </option>
+    
+      <option  value="1.3.0">
+        v1.3.0
+      </option>
+    
+      <option  value="1.2.4">
+        v1.2.4
+      </option>
+    
+      <option  value="1.2.3">
+        v1.2.3
+      </option>
+    
+      <option  value="1.2.2">
+        v1.2.2
+      </option>
+    
+      <option  value="1.2.1">
+        v1.2.1
+      </option>
+    
+      <option  value="1.2.0">
+        v1.2.0
+      </option>
+    
+      <option  value="1.1.0">
+        v1.1.0
+      </option>
+    
+      <option  value="1.0.19">
+        v1.0.19
+      </option>
+    
+      <option  value="1.0.18">
+        v1.0.18
+      </option>
+    
+      <option  value="1.0.17">
+        v1.0.17
+      </option>
+    
+      <option  value="1.0.16">
+        v1.0.16
+      </option>
+    
+      <option  value="1.0.15">
+        v1.0.15
+      </option>
+    
+      <option  value="1.0.14">
+        v1.0.14
+      </option>
+    
+      <option  value="1.0.13">
+        v1.0.13
+      </option>
+    
+      <option  value="1.0.12">
+        v1.0.12
+      </option>
+    
+      <option  value="1.0.11">
+        v1.0.11
+      </option>
+    
+      <option  value="1.0.10">
+        v1.0.10
+      </option>
+    
+      <option  value="1.0.9">
+        v1.0.9
+      </option>
+    
+      <option  value="1.0.8">
+        v1.0.8
+      </option>
+    
+      <option  value="1.0.7">
+        v1.0.7
+      </option>
+    
+      <option  value="1.0.6">
+        v1.0.6
+      </option>
+    
+      <option  value="1.0.5">
+        v1.0.5
+      </option>
+    
+      <option  value="1.0.4">
+        v1.0.4
+      </option>
+    
+      <option  value="1.0.3">
+        v1.0.3
+      </option>
+    
+      <option  value="1.0.2">
+        v1.0.2
+      </option>
+    
+      <option  value="1.0.1">
+        v1.0.1
+      </option>
+    
+      <option  value="1.0.0">
+        v1.0.0
+      </option>
+    
+  </select>
+  <form accept-charset="UTF-8" action="/search" id="articles-search" method="get" style="width: 100%"><div style="margin:0;padding:0;display:inline;"><input name="utf8" type="hidden" value="✓"></div>
+    <input type="text" name="q" id="quicksearch-query" class="documents-search-input js-articles-quicksearch" placeholder="Search the Flight Manual" autocomplete="off">
+  </form>
+</div>
+
+<div class="autocomplete-results" style="display: none;">
+  <div class="result-group"></div>
+</div>
+
+
+        <div class="toc">
+          
+
+
+  <h4>
+    <a href="/getting-started">Chapter 1: Getting Started</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/why-atom">Why Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/installing-atom">Installing Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/atom-basics">Atom Basics</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/getting-started/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/using-atom">Chapter 2: Using Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-packages">Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/moving-in-atom">Moving in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/atom-selections">Atom Selections</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/editing-and-deleting-text">Editing and Deleting Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/find-and-replace">Find and Replace</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/snippets">Snippets</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/autocomplete">Autocomplete</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/folding">Folding</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/panes">Panes</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/pending-pane-items">Pending Pane Items</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/grammar">Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/version-control-in-atom">Version Control in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/github-package">GitHub package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/writing-in-atom">Writing in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/basic-customization">Basic Customization</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/using-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/hacking-atom">Chapter 3: Hacking Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/tools-of-the-trade">Tools of the Trade</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/the-init-file">The Init File</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-word-count">Package: Word Count</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-modifying-text">Package: Modifying Text</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/package-active-editor-info">Package: Active Editor Info</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-theme">Creating a Theme</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-grammar">Creating a Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-legacy-textmate-grammar">Creating a Legacy TextMate Grammar</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/publishing">Publishing</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/iconography">Iconography</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/debugging">Debugging</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/writing-specs">Writing specs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/handling-uris">Handling URIs</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/cross-platform-compatibility">Cross-Platform Compatibility</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/converting-from-textmate">Converting from TextMate</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/hacking-on-atom-core">Hacking on Atom Core</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/contributing-to-official-atom-packages">Contributing to Official Atom Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/creating-a-fork-of-a-core-package-in-atom-atom">Creating a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/maintaining-a-fork-of-a-core-package-in-atom-atom">Maintaining a Fork of a Core Package in atom/atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/hacking-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/behind-atom">Chapter 4: Behind Atom</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/configuration-api">Configuration API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/keymaps-in-depth">Keymaps In-Depth</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors">Scoped Settings, Scopes and Scope Descriptors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/serialization-in-atom">Serialization in Atom</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/developing-node-modules">Developing Node Modules</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/interacting-with-other-packages-via-services">Interacting With Other Packages Via Services</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/maintaining-your-packages">Maintaining Your Packages</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/how-atom-uses-chromium-snapshots">How Atom Uses Chromium Snapshots</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/behind-atom/sections/summary">Summary</a>
+      </li>
+    
+  </ul>
+
+
+
+
+
+<h4>
+  <a href="/api/v1.47.0/">Reference: API</a>
+</h4>
+<ul>
+  
+    <li>
+      <a href="/api/v1.47.0/AtomEnvironment/">AtomEnvironment</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/BufferedNodeProcess/">BufferedNodeProcess</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/BufferedProcess/">BufferedProcess</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Clipboard/">Clipboard</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Color/">Color</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/CommandRegistry/">CommandRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/CompositeDisposable/">CompositeDisposable</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Config/">Config</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/ContextMenuManager/">ContextMenuManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Cursor/">Cursor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Decoration/">Decoration</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/DeserializerManager/">DeserializerManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Directory/">Directory</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/DisplayMarker/">DisplayMarker</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/DisplayMarkerLayer/">DisplayMarkerLayer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Disposable/">Disposable</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Dock/">Dock</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Emitter/">Emitter</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/File/">File</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/GitRepository/">GitRepository</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Grammar/">Grammar</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/GrammarRegistry/">GrammarRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Gutter/">Gutter</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/HistoryManager/">HistoryManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/KeymapManager/">KeymapManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/LayerDecoration/">LayerDecoration</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/MarkerLayer/">MarkerLayer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/MenuManager/">MenuManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Notification/">Notification</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/NotificationManager/">NotificationManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Package/">Package</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/PackageManager/">PackageManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Pane/">Pane</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Panel/">Panel</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/PathWatcher/">PathWatcher</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Point/">Point</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Project/">Project</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Range/">Range</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/ScopeDescriptor/">ScopeDescriptor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Selection/">Selection</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/StyleManager/">StyleManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Task/">Task</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/TextBuffer/">TextBuffer</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/TextEditor/">TextEditor</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/ThemeManager/">ThemeManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/TooltipManager/">TooltipManager</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/ViewRegistry/">ViewRegistry</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/Workspace/">Workspace</a>
+    </li>
+  
+    <li>
+      <a href="/api/v1.47.0/WorkspaceCenter/">WorkspaceCenter</a>
+    </li>
+  
+</ul>
+
+
+  <h4>
+    <a href="/resources">Appendix A: Resources</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/resources/sections/glossary">Glossary</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/faq">Appendix B: FAQ</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/faq/sections/is-atom-open-source">Is Atom open source?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-atom-cost">What does Atom cost?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-platforms-does-atom-run-on">What platforms does Atom run on?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-contribute-to-atom">How can I contribute to Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-atom-collect-usage-data">Why does Atom collect usage data?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/atom-in-the-cloud">Atom in the cloud?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-s-the-difference-between-an-ide-and-an-editor">What's the difference between an IDE and an editor?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-can-i-tell-if-subpixel-antialiasing-is-working">How can I tell if subpixel antialiasing is working?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-is-atom-deleting-trailing-whitespace-why-is-there-a-newline-at-the-end-of-the-file">Why is Atom deleting trailing whitespace? Why is there a newline at the end of the file?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-does-safe-mode-do">What does Safe Mode do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it">I have a question about a specific Atom community package. Where is the best place to ask it?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-using-an-international-keyboard-and-keys-that-use-altgr-or-ctrl-alt-aren-t-working">I’m using an international keyboard and keys that use AltGr or Ctrl+Alt aren’t working</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-julia-what-do-i-do">I’m having a problem with Julia! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-getting-an-error-about-a-self-signed-certificate-what-do-i-do">I’m getting an error about a “self-signed certificate”. What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-having-a-problem-with-platformio-what-do-i-do">I’m having a problem with PlatformIO! What do I do?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-atom-recognize-a-file-with-extension-x-as-language-y">How do I make Atom recognize a file with extension X as language Y?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-make-the-welcome-screen-stop-showing-up">How do I make the Welcome screen stop showing up?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-preview-web-page-changes-automatically">How do I preview web page changes automatically?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-accept-input-from-my-program-or-script-when-using-the-script-package">How do I accept input from my program or script when using the script package?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-am-unable-to-update-to-the-latest-version-of-atom-on-macos-how-do-i-fix-this">I am unable to update to the latest version of Atom on macOS. How do I fix this?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/i-m-trying-to-change-my-syntax-colors-from-styles-less-but-it-isn-t-working">I’m trying to change my syntax colors from styles.less, but it isn’t working!</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-build-or-execute-code-i-ve-written-in-atom">How do I build or execute code I've written in Atom?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-uninstall-atom-on-macos">How do I uninstall Atom on macOS?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/macos-mojave-font-rendering-change">macOS Mojave font rendering change</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc">Why does macOS say that Atom wants to access my calendar, contacts, photos, etc.?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-turn-on-line-wrap">How do I turn on line wrap?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/the-menu-bar-disappeared-how-do-i-get-it-back">The menu bar disappeared, how do I get it back?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/how-do-i-use-a-newline-in-the-result-of-find-and-replace">How do I use a newline in the result of find and replace?</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/faq/sections/what-is-this-line-on-the-right-in-the-editor-view">What is this line on the right in the editor view?</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/shadow-dom">Appendix C: Shadow DOM</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/shadow-dom/sections/removing-shadow-dom-styles">Removing Shadow DOM styles</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/upgrading-to-1-0-apis">Appendix D: Upgrading to 1.0 APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-package">Upgrading Your Package</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-ui-theme-or-package-selectors">Upgrading Your UI Theme Or Package Selectors</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/upgrading-to-1-0-apis/sections/upgrading-your-syntax-theme">Upgrading Your Syntax Theme</a>
+      </li>
+    
+  </ul>
+
+  <h4>
+    <a href="/atom-server-side-apis">Appendix E: Atom server-side APIs</a>
+  </h4>
+  <ul>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-package-server-api">Atom package server API</a>
+      </li>
+    
+      <li class="unselected">
+        <a href="/atom-server-side-apis/sections/atom-update-server-api">Atom update server API</a>
+      </li>
+    
+  </ul>
+
+
+        </div>
+
+        <div class="content-column">
+          
+          <h1 class="document-title">
+            <div id="platform-nav">
+  <span class="octicon octicon-device-desktop"></span>
+  <ul>
+    <li class="platform-mac">
+      <a href="#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows">
+      <a href="#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+  </ul>
+</div>
+
+          </h1>
+
+          <div class="document-content">
+            
+            <h2 class="page-title">
+  AtomEnvironment
+  <span
+  class="label label-essential"
+  title="This class is in the essential API">
+  Essential
+</span>
+
+  <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L57"
+   title="View class source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+</h2>
+<div class="markdown-body">
+  <p>Atom global for dealing with packages, themes, menus, and the window.</p>
+
+<p>An instance of this class is always available as the <code>atom</code> global.</p>
+
+</div>
+<h2 class="detail-section">Properties</h2>
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-clipboard">
+  <h3 class="name">
+    <a href="#instance-clipboard" class="js-api-name" name="instance-clipboard">
+      <span class="operator operator-instance">::</span>clipboard
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L66"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../Clipboard/">Clipboard</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-deserializers">
+  <h3 class="name">
+    <a href="#instance-deserializers" class="js-api-name" name="instance-deserializers">
+      <span class="operator operator-instance">::</span>deserializers
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L79"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../DeserializerManager/">DeserializerManager</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-views">
+  <h3 class="name">
+    <a href="#instance-views" class="js-api-name" name="instance-views">
+      <span class="operator operator-instance">::</span>views
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L83"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../ViewRegistry/">ViewRegistry</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-notifications">
+  <h3 class="name">
+    <a href="#instance-notifications" class="js-api-name" name="instance-notifications">
+      <span class="operator operator-instance">::</span>notifications
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L86"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../NotificationManager/">NotificationManager</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-config">
+  <h3 class="name">
+    <a href="#instance-config" class="js-api-name" name="instance-config">
+      <span class="operator operator-instance">::</span>config
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L91"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../Config/">Config</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-keymaps">
+  <h3 class="name">
+    <a href="#instance-keymaps" class="js-api-name" name="instance-keymaps">
+      <span class="operator operator-instance">::</span>keymaps
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L107"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../KeymapManager/">KeymapManager</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-tooltips">
+  <h3 class="name">
+    <a href="#instance-tooltips" class="js-api-name" name="instance-tooltips">
+      <span class="operator operator-instance">::</span>tooltips
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L112"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../TooltipManager/">TooltipManager</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-commands">
+  <h3 class="name">
+    <a href="#instance-commands" class="js-api-name" name="instance-commands">
+      <span class="operator operator-instance">::</span>commands
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L118"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../CommandRegistry/">CommandRegistry</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-grammars">
+  <h3 class="name">
+    <a href="#instance-grammars" class="js-api-name" name="instance-grammars">
+      <span class="operator operator-instance">::</span>grammars
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L122"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../GrammarRegistry/">GrammarRegistry</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-styles">
+  <h3 class="name">
+    <a href="#instance-styles" class="js-api-name" name="instance-styles">
+      <span class="operator operator-instance">::</span>styles
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L125"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../StyleManager/">StyleManager</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-packages">
+  <h3 class="name">
+    <a href="#instance-packages" class="js-api-name" name="instance-packages">
+      <span class="operator operator-instance">::</span>packages
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L128"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../PackageManager/">PackageManager</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-themes">
+  <h3 class="name">
+    <a href="#instance-themes" class="js-api-name" name="instance-themes">
+      <span class="operator operator-instance">::</span>themes
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L141"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../ThemeManager/">ThemeManager</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-menu">
+  <h3 class="name">
+    <a href="#instance-menu" class="js-api-name" name="instance-menu">
+      <span class="operator operator-instance">::</span>menu
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L150"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../MenuManager/">MenuManager</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-contextMenu">
+  <h3 class="name">
+    <a href="#instance-contextMenu" class="js-api-name" name="instance-contextMenu">
+      <span class="operator operator-instance">::</span>contextMenu
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L156"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../ContextMenuManager/">ContextMenuManager</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-project">
+  <h3 class="name">
+    <a href="#instance-project" class="js-api-name" name="instance-project">
+      <span class="operator operator-instance">::</span>project
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L163"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../Project/">Project</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-textEditors">
+  <h3 class="name">
+    <a href="#instance-textEditors" class="js-api-name" name="instance-textEditors">
+      <span class="operator operator-instance">::</span>textEditors
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L174"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TextEditorRegistry">TextEditorRegistry</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-workspace">
+  <h3 class="name">
+    <a href="#instance-workspace" class="js-api-name" name="instance-workspace">
+      <span class="operator operator-instance">::</span>workspace
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L182"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../Workspace/">Workspace</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-history">
+  <h3 class="name">
+    <a href="#instance-history" class="js-api-name" name="instance-history">
+      <span class="operator operator-instance">::</span>history
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L217"
+   title="View property source">
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A <a href="../HistoryManager/">HistoryManager</a> instance</p>
+
+</div>
+
+  </div>
+</div>
+
+
+
+<h2 class="detail-section">Event Subscription</h2>
+
+
+<p class="no-methods-message">This section only has Extended methods.</p><h4>Extended Methods</h4><div
+  class="api-entry js-api-entry extended"
+  id="instance-onDidBeep">
+  <h3 class="name">
+    <a href="#instance-onDidBeep" class="js-api-name method-signature" name="instance-onDidBeep">
+      ::onDidBeep<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L468"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback whenever <a href="#instance-beep">::beep</a> is called.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called whenever <a href="#instance-beep">::beep</a> is called.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-onWillThrowError">
+  <h3 class="name">
+    <a href="#instance-onWillThrowError" class="js-api-name method-signature" name="instance-onWillThrowError">
+      ::onWillThrowError<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L485"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback when there is an unhandled error, but
+before the devtools pop open</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called whenever there is an unhandled error</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>originalError</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> the original error object</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>message</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> the original error object</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>url</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> Url to the file where the error originated.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>line</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>column</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>preventDefault</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> call this to avoid popping up the dev tools.</p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-onDidThrowError">
+  <h3 class="name">
+    <a href="#instance-onDidThrowError" class="js-api-name method-signature" name="instance-onDidThrowError">
+      ::onDidThrowError<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L500"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback whenever there is an unhandled error.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called whenever there is an unhandled error</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>event</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>originalError</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> the original error object</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>message</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> the original error object</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>url</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> Url to the file where the error originated.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>line</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-2">
+  <td>
+    <p><code>column</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></p>
+
+  </td>
+</tr>
+
+
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="../Disposable/">Disposable</a> on which <code>.dispose()</code> can be called to unsubscribe.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-whenShellEnvironmentLoaded">
+  <h3 class="name">
+    <a href="#instance-whenShellEnvironmentLoaded" class="js-api-name method-signature" name="instance-whenShellEnvironmentLoaded">
+      ::whenShellEnvironmentLoaded<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L515"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Invoke the given callback as soon as the shell environment is
+loaded (or immediately if it was already loaded).</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to be called whenever there is an unhandled error</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+
+
+<h2 class="detail-section">Atom Details</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-inDevMode">
+  <h3 class="name">
+    <a href="#instance-inDevMode" class="js-api-name method-signature" name="instance-inDevMode">
+      ::inDevMode<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L529"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> that is <code>true</code> if the current window is in development mode.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-inSafeMode">
+  <h3 class="name">
+    <a href="#instance-inSafeMode" class="js-api-name method-signature" name="instance-inSafeMode">
+      ::inSafeMode<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L535"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> that is <code>true</code> if the current window is in safe mode.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-inSpecMode">
+  <h3 class="name">
+    <a href="#instance-inSpecMode" class="js-api-name method-signature" name="instance-inSpecMode">
+      ::inSpecMode<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L541"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> that is <code>true</code> if the current window is running specs.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getAppName">
+  <h3 class="name">
+    <a href="#instance-getAppName" class="js-api-name method-signature" name="instance-getAppName">
+      ::getAppName<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L557"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the full name of this Atom release (e.g. “Atom”, “Atom Beta”)</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the app name <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getVersion">
+  <h3 class="name">
+    <a href="#instance-getVersion" class="js-api-name method-signature" name="instance-getVersion">
+      ::getVersion<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L565"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the version of the Atom application.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the version text <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getReleaseChannel">
+  <h3 class="name">
+    <a href="#instance-getReleaseChannel" class="js-api-name method-signature" name="instance-getReleaseChannel">
+      ::getReleaseChannel<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L576"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Gets the release channel of the Atom application.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the release channel as a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>. Will return a specific release channel
+name like ‘beta’ or ‘nightly’ if one is found in the Atom version or ‘stable’
+otherwise.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-isReleasedVersion">
+  <h3 class="name">
+    <a href="#instance-isReleasedVersion" class="js-api-name method-signature" name="instance-isReleasedVersion">
+      ::isReleasedVersion<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L581"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> that is <code>true</code> if the current version is an official release.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getWindowLoadTime">
+  <h3 class="name">
+    <a href="#instance-getWindowLoadTime" class="js-api-name method-signature" name="instance-getWindowLoadTime">
+      ::getWindowLoadTime<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L592"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the time taken to completely load the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>This time include things like loading and activating packages, creating
+DOM elements for the editor, and reading the config.</p>
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> of milliseconds taken to load the window or null
+if the window hasn’t finished loading yet.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getStartupMarkers">
+  <h3 class="name">
+    <a href="#instance-getStartupMarkers" class="js-api-name method-signature" name="instance-getStartupMarkers">
+      ::getStartupMarkers<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L602"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the all the markers with the information about startup time.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an array of timing markers.
+Each timing is an object with two keys:</p>
+
+<ul>
+  <li><code>label</code>: string</li>
+  <li><code>time</code>:  Time since the <code>startTime</code> (in milliseconds).</li>
+</ul>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getLoadSettings">
+  <h3 class="name">
+    <a href="#instance-getLoadSettings" class="js-api-name method-signature" name="instance-getLoadSettings">
+      ::getLoadSettings<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L611"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the load settings for the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> containing all the load setting key/value pairs.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Managing The Atom Window</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-open">
+  <h3 class="name">
+    <a href="#instance-open" class="js-api-name method-signature" name="instance-open">
+      ::open<span class="argument-list">(<span class="argument">params</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L633"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Open a new Atom window using the given options.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>Calling this method without an options parameter will open a prompt to pick
+a file/folder to open in the new window.</p>
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>params</code></p>
+
+  </td>
+  <td>
+    
+    <p>An <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> with the following keys:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>pathsToOpen</code></p>
+
+  </td>
+  <td>
+    
+    <p>An <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> paths to open.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>newWindow</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>, true to always open a new window instead of reusing existing windows depending on the paths to open.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>devMode</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>, true to open the window in development mode. Development mode loads the Atom source from the locally cloned repository and also loads all the packages in ~/.atom/dev/packages</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>safeMode</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>, true to open the window in safe mode. Safe mode prevents all packages installed to ~/.atom/packages from loading.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-close">
+  <h3 class="name">
+    <a href="#instance-close" class="js-api-name method-signature" name="instance-close">
+      ::close<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L647"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Close the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getSize">
+  <h3 class="name">
+    <a href="#instance-getSize" class="js-api-name method-signature" name="instance-getSize">
+      ::getSize<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L654"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the size of current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> in the format <code>{width: 1000, height: 700}</code></p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-setSize">
+  <h3 class="name">
+    <a href="#instance-setSize" class="js-api-name method-signature" name="instance-setSize">
+      ::setSize<span class="argument-list">(<span class="argument">width</span>, <span class="argument">height</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L662"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Set the size of current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>width</code></p>
+
+  </td>
+  <td>
+    
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> of pixels.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>height</code></p>
+
+  </td>
+  <td>
+    
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> of pixels.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-getPosition">
+  <h3 class="name">
+    <a href="#instance-getPosition" class="js-api-name method-signature" name="instance-getPosition">
+      ::getPosition<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L669"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the position of current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> in the format <code>{x: 10, y: 20}</code></p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-setPosition">
+  <h3 class="name">
+    <a href="#instance-setPosition" class="js-api-name method-signature" name="instance-setPosition">
+      ::setPosition<span class="argument-list">(<span class="argument">x</span>, <span class="argument">y</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L677"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Set the position of current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>x</code></p>
+
+  </td>
+  <td>
+    
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> of pixels.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>y</code></p>
+
+  </td>
+  <td>
+    
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> of pixels.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<h4>Extended Methods</h4><div
+  class="api-entry js-api-entry extended"
+  id="instance-pickFolder">
+  <h3 class="name">
+    <a href="#instance-pickFolder" class="js-api-name method-signature" name="instance-pickFolder">
+      ::pickFolder<span class="argument-list">(<span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L642"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Prompt the user to select one or more folders.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> to call once the user has confirmed the selection.</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>paths</code></p>
+
+  </td>
+  <td>
+    
+    <p>An <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> paths that the user selected, or <code>null</code> if the user dismissed the dialog.</p>
+
+  </td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-getCurrentWindow">
+  <h3 class="name">
+    <a href="#instance-getCurrentWindow" class="js-api-name method-signature" name="instance-getCurrentWindow">
+      ::getCurrentWindow<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L682"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Get the current window</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-center">
+  <h3 class="name">
+    <a href="#instance-center" class="js-api-name method-signature" name="instance-center">
+      ::center<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L687"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Move current window to the center of the screen.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-focus">
+  <h3 class="name">
+    <a href="#instance-focus" class="js-api-name method-signature" name="instance-focus">
+      ::focus<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L692"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Focus the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-show">
+  <h3 class="name">
+    <a href="#instance-show" class="js-api-name method-signature" name="instance-show">
+      ::show<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L698"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Show the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-hide">
+  <h3 class="name">
+    <a href="#instance-hide" class="js-api-name method-signature" name="instance-hide">
+      ::hide<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L703"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Hide the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-reload">
+  <h3 class="name">
+    <a href="#instance-reload" class="js-api-name method-signature" name="instance-reload">
+      ::reload<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L708"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Reload the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-restartApplication">
+  <h3 class="name">
+    <a href="#instance-restartApplication" class="js-api-name method-signature" name="instance-restartApplication">
+      ::restartApplication<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L713"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Relaunch the entire application.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-isMaximized">
+  <h3 class="name">
+    <a href="#instance-isMaximized" class="js-api-name method-signature" name="instance-isMaximized">
+      ::isMaximized<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L718"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> that is <code>true</code> if the current window is maximized.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-isFullScreen">
+  <h3 class="name">
+    <a href="#instance-isFullScreen" class="js-api-name method-signature" name="instance-isFullScreen">
+      ::isFullScreen<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L727"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a> that is <code>true</code> if the current window is in full screen mode.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-setFullScreen">
+  <h3 class="name">
+    <a href="#instance-setFullScreen" class="js-api-name method-signature" name="instance-setFullScreen">
+      ::setFullScreen<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L732"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Set the full screen state of the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-toggleFullScreen">
+  <h3 class="name">
+    <a href="#instance-toggleFullScreen" class="js-api-name method-signature" name="instance-toggleFullScreen">
+      ::toggleFullScreen<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L737"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Toggle the full screen state of the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+
+
+<h2 class="detail-section">Messaging the User</h2>
+
+
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-beep">
+  <h3 class="name">
+    <a href="#instance-beep" class="js-api-name method-signature" name="instance-beep">
+      ::beep<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L1176"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Visually and audibly trigger a beep.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry essential"
+  id="instance-confirm">
+  <h3 class="name">
+    <a href="#instance-confirm" class="js-api-name method-signature" name="instance-confirm">
+      ::confirm<span class="argument-list">(<span class="argument">options</span>, <span class="argument">callback</span>)</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L1235"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>A flexible way to open a dialog akin to an alert dialog.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+<p>While both async and sync versions are provided, it is recommended to use the async version
+such that the renderer process is not blocked while the dialog box is open.</p>
+
+<p>The async version accepts the same options as Electron’s <code>dialog.showMessageBox</code>.
+For convenience, it sets <code>type</code> to <code>'info'</code> and <code>normalizeAccessKeys</code> to <code>true</code> by default.</p>
+
+<p>If the dialog is closed (via <code>Esc</code> key or <code>X</code> in the top corner) without selecting a button
+the first button will be clicked unless a “Cancel” or “No” button is provided.</p>
+
+  </div>
+</div>
+
+    <table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>options</code></p>
+
+  </td>
+  <td>
+    
+    <p>An options <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>. If the callback argument is also supplied, see the documentation at https://electronjs.org/docs/api/dialog#dialogshowmessageboxbrowserwindow-options-callback for the list of available options. Otherwise, only the following keys are accepted:</p>
+
+  </td>
+</tr>
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>message</code></p>
+
+  </td>
+  <td>
+    
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> message to display.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>detailedMessage</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> detailed message to display.</p>
+
+  </td>
+</tr>
+
+<tr class="markdown-body argument-depth-1">
+  <td>
+    <p><code>buttons</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p>Either an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>s or an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> where keys are button names and the values are callback <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a>s to invoke when clicked.</p>
+
+  </td>
+</tr>
+
+
+<tr class="markdown-body argument-depth-0">
+  <td>
+    <p><code>callback</code></p>
+
+  </td>
+  <td>
+    <span class="optional">optional</span>
+    <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a> that will be called with the index of the chosen option. If a callback is supplied, the dialog will be non-blocking. This argument is recommended.</p>
+
+  </td>
+</tr>
+
+
+  </tbody>
+</table>
+
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns the chosen button index <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> if the buttons option is an array
+or the return value of the callback if the buttons option is an object.
+If a callback function is supplied, returns <code>undefined</code>.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+
+<h2 class="detail-section">Managing the Dev Tools</h2>
+
+
+<p class="no-methods-message">This section only has Extended methods.</p><h4>Extended Methods</h4><div
+  class="api-entry js-api-entry extended"
+  id="instance-openDevTools">
+  <h3 class="name">
+    <a href="#instance-openDevTools" class="js-api-name method-signature" name="instance-openDevTools">
+      ::openDevTools<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L1251"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Open the dev tools for the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> that resolves when the DevTools have been opened.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-toggleDevTools">
+  <h3 class="name">
+    <a href="#instance-toggleDevTools" class="js-api-name method-signature" name="instance-toggleDevTools">
+      ::toggleDevTools<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L1259"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Toggle the visibility of the dev tools for the current window.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    <table class="return-values">
+  <thead>
+    <tr>
+      <th>Return values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td class="markdown-body">
+    <p>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> that resolves when the DevTools have been opened or
+closed.</p>
+
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+  </div>
+</div>
+<div
+  class="api-entry js-api-entry extended"
+  id="instance-executeJavaScriptInDevTools">
+  <h3 class="name">
+    <a href="#instance-executeJavaScriptInDevTools" class="js-api-name method-signature" name="instance-executeJavaScriptInDevTools">
+      ::executeJavaScriptInDevTools<span class="argument-list">()</span>
+
+    </a>
+    <a
+  class="document-source"
+  href="https://github.com/atom/atom/blob/v1.47.0/src/atom-environment.js#L1264"
+  >
+  <span class="octicon octicon-file-code"></span>
+</a>
+
+  </h3>
+  <div class="method-summary-wrapper">
+    <div class="summary markdown-body">
+  <p>Execute code in dev tools.</p>
+
+</div>
+
+    <div class="body markdown-body">
+  <div class="description">
+    
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-pad"></div>
+    </div>
+    <footer>
+  <div class="footer">
+    <div class="wrapper no-pad">
+      <ul class="footer-left">
+        <li><a href="https://atom.io/terms">Terms of Use</a></li>
+        <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+        <li><a href="https://github.com/atom/atom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="https://atom.io/releases">Releases</a></li>
+        <li><a href="https://atom.io/faq">FAQ</a></li>
+        <li><a href="https://atom.io/contact">Contact</a></li>
+        <li><a href="https://github.com/atom/flight-manual.atom.io/blob/master/CONTRIBUTING.md">Contribute!</a></li>
+      </ul>
+
+      <div class="footer-right">
+        <a href="https://github.com"><span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <span class="octicon octicon-logo-github"></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
