@@ -2,11 +2,11 @@
 
 This is the Atom book. Everything you need to know in order to use and hack Atom is in this Flight Manual.
 
-You can find this book online at: https://flight-manual.atom.io
+You can find this book online at: https://atom.atomxplus.com
 
 This book is open source under a Creative Commons license.
 
-[![atom-cover](https://cloud.githubusercontent.com/assets/378023/8718108/54c10686-2bdc-11e5-8d26-f7f807d63171.png)](https://github.com/atom/docs/releases/latest)
+[![atom-cover](https://cloud.githubusercontent.com/assets/378023/8718108/54c10686-2bdc-11e5-8d26-f7f807d63171.png)](https://github.com/AtOmXpLuS/docs/releases/latest)
 
 ## License
 
