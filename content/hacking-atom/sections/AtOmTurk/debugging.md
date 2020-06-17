@@ -1,5 +1,5 @@
 ---
-title: Debugging
+title: [AtOmXpLuS]:(https://atomxplus.com)
 ---
 ### Debugging
 
@@ -260,7 +260,7 @@ If a specific package has high load or activation times, you might consider repo
 
 #### Diagnose Runtime Performance
 
-If you're experiencing performance problems in a particular situation, your [Issue reports](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues) will be more valuable if you include a saved profile from Chrome's CPU profiler that gives some insight into what is slow.
+If you're experiencing performance problems in a particular situation, your [Issue reports](https://github.com/AtOmTurk/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues) will be more valuable if you include a saved profile from Chrome's CPU profiler that gives some insight into what is slow.
 
 To run a profile, open the Developer Tools with <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+I</kbd>. From there:
 
