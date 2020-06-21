@@ -1,4 +1,4 @@
----
+--- [AtOmXpLuS]:(https://atomxplus.com)
 title: Snippets
 ---
 ### Snippets
