@@ -85,7 +85,7 @@ In order to build Atom from source, you need to have a number of other requireme
 * macOS 10.9 or later
 * Node.js 6.x or later (we recommend installing it via [nvm](https://github.com/creationix/nvm))
 * npm 3.10.x or later (run `npm install -g npm`)
-* Python v2.7.x
+* Python v2.7.x or 3.5+
 * Command Line Tools for [Xcode](https://developer.apple.com/xcode/downloads/) (run `xcode-select --install` to install)
 
 {{/mac}}
@@ -93,13 +93,12 @@ In order to build Atom from source, you need to have a number of other requireme
 {{#windows}}
 
 * Node.js 6.9.4 or later (the architecture of node available to the build system will determine whether you build 32-bit or 64-bit Atom)
-* Python v2.7.x
+* Python v2.7.x or 3.5+
   * The `python.exe` must be available at `%SystemDrive%\Python27\python.exe`. If it is installed elsewhere create a symbolic link to the directory containing the `python.exe` using: `mklink /d %SystemDrive%\Python27 D:\elsewhere\Python27`
 * 7zip (7z.exe available from the command line) - for creating distribution zip files
 * C++ build tools, either:
-  * [Visual C++ Build Tools 2015](https://visualstudio.microsoft.com/vs/older-downloads/)
-  * [Visual Studio 2013 Update 5](https://www.visualstudio.com/downloads/) (Express Edition or better)
-  * [Visual Studio 2015](https://www.visualstudio.com/downloads/) (Community Edition or better)
+  * [Visual C++ Build Tools 2015 or newer](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+  * [Visual Studio 2015 or newer](https://www.visualstudio.com/downloads/) (Community Edition or better)
   * **Unsupported** but more convenient for some who know Node: [windows-build-tools](https://www.npmjs.com/package/windows-build-tools)
 
 
@@ -107,9 +106,9 @@ In order to build Atom from source, you need to have a number of other requireme
 
   * The default installation folder is chosen so the build tools can find it
   * If using Visual Studio make sure Visual C++ support is selected/installed
-  * If using Visual C++ Build Tools make sure Windows 8 SDK is selected/installed
+  * If using Visual C++ Build Tools make sure a Windows SDK is selected/installed
   * A `git` command is in your path
-  * Set the `GYP_MSVS_VERSION` environment variable to the Visual Studio/Build Tools version (`2013` or `2015`) e.g. ``[Environment]::SetEnvironmentVariable("GYP_MSVS_VERSION", "2015", "User")`` in PowerShell (or set it in Windows advanced system settings).
+  * Set the `GYP_MSVS_VERSION` environment variable to the Visual Studio/Build Tools version (`2015`, `2017`, etc.) e.g. ``[Environment]::SetEnvironmentVariable("GYP_MSVS_VERSION", "2015", "User")`` in PowerShell (or set it in Windows advanced system settings).
 
 {{/windows}}
 
@@ -124,7 +123,7 @@ Ubuntu LTS 16.04 64-bit is the recommended platform.
 * Git
 * Node.js 6.x or later (we recommend installing it via [nvm](https://github.com/creationix/nvm))
 * npm 3.10.x or later (run `npm install -g npm`)
-* Ensure node-gyp uses python2 (run `npm config set python /usr/bin/python2 -g`, use `sudo` if you didn't install node via nvm)
+* Python 2.7.x or 3.5+
 * Development headers for [libsecret](https://wiki.gnome.org/Projects/Libsecret).
 
 For more details, scroll down to find how to setup a specific Linux distro.
@@ -162,10 +161,8 @@ $ sudo yum install -y make gcc gcc-c++ glibc-devel git-core libsecret-devel rpmd
 ###### Arch
 
 ``` command-line
-sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python2 libx11 libxkbfile
+sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python libx11 libxkbfile
 ```
-
-Be certain to use `export PYTHON=/usr/bin/python2` before building Atom.
 
 ###### Slackware
 
@@ -262,7 +259,7 @@ Use [this search](https://github.com/atom/atom/search?q=label%3Abuild-error+labe
 
 * `msbuild.exe failed with exit code: 1`
    * If using **Visual Studio**, ensure you have the **Visual C++** component installed. Go into Add/Remove Programs, select Visual Studio, press Modify, and then check the Visual C++ box.
-   * If using **Visual C++ Build Tools**, ensure you have the **Windows 8 SDK** component installed. Go into Add/Remove Programs, select Visual C++ Build Tools, press Modify and then check the Windows 8 SDK box.
+   * If using **Visual C++ Build Tools**, ensure you have the **Windows 8 SDK** or **Windows 10 SDK** component installed. Go into Add/Remove Programs, select Visual C++ Build Tools, press Modify and then check the Windows 8/10 SDK box.
 
 * `script\build` stops with no error or warning shortly after displaying the versions of node, npm and Python
   * Make sure that the path where you have checked out Atom does not include a space. For example, use `C:\atom` instead of `C:\my stuff\atom`.
@@ -281,7 +278,7 @@ Use [this search](https://github.com/atom/atom/search?q=label%3Abuild-error+labe
   * See the next item.
 
 * `error MSB8020: The build tools for Visual Studio 201? (Platform Toolset = 'v1?0') cannot be found.`
-  * Try setting the `GYP_MSVS_VERSION` environment variable to **2013** or **2015** depending on what version of Visual Studio/Build Tools is installed and then `script\clean` followed by `script\build` (re-open the Command Prompt if you set the variable using the GUI).
+  * Try setting the `GYP_MSVS_VERSION` environment variable to **2015** or **2017** depending on what version of Visual Studio/Build Tools is installed and then `script\clean` followed by `script\build` (re-open the Command Prompt if you set the variable using the GUI).
 
 * `'node-gyp' is not recognized as an internal or external command, operable program or batch file.`
   * Try running `npm install -g node-gyp`, and run `script\build` again.
