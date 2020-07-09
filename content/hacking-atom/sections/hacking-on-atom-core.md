@@ -93,7 +93,7 @@ In order to build Atom from source, you need to have a number of other requireme
 {{#windows}}
 
 * Node.js 10.12 or later (the architecture of node available to the build system will determine whether you build 32-bit or 64-bit Atom)
-* Python v2.7.x or 3.5+
+* Python v2.7.x
   * The `python.exe` must be available at `%SystemDrive%\Python27\python.exe`. If it is installed elsewhere create a symbolic link to the directory containing the `python.exe` using: `mklink /d %SystemDrive%\Python27 D:\elsewhere\Python27`
 * 7zip (7z.exe available from the command line) - for creating distribution zip files
 * C++ build tools, either:
