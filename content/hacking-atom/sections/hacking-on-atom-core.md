@@ -99,7 +99,7 @@ In order to build Atom from source, you need to have a number of other requireme
 * C++ build tools, either:
   * [Visual C++ Build Tools 2015 or newer](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
   * [Visual Studio 2015 or newer](https://www.visualstudio.com/downloads/) (Community Edition or better)
-  * **Unsupported** but more convenient for some who know Node: [windows-build-tools](https://www.npmjs.com/package/windows-build-tools)
+  * [windows-build-tools](https://www.npmjs.com/package/windows-build-tools): `npm install --global --production windows-build-tools@4.0`
 
 
   Also ensure that:
