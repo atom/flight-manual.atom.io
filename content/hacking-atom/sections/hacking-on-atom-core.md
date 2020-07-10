@@ -99,7 +99,6 @@ In order to build Atom from source, you need to have a number of other requireme
     * For Python 2, be sure to install in the default location, or check "Add Python 2.x to PATH" before installing.
     * For Python 3, check "Add Python 3.x to PATH", or change the install path to `[Your_Drive_Letter]:\Python37` e.g. `C:\Python37`, (even if your version of Python 3 isn't 3.7, that's one place where the scripts will look.) 
     * If python isn't found by the bootstrap script, create a symbolic link to the directory containing `python.exe` using e.g.: `mklink /d %SystemDrive%\Python27 D:\elsewhere\Python27`(Links should be set at either `%SystemDrive%\Python27` or `%SystemDrive%\Python37`, regardless of what version of Python you actually have.)
-* 7zip (7z.exe available from the command line) - for creating distribution zip files
 * C++ build tools, either:
   * [Visual C++ Build Tools 2015, 2017 or 2019](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
   * [Visual Studio 2015, 2017 or 2019](https://www.visualstudio.com/downloads/) (Community Edition or better)
@@ -229,7 +228,7 @@ To also install the newly built application, use the `--create-debian-package` o
 ##### `script\build` Options
 
 * `--code-sign`: signs the application with the GitHub certificate specified in `$WIN_P12KEY_URL`.
-* `--compress-artifacts`: zips the generated application as `out\atom-windows.zip` (requires [7-Zip](http://www.7-zip.org)).
+* `--compress-artifacts`: zips the generated application as `out\atom-windows.zip`.
 * `--create-windows-installer`: creates an `.exe` and two `.nupkg` packages in the `out` directory.
 * `--install[=dir]`: installs the application in `${dir}\Atom\app-dev`; `${dir}` defaults to `%LOCALAPPDATA%`.
 
