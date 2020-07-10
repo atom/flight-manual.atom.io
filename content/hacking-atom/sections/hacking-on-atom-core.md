@@ -85,7 +85,7 @@ In order to build Atom from source, you need to have a number of other requireme
 * macOS 10.9 or later
 * Node.js 10.12 or later (we recommend installing it via [nvm](https://github.com/creationix/nvm))
 * npm 6 or later (run `npm install -g npm`)
-* Python v2.7.x or 3.5+
+* Python v2.6.x, v2.7.x or v3.5+
 * Command Line Tools for [Xcode](https://developer.apple.com/xcode/downloads/) (run `xcode-select --install` to install)
 
 {{/mac}}
@@ -93,8 +93,12 @@ In order to build Atom from source, you need to have a number of other requireme
 {{#windows}}
 
 * Node.js 10.12 or later (the architecture of node available to the build system will determine whether you build 32-bit or 64-bit Atom)
-* Python v2.7.x
-  * The `python.exe` must be available at `%SystemDrive%\Python27\python.exe`. If it is installed elsewhere create a symbolic link to the directory containing the `python.exe` using: `mklink /d %SystemDrive%\Python27 D:\elsewhere\Python27`
+* Python v2.6.x, v2.7.x, or v3.5+
+  * [Get Python from the Microsoft Store](https://www.microsoft.com/en-us/search/shop/apps?q=python+software+foundation&devicetype=pc&category=Developer+tools%5cDevelopment+kits&Price=0&MaturityRating=ESRB%3aE), or
+  * Download Python from https://www.python.org/downloads/.
+    * For Python 2, be sure to install in the default location, or check "Add Python 2.x to PATH" before installing.
+    * For Python 3, check "Add Python 3.x to PATH", or change the install path to `[Your_Drive_Letter]:\Python37` e.g. `C:\Python37`, (even if your version of Python 3 isn't 3.7, that's one place where the scripts will look.) 
+    * If python isn't found by the bootstrap script, create a symbolic link to the directory containing `python.exe` using e.g.: `mklink /d %SystemDrive%\Python27 D:\elsewhere\Python27`(Links should be set at either `%SystemDrive%\Python27` or `%SystemDrive%\Python37`, regardless of what version of Python you actually have.)
 * 7zip (7z.exe available from the command line) - for creating distribution zip files
 * C++ build tools, either:
   * [Visual C++ Build Tools 2015, 2017 or 2019](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
@@ -123,7 +127,7 @@ Ubuntu LTS 16.04 64-bit is the recommended platform.
 * Git
 * Node.js 10.12 or later (we recommend installing it via [nvm](https://github.com/creationix/nvm))
 * npm 6 or later (run `npm install -g npm`)
-* Python 2.7.x or 3.5+
+* Python 2.6.x, 2.7.x or 3.5+
 * Development headers for [libsecret](https://wiki.gnome.org/Projects/Libsecret).
 
 For more details, scroll down to find how to setup a specific Linux distro.
