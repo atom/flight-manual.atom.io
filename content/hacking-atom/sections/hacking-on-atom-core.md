@@ -269,10 +269,10 @@ Use [this search](https://github.com/atom/atom/search?q=label%3Abuild-error+labe
   * Try moving the repository to `C:\atom`. Most likely, the path is too long. See [issue #2200](https://github.com/atom/atom/issues/2200).
 
 * `error MSB4025: The project file could not be loaded. Invalid character in the given encoding.`
-  * This can occur because your home directory (`%USERPROFILE%`) has non-ASCII characters in it. This is a bug in [gyp](https://code.google.com/p/gyp/)
+  * This can occur because your home directory (`%USERPROFILE%`) has non-ASCII characters in it. This is a bug in [gyp](https://bugs.chromium.org/p/gyp/issues/list)
     which is used to build native Node.js modules and there is no known workaround.
     * https://github.com/TooTallNate/node-gyp/issues/297
-    * https://code.google.com/p/gyp/issues/detail?id=393
+    * https://bugs.chromium.org/p/gyp/issues/detail?id=393
 
 * `'node_modules\.bin\npm' is not recognized as an internal or external command, operable program or batch file.`
    * This occurs if the previous build left things in a bad state. Run `script\clean` and then `script\build` again.
