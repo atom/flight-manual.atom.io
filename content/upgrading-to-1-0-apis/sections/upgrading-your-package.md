@@ -1,5 +1,6 @@
+upgrading-your-package.md
 ---
-title: Upgrading Your Package
+title: <Upgrading Your Package>
 ---
 ### Upgrading Your Package
 
