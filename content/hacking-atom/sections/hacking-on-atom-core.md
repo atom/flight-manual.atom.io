@@ -100,7 +100,7 @@ In order to build Atom from source, you need to have a number of other requireme
     * For Python 3, check "Add Python 3.x to PATH", or change the install path to `[Your_Drive_Letter]:\Python37` e.g. `C:\Python37`, (even if your version of Python 3 isn't 3.7, that's one place where the scripts will look.) 
     * If python isn't found by the bootstrap script, create a symbolic link to the directory containing `python.exe` using e.g.: `mklink /d %SystemDrive%\Python27 D:\elsewhere\Python27`(Links should be set at either `%SystemDrive%\Python27` or `%SystemDrive%\Python37`, regardless of what version of Python you actually have.)
 * C++ build tools:
-  * **Option 1:** [windows-build-tools](https://www.npmjs.com/package/windows-build-tools) - From an elevated Powershell window (right click and "run as Administrator") do: `npm install --global --production windows-build-tools` to install
+  * **Option 1:** [windows-build-tools](https://www.npmjs.com/package/windows-build-tools) - From an elevated Powershell window (right click and "run as Administrator") do: `npm install --global windows-build-tools@4` to install
   * **Option 2:** [Visual C++ Build Tools 2015, 2017 or 2019](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
   * **Option 3:** [Visual Studio 2015, 2017 or 2019](https://www.visualstudio.com/downloads/) (Community Edition or better)
 
