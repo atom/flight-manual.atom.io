@@ -101,8 +101,8 @@ In order to build Atom from source, you need to have a number of other requireme
     * If python isn't found by the bootstrap script, create a symbolic link to the directory containing `python.exe` using e.g.: `mklink /d %SystemDrive%\Python27 D:\elsewhere\Python27`(Links should be set at either `%SystemDrive%\Python27` or `%SystemDrive%\Python37`, regardless of what version of Python you actually have.)
 * C++ build tools:
   * **Option 1:** [windows-build-tools](https://www.npmjs.com/package/windows-build-tools) - From an elevated Powershell window (right click and "run as Administrator") do: `npm install --global windows-build-tools@4` to install
-  * **Option 2:** [Visual C++ Build Tools 2015, 2017 or 2019](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-  * **Option 3:** [Visual Studio 2015, 2017 or 2019](https://www.visualstudio.com/downloads/) (Community Edition or better)
+  * **Option 2:** [Visual C++ Build Tools 2015 or 2017](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+  * **Option 3:** [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/) (Community Edition or better)
 
   Also ensure that:
 
@@ -110,7 +110,7 @@ In order to build Atom from source, you need to have a number of other requireme
   * If using Visual Studio make sure Visual C++ support is selected/installed
   * If using Visual C++ Build Tools make sure a Windows SDK (Windows 8 SDK or Windows 10 SDK) is selected/installed
   * A `git` command is in your path
-  * Set the `GYP_MSVS_VERSION` environment variable to the Visual Studio/Build Tools version (`2015`, `2017`, or `2019`.) e.g. ``[Environment]::SetEnvironmentVariable("GYP_MSVS_VERSION", "2015", "User")`` in PowerShell (or set it in Windows advanced system settings).
+  * Set the `GYP_MSVS_VERSION` environment variable to the Visual Studio/Build Tools version (`2015` or `2017`.) e.g. ``[Environment]::SetEnvironmentVariable("GYP_MSVS_VERSION", "2015", "User")`` in PowerShell (or set it in Windows advanced system settings).
 
 {{/windows}}
 
@@ -280,7 +280,7 @@ Use [this search](https://github.com/atom/atom/search?q=label%3Abuild-error+labe
   * See the next item.
 
 * `error MSB8020: The build tools for Visual Studio 201? (Platform Toolset = 'v1?0') cannot be found.`
-  * Try setting the `GYP_MSVS_VERSION` environment variable to **2015**, **2017** or **2019** depending on what version of Visual Studio/Build Tools is installed and then `script\clean` followed by `script\build` (re-open the Command Prompt if you set the variable using the GUI).
+  * Try setting the `GYP_MSVS_VERSION` environment variable to **2015** or **2017** depending on what version of Visual Studio/Build Tools is installed and then `script\clean` followed by `script\build` (re-open the Command Prompt if you set the variable using the GUI).
 
 * `'node-gyp' is not recognized as an internal or external command, operable program or batch file.`
   * Try running `npm install -g node-gyp`, and run `script\build` again.
