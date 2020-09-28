@@ -84,7 +84,7 @@ In order to build Atom from source, you need to have a number of other requireme
 
 * macOS 10.9 or later
 * Node.js 10.12 or later (we recommend installing it via [nvm](https://github.com/creationix/nvm))
-* npm 6 or later (run `npm install -g npm`)
+* npm 6.12 or later (run `npm install -g npm`)
 * Python v2.6.x, v2.7.x or v3.5+
 * Command Line Tools for [Xcode](https://developer.apple.com/xcode/downloads/) (run `xcode-select --install` to install)
 
@@ -93,6 +93,7 @@ In order to build Atom from source, you need to have a number of other requireme
 {{#windows}}
 
 * Node.js 10.12 or later (the architecture of node available to the build system will determine whether you build 32-bit or 64-bit Atom)
+* npm 6.12 or later (run `npm install -g npm`)
 * Python v2.6.x, v2.7.x, or v3.5+
   * [Get Python from the Microsoft Store](https://www.microsoft.com/en-us/search/shop/apps?q=python+software+foundation&devicetype=pc&category=Developer+tools%5cDevelopment+kits&Price=0&MaturityRating=ESRB%3aE), or
   * Download Python from https://www.python.org/downloads/.
@@ -124,7 +125,7 @@ Ubuntu LTS 16.04 64-bit is the recommended platform.
 * C++11 toolchain
 * Git
 * Node.js 10.12 or later (we recommend installing it via [nvm](https://github.com/creationix/nvm))
-* npm 6 or later (run `npm install -g npm`)
+* npm 6.12 or later (run `npm install -g npm`)
 * Python 2.6.x, 2.7.x or 3.5+
 * Development headers for [libsecret](https://wiki.gnome.org/Projects/Libsecret).
 
