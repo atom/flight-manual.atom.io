@@ -78,11 +78,13 @@ Key combinations express one or more keys combined with optional modifier keys. 
 
 Commands are custom DOM events that are triggered when a key combination or sequence matches a binding. This allows user interface code to listen for named commands without specifying the specific keybinding that triggers it. For example, the following code creates a command to insert the current date in an editor:
 
-```coffee
-atom.commands.add 'atom-text-editor',
-  'user:insert-date': (event) ->
-    editor = @getModel()
-    editor.insertText(new Date().toLocaleString())
+```javascript
+atom.commands.add('atom-text-editor', {
+  'user:insert-date': function (event) {
+    const editor = this.getModel();
+    return editor.insertText(new Date().toLocaleString());
+  }
+});
 ```
 
 `atom.commands` refers to the global `CommandRegistry` instance where all commands are set and consequently picked up by the command palette.
@@ -93,11 +95,12 @@ When you are looking to bind new keys, it is often useful to use the Command Pal
 
 A common question is, "How do I make a single keybinding execute two or more commands?" There isn't any direct support for this in Atom, but it can be achieved by creating a custom command that performs the multiple actions you desire and then creating a keybinding for that command. For example, let's say I want to create a "composed" command that performs a Select Line followed by Cut. You could add the following to your `init.coffee`:
 
-```coffee
-atom.commands.add 'atom-text-editor', 'custom:cut-line', ->
-  editor = atom.workspace.getActiveTextEditor()
-  editor.selectLinesContainingCursors()
-  editor.cutSelectedText()
+```javascript
+atom.commands.add('atom-text-editor', 'custom:cut-line', function () {
+  const editor = this.getModel();
+  editor.selectLinesContainingCursors();
+  editor.cutSelectedText();
+});
 ```
 
 Then let's say we want to map this custom command to `alt-ctrl-z`, you could add the following to your keymap:
@@ -170,7 +173,13 @@ But if you click inside the Tree View and press <kbd class='platform-mac'>Cmd+O<
 
 #### Forcing Chromium's Native Keystroke Handling
 
-If you want to force the native browser behavior for a given keystroke, use the `native!` directive as the command of a binding. This can be useful to enable the correct behavior in native input elements, for example. If you apply the `.native-key-bindings` class to an element, all the keystrokes typically handled by the browser will be assigned the `native!` directive.
+If you want to force the native browser behavior for a given keystroke, use the `native!` directive as the command of a binding. This can be useful to enable the correct behavior in native input elements.  If you apply the `.native-key-bindings` class to an element, all the keystrokes typically handled by the browser will be assigned the `native!` directive.
+
+{{#tip}}
+
+**Tip:** Components and input elements may not correctly handle backspace and arrow keys without forcing this behavior.  If your backspace isn't working correctly inside of a component, add either the directive or the `.native-key-bindings` class.
+
+{{/tip}}
 
 #### Overloading Key Bindings
 
@@ -178,13 +187,15 @@ Occasionally, it makes sense to layer multiple actions on top of the same key bi
 
 To achieve this, the snippets package makes use of the `.abortKeyBinding()` method on the event object representing the `snippets:expand` command.
 
-```coffee-script
-# pseudo-code
-editor.command 'snippets:expand', (e) =>
-  if @cursorFollowsValidPrefix()
-    @expandSnippet()
-  else
-    e.abortKeyBinding()
+```javascript
+// pseudo-code
+editor.command('snippets:expand', e => {
+  if (this.cursorFollowsValidPrefix()) {
+    this.expandSnippet();
+  } else {
+    e.abortKeyBinding();
+  }
+});
 ```
 
 When the event handler observes that the cursor does not follow a valid prefix, it calls `e.abortKeyBinding()`, telling the keymap system to continue searching for another matching binding.
@@ -205,7 +216,7 @@ When the event handler observes that the cursor does not follow a valid prefix, 
 
 #### Overriding Atom's Keyboard Layout Recognition
 
-Sometimes the problem isn't mapping the command to a key combination, the problem is that Atom doesn't recognize properly what keys you're pressing. This is due to [some limitations in how Chromium reports keyboard events](http://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html). But even this can be customized now.
+Sometimes the problem isn't mapping the command to a key combination, the problem is that Atom doesn't recognize properly what keys you're pressing. This is due to [some limitations in how Chromium reports keyboard events](https://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html). But even this can be customized now.
 
 You can add the following to your `init.coffee` to send <kbd class="platform-all">Ctrl+@</kbd> when you press <kbd class="platform-all">Ctrl+Alt+G</kbd>:
 
@@ -220,7 +231,14 @@ Or if you've converted your init script to JavaScript:
 ```javascript
 atom.keymaps.addKeystrokeResolver(({event}) => {
   if (event.code === 'KeyG' && event.altKey && event.ctrlKey && event.type !== 'keyup') {
-    return 'ctrl-@'
+    return 'ctrl-@';
   }
-})
+});
 ```
+
+If you want to know the `event` for the keystroke you pressed you can paste the following script to your [developer tools console](https://flight-manual.atom.io/hacking-atom/sections/debugging/#check-for-errors-in-the-developer-tools)
+```javascript
+document.addEventListener('keydown', e => console.log(e), true);
+```
+
+This will print every keypress event in Atom to the console so you can inspect `KeyboardEvent.key` and `KeyboardEvent.code`.

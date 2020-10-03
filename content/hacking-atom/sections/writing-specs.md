@@ -5,7 +5,7 @@ title: Writing specs
 
 We've looked at and written a few specs through the examples already. Now it's time to take a closer look at the spec framework itself. How exactly do you write tests in Atom?
 
-Atom uses [Jasmine](http://jasmine.github.io/1.3/introduction.html) as its spec framework. Any new functionality should have specs to guard against regressions.
+Atom uses [Jasmine](https://jasmine.github.io/1.3/introduction.html) as its spec framework. Any new functionality should have specs to guard against regressions.
 
 #### Create a New Spec
 
@@ -19,37 +19,43 @@ Spec files **must** end with `-spec` so add `sample-spec.coffee` to the `spec` d
 
 The `describe` method takes two arguments, a description and a function. If the description explains a behavior it typically begins with `when`; if it is more like a unit test it begins with the method name.
 
-```coffee
-describe "when a test is written", ->
-  # contents
+```javascript
+describe("when a test is written", function() {
+  // contents
+})
 ```
 
 or
 
-```coffee
-describe "Editor::moveUp", ->
-  # contents
+```javascript
+describe("Editor::moveUp", function() {
+  // contents
+})
 ```
 
 ##### Add One or More `it` Methods
 
 The `it` method also takes two arguments, a description and a function. Try and make the description flow with the `it` method. For example, a description of "this should work" doesn't read well as "it this should work". But a description of "should work" sounds great as "it should work".
 
-```coffee
-describe "when a test is written", ->
-  it "has some expectations that should pass", ->
-    # Expectations
+```javascript
+describe("when a test is written", function() {
+  it("has some expectations that should pass", function() {
+    // Expectations
+  })
+})
 ```
 
 ##### Add One or More Expectations
 
-The best way to learn about expectations is to read the [Jasmine documentation](http://jasmine.github.io/1.3/introduction.html#section-Expectations) about them. Below is a simple example.
+The best way to learn about expectations is to read the [Jasmine documentation](https://jasmine.github.io/1.3/introduction.html#section-Expectations) about them. Below is a simple example.
 
-```coffee
-describe "when a test is written", ->
-  it "has some expectations that should pass", ->
+```javascript
+describe("when a test is written", function() {
+  it("has some expectations that should pass", function() {
     expect("apples").toEqual("apples")
     expect("oranges").not.toEqual("apples")
+  })
+})
 ```
 
 ###### Custom Matchers
@@ -73,44 +79,47 @@ Writing Asynchronous specs can be tricky at first. Some examples.
 
 Working with promises is rather easy in Atom. You can use our `waitsForPromise` function.
 
-```coffee
-describe "when we open a file", ->
-  it "should be opened in an editor", ->
-    waitsForPromise ->
-      atom.workspace.open('c.coffee').then (editor) ->
-        expect(editor.getPath()).toContain 'c.coffee'
+```javascript
+describe("when we open a file", function() {
+  it("should be opened in an editor", function() {
+    waitsForPromise(function() {
+      atom.workspace.open('c.coffee').then(editor => expect(editor.getPath()).toContain('c.coffee'))
+    })
+  })
+})
 ```
 
 This method can be used in the `describe`, `it`, `beforeEach` and `afterEach` functions.
 
-```coffee
-describe "when we open a file", ->
-  beforeEach ->
-    waitsForPromise ->
-      atom.workspace.open 'c.coffee'
+```javascript
+describe("when we open a file", function() {
+  beforeEach(function() {
+    waitsForPromise(() => atom.workspace.open('c.coffee'))
+  })
 
-  it "should be opened in an editor", ->
-    expect(atom.workspace.getActiveTextEditor().getPath()).toContain 'c.coffee'
-
+  it("should be opened in an editor", function() {
+     expect(atom.workspace.getActiveTextEditor().getPath()).toContain('c.coffee')
+  })
+})
 ```
 
 If you need to wait for multiple promises use a new `waitsForPromise` function for each promise. (Caution: Without `beforeEach` this example will fail!)
 
-```coffee
-describe "waiting for the packages to load", ->
-  beforeEach ->
-    waitsForPromise ->
-      atom.workspace.open('sample.js')
+```javascript
+describe("waiting for the packages to load", function() {
+  beforeEach(function() {
+    waitsForPromise(() => atom.workspace.open('sample.js'))
 
-    waitsForPromise ->
-      atom.packages.activatePackage('tabs')
+    waitsForPromise(() => atom.packages.activatePackage('tabs'))
 
-    waitsForPromise ->
-      atom.packages.activatePackage('tree-view')
+    waitsForPromise(() => atom.packages.activatePackage('tree-view'))
+  });
 
-  it 'should have waited long enough', ->
-    expect(atom.packages.isPackageActive('tabs')).toBe true
-    expect(atom.packages.isPackageActive('tree-view')).toBe true
+  it('should have waited long enough', function() {
+    expect(atom.packages.isPackageActive('tabs')).toBe(true)
+    expect(atom.packages.isPackageActive('tree-view')).toBe(true)
+  })
+})
 ```
 
 `waitsForPromise` can take an additional object argument before the function. The object can have the following properties:
@@ -119,34 +128,39 @@ describe "waiting for the packages to load", ->
 * `timeout` The amount of time (in ms) to wait for the promise to be resolved or rejected (default: `process.env.CI ? 60000 : 5000`)
 * `label` The label to display if promise times out (default: `'promise to be resolved or rejected'`)
 
-```coffee
-describe "when we open a file", ->
-  it "should be opened in an editor", ->
-    waitsForPromise { shouldReject: false, timeout: 5000, label: 'promise to be resolved or rejected' }, ->
-      atom.workspace.open('c.coffee').then (editor) ->
-        expect(editor.getPath()).toContain 'c.coffee'
+```javascript
+describe("when we open a file", function() {
+  it("should be opened in an editor", function() {
+    waitsForPromise({ shouldReject: false, timeout: 5000, label: 'promise to be resolved or rejected' }, () =>
+      atom.workspace.open('c.coffee').then(editor => expect(editor.getPath()).toContain('c.coffee'))
+    )
+  })
+})
 ```
 
 ##### Asynchronous Functions with Callbacks
 
 Specs for asynchronous functions can be done using the `waitsFor` and `runs` functions. A simple example.
 
-```coffee
-describe "fs.readdir(path, cb)", ->
-  it "is async", ->
-    spy = jasmine.createSpy('fs.readdirSpy')
+```javascript
+describe("fs.readdir(path, cb)", function() {
+  it("is async", function() {
+    const spy = jasmine.createSpy('fs.readdirSpy')
     fs.readdir('/tmp/example', spy)
 
-    waitsFor ->
-      spy.callCount > 0
+    waitsFor(() => spy.callCount > 0)
 
-    runs ->
-      exp = [null, ['example.coffee']]
-      expect(spy.mostRecentCall.args).toEqual exp
+    runs(function() {
+      const exp = [null, ['example.coffee']]
+
+      expect(spy.mostRecentCall.args).toEqual(exp)
       expect(spy).toHaveBeenCalledWith(null, ['example.coffee'])
+    })
+  })
+})
 ```
 
-For a more detailed documentation on asynchronous tests please visit the [Jasmine documentation](http://jasmine.github.io/1.3/introduction.html#section-Asynchronous_Support).
+For a more detailed documentation on asynchronous tests please visit the [Jasmine documentation](https://jasmine.github.io/1.3/introduction.html#section-Asynchronous_Support).
 
 #### Running Specs
 
@@ -154,16 +168,18 @@ Most of the time you'll want to run specs by triggering the `window:run-package-
 
 To run a limited subset of specs use the `fdescribe` or `fit` methods. You can use those to focus a single spec or several specs. Modified from the example above, focusing an individual spec looks like this:
 
-```coffee
-describe "when a test is written", ->
-  fit "has some expectations that should pass", ->
+```javascript
+describe("when a test is written", function() {
+  fit("has some expectations that should pass", function() {
     expect("apples").toEqual("apples")
     expect("oranges").not.toEqual("apples")
+  })
+})
 ```
 
 ##### Running on CI
 
-It is now easy to run the specs in a CI environment like Travis and AppVeyor. See the [Travis CI For Your Packages](http://blog.atom.io/2014/04/25/ci-for-your-packages.html) and [AppVeyor CI For Your Packages](http://blog.atom.io/2014/07/28/windows-ci-for-your-packages.html) posts for more details.
+It is now easy to run the specs in a CI environment like Travis and AppVeyor. See the [Travis CI For Your Packages](https://blog.atom.io/2014/04/25/ci-for-your-packages.html) and [AppVeyor CI For Your Packages](http://blog.atom.io/2014/07/28/windows-ci-for-your-packages.html) posts for more details.
 
 ##### Running via the Command Line
 

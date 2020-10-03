@@ -127,7 +127,7 @@ If you'd like to reload all the styles at any time, you can use the shortcut <kb
 
 ##### Developer Tools
 
-Atom is based on the Chrome browser, and supports Chrome's Developer Tools. You can open them by selecting the _View > Developer > Toggle Developer Tools_ menu, or by using the <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+I</kbd> shortcut.
+Atom is based on the Chrome browser, and supports Chrome's Developer Tools. You can open them by selecting the _View > Developer > Toggle Developer Tools_ menu, or by using the <kbd class="platform-mac">Alt+Cmd+I</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+I</kbd> shortcut.
 
 The dev tools allow you to inspect elements and take a look at their CSS properties.
 

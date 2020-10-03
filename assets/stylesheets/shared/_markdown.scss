@@ -24,14 +24,13 @@ $warning-color     : #d06806;
   }
 
   .highlight pre, pre {
-    color: #c5c8c6;
-    background-color: #1d1f21;
-    border: 0;
+    border-bottom-width: 2px;
+    padding: 8px 10px;
   }
 
   .alert {
     position:relative;
-    margin:0 auto;
+    margin: $margin auto;
     padding:15px;
     font-size:16px;
     color:#264c72;

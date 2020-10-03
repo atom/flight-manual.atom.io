@@ -21,7 +21,7 @@ In that welcome screen, we are introduced to probably the most important command
 
 {{#note}}
 
-Throughout the book we will use shortcut keybindings like <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> to demonstrate how to run a command. These are the default keybindings for the platform that we detected you running.
+Throughout the book, we will use shortcut keybindings like <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> to demonstrate how to run a command. These are the default keybindings for the platform that we detected you running.
 
 If you want to see a different platform than the one we detected, you may choose a different one by using the platform selector near the top of the page:
 
@@ -57,7 +57,7 @@ To open the Settings View, you can:
 
 ##### Changing the Theme
 
-The Settings View also lets you change the themes for Atom. Atom ships with 4 different UI themes, dark and light variants of the Atom and One theme, as well as 8 different syntax themes. You can modify the active theme or install new themes by clicking on the Themes tab in the sidebar of the Settings View.
+The Settings View also lets you change the themes for Atom. Atom ships with 4 different UI themes, dark and light variants of the Atom and One theme, as well as 8 different syntax themes. You can modify the active theme by clicking on the Themes tab in the sidebar of the Settings View, or you can install new themes by clicking the Install tab.
 
 ![Changing the theme from the Settings View](../../images/theme.png "Changing the theme from the Settings View")
 
@@ -77,7 +77,7 @@ The "Soft Wrap" option will wrap lines that are too long to fit in your current 
 
 In [Basic Customization](/using-atom/sections/basic-customization/) we will see how to set different wrap preferences for different types of files (for example, if you want to wrap Markdown files but not other files).
 
-#### Opening, Modifying and Saving Files
+#### Opening, Modifying, and Saving Files
 
 Now that your editor is looking and acting how you want, let's start opening up and editing files. This is a text editor after all, right?
 
@@ -108,6 +108,26 @@ $ atom --help
 ```
 
 This is a great tool if you're used to the terminal or you work from the terminal a lot. Just fire off `atom [files]` and you're ready to start editing.
+You can even open a file at a certain line (and optionally column) so the cursor will be positioned exactly where you want. For example, you may search some keyword in a repository to find the line you want to edit:
+
+```command-line
+$ git grep -n 'Opening a File$'
+content/getting-started/sections/atom-basics.md:84:##### Opening a File
+```
+
+and then jump to the beginning of that line by appending a colon and the line number to the file path:
+
+```command-line
+$ atom content/getting-started/sections/atom-basics.md:84
+```
+
+Sometimes you may want the cursor to jump to the exact column position of the searched keyword. Just append another colon plus the column number:
+
+```command-line
+$ git grep -n --column 'Windows Explorer'
+content/getting-started/sections/atom-basics.md:150:722
+$ atom content/getting-started/sections/atom-basics.md:150:722
+```
 
 ##### Editing and Saving a File
 
@@ -117,7 +137,7 @@ To save a file you can choose *File > Save* from the menu bar or <kbd class="pla
 
 #### Opening Directories
 
-Atom doesn't just work with single files though; you will most likely spend most of your time working on projects with multiple files. To open a directory, choose the menu item <span class="platform-mac">*File > Open*</span><span class="platform-windows platform-linux">*File > Open Folder*</span> and select a directory from the dialog. You can also add more than one directory to your current Atom window, by choosing *File > Add Project Folder* from the menu bar or pressing <kbd class="platform-mac">Cmd+Shift+O</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+O</kbd>.
+Atom doesn't just work with single files though; you will most likely spend most of your time working on projects with multiple files. To open a directory, choose the menu item <span class="platform-mac">*File > Open*</span><span class="platform-windows platform-linux">*File > Open Folder*</span> and select a directory from the dialog. You can also add more than one directory to your current Atom window, by choosing *File > Add Project Folder* from the menu bar or pressing <kbd class="platform-mac">Cmd+Shift+O</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+A</kbd>.
 
 You can open any number of directories from the command line by passing their paths to the `atom` command line tool. For example, you could run the command `atom ./hopes ./dreams` to open both the `hopes` and the `dreams` directories at the same time.
 

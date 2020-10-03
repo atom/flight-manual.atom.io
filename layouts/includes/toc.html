@@ -13,6 +13,20 @@
   </ul>
 <% end %>
 
+<% @version ||= latest_atom_version_number %>
+<% klasses = atom_version_class_names(version) %>
+
+<<%= @heading %>>
+  <a href="/api/v<%= @version %>/">Reference: API</a>
+</<%= @heading %>>
+<ul>
+  <% klasses.each do |name| %>
+    <li>
+      <a href="/api/v<%= @version %>/<%= name %>/"><%= name %></a>
+    </li>
+  <% end %>
+</ul>
+
 <% toc.appendices.each_with_index do |chapter, index| %>
   <<%= @heading %>>
     <a href="/<%= chapter.name.parameterize %>">Appendix <%= ('A'.ord + index).chr %>: <%= chapter.name %></a>

@@ -41,7 +41,7 @@ Rather than adding classes to standard HTML elements to indicate their role, Ato
 
 #### Supporting the Shadow DOM
 
-Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the [Shadow DOM 101](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom) on HTML 5 Rocks. If you need to style text editor content in a UI theme, you'll need to circumvent this protection for any rules that target the text editor's content. Some examples of the kinds of UI theme styles needing to be updated:
+Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the [Shadow DOM 101](https://www.html5rocks.com/en/tutorials/webcomponents/shadowdom) on HTML 5 Rocks. If you need to style text editor content in a UI theme, you'll need to circumvent this protection for any rules that target the text editor's content. Some examples of the kinds of UI theme styles needing to be updated:
 
 * Highlight decorations
 * Gutter decorations
@@ -53,7 +53,7 @@ During a transition phase, it will be possible to enable or disable the text edi
 
 ##### Shadow DOM Selectors
 
-Chromium provides two tools for bypassing shadow boundaries, the `::shadow` pseudo-element and the `/deep/` combinator. For an in-depth explanation of styling the shadow DOM, see the [Shadow DOM 201](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201#toc-style-cat-hat) article on HTML 5 Rocks.
+Chromium provides two tools for bypassing shadow boundaries, the `::shadow` pseudo-element and the `/deep/` combinator. For an in-depth explanation of styling the shadow DOM, see the [Shadow DOM 201](https://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201#toc-style-cat-hat) article on HTML 5 Rocks.
 
 ###### `::shadow`
 
