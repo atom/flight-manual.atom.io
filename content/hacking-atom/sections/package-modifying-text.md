@@ -22,26 +22,31 @@ The final package can be viewed at https://github.com/atom/ascii-art.
 
 To begin, press <kbd class="platform-mac">Cmd+Shift+P</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+P</kbd> to bring up the [Command Palette](https://github.com/atom/command-palette). Type "generate package" and select the "Package Generator: Generate Package" command, just as we did in [the section on package generation](/hacking-atom/sections/package-word-count/#package-generator). Enter `ascii-art` as the name of the package.
 
-Now let's edit the package files to make our ASCII Art package do something interesting. Since this package doesn't need any UI, we can remove all view-related code so go ahead and delete `lib/ascii-art-view.coffee`, `spec/ascii-art-view-spec.coffee`, and `styles/`.
+Now let's edit the package files to make our ASCII Art package do something interesting. Since this package doesn't need any UI, we can remove all view-related code so go ahead and delete `lib/ascii-art-view.js`, `spec/ascii-art-view-spec.js`, and `styles/`.
 
-Next, open up `lib/ascii-art.coffee` and remove all view code, so it looks like this:
+Next, open up `lib/ascii-art.js` and remove all view code, so it looks like this:
 
-```coffeescript
-{CompositeDisposable} = require 'atom'
+```javascript
+const {CompositeDisposable} = require('atom')
 
-module.exports =
-  subscriptions: null
+module.exports = {
+  subscriptions: null,
 
-  activate: ->
-    @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.commands.add 'atom-workspace',
-      'ascii-art:convert': => @convert()
+  activate () {
+    this.subscriptions = new CompositeDisposable()
+    this.subscriptions.add(atom.commands.add('atom-workspace',
+      {'ascii-art:convert': () => this.convert()})
+    )
+  },
 
-  deactivate: ->
-    @subscriptions.dispose()
+  deactivate () {
+    this.subscriptions.dispose()
+  },
 
-  convert: ->
-    console.log 'Convert text!'
+  convert() {
+    console.log('Convert text!')
+  }
+}
 ```
 
 ##### Create a Command
@@ -50,10 +55,13 @@ Now let's add a command. You should namespace your commands with the package nam
 
 So far, that will simply log to the console. Let's start by making it insert something into the text buffer.
 
-```coffeescript
-convert: ->
-  if editor = atom.workspace.getActiveTextEditor()
+```javascript
+convert() {
+  const editor = atom.workspace.getActiveTextEditor()
+  if (editor) {
     editor.insertText('Hello, World!')
+  }
+}
 ```
 
 As in [Counting Words](/hacking-atom/sections/package-word-count/#counting-the-words), we're using `atom.workspace.getActiveTextEditor()` to get the object that represents the active text editor. If this `convert()` method is called when not focused on a text editor, nothing will happen.
@@ -62,7 +70,7 @@ Next we insert a string into the current text editor with the [`insertText()`](h
 
 ##### Reload the Package
 
-Before we can trigger `ascii-art:convert`, we need to load the latest code for our package by reloading the window. Run the command "Window: Reload" from the Command Palette or by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+R</kbd>.
+Before we can trigger `ascii-art:convert`, we need to load the latest code for our package by reloading the window. Run the command "Window: Reload" from the Command Palette or by pressing <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+F5</kbd>.
 
 ##### Trigger the Command
 
@@ -78,13 +86,17 @@ First, reload the window by running the command "Window: Reload" from the comman
 
 ##### Add a Key Binding
 
-Now let's add a key binding to trigger the `ascii-art:convert` command. Open `keymaps/ascii-art.cson` and add a key binding linking <kbd class="platform-all">Alt+Ctrl+A</kbd> to the `ascii-art:convert` command. You can delete the pre-existing key binding since you won't need it anymore.
+Now let's add a key binding to trigger the `ascii-art:convert` command. Open `keymaps/ascii-art.json` and add a key binding linking <kbd class="platform-all">Alt+Ctrl+A</kbd> to the `ascii-art:convert` command. You can delete the pre-existing key binding since you won't need it anymore.
 
 When finished, the file should look like this:
 
-```coffeescript
-'atom-text-editor':
-  'ctrl-alt-a': 'ascii-art:convert'
+```javascript
+{
+  "atom-text-editor": {
+    "ctrl-alt-a": "ascii-art:convert"
+  }
+}
+
 ```
 
 Now reload the window and verify that the key binding works.
@@ -111,20 +123,25 @@ After saving the file, run the command "Update Package Dependencies: Update" fro
 
 If for some reason this doesn't work, you'll see a message saying "Failed to update package dependencies" and you will find a new `npm-debug.log` file in your directory. That file should give you some idea as to what went wrong.
 
-Now require the figlet node module in `lib/ascii-art.coffee` and instead of inserting "Hello, World!", convert the selected text to ASCII art.
+Now require the figlet node module in `lib/ascii-art.js` and instead of inserting "Hello, World!", convert the selected text to ASCII art.
 
-```coffeescript
-convert: ->
-  if editor = atom.workspace.getActiveTextEditor()
-    selection = editor.getSelectedText()
+```javascript
+convert () {
+  const editor = atom.workspace.getActiveTextEditor()
+  if (editor) {
+    const selection = editor.getSelectedText()
 
-    figlet = require 'figlet'
-    font = "O8"
-    figlet selection, {font: font}, (error, art) ->
-      if error
+    const figlet = require('figlet')
+    const font = 'o8'
+    figlet(selection, {font}, function (error, art) {
+      if (error) {
         console.error(error)
-      else
-        editor.insertText("\n#{art}\n")
+      } else {
+        editor.insertText(`\n${art}\n`)
+      }
+    })
+  }
+}
 ```
 
 Now reload the editor, select some text in an editor window and press <kbd class="platform-all">Alt+Ctrl+A</kbd>. It should be replaced with a ridiculous ASCII art version instead.

@@ -1,0 +1,6 @@
+---
+title: Atom in the cloud?
+---
+### Atom in the cloud?
+
+The Atom team has no plans to make a cloud- or server-based version of Atom. For discussion of the idea, see the [Atom message board topic](https://discuss.atom.io/t/can-atom-move-my-workspace-to-cloud-someday/1582).

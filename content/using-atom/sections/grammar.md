@@ -13,4 +13,4 @@ When you open a file and Atom can't determine a grammar for the file, it will de
 
 When the grammar of a file is changed, Atom will remember that for the current session.
 
-The Grammar Selector functionality is implemented in the [grammar-selector](https://github.com/atom/grammar-selector) package.
+The Grammar Selector functionality is implemented in the [grammar-selector](https://github.com/atom/atom/tree/master/packages/grammar-selector) package.

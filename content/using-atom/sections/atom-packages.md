@@ -5,13 +5,13 @@ title: Atom Packages
 
 First we'll start with the Atom package system. As we mentioned previously, Atom itself is a very basic core of functionality that ships with a number of useful packages that add new features like the [Tree View](https://github.com/atom/tree-view) and the [Settings View](https://github.com/atom/settings-view).
 
-In fact, there are more than 90 packages that comprise all of the functionality that is available in Atom by default. For example, the [Welcome screen](https://github.com/atom/welcome) that you see when you first start Atom, the [spell checker](https://github.com/atom/spell-check), the [themes](https://github.com/atom/one-dark-ui) and the [Fuzzy Finder](https://github.com/atom/fuzzy-finder) are all packages that are separately maintained and all use the same APIs that you have access to, as we'll see in great detail in [Hacking Atom](/hacking-atom/).
+In fact, there are more than 80 packages that comprise all of the functionality that is available in Atom by default. For example, the [Welcome screen](https://github.com/atom/welcome) that you see when you first start Atom, the [spell checker](https://github.com/atom/spell-check), the [themes](https://github.com/atom/one-dark-ui) and the [Fuzzy Finder](https://github.com/atom/fuzzy-finder) are all packages that are separately maintained and all use the same APIs that you have access to, as we'll see in great detail in [Hacking Atom](/hacking-atom/).
 
 This means that packages can be incredibly powerful and can change everything from the very look and feel of the entire interface to the basic operation of even core functionality.
 
 In order to install a new package, you can use the Install tab in the now familiar Settings View. Open up the Settings View using <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd>, click on the "Install" tab and type your search query into the box under Install Packages.
 
-The packages listed here have been published to http://atom.io/packages which is the official registry for Atom packages. Searching on the Settings View will go to the Atom package registry and pull in anything that matches your search terms.
+The packages listed here have been published to https://atom.io/packages which is the official registry for Atom packages. Searching on the Settings View will go to the Atom package registry and pull in anything that matches your search terms.
 
 ![Package install screen](../../images/packages-install.png "Package install screen")
 
@@ -89,6 +89,6 @@ $ apm view build-coffee
 > ├── Atom Build provider for coffee, compiles CoffeeScript
 > ├── 1152 downloads
 > └── 2 stars
-> 
+>
 > Run `apm install build-coffee` to install this package.
 ```

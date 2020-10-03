@@ -4,8 +4,11 @@ require 'html/pipeline/asciidoc_filter'
 require 'html/pipeline/rouge_filter'
 require 'active_support/core_ext/string'
 
+require_relative 'chapters'
 require_relative 'sections'
 require_relative 'strings'
+require_relative 'temp'
+require_relative 'versions'
 
 begin
   require 'awesome_print'

@@ -1,6 +1,14 @@
 require "find"
+require 'fileutils'
+require 'json'
+require 'open3'
+require 'open-uri'
 
 task :default => [:test]
+
+task :clean_api do
+  FileUtils.rm_rf('content/api')
+end
 
 desc "Remove the tmp dir"
 task :remove_tmp_dir do
@@ -14,16 +22,12 @@ end
 
 desc 'Builds the site'
 task :build do
-  if ENV['RACK_ENV'] == 'test'
-    begin
-      sh 'node_modules/gulp/bin/gulp.js build > build.txt'
-    rescue StandardError => e
-      puts 'uh oh'
-      $stderr.puts `cat build.txt`
-      raise e
+  Bundler.with_clean_env do
+    Open3.popen3('npm run gulp build') do |_, stdout, stderr, wait_thr|
+      puts stdout.read
+      status = wait_thr.value
+      abort stderr.read unless status.success?
     end
-  else
-    sh 'node_modules/gulp/bin/gulp.js build'
   end
 end
 
@@ -33,7 +37,11 @@ task :run_proofer do
 
   # Ignore platform switcher hash URLs
   platform_hash_urls = ['#platform-mac', '#platform-windows', '#platform-linux', '#platform-all']
-  HTMLProofer.check_directory("./output", {:url_ignore => platform_hash_urls}).run
+  HTMLProofer.check_directory("./output", {
+    :file_ignore => [%r(/output/api/)],
+    :url_ignore => platform_hash_urls,
+    :typhoeus => { :ssl_verifypeer => false },
+  }).run
 end
 
 # Detects instances of Issue #204
@@ -80,6 +88,8 @@ end
 
 desc 'Publish to https://flight-manual.atom.io'
 task :publish, [:no_commit_msg] => [:remove_tmp_dir, :remove_output_dir, :build] do |_, args|
+  require "shellwords"
+
   message = commit_message(args[:no_commit_msg])
 
   system "git add -f output/"

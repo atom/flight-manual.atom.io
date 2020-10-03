@@ -13,6 +13,12 @@ var lunr_index = lunr(function() {
 onmessage = function (oEvent) {
 
   populateIndex = function(data) {
+    this.lunr_index = lunr(function() {
+      this.field('title', { boost: 10 });
+      this.field('body');
+      this.ref('id');
+    })
+
     // format the raw json into a form that is simpler to work with
     this.entries = data.entries.map(this.createEntry).filter(function(n){ return n !== undefined });
 
