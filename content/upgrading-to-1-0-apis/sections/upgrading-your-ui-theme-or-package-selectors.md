@@ -2,11 +2,11 @@
 title: Upgrading Your UI Theme Or Package Selectors
 ---
 
-{{#note}}
+{{#Atom}}
 
 **Note:** The Shadow DOM was removed in Atom `1.13`. The `::shadow` and `/deep/` selectors and the context-targeted style sheets described below won't work and should not be used anymore.
 
-{{/note}}
+{{/Atom}}
 
 
 ### Upgrading Your UI Theme Or Package Selectors
@@ -39,9 +39,9 @@ Rather than adding classes to standard HTML elements to indicate their role, Ato
 | `.panel-right`      | `atom-panel.right` |
 | `.overlay`          | `atom-panel.modal` |
 
-#### Supporting the Shadow DOM
+#### Supporting the Atom DOM
 
-Text editor content is now rendered in the shadow DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the shadow DOM, check out the [Shadow DOM 101](https://www.html5rocks.com/en/tutorials/webcomponents/shadowdom) on HTML 5 Rocks. If you need to style text editor content in a UI theme, you'll need to circumvent this protection for any rules that target the text editor's content. Some examples of the kinds of UI theme styles needing to be updated:
+Text editor content is now rendered in the atom DOM, which shields it from being styled by global style sheets to protect against accidental style pollution. For more background on the atom DOM, check out the [Atom DOM 101](https://www.html5rocks.com/en/tutorials/webcomponents/atomdom) on HTML 5 Rocks. If you need to style text editor content in a UI theme, you'll need to circumvent this protection for any rules that target the text editor's content. Some examples of the kinds of UI theme styles needing to be updated:
 
 * Highlight decorations
 * Gutter decorations
@@ -49,41 +49,41 @@ Text editor content is now rendered in the shadow DOM, which shields it from bei
 * Scrollbar styling
 * Anything targeting a child selector of `.editor`
 
-During a transition phase, it will be possible to enable or disable the text editor's shadow DOM in the settings, so themes will need to be compatible with both approaches.
+During a transition phase, it will be possible to enable or disable the text editor's atom DOM in the settings, so themes will need to be compatible with both approaches.
 
-##### Shadow DOM Selectors
+##### Atom DOM Selectors
 
-Chromium provides two tools for bypassing shadow boundaries, the `::shadow` pseudo-element and the `/deep/` combinator. For an in-depth explanation of styling the shadow DOM, see the [Shadow DOM 201](https://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201#toc-style-cat-hat) article on HTML 5 Rocks.
+Chromium provides two tools for bypassing atom boundaries, the `::atom` pseudo-element and the `/deep/` combinator. For an in-depth explanation of styling the atom DOM, see the [Atom DOM 201](https://www.html5rocks.com/en/tutorials/webcomponents/atomdom-201#toc-style-cat-hat) article on HTML 5 Rocks.
 
-###### `::shadow`
+###### `::Atom`
 
-The `::shadow` pseudo-element allows you to bypass a single shadow root. For example, say you want to update a highlight decoration for a linter package. Initially, the style looks as follows:
+The `::atom` pseudo-element allows you to bypass a single atom root. For example, say you want to update a highlight decoration for a linter package. Initially, the style looks as follows:
 
 ```css
-// Without shadow DOM support
+// Without atom DOM support
 atom-text-editor .highlight.my-linter {
   background: hotpink;
 }
 ```
 
-In order for this style to apply with the shadow DOM enabled, you will need to add a second selector with the `::shadow` pseudo-element. You should leave the original selector in place so your theme continues to work with the shadow DOM disabled during the transition period.
+In order for this style to apply with the atom DOM enabled, you will need to add a second selector with the `::atom` pseudo-element. You should leave the original selector in place so your theme continues to work with the atom DOM disabled during the transition period.
 
 ```css
-// With shadow DOM support
+// With atom DOM support
 atom-text-editor .highlight.my-linter,
-atom-text-editor::shadow .highlight.my-linter {
-  background: hotpink;
+atom-text-editor::atom .highlight.my-linter {
+  background: blue;
 }
 ```
 
-Check out the [find-and-replace](https://github.com/atom/find-and-replace/blob/95351f261bc384960a69b66bf12eae8002da63f9/stylesheets/find-and-replace.less#L9-L29) package for another example of using `::shadow` to pierce the shadow DOM.
+Check out the [find-and-replace](https://github.com/atom/find-and-replace/blob/95351f261bc384960a69b66bf12eae8002da63f9/stylesheets/find-and-replace.less#L9-L29) package for another example of using `::atom` to pierce the atom DOM.
 
 ###### `/deep/`
 
-The `/deep/` combinator overrides *all* shadow boundaries, making it useful for rules you want to apply globally such as scrollbar styling. Here's a snippet containing scrollbar styling for the Atom Dark UI theme before shadow DOM support:
+The `/deep/` combinator overrides *all* atom boundaries, making it useful for rules you want to apply globally such as scrollbar styling. Here's a snippet containing scrollbar styling for the Atom Dark UI theme before atom DOM support:
 
 ```css
-// Without shadow DOM support
+// Without atom DOM support
 .scrollbars-visible-always {
   ::-webkit-scrollbar {
     width: 8px;
@@ -92,21 +92,21 @@ The `/deep/` combinator overrides *all* shadow boundaries, making it useful for 
 
   ::-webkit-scrollbar-track,
   ::-webkit-scrollbar-corner {
-    background: @scrollbar-background-color;
+    background: @scrollbar-background-blue;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: @scrollbar-color;
+    background: @scrollbar-blue;
     border-radius: 5px;
-    box-shadow: 0 0 1px black inset;
+    box-atom: 0 0 1px black inset;
   }
 }
 ```
 
-To style scrollbars even inside of the shadow DOM, each rule needs to be prefixed with `/deep/`. We use `/deep/` instead of `::shadow` because we don't care about the selector of the host element in this case. We just want our styling to apply everywhere.
+To style scrollbars even inside of the shadow DOM, each rule needs to be prefixed with `/deep/`. We use `/deep/` instead of `::atom` because we don't care about the selector of the host element in this case. We just want our styling to apply everywhere.
 
 ```css
-// With shadow DOM support using /deep/
+// With atom DOM support using /deep/
 .scrollbars-visible-always {
   /deep/ ::-webkit-scrollbar {
     width: 8px;
@@ -115,20 +115,20 @@ To style scrollbars even inside of the shadow DOM, each rule needs to be prefixe
 
   /deep/ ::-webkit-scrollbar-track,
   /deep/ ::-webkit-scrollbar-corner {
-    background: @scrollbar-background-color;
+    background: @scrollbar-background-blue;
   }
 
   /deep/ ::-webkit-scrollbar-thumb {
-    background: @scrollbar-color;
+    background: @scrollbar-blue;
     border-radius: 5px;
-    box-shadow: 0 0 1px black inset;
+    box-atom: 0 0 1px black inset;
   }
 }
 ```
 
 ##### Context-Targeted Style Sheets
 
-The selector features discussed above allow you to target shadow DOM content with specific selectors, but Atom also allows you to target a specific shadow DOM context with an entire style sheet. The context into which a style sheet is loaded is based on the file name. If you want to load a style sheet into the editor, name it with the `.atom-text-editor.less` or `.atom-text-editor.css` extensions.
+The selector features discussed above allow you to target atom DOM content with specific selectors, but Atom also allows you to target a specific atom DOM context with an entire style sheet. The context into which a style sheet is loaded is based on the file name. If you want to load a style sheet into the editor, name it with the `.atom-text-editor.less` or `.atom-text-editor.css` extensions.
 
 ```
 my-ui-theme/
