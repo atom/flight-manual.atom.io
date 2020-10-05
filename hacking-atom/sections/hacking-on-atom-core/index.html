@@ -1414,9 +1414,9 @@
 
 <ul>
 <li>macOS 10.9 or later</li>
-<li>Node.js 6.x or later (we recommend installing it via <a href="https://github.com/creationix/nvm">nvm</a>)</li>
-<li>npm 3.10.x or later (run <code>npm install -g npm</code>)</li>
-<li>Python v2.7.x</li>
+<li>Node.js 10.12 or later (we recommend installing it via <a href="https://github.com/creationix/nvm">nvm</a>)</li>
+<li>npm 6.12 or later (run <code>npm install -g npm</code>)</li>
+<li>Python v2.6.x, v2.7.x or v3.5+</li>
 <li>Command Line Tools for <a href="https://developer.apple.com/xcode/downloads/">Xcode</a> (run <code>xcode-select --install</code> to install)</li>
 </ul>
 
@@ -1425,27 +1425,34 @@
 <div class="platform-windows">
 
 <ul>
-<li>Node.js 6.9.4 or later (the architecture of node available to the build system will determine whether you build 32-bit or 64-bit Atom)</li>
-<li>Python v2.7.x
+<li>Node.js 10.12 or later (the architecture of node available to the build system will determine whether you build 32-bit or 64-bit Atom)</li>
+<li>npm 6.12 or later (run <code>npm install -g npm</code>)</li>
+<li>Python v2.6.x, v2.7.x, or v3.5+
 
 <ul>
-<li>The <code>python.exe</code> must be available at <code>%SystemDrive%\Python27\python.exe</code>. If it is installed elsewhere create a symbolic link to the directory containing the <code>python.exe</code> using: <code>mklink /d %SystemDrive%\Python27 D:\elsewhere\Python27</code>
+<li>
+<a href="https://www.microsoft.com/en-us/search/shop/apps?q=python+software+foundation&amp;devicetype=pc&amp;category=Developer+tools%5cDevelopment+kits&amp;Price=0&amp;MaturityRating=ESRB%3aE">Get Python from the Microsoft Store</a>, or</li>
+<li>Download Python from <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.
+
+<ul>
+<li>For Python 2, be sure to install in the default location, or check "Add Python 2.x to PATH" before installing.</li>
+<li>For Python 3, check "Add Python 3.x to PATH", or change the install path to <code>[Your_Drive_Letter]:\Python37</code> e.g. <code>C:\Python37</code>, (even if your version of Python 3 isn't 3.7, that's one place where the scripts will look.) </li>
+<li>If python isn't found by the bootstrap script, create a symbolic link to the directory containing <code>python.exe</code> using e.g.: <code>mklink /d %SystemDrive%\Python27 D:\elsewhere\Python27</code>(Links should be set at either <code>%SystemDrive%\Python27</code> or <code>%SystemDrive%\Python37</code>, regardless of what version of Python you actually have.)</li>
+</ul>
 </li>
 </ul>
 </li>
-<li>7zip (7z.exe available from the command line) - for creating distribution zip files</li>
 <li>
-<p>C++ build tools, either:</p>
+<p>C++ build tools:</p>
 
 <ul>
-<li><a href="https://visualstudio.microsoft.com/vs/older-downloads/">Visual C++ Build Tools 2015</a></li>
 <li>
-<a href="https://www.visualstudio.com/downloads/">Visual Studio 2013 Update 5</a> (Express Edition or better)</li>
+<strong>Option 1:</strong> <a href="https://www.npmjs.com/package/windows-build-tools">windows-build-tools</a> - From an elevated Powershell window (right click and "run as Administrator") do: <code>npm install --global windows-build-tools@4</code> to install</li>
 <li>
-<a href="https://www.visualstudio.com/downloads/">Visual Studio 2015</a> (Community Edition or better)</li>
-<li>
-<strong>Unsupported</strong> but more convenient for some who know Node: <a href="https://www.npmjs.com/package/windows-build-tools">windows-build-tools</a>
+<strong>Option 2:</strong> <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Visual C++ Build Tools 2015 or 2017</a>
 </li>
+<li>
+<strong>Option 3:</strong> <a href="https://www.visualstudio.com/downloads/">Visual Studio 2015 or 2017</a> (Community Edition or better)</li>
 </ul>
 
 <p>Also ensure that:</p>
@@ -1453,9 +1460,9 @@
 <ul>
 <li>The default installation folder is chosen so the build tools can find it</li>
 <li>If using Visual Studio make sure Visual C++ support is selected/installed</li>
-<li>If using Visual C++ Build Tools make sure Windows 8 SDK is selected/installed</li>
+<li>If using Visual C++ Build Tools make sure a Windows SDK (Windows 8 SDK or Windows 10 SDK) is selected/installed</li>
 <li>A <code>git</code> command is in your path</li>
-<li>Set the <code>GYP_MSVS_VERSION</code> environment variable to the Visual Studio/Build Tools version (<code>2013</code> or <code>2015</code>) e.g. <code>[Environment]::SetEnvironmentVariable("GYP_MSVS_VERSION", "2015", "User")</code> in PowerShell (or set it in Windows advanced system settings).</li>
+<li>Set the <code>GYP_MSVS_VERSION</code> environment variable to the Visual Studio/Build Tools version (<code>2015</code> or <code>2017</code>.) e.g. <code>[Environment]::SetEnvironmentVariable("GYP_MSVS_VERSION", "2015", "User")</code> in PowerShell (or set it in Windows advanced system settings).</li>
 </ul>
 </li>
 </ul>
@@ -1473,9 +1480,9 @@
 <li>OS with 64-bit or 32-bit architecture</li>
 <li>C++11 toolchain</li>
 <li>Git</li>
-<li>Node.js 6.x or later (we recommend installing it via <a href="https://github.com/creationix/nvm">nvm</a>)</li>
-<li>npm 3.10.x or later (run <code>npm install -g npm</code>)</li>
-<li>Ensure node-gyp uses python2 (run <code>npm config set python /usr/bin/python2 -g</code>, use <code>sudo</code> if you didn't install node via nvm)</li>
+<li>Node.js 10.12 or later (we recommend installing it via <a href="https://github.com/creationix/nvm">nvm</a>)</li>
+<li>npm 6.12 or later (run <code>npm install -g npm</code>)</li>
+<li>Python 2.6.x, 2.7.x or 3.5+</li>
 <li>Development headers for <a href="https://wiki.gnome.org/Projects/Libsecret">libsecret</a>.</li>
 </ul>
 
@@ -1523,10 +1530,8 @@
 <a id="arch" class="anchor" href="#arch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arch</h6>
 
 <pre class="command-line">
-sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python2 libx11 libxkbfile
+sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python libx11 libxkbfile
 </pre>
-
-<p>Be certain to use <code>export PYTHON=/usr/bin/python2</code> before building Atom.</p>
 
 <h6>
 <a id="slackware" class="anchor" href="#slackware" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slackware</h6>
@@ -1602,7 +1607,7 @@ sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python2 libx11
 <li>
 <code>--code-sign</code>: signs the application with the GitHub certificate specified in <code>$WIN_P12KEY_URL</code>.</li>
 <li>
-<code>--compress-artifacts</code>: zips the generated application as <code>out\atom-windows.zip</code> (requires <a href="http://www.7-zip.org">7-Zip</a>).</li>
+<code>--compress-artifacts</code>: zips the generated application as <code>out\atom-windows.zip</code>.</li>
 <li>
 <code>--create-windows-installer</code>: creates an <code>.exe</code> and two <code>.nupkg</code> packages in the <code>out</code> directory.</li>
 <li>
@@ -1658,7 +1663,7 @@ sudo pacman -S --needed gconf base-devel git nodejs npm libsecret python2 libx11
 
 <ul>
 <li>If using <strong>Visual Studio</strong>, ensure you have the <strong>Visual C++</strong> component installed. Go into Add/Remove Programs, select Visual Studio, press Modify, and then check the Visual C++ box.</li>
-<li>If using <strong>Visual C++ Build Tools</strong>, ensure you have the <strong>Windows 8 SDK</strong> component installed. Go into Add/Remove Programs, select Visual C++ Build Tools, press Modify and then check the Windows 8 SDK box.</li>
+<li>If using <strong>Visual C++ Build Tools</strong>, ensure you have the <strong>Windows 8 SDK</strong> or <strong>Windows 10 SDK</strong> component installed. Go into Add/Remove Programs, select Visual C++ Build Tools, press Modify and then check the "Windows 8 SDK" or "Windows 10 SDK" box.</li>
 </ul>
 </li>
 <li>
@@ -1701,7 +1706,7 @@ which is used to build native Node.js modules and there is no known workaround.
 <p><code>error MSB8020: The build tools for Visual Studio 201? (Platform Toolset = 'v1?0') cannot be found.</code></p>
 
 <ul>
-<li>Try setting the <code>GYP_MSVS_VERSION</code> environment variable to <strong>2013</strong> or <strong>2015</strong> depending on what version of Visual Studio/Build Tools is installed and then <code>script\clean</code> followed by <code>script\build</code> (re-open the Command Prompt if you set the variable using the GUI).</li>
+<li>Try setting the <code>GYP_MSVS_VERSION</code> environment variable to <strong>2015</strong> or <strong>2017</strong> depending on what version of Visual Studio/Build Tools is installed and then <code>script\clean</code> followed by <code>script\build</code> (re-open the Command Prompt if you set the variable using the GUI).</li>
 </ul>
 </li>
 <li>
