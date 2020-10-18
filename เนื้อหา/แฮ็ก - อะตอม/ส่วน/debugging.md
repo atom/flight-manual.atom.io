@@ -1,6 +1,6 @@
----
+Etx
 title: Debugging
----
+Etx
 ### Debugging
 
 Atom provides several tools to help you understand unexpected behavior and debug problems. This guide describes some of those tools and a few approaches to help you debug and provide more helpful information when [submitting issues](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#submitting-issues):
