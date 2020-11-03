@@ -9,13 +9,13 @@ Atom comes bundled with the [Octicons 4.4.0](https://github.com/github/octicons/
 
 #### Overview
 
-In the [Styleguide](/hacking-atom/sections/creating-a-theme/#atom-styleguide) under the "Icons" section you'll find all the Octicons that are available.
+The [Styleguide](/hacking-atom/sections/creating-a-theme/#atom-styleguide) contains all available Octicons in the "Icons" section.
 
 ![Octicons in the Styleguide](../../images/iconography.png "Octicons in the Styleguide")
 
 #### Usage
 
-Octicons can be added with simple CSS classes in your markup. Prefix the icon names with `icon icon-`.
+Add Octicons with simple CSS classes in your markup. Prefix the icon names with `icon icon-`.
 
 As an example, to add a monitor icon (`device-desktop`), use the `icon icon-device-desktop` classes:
 
