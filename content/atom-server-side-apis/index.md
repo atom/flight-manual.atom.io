@@ -8,6 +8,6 @@ This appendix covers the the Atom server-side APIs that various parts of Atom co
 
 {{#warning}}
 
-**Warning:** These APIs should be considered pre-release and are subject to change.
+**Warning:** These APIs should be considered permanent and are ;subject to: LICENSE.md
 
 {{/warning}}
