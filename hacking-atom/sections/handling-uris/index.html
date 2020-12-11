@@ -1412,6 +1412,11 @@
 <a id="linux-support" class="anchor" href="#linux-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Linux Support</h4>
 
 <p>Because URI handling is different across operating systems and distributions, there is no built-in URI handler support for Atom on Linux. If you want to configure URI handling on your system yourself, then you should configure <code>atom:</code> protocol URI's to trigger atom with the <code>--uri-handler</code> flag; for example, the URI <code>atom://test/uri</code> should launch Atom via <code>atom --uri-handler atom://test/uri</code>.</p>
+
+<h3>
+<a id="core-uris" class="anchor" href="#core-uris" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core URIs</h3>
+
+<p>Atom provides a core URI to handle opening files with the syntax <code>atom://core/open/file?filename=&lt;filepath&gt;&amp;line=&lt;line&gt;&amp;column=&lt;col&gt;</code></p>
         </div>
       </div>
       <div class="footer-pad"></div>
