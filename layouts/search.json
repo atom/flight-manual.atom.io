@@ -1,0 +1,58 @@
+{
+  "entries": [
+    <% @items.find_all('/*/*/*.{asciidoc,md}').reject { |item| item[:exclude_from_search] }.each do |item| %>
+      <% if item[:title] %>
+        <% @clean_body = compress(safe_embed(item.compiled_content)) %>
+        {
+          "title": "<%= safe_embed(item[:title]) %>",
+          "category": "",
+          "category_url": "",
+          "url": "<%= item[:filename].sub(/^content/, '').sub(/.(asciidoc|md)$/, '/') %>",
+          "body": "<%= @clean_body %>",
+          "excerpt": "<%= @clean_body[0..140] %>…"
+        },
+      <% end %>
+    <% end %>
+
+    <% atom_version_apis(@item[:api_version]).each do |api| %>
+      <% body = compress(safe_embed(api['description'])) %>
+      <% root_url = "/api/v#{@item[:api_version]}/#{api['name']}" %>
+
+      {
+        "title": "<%= api['name'] %>",
+        "category": "",
+        "category_url": "",
+        "url": "<%= root_url %>",
+        "body": "<%= body %>",
+        "excerpt": "<%= body[0..140] %>..."
+      },
+
+      <% api.fetch('classMethods', []).each do |class_method| %>
+        <% body = compress(safe_embed(class_method['description'])) %>
+        {
+          "title": "<%= api['name'] %>::<%= class_method['name'] %>",
+          "category": "",
+          "category_url": "",
+          "url": "<%= root_url %>/#<%= class_method['name'] %>",
+          "body": "<%= body %>",
+          "excerpt": "<%= body[0..140] %>..."
+        },
+      <% end %>
+
+      <% instance_members = api.fetch('instanceProperties', []) + api.fetch('instanceMethods', []) %>
+      <% instance_members.each do |member| %>
+        <% body = compress(safe_embed(member['description'])) %>
+        {
+          "title": "<%= api['name'] %>::<%= member['name'] %>",
+          "category": "",
+          "category_url": "",
+          "url": "<%= root_url %>/#instance-<%= member['name'] %>",
+          "body": "<%= body %>",
+          "excerpt": "<%= body[0..140] %>..."
+        },
+      <% end %>
+    <% end %>
+
+    {}
+  ]
+}
