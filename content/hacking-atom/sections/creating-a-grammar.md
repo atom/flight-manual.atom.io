@@ -90,7 +90,7 @@ scopes:
   'call_expression > identifier': 'entity.function.call'
 ```
 
-This entry means that, in the syntax tree, any `identifier` node whose parent is a `call_expression` should be highlighted using three classes: `syntax--entity`, `syntax--function`, and `syntax--call`.
+This entry means that, in the syntax tree, any `identifier` node whose parent is a `call_expression` should be highlighted using three classes: `syntax--entity`, `syntax--function`, and `syntax--call`. For a list of conventional classes, see the [Syntax Naming Conventions](../syntax-naming-conventions/) section.
 
 Note that in this selector, we're using the [immediate child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors) (`>`). Arbitrary descendant selectors without this combinator (for example `'call_expression identifier'`, which would match any `identifier` occurring anywhere within a `call_expression`) are currently not supported.
 
