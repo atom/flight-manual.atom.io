@@ -87,10 +87,10 @@ Here is a simple example:
 
 ```coffee
 scopes:
-  'call_expression > identifier': 'entity.name.function'
+  'call_expression > identifier': 'entity.function.call'
 ```
 
-This entry means that, in the syntax tree, any `identifier` node whose parent is a `call_expression` should be highlighted using three classes: `syntax--entity`, `syntax--name`, and `syntax--function`.
+This entry means that, in the syntax tree, any `identifier` node whose parent is a `call_expression` should be highlighted using three classes: `syntax--entity`, `syntax--function`, and `syntax--call`.
 
 Note that in this selector, we're using the [immediate child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors) (`>`). Arbitrary descendant selectors without this combinator (for example `'call_expression identifier'`, which would match any `identifier` occurring anywhere within a `call_expression`) are currently not supported.
 
@@ -104,14 +104,14 @@ scopes:
   function_declaration > identifier,
   call_expression > identifier,
   call_expression > field_expression > field_identifier
-  ''': 'entity.name.function'
+  ''': 'entity.function'
 ```
 
 You can use the [`:nth-child` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child) to select nodes based on their order within their parent. For example, this example selects `identifier` nodes which are the fourth (zero-indexed) child of a `singleton_method` node.
 
 ```coffee
 scopes:
-  'singleton_method > identifier:nth-child(3)': 'entity.name.function'
+  'singleton_method > identifier:nth-child(3)': 'entity.function'
 ```
 
 Finally, you can use double-quoted strings in the selectors to select *anonymous* tokens in the syntax tree, like `(` and `:`. See [the Tree-sitter documentation](http://tree-sitter.github.io/tree-sitter/using-parsers#named-vs-anonymous-nodes) for more information about named vs anonymous tokens.
@@ -123,7 +123,7 @@ scopes:
     "/",
     "+",
     "-"
-  ''': 'keyword.operator'
+  ''': 'keyword.operator.arithmetic.symbolic'
 ```
 
 ##### Text-based Mappings
@@ -133,21 +133,31 @@ You can also apply different classes to a syntax node based on its text. Here ar
 ```coffee
 scopes:
 
-  # Apply the classes `syntax--builtin` and `syntax--variable` to all
-  # `identifier` nodes whose text is `require`.
-  'identifier': {exact: 'require', scopes: 'builtin.variable'},
+  # Apply the classes `syntax--entity`, `syntax--function`, and
+  # `syntax--support` to all `identifier` nodes whose text is `require`.
+  'identifier': {
+    exact: 'require',
+    scopes: 'entity.function.support'
+  },
 
-  # Apply the classes `syntax--type` and `syntax--integer` to all
-  # `primitive_type` nodes whose text starts with `int` or `uint`.
-  'primitive_type': {match: /^u?int/, scopes: 'type.integer'},
+  # Apply the classes `syntax--entity`, `syntax--type`, `syntax--fundamental`,
+  # and `syntax--integer` to all `primitive_type` nodes whose text starts
+  # with `int` or `uint`.
+  'primitive_type': {
+    match: /^u?int/,
+    scopes: 'entity.type.fundamental.integer'
+  },
 
-  # Apply the classes `syntax--builtin`, `syntax--class`, and
-  # `syntax--name` to `constant` nodes with the text `Array`,
-  # `Hash` and `String`. For all other `constant` nodes, just
-  # apply the classes `syntax--class` and `syntax--name`.
+  # Apply the classes `syntax--entity`, `syntax--type`, `syntax--class`, and
+  # `syntax--support` to `constant` nodes with the text `Array`, `Hash` or
+  # `String`. For other `constant` nodes, apply the classes `syntax--entity`,
+  # `syntax--type`, and `syntax--class`.
   'constant': [
-    {match: '^(Array|Hash|String)$', scopes: 'builtin.class.name'},
-    'class.name'
+    {
+      match: '^(Array|Hash|String)$',
+      scopes: 'entity.type.class.support'
+    },
+    'entity.type.class'
   ]
 ```
 
@@ -164,15 +174,15 @@ If multiple selectors in the `scopes` object match a node, the node's classes wi
 
 ```coffee
 scopes:
-  'call_expression > identifier': 'entity.name.function'
+  'call_expression > identifier': 'entity.function'
 
   # If we did not include the second selector here, then this rule
   # would not apply to identifiers inside of call_expressions,
   # because the selector `call_expression > identifier` is more
   # specific than the selector `identifier`.
   'identifier, call_expression > identifier': [
-    {exact: 'require', scopes: 'builtin.variable'},
-    {match: '^[A-Z]', scopes: 'constructor'},
+    {exact: 'require', scopes: 'entity.function.support'},
+    {match: '^[A-Z]', scopes: 'entity.type.constructor'},
   ]
 ```
 
