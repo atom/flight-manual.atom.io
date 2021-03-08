@@ -136,17 +136,7 @@ For more details, scroll down to find how to setup a specific Linux distro.
 * Install GNOME headers and other basic prerequisites:
 
   ``` command-line
-  $ sudo apt-get install build-essential git libsecret-1-dev fakeroot rpm libx11-dev libxkbfile-dev
-  ```
-
-* If `script/build` exits with an error, you may need to install a newer C++ compiler with C++11:
-
-  ``` command-line
-  $ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-  $ sudo apt-get update
-  $ sudo apt-get install gcc-5 g++-5
-  $ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 80 --slave /usr/bin/g++ g++ /usr/bin/g++-5
-  $ sudo update-alternatives --config gcc # choose gcc-5 from the list
+  $ sudo apt-get install build-essential git libsecret-1-dev fakeroot rpm libgtk-3-dev libx11-xcb-dev libxcb-dri3-dev libxkbfile-dev libxss-dev libxtst-dev
   ```
 
 ###### Fedora 22+
