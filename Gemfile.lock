@@ -52,7 +52,8 @@ GEM
       yell (~> 2.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
-    kramdown (2.1.0)
+    kramdown (2.3.1)
+      rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     liquid (4.0.0)
@@ -91,6 +92,7 @@ GEM
     public_suffix (3.0.3)
     rake (12.3.1)
     ref (2.0.0)
+    rexml (3.2.4)
     rouge (3.2.1)
     slow_enumerator_tools (1.1.0)
     thread_safe (0.3.6)
