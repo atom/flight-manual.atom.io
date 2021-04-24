@@ -62,6 +62,8 @@ This can be incredibly helpful in doing many type of repetitive tasks such as re
 
 You can also use the mouse to select text with the <kbd class="platform-mac">Cmd</kbd><kbd class="platform-windows platform-linux">Ctrl</kbd> key pressed down to select multiple regions of your text simultaneously.
 
+Return to a single cursor by hitting <kbd class="platform-mac platform-windows platform-linux">Esc</kbd> or by clicking anywhere in the file to position a cursor there as normal.
+
 #### Whitespace
 
 Atom comes with several commands to help you manage the whitespace in your document. One very useful pair of commands converts leading spaces into tabs and converts leading tabs into spaces. If you're working with a document that has mixed whitespace, these commands are great for helping to normalize the file. There are no keybindings for the whitespace commands, so you will have to search your command palette for "Convert Spaces to Tabs" (or vice versa) to run one of these commands.
