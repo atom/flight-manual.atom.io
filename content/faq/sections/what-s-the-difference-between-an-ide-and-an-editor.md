@@ -3,7 +3,7 @@ title: What's the difference between an IDE and an editor?
 ---
 ### What's the difference between an IDE and an editor?
 
-The term "IDE" comes from **I**ntegrated **D**evelopment **E**nvironment. It is intended as a set of tools that all work together: text editor, compiler, build or make integration, debugging, etc. Virtually all IDEs are tied specifically to a language or framework or tightly collected set of languages or frameworks. Some examples: Visual Studio for .NET and other Microsoft languages, RubyMine for Ruby, IntelliJ for Java, XCode for Apple technologies.
+The term "IDE" comes from **I**ntegrated **D**evelopment **E**nvironment. It is intended as a set of tools that all work together: text editor, compiler, build or make integration, debugging, etc. Virtually all IDEs are tied specifically to a language or framework or tightly collected set of languages or frameworks. Some examples: Visual Studio for .NET and other Microsoft languages, RubyMine for Ruby, IntelliJ IDEA for Java, XCode for Apple technologies.
 
 An editor is simply that, a tool that is designed to edit text. Typically they are optimized for programming languages though many programmer's text editors are branching out and adding features for non-programming text like [Markdown](https://daringfireball.net/projects/markdown/syntax) or [Org Mode](http://orgmode.org/). The key here is that text editors are designed to work with whatever language or framework you choose.
 
