@@ -11,7 +11,7 @@
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.0.4",
     "gulp-uglify": "^1.4.2",
-    "js-yaml": "^3.4.3"
+    "js-yaml": "^3.13.1"
   },
   "scripts": {
     "clean": "rm -rf output/ tmp/",
