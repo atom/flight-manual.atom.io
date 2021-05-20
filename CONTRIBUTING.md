@@ -1,4 +1,4 @@
-# Contributing to the Atom Flight Manual
+Contributing to the Atom Flight Manual
 
 Contributing is easy!
 
