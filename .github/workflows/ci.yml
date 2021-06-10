@@ -11,6 +11,9 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.4.2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '7'
     - name: Install dependencies
       run: npm install
     - name: Build
