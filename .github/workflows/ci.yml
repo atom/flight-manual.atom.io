@@ -1,0 +1,22 @@
+name: CI
+
+on: [push]
+
+env:
+  CI: true
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '7'
+      - name: Build
+        run: |
+          npm install
+          script/cibuild

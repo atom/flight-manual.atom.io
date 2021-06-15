@@ -104,6 +104,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-19
 
 DEPENDENCIES
   activesupport (~> 4.2)
@@ -128,4 +129,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.3
+   1.17.3
