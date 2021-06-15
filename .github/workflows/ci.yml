@@ -6,12 +6,8 @@ env:
   CI: true
 
 jobs:
-  Test:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        channel: [stable, beta]
-    runs-on: ${{ matrix.os }}
+  Build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-ruby@v1
@@ -19,7 +15,7 @@ jobs:
           ruby-version: '2.6'
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '7'
       - name: Build
         run: |
           npm install
