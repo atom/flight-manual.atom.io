@@ -79,7 +79,7 @@ package repository to your system by running the following commands:
 
 ``` command-line
 $ wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/atom-archive-keyring.gpg
- $ sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/atom-archive-keyring.gpg arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+$ sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/atom-archive-keyring.gpg arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
 $ sudo apt-get update
 ```
 
