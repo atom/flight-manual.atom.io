@@ -9,5 +9,3 @@ There are a couple different approaches, for example:
 * [livereload](https://atom.io/packages/livereload) gives you a preview in any browser, but requires you to save the file first.
 
 Other packages may be available now, you can search for Atom packages on the [packages site](https://atom.io/packages).
-
-*HT to @Alchiadus for [this post](https://discuss.atom.io/t/live-preview-without-saving-the-files/20571/2?u=leedohm).*
