@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.6.7'
+ruby '2.6.8'
 
 # essential
 gem 'nanoc', '~> 4.7'
