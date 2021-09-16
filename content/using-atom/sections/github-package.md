@@ -1,5 +1,5 @@
 ---
-title: GitHub package
+title: GitHub package 
 ---
 ### GitHub package
 
