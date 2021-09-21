@@ -28,7 +28,7 @@ Atom has support for all the standard Linux cursor movement key combinations. To
 In addition to single character movement, there are a number of other movement keybindings:
 
 {{/linux}}
-
+ 
 * <span class="platform-mac"><kbd class="platform-mac">Alt+Left</kbd> or <kbd class="platform-mac">Alt+B</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Left</kbd> - Move to the beginning of word
 * <span class="platform-mac"><kbd class="platform-mac">Alt+Right</kbd> or <kbd class="platform-mac">Alt+F</kbd></span><kbd class="platform-windows platform-linux">Ctrl+Right</kbd> - Move to the end of word
 * <span class="platform-mac"><kbd class="platform-mac">Cmd+Left</kbd> or <kbd class="platform-mac">Ctrl+A</kbd></span><kbd class="platform-windows platform-linux">Home</kbd> - Move to the first character of the current line
