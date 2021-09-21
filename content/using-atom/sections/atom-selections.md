@@ -28,3 +28,4 @@ In addition to the cursor movement selection commands, there are also a few comm
 * <kbd class="platform-mac">Ctrl+Shift+W</kbd> - Select the current word
 
 {{/mac}}
+ 
