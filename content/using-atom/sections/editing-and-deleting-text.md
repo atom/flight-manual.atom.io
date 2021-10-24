@@ -21,7 +21,7 @@ There are a handful of cool keybindings for basic text manipulation that might c
 
 {{/mac}}
 
-Atom also has built in functionality to re-flow a paragraph to hard-wrap at a given maximum line length. You can format the current selection to have lines no longer than 80 (or whatever number `editor.preferredLineLength` is set to) characters using <kbd class="platform-mac">Alt+Cmd+Q</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Q</kbd>. If nothing is selected, the current paragraph will be reflowed.
+Atom also has built in functionality to re-flow a paragraph to hard-wrap at a given maximum line length. You can format the current selection to have lines no longer than 80 (or whatever number `editor.preferredLineLength` is set to) characters using <kbd class="platform-mac">Alt+Cmd+Q</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+Q</kbd>. If nothing is selected, the current paragraph will be reflowed.
 
 #### Deleting and Cutting
 
@@ -53,6 +53,8 @@ One of the cool things that Atom can do out of the box is support multiple curso
 * <kbd class="platform-mac">Cmd+Shift+L</kbd> - Convert a multi-line selection into multiple cursors
 
 {{/mac}}
+
+* <kbd class="platform-mac">Esc</kbd><kbd class="platform-windows">Esc</kbd><kbd class="platform-linux">Esc</kbd> will clear your multiple cursors, and leave you with just the one.
 
 Using these commands you can place cursors in multiple places in your document and effectively execute the same commands in multiple places at once.
 

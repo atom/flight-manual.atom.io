@@ -9,9 +9,7 @@ In order to use version control in Atom, the project root needs to contain the G
 
 #### Checkout HEAD revision
 
-The <kbd class="platform-mac">Alt+Cmd+Z</kbd><kbd class="platform-windows platform-linux">Alt+Ctrl+Z</kbd> keybinding checks out the `HEAD` revision of the file in the editor.
-
-This is a quick way to discard any saved and staged changes you've made and restore the file to the version in the `HEAD` commit. This is essentially the same as running `git checkout HEAD -- <path>` and `git reset HEAD -- <path>` from the command line for that path.
+You can find 'Editor: Checkout Head Revision' in the Command Palette. This is a quick way to discard any saved and staged changes you've made and restore the file to the version in the `HEAD` commit. This is essentially the same as running `git checkout HEAD -- <path>` and `git reset HEAD -- <path>` from the command line for that path.
 
 ![Git checkout `HEAD`](../../images/git-checkout-head.gif "Git checkout `HEAD`")
 

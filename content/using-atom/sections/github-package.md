@@ -72,7 +72,7 @@ After making some changes, **stage** anything you want to be part of the next co
 - **All changes**: Click the "Stage All" button in the "Unstaged Changes" bar.
 - **Files**: Double-click a file or select a file and press <kbd class=".platform-all">Enter</kbd>.
 - **Hunk**: Click on the "Stage Hunk" button or select a hunk and press <kbd class=".platform-all">Enter</kbd>.
-- **Lines**: Click on a line (or drag on multiple lines) to select, then click on the "Stage Selection" button. Or use the <kbd class="platform-mac">Cmd-/</kbd><kbd class="platform-windows platform-linux">Cmd-/</kbd> key to toggle from hunk mode to line mode, then press <kbd class="platform-mac">Cmd-Enter</kbd><kbd class="platform-windows platform-linux">Ctrl-Enter</kbd> to stage just a single line.
+- **Lines**: Click on a line (or drag on multiple lines) to select, then click on the "Stage Selection" button. Or use the <kbd class="platform-mac">Cmd+/</kbd><kbd class="platform-windows platform-linux">Ctrl+/</kbd> key to toggle from hunk mode to line mode, then press <kbd class="platform-mac">Cmd-Enter</kbd><kbd class="platform-windows platform-linux">Ctrl-Enter</kbd> to stage just a single line.
 
 Use the <kbd class="platform-mac">Cmd-Left</kbd><kbd class="platform-windows platform-linux">Ctrl-Left</kbd> or <kbd class="platform-mac">Cmd-Right</kbd><kbd class="platform-windows platform-linux">Ctrl-Right</kbd> arrow key to switch between file list and the diff view. Unstaging can be done in the same way.
 
