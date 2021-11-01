@@ -55,7 +55,7 @@ This starts Atom, but does not load packages from `~/.atom/packages` or `~/.atom
 
 If removing or commenting out all content from the init script and starting Atom normally still produces the error, then try figuring out which package is causing trouble. Start Atom normally again and open the Settings View with <kbd class="platform-mac">Cmd+,</kbd><kbd class="platform-windows platform-linux">Ctrl+,</kbd>. Since the Settings View allows you to disable each installed package, you can disable packages one by one until you can no longer reproduce the issue. Restart Atom or reload Atom with <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd><kbd class="platform-windows platform-linux">Ctrl+Shift+F5</kbd> after you disable each package to make sure it's completely gone.
 
-When you find the problematic package, you can disable or uninstall the package. We strongly recommend creating an issue on the package's GitHub repository. The [Atom FAQ](https://discuss.atom.io/c/faq) has information on [how to contact the maintainers of any Atom community package or theme](https://discuss.atom.io/t/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it/25581).
+When you find the problematic package, you can disable or uninstall the package. We strongly recommend creating an issue on the package's GitHub repository.
 
 #### Clearing Saved State
 
@@ -192,7 +192,7 @@ If multiple keybindings are matched, Atom determines which keybinding will be ex
 
 Atom loads core Atom keybindings and package keybindings first, and user-defined keybindings last. Since user-defined keybindings are loaded last, you can use your `keymap.cson` file to tweak the keybindings and sort out problems like these. See the [Keymaps in Depth section](/behind-atom/sections/keymaps-in-depth/) for more information.
 
-If you notice that a package's keybindings are taking precedence over core Atom keybindings, it might be a good idea to report the issue on that package's GitHub repository. The [Atom FAQ](https://discuss.atom.io/c/faq) has information on [how to contact the maintainers of any Atom community package or theme](https://discuss.atom.io/t/i-have-a-question-about-a-specific-atom-community-package-where-is-the-best-place-to-ask-it/25581).
+If you notice that a package's keybindings are taking precedence over core Atom keybindings, it might be a good idea to report the issue on that package's GitHub repository. You can contact atom maintainers on [Atom's github discussions](https://github.com/atom/atom/discussions)
 
 #### Check Font Rendering Issues
 
@@ -321,4 +321,3 @@ Be sure to use Chromium flags at the end of the terminal call if you want to use
 ``` command-line
 $ atom --safe --enable-gpu-rasterization --force-gpu-rasterization
 ```
-
