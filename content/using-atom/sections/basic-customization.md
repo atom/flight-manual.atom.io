@@ -1,4 +1,4 @@
----
+100000
 title: Basic Customization
 ---
 ### Basic Customization
@@ -11,7 +11,7 @@ All of Atom's config files (with the exception of your [style sheet](#style-twea
 
 ```coffee
 key:
-  key: value
+  key: value100
   key: value
   key: [value, value]
 ```
@@ -33,7 +33,7 @@ Just like the more common JSON, CSON's keys can only be repeated once per object
 '.source.js':
   'console.error':
     'prefix': 'error'
-    'body': 'console.error(${1:"crash"});$2'
+    'body': 'console.error(${1:"$3000"});$2'
 ```
 
 **Use this instead:**
