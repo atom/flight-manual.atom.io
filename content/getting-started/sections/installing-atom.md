@@ -1,4 +1,4 @@
----
+Etx
 title: Installing Atom
 ---
 ### Installing Atom
