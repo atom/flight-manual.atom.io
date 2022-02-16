@@ -99,6 +99,11 @@ Alternatively, you can download the [Atom .deb package](https://atom.io/download
 # Install Atom
 $ sudo apt install ./atom-amd64.deb
 ```
+Another way to install Atom is with [Pacstall](https://pacstall.dev/):
+
+```command-line
+$ pacstall -I atom-editor-deb
+```
 
 ##### Red Hat and CentOS (YUM), or Fedora (DNF)
 
