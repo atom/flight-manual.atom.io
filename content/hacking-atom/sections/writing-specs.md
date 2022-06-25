@@ -5,7 +5,7 @@ title: Writing specs
 
 We've looked at and written a few specs through the examples already. Now it's time to take a closer look at the spec framework itself. How exactly do you write tests in Atom?
 
-Atom uses [Jasmine](https://jasmine.github.io/1.3/introduction.html) as its spec framework. Any new functionality should have specs to guard against regressions.
+Atom uses [Jasmine](https://jasmine.github.io/archives/1.3/introduction) as its spec framework. Any new functionality should have specs to guard against regressions.
 
 #### Create a New Spec
 
@@ -47,7 +47,7 @@ describe("when a test is written", function() {
 
 ##### Add One or More Expectations
 
-The best way to learn about expectations is to read the [Jasmine documentation](https://jasmine.github.io/1.3/introduction.html#section-Expectations) about them. Below is a simple example.
+The best way to learn about expectations is to read the [Jasmine documentation](https://jasmine.github.io/archives/1.3/introduction#section-Expectations) about them. Below is a simple example.
 
 ```javascript
 describe("when a test is written", function() {
@@ -160,7 +160,7 @@ describe("fs.readdir(path, cb)", function() {
 })
 ```
 
-For a more detailed documentation on asynchronous tests please visit the [Jasmine documentation](https://jasmine.github.io/1.3/introduction.html#section-Asynchronous_Support).
+For a more detailed documentation on asynchronous tests please visit the [Jasmine documentation](https://jasmine.github.io/archives/1.3/introduction#section-Asynchronous_Support).
 
 #### Running Specs
 

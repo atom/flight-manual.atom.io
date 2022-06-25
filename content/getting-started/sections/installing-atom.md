@@ -97,10 +97,7 @@ Alternatively, you can download the [Atom .deb package](https://atom.io/download
 
 ``` command-line
 # Install Atom
-$ sudo dpkg -i atom-amd64.deb
-
-# Install Atom's dependencies if they are missing
-$ sudo apt-get -f install
+$ sudo apt install ./atom-amd64.deb
 ```
 
 ##### Red Hat and CentOS (YUM), or Fedora (DNF)

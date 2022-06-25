@@ -471,7 +471,7 @@ From here you can inspect objects, run code and view console output just as thou
 
 Your package should have tests, and if they're placed in the `spec` directory, they can be run by Atom.
 
-Under the hood, [Jasmine v1.3](https://jasmine.github.io/1.3/introduction.html) executes your tests, so you can assume that any DSL available there is also available to your package.
+Under the hood, [Jasmine v1.3](https://jasmine.github.io/archives/1.3/introduction) executes your tests, so you can assume that any DSL available there is also available to your package.
 
 ##### Running Tests
 
