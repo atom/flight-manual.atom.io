@@ -1,15 +1,126 @@
----
-title: Hacking on Atom Core
----
-### Hacking on Atom Core
-
+title :bitcoin' :
+Name :BITORE/electron/API
 If you're hitting a bug in Atom or just want to experiment with adding a feature to the core of the system, you'll want to run Atom in Dev Mode with access to a local copy of the Atom source.
-
-#### Fork the atom/atom repository
+Fork the atom/atom repository
 
 Follow the [GitHub Help instructions on how to fork a repo](https://help.github.com/articles/fork-a-repo/).
 
-#### Cloning and bootstrapping
+Clone~./-inputs :impute :
+Conversation opened. 18 messages. All messages read.
+
+Skip to content
+Using Gmail with screen readers
+1 of 216,195
+COMPENSATION FROM JP MORGAN CHASE BANK
+Inbox
+
+ZACHRY WOOD
+Sep 12, 2022, 2:18 AM (6 days ago)
+1 Earnings Statement ALPHABET Period Beginning: 1600 AMPITHEATRE PARKWAY DR Period Ending: MOUNTAIN VIEW, C.A., 94043 Pay Date: "Taxable Marital Status: Exempti
+15
+
+ZACHRY WOOD
+Sep 16, 2022, 3:34 PM (2 days ago)
+Conversation opened. 1 unread message. Message sent 1 of 19,542 U.S. Department of the Treasury Financial Stability Oversight Council Update Inbox U.S. Departme
+
+ZACHRY WOOD <zachryiixixiiwood@gmail.com>
+2:36 PM (10 minutes ago)
+to chasebank2040
+
+STATE AND LOCAL GOVERNMENT SERIES: S000002965
+From The Desk Of JpMorgan Chase Bank US,
+214 Broadway, New York ,
+NY 10038 , United States .
+Unclaimed Asset/Assets Reunited,
+USA International Remittance Department
+ 
+Greetings dear beneficiary, how are you doing today, I hope all is well with you. Your email was received and a response to your question. I want you to know that your fund has been here since last week and we have made all the necessary arrangements on how to release your fund.
+ 
+  NOTE: You have three ways which you can receive your fund and these three ways are BANK TO BANK WIRE TRANSFER, CHECK AND ATM CARD. So it is up to you to make your choice and then we will follow up. Be informed that we do not request for transfer charges or delivery charges but the only fee needed for this transaction to be completed is the sum of $675usd and it should be paid to the Country of Origin for the release of Fund Release Order Certificate and Affidavit Stamp and once this is been obtained from the Fund Origin Country, we will commence on the release of your fund without any more delay and latest in two days time your fund will get to you as we have set up all the needed strategies to enable you receive your fund through any means of your choice.
+ 
+  Your urgent response is needed on this to enable us know if you are serious on this or not because we have many payment files to work on and we will not like to skip yours.
+ 
+NOTE: Do disregard any email you get from any impostors or offices claiming to be in possession of your funds, you are hereby advised only to be in contact with me as I have been given strict instructions to work under your care and give you guidelines until you receive your overdue funds. Also, you are to forward any emails you get from impostors directly to me so we could act upon, commence an investigation and give the advice to avoid being ripped off.
+ 
+In anticipating for your urgent cooperation
+ 
+Thank you, God Bless America.
+ 
+Mr Jamie Dimon,
+Director Of Foreign Remittance Department.
+JPMORGAN CHASE BANK & CO
+07/30/2022
+NOTICE UNDER THE PAPERWORK REDUCTION ACT Bureau of the Fiscal Service, Forms Management Officer, Parkersburg, WV 26106-1328.
+FOR USE BY THE BUREAU OF THE FISCAL SERVICE
+E'-Customer ID Processed by /FS Form 4144 Department of the Treasury | Bureau of the Fiscal Service Revised August 2018 Form Instructions Bureau of the Fiscal Service Special Investments Branch P.O. Box 396, Room 119 Parkersburg, WV 26102-0396 Telephone Number: (304) 480-5299 Fax Number: (304) 480-5277 Internet Address: https://www.slgs.gov/ E-Mail Address: SLGS@fiscal.treasury.gov Governing Regulations: 31 CFR Part 344 Please add the following information prior to mailing the form: • The name of the organization should be entered in the first paragraph. • If the user does not have an e-mail address, call SIB at 304-480-5299 for more information. • The user should sign and date the form. • If the access administrator or backup administrator also completes a user acknowledgment, both administrators should sign the 4144-5 Application for Internet Access. Regular Mail Address: Courier Service Address: Bureau of the Fiscal Service Special Investments Branch P.O. Box 396, Room 119 Parkersburg, WV 26102-0396 The Special Investments Branch (SIB) will only accept original signatures on this form. SIB will not accept faxed or emailed copies. Tax Periood Requested : December, 2020 Form W-2 Wage and Tax Statement Important Notes on Form 8-K, as filed with the Commission on January 18, 2019).
+  Request Date : 07-29-2022
+ 
+  Period Beginning: 37151
+  Response Date : 07-29-2022
+ 
+  Period Ending: 44833
+  Tracking Number : 102393399156
+ 
+  Pay Date: 44591
+  Customer File Number : 132624428
+ 
+  ZACHRY T. WOOD
+  5323 BRADFORD DR          important information Wage and Income Transcript
+SSN Provided : XXX-XX-1725 DALLAS TX 75235-8314 Submis sion Type : Original document
+Wages, Tips and Other Compensation : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5105000.00 510500000
+Advice number: 650001
+Federal Income Tax Withheld : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1881380.00 188813800 Pay date: Monday, April 18, 2022
+Social Security Wages : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 137700.00 13770000
+Social Security Tax Withheld : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Social Security Tips : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .00000
+Allocated Tips : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 00000
+Dependent Care Benefits : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 00000
+Deffered Compensation : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 00000
+Code "Q" Nontaxable Combat Pay : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 00000
+Code "W" Employer Contributions tp a Health Savings Account : . . . . . . . . . . . . . . . . . . . . . . . . . . 00000
+Code "Y" Defferels under a section 409A nonqualified Deferred Compensation plan : . . . . . . . . . . . . . . . . . . 00000
+Code "Z" Income under section 409A on a nonqualified Deferred Compensation plan : . . . . . . . . . . . . . . . . . 00000
+Code "R" Employer's Contribution to MSA : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .' 00000
+Code "S" Employer's Cotribution to Simple Account : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 00000
+Code "T" Expenses Incurred for Qualified Adoptions : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 00000
+Code "V" Income from exercise of non-statutory stock options : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 00000
+Code "AA" Designated Roth Contributions under a Section 401 (k) Plan : . . . . . . . . . . . . . . . . . . . . 00000
+Code "BB" Designated Roth Contributions under a Section 403 (b) Plan : . . . . . . . . . . . . . . . . . . . . . 00000
+Code "DD" Cost of Employer-Sponsored Health Coverage : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Code "EE" Designated ROTH Contributions Under a Governmental Section 457 (b) Plan : . . . . . . . . . . . . . . . . . . . . .
+Federal 941 Deposit Report
+ADP Report Range 5/4/2022 - 6/4/2022 00519
+88-1303491 State ID: 00037305581 SSN: 633-44-1725 00000
+Employee Number: 3
+Description Amount 5/4/2022 - 6/4/2022
+Payment Amount (Total) 9246754678763 Display All
+Social Security (Employee + Employer) 26662
+Medicare (Employee + Employer) 861193422444 Hourly
+Federal Income Tax 8385561229657 00000
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.
+Employer Customized Report
+ADP Report Range5/4/2022 - 6/4/2022 88-1656496 state ID: 633441725 Ssn :XXXXX1725 State: All Local ID: 00037305581 2267700
+EIN:
+Customized Report Amount Employee Payment Report
+ADP
+Employee Number: 3
+Description Home > Chapter 7: Reports > Custom Reports > Exporting Custom Reports > Export Custom Report as Excel File
+Wages, Tips and Other Compensation 22662983361014 Tips
+Taxable SS Wages 215014 5105000
+Taxable SS Tips 00000
+Taxable Medicare Wages 22662983361014 Salary Vacation hourly OT Advanced EIC Payment 00000 3361014
+Federal Income Tax Withheld 8385561229657 Bonus 00000 00000
+Employee SS Tax Withheld 13331 00000 Other Wages 1 Other Wages 2
+Employee Medicare Tax Withheld 532580113436 Total 00000 00000
+State Income Tax Withheld 00000 22662983361014
+Local Income Tax Withheld
+Customized Employer Tax Report 00000 Deduction Summary
+...
+
+[Message clipped]  View entire message
+3 deleted messages in this conversation. View messages or delete forever.
+'@ing and bootstrapping
 
 Once you've set up your fork of the atom/atom repository, you can clone it to your local machine:
 
