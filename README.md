@@ -1,4 +1,5 @@
-# Atom Flight Manual
+##### Atom and all repositories under Atom will be archived on December 15, 2022. Learn more in our [official announcement](https://github.blog/2022-06-08-sunsetting-atom/)
+ # Atom Flight Manual
 
 This is the Atom book. Everything you need to know in order to use and hack Atom is in this Flight Manual.
 
