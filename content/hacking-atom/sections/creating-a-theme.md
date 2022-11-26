@@ -36,7 +36,7 @@ Atom will display a new window, showing the motif-syntax theme, with a default s
 
 Open up `styles/colors.less` to change the various color variables which have already been defined. For example, turn `@red` into `#f4c2c1`.
 
-Then open `styles/base.less` and modify the various selectors that have already been defined. These selectors style different parts of code in the editor such as comments, strings and the line numbers in the gutter.
+Then open `styles/editor.less` and `styles/syntax.less` and modify the various selectors that have already been defined. These selectors style different parts of code in the editor such as keywords, strings, and the line numbers in the gutter.
 
 As an example, let's make the `.gutter` `background-color` into `@red`.
 

@@ -516,6 +516,38 @@ h1.document-title {
     }
   }
 
+  details {
+    &:not([open]) summary {
+      cursor: pointer;
+    }
+
+    summary:focus {
+      outline: none;
+    }
+
+    ul {
+      margin-top: 9px;
+    }
+
+    li {
+      margin-bottom: 9px;
+    }
+
+    > ul {
+      margin-left: 12px;
+    }
+
+    > br,
+    ul > br,
+    li > br:last-of-type {
+      display: none;
+    }
+
+    strong code {
+      color: #00AA88;
+    }
+  }
+
   pre.highlight {
     color: $codeTextColor;
     background: $codeBgColor;
