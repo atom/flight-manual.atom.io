@@ -84,7 +84,7 @@ Atom ships with intelligent and easy to use bracket handling.
 
 It will by default highlight `[]`, `()`, and `{}` style brackets when your cursor is over them. It will also highlight matching XML and HTML tags.
 
-Atom will also automatically autocomplete `[]`, `()`, and `{}`, `""`, `''`, `“”`, `‘’`, `«»`, `‹›`, and backticks when you type the leading one. If you have a selection and you type any of these opening brackets or quotes, Atom will enclose the selection with the opening and closing brackets or quotes.
+Atom will also automatically autocomplete `[]`, `()`, and `{}`, `""`, `''`, `“”`, `‘'`, `«»`, `‹›`, and backticks when you type the leading one. If you have a selection and you type any of these opening brackets or quotes, Atom will enclose the selection with the opening and closing brackets or quotes.
 
 There are a few other interesting bracket related commands that you can use.
 

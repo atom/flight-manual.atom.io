@@ -88,7 +88,7 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
   }
   ```
 
-- Octicons are not monospaced. This lets them work well next to type, but it means they won’t stack nicely by default. If you intend to stack octicons, such as in navigation, you will want to add some CSS to make them the same width, and centered. For example:
+- Octicons are not monospaced. This lets them work well next to type, but it means they won't stack nicely by default. If you intend to stack octicons, such as in navigation, you will want to add some CSS to make them the same width, and centered. For example:
 
   ``` css
   .navigation .octicon {

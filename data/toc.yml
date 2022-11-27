@@ -72,16 +72,16 @@ Appendices:
     - Why is Atom deleting trailing whitespace? Why is there a newline at the end of the file?
     - What does Safe Mode do?
     - I have a question about a specific Atom community package. Where is the best place to ask it?
-    - I’m using an international keyboard and keys that use AltGr or Ctrl+Alt aren’t working
-    - I’m having a problem with Julia! What do I do?
-    - I’m getting an error about a “self-signed certificate”. What do I do?
-    - I’m having a problem with PlatformIO! What do I do?
+    - I'm using an international keyboard and keys that use AltGr or Ctrl+Alt aren't working
+    - I'm having a problem with Julia! What do I do?
+    - I'm getting an error about a “self-signed certificate”. What do I do?
+    - I'm having a problem with PlatformIO! What do I do?
     - How do I make Atom recognize a file with extension X as language Y?
     - How do I make the Welcome screen stop showing up?
     - How do I preview web page changes automatically?
     - How do I accept input from my program or script when using the script package?
     - I am unable to update to the latest version of Atom on macOS. How do I fix this?
-    - I’m trying to change my syntax colors from styles.less, but it isn’t working!
+    - I'm trying to change my syntax colors from styles.less, but it isn't working!
     - How do I build or execute code I've written in Atom?
     - How do I uninstall Atom on macOS?
     - macOS Mojave font rendering change
