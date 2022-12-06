@@ -5,7 +5,7 @@
     "gulp": "^4.0.0",
     "gulp-coffee": "^2.3.1",
     "gulp-concat": "^2.6.0",
-    "gulp-connect": "5.5.0",
+    "gulp-connect": "5.7.0",
     "gulp-if": "^2.0.0",
     "gulp-minify-css": "^1.2.1",
     "gulp-replace": "^0.5.4",
