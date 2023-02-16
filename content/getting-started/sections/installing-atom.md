@@ -75,19 +75,9 @@ You can install Atom on Linux using your distribution's package manager by confi
 ##### Debian and Ubuntu (deb/apt)
 
 To install Atom on Debian, Ubuntu, or related distributions, add our official
-package repository to your system by running the following commands:
+package repository to your system, more description :
 
-``` command-line
-$ wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
-$ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
-$ sudo apt-get update
-```
-
-You can now install Atom using `apt-get` (or `apt` on Ubuntu):
-
-``` command-line
-# Install Atom
-$ sudo apt-get install atom
+https://packagecloud.io/app/AtomEditor/atom/gpg#gpg-apt
 
 # Install Atom Beta
 $ sudo apt-get install atom-beta
