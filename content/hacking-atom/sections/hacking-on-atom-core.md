@@ -152,13 +152,13 @@ For more details, scroll down to find how to setup a specific Linux distro.
 ###### Fedora 22+
 
 ``` command-line
-$ sudo dnf --assumeyes install make gcc gcc-c++ glibc-devel git-core libsecret-devel rpmdevtools libX11-devel libxkbfile-devel
+$ sudo dnf --assumeyes install make gcc gcc-c++ glibc-devel git-all libsecret-devel rpmdevtools libX11-devel libxkbfile-devel
 ```
 
 ###### Fedora 21 / CentOS / RHEL
 
 ``` command-line
-$ sudo yum install -y make gcc gcc-c++ glibc-devel git-core libsecret-devel rpmdevtools
+$ sudo yum install -y make gcc gcc-c++ glibc-devel git-all libsecret-devel rpmdevtools
 ```
 
 ###### Arch
