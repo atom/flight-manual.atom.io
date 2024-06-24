@@ -115,7 +115,7 @@ Now we need to convert the selected text to ASCII art. To do this we will use th
 
 ```json
 "dependencies": {
-  "figlet": "1.0.8"
+  "figlet": "1.5.2"
 }
 ```
 
@@ -132,7 +132,7 @@ convert () {
     const selection = editor.getSelectedText()
 
     const figlet = require('figlet')
-    const font = 'o8'
+    const font = 'O8'
     figlet(selection, {font}, function (error, art) {
       if (error) {
         console.error(error)
