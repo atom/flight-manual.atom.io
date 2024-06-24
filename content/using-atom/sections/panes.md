@@ -3,7 +3,7 @@ title: Panes
 ---
 ### Panes
 
-You can split any editor pane horizontally or vertically by using <kbd class="platform-mac">Cmd+K</kbd><kbd class="platform-windows platform-linux">Ctrl+K</kbd> <kbd class="platform-all">Up/Down/Left/Right</kbd> where the direction key is the direction to split the pane. Once you have a split pane, you can switch between them with <kbd class="platform-mac">Cmd+K</kbd><kbd class="platform-windows platform-linux">Ctrl+K</kbd> <kbd class="platform-mac">Cmd+Up/Down/Left/Right</kbd><kbd class="platform-windows platform-linux">Ctrl+Up/Down/Left/Right</kbd> where the direction is the direction the focus should move to.
+You can split any editor pane horizontally or vertically by using <kbd class="platform-mac">Cmd+K</kbd> and after releasing them use <kbd class="platform-windows platform-linux">Ctrl+K</kbd> <kbd class="platform-all">Up/Down/Left/Right</kbd> where the direction key is the direction to split the pane. Once you have a split pane, you can switch between them with <kbd class="platform-mac">Cmd+K</kbd><kbd class="platform-windows platform-linux">Ctrl+K</kbd> <kbd class="platform-mac">Cmd+Up/Down/Left/Right</kbd><kbd class="platform-windows platform-linux">Ctrl+Up/Down/Left/Right</kbd> where the direction is the direction the focus should move to.
 
 ![Multiple panes](../../images/panes.png "Multiple panes")
 
