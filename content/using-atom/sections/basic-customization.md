@@ -254,12 +254,4 @@ Portable Mode is most useful for taking Atom with you, with all your custom sett
 
 With such a setup, Atom will use the same Home directory with the same settings for any machine with this directory syncronized/plugged in.
 
-##### Moving to Portable Mode
-
-Atom provides a command-line parameter option for setting Portable Mode.
-
-``` command-line
-$ atom --portable
-```
-
-Executing atom with the `--portable` option will take the `.atom` directory you have in the default location (`~/.atom`) and copy the relevant contents for your configuration to a new home directory in the Portable Mode location. This enables easily moving from the default location to a portable operation without losing the customization you have already set up.
+In addition, creating a folder called `electronUserData` in `.atom` will prevent atom from using `~\AppData\Roaming\Atom` for a truly portable configuration.
