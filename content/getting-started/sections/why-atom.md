@@ -3,7 +3,26 @@ title: Why Atom?
 ---
 ### Why Atom?
 
+####  About ATOM  
+   
+ATOM is essentially GitHub’s hackable text editor. It is a free open-source text editor and source code editor for macOS, Linux, and Microsoft Windows with support for plug-ins written in Node.js, and embedded Git Control, developed by GitHub. ATOM is based on Electron, an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript.
+
+
+ ![Image of ATOM editor](https://github.com/vidyutgharpure/flight-manual.atom.io/blob/master/Atom-editor.png)  
+
+
+#### Comparison of ATOM with other text editors 
+
 There are a lot of text editors out there; why should you spend your time learning about and using Atom?
+Let us compare ATOM with a few other popular text editors. 
+
+&nbsp;   | Sublime       | TextMate      | Emacs         | Vim           | ATOM     
+------------ | ------------- | ------------- | ------------- | ------------- | -------------   
+Convenience | :heavy_check_mark: | :heavy_check_mark: |limited | limited | :heavy_check_mark:   
+Extensibility and Flexibility |  limited | limited |  :heavy_check_mark: |  :heavy_check_mark:  |  :heavy_check_mark:   
+Customization | :heavy_check_mark: | limited | limited | limited | :heavy_check_mark:   
+Approachability | steep learning curve | **Easy to learn** | steep learning curve | steep learning curve | **Easy to learn**   Price | $80 | $53| **Free** | **Free** | **Free**  
+
 
 Editors like Sublime and TextMate offer convenience but only limited extensibility. On the other end of the spectrum, Emacs and Vim offer extreme flexibility, but they aren't very approachable and can only be customized with special-purpose scripting languages.
 
