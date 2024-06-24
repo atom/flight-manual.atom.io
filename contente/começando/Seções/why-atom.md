@@ -1,7 +1,7 @@
 ---
-title: Why Atom?
+title: Why Atom? Específico 
 ---
-### Why Atom?
+### Why Atom? De instalações 
 
 There are a lot of text editors out there; why should you spend your time learning about and using Atom?
 
