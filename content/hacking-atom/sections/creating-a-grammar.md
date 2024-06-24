@@ -38,6 +38,12 @@ Once you have created a parser, you need to publish it to [the NPM registry](htt
 
 then run the command `npm publish`.
 
+{{#warning}}
+
+**Warning:** By default the user will need to build the parser on their personal computer before it can be used in Atom. This requires them to have the proper build tools and environment, which is often difficult or impossible to set up. Instead, consider implementing a CI deployment workflow. Properly configured, it will upload prebuilt binaries of the parser for every major platform each time you publish a release. You can find detailed instructions on how to do this [here]().
+
+{{/warning}}
+
 #### The Package
 
 Once you have a Tree-sitter parser that is available on npm, you can use it in your Atom package. Packages with grammars are, by convention, always named starting with _language_. You'll need a folder with a `package.json`, a `grammars` subdirectory, and a single `json` or `cson` file in the `grammars` directory, which can be named anything.
